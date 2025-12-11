@@ -71,7 +71,53 @@ $env:JOBBOT_DRY_RUN="true"; python -m app.main
 JOBBOT_DRY_RUN=true python -m app.main
 ```
 
-## Deployment to Render
+## Local Scheduled Runs (Windows Task Scheduler)
+
+You can run the bot automatically on your local machine using Windows Task Scheduler.
+
+### A. Prerequisites
+1. **Python 3.x** installed.
+2. **Virtual Environment** created and dependencies installed:
+   ```bash
+   python -m venv venv
+   venv\Scripts\activate
+   pip install -r requirements.txt
+   ```
+3. **Configuration**: `.env` file configured with SMTP details.
+
+### B. Manual Script Execution
+You can run the bot manually using the provided batch scripts (double-click or run from PowerShell):
+
+- **Production Run** (Normal mode):
+  ```powershell
+  .\run_jobbot.bat
+  ```
+- **Dry Run** (Testing mode, no DB changes):
+  ```powershell
+  .\run_jobbot_dryrun.bat
+  ```
+
+### C. Create a Windows Task Scheduler Job
+1. Open **Task Scheduler** from the Start menu.
+2. Click **Create Basic Task...** and name it e.g., "LinkedIn Job Bot".
+3. **Trigger**: Select **Daily**.
+4. **Action**: Select **Start a program**.
+5. **Program/script**: `C:\Windows\System32\cmd.exe`
+6. **Add arguments**: `/c "C:\path\to\linkedin_job_bot\run_jobbot.bat"`
+   *(Replace `C:\path\to\...` with the actual path to your project folder).*
+7. Click **Finish**.
+
+**Configure Repeat Interval**:
+1. Find your new task in the list, right-click, and select **Properties**.
+2. Go to the **Triggers** tab and click **Edit...**.
+3. Check **Repeat task every**: `1 hour` (then manually type `2 hours`).
+4. Set **for a duration of**: `Indefinitely`.
+5. Click **OK**.
+
+> **Note**: The task will only run when your computer is powered on and not in Sleep mode. This is a fully local solution with no cloud costs.
+
+### D. Cloud Deployment (Optional)
+The existing `render.yaml` and **Deployment to Render** instructions below remain fully valid. You can start with local scheduling and migrate to Render later if you prefer a managed cloud solution. Local and cloud deployments are independent.
 
 This project is configured for **Render Blueprints**.
 
