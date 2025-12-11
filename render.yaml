@@ -7,8 +7,7 @@ databases:
 services:
   - type: cron
     name: linkedin-job-bot
-    env: python
-    plan: free
+    runtime: python
     schedule: "0 */2 * * *"
     buildCommand: "pip install -r requirements.txt"
     startCommand: "python -m app.main"
