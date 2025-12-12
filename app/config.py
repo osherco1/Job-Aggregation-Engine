@@ -18,8 +18,16 @@ class Settings:
         self.linkedin_password = os.getenv("LINKEDIN_PASSWORD")
 
         # Job Search settings
+        self.linkedin_search_url = os.getenv("LINKEDIN_SEARCH_URL")
         self.linkedin_location = os.getenv("JOBBOT_LOCATION", "Israel")
         self.time_filter = os.getenv("JOBBOT_TIME_FILTER", "Past 24 hours")
+        
+        # Browser / Playwright
+        self.chrome_user_data_dir = os.getenv("CHROME_USER_DATA_DIR", "./browser_profile")
+        self.headless = os.getenv("HEADLESS_MODE", "true").lower() == "true"
+        # Override headless if dry run is explicitly set
+        if os.getenv("JOBBOT_DRY_RUN", "false").lower() == "true":
+            self.headless = False
 
         # Database
         self.database_url = os.getenv("DATABASE_URL", "sqlite:///jobs.db")

@@ -1,12 +1,13 @@
-# Environment variables
-.env
-
-# Python
+venv/
 __pycache__/
 *.pyc
-venv/
-.pytest_cache/
+.env
+jobs.db
+*.log
+browser_profile/
 
-# OS
-.DS_Store
-Thumbs.db
+
+# Debug files
+debug_view.html
+fix_my_env.py
+
