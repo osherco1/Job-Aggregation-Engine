@@ -1,0 +1,33 @@
+flowchart TD
+    subgraph Data_Collection ["Step 1: The Analyst Tool"]
+        LOGS[("Raw Logs<br/>(Summaries, Accepted, Rejected)")]
+        SCRIPT["analyze_logs.js"]
+        REPORT[("Comprehensive<br/>Health Report")]
+        
+        LOGS --> SCRIPT
+        SCRIPT --> REPORT
+    end
+
+    subgraph AI_Analysis ["Step 2: AI-Augmented Session"]
+        PREV_CONTEXT[("Previous Week's<br/>Trend Summary")]
+        LLM_AGENT["AI Agent<br/>(Context Aware)"]
+        INSIGHTS["Actionable Insights<br/>(e.g., 'Split Query X')"]
+        
+        REPORT --> LLM_AGENT
+        PREV_CONTEXT --> LLM_AGENT
+        LLM_AGENT --> INSIGHTS
+    end
+
+    subgraph Execution ["Step 3: Optimization & Lifecycle"]
+        INSIGHTS --> ACTION["Apply Code Changes<br/>(Refine Filters/Queries)"]
+        ACTION --> NEW_SUMMARY["Generate New<br/>Trend Summary"]
+        NEW_SUMMARY --> ARCHIVE["Archive Logs<br/>(Reset for Next Week)"]
+        ARCHIVE --> NEXT_RUN([Ready for Next Week])
+    end
+
+    NEXT_RUN -.->|Next Week Data| LOGS
+    NEW_SUMMARY -.->|Feeds Next Session| PREV_CONTEXT
+
+    style LLM_AGENT fill:#f96,stroke:#333,stroke-width:2px,color:white
+    style SCRIPT fill:#69f,stroke:#333,stroke-width:2px,color:white
+    style ACTION fill:#6f9,stroke:#333,stroke-width:2px

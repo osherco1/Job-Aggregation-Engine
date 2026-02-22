@@ -1,13 +1,81 @@
-venv/
-__pycache__/
-*.pyc
+# ========================================
+# LinkedIn & ATS Job Bot — .gitignore
+# ========================================
+# Goal: commit ONLY the "brain" (scripts,
+# workers, orchestrator, shared filters,
+# config logic). Exclude everything else.
+# ========================================
+
+# -----------------------------------------
+# Dependencies
+# -----------------------------------------
+node_modules/
+package-lock.json
+
+# -----------------------------------------
+# Secrets & Environment Variables
+# -----------------------------------------
 .env
-jobs.db
-*.log
-browser_profile/
+.env.*
 
+# -----------------------------------------
+# Runtime Logs & Output
+# -----------------------------------------
+# All structured logs (linkedin, ats, comeet, greenhouse, debug, etc.)
+logs/
 
-# Debug files
-debug_view.html
-fix_my_env.py
+# Enriched job JSON output files
+output/
 
+# Raw Voyager / API JSON dumps
+debug_artifacts/
+
+# Archived old logs and output (generated data)
+archive/
+
+# -----------------------------------------
+# Runtime State Data (dynamic JSON files)
+# -----------------------------------------
+# LinkedIn dedup memory
+data/seen_jobs.json
+
+# ATS dedup memory
+data/ats_sent_jobs_history.json
+
+# Auto-harvested Comeet companies (runtime-generated)
+data/comeet_companies_auto.json
+
+# -----------------------------------------
+# OS & Editor Artifacts
+# -----------------------------------------
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
+
+# VS Code / Cursor workspace settings
+.vscode/
+.cursor/
+
+# -----------------------------------------
+# Node.js Debug & Crash Logs
+# -----------------------------------------
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Diagnostic reports (e.g. report.20260222.*.json)
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# -----------------------------------------
+# Optional: Coverage & Build Artifacts
+# -----------------------------------------
+coverage/
+.nyc_output/
+dist/
+build/
+*.tsbuildinfo

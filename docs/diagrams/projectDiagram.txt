@@ -1,0 +1,42 @@
+flowchart TD
+    subgraph Orchestrator ["Scraper.js (The Manager)"]
+        START([Start Run]) --> LOAD_CONF["Load Config & Queries"]
+        LOAD_CONF --> LOAD_MEM["Load Memory to Set<br/>(O1 Lookup)"]
+        LOAD_MEM --> LOOP_Q{"Iterate Queries"}
+    end
+
+    subgraph Network ["HTTP Layer (The Client)"]
+        LOOP_Q -->|Next Query| BUILD_REQ["Build Request"]
+        BUILD_REQ --> ENCODE["Custom URL Encoding<br/>(Fix Parentheses)"]
+        ENCODE --> HEADERS["Inject Headers<br/>(Auth/User-Agent)"]
+        HEADERS --> AXIOS["Axios GET Request"]
+    end
+
+    subgraph Parsing ["Data Processing (Optimization)"]
+        AXIOS -->|Raw Graph JSON| HASH_MAP["Map 'Included' Array<br/>to Hash Map"]
+        HASH_MAP --> ITER_EL["Iterate 'Elements'"]
+        ITER_EL --> MATCH["Match URN to Map<br/>(O1 Access)"]
+        MATCH --> DEFENSE{"Data Integrity Check"}
+        DEFENSE -->|Broken/Missing ID| DROP_BAD["Drop Job"]
+        DEFENSE -->|Valid| NORM["Normalize Object"]
+    end
+
+    subgraph Logic ["Filtering Pipeline"]
+        NORM --> DEDUP{"Seen Before?"}
+        DEDUP -->|Yes| SKIP["Skip (Efficiency)"]
+        DEDUP -->|No| FILTER_GEO{"Location Filter"}
+        
+        FILTER_GEO -->|Fail| DISCARD
+        FILTER_GEO -->|Pass| FILTER_SEM{"Semantic Filter<br/>(Black/White List)"}
+        
+        FILTER_SEM -->|Pass| ADD_LIST["Add to Candidates"]
+        FILTER_SEM -->|Fail| DISCARD
+    end
+
+    ADD_LIST --> SAVE["Update Memory & Save JSON"]
+    SAVE --> EMAIL["Send Alert Email"]
+    EMAIL --> END_NODE([End Run])
+
+    style HASH_MAP fill:#f9f,stroke:#333,stroke-width:2px
+    style DEDUP fill:#bbf,stroke:#333,stroke-width:2px
+    style ENCODE fill:#bfb,stroke:#333,stroke-width:2px

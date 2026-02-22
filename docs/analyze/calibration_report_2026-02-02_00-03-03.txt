@@ -1,0 +1,2249 @@
+=== SYSTEM HEALTH REPORT ===
+Scope: All Runs
+
+1. Health Overview
+   - Success Rate: 100.0%
+   - Avg Duration: 849.1s
+   - Total Quota Hits: 0
+
+2. Search Efficiency
+   - Total Queries Run: 629
+   - Empty Responses (Zero Results): N/A (per-query zero-result counters are not yet tracked in run logs)
+
+3. Filtering Calibration
+   - Blacklist Rejections: 215
+   - Whitelist Rejections: 154 (If high, review whitelist keywords)
+   - Reposts Detected: 63
+
+4. Recent Errors
+   - No errors recorded in the analyzed runs.
+
+(Error rate summary: 0 total errors across 37 runs, 0 run(s) with non-zero errors)
+
+5. Matrix Calibration (Dead Queries)
+   - The following queries returned 0 results:
+     * "(Junior OR Student OR Intern OR Graduate OR ג'וניור OR סטודנט OR בוגר) AND (Frontend OR "Front End") AND (React OR Vue OR "Next.js")" (Failed 37 times)
+
+6. Top Performers
+     * "(Junior OR Student OR Intern OR Graduate OR "Entry Level" OR "0-2 years" OR "No experience" OR ג'וניור OR סטודנט OR בוגר OR "ללא ניסיון") AND (Android Developer OR "Android Engineer" OR Kotlin)" (Avg 0.78 jobs/run over 37 runs)
+     * "(Junior OR Student OR Intern OR Graduate OR "Entry Level" OR "0-2 years" OR "No experience" OR ג'וניור OR סטודנט OR בוגר OR "ללא ניסיון") AND (Backend OR "Backend Developer") AND (Node.js OR Python OR Django OR Express)" (Avg 0.68 jobs/run over 37 runs)
+     * "(Junior OR Student OR Intern OR Graduate OR "Entry Level" OR "0-2 years" OR "No experience" OR ג'וניור OR סטודנט OR בוגר OR "ללא ניסיון") AND (QA OR "Quality Assurance" OR "Test Engineer" OR Automation OR Testing OR Selenium OR Cypress)" (Avg 0.57 jobs/run over 37 runs)
+     * "(Junior OR Student OR Intern OR Graduate OR "Entry Level" OR "0-2 years" OR "No experience" OR ג'וניור OR סטודנט OR בוגר OR "ללא ניסיון") AND (Cyber OR "Security Researcher" OR Security OR InfoSec OR SOC)" (Avg 0.49 jobs/run over 37 runs)
+     * "(Junior OR Student OR Intern OR Graduate OR "Entry Level" OR "0-2 years" OR "No experience" OR ג'וניור OR סטודנט OR בוגר OR "ללא ניסיון") AND (Backend OR "Backend Developer") AND (Python OR Django OR Flask OR FastAPI)" (Avg 0.35 jobs/run over 37 runs)
+
+=== ✅ ACCUMULATED ACCEPTED JOBS (All Active Files) ===
+1. 21062 - Junior QA Manual Tester- Artillery tester @ Qualitest acq
+2. 21063 - Junior QA Engineer - Ballistic @ Qualitest acq
+3. Junior IT Specialist @ Dairycs
+4. Applied Data Scientist @ Rhino Federated Computing
+5. QA/RA Student   @ Shavit Software
+6. Quality Assurance Engineer   @ TechSee
+7. Researcher   @ DRW
+8. Alternative Investment Analyst   @ More Investment House
+9. Network Engineer @ Cyber-Hive
+10. 4th-Year Industrial Engineering Student – Procurement Department   @ Unilever
+11. Firmware Core Engineer   @ NVIDIA
+12. Quality Assurance Specialist (24270)   @ Yael Group
+13. Full Stack Developer @ HUNTHEAD
+14. Junior Prompt Engineer @ Jeen.ai
+15. Field Application Engineer – RF Technical Support   @ INTERLLIGENT - RF & Microwave Solutions
+16. NOC Student @ Confidential Careers
+17. Infrastructure Engineer (Containers & Kubernetes)   @ Bynet Data Communications
+18. SOC Analyst (Student position)   @ Mobileye
+19. Security C++ Software Engineer   @ Radware
+20. Graduate Student   @ Ariel University
+21. Software Engineer II   @ Astreya
+22. Full Stack Engineer @ Insait
+23. Applied AI Engineer @ Tondo Smart
+24. Specialist CSX Intern   @ Henkel
+25. Student Success Coordinator @ Talking - כולם כבר מדברים
+26. Python Developer @ Trego Ltd.
+27. Software Developer Student, Israel @ AlgoSec
+28. BI & Data Solutions Developer   @ KLA
+29. IT Application Developer   @ monday.com
+30. AI for AI Platforms- MSc and PHD-Summer internship 2026- Research Lab   @ IBM
+31. Junior Chemist   @ Sonovia Ltd
+32. Embedded Bootcamp Trainee   @ abra
+33. Graduate Software Engineer, Open Source and Linux, Canonical Ubuntu   @ Canonical
+34. Junior AI Consultant & Automation Implementor (Student Position) @ ApplAI
+35. DevOps Engineer @ MatchPointIT
+36. Cloud Security Analyst   @ Wiz
+37. Dynamics 365 CRM Developer @ Unilink Ltd.
+38. Technical Services Engineer - Entry Level   @ Check Point Software
+39. 21201 - Software QA Engineer   @ Qualitest
+40. Practical engineer @ Allpha Innovation
+41. Junior Software Developer - Analytics Group   @ Elbit Systems Israel
+42. Embedded Automotive Software Engineer   @ Wayve
+43. Technical Support Engineer, Isreal   @ Cohesity
+44. IT Engineer- Student @ AlgoSec
+45. Quality Assurance Manual Tester- Entry level @ Origami.ms
+46. Data Scientist (AI / LLMs / ML in Production)   @ ONE datAI
+47. Student   @ Merck Life Science
+48. Junior IT & Systems Engineer   @ Elbit Systems Israel
+49. New Product Introduction Engineer   @ Aran R&D
+50. Foreign Exchange Dealer and analyst @ PRICO - Financial Risk Management
+51. Design Automation Engineer @ Intel Corporation
+52. Back End Developer @ eMarketMed
+53. Support Engineer @ Regatta Data
+54. AI Automation (unpaid internship) @ IntelliVerse
+55. AWS DevOps Engineer   @ Razel Group
+56. Security Operations Center Analyst   @ Matrix
+57. AI engineer @ abra
+58. Infrastructure Engineer   @ UCL Group
+59. QA Tester   @ Cambium Applicable Innovation
+60. Summer Intern/Apprentice (12 weeks - Starting May/June) @ Tour Travel
+61. Cybersecurity Engineer Defense Systems   @ Elbit Systems Israel
+62. IT Engineer- Student @ AlgoSec
+63. AI Engineer   @ Trax Retail
+64. Firmware Development Engineer @ Intel Corporation
+65. AWS DevOps Engineer   @ Razel Group
+66. Data Engineer @ Software AG Israel
+67. Technology Budget Analyst @ abra
+68. Junior Business Operations   @ Lightico
+69. 18396 - QA Automation Engineer @ Qualitest acq
+70. Algorithm Engineer - Software   @ Oriient
+71. Field Engineer   @ SeeTrue AI
+72. Technical Solution Engineer   @ WalkMe
+73. Information Security & System Implementer @ Trio Cloud Technologies LTD
+74. Junior Data Analyst @ DRS RADA Technologies
+75. Quality Assurance Engineer @ Pelecard
+76. QA Automation Engineer @ Intel Corporation
+77. DevOps Engineer   @ Moveo Group
+78. IT Support Engineer, Part time   @ K Health
+79. QA Engineer @ F.M.R. COMPUTERS AND SOFTWARE LIMITED
+80. UAV Software Engineer (StartUp Near Kfar Saba) @ Adi Chaiat Emanuel - HR Solutions
+81. Junior QA @ Pelecard
+82. Program Quality Engineer   @ Elbit Systems Israel
+83. 20502 - QA Manual   @ Qualitest
+84. DevOps Engineer @ 4M Analytics
+85. V&V System Engineer   @ HR Home
+86. Algorithms and Machine Learning Student   @ Apple
+87. Research Scientist – LTX Model Quality   @ Lightricks
+88. IT Engineer- Student @ AlgoSec
+89. Network security Integrator   @ Bynet Data Communications
+90. SOC UPF Methodology Engineer   @ Apple
+91. Quality Assurance Tester @ AGL - Above Ground Level
+92. AI Solutions Developer   @ GlassesUSA.com
+93. Research Scientist – LTX Model Quality   @ Lightricks
+94. SOC UPF Methodology Engineer   @ Apple
+95. PHY Algorithms Developer student for Wireless SoC   @ Apple
+96. PHY Algorithms Developer student for Wireless SoC   @ Apple
+97. סטודנט.ית לאלגוריתמים ובקרה | Control & Algorithms Student   @ Rafael Advanced Defense Systems
+98. Junior Malware Researcher @ GeoEdge
+99. PhD Research Intern, Formal Verification Development - 2026   @ NVIDIA
+100. Data Engineer @ Elad Software Systems
+101. IT Engineer- Student @ AlgoSec
+102. Application Engineer @ ISCAR ISRAEL
+103. Full Stack Engineer   @ Horizon Technologies LTD.
+104. PhD Research Intern, Formal Verification Development - 2026   @ NVIDIA
+105. Manual Quality Assurance   @ Moveo Group
+106. Design for Testability (DFT) Engineer   @ Elbit Systems Israel
+107. Data Analyst   @ Align Technology
+108. Intern   @ Manpower Israel
+109. SOC Analyst   @ Aman Group
+110. PL/SQL Oracle Developer @ DataTeam
+111. Junior Data Analyst – Native English speaker @ Tap
+112. Algorithm Engineer @ Way2Deep LTD
+113. Databricks Data Engineer   @ ONE datAI
+114. Security Operations Center Analyst @ YouCC Technologies Ltd.
+115. Junior AI Solution Engineer @ Jeen.ai
+116. Upwind Student Program - Cybersecurity Bootcamp @ Upwind Security
+117. Software Associate @ Efficient Finance
+118. FAB Operation/Maintenance Managing Engineer: Cleanroom/Equipment technical maintenance and processing @ Best Job
+119. Big Data Developer @ Aqurate Data
+120. Technical Support Engineer @ Metropolis Safety and Security (Oosto)
+121. Junior/Mid-level Software Engineer (Backend)   @ Roamless
+122. Junior Full Stack Developer   @ Helfy
+123. 17694 - Junior System QA Tester @ Qualitest acq
+124. Junior Full Stack Engineer - Remote @ Brand Bolt
+125. Junior Full Stack Engineer - Remote @ Brand Bolt
+126. 20663 - Junior Software Integrator @ Qualitest acq
+127. Fullstack SW Engineer (Remote, Full Time) @ 3D Foundry Labs
+128. AI Product Engineer @ Port.io
+129. Hedge Fund Internship @ Britannica Capital
+130. IT Engineer- Student @ AlgoSec
+131. Quality Control Analyst   @ Teva Pharmaceuticals
+132. System Analyst (24376)   @ Yael Group
+133. Full Stack Engineer   @ Melio
+134. Frontend Developer @ Appsforce
+135. RT Embedded Software Engineer   @ Elbit Systems Israel
+136. Junior Systems Implementer / מטמיע/ת מערכות CRM (ג’וניור) @ Comigo.io
+137. 21305 - IT Quality Assurance (QA) Specialist   @ Qualitest
+138. Software Engineer, Unity   @ DraftKings Inc.
+139. Industrial Engineer @ OPTUM-IES
+140. Web Developer & Analyst @ Pristivo
+141. AI data annotation specialist (Full-time)   @ Nanit
+142. Cybersecurity and Technology Specialist   @ Ness Technologies | נס טכנולוגיות
+143. Validation Engineer for Automation and Manual Tests @ Medical Electronic Systems
+144. Software Developer (C)   @ Check Point Software
+145. SOC Analyst   @ Datacube
+146. Field-Programmable Gate Arrays Engineer   @ Rafael Advanced Defense Systems
+147. Hardcore Software Engineer (All Levels) @ DualEntry
+148. 2026 Software Dev Engineer Intern - Tel-Aviv, Israel   @ Amazon
+149. Network Engineer   @ DriveNets
+150. Data Analyst   @ Similarweb
+151. 20768 - System Test Engineer   @ Qualitest
+152. Junior QA Engineer @ Confidential Careers
+153. Network and Information Security Expert @ Unilink Ltd.
+154. Full Stack Engineer @ Longevitix
+155. Technical Support – Night Shifts (Student Position)   @ Oriient
+156. Fraud Operations Analyst   @ Tango
+157. Control and Automation Engineer @ Tetracon Control Systems
+158. Manufacturing Engineer – Production & Quality   @ Sandisk
+159. Control & Automation Engineer – Siemens & Rockwell Specialist @ ROTEC - Reverse Osmosis Technologies
+160. Android AI Developer (unpaid internship) @ IntelliVerse
+161. Technology Project Analyst Student @ Intel Corporation
+162. Data Engineer @ Aqurate Data
+163. Junior System Engineer   @ Elbit Systems Israel
+164. Junior Data Analyst   @ Rayzone Group
+165. System Engineer   @ Elbit Systems Israel
+166. R&D scientist @ AgPlenus
+167. Junior QA Engineer @ Iriscom
+168. Foundation Models for Decision Making - Internship   @ Elbit Systems Israel
+169. Solution Specialist - Automation Platforms   @ Supervize IT Solutions
+170. Field Application Engineer @ STG Electronics
+171. IT Engineer- Student @ AlgoSec
+172. Machine Learning Engineer (Student Position)   @ Mobileye
+(Total: 172)
+
+=== 🚫 ACCUMULATED REJECTED JOBS (All Active Files) ===
+1. Junior Full Stack Javascript/Typescript Developer @ Rotemx, LTD -> REJECTED: AlreadySeen
+2. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+3. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+4. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: Blacklist
+5. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: Blacklist
+6. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+7. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+8. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+9. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+10. Business Analyst Intern   @ GE HealthCare -> REJECTED: AlreadySeen
+11. Junior Data Analyst   @ Experis Israel -> REJECTED: AlreadySeen
+12. Associate Data Analyst (New Graduate, Thai Speaking) (Marketing Analytics, Bangkok Based)   @ Agoda -> REJECTED: AlreadySeen
+13. Student Software Engineer   @ INSIGHTEC -> REJECTED: AlreadySeen
+14. Junior DevOps @ altshare -> REJECTED: AlreadySeen
+15. 18742 - Junior RF tester   @ Qualitest -> REJECTED: AlreadySeen
+16. QA Automation Engineer – Junior Position   @ Sharegain -> REJECTED: AlreadySeen
+17. 20320 - Junior QA tester (SHEDER HAM)   @ Qualitest -> REJECTED: AlreadySeen
+18. Junior Electronic Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+19. Solution Designer - Student position   @ Fives -> REJECTED: AlreadySeen
+20. Control and Navigation Engineer - Student Position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+21. סטודנט.ית לאיכות   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+22. Junior DevOps @ altshare -> REJECTED: AlreadySeen
+23. Real-Time Embedded Firmware Design – Student Position @ Intel Corporation -> REJECTED: AlreadySeen
+24. SW development in test student   @ Apple -> REJECTED: AlreadySeen
+25. Embedded SW Engineer (Junior Position) @ Lumissil Microsystems -> REJECTED: AlreadySeen
+26. Junior Operational System Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+27. Junior IT Support Engineer | Entry-Level Position @ Mornex Ltd -> REJECTED: AlreadySeen
+28. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+29. Data Scientist   @ Zefr -> REJECTED: AlreadySeen
+30. Data Scientist   @ IAI - Israel Aerospace Industries -> REJECTED: AlreadySeen
+31. Algorithm / Machine Learning Engineer – Autonomous Drone Interception @ Regulus -> REJECTED: AlreadySeen
+32. Data Scientist – Speech Processing @ VocaVibe -> REJECTED: AlreadySeen
+33. Visual LLMs Validation and Data Scientist- Temporary Position   @ Mobileye -> REJECTED: AlreadySeen
+34. LLMs Post-Training Data Scientist @ MarkeTeam.ai -> REJECTED: AlreadySeen
+35. Junior Full Stack Javascript/Typescript Developer @ Rotemx, LTD -> REJECTED: AlreadySeen
+36. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+37. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+38. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+39. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+40. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+41. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+42. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+43. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+44. Business Analyst Intern   @ GE HealthCare -> REJECTED: AlreadySeen
+45. Junior Data Analyst   @ Experis Israel -> REJECTED: AlreadySeen
+46. Associate Data Analyst (New Graduate, Thai Speaking) (Marketing Analytics, Bangkok Based)   @ Agoda -> REJECTED: AlreadySeen
+47. Student Software Engineer   @ INSIGHTEC -> REJECTED: AlreadySeen
+48. Junior DevOps @ altshare -> REJECTED: AlreadySeen
+49. 21062 - Junior QA Manual Tester- Artillery tester @ Qualitest acq -> REJECTED: AlreadySeen
+50. 21063 - Junior QA Engineer - Ballistic @ Qualitest acq -> REJECTED: AlreadySeen
+51. 18742 - Junior RF tester   @ Qualitest -> REJECTED: AlreadySeen
+52. QA Automation Engineer – Junior Position   @ Sharegain -> REJECTED: AlreadySeen
+53. 20320 - Junior QA tester (SHEDER HAM)   @ Qualitest -> REJECTED: AlreadySeen
+54. Junior Electronic Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+55. Solution Designer - Student position   @ Fives -> REJECTED: AlreadySeen
+56. Control and Navigation Engineer - Student Position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+57. סטודנט.ית לאיכות   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+58. Junior DevOps @ altshare -> REJECTED: AlreadySeen
+59. Real-Time Embedded Firmware Design – Student Position @ Intel Corporation -> REJECTED: AlreadySeen
+60. SW development in test student   @ Apple -> REJECTED: AlreadySeen
+61. Embedded SW Engineer (Junior Position) @ Lumissil Microsystems -> REJECTED: AlreadySeen
+62. Junior IT Specialist @ Dairycs -> REJECTED: AlreadySeen
+63. Junior Operational System Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+64. Junior IT Support Engineer | Entry-Level Position @ Mornex Ltd -> REJECTED: AlreadySeen
+65. Applied Data Scientist @ Rhino Federated Computing -> REJECTED: AlreadySeen
+66. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+67. Algorithm / Machine Learning Engineer – Autonomous Drone Interception @ Regulus -> REJECTED: AlreadySeen
+68. Data Scientist – Speech Processing @ VocaVibe -> REJECTED: AlreadySeen
+69. Visual LLMs Validation and Data Scientist- Temporary Position   @ Mobileye -> REJECTED: AlreadySeen
+70. 21062 - Junior QA Manual Tester- Artillery tester @ Qualitest acq -> REJECTED: AlreadySeen
+71. פליינג קרגו מגייסת מנהל.ת סניפי תובלה קלה   @ Flying Cargo -> REJECTED: Whitelist
+72. Administrative & Operations Coordinator (Temporary)   @ Tnuva -> REJECTED: Blacklist
+73. Customer Retention & Churn Specialist @ Flashy -> REJECTED: Whitelist
+74. Sales And Marketing Specialist @ C.R.G Electronics -> REJECTED: Blacklist
+75. IT Operations Technician   @ Shavit Software -> REJECTED: Blacklist
+76. שיווק ומכירות לעמותה מובילה בחיפה @ Chamber of Commerce & Industry Haifa & the North -> REJECTED: Blacklist
+77. מבנאי/ת מטוסים   @ Elbit Systems Israel -> REJECTED: Whitelist
+78. Campaign Manager @ FINQ -> REJECTED: Blacklist
+79. Operations Associate   @ Oriient -> REJECTED: Whitelist
+80. Customer Service Representative @ Hadar Danan LTD -> REJECTED: Whitelist
+81. Tier 1 @ AU10TIX -> REJECTED: Whitelist
+82. Marketing & Customer Journey Analyst @ Be2See. -> REJECTED: Blacklist
+83. Help Desk Specialist   @ Extreme -> REJECTED: Blacklist
+84. Digital Product Manager   @ Aman Group -> REJECTED: Blacklist
+85. Mechanical Engineer @ Dairycs -> REJECTED: Blacklist
+86. RF Technician – Rishon LeZion @ Unilink Ltd. -> REJECTED: Blacklist
+87. We are hiring! @ DEGEL.US Ltd. -> REJECTED: Whitelist
+88. בקר.ית NOC סיווג ביטחוני אזרחי רמה 3 בתוקף @ Octally Integration -> REJECTED: Whitelist
+89. Medical Doctor M.D @ G-Med -> REJECTED: Whitelist
+90. Junior Full Stack Javascript/Typescript Developer @ Rotemx, LTD -> REJECTED: AlreadySeen
+91. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+92. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+93. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+94. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+95. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+96. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+97. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+98. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+99. Business Analyst Intern   @ GE HealthCare -> REJECTED: AlreadySeen
+100. Junior Data Analyst   @ Experis Israel -> REJECTED: AlreadySeen
+101. Associate Data Analyst (New Graduate, Thai Speaking) (Marketing Analytics, Bangkok Based)   @ Agoda -> REJECTED: AlreadySeen
+102. Internal Communications Specialist   @ Wiz -> REJECTED: AlreadySeen
+103. Production Planning- Temp   @ Vishay Precision Group, Inc. (VPG) -> REJECTED: AlreadySeen
+104. Technical Support Representative @ Real Time LTD.  זמן אמת -> REJECTED: Blacklist
+105. מהנדס/ת איכות בייצור @ SCD PEOPLE -> REJECTED: Whitelist
+106. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: Whitelist
+107. UI/UX Platform Designer @ Security Joes -> REJECTED: Whitelist
+108. Talent Acquisition Specialist @ ManpowerGroup Talent solutions Israel -> REJECTED: Blacklist
+109. Hardware & Integration Engineer   @ Gentex Corporation -> REJECTED: Blacklist
+110. PPC Campaign Manager   @ WadiDigital - B2B Tech Marketing Agency -> REJECTED: Blacklist
+111. מזכיר/ת מנכ״ל @ Taglit Group A.S -> REJECTED: Whitelist
+112. מנהל\ת משרד ואדמיניסטרציה @ NATASHA DENONA IL -> REJECTED: Blacklist
+113. Sales Consultant / Study Advisor (Part-Time) @ speax-il -> REJECTED: Blacklist
+114. מהנדס/ת מערכת מנוסה   @ IAI - Israel Aerospace Industries -> REJECTED: Whitelist
+115. Account Manager @ IDX -> REJECTED: Blacklist
+116. Digital Media Expert   @ McCann Digital -> REJECTED: Blacklist
+117. AI and Computer Architecture Researcher   @ Toga Networks-a Huawei Company -> REJECTED: Blacklist
+118. קניין/ת רכש ולוגיסטיקה @ C-DATA -> REJECTED: Whitelist
+119. Customer Services & Personal Safety Agent (French & English)   @ Bond -> REJECTED: Whitelist
+120. Student Software Engineer   @ INSIGHTEC -> REJECTED: AlreadySeen
+121. Junior DevOps @ altshare -> REJECTED: AlreadySeen
+122. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+123. QA/RA Student   @ Shavit Software -> REJECTED: AlreadySeen
+124. 21062 - Junior QA Manual Tester- Artillery tester @ Qualitest acq -> REJECTED: AlreadySeen
+125. 21063 - Junior QA Engineer - Ballistic @ Qualitest acq -> REJECTED: AlreadySeen
+126. 18742 - Junior RF tester   @ Qualitest -> REJECTED: AlreadySeen
+127. QA Automation Engineer – Junior Position   @ Sharegain -> REJECTED: AlreadySeen
+128. 20320 - Junior QA tester (SHEDER HAM)   @ Qualitest -> REJECTED: AlreadySeen
+129. Junior Electronic Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+130. Solution Designer - Student position   @ Fives -> REJECTED: AlreadySeen
+131. Control and Navigation Engineer - Student Position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+132. סטודנט.ית לאיכות   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+133. Junior DevOps @ altshare -> REJECTED: AlreadySeen
+134. Real-Time Embedded Firmware Design – Student Position @ Intel Corporation -> REJECTED: AlreadySeen
+135. SW development in test student   @ Apple -> REJECTED: AlreadySeen
+136. Embedded SW Engineer (Junior Position) @ Lumissil Microsystems -> REJECTED: AlreadySeen
+137. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+138. Junior Operational System Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+139. Junior IT Support Engineer | Entry-Level Position @ Mornex Ltd -> REJECTED: AlreadySeen
+140. Applied Data Scientist @ Rhino Federated Computing -> REJECTED: AlreadySeen
+141. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+142. Algorithm / Machine Learning Engineer – Autonomous Drone Interception @ Regulus -> REJECTED: AlreadySeen
+143. Data Scientist – Speech Processing @ VocaVibe -> REJECTED: AlreadySeen
+144. Visual LLMs Validation and Data Scientist- Temporary Position   @ Mobileye -> REJECTED: AlreadySeen
+145. Junior Full Stack Javascript/Typescript Developer @ Rotemx, LTD -> REJECTED: AlreadySeen
+146. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+147. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+148. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+149. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+150. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+151. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+152. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+153. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+154. Business Analyst Intern   @ GE HealthCare -> REJECTED: AlreadySeen
+155. Junior Data Analyst   @ Experis Israel -> REJECTED: AlreadySeen
+156. Associate Data Analyst (New Graduate, Thai Speaking) (Marketing Analytics, Bangkok Based)   @ Agoda -> REJECTED: AlreadySeen
+157. Student Software Engineer   @ INSIGHTEC -> REJECTED: AlreadySeen
+158. Junior DevOps @ altshare -> REJECTED: AlreadySeen
+159. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+160. QA/RA Student   @ Shavit Software -> REJECTED: AlreadySeen
+161. 21062 - Junior QA Manual Tester- Artillery tester @ Qualitest acq -> REJECTED: AlreadySeen
+162. 21063 - Junior QA Engineer - Ballistic @ Qualitest acq -> REJECTED: AlreadySeen
+163. 18742 - Junior RF tester   @ Qualitest -> REJECTED: AlreadySeen
+164. QA Automation Engineer – Junior Position   @ Sharegain -> REJECTED: AlreadySeen
+165. 20320 - Junior QA tester (SHEDER HAM)   @ Qualitest -> REJECTED: AlreadySeen
+166. Junior Electronic Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+167. Solution Designer - Student position   @ Fives -> REJECTED: AlreadySeen
+168. Control and Navigation Engineer - Student Position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+169. סטודנט.ית לאיכות   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+170. Junior DevOps @ altshare -> REJECTED: AlreadySeen
+171. Real-Time Embedded Firmware Design – Student Position @ Intel Corporation -> REJECTED: AlreadySeen
+172. SW development in test student   @ Apple -> REJECTED: AlreadySeen
+173. SOC Analyst (Student position)   @ Mobileye -> REJECTED: AlreadySeen
+174. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+175. Junior Operational System Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+176. Junior IT Support Engineer | Entry-Level Position @ Mornex Ltd -> REJECTED: AlreadySeen
+177. Applied Data Scientist @ Rhino Federated Computing -> REJECTED: AlreadySeen
+178. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+179. Data Scientist   @ Zefr -> REJECTED: AlreadySeen
+180. Data Scientist   @ IAI - Israel Aerospace Industries -> REJECTED: AlreadySeen
+181. Algorithm / Machine Learning Engineer – Autonomous Drone Interception @ Regulus -> REJECTED: AlreadySeen
+182. Data Scientist – Speech Processing @ VocaVibe -> REJECTED: AlreadySeen
+183. Junior Full Stack Javascript/Typescript Developer @ Rotemx, LTD -> REJECTED: AlreadySeen
+184. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+185. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+186. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+187. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+188. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+189. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+190. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+191. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+192. Business Analyst Intern   @ GE HealthCare -> REJECTED: AlreadySeen
+193. Junior Data Analyst   @ Experis Israel -> REJECTED: AlreadySeen
+194. Associate Data Analyst (New Graduate, Thai Speaking) (Marketing Analytics, Bangkok Based)   @ Agoda -> REJECTED: AlreadySeen
+195. Student Software Engineer   @ INSIGHTEC -> REJECTED: AlreadySeen
+196. Junior DevOps @ altshare -> REJECTED: AlreadySeen
+197. SOC Analyst (Student position)   @ Mobileye -> REJECTED: AlreadySeen
+198. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+199. QA/RA Student   @ Shavit Software -> REJECTED: AlreadySeen
+200. 21062 - Junior QA Manual Tester- Artillery tester @ Qualitest acq -> REJECTED: AlreadySeen
+201. 21063 - Junior QA Engineer - Ballistic @ Qualitest acq -> REJECTED: AlreadySeen
+202. 18742 - Junior RF tester   @ Qualitest -> REJECTED: AlreadySeen
+203. QA Automation Engineer – Junior Position   @ Sharegain -> REJECTED: AlreadySeen
+204. 20320 - Junior QA tester (SHEDER HAM)   @ Qualitest -> REJECTED: AlreadySeen
+205. Junior Electronic Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+206. Solution Designer - Student position   @ Fives -> REJECTED: AlreadySeen
+207. Control and Navigation Engineer - Student Position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+208. סטודנט.ית לאיכות   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+209. Junior DevOps @ altshare -> REJECTED: AlreadySeen
+210. Real-Time Embedded Firmware Design – Student Position @ Intel Corporation -> REJECTED: AlreadySeen
+211. SW development in test student   @ Apple -> REJECTED: AlreadySeen
+212. SOC Analyst (Student position)   @ Mobileye -> REJECTED: AlreadySeen
+213. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+214. Junior Operational System Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+215. Junior IT Support Engineer | Entry-Level Position @ Mornex Ltd -> REJECTED: AlreadySeen
+216. Applied Data Scientist @ Rhino Federated Computing -> REJECTED: AlreadySeen
+217. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+218. Data Scientist   @ Zefr -> REJECTED: AlreadySeen
+219. Data Scientist   @ IAI - Israel Aerospace Industries -> REJECTED: AlreadySeen
+220. Algorithm / Machine Learning Engineer – Autonomous Drone Interception @ Regulus -> REJECTED: AlreadySeen
+221. Data Scientist – Speech Processing @ VocaVibe -> REJECTED: AlreadySeen
+222. Junior Full Stack Javascript/Typescript Developer @ Rotemx, LTD -> REJECTED: AlreadySeen
+223. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+224. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+225. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+226. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+227. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+228. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+229. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+230. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+231. Business Analyst Intern   @ GE HealthCare -> REJECTED: AlreadySeen
+232. Junior Data Analyst   @ Experis Israel -> REJECTED: AlreadySeen
+233. Associate Data Analyst (New Graduate, Thai Speaking) (Marketing Analytics, Bangkok Based)   @ Agoda -> REJECTED: AlreadySeen
+234. Student Software Engineer   @ INSIGHTEC -> REJECTED: AlreadySeen
+235. Junior DevOps @ altshare -> REJECTED: AlreadySeen
+236. SOC Analyst (Student position)   @ Mobileye -> REJECTED: AlreadySeen
+237. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+238. QA/RA Student   @ Shavit Software -> REJECTED: AlreadySeen
+239. 21062 - Junior QA Manual Tester- Artillery tester @ Qualitest acq -> REJECTED: AlreadySeen
+240. 21063 - Junior QA Engineer - Ballistic @ Qualitest acq -> REJECTED: AlreadySeen
+241. 18742 - Junior RF tester   @ Qualitest -> REJECTED: AlreadySeen
+242. QA Automation Engineer – Junior Position   @ Sharegain -> REJECTED: AlreadySeen
+243. 20320 - Junior QA tester (SHEDER HAM)   @ Qualitest -> REJECTED: AlreadySeen
+244. Junior Electronic Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+245. Solution Designer - Student position   @ Fives -> REJECTED: AlreadySeen
+246. Control and Navigation Engineer - Student Position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+247. סטודנט.ית לאיכות   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+248. Junior DevOps @ altshare -> REJECTED: AlreadySeen
+249. Real-Time Embedded Firmware Design – Student Position @ Intel Corporation -> REJECTED: AlreadySeen
+250. SW development in test student   @ Apple -> REJECTED: AlreadySeen
+251. SOC Analyst (Student position)   @ Mobileye -> REJECTED: AlreadySeen
+252. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+253. Junior Operational System Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+254. Junior IT Support Engineer | Entry-Level Position @ Mornex Ltd -> REJECTED: AlreadySeen
+255. Applied Data Scientist @ Rhino Federated Computing -> REJECTED: AlreadySeen
+256. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+257. Data Scientist   @ Zefr -> REJECTED: AlreadySeen
+258. Algorithm / Machine Learning Engineer – Autonomous Drone Interception @ Regulus -> REJECTED: AlreadySeen
+259. Data Scientist – Speech Processing @ VocaVibe -> REJECTED: AlreadySeen
+260. LLMs Post-Training Data Scientist @ MarkeTeam.ai -> REJECTED: AlreadySeen
+261. Junior Full Stack Javascript/Typescript Developer @ Rotemx, LTD -> REJECTED: AlreadySeen
+262. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+263. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+264. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+265. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+266. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+267. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+268. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+269. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+270. Business Analyst Intern   @ GE HealthCare -> REJECTED: AlreadySeen
+271. Junior Data Analyst   @ Experis Israel -> REJECTED: AlreadySeen
+272. Associate Data Analyst (New Graduate, Thai Speaking) (Marketing Analytics, Bangkok Based)   @ Agoda -> REJECTED: AlreadySeen
+273. Student Software Engineer   @ INSIGHTEC -> REJECTED: AlreadySeen
+274. Junior DevOps @ altshare -> REJECTED: AlreadySeen
+275. SOC Analyst (Student position)   @ Mobileye -> REJECTED: AlreadySeen
+276. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+277. QA/RA Student   @ Shavit Software -> REJECTED: AlreadySeen
+278. 21062 - Junior QA Manual Tester- Artillery tester @ Qualitest acq -> REJECTED: AlreadySeen
+279. 21063 - Junior QA Engineer - Ballistic @ Qualitest acq -> REJECTED: AlreadySeen
+280. 18742 - Junior RF tester   @ Qualitest -> REJECTED: AlreadySeen
+281. QA Automation Engineer – Junior Position   @ Sharegain -> REJECTED: AlreadySeen
+282. 20320 - Junior QA tester (SHEDER HAM)   @ Qualitest -> REJECTED: AlreadySeen
+283. Junior Electronic Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+284. Solution Designer - Student position   @ Fives -> REJECTED: AlreadySeen
+285. Control and Navigation Engineer - Student Position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+286. סטודנט.ית לאיכות   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+287. Junior DevOps @ altshare -> REJECTED: AlreadySeen
+288. Real-Time Embedded Firmware Design – Student Position @ Intel Corporation -> REJECTED: AlreadySeen
+289. SW development in test student   @ Apple -> REJECTED: AlreadySeen
+290. SOC Analyst (Student position)   @ Mobileye -> REJECTED: AlreadySeen
+291. Junior Operational System Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+292. Junior IT Support Engineer | Entry-Level Position @ Mornex Ltd -> REJECTED: AlreadySeen
+293. Applied Data Scientist @ Rhino Federated Computing -> REJECTED: AlreadySeen
+294. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+295. Data Scientist   @ Zefr -> REJECTED: AlreadySeen
+296. Algorithm / Machine Learning Engineer – Autonomous Drone Interception @ Regulus -> REJECTED: AlreadySeen
+297. Data Scientist – Speech Processing @ VocaVibe -> REJECTED: AlreadySeen
+298. LLMs Post-Training Data Scientist @ MarkeTeam.ai -> REJECTED: AlreadySeen
+299. Junior Full Stack Javascript/Typescript Developer @ Rotemx, LTD -> REJECTED: AlreadySeen
+300. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+301. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+302. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+303. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+304. Production Planner student   @ MKS Inc. -> REJECTED: Blacklist
+305. B.I.M. Coordinator @ Manpower TBO Israel -> REJECTED: Whitelist
+306. PPC manager (Google) - AdTech @ Reacheffect LTD -> REJECTED: Blacklist
+307. Business Development Specialist @ Signalz -> REJECTED: Blacklist
+308. Experimental Physicist @ Remondo -> REJECTED: Whitelist
+309. Talent Acquisition Partner   @ HiBob -> REJECTED: Blacklist
+310. Payments Operator   @ Plus500™ -> REJECTED: Blacklist
+311. Telemarketing Agent   @ Ephoca -> REJECTED: Blacklist
+312. Technical artist   @ SciPlay -> REJECTED: Whitelist
+313. Post Production Producer @ Grossman TV Ltd -> REJECTED: Whitelist
+314. Content Writer @ Evinature -> REJECTED: Blacklist
+315. Technical Support Representative @ Unilink Ltd. -> REJECTED: Blacklist
+316. System Administrator @ MatchPointIT -> REJECTED: Blacklist
+317. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+318. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+319. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+320. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+321. Business Analyst Intern   @ GE HealthCare -> REJECTED: AlreadySeen
+322. Junior Data Analyst   @ Experis Israel -> REJECTED: AlreadySeen
+323. Associate Data Analyst (New Graduate, Thai Speaking) (Marketing Analytics, Bangkok Based)   @ Agoda -> REJECTED: AlreadySeen
+324. Student Software Engineer   @ INSIGHTEC -> REJECTED: AlreadySeen
+325. Junior DevOps @ altshare -> REJECTED: AlreadySeen
+326. SOC Analyst (Student position)   @ Mobileye -> REJECTED: AlreadySeen
+327. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+328. QA/RA Student   @ Shavit Software -> REJECTED: AlreadySeen
+329. 21062 - Junior QA Manual Tester- Artillery tester @ Qualitest acq -> REJECTED: AlreadySeen
+330. 21063 - Junior QA Engineer - Ballistic @ Qualitest acq -> REJECTED: AlreadySeen
+331. 18742 - Junior RF tester   @ Qualitest -> REJECTED: AlreadySeen
+332. QA Automation Engineer – Junior Position   @ Sharegain -> REJECTED: AlreadySeen
+333. 20320 - Junior QA tester (SHEDER HAM)   @ Qualitest -> REJECTED: AlreadySeen
+334. Junior Electronic Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+335. Solution Designer - Student position   @ Fives -> REJECTED: AlreadySeen
+336. Control and Navigation Engineer - Student Position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+337. סטודנט.ית לאיכות   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+338. Junior DevOps @ altshare -> REJECTED: AlreadySeen
+339. Real-Time Embedded Firmware Design – Student Position @ Intel Corporation -> REJECTED: AlreadySeen
+340. SW development in test student   @ Apple -> REJECTED: AlreadySeen
+341. SOC Analyst (Student position)   @ Mobileye -> REJECTED: AlreadySeen
+342. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+343. Junior Operational System Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+344. Junior IT Support Engineer | Entry-Level Position @ Mornex Ltd -> REJECTED: AlreadySeen
+345. Applied Data Scientist @ Rhino Federated Computing -> REJECTED: AlreadySeen
+346. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+347. Data Scientist   @ Zefr -> REJECTED: AlreadySeen
+348. Data Scientist   @ IAI - Israel Aerospace Industries -> REJECTED: AlreadySeen
+349. Algorithm / Machine Learning Engineer – Autonomous Drone Interception @ Regulus -> REJECTED: AlreadySeen
+350. Data Scientist – Speech Processing @ VocaVibe -> REJECTED: AlreadySeen
+351. LLMs Post-Training Data Scientist @ MarkeTeam.ai -> REJECTED: AlreadySeen
+352. Electrical Engineering Graduate, Graviton Team   @ Amazon Web Services (AWS) -> REJECTED: AlreadySeen
+353. מנהל/ת קמפיינים @ משרד פרפורמנס - תל אביב -> REJECTED: Whitelist
+354. 21301 - GIS & Annotation Lead   @ Qualitest -> REJECTED: Blacklist
+355. Associate Product Designer   @ Phenom -> REJECTED: Whitelist
+356. נציג.ת שירות לצוות דיווח @ Menora Mivtachim Group -> REJECTED: Whitelist
+357. Customer Technical Support   @ COMDA -> REJECTED: Whitelist
+358. Electrical Engineering Technician @ Elspec Engineering ltd. -> REJECTED: Blacklist
+359. It-medarbejder med indgående erfaring i Excel   @ Ministry of Higher Education and Science -> REJECTED: Whitelist
+360. Sales Development Representative, Mid-Market | Benelux   @ Deel -> REJECTED: Blacklist
+361. Operations Monetization Specialist   @ Play Perfect -> REJECTED: Whitelist
+362. ‫מנהל/ת פרויקטים סטודיו @ JobsSeek -> REJECTED: Whitelist
+363. Marketing Analyst @ Be2See. -> REJECTED: Blacklist
+364. Hands-On Junior CPA  or Experienced Bookkeeper @ Dairycs -> REJECTED: Blacklist
+365. Sales Operations @ ENGIS | אנג'יס -> REJECTED: Blacklist
+366. Junior Marketing Designer @ Jeen.ai -> REJECTED: Blacklist
+367. Java Programmer @ Ivory Software Systems -> REJECTED: Whitelist
+368. Project Manager  – Shaping the Future of Learning! - Entry Level Fulltime position @ Devlion LTD -> REJECTED: Blacklist
+369. Project Management Officer @ Inbal - HR Solutions -> REJECTED: Blacklist
+370. Junior Full Stack Javascript/Typescript Developer @ Rotemx, LTD -> REJECTED: AlreadySeen
+371. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+372. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+373. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+374. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+375. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+376. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+377. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+378. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+379. Business Analyst Intern   @ GE HealthCare -> REJECTED: AlreadySeen
+380. Junior Data Analyst   @ Experis Israel -> REJECTED: AlreadySeen
+381. Graduate Software Engineer, Open Source and Linux, Canonical Ubuntu   @ Canonical -> REJECTED: AlreadySeen
+382. Student Software Engineer   @ INSIGHTEC -> REJECTED: AlreadySeen
+383. Security Release Project Manager Student @ Intel Corporation -> REJECTED: AlreadySeen
+384. SOC Analyst (Student position)   @ Mobileye -> REJECTED: AlreadySeen
+385. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+386. Electrical Engineering Graduate, Graviton Team   @ Amazon Web Services (AWS) -> REJECTED: AlreadySeen
+387. QA/RA Student   @ Shavit Software -> REJECTED: AlreadySeen
+388. 21062 - Junior QA Manual Tester- Artillery tester @ Qualitest acq -> REJECTED: AlreadySeen
+389. 21063 - Junior QA Engineer - Ballistic @ Qualitest acq -> REJECTED: AlreadySeen
+390. 18742 - Junior RF tester   @ Qualitest -> REJECTED: AlreadySeen
+391. QA Automation Engineer – Junior Position   @ Sharegain -> REJECTED: AlreadySeen
+392. 20320 - Junior QA tester (SHEDER HAM)   @ Qualitest -> REJECTED: AlreadySeen
+393. Junior Electronic Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+394. Solution Designer - Student position   @ Fives -> REJECTED: AlreadySeen
+395. Control and Navigation Engineer - Student Position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+396. סטודנט.ית לאיכות   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+397. Real-Time Embedded Firmware Design – Student Position @ Intel Corporation -> REJECTED: AlreadySeen
+398. SW development in test student   @ Apple -> REJECTED: AlreadySeen
+399. Technical Services Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+400. SOC Analyst (Student position)   @ Mobileye -> REJECTED: AlreadySeen
+401. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+402. Junior Operational System Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+403. Junior IT Support Engineer | Entry-Level Position @ Mornex Ltd -> REJECTED: AlreadySeen
+404. Applied Data Scientist @ Rhino Federated Computing -> REJECTED: AlreadySeen
+405. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+406. Algorithm / Machine Learning Engineer – Autonomous Drone Interception @ Regulus -> REJECTED: AlreadySeen
+407. Data Scientist – Speech Processing @ VocaVibe -> REJECTED: AlreadySeen
+408. Junior Full Stack Javascript/Typescript Developer @ Rotemx, LTD -> REJECTED: AlreadySeen
+409. מנהל/ת קמפיינים @ משרד פרפורמנס - תל אביב -> REJECTED: AlreadySeen
+410. Associate Product Designer   @ Phenom -> REJECTED: AlreadySeen
+411. Customer Technical Support   @ COMDA -> REJECTED: AlreadySeen
+412. Electrical Engineering Technician @ Elspec Engineering ltd. -> REJECTED: AlreadySeen
+413. Sales Development Representative, Mid-Market | Benelux   @ Deel -> REJECTED: AlreadySeen
+414. Junior Chemist   @ Sonovia Ltd -> REJECTED: AlreadySeen
+415. Operations Monetization Specialist   @ Play Perfect -> REJECTED: AlreadySeen
+416. Embedded Bootcamp Trainee   @ abra -> REJECTED: AlreadySeen
+417. Graduate Software Engineer, Open Source and Linux, Canonical Ubuntu   @ Canonical -> REJECTED: AlreadySeen
+418. Junior AI Consultant & Automation Implementor (Student Position) @ ApplAI -> REJECTED: AlreadySeen
+419. ‫מנהל/ת פרויקטים סטודיו @ JobsSeek -> REJECTED: AlreadySeen
+420. Marketing Analyst @ Be2See. -> REJECTED: AlreadySeen
+421. Hands-On Junior CPA  or Experienced Bookkeeper @ Dairycs -> REJECTED: AlreadySeen
+422. Sales Operations @ ENGIS | אנג'יס -> REJECTED: AlreadySeen
+423. DevOps Engineer @ MatchPointIT -> REJECTED: AlreadySeen
+424. Electrical Engineering Graduate, Graviton Team   @ Amazon Web Services (AWS) -> REJECTED: AlreadySeen
+425. Cloud Security Analyst   @ Wiz -> REJECTED: AlreadySeen
+426. Junior Marketing Designer @ Jeen.ai -> REJECTED: AlreadySeen
+427. Java Programmer @ Ivory Software Systems -> REJECTED: AlreadySeen
+428. Project Manager  – Shaping the Future of Learning! - Entry Level Fulltime position @ Devlion LTD -> REJECTED: AlreadySeen
+429. Project Management Officer @ Inbal - HR Solutions -> REJECTED: AlreadySeen
+430. Trade Marketing Specialist- Israel @ LIXIL -> REJECTED: Blacklist
+431. לחברת ONE דרוש/ה Network Specialist לארגון גדול במרכז הארץ   @ Taldor -> REJECTED: Whitelist
+432. Head Of Data @ Moveo Group -> REJECTED: Blacklist
+433. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+434. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+435. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+436. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+437. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+438. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+439. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+440. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+441. Business Analyst Intern   @ GE HealthCare -> REJECTED: AlreadySeen
+442. Junior Data Analyst   @ Experis Israel -> REJECTED: AlreadySeen
+443. Graduate Software Engineer, Open Source and Linux, Canonical Ubuntu   @ Canonical -> REJECTED: AlreadySeen
+444. Student Software Engineer   @ INSIGHTEC -> REJECTED: AlreadySeen
+445. Security Release Project Manager Student @ Intel Corporation -> REJECTED: AlreadySeen
+446. SOC Analyst (Student position)   @ Mobileye -> REJECTED: AlreadySeen
+447. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+448. Electrical Engineering Graduate, Graviton Team   @ Amazon Web Services (AWS) -> REJECTED: AlreadySeen
+449. Technical Services Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+450. QA/RA Student   @ Shavit Software -> REJECTED: AlreadySeen
+451. 21062 - Junior QA Manual Tester- Artillery tester @ Qualitest acq -> REJECTED: AlreadySeen
+452. 21063 - Junior QA Engineer - Ballistic @ Qualitest acq -> REJECTED: AlreadySeen
+453. 18742 - Junior RF tester   @ Qualitest -> REJECTED: AlreadySeen
+454. QA Automation Engineer – Junior Position   @ Sharegain -> REJECTED: AlreadySeen
+455. 20320 - Junior QA tester (SHEDER HAM)   @ Qualitest -> REJECTED: AlreadySeen
+456. Junior Electronic Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+457. Solution Designer - Student position   @ Fives -> REJECTED: AlreadySeen
+458. Control and Navigation Engineer - Student Position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+459. סטודנט.ית לאיכות   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+460. Real-Time Embedded Firmware Design – Student Position @ Intel Corporation -> REJECTED: AlreadySeen
+461. SW development in test student   @ Apple -> REJECTED: AlreadySeen
+462. Technical Services Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+463. SOC Analyst (Student position)   @ Mobileye -> REJECTED: AlreadySeen
+464. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+465. Junior Operational System Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+466. Junior IT Support Engineer | Entry-Level Position @ Mornex Ltd -> REJECTED: AlreadySeen
+467. Applied Data Scientist @ Rhino Federated Computing -> REJECTED: AlreadySeen
+468. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+469. Data Scientist   @ Zefr -> REJECTED: AlreadySeen
+470. Algorithm / Machine Learning Engineer – Autonomous Drone Interception @ Regulus -> REJECTED: AlreadySeen
+471. Data Scientist – Speech Processing @ VocaVibe -> REJECTED: AlreadySeen
+472. Junior Full Stack Javascript/Typescript Developer @ Rotemx, LTD -> REJECTED: AlreadySeen
+473. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+474. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+475. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+476. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+477. לחברת ONE דרוש/ה Network Specialist לארגון גדול במרכז הארץ   @ Taldor -> REJECTED: AlreadySeen
+478. Head Of Data @ Moveo Group -> REJECTED: AlreadySeen
+479. 21301 - GIS & Annotation Lead   @ Qualitest -> REJECTED: AlreadySeen
+480. Associate Product Designer   @ Phenom -> REJECTED: AlreadySeen
+481. Customer Technical Support   @ COMDA -> REJECTED: AlreadySeen
+482. Electrical Engineering Technician @ Elspec Engineering ltd. -> REJECTED: AlreadySeen
+483. דרוש/ה מפתח/ת הדרכה – החלפה לחל״ד   @ PassportCard -> REJECTED: Whitelist
+484. Junior Social Marketing Analyst @ Kibeeri -> REJECTED: Blacklist
+485. עורך/ת דין למחלקת הליטיגציה @ KRB - Krispin Rubinstein Blecher Kadouch, Law Offices -> REJECTED: Whitelist
+486. Parts Advisor - Petah Tikva   @ Tesla -> REJECTED: Whitelist
+487. Creative AI-Solutions Specialist   @ Lightricks -> REJECTED: Blacklist
+488. Test Technician - BIT (Built-In Test) Practical Engineer   @ AMAREL LTD -> REJECTED: Blacklist
+489. מנהל/ת לשכה לסמנכ"ל חטיבת כלי טיס צבאיים   @ IAI - Israel Aerospace Industries -> REJECTED: Whitelist
+490. Mechanical Engineer   @ Experis -> REJECTED: Blacklist
+491. Clinical Research Coordinator | Rheumatology Unit   @ Tel Aviv Medical Center -> REJECTED: Whitelist
+492. Video Recording Job | No Experience Required @ micro1 -> REJECTED: Whitelist
+493. Sales Development Representative (SDR)   @ LabOS -> REJECTED: Blacklist
+494. AI product Operation @ ZyG -> REJECTED: Whitelist
+495. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+496. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+497. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+498. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+499. Business Analyst Intern   @ GE HealthCare -> REJECTED: AlreadySeen
+500. Junior Data Analyst   @ Experis Israel -> REJECTED: AlreadySeen
+501. דרוש/ה מפתח/ת הדרכה – החלפה לחל״ד   @ PassportCard -> REJECTED: AlreadySeen
+502. Junior Social Marketing Analyst @ Kibeeri -> REJECTED: AlreadySeen
+503. Practical engineer @ Allpha Innovation -> REJECTED: AlreadySeen
+504. עורך/ת דין למחלקת הליטיגציה @ KRB - Krispin Rubinstein Blecher Kadouch, Law Offices -> REJECTED: AlreadySeen
+505. Parts Advisor - Petah Tikva   @ Tesla -> REJECTED: AlreadySeen
+506. Creative AI-Solutions Specialist   @ Lightricks -> REJECTED: AlreadySeen
+507. Test Technician - BIT (Built-In Test) Practical Engineer   @ AMAREL LTD -> REJECTED: AlreadySeen
+508. מנהל/ת לשכה לסמנכ"ל חטיבת כלי טיס צבאיים   @ IAI - Israel Aerospace Industries -> REJECTED: AlreadySeen
+509. Mechanical Engineer   @ Experis -> REJECTED: AlreadySeen
+510. Junior Software Developer - Analytics Group   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+511. Embedded Automotive Software Engineer   @ Wayve -> REJECTED: AlreadySeen
+512. Technical Support Engineer, Isreal   @ Cohesity -> REJECTED: AlreadySeen
+513. IT Engineer- Student @ AlgoSec -> REJECTED: AlreadySeen
+514. Quality Assurance Manual Tester- Entry level @ Origami.ms -> REJECTED: AlreadySeen
+515. Clinical Research Coordinator | Rheumatology Unit   @ Tel Aviv Medical Center -> REJECTED: AlreadySeen
+516. Sales Development Representative (SDR)   @ LabOS -> REJECTED: AlreadySeen
+517. Data Scientist (AI / LLMs / ML in Production)   @ ONE datAI -> REJECTED: AlreadySeen
+518. AI product Operation @ ZyG -> REJECTED: AlreadySeen
+519. 21301 - GIS & Annotation Lead   @ Qualitest -> REJECTED: AlreadySeen
+520. Associate Product Designer   @ Phenom -> REJECTED: AlreadySeen
+521. Customer Technical Support   @ COMDA -> REJECTED: AlreadySeen
+522. Electrical Engineering Technician @ Elspec Engineering ltd. -> REJECTED: AlreadySeen
+523. Accountant @ Compie Pro -> REJECTED: Blacklist
+524. Project Management Officer   @ abra -> REJECTED: Blacklist
+525. 21201 - Software QA Engineer   @ Qualitest -> REJECTED: AlreadySeen
+526. It-medarbejder med indgående erfaring i Excel   @ Ministry of Higher Education and Science -> REJECTED: AlreadySeen
+527. Sales Development Representative, Mid-Market | Benelux   @ Deel -> REJECTED: AlreadySeen
+528. Junior Chemist   @ Sonovia Ltd -> REJECTED: AlreadySeen
+529. Operations Monetization Specialist   @ Play Perfect -> REJECTED: AlreadySeen
+530. Embedded Bootcamp Trainee   @ abra -> REJECTED: AlreadySeen
+531. Graduate Software Engineer, Open Source and Linux, Canonical Ubuntu   @ Canonical -> REJECTED: AlreadySeen
+532. Junior AI Consultant & Automation Implementor (Student Position) @ ApplAI -> REJECTED: AlreadySeen
+533. Hands-On Junior CPA  or Experienced Bookkeeper @ Dairycs -> REJECTED: AlreadySeen
+534. Sales Operations @ ENGIS | אנג'יס -> REJECTED: AlreadySeen
+535. DevOps Engineer @ MatchPointIT -> REJECTED: AlreadySeen
+536. Electrical Engineering Graduate, Graviton Team   @ Amazon Web Services (AWS) -> REJECTED: AlreadySeen
+537. Cloud Security Analyst   @ Wiz -> REJECTED: AlreadySeen
+538. Dynamics 365 CRM Developer @ Unilink Ltd. -> REJECTED: AlreadySeen
+539. Junior Marketing Designer @ Jeen.ai -> REJECTED: AlreadySeen
+540. Java Programmer @ Ivory Software Systems -> REJECTED: AlreadySeen
+541. Project Manager  – Shaping the Future of Learning! - Entry Level Fulltime position @ Devlion LTD -> REJECTED: AlreadySeen
+542. Project Management Officer @ Inbal - HR Solutions -> REJECTED: AlreadySeen
+543. משפצ/ת מיסבים ואטמי פחם   @ IAI - Israel Aerospace Industries -> REJECTED: Whitelist
+544. Release Manager- Temporary position, Israel @ AlgoSec -> REJECTED: Blacklist
+545. Sales Engineer @ Raya Shtelman HR -> REJECTED: Blacklist
+546. UAV Integration Engineer (Hands-on) – Mission Planner / QGroundControl @ Corbotex -> REJECTED: Blacklist
+547. Clinical Research Coordinator   @ Tel Aviv Medical Center -> REJECTED: Whitelist
+548. Student Software Engineer   @ INSIGHTEC -> REJECTED: AlreadySeen
+549. Security Release Project Manager Student @ Intel Corporation -> REJECTED: AlreadySeen
+550. SOC Analyst (Student position)   @ Mobileye -> REJECTED: AlreadySeen
+551. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+552. Quality Assurance Manual Tester- Entry level @ Origami.ms -> REJECTED: AlreadySeen
+553. Electrical Engineering Graduate, Graviton Team   @ Amazon Web Services (AWS) -> REJECTED: AlreadySeen
+554. Technical Services Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+555. QA/RA Student   @ Shavit Software -> REJECTED: AlreadySeen
+556. 21062 - Junior QA Manual Tester- Artillery tester @ Qualitest acq -> REJECTED: AlreadySeen
+557. 21063 - Junior QA Engineer - Ballistic @ Qualitest acq -> REJECTED: AlreadySeen
+558. 18742 - Junior RF tester   @ Qualitest -> REJECTED: AlreadySeen
+559. QA Automation Engineer – Junior Position   @ Sharegain -> REJECTED: AlreadySeen
+560. 20320 - Junior QA tester (SHEDER HAM)   @ Qualitest -> REJECTED: AlreadySeen
+561. Junior Electronic Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+562. Solution Designer - Student position   @ Fives -> REJECTED: AlreadySeen
+563. Control and Navigation Engineer - Student Position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+564. סטודנט.ית לאיכות   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+565. Real-Time Embedded Firmware Design – Student Position @ Intel Corporation -> REJECTED: AlreadySeen
+566. SW development in test student   @ Apple -> REJECTED: AlreadySeen
+567. Junior IT & Systems Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+568. Technical Services Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+569. SOC Analyst (Student position)   @ Mobileye -> REJECTED: AlreadySeen
+570. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+571. Junior Operational System Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+572. Junior IT Support Engineer | Entry-Level Position @ Mornex Ltd -> REJECTED: AlreadySeen
+573. Data Scientist (AI / LLMs / ML in Production)   @ ONE datAI -> REJECTED: AlreadySeen
+574. Applied Data Scientist @ Rhino Federated Computing -> REJECTED: AlreadySeen
+575. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+576. Data Scientist   @ Zefr -> REJECTED: AlreadySeen
+577. Algorithm / Machine Learning Engineer – Autonomous Drone Interception @ Regulus -> REJECTED: AlreadySeen
+578. Data Scientist – Speech Processing @ VocaVibe -> REJECTED: AlreadySeen
+579. Junior Full Stack Javascript/Typescript Developer @ Rotemx, LTD -> REJECTED: AlreadySeen
+580. AI Reviewer - (Entry level OK, Freelance, Remote) @ Braintrust -> REJECTED: AlreadySeen
+581. Student   @ Merck Life Science -> REJECTED: AlreadySeen
+582. דרוש/ה מפתח/ת הדרכה – החלפה לחל״ד   @ PassportCard -> REJECTED: AlreadySeen
+583. Junior Social Marketing Analyst @ Kibeeri -> REJECTED: AlreadySeen
+584. Practical engineer @ Allpha Innovation -> REJECTED: AlreadySeen
+585. Test Technician - BIT (Built-In Test) Practical Engineer   @ AMAREL LTD -> REJECTED: AlreadySeen
+586. Officer-Loss Prevention   @ Marriott International -> REJECTED: Blacklist
+587. CRM Implementation Specialist (HubSpot) @ Ops Spot -> REJECTED: Whitelist
+588. Process Engineer   @ Flex -> REJECTED: Blacklist
+589. Regulatory Affairs Specialist @ Dormotech -> REJECTED: Whitelist
+590. Field Application Specialist @ AltaCare -> REJECTED: Whitelist
+591. נציג/ת גיוס לקוחות @ ONE ZERO BANK -> REJECTED: Blacklist
+592. מהנדס מכונות / אנרגיה @ H2OLL -> REJECTED: Whitelist
+593. מנהל אדמינסטרטיבית @ Metal-Ad ltd -> REJECTED: Whitelist
+594. Project Accountant Groups @ Tour Travel -> REJECTED: Blacklist
+595. Talent Acquisition Specialist (Global)   @ Candex -> REJECTED: Blacklist
+596. Junior Office Lease Broker @ NextPlace - The Office Lease Broker Scouting Tel Aviv -> REJECTED: Blacklist
+597. Business Development Representative @ Capnow -> REJECTED: Blacklist
+598. סטודנט.ית לפיתוח ארגוני   @ Rafael Advanced Defense Systems -> REJECTED: Whitelist
+599. מעצב/ת חווית משתמש (product designer) @ Create future -> REJECTED: Whitelist
+600. Payments Specialist   @ IsraTransfer -> REJECTED: Whitelist
+601. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+602. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+603. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+604. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+605. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+606. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+607. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+608. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+609. Business Analyst Intern   @ GE HealthCare -> REJECTED: AlreadySeen
+610. Junior Data Analyst   @ Experis Israel -> REJECTED: AlreadySeen
+611. Graduate Software Engineer, Open Source and Linux, Canonical Ubuntu   @ Canonical -> REJECTED: AlreadySeen
+612. Student Software Engineer   @ INSIGHTEC -> REJECTED: AlreadySeen
+613. Security Release Project Manager Student @ Intel Corporation -> REJECTED: AlreadySeen
+614. SOC Analyst (Student position)   @ Mobileye -> REJECTED: AlreadySeen
+615. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+616. Quality Assurance Manual Tester- Entry level @ Origami.ms -> REJECTED: AlreadySeen
+617. Electrical Engineering Graduate, Graviton Team   @ Amazon Web Services (AWS) -> REJECTED: AlreadySeen
+618. Technical Services Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+619. QA/RA Student   @ Shavit Software -> REJECTED: AlreadySeen
+620. 21062 - Junior QA Manual Tester- Artillery tester @ Qualitest acq -> REJECTED: AlreadySeen
+621. 21063 - Junior QA Engineer - Ballistic @ Qualitest acq -> REJECTED: AlreadySeen
+622. 18742 - Junior RF tester   @ Qualitest -> REJECTED: AlreadySeen
+623. QA Automation Engineer – Junior Position   @ Sharegain -> REJECTED: AlreadySeen
+624. 20320 - Junior QA tester (SHEDER HAM)   @ Qualitest -> REJECTED: AlreadySeen
+625. Junior Electronic Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+626. Solution Designer - Student position   @ Fives -> REJECTED: AlreadySeen
+627. Control and Navigation Engineer - Student Position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+628. סטודנט.ית לאיכות   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+629. Real-Time Embedded Firmware Design – Student Position @ Intel Corporation -> REJECTED: AlreadySeen
+630. SW development in test student   @ Apple -> REJECTED: AlreadySeen
+631. Junior IT & Systems Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+632. Technical Services Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+633. SOC Analyst (Student position)   @ Mobileye -> REJECTED: AlreadySeen
+634. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+635. Junior Operational System Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+636. Junior IT Support Engineer | Entry-Level Position @ Mornex Ltd -> REJECTED: AlreadySeen
+637. Applied Data Scientist @ Rhino Federated Computing -> REJECTED: AlreadySeen
+638. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+639. Data Scientist   @ Zefr -> REJECTED: AlreadySeen
+640. Data Scientist   @ IAI - Israel Aerospace Industries -> REJECTED: AlreadySeen
+641. Algorithm / Machine Learning Engineer – Autonomous Drone Interception @ Regulus -> REJECTED: AlreadySeen
+642. Data Scientist – Speech Processing @ VocaVibe -> REJECTED: AlreadySeen
+643. Full Stack Developer Student   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+644. Junior Full Stack Javascript/Typescript Developer @ Rotemx, LTD -> REJECTED: AlreadySeen
+645. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+646. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+647. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+648. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+649. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+650. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+651. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+652. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+653. Business Analyst Intern   @ GE HealthCare -> REJECTED: AlreadySeen
+654. Junior Data Analyst   @ Experis Israel -> REJECTED: AlreadySeen
+655. Graduate Software Engineer, Open Source and Linux, Canonical Ubuntu   @ Canonical -> REJECTED: AlreadySeen
+656. Student Software Engineer   @ INSIGHTEC -> REJECTED: AlreadySeen
+657. Security Release Project Manager Student @ Intel Corporation -> REJECTED: AlreadySeen
+658. SOC Analyst (Student position)   @ Mobileye -> REJECTED: AlreadySeen
+659. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+660. סטודנט.ית לאיכות   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+661. Quality Assurance Manual Tester- Entry level @ Origami.ms -> REJECTED: AlreadySeen
+662. Electrical Engineering Graduate, Graviton Team   @ Amazon Web Services (AWS) -> REJECTED: AlreadySeen
+663. Technical Services Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+664. QA/RA Student   @ Shavit Software -> REJECTED: AlreadySeen
+665. 21062 - Junior QA Manual Tester- Artillery tester @ Qualitest acq -> REJECTED: AlreadySeen
+666. 21063 - Junior QA Engineer - Ballistic @ Qualitest acq -> REJECTED: AlreadySeen
+667. 18742 - Junior RF tester   @ Qualitest -> REJECTED: AlreadySeen
+668. QA Automation Engineer – Junior Position   @ Sharegain -> REJECTED: AlreadySeen
+669. 20320 - Junior QA tester (SHEDER HAM)   @ Qualitest -> REJECTED: AlreadySeen
+670. Junior Electronic Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+671. Solution Designer - Student position   @ Fives -> REJECTED: AlreadySeen
+672. Control and Navigation Engineer - Student Position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+673. Real-Time Embedded Firmware Design – Student Position @ Intel Corporation -> REJECTED: AlreadySeen
+674. SW development in test student   @ Apple -> REJECTED: AlreadySeen
+675. Junior IT & Systems Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+676. Technical Services Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+677. SOC Analyst (Student position)   @ Mobileye -> REJECTED: AlreadySeen
+678. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+679. Junior Operational System Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+680. Junior IT Support Engineer | Entry-Level Position @ Mornex Ltd -> REJECTED: AlreadySeen
+681. Applied Data Scientist @ Rhino Federated Computing -> REJECTED: AlreadySeen
+682. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+683. Data Scientist   @ Zefr -> REJECTED: AlreadySeen
+684. Data Scientist   @ IAI - Israel Aerospace Industries -> REJECTED: AlreadySeen
+685. Algorithm / Machine Learning Engineer – Autonomous Drone Interception @ Regulus -> REJECTED: AlreadySeen
+686. Data Scientist – Speech Processing @ VocaVibe -> REJECTED: AlreadySeen
+687. Full Stack Developer Student   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+688. Junior Full Stack Javascript/Typescript Developer @ Rotemx, LTD -> REJECTED: AlreadySeen
+689. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+690. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+691. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+692. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+693. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+694. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+695. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+696. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+697. Business Analyst Intern   @ GE HealthCare -> REJECTED: AlreadySeen
+698. Junior Data Analyst   @ Experis Israel -> REJECTED: AlreadySeen
+699. Graduate Software Engineer, Open Source and Linux, Canonical Ubuntu   @ Canonical -> REJECTED: AlreadySeen
+700. Student Software Engineer   @ INSIGHTEC -> REJECTED: AlreadySeen
+701. Product Marketing Manager   @ Finout -> REJECTED: AlreadySeen
+702. AI People Solution Builder   @ monday.com -> REJECTED: Whitelist
+703. מנהל אחזקה\Maintenance Manager   @ MEININGER Hotels -> REJECTED: Blacklist
+704. רכז/ת תוכן ופעילויות מקצועיות @ AEAI - Association of Engineers and Architects in Israel - לשכת המהנדסים -> REJECTED: Whitelist
+705. Assistant Controller   @ Fundbox -> REJECTED: Blacklist
+706. Product Adoption Manager   @ Okoora -> REJECTED: Blacklist
+707. Sales Manager @ Unilink Ltd. -> REJECTED: Blacklist
+708. Network Operations Center Technician @ GO4iT -> REJECTED: Blacklist
+709. Support Partner @ Modellama -> REJECTED: Whitelist
+710. סטודנט.ית לתעשיה וניהול   @ Rafael Advanced Defense Systems -> REJECTED: Whitelist
+711. רואה חשבון צעיר לייעוץ כלכלי @ Regina Ungar & Co. – Corporate Financial Consulting -> REJECTED: Blacklist
+712. Public Relations Manager @ BaysbergTeam -> REJECTED: Blacklist
+713. מהנדס/ת מערכת   @ IAI - Israel Aerospace Industries -> REJECTED: Whitelist
+714. ICT Associate - Systems Support   @ UNOPS -> REJECTED: Whitelist
+715. מעצב/ת גרפי @ Gavish Media -> REJECTED: Whitelist
+716. Foreign Exchange Dealer and analyst @ PRICO - Financial Risk Management -> REJECTED: AlreadySeen
+717. CRM Implementation Specialist (HubSpot) @ Ops Spot -> REJECTED: AlreadySeen
+718. Process Engineer   @ Flex -> REJECTED: AlreadySeen
+719. Regulatory Affairs Specialist @ Dormotech -> REJECTED: AlreadySeen
+720. Field Application Specialist @ AltaCare -> REJECTED: AlreadySeen
+721. נציג/ת גיוס לקוחות @ ONE ZERO BANK -> REJECTED: AlreadySeen
+722. Back End Developer @ eMarketMed -> REJECTED: AlreadySeen
+723. מנהל אדמינסטרטיבית @ Metal-Ad ltd -> REJECTED: AlreadySeen
+724. Project Accountant Groups @ Tour Travel -> REJECTED: AlreadySeen
+725. Talent Acquisition Specialist (Global)   @ Candex -> REJECTED: AlreadySeen
+726. Junior Office Lease Broker @ NextPlace - The Office Lease Broker Scouting Tel Aviv -> REJECTED: AlreadySeen
+727. Business Development Representative @ Capnow -> REJECTED: AlreadySeen
+728. Student   @ Merck Life Science -> REJECTED: AlreadySeen
+729. Payments Specialist   @ IsraTransfer -> REJECTED: AlreadySeen
+730. סטודנט.ית מפענחת   @ Rafael Advanced Defense Systems -> REJECTED: Whitelist
+731. סטודנט.ית לתחום צבדים ותשתיות   @ Elbit Systems Israel -> REJECTED: Whitelist
+732. Office Manager & Talent Acquisition for maternity leave cover @ SessionCam -> REJECTED: Blacklist
+733. Officer-Loss Prevention   @ Marriott International -> REJECTED: Blacklist
+734. Electrical Engineer @ ERO Group Engineering, Ventures and Projects LTD -> REJECTED: Blacklist
+735. מיישם/מנהל פרוקטי ERP   @ SIT - Innovative Business Solutions -> REJECTED: Whitelist
+736. מפתח למידה - החלפה לחל״ד @ Tikshoov -> REJECTED: Whitelist
+737. Assistant Controller (Maternity Leave Cover) @ ROOMS by Fattal -> REJECTED: Blacklist
+738. Office Manager & Talent Acquisition for maternity leave cover @ Glassbox -> REJECTED: Blacklist
+739. Programmatic Account Manager @ Urban Recruits -> REJECTED: Blacklist
+740. Security Release Project Manager Student @ Intel Corporation -> REJECTED: AlreadySeen
+741. SOC Analyst (Student position)   @ Mobileye -> REJECTED: AlreadySeen
+742. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+743. AI People Solution Builder   @ monday.com -> REJECTED: AlreadySeen
+744. Product Marketing Manager   @ Finout -> REJECTED: AlreadySeen
+745. AI Automation (unpaid internship) @ IntelliVerse -> REJECTED: AlreadySeen
+746. AWS DevOps Engineer   @ Razel Group -> REJECTED: AlreadySeen
+747. Security Operations Center Analyst   @ Matrix -> REJECTED: AlreadySeen
+748. מנהל אחזקה\Maintenance Manager   @ MEININGER Hotels -> REJECTED: AlreadySeen
+749. Assistant Controller   @ Fundbox -> REJECTED: AlreadySeen
+750. AI engineer @ abra -> REJECTED: AlreadySeen
+751. Product Adoption Manager   @ Okoora -> REJECTED: AlreadySeen
+752. Infrastructure Engineer   @ UCL Group -> REJECTED: AlreadySeen
+753. Sales Manager @ Unilink Ltd. -> REJECTED: AlreadySeen
+754. Network Operations Center Technician @ GO4iT -> REJECTED: AlreadySeen
+755. Support Partner @ Modellama -> REJECTED: AlreadySeen
+756. סטודנט.ית לתעשיה וניהול   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+757. רואה חשבון צעיר לייעוץ כלכלי @ Regina Ungar & Co. – Corporate Financial Consulting -> REJECTED: AlreadySeen
+758. מהנדס/ת מערכת   @ IAI - Israel Aerospace Industries -> REJECTED: AlreadySeen
+759. QA Tester   @ Cambium Applicable Innovation -> REJECTED: AlreadySeen
+760. Summer Intern/Apprentice (12 weeks - Starting May/June) @ Tour Travel -> REJECTED: AlreadySeen
+761. ICT Associate - Systems Support   @ UNOPS -> REJECTED: AlreadySeen
+762. AI Engineer   @ Trax Retail -> REJECTED: AlreadySeen
+763. מעצב/ת גרפי @ Gavish Media -> REJECTED: AlreadySeen
+764. צבעי.ת תעופתי.ת   @ Elbit Systems Israel -> REJECTED: Whitelist
+765. Erasmus+ Coordinator   @ Bar-Ilan University -> REJECTED: Whitelist
+766. Sales Representative @ Comigo.io -> REJECTED: Blacklist
+767. Release Manager- Temporary position, Israel @ AlgoSec -> REJECTED: Blacklist
+768. סטודנט.ית לאיכות   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+769. Quality Assurance Manual Tester- Entry level @ Origami.ms -> REJECTED: AlreadySeen
+770. Electrical Engineering Graduate, Graviton Team   @ Amazon Web Services (AWS) -> REJECTED: AlreadySeen
+771. Technical Services Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+772. QA/RA Student   @ Shavit Software -> REJECTED: AlreadySeen
+773. 21062 - Junior QA Manual Tester- Artillery tester @ Qualitest acq -> REJECTED: AlreadySeen
+774. 21063 - Junior QA Engineer - Ballistic @ Qualitest acq -> REJECTED: AlreadySeen
+775. 18742 - Junior RF tester   @ Qualitest -> REJECTED: AlreadySeen
+776. QA Automation Engineer – Junior Position   @ Sharegain -> REJECTED: AlreadySeen
+777. 20320 - Junior QA tester (SHEDER HAM)   @ Qualitest -> REJECTED: AlreadySeen
+778. Junior Electronic Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+779. Solution Designer - Student position   @ Fives -> REJECTED: AlreadySeen
+780. Control and Navigation Engineer - Student Position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+781. Real-Time Embedded Firmware Design – Student Position @ Intel Corporation -> REJECTED: AlreadySeen
+782. SW development in test student   @ Apple -> REJECTED: AlreadySeen
+783. Junior IT & Systems Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+784. Technical Services Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+785. SOC Analyst (Student position)   @ Mobileye -> REJECTED: AlreadySeen
+786. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+787. Junior Operational System Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+788. Junior IT Support Engineer | Entry-Level Position @ Mornex Ltd -> REJECTED: AlreadySeen
+789. Applied Data Scientist @ Rhino Federated Computing -> REJECTED: AlreadySeen
+790. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+791. Data Scientist   @ Zefr -> REJECTED: AlreadySeen
+792. Algorithm / Machine Learning Engineer – Autonomous Drone Interception @ Regulus -> REJECTED: AlreadySeen
+793. Data Scientist – Speech Processing @ VocaVibe -> REJECTED: AlreadySeen
+794. Full Stack Developer Student   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+795. Junior Full Stack Javascript/Typescript Developer @ Rotemx, LTD -> REJECTED: AlreadySeen
+796. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+797. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+798. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+799. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+800. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+801. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+802. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+803. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+804. Business Analyst Intern   @ GE HealthCare -> REJECTED: AlreadySeen
+805. Junior Data Analyst   @ Experis Israel -> REJECTED: AlreadySeen
+806. Graduate Software Engineer, Open Source and Linux, Canonical Ubuntu   @ Canonical -> REJECTED: AlreadySeen
+807. Student Software Engineer   @ INSIGHTEC -> REJECTED: AlreadySeen
+808. Security Release Project Manager Student @ Intel Corporation -> REJECTED: AlreadySeen
+809. SOC Analyst (Student position)   @ Mobileye -> REJECTED: AlreadySeen
+810. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+811. סטודנט.ית לאיכות   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+812. Quality Assurance Manual Tester- Entry level @ Origami.ms -> REJECTED: AlreadySeen
+813. Electrical Engineering Graduate, Graviton Team   @ Amazon Web Services (AWS) -> REJECTED: AlreadySeen
+814. Technical Services Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+815. QA/RA Student   @ Shavit Software -> REJECTED: AlreadySeen
+816. 21062 - Junior QA Manual Tester- Artillery tester @ Qualitest acq -> REJECTED: AlreadySeen
+817. 21063 - Junior QA Engineer - Ballistic @ Qualitest acq -> REJECTED: AlreadySeen
+818. 18742 - Junior RF tester   @ Qualitest -> REJECTED: AlreadySeen
+819. QA Automation Engineer – Junior Position   @ Sharegain -> REJECTED: AlreadySeen
+820. 20320 - Junior QA tester (SHEDER HAM)   @ Qualitest -> REJECTED: AlreadySeen
+821. Junior Electronic Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+822. Solution Designer - Student position   @ Fives -> REJECTED: AlreadySeen
+823. Control and Navigation Engineer - Student Position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+824. Real-Time Embedded Firmware Design – Student Position @ Intel Corporation -> REJECTED: AlreadySeen
+825. SW development in test student   @ Apple -> REJECTED: AlreadySeen
+826. Junior IT & Systems Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+827. Technical Services Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+828. SOC Analyst (Student position)   @ Mobileye -> REJECTED: AlreadySeen
+829. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+830. Junior Operational System Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+831. Junior IT Support Engineer | Entry-Level Position @ Mornex Ltd -> REJECTED: AlreadySeen
+832. Applied Data Scientist @ Rhino Federated Computing -> REJECTED: AlreadySeen
+833. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+834. Data Scientist   @ Zefr -> REJECTED: AlreadySeen
+835. Data Scientist   @ IAI - Israel Aerospace Industries -> REJECTED: AlreadySeen
+836. Algorithm / Machine Learning Engineer – Autonomous Drone Interception @ Regulus -> REJECTED: AlreadySeen
+837. Data Scientist – Speech Processing @ VocaVibe -> REJECTED: AlreadySeen
+838. Italian / English Gaming Support Agent @ 5CA -> REJECTED: AlreadySeen
+839. Business Applications Systems Impelementer @ AppsFlyer -> REJECTED: Whitelist
+840. מזכיר/ת שותפים @ Meitar | Law Offices -> REJECTED: Whitelist
+841. Mid-Market Account Executive - Israel   @ Datadog -> REJECTED: Whitelist
+842. מהנדס.ת ייצור   @ Elbit Systems Israel -> REJECTED: Whitelist
+843. Brand Designer @ TITAN Branding -> REJECTED: Whitelist
+844. Tier1 Technical Support Rep @ Konimbo -> REJECTED: Whitelist
+845. Project Implementation Specialist @ Rewire Solutions - Business Automation -> REJECTED: Whitelist
+846. Client & Project Manager   @ Gitam BBDO -> REJECTED: Blacklist
+847. Paralegal/Pre-Intern - Intellectual Property (Part-Time) @ Drori Stav IP -> REJECTED: Blacklist
+848. Digital Development Manager @ Unilink Ltd. -> REJECTED: Blacklist
+849. Accountant   @ Ness Technologies | נס טכנולוגיות -> REJECTED: Blacklist
+850. Tier 1 Technical Support   @ Helen Doron Educational Group -> REJECTED: Whitelist
+851. 1.	מהנדס/ת או הנדסאי/ת מכונות - מתכנן/ת מכני/ת @ IGOS-MN RF Shielding LTD -> REJECTED: Whitelist
+852. SAP Implementation Specialist   @ UCL Group -> REJECTED: Whitelist
+853. Travel Advisor – Turn Your Passion into a Career ✈️ @ Tripanda -> REJECTED: Whitelist
+854. Field Technician   @ Theator -> REJECTED: Blacklist
+855. Brand Designer   @ BDO Israel -> REJECTED: Whitelist
+856. Full Stack Developer Student   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+857. Junior Full Stack Javascript/Typescript Developer @ Rotemx, LTD -> REJECTED: AlreadySeen
+858. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+859. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+860. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+861. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+862. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+863. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+864. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+865. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+866. Business Analyst Intern   @ GE HealthCare -> REJECTED: AlreadySeen
+867. Talent Acquisition Specialist @ Ethosia -> REJECTED: AlreadySeen
+868. Business Applications Systems Impelementer @ AppsFlyer -> REJECTED: AlreadySeen
+869. מזכיר/ת שותפים @ Meitar | Law Offices -> REJECTED: AlreadySeen
+870. AWS DevOps Engineer   @ Razel Group -> REJECTED: AlreadySeen
+871. Mid-Market Account Executive - Israel   @ Datadog -> REJECTED: AlreadySeen
+872. Data Engineer @ Software AG Israel -> REJECTED: AlreadySeen
+873. Technology Budget Analyst @ abra -> REJECTED: AlreadySeen
+874. Brand Designer @ TITAN Branding -> REJECTED: AlreadySeen
+875. Tier1 Technical Support Rep @ Konimbo -> REJECTED: AlreadySeen
+876. Project Implementation Specialist @ Rewire Solutions - Business Automation -> REJECTED: AlreadySeen
+877. Client & Project Manager   @ Gitam BBDO -> REJECTED: AlreadySeen
+878. Paralegal/Pre-Intern - Intellectual Property (Part-Time) @ Drori Stav IP -> REJECTED: AlreadySeen
+879. Junior Business Operations   @ Lightico -> REJECTED: AlreadySeen
+880. Digital Development Manager @ Unilink Ltd. -> REJECTED: AlreadySeen
+881. Accountant   @ Ness Technologies | נס טכנולוגיות -> REJECTED: AlreadySeen
+882. 18396 - QA Automation Engineer @ Qualitest acq -> REJECTED: AlreadySeen
+883. Tier 1 Technical Support   @ Helen Doron Educational Group -> REJECTED: AlreadySeen
+884. 1.	מהנדס/ת או הנדסאי/ת מכונות - מתכנן/ת מכני/ת @ IGOS-MN RF Shielding LTD -> REJECTED: AlreadySeen
+885. Video Recording Job | No Experience Required @ micro1 -> REJECTED: Whitelist
+886. לחברת בניה באשקלון *דרוש/ה פקיד/ת רכש* @ segev  -> REJECTED: Whitelist
+887. מתמחים.ות למשרד רואי חשבון ויעוץ כלכלי @ מיכאל ויצמן ושות׳. מיזוגים ורכישות. חוו״ד מומחה. ראיית חשבון -> REJECTED: Blacklist
+888. מנהל.ת תחום עסקי   @ Elbit Systems Israel -> REJECTED: Whitelist
+889. Bookkeeper @ PMI Kids World -> REJECTED: Blacklist
+890. Graduate Software Engineer, Open Source and Linux, Canonical Ubuntu   @ Canonical -> REJECTED: AlreadySeen
+891. Student Software Engineer   @ INSIGHTEC -> REJECTED: AlreadySeen
+892. Security Release Project Manager Student @ Intel Corporation -> REJECTED: AlreadySeen
+893. SOC Analyst (Student position)   @ Mobileye -> REJECTED: AlreadySeen
+894. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+895. סטודנט.ית לאיכות   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+896. Quality Assurance Manual Tester- Entry level @ Origami.ms -> REJECTED: AlreadySeen
+897. Electrical Engineering Graduate, Graviton Team   @ Amazon Web Services (AWS) -> REJECTED: AlreadySeen
+898. Technical Services Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+899. QA/RA Student   @ Shavit Software -> REJECTED: AlreadySeen
+900. 21062 - Junior QA Manual Tester- Artillery tester @ Qualitest acq -> REJECTED: AlreadySeen
+901. 21063 - Junior QA Engineer - Ballistic @ Qualitest acq -> REJECTED: AlreadySeen
+902. 18742 - Junior RF tester   @ Qualitest -> REJECTED: AlreadySeen
+903. QA Automation Engineer – Junior Position   @ Sharegain -> REJECTED: AlreadySeen
+904. 20320 - Junior QA tester (SHEDER HAM)   @ Qualitest -> REJECTED: AlreadySeen
+905. Junior Electronic Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+906. Solution Designer - Student position   @ Fives -> REJECTED: AlreadySeen
+907. Control and Navigation Engineer - Student Position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+908. Real-Time Embedded Firmware Design – Student Position @ Intel Corporation -> REJECTED: AlreadySeen
+909. SW development in test student   @ Apple -> REJECTED: AlreadySeen
+910. Junior IT & Systems Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+911. Technical Services Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+912. SOC Analyst (Student position)   @ Mobileye -> REJECTED: AlreadySeen
+913. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+914. Junior Operational System Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+915. Junior IT Support Engineer | Entry-Level Position @ Mornex Ltd -> REJECTED: AlreadySeen
+916. Applied Data Scientist @ Rhino Federated Computing -> REJECTED: AlreadySeen
+917. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+918. Data Scientist   @ IAI - Israel Aerospace Industries -> REJECTED: AlreadySeen
+919. Algorithm / Machine Learning Engineer – Autonomous Drone Interception @ Regulus -> REJECTED: AlreadySeen
+920. Data Scientist – Speech Processing @ VocaVibe -> REJECTED: AlreadySeen
+921. Full Stack Developer Student   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+922. Junior Full Stack Javascript/Typescript Developer @ Rotemx, LTD -> REJECTED: AlreadySeen
+923. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+924. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+925. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+926. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+927. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+928. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+929. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+930. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+931. Business Analyst Intern   @ GE HealthCare -> REJECTED: AlreadySeen
+932. Graduate Software Engineer, Open Source and Linux, Canonical Ubuntu   @ Canonical -> REJECTED: AlreadySeen
+933. Student Software Engineer   @ INSIGHTEC -> REJECTED: AlreadySeen
+934. Security Release Project Manager Student @ Intel Corporation -> REJECTED: AlreadySeen
+935. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+936. Payments Operations Manager @ AutoDS - Automatic Dropshipping Tools -> REJECTED: AlreadySeen
+937. Junior Data Analyst @ DRS RADA Technologies -> REJECTED: AlreadySeen
+938. Operations Manager   @ Okoora -> REJECTED: Blacklist
+939. Project Manager   @ abra -> REJECTED: Blacklist
+940. V&V and NPI Mechanical Engineer @ Alpha Tau Medical -> REJECTED: Blacklist
+941. Customer Success Specialist @ Mornex Ltd -> REJECTED: Blacklist
+942. Recruitment Coordinator @ QAS Israel -> REJECTED: Blacklist
+943. מהנדס/ת VDC   @ Tidhar group | קבוצת תדהר -> REJECTED: Whitelist
+944. Back Office Administrator @ Pronat Medical -> REJECTED: Blacklist
+945. Sales Development Representative   @ NGsoft -> REJECTED: Blacklist
+946. Finance Operations Associate   @ Vintage Investment Partners -> REJECTED: Blacklist
+947. Service Delivery Operations - Israel based   @ AKT Global -> REJECTED: Whitelist
+948. Product Designer   @ BDO Israel -> REJECTED: Whitelist
+949. Electrical Engineer @ BarAkiva Engineers -> REJECTED: Blacklist
+950. Fund Manager @ Ziv Sapir & IBI Alternative Investments -> REJECTED: Blacklist
+951. מפתח/ת אלגוריתמים בתחום ה- AI   @ IAI - Israel Aerospace Industries -> REJECTED: Whitelist
+952. Social Media Manager @ XTRA Giftcard -> REJECTED: Blacklist
+953. Talent Agent   @ Clicks Talent -> REJECTED: Blacklist
+954. Attorney-Securities & Economic Crime Litigation   @ הרשות לניירות ערך - Israel Securities Authority -> REJECTED: Blacklist
+955. סטודנט.ית לאיכות   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+956. Quality Assurance Manual Tester- Entry level @ Origami.ms -> REJECTED: AlreadySeen
+957. Electrical Engineering Graduate, Graviton Team   @ Amazon Web Services (AWS) -> REJECTED: AlreadySeen
+958. Technical Support Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+959. QA/RA Student   @ Shavit Software -> REJECTED: AlreadySeen
+960. 21062 - Junior QA Manual Tester- Artillery tester @ Qualitest acq -> REJECTED: AlreadySeen
+961. 21063 - Junior QA Engineer - Ballistic @ Qualitest acq -> REJECTED: AlreadySeen
+962. 18742 - Junior RF tester   @ Qualitest -> REJECTED: AlreadySeen
+963. QA Automation Engineer – Junior Position   @ Sharegain -> REJECTED: AlreadySeen
+964. 20320 - Junior QA tester (SHEDER HAM)   @ Qualitest -> REJECTED: AlreadySeen
+965. Junior Electronic Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+966. Solution Designer - Student position   @ Fives -> REJECTED: AlreadySeen
+967. SW development in test student   @ Apple -> REJECTED: AlreadySeen
+968. Junior IT & Systems Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+969. Technical Support Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+970. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+971. Junior Operational System Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+972. Junior IT Support Engineer | Entry-Level Position @ Mornex Ltd -> REJECTED: AlreadySeen
+973. Machine Learning Engineer, Multimodal models (LLM/VLM)   @ Mobileye -> REJECTED: AlreadySeen
+974. Applied Data Scientist @ Rhino Federated Computing -> REJECTED: AlreadySeen
+975. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+976. Data Scientist   @ Zefr -> REJECTED: AlreadySeen
+977. Algorithm / Machine Learning Engineer – Autonomous Drone Interception @ Regulus -> REJECTED: AlreadySeen
+978. Data Scientist – Speech Processing @ VocaVibe -> REJECTED: AlreadySeen
+979. Full Stack Developer Student   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+980. Junior Full Stack Javascript/Typescript Developer @ Rotemx, LTD -> REJECTED: AlreadySeen
+981. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+982. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+983. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+984. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+985. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+986. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+987. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+988. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+989. Junior Data Analyst @ DRS RADA Technologies -> REJECTED: AlreadySeen
+990. Business Analyst Intern   @ GE HealthCare -> REJECTED: AlreadySeen
+991. Graduate Software Engineer, Open Source and Linux, Canonical Ubuntu   @ Canonical -> REJECTED: AlreadySeen
+992. Student Software Engineer   @ INSIGHTEC -> REJECTED: AlreadySeen
+993. Operations Manager   @ Okoora -> REJECTED: AlreadySeen
+994. Quality Assurance Engineer @ Pelecard -> REJECTED: AlreadySeen
+995. QA Automation Engineer @ Intel Corporation -> REJECTED: AlreadySeen
+996. Customer Success Specialist @ Mornex Ltd -> REJECTED: AlreadySeen
+997. DevOps Engineer   @ Moveo Group -> REJECTED: AlreadySeen
+998. Recruitment Coordinator @ QAS Israel -> REJECTED: AlreadySeen
+999. IT Support Engineer, Part time   @ K Health -> REJECTED: AlreadySeen
+1000. Back Office Administrator @ Pronat Medical -> REJECTED: AlreadySeen
+1001. Billing and Collection Specialist   @ Coralogix -> REJECTED: AlreadySeen
+1002. Release Manager- Temporary position, Israel @ AlgoSec -> REJECTED: Blacklist
+1003. Sales Account Manager   @ Ontopo -> REJECTED: Blacklist
+1004. Business Applications Systems Impelementer   @ AppsFlyer -> REJECTED: Whitelist
+1005. Assistant Controller   @ Strauss Group -> REJECTED: Blacklist
+1006. Project Finance Analyst @ MNS Consulting IL -> REJECTED: Blacklist
+1007. Freelance Salesperson and Video Editor @ RRTD - Academy -> REJECTED: Blacklist
+1008. Assistant Financial Controller   @ PwC Israel -> REJECTED: Blacklist
+1009. אנליטיקאי/ת במעבדה @ CANNASOUL GROUP -> REJECTED: Whitelist
+1010. Email Marketing Manager @ Marketing company -> REJECTED: Blacklist
+1011. Financial Controller   @ Priority Software -> REJECTED: Blacklist
+1012. Help Desk Technician   @ Datacube -> REJECTED: Blacklist
+1013. חברת צוות אדמיניסטרציה (משרה חלקית – שעות אחר הצהריים) @ MOi - M. Oiknine & Co. Advocates -> REJECTED: Blacklist
+1014. Security Release Project Manager Student @ Intel Corporation -> REJECTED: AlreadySeen
+1015. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+1016. סטודנט.ית לאיכות   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+1017. Quality Assurance Manual Tester- Entry level @ Origami.ms -> REJECTED: AlreadySeen
+1018. Electrical Engineering Graduate, Graviton Team   @ Amazon Web Services (AWS) -> REJECTED: AlreadySeen
+1019. Technical Support Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+1020. QA/RA Student   @ Shavit Software -> REJECTED: AlreadySeen
+1021. 21062 - Junior QA Manual Tester- Artillery tester @ Qualitest acq -> REJECTED: AlreadySeen
+1022. 21063 - Junior QA Engineer - Ballistic @ Qualitest acq -> REJECTED: AlreadySeen
+1023. 18742 - Junior RF tester   @ Qualitest -> REJECTED: AlreadySeen
+1024. QA Automation Engineer – Junior Position   @ Sharegain -> REJECTED: AlreadySeen
+1025. 20320 - Junior QA tester (SHEDER HAM)   @ Qualitest -> REJECTED: AlreadySeen
+1026. Junior Electronic Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1027. Solution Designer - Student position   @ Fives -> REJECTED: AlreadySeen
+1028. Junior Hardware Engineer   @ Elbit Systems Israel -> REJECTED: Blacklist
+1029. SW development in test student   @ Apple -> REJECTED: AlreadySeen
+1030. Junior IT & Systems Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1031. Technical Support Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+1032. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+1033. Junior Operational System Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1034. Junior IT Support Engineer | Entry-Level Position @ Mornex Ltd -> REJECTED: AlreadySeen
+1035. Machine Learning Engineer, Multimodal models (LLM/VLM)   @ Mobileye -> REJECTED: AlreadySeen
+1036. Applied Data Scientist @ Rhino Federated Computing -> REJECTED: AlreadySeen
+1037. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1038. Data Scientist   @ Zefr -> REJECTED: AlreadySeen
+1039. Data Scientist   @ IAI - Israel Aerospace Industries -> REJECTED: AlreadySeen
+1040. Algorithm / Machine Learning Engineer – Autonomous Drone Interception @ Regulus -> REJECTED: AlreadySeen
+1041. Data Scientist – Speech Processing @ VocaVibe -> REJECTED: AlreadySeen
+1042. Full Stack Developer Student   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1043. Junior Full Stack Javascript/Typescript Developer @ Rotemx, LTD -> REJECTED: AlreadySeen
+1044. חבר/ת צוות אדמיניסטרציה (משרה חלקית – שעות אחר הצהריים) @ MOi - M. Oiknine & Co. Advocates -> REJECTED: AlreadySeen
+1045. Creative & Social Media Manager @ Mink N' Vik -> REJECTED: AlreadySeen
+1046. 20502 - QA Manual   @ Qualitest -> REJECTED: AlreadySeen
+1047. Junior Hardware Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1048. Business Applications Systems Impelementer   @ AppsFlyer -> REJECTED: AlreadySeen
+1049. DevOps Engineer @ 4M Analytics -> REJECTED: AlreadySeen
+1050. Project Finance Analyst @ MNS Consulting IL -> REJECTED: AlreadySeen
+1051. Assistant Financial Controller   @ PwC Israel -> REJECTED: AlreadySeen
+1052. אנליטיקאי/ת במעבדה @ CANNASOUL GROUP -> REJECTED: AlreadySeen
+1053. Email Marketing Manager @ Marketing company -> REJECTED: AlreadySeen
+1054. אחראי/ת טיוב נתונים בתחום הרכב   @ yad2 -> REJECTED: Whitelist
+1055. מומחה/ית הבטחת איכות @ bioplan -> REJECTED: Whitelist
+1056. Partner Network Manager   @ Kaltura -> REJECTED: Blacklist
+1057. Air Conditioning  HVAC or cooling Specialist @ Assa Aharoni consulting engineers LTD -> REJECTED: Whitelist
+1058. Product Owner - Beach Bum   @ Beach Bum -> REJECTED: Whitelist
+1059. Customer Success Manager with AdTech Expertise @ Luns. -> REJECTED: Blacklist
+1060. Mechanic   @ Kimberly-Clark -> REJECTED: Blacklist
+1061. מהנדס/ת מערכת ראשי לחימוש אווירי   @ IAI - Israel Aerospace Industries -> REJECTED: Whitelist
+1062. Outbound Sales Development Representative - Hebrew   @ Remote -> REJECTED: Blacklist
+1063. Finance Operations Analyst @ LAYA App -> REJECTED: Blacklist
+1064. Photo Retoucher   @ Edikted -> REJECTED: Whitelist
+1065. Trade Marketing Specialist- Israel @ LIXIL -> REJECTED: Blacklist
+1066. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1067. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1068. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1069. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1070. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1071. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1072. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1073. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1074. Junior Data Analyst @ DRS RADA Technologies -> REJECTED: AlreadySeen
+1075. Business Analyst Intern   @ GE HealthCare -> REJECTED: AlreadySeen
+1076. Graduate Software Engineer, Open Source and Linux, Canonical Ubuntu   @ Canonical -> REJECTED: AlreadySeen
+1077. Security Release Project Manager Student @ Intel Corporation -> REJECTED: AlreadySeen
+1078. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+1079. Junior Hardware Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1080. סטודנט.ית לאיכות   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+1081. Quality Assurance Manual Tester- Entry level @ Origami.ms -> REJECTED: AlreadySeen
+1082. Electrical Engineering Graduate, Graviton Team   @ Amazon Web Services (AWS) -> REJECTED: AlreadySeen
+1083. Technical Support Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+1084. QA/RA Student   @ Shavit Software -> REJECTED: AlreadySeen
+1085. 21062 - Junior QA Manual Tester- Artillery tester @ Qualitest acq -> REJECTED: AlreadySeen
+1086. 21063 - Junior QA Engineer - Ballistic @ Qualitest acq -> REJECTED: AlreadySeen
+1087. 18742 - Junior RF tester   @ Qualitest -> REJECTED: AlreadySeen
+1088. QA Automation Engineer – Junior Position   @ Sharegain -> REJECTED: AlreadySeen
+1089. 20320 - Junior QA tester (SHEDER HAM)   @ Qualitest -> REJECTED: AlreadySeen
+1090. Junior Electronic Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1091. Solution Designer - Student position   @ Fives -> REJECTED: AlreadySeen
+1092. SW development in test student   @ Apple -> REJECTED: AlreadySeen
+1093. Junior IT & Systems Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1094. Technical Support Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+1095. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+1096. Junior Operational System Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1097. Junior IT Support Engineer | Entry-Level Position @ Mornex Ltd -> REJECTED: AlreadySeen
+1098. Machine Learning Engineer, Multimodal models (LLM/VLM)   @ Mobileye -> REJECTED: AlreadySeen
+1099. Applied Data Scientist @ Rhino Federated Computing -> REJECTED: AlreadySeen
+1100. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1101. Data Scientist   @ Zefr -> REJECTED: AlreadySeen
+1102. Data Scientist   @ IAI - Israel Aerospace Industries -> REJECTED: AlreadySeen
+1103. Algorithm / Machine Learning Engineer – Autonomous Drone Interception @ Regulus -> REJECTED: AlreadySeen
+1104. SOC Analyst - Student position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1105. Finance Operations Analyst @ LAYA App -> REJECTED: AlreadySeen
+1106. IT Engineer- Student @ AlgoSec -> REJECTED: AlreadySeen
+1107. Business Applications Systems Impelementer   @ AppsFlyer -> REJECTED: AlreadySeen
+1108. DevOps Engineer @ 4M Analytics -> REJECTED: AlreadySeen
+1109. Project Finance Analyst @ MNS Consulting IL -> REJECTED: AlreadySeen
+1110. Assistant Financial Controller   @ PwC Israel -> REJECTED: AlreadySeen
+1111. זמנית (GA, Israel) מלקטים לוולט מרקט תלפיות, משרה   @ Wolt -> REJECTED: Whitelist
+1112. 21304 - System Tester   @ Qualitest -> REJECTED: Whitelist
+1113. Clinical SAS Programmer   @ Novocure -> REJECTED: Whitelist
+1114. Financial / Business Analyst   @ Motorola Solutions -> REJECTED: Blacklist
+1115. Programme Management – Associate (E-Learning and Instructional Design) - Retainer   @ UNOPS -> REJECTED: Whitelist
+1116. קונסטרוקטור @ GAV ENGINEERING -> REJECTED: Whitelist
+1117. Office & Employee Experience Manager (PT) @ Intelligo -> REJECTED: Blacklist
+1118. מעצב.ת גרפי.ת @ prpl -> REJECTED: Whitelist
+1119. Marketing & Digital Coordinator   @ S. Friedman, Abramson & Co. -> REJECTED: Blacklist
+1120. Partner Network Manager @ Kaltura -> REJECTED: Blacklist
+1121. Administrative Clerk @ Keinan Udi -> REJECTED: Blacklist
+1122. Bookkeeper @ unik public image -> REJECTED: Blacklist
+1123. מנהל/ת פרויקט היערכות   @ IAI - Israel Aerospace Industries -> REJECTED: Whitelist
+1124. Full Stack Developer Student   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1125. Junior Full Stack Javascript/Typescript Developer @ Rotemx, LTD -> REJECTED: AlreadySeen
+1126. זמנית (GA, Israel) מלקטים לוולט מרקט תלפיות, משרה   @ Wolt -> REJECTED: AlreadySeen
+1127. 21304 - System Tester   @ Qualitest -> REJECTED: AlreadySeen
+1128. Clinical SAS Programmer   @ Novocure -> REJECTED: AlreadySeen
+1129. SOC Analyst - Student position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1130. Programme Management – Associate (E-Learning and Instructional Design) - Retainer   @ UNOPS -> REJECTED: AlreadySeen
+1131. Network security Integrator   @ Bynet Data Communications -> REJECTED: AlreadySeen
+1132. קונסטרוקטור @ GAV ENGINEERING -> REJECTED: AlreadySeen
+1133. Quality Assurance Tester @ AGL - Above Ground Level -> REJECTED: AlreadySeen
+1134. מעצב.ת גרפי.ת @ prpl -> REJECTED: AlreadySeen
+1135. AI Solutions Developer   @ GlassesUSA.com -> REJECTED: AlreadySeen
+1136. Partner Network Manager @ Kaltura -> REJECTED: AlreadySeen
+1137. חבר/ת צוות אדמיניסטרציה (משרה חלקית – שעות אחר הצהריים) @ MOi - M. Oiknine & Co. Advocates -> REJECTED: AlreadySeen
+1138. Product Owner - Beach Bum   @ Beach Bum -> REJECTED: AlreadySeen
+1139. Research Scientist – LTX Model Quality   @ Lightricks -> REJECTED: AlreadySeen
+1140. מנהל/ת פרויקט היערכות   @ IAI - Israel Aerospace Industries -> REJECTED: AlreadySeen
+1141. IT Engineer- Student @ AlgoSec -> REJECTED: AlreadySeen
+1142. Business Applications Systems Impelementer   @ AppsFlyer -> REJECTED: AlreadySeen
+1143. DevOps Engineer @ 4M Analytics -> REJECTED: AlreadySeen
+1144. Project Finance Analyst @ MNS Consulting IL -> REJECTED: AlreadySeen
+1145. Assistant Financial Controller   @ PwC Israel -> REJECTED: AlreadySeen
+1146. אנליטיקאי/ת במעבדה @ CANNASOUL GROUP -> REJECTED: AlreadySeen
+1147. Marketing Automation Manager @ Marketing company -> REJECTED: AlreadySeen
+1148. V&V System Engineer   @ HR Home -> REJECTED: AlreadySeen
+1149. Product Adoption Manager   @ Okoora -> REJECTED: Blacklist
+1150. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1151. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1152. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1153. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1154. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1155. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1156. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1157. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1158. Junior Data Analyst @ DRS RADA Technologies -> REJECTED: AlreadySeen
+1159. Business Analyst Intern   @ GE HealthCare -> REJECTED: AlreadySeen
+1160. Graduate Software Engineer, Open Source and Linux, Canonical Ubuntu   @ Canonical -> REJECTED: AlreadySeen
+1161. SOC Analyst - Student position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1162. Security Release Project Manager Student @ Intel Corporation -> REJECTED: AlreadySeen
+1163. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+1164. Junior Hardware Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1165. סטודנט.ית לאיכות   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+1166. Quality Assurance Manual Tester- Entry level @ Origami.ms -> REJECTED: AlreadySeen
+1167. Electrical Engineering Graduate, Graviton Team   @ Amazon Web Services (AWS) -> REJECTED: AlreadySeen
+1168. Technical Support Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+1169. QA/RA Student   @ Shavit Software -> REJECTED: AlreadySeen
+1170. 21062 - Junior QA Manual Tester- Artillery tester @ Qualitest acq -> REJECTED: AlreadySeen
+1171. 21063 - Junior QA Engineer - Ballistic @ Qualitest acq -> REJECTED: AlreadySeen
+1172. 18742 - Junior RF tester   @ Qualitest -> REJECTED: AlreadySeen
+1173. QA Automation Engineer – Junior Position   @ Sharegain -> REJECTED: AlreadySeen
+1174. 20320 - Junior QA tester (SHEDER HAM)   @ Qualitest -> REJECTED: AlreadySeen
+1175. Junior Electronic Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1176. זמנית (GA, Israel) מלקטים לוולט מרקט תלפיות, משרה   @ Wolt -> REJECTED: AlreadySeen
+1177. 21304 - System Tester   @ Qualitest -> REJECTED: AlreadySeen
+1178. Clinical SAS Programmer   @ Novocure -> REJECTED: AlreadySeen
+1179. Financial / Business Analyst   @ Motorola Solutions -> REJECTED: AlreadySeen
+1180. SOC Analyst - Student position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1181. Programme Management – Associate (E-Learning and Instructional Design) - Retainer   @ UNOPS -> REJECTED: AlreadySeen
+1182. Network security Integrator   @ Bynet Data Communications -> REJECTED: AlreadySeen
+1183. קונסטרוקטור @ GAV ENGINEERING -> REJECTED: AlreadySeen
+1184. Office & Employee Experience Manager (PT) @ Intelligo -> REJECTED: AlreadySeen
+1185. SOC UPF Methodology Engineer   @ Apple -> REJECTED: AlreadySeen
+1186. Quality Assurance Tester @ AGL - Above Ground Level -> REJECTED: AlreadySeen
+1187. מעצב.ת גרפי.ת @ prpl -> REJECTED: AlreadySeen
+1188. AI Solutions Developer   @ GlassesUSA.com -> REJECTED: AlreadySeen
+1189. Bookkeeper @ unik public image -> REJECTED: AlreadySeen
+1190. אחראי/ת טיוב נתונים בתחום הרכב   @ yad2 -> REJECTED: AlreadySeen
+1191. חבר/ת צוות אדמיניסטרציה (משרה חלקית – שעות אחר הצהריים) @ MOi - M. Oiknine & Co. Advocates -> REJECTED: AlreadySeen
+1192. Partner Network Manager   @ Kaltura -> REJECTED: AlreadySeen
+1193. Air Conditioning  HVAC or cooling Specialist @ Assa Aharoni consulting engineers LTD -> REJECTED: AlreadySeen
+1194. Product Owner - Beach Bum   @ Beach Bum -> REJECTED: AlreadySeen
+1195. Trade Marketing Specialist- Israel @ LIXIL -> REJECTED: Blacklist
+1196. מגייס/ת מתחיל/ה לעמותה חינוכית @ AGILINA -> REJECTED: Whitelist
+1197. Electrical Engineer   @ Energean -> REJECTED: Blacklist
+1198. Account Manager @ Barzel Media -> REJECTED: Blacklist
+1199. Marketing Specialist @ קבוצת דרייב - Drive group -> REJECTED: Blacklist
+1200. Postdoctoral Associate @ Guangdong Technion-Israel Institute of Technology [GTIIT] -> REJECTED: Whitelist
+1201. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1202. SW development in test student   @ Apple -> REJECTED: AlreadySeen
+1203. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1204. SOC Analyst - Student position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1205. Junior IT & Systems Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1206. Technical Support Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+1207. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+1208. Junior Operational System Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1209. Junior IT Support Engineer | Entry-Level Position @ Mornex Ltd -> REJECTED: AlreadySeen
+1210. Machine Learning Engineer, Multimodal models (LLM/VLM)   @ Mobileye -> REJECTED: AlreadySeen
+1211. Applied Data Scientist @ Rhino Federated Computing -> REJECTED: AlreadySeen
+1212. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1213. Data Scientist   @ Zefr -> REJECTED: AlreadySeen
+1214. Algorithm / Machine Learning Engineer – Autonomous Drone Interception @ Regulus -> REJECTED: AlreadySeen
+1215. 21304 - System Tester   @ Qualitest -> REJECTED: AlreadySeen
+1216. מנהל/ת פרויקטים @ ValueTech LTD -> REJECTED: Whitelist
+1217. GTM AI Builder   @ monday.com -> REJECTED: Whitelist
+1218. Graphics Map Inspector   @ Oriient -> REJECTED: Blacklist
+1219. Digital Manager @ Shooker ADV -> REJECTED: Blacklist
+1220. Senior Software Java Engineer @ Unilink Ltd. -> REJECTED: Blacklist
+1221. Administrative Manager @ TOTAL ADMIN - Financial & HR operations for start ups -> REJECTED: Blacklist
+1222. Economist   @ Alpa Cosmetics Group -> REJECTED: Blacklist
+1223. Lab Technician - Health @ Hazera Seeds -> REJECTED: Blacklist
+1224. Receptionist   @ Herzog -> REJECTED: Whitelist
+1225. Programme Management - Associate   @ UNOPS -> REJECTED: Whitelist
+1226. Video Editor Annotator @ micro1 -> REJECTED: Whitelist
+1227. מדריכ/ת פסיכוטכני @ Noam Institute Ltd. מכון נועם -> REJECTED: Whitelist
+1228. אחראי.ת תקשורת פנים ארגונית ומיתוג מעסיק 12677 @ Meuhedet Health Services - מאוחדת -> REJECTED: Whitelist
+1229. Account Executive   @ Mixpanel -> REJECTED: Whitelist
+1230. Mechanical Engineer Student   @ HP -> REJECTED: Blacklist
+1231. Beauty Advisor - Arabic (Remote) 9 Months Contract @ TP -> REJECTED: Whitelist
+1232. Account Executive, MM | Benelux   @ Deel -> REJECTED: Whitelist
+1233. Customer Support Specialist @ 2TeamApp -> REJECTED: Blacklist
+1234. Customer Service Rep @ QUANTUM GLOBAL TECHNOLOGIES, LLC -> REJECTED: Whitelist
+1235. Full Stack Developer Student   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1236. Junior Full Stack Javascript/Typescript Developer @ Rotemx, LTD -> REJECTED: AlreadySeen
+1237. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1238. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1239. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1240. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1241. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1242. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1243. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1244. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1245. Junior Data Analyst @ DRS RADA Technologies -> REJECTED: AlreadySeen
+1246. Business Analyst Intern   @ GE HealthCare -> REJECTED: AlreadySeen
+1247. Graduate Software Engineer, Open Source and Linux, Canonical Ubuntu   @ Canonical -> REJECTED: AlreadySeen
+1248. SOC Analyst - Student position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1249. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1250. Security Release Project Manager Student @ Intel Corporation -> REJECTED: AlreadySeen
+1251. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+1252. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1253. Junior Hardware Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1254. סטודנט.ית לאיכות   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+1255. Quality Assurance Manual Tester- Entry level @ Origami.ms -> REJECTED: AlreadySeen
+1256. Electrical Engineering Graduate, Graviton Team   @ Amazon Web Services (AWS) -> REJECTED: AlreadySeen
+1257. Technical Support Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+1258. QA/RA Student   @ Shavit Software -> REJECTED: AlreadySeen
+1259. 21062 - Junior QA Manual Tester- Artillery tester @ Qualitest acq -> REJECTED: AlreadySeen
+1260. 21063 - Junior QA Engineer - Ballistic @ Qualitest acq -> REJECTED: AlreadySeen
+1261. 18742 - Junior RF tester   @ Qualitest -> REJECTED: AlreadySeen
+1262. QA Automation Engineer – Junior Position   @ Sharegain -> REJECTED: AlreadySeen
+1263. 20320 - Junior QA tester (SHEDER HAM)   @ Qualitest -> REJECTED: AlreadySeen
+1264. Junior Electronic Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1265. סטודנט.ית לאלגוריתמים ובקרה | Control & Algorithms Student   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+1266. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1267. SW development in test student   @ Apple -> REJECTED: AlreadySeen
+1268. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1269. SOC Analyst - Student position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1270. Junior IT & Systems Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1271. Technical Support Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+1272. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+1273. Junior Operational System Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1274. Junior IT Support Engineer | Entry-Level Position @ Mornex Ltd -> REJECTED: AlreadySeen
+1275. Machine Learning Engineer, Multimodal models (LLM/VLM)   @ Mobileye -> REJECTED: AlreadySeen
+1276. Applied Data Scientist @ Rhino Federated Computing -> REJECTED: AlreadySeen
+1277. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1278. Data Scientist   @ Zefr -> REJECTED: AlreadySeen
+1279. Data Scientist   @ IAI - Israel Aerospace Industries -> REJECTED: AlreadySeen
+1280. Algorithm / Machine Learning Engineer – Autonomous Drone Interception @ Regulus -> REJECTED: AlreadySeen
+1281. Full Stack Developer Student   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1282. Junior Full Stack Javascript/Typescript Developer @ Rotemx, LTD -> REJECTED: AlreadySeen
+1283. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1284. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1285. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1286. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1287. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1288. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1289. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1290. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1291. Sales Development Representative, Enterprise | Nordics   @ Deel -> REJECTED: AlreadySeen
+1292. Junior Technical Support Engineer (fresh graduate)   @ OPSWAT -> REJECTED: AlreadySeen
+1293. Data Debug Analyst Engineer   @ Flex -> REJECTED: AlreadySeen
+1294. Expressions of interest (IL)   @ Octopus Deploy -> REJECTED: AlreadySeen
+1295. Market Researcher   @ Moon Active -> REJECTED: AlreadySeen
+1296. מנהל/ת פרויקטים דיגיטליים @ ValueTech LTD -> REJECTED: Whitelist
+1297. מהנדס/ת סנסורים   @ IAI - Israel Aerospace Industries -> REJECTED: Whitelist
+1298. Business Development Specialist @ Unipharm Ltd. Israel -> REJECTED: Blacklist
+1299. Process and Mechanical Engineer   @ Align Technology -> REJECTED: Blacklist
+1300. Onboarding Specialist   @ ONE ZERO BANK -> REJECTED: Whitelist
+1301. Marketing Assistant @ Greenberg Traurig Tel Aviv -> REJECTED: Blacklist
+1302. 客房服务员 - Mandarin Speaking Stateroom Steward   @ Viking -> REJECTED: Whitelist
+1303. Physicist @ Lusix Technologies -> REJECTED: Whitelist
+1304. רכז/ת פרויקטים באבטחת מידע @ MatchPointIT -> REJECTED: Whitelist
+1305. Information Technology Specialist @ Unilink Ltd. -> REJECTED: Whitelist
+1306. Sales Development Representative @ Singit -> REJECTED: Blacklist
+1307. Digital Adoption Solutions Engineer   @ WalkMe -> REJECTED: Blacklist
+1308. Support Specialist   @ X-FLOW -> REJECTED: Blacklist
+1309. Help Desk Support Specialist @ Octopus Computer Solutions -> REJECTED: Blacklist
+1310. Talent Acquisition Specialist (Global)   @ Candex -> REJECTED: Blacklist
+1311. Junior Data Analyst @ DRS RADA Technologies -> REJECTED: AlreadySeen
+1312. Business Analyst Intern   @ GE HealthCare -> REJECTED: AlreadySeen
+1313. Graduate Software Engineer, Open Source and Linux, Canonical Ubuntu   @ Canonical -> REJECTED: AlreadySeen
+1314. SOC Analyst - Student position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1315. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1316. Security Release Project Manager Student @ Intel Corporation -> REJECTED: AlreadySeen
+1317. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+1318. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1319. Junior Hardware Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1320. סטודנט.ית לאיכות   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+1321. Quality Assurance Manual Tester- Entry level @ Origami.ms -> REJECTED: AlreadySeen
+1322. Electrical Engineering Graduate, Graviton Team   @ Amazon Web Services (AWS) -> REJECTED: AlreadySeen
+1323. Technical Support Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+1324. QA/RA Student   @ Shavit Software -> REJECTED: AlreadySeen
+1325. 21062 - Junior QA Manual Tester- Artillery tester @ Qualitest acq -> REJECTED: AlreadySeen
+1326. 21063 - Junior QA Engineer - Ballistic @ Qualitest acq -> REJECTED: AlreadySeen
+1327. 18742 - Junior RF tester   @ Qualitest -> REJECTED: AlreadySeen
+1328. QA Automation Engineer – Junior Position   @ Sharegain -> REJECTED: AlreadySeen
+1329. סטודנט.ית לאלגוריתמים ובקרה | Control & Algorithms Student   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+1330. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1331. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1332. Junior Technical Support Engineer (fresh graduate)   @ OPSWAT -> REJECTED: AlreadySeen
+1333. SOC Analyst - Student position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1334. Junior IT & Systems Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1335. Technical Support Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+1336. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+1337. Junior Operational System Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1338. Junior IT Support Engineer | Entry-Level Position @ Mornex Ltd -> REJECTED: AlreadySeen
+1339. Machine Learning Engineer, Multimodal models (LLM/VLM)   @ Mobileye -> REJECTED: AlreadySeen
+1340. Applied Data Scientist @ Rhino Federated Computing -> REJECTED: AlreadySeen
+1341. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1342. Data Scientist   @ Zefr -> REJECTED: AlreadySeen
+1343. Data Scientist   @ IAI - Israel Aerospace Industries -> REJECTED: AlreadySeen
+1344. Algorithm / Machine Learning Engineer – Autonomous Drone Interception @ Regulus -> REJECTED: AlreadySeen
+1345. Application Engineer @ ISCAR ISRAEL -> REJECTED: AlreadySeen
+1346. Sales Development Representative, Enterprise | Nordics   @ Deel -> REJECTED: AlreadySeen
+1347. מנהל/ת פרויקטים דיגיטליים @ ValueTech LTD -> REJECTED: AlreadySeen
+1348. מהנדס/ת סנסורים   @ IAI - Israel Aerospace Industries -> REJECTED: AlreadySeen
+1349. Process and Mechanical Engineer   @ Align Technology -> REJECTED: AlreadySeen
+1350. Onboarding Specialist   @ ONE ZERO BANK -> REJECTED: AlreadySeen
+1351. Junior Technical Support Engineer (fresh graduate)   @ OPSWAT -> REJECTED: AlreadySeen
+1352. Marketing Assistant @ Greenberg Traurig Tel Aviv -> REJECTED: AlreadySeen
+1353. Data Debug Analyst Engineer   @ Flex -> REJECTED: AlreadySeen
+1354. Full Stack Engineer   @ Horizon Technologies LTD. -> REJECTED: AlreadySeen
+1355. Expressions of interest (IL)   @ Octopus Deploy -> REJECTED: AlreadySeen
+1356. PhD Research Intern, Formal Verification Development - 2026   @ NVIDIA -> REJECTED: AlreadySeen
+1357. Physicist @ Lusix Technologies -> REJECTED: AlreadySeen
+1358. רכז/ת פרויקטים באבטחת מידע @ MatchPointIT -> REJECTED: AlreadySeen
+1359. C++ Integration Engineer   @ Mobileye -> REJECTED: AlreadySeen
+1360. Manual Quality Assurance   @ Moveo Group -> REJECTED: AlreadySeen
+1361. Information Technology Specialist @ Unilink Ltd. -> REJECTED: AlreadySeen
+1362. Sales Development Representative @ Singit -> REJECTED: AlreadySeen
+1363. Design for Testability (DFT) Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1364. Market Researcher   @ Moon Active -> REJECTED: AlreadySeen
+1365. Digital Adoption Solutions Engineer   @ WalkMe -> REJECTED: AlreadySeen
+1366. Support Specialist   @ X-FLOW -> REJECTED: AlreadySeen
+1367. Help Desk Support Specialist @ Octopus Computer Solutions -> REJECTED: AlreadySeen
+1368. Talent Acquisition Specialist (Global)   @ Candex -> REJECTED: AlreadySeen
+1369. Learning Specialist   @ Tel Aviv Medical Center -> REJECTED: Whitelist
+1370. מנהל/ת פרויקטים @ ValueTech LTD -> REJECTED: AlreadySeen
+1371. GTM AI Builder   @ monday.com -> REJECTED: AlreadySeen
+1372. Administrative Manager @ TOTAL ADMIN - Financial & HR operations for start ups -> REJECTED: AlreadySeen
+1373. Lab Technician - Health @ Hazera Seeds -> REJECTED: AlreadySeen
+1374. סטודנט.ית לאלגוריתמים ובקרה | Control & Algorithms Student   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+1375. Receptionist   @ Herzog -> REJECTED: AlreadySeen
+1376. מנהל\ת פרויקט העברת ידע וטכנולוגיות   @ IAI - Israel Aerospace Industries -> REJECTED: Whitelist
+1377. Data Partner - Business Writer - Dutch - Remote - Global   @ TELUS Digital -> REJECTED: Blacklist
+1378. Risk Operations Specialist   @ Melio -> REJECTED: Whitelist
+1379. Associate @ Shaldor -> REJECTED: Whitelist
+1380. רואה.ת חשבון   @ Menora Mivtachim Group -> REJECTED: Blacklist
+1381. Business Development Representative   @ Okoora -> REJECTED: Blacklist
+1382. BIM Manager @ ADV Planning and Engineering LTD -> REJECTED: Blacklist
+1383. אחראי.ת איקומרס וCRM לחטיבת היוקרה @ L'Oréal -> REJECTED: Whitelist
+1384. Arabic-English Subtitler @ The Center for Peace Communications -> REJECTED: Whitelist
+1385. Operations & Finance Manager (Startup | Full or Part-Time) @ NovoDia -> REJECTED: Blacklist
+1386. Brand Designer @ TITAN Branding -> REJECTED: Whitelist
+1387. Talent Acquisition Specialist @ Goldjobs מבינים באנשים -> REJECTED: Blacklist
+1388. Full Stack Developer Student   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1389. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1390. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1391. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1392. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1393. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1394. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1395. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1396. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1397. Business Analyst Intern   @ GE HealthCare -> REJECTED: AlreadySeen
+1398. Graduate Software Engineer, Open Source and Linux, Canonical Ubuntu   @ Canonical -> REJECTED: AlreadySeen
+1399. SOC Analyst - Student position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1400. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1401. Security Release Project Manager Student @ Intel Corporation -> REJECTED: AlreadySeen
+1402. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+1403. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1404. AI Video Editor (Generealist) @ Fearless Group -> REJECTED: Whitelist
+1405. Junior Sales Representative @ Olyid -> REJECTED: Blacklist
+1406. מנהל/ת שיתופי פעולה ליחידה לפיתוח עסקי @ MIGAL Galilee Research Institute -> REJECTED: Whitelist
+1407. כתב/ת טכני/ת ומדריכ/ה- תעופה   @ IAI - Israel Aerospace Industries -> REJECTED: Whitelist
+1408. TAM (Technical Account Manager) לחטיבת ה- Security ב-C-Data @ C-DATA -> REJECTED: Blacklist
+1409. Physics Lab Engineer - מהנדס.ת מעבדה פיזיקה   @ Ben-Gurion University of the Negev -> REJECTED: Blacklist
+1410. Junior PMO (Project Management Officer) @ Nanosono -> REJECTED: Blacklist
+1411. Reception & Meeting Rooms Administrator   @ Deloitte -> REJECTED: Blacklist
+1412. Business Analyst (Sales | Pre-Sales | BI | CRM)   @ PCB Technologies Ltd. -> REJECTED: Blacklist
+1413. אחראי/ת הכנות סטריליות   @ Teva Pharmaceuticals -> REJECTED: Whitelist
+1414. Executive Assistant / Corporate Administrator @ Joinrs -> REJECTED: Blacklist
+1415. Information Technology Support Specialist @ Balance -> REJECTED: Blacklist
+1416. Enterprise Resources Planning Implementation Consultant @ Decathlon Israel -> REJECTED: Whitelist
+1417. Russian speaking Project Manager — White Label Online Casino (iGaming) @ Elison Group -> REJECTED: Blacklist
+1418. Ecommerce Product Manager   @ Strauss Group -> REJECTED: Blacklist
+1419. סטודנט/ית לעיצוב גרפי - משרה חלקית @ Enviro Manager -> REJECTED: Whitelist
+1420. Software Engineer, RDMA Transport   @ NVIDIA -> REJECTED: Blacklist
+1421. Office Personal Assistant @ Diviners - Creative Recruitment Services -> REJECTED: Blacklist
+1422. AI Research Intern   @ Cisco -> REJECTED: AlreadySeen
+1423. Junior Hardware Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1424. סטודנט.ית לאיכות   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+1425. Quality Assurance Manual Tester- Entry level @ Origami.ms -> REJECTED: AlreadySeen
+1426. Electrical Engineering Graduate, Graviton Team   @ Amazon Web Services (AWS) -> REJECTED: AlreadySeen
+1427. Technical Support Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+1428. QA/RA Student   @ Shavit Software -> REJECTED: AlreadySeen
+1429. 21062 - Junior QA Manual Tester- Artillery tester @ Qualitest acq -> REJECTED: AlreadySeen
+1430. 21063 - Junior QA Engineer - Ballistic @ Qualitest acq -> REJECTED: AlreadySeen
+1431. 18742 - Junior RF tester   @ Qualitest -> REJECTED: AlreadySeen
+1432. סטודנט.ית לאלגוריתמים ובקרה | Control & Algorithms Student   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+1433. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1434. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1435. Junior Technical Support Engineer (fresh graduate)   @ OPSWAT -> REJECTED: AlreadySeen
+1436. SOC Analyst - Student position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1437. Junior IT & Systems Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1438. Technical Support Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+1439. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+1440. Junior Operational System Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1441. Junior IT Support Engineer | Entry-Level Position @ Mornex Ltd -> REJECTED: AlreadySeen
+1442. Applied Data Scientist @ Rhino Federated Computing -> REJECTED: AlreadySeen
+1443. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1444. Data Scientist   @ Zefr -> REJECTED: AlreadySeen
+1445. Junior/Mid-level Software Engineer (Backend)   @ Roamless -> REJECTED: AlreadySeen
+1446. Full Stack Developer Student   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1447. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1448. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1449. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1450. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1451. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1452. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1453. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1454. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1455. Business Analyst Intern   @ GE HealthCare -> REJECTED: AlreadySeen
+1456. Graduate Software Engineer, Open Source and Linux, Canonical Ubuntu   @ Canonical -> REJECTED: AlreadySeen
+1457. SOC Analyst - Student position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1458. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1459. Security Release Project Manager Student @ Intel Corporation -> REJECTED: AlreadySeen
+1460. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+1461. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1462. AI Research Intern   @ Cisco -> REJECTED: AlreadySeen
+1463. Junior Hardware Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1464. סטודנט.ית לאיכות   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+1465. Quality Assurance Manual Tester- Entry level @ Origami.ms -> REJECTED: AlreadySeen
+1466. Electrical Engineering Graduate, Graviton Team   @ Amazon Web Services (AWS) -> REJECTED: AlreadySeen
+1467. Technical Support Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+1468. QA/RA Student   @ Shavit Software -> REJECTED: AlreadySeen
+1469. 21062 - Junior QA Manual Tester- Artillery tester @ Qualitest acq -> REJECTED: AlreadySeen
+1470. 21063 - Junior QA Engineer - Ballistic @ Qualitest acq -> REJECTED: AlreadySeen
+1471. 18742 - Junior RF tester   @ Qualitest -> REJECTED: AlreadySeen
+1472. סטודנט.ית לאלגוריתמים ובקרה | Control & Algorithms Student   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+1473. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1474. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1475. Junior Technical Support Engineer (fresh graduate)   @ OPSWAT -> REJECTED: AlreadySeen
+1476. SOC Analyst - Student position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1477. Junior IT & Systems Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1478. Technical Support Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+1479. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+1480. Junior Operational System Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1481. Applied Data Scientist @ Rhino Federated Computing -> REJECTED: AlreadySeen
+1482. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1483. Data Scientist   @ Zefr -> REJECTED: AlreadySeen
+1484. Data Scientist   @ IAI - Israel Aerospace Industries -> REJECTED: AlreadySeen
+1485. Junior/Mid-level Software Engineer (Backend)   @ Roamless -> REJECTED: AlreadySeen
+1486. Junior/Mid-level Software Engineer (Backend)   @ Roamless -> REJECTED: AlreadySeen
+1487. Junior/Mid-level Software Engineer (Backend)   @ Roamless -> REJECTED: AlreadySeen
+1488. Junior/Mid-level Software Engineer (Backend)   @ Roamless -> REJECTED: AlreadySeen
+1489. Junior Full Stack Developer   @ Helfy -> REJECTED: AlreadySeen
+1490. Full Stack Developer Student   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1491. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1492. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1493. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1494. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1495. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1496. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1497. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1498. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1499. Business Analyst Intern   @ GE HealthCare -> REJECTED: AlreadySeen
+1500. Graduate Software Engineer, Open Source and Linux, Canonical Ubuntu   @ Canonical -> REJECTED: AlreadySeen
+1501. SOC Analyst - Student position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1502. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1503. Security Release Project Manager Student @ Intel Corporation -> REJECTED: AlreadySeen
+1504. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+1505. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1506. 17694 - Junior System QA Tester @ Qualitest acq -> REJECTED: AlreadySeen
+1507. AI Research Intern   @ Cisco -> REJECTED: AlreadySeen
+1508. Junior Hardware Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1509. סטודנט.ית לאיכות   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+1510. Quality Assurance Manual Tester- Entry level @ Origami.ms -> REJECTED: AlreadySeen
+1511. Electrical Engineering Graduate, Graviton Team   @ Amazon Web Services (AWS) -> REJECTED: AlreadySeen
+1512. Technical Support Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+1513. QA/RA Student   @ Shavit Software -> REJECTED: AlreadySeen
+1514. 21062 - Junior QA Manual Tester- Artillery tester @ Qualitest acq -> REJECTED: AlreadySeen
+1515. 21063 - Junior QA Engineer - Ballistic @ Qualitest acq -> REJECTED: AlreadySeen
+1516. 18742 - Junior RF tester   @ Qualitest -> REJECTED: AlreadySeen
+1517. סטודנט.ית לאלגוריתמים ובקרה | Control & Algorithms Student   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+1518. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1519. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1520. Junior Technical Support Engineer (fresh graduate)   @ OPSWAT -> REJECTED: AlreadySeen
+1521. SOC Analyst - Student position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1522. Junior IT & Systems Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1523. Technical Support Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+1524. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+1525. Junior Operational System Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1526. Applied Data Scientist @ Rhino Federated Computing -> REJECTED: AlreadySeen
+1527. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1528. Junior/Mid-level Software Engineer (Backend)   @ Roamless -> REJECTED: AlreadySeen
+1529. Junior/Mid-level Software Engineer (Backend)   @ Roamless -> REJECTED: AlreadySeen
+1530. Front End Engineer - AI Training (Remote, Freelance) @ Braintrust -> REJECTED: AlreadySeen
+1531. Full Stack Developer Student   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1532. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1533. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1534. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1535. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1536. Junior Software Developer - Entry Level Career Path for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1537. Junior Software Engineer - Entry Level Career Path (Haifa & Northern Israel)   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1538. Junior Software Engineer - Entry Level Career Path Leading to Future Employment for STEM Graduates   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1539. Machine Learning Engineer - Entry Level Career Path Leading to Future Employment   @ InfinityLabs R&D -> REJECTED: AlreadySeen
+1540. Graduate Software Engineer, Open Source and Linux, Canonical Ubuntu   @ Canonical -> REJECTED: AlreadySeen
+1541. SOC Analyst - Student position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1542. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1543. Security Release Project Manager Student @ Intel Corporation -> REJECTED: AlreadySeen
+1544. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+1545. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1546. 17694 - Junior System QA Tester @ Qualitest acq -> REJECTED: AlreadySeen
+1547. AI Research Intern   @ Cisco -> REJECTED: AlreadySeen
+1548. Junior Hardware Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1549. סטודנט.ית לאיכות   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+1550. Quality Assurance Manual Tester- Entry level @ Origami.ms -> REJECTED: AlreadySeen
+1551. Electrical Engineering Graduate, Graviton Team   @ Amazon Web Services (AWS) -> REJECTED: AlreadySeen
+1552. Technical Support Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+1553. QA/RA Student   @ Shavit Software -> REJECTED: AlreadySeen
+1554. 21062 - Junior QA Manual Tester- Artillery tester @ Qualitest acq -> REJECTED: AlreadySeen
+1555. 21063 - Junior QA Engineer - Ballistic @ Qualitest acq -> REJECTED: AlreadySeen
+1556. 20663 - Junior Software Integrator @ Qualitest acq -> REJECTED: AlreadySeen
+1557. סטודנט.ית לאלגוריתמים ובקרה | Control & Algorithms Student   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+1558. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1559. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1560. Junior Technical Support Engineer (fresh graduate)   @ OPSWAT -> REJECTED: AlreadySeen
+1561. SOC Analyst - Student position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1562. Junior IT & Systems Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1563. Technical Support Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+1564. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+1565. Machine Learning Engineer, Multimodal models (LLM/VLM)   @ Mobileye -> REJECTED: AlreadySeen
+1566. Applied Data Scientist @ Rhino Federated Computing -> REJECTED: AlreadySeen
+1567. Data Scientist   @ Zefr -> REJECTED: AlreadySeen
+1568. Front End Engineer - AI Training (Remote, Freelance) @ Braintrust -> REJECTED: AlreadySeen
+1569. Junior Full Stack Engineer - Remote @ Brand Bolt -> REJECTED: AlreadySeen
+1570. Junior Full Stack Engineer - Remote @ Brand Bolt -> REJECTED: AlreadySeen
+1571. Full Stack Developer Student   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1572. Graduate Software Engineer, Open Source and Linux, Canonical Ubuntu   @ Canonical -> REJECTED: AlreadySeen
+1573. SOC Analyst - Student position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1574. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1575. Security Release Project Manager Student @ Intel Corporation -> REJECTED: AlreadySeen
+1576. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+1577. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1578. 17694 - Junior System QA Tester @ Qualitest acq -> REJECTED: AlreadySeen
+1579. AI Research Intern   @ Cisco -> REJECTED: AlreadySeen
+1580. Junior Hardware Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1581. סטודנט.ית לאיכות   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+1582. Quality Assurance Manual Tester- Entry level @ Origami.ms -> REJECTED: AlreadySeen
+1583. Electrical Engineering Graduate, Graviton Team   @ Amazon Web Services (AWS) -> REJECTED: AlreadySeen
+1584. Technical Support Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+1585. QA/RA Student   @ Shavit Software -> REJECTED: AlreadySeen
+1586. 21062 - Junior QA Manual Tester- Artillery tester @ Qualitest acq -> REJECTED: AlreadySeen
+1587. 21063 - Junior QA Engineer - Ballistic @ Qualitest acq -> REJECTED: AlreadySeen
+1588. סטודנט.ית לאלגוריתמים ובקרה | Control & Algorithms Student   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+1589. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1590. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1591. Junior Technical Support Engineer (fresh graduate)   @ OPSWAT -> REJECTED: AlreadySeen
+1592. SOC Analyst - Student position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1593. Junior IT & Systems Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1594. Technical Support Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+1595. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+1596. Machine Learning Engineer, Multimodal models (LLM/VLM)   @ Mobileye -> REJECTED: AlreadySeen
+1597. Applied Data Scientist @ Rhino Federated Computing -> REJECTED: AlreadySeen
+1598. Front End Engineer - AI Training (Remote, Freelance) @ Braintrust -> REJECTED: AlreadySeen
+1599. Junior Full Stack Engineer - Remote @ Brand Bolt -> REJECTED: AlreadySeen
+1600. Junior Full Stack Engineer - Remote @ Brand Bolt -> REJECTED: AlreadySeen
+1601. Full Stack Developer Student   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1602. Graduate Software Engineer, Open Source and Linux, Canonical Ubuntu   @ Canonical -> REJECTED: AlreadySeen
+1603. SOC Analyst - Student position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1604. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1605. Security Release Project Manager Student @ Intel Corporation -> REJECTED: AlreadySeen
+1606. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+1607. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1608. 17694 - Junior System QA Tester @ Qualitest acq -> REJECTED: AlreadySeen
+1609. AI Research Intern   @ Cisco -> REJECTED: AlreadySeen
+1610. Junior Hardware Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1611. סטודנט.ית לאיכות   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+1612. Quality Assurance Manual Tester- Entry level @ Origami.ms -> REJECTED: AlreadySeen
+1613. Electrical Engineering Graduate, Graviton Team   @ Amazon Web Services (AWS) -> REJECTED: AlreadySeen
+1614. Technical Support Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+1615. QA/RA Student   @ Shavit Software -> REJECTED: AlreadySeen
+1616. 21062 - Junior QA Manual Tester- Artillery tester @ Qualitest acq -> REJECTED: AlreadySeen
+1617. 21063 - Junior QA Engineer - Ballistic @ Qualitest acq -> REJECTED: AlreadySeen
+1618. סטודנט.ית לאלגוריתמים ובקרה | Control & Algorithms Student   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+1619. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1620. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1621. Investment Banking Analyst @ Swiss Finance -> REJECTED: AlreadySeen
+1622. Bilingual Content Editor @ DataAnnotation -> REJECTED: AlreadySeen
+1623. Software Architect, Advanced Development   @ NVIDIA -> REJECTED: AlreadySeen
+1624. Business Development Intern - Summer 2026 @ Tricentis -> REJECTED: AlreadySeen
+1625. Managed Cloud Detection and Response Analyst   @ Wiz -> REJECTED: AlreadySeen
+1626. Full Stack Software Engineer (Product CEO mindset) @ Flexhire -> REJECTED: AlreadySeen
+1627. Junior Associate - Insurance Team   @ Kennedys -> REJECTED: AlreadySeen
+1628. 客服专员 - Mandarin Speaking Guest Services Agent   @ Viking -> REJECTED: AlreadySeen
+1629. Auditor-Income   @ Marriott International -> REJECTED: Blacklist
+1630. Biochemistry Research Assistant JB-59   @ Protalix Biotherapeutics -> REJECTED: Blacklist
+1631. PMO / Technical Operations Project Manager @ Shani Recruiting -> REJECTED: Blacklist
+1632. Investment Banking Intern @ Swiss Finance Institute -> REJECTED: Blacklist
+1633. כלכלנ.ית אגף השקעות @ Menora Mivtachim Group -> REJECTED: Whitelist
+1634. Office Manager   @ Rafael Advanced Defense Systems -> REJECTED: Blacklist
+1635. מהנדס/ת הנחיה ובקרה   @ IAI - Israel Aerospace Industries -> REJECTED: Whitelist
+1636. EEAS Vacancy: The European Union Delegation to the State of Israel is looking for a Secretary in the Finance, Contracts and Audit Section @ EUBAM Libya -> REJECTED: Blacklist
+1637. Sales And Marketing Specialist @ Unlimited 3d printing -> REJECTED: Blacklist
+1638. Global Study Coordinator - Israel   @ Suvoda -> REJECTED: Whitelist
+1639. Production Quality Inspector   @ Elbit Systems Israel -> REJECTED: Blacklist
+1640. Social Media Manager (Lifestyle Brands) @ Avira Studios -> REJECTED: Blacklist
+1641. Junior Technical Support Engineer (fresh graduate)   @ OPSWAT -> REJECTED: AlreadySeen
+1642. SOC Analyst - Student position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1643. Junior IT & Systems Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1644. Technical Support Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+1645. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+1646. Applied Data Scientist @ Rhino Federated Computing -> REJECTED: AlreadySeen
+1647. Front End Engineer - AI Training (Remote, Freelance) @ Braintrust -> REJECTED: AlreadySeen
+1648. Junior Full Stack Engineer - Remote @ Brand Bolt -> REJECTED: AlreadySeen
+1649. Junior Full Stack Engineer - Remote @ Brand Bolt -> REJECTED: AlreadySeen
+1650. Full Stack Developer Student   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1651. Graduate Software Engineer, Open Source and Linux, Canonical Ubuntu   @ Canonical -> REJECTED: AlreadySeen
+1652. SOC Analyst - Student position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1653. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1654. Security Release Project Manager Student @ Intel Corporation -> REJECTED: AlreadySeen
+1655. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+1656. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1657. 17694 - Junior System QA Tester @ Qualitest acq -> REJECTED: AlreadySeen
+1658. AI Research Intern   @ Cisco -> REJECTED: AlreadySeen
+1659. Junior Hardware Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1660. סטודנט.ית לאיכות   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+1661. Quality Assurance Manual Tester- Entry level @ Origami.ms -> REJECTED: AlreadySeen
+1662. Electrical Engineering Graduate, Graviton Team   @ Amazon Web Services (AWS) -> REJECTED: AlreadySeen
+1663. Technical Support Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+1664. QA/RA Student   @ Shavit Software -> REJECTED: AlreadySeen
+1665. 21062 - Junior QA Manual Tester- Artillery tester @ Qualitest acq -> REJECTED: AlreadySeen
+1666. 21063 - Junior QA Engineer - Ballistic @ Qualitest acq -> REJECTED: AlreadySeen
+1667. SOLIDWORKS Application Engineer (Student Position)   @ Systematics Ltd. Solutions at work. -> REJECTED: Blacklist
+1668. סטודנט.ית לאלגוריתמים ובקרה | Control & Algorithms Student   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+1669. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1670. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1671. Junior Technical Support Engineer (fresh graduate)   @ OPSWAT -> REJECTED: AlreadySeen
+1672. SOC Analyst - Student position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1673. Junior IT & Systems Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1674. Technical Support Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+1675. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+1676. Student Help Desk @ Confidential Careers -> REJECTED: Blacklist
+1677. Junior Full Stack Engineer - Remote @ Brand Bolt -> REJECTED: AlreadySeen
+1678. Junior Full Stack Engineer - Remote @ Brand Bolt -> REJECTED: AlreadySeen
+1679. Full Stack Developer Student   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1680. Graduate Software Engineer, Open Source and Linux, Canonical Ubuntu   @ Canonical -> REJECTED: AlreadySeen
+1681. SOC Analyst - Student position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1682. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1683. Security Release Project Manager Student @ Intel Corporation -> REJECTED: AlreadySeen
+1684. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+1685. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1686. SOLIDWORKS Application Engineer (Student Position)   @ Systematics Ltd. Solutions at work. -> REJECTED: AlreadySeen
+1687. 17694 - Junior System QA Tester @ Qualitest acq -> REJECTED: AlreadySeen
+1688. AI Research Intern   @ Cisco -> REJECTED: AlreadySeen
+1689. Junior Hardware Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1690. סטודנט.ית לאיכות   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+1691. Quality Assurance Manual Tester- Entry level @ Origami.ms -> REJECTED: AlreadySeen
+1692. Electrical Engineering Graduate, Graviton Team   @ Amazon Web Services (AWS) -> REJECTED: AlreadySeen
+1693. Technical Support Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+1694. QA/RA Student   @ Shavit Software -> REJECTED: AlreadySeen
+1695. סטודנט.ית לאלגוריתמים ובקרה | Control & Algorithms Student   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+1696. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1697. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1698. Student Help Desk @ Confidential Careers -> REJECTED: AlreadySeen
+1699. Junior Technical Support Engineer (fresh graduate)   @ OPSWAT -> REJECTED: AlreadySeen
+1700. SOC Analyst - Student position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1701. Junior IT & Systems Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1702. Technical Support Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+1703. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+1704. Machine Learning Engineer, Multimodal models (LLM/VLM)   @ Mobileye -> REJECTED: AlreadySeen
+1705. Funding Specialist (Sales Representative)   @ Premium Merchant Funding -> REJECTED: AlreadySeen
+1706. Financial Analyst   @ Beta Finance -> REJECTED: Blacklist
+1707. Dental Labeler   @ Align Technology -> REJECTED: Whitelist
+1708. Hi-tech associate - up to partner level   @ FISCHER (FBC & Co.); Formerly Fischer Behar Chen Well Orion & Co -> REJECTED: Whitelist
+1709. Computer Technician @ TCMCareer -> REJECTED: Blacklist
+1710. Mechanical Design Engineer   @ Experis -> REJECTED: Blacklist
+1711. Growth & AI Marketing Manager @ supercreator -> REJECTED: Blacklist
+1712. Creative Marketing & Content Specialist (AI-Driven) @ Hito - People management -> REJECTED: Blacklist
+1713. מנהל.ת חשבונות @ Melisron -> REJECTED: Blacklist
+1714. מנהל/ת מכירות מרכז ודרום – תעשייה ומוניציפלי | עמיעד   @ Amiad Water Systems LTD -> REJECTED: Blacklist
+1715. Account Executive @ Miri Headhunter -> REJECTED: Whitelist
+1716. סטודנט.ית להובלת פלטפורמות GENAI   @ Rafael Advanced Defense Systems -> REJECTED: Whitelist
+1717. Sales Representative @ Mondarine -> REJECTED: Blacklist
+1718. Customer Service Representative @ Talking - כולם כבר מדברים -> REJECTED: Whitelist
+1719. מפתח/ת אלגוריתמים לעיבוד תמונה   @ IAI - Israel Aerospace Industries -> REJECTED: Whitelist
+1720. SDR *Entry Level* @ Ethosia -> REJECTED: Whitelist
+1721. Pre Sales AI Engineer @ ActionAI -> REJECTED: Blacklist
+1722. Student Help Desk @ Confidential Careers -> REJECTED: AlreadySeen
+1723. SOLIDWORKS Application Engineer (Student Position)   @ Systematics Ltd. Solutions at work. -> REJECTED: AlreadySeen
+1724. Junior Tech Recruiter   @ Log-On Software -> REJECTED: AlreadySeen
+1725. Fullstack SW Engineer (Remote, Full Time) @ 3D Foundry Labs -> REJECTED: AlreadySeen
+1726. מפתח/ת אלגוריתם ו-AI לעבודה מאתגרת   @ Memad3 - המימד השלישי - גיוס והשמה -> REJECTED: Whitelist
+1727. ראש.ת צוות הנדסת מערכת תקשורת   @ Elbit Systems Israel -> REJECTED: Whitelist
+1728. Sales Advisor @ Talking - כולם כבר מדברים -> REJECTED: Blacklist
+1729. Executive Assistant @ NATASHA DENONA IL -> REJECTED: Blacklist
+1730. Junior Financial Analyst @ BIRD Foundation -> REJECTED: Blacklist
+1731. Assistant Controller @ Paz - yellow -> REJECTED: Blacklist
+1732. Study Director @ Pharmaseed Ltd -> REJECTED: Blacklist
+1733. Customer Acquisition @ Expander Group -> REJECTED: Whitelist
+1734. Mechanical Engineer   @ Aran R&D -> REJECTED: Blacklist
+1735. Project Management Officer @ TechUnity -> REJECTED: Blacklist
+1736. Technical Support Representative @ Konimbo -> REJECTED: Blacklist
+1737. Guest Experience Expert   @ Marriott International -> REJECTED: Whitelist
+1738. Real Estate Lawyer @ Minrav Group Ltd. -> REJECTED: Blacklist
+1739. Junior Full Stack Engineer - Remote @ Brand Bolt -> REJECTED: AlreadySeen
+1740. Junior Full Stack Engineer - Remote @ Brand Bolt -> REJECTED: AlreadySeen
+1741. Full Stack Developer Student   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1742. Graduate Software Engineer, Open Source and Linux, Canonical Ubuntu   @ Canonical -> REJECTED: AlreadySeen
+1743. SOC Analyst - Student position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1744. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1745. Security Release Project Manager Student @ Intel Corporation -> REJECTED: AlreadySeen
+1746. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+1747. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1748. SOLIDWORKS Application Engineer (Student Position)   @ Systematics Ltd. Solutions at work. -> REJECTED: AlreadySeen
+1749. 17694 - Junior System QA Tester @ Qualitest acq -> REJECTED: AlreadySeen
+1750. AI Research Intern   @ Cisco -> REJECTED: AlreadySeen
+1751. Junior Hardware Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1752. סטודנט.ית לאיכות   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+1753. Quality Assurance Manual Tester- Entry level @ Origami.ms -> REJECTED: AlreadySeen
+1754. Electrical Engineering Graduate, Graviton Team   @ Amazon Web Services (AWS) -> REJECTED: AlreadySeen
+1755. Technical Support Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+1756. סטודנט.ית לאלגוריתמים ובקרה | Control & Algorithms Student   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+1757. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1758. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1759. Student Help Desk @ Confidential Careers -> REJECTED: AlreadySeen
+1760. Junior Technical Support Engineer (fresh graduate)   @ OPSWAT -> REJECTED: AlreadySeen
+1761. SOC Analyst - Student position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1762. Junior IT & Systems Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1763. Technical Support Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+1764. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+1765. SDR *Entry Level* @ Ethosia -> REJECTED: AlreadySeen
+1766. מפתח/ת אלגוריתם ו-AI לעבודה מאתגרת   @ Memad3 - המימד השלישי - גיוס והשמה -> REJECTED: AlreadySeen
+1767. Financial Analyst   @ Beta Finance -> REJECTED: AlreadySeen
+1768. System Analyst (24376)   @ Yael Group -> REJECTED: AlreadySeen
+1769. Dental Labeler   @ Align Technology -> REJECTED: AlreadySeen
+1770. Hi-tech associate - up to partner level   @ FISCHER (FBC & Co.); Formerly Fischer Behar Chen Well Orion & Co -> REJECTED: AlreadySeen
+1771. Full Stack Engineer   @ Melio -> REJECTED: AlreadySeen
+1772. Frontend Developer @ Appsforce -> REJECTED: AlreadySeen
+1773. Computer Technician @ TCMCareer -> REJECTED: AlreadySeen
+1774. RT Embedded Software Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1775. Junior Systems Implementer / מטמיע/ת מערכות CRM (ג’וניור) @ Comigo.io -> REJECTED: AlreadySeen
+1776. Mechanical Design Engineer   @ Experis -> REJECTED: AlreadySeen
+1777. Growth & AI Marketing Manager @ supercreator -> REJECTED: AlreadySeen
+1778. מנהל/ת מכירות מרכז ודרום – תעשייה ומוניציפלי | עמיעד   @ Amiad Water Systems LTD -> REJECTED: AlreadySeen
+1779. Account Executive @ Miri Headhunter -> REJECTED: AlreadySeen
+1780. Product Manager @ Guideline Group -> REJECTED: Blacklist
+1781. Sales Development Representative @ Clear Gate | Cyber Security & Research -> REJECTED: Blacklist
+1782. Operations Manager   @ AdMaven -> REJECTED: Blacklist
+1783. Strategic Copywriter @ Market Blend -> REJECTED: Blacklist
+1784. Clinical Trials Coordinator @ Glyance -> REJECTED: Whitelist
+1785. Social Media Manager @ GBO International Financial Services -> REJECTED: Blacklist
+1786. Front End Engineer - AI Training (Remote, Freelance) @ Braintrust -> REJECTED: AlreadySeen
+1787. Junior Full Stack Engineer - Remote @ Brand Bolt -> REJECTED: AlreadySeen
+1788. Junior Full Stack Engineer - Remote @ Brand Bolt -> REJECTED: AlreadySeen
+1789. Full Stack Developer Student   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1790. Graduate Software Engineer, Open Source and Linux, Canonical Ubuntu   @ Canonical -> REJECTED: AlreadySeen
+1791. SOC Analyst - Student position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1792. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1793. Security Release Project Manager Student @ Intel Corporation -> REJECTED: AlreadySeen
+1794. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+1795. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1796. SOLIDWORKS Application Engineer (Student Position)   @ Systematics Ltd. Solutions at work. -> REJECTED: AlreadySeen
+1797. 17694 - Junior System QA Tester @ Qualitest acq -> REJECTED: AlreadySeen
+1798. AI Research Intern   @ Cisco -> REJECTED: AlreadySeen
+1799. Junior Hardware Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1800. סטודנט.ית לאיכות   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+1801. Quality Assurance Manual Tester- Entry level @ Origami.ms -> REJECTED: AlreadySeen
+1802. Electrical Engineering Graduate, Graviton Team   @ Amazon Web Services (AWS) -> REJECTED: AlreadySeen
+1803. Technical Support Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+1804. סטודנט.ית לאלגוריתמים ובקרה | Control & Algorithms Student   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+1805. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1806. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1807. Student Help Desk @ Confidential Careers -> REJECTED: AlreadySeen
+1808. Junior Technical Support Engineer (fresh graduate)   @ OPSWAT -> REJECTED: AlreadySeen
+1809. SOC Analyst - Student position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1810. Junior IT & Systems Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1811. Technical Support Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+1812. Entry Level Penetration Tester @ Clear Gate | Cyber Security & Research -> REJECTED: AlreadySeen
+1813. Machine Learning Engineer, Multimodal models (LLM/VLM)   @ Mobileye -> REJECTED: AlreadySeen
+1814. Front End Engineer - AI Training (Remote, Freelance) @ Braintrust -> REJECTED: AlreadySeen
+1815. Junior Full Stack Engineer - Remote @ Brand Bolt -> REJECTED: AlreadySeen
+1816. Junior Full Stack Engineer - Remote @ Brand Bolt -> REJECTED: AlreadySeen
+1817. Full Stack Developer Student   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1818. Growth & AI Marketing Manager @ supercreator -> REJECTED: AlreadySeen
+1819. Business Operations Manager   @ monday.com -> REJECTED: Blacklist
+1820. Sales Planning Analyst   @ Toyota Israel -טויוטה ישראל -> REJECTED: Blacklist
+1821. Customer Support Agents   @ Ephoca -> REJECTED: Whitelist
+1822. PPC & Paid Social Campaign Manager @ Syncspert -> REJECTED: Blacklist
+1823. Campaign Manager & Analyst @ Twist Digital -> REJECTED: Blacklist
+1824. Talent Acquisition Specialist   @ Sela -> REJECTED: Blacklist
+1825. Product Adoption Manager   @ Okoora -> REJECTED: Blacklist
+1826. רכז.ת פרויקטי למידה החלפה לחל"ד @ Menora Mivtachim Group -> REJECTED: Whitelist
+1827. Global Development Coordinator @ אקים ישראל AKIM Israel -> REJECTED: Whitelist
+1828. Teacher @ KERNELiOS -> REJECTED: Whitelist
+1829. Customer Acquisition @ Expander Group -> REJECTED: Whitelist
+1830. AppSec Implementation Specialist @ BindSec -> REJECTED: Whitelist
+1831. בקר.ית איכות   @ BioProtect -> REJECTED: Whitelist
+1832. Postdoc   @ Volcani Institute -> REJECTED: Whitelist
+1833. Graduate Software Engineer, Open Source and Linux, Canonical Ubuntu   @ Canonical -> REJECTED: AlreadySeen
+1834. SOC Analyst - Student position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1835. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1836. Security Release Project Manager Student @ Intel Corporation -> REJECTED: AlreadySeen
+1837. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1838. Junior QA Engineer @ Confidential Careers -> REJECTED: AlreadySeen
+1839. SOLIDWORKS Application Engineer (Student Position)   @ Systematics Ltd. Solutions at work. -> REJECTED: AlreadySeen
+1840. 17694 - Junior System QA Tester @ Qualitest acq -> REJECTED: AlreadySeen
+1841. AI Research Intern   @ Cisco -> REJECTED: AlreadySeen
+1842. Junior Hardware Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1843. סטודנט.ית לאיכות   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+1844. Quality Assurance Manual Tester- Entry level @ Origami.ms -> REJECTED: AlreadySeen
+1845. Electrical Engineering Graduate, Graviton Team   @ Amazon Web Services (AWS) -> REJECTED: AlreadySeen
+1846. Technical Support Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+1847. סטודנט.ית לאלגוריתמים ובקרה | Control & Algorithms Student   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+1848. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1849. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1850. Student Help Desk @ Confidential Careers -> REJECTED: AlreadySeen
+1851. Junior Technical Support Engineer (fresh graduate)   @ OPSWAT -> REJECTED: AlreadySeen
+1852. SOC Analyst - Student position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1853. Junior IT & Systems Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1854. Technical Support Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+1855. Machine Learning Engineer, Multimodal models (LLM/VLM)   @ Mobileye -> REJECTED: AlreadySeen
+1856. Junior Full Stack Engineer - Remote @ Brand Bolt -> REJECTED: AlreadySeen
+1857. Junior Full Stack Engineer - Remote @ Brand Bolt -> REJECTED: AlreadySeen
+1858. Full Stack Developer Student   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1859. Graduate Software Engineer, Open Source and Linux, Canonical Ubuntu   @ Canonical -> REJECTED: AlreadySeen
+1860. SOC Analyst - Student position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1861. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1862. Security Release Project Manager Student @ Intel Corporation -> REJECTED: AlreadySeen
+1863. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1864. Junior QA Engineer @ Confidential Careers -> REJECTED: AlreadySeen
+1865. SOLIDWORKS Application Engineer (Student Position)   @ Systematics Ltd. Solutions at work. -> REJECTED: AlreadySeen
+1866. 17694 - Junior System QA Tester @ Qualitest acq -> REJECTED: AlreadySeen
+1867. AI Research Intern   @ Cisco -> REJECTED: AlreadySeen
+1868. Junior Hardware Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1869. סטודנט.ית לאיכות   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+1870. Quality Assurance Manual Tester- Entry level @ Origami.ms -> REJECTED: AlreadySeen
+1871. Electrical Engineering Graduate, Graviton Team   @ Amazon Web Services (AWS) -> REJECTED: AlreadySeen
+1872. Technical Support Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+1873. Junior Data Analyst   @ Rayzone Group -> REJECTED: AlreadySeen
+1874. Network and Information Security Expert @ Unilink Ltd. -> REJECTED: AlreadySeen
+1875. Business Operations Manager   @ monday.com -> REJECTED: AlreadySeen
+1876. Sales Planning Analyst   @ Toyota Israel -טויוטה ישראל -> REJECTED: AlreadySeen
+1877. Technical Support – Night Shifts (Student Position)   @ Oriient -> REJECTED: AlreadySeen
+1878. Customer Support Agents   @ Ephoca -> REJECTED: AlreadySeen
+1879. PPC & Paid Social Campaign Manager @ Syncspert -> REJECTED: AlreadySeen
+1880. Campaign Manager & Analyst @ Twist Digital -> REJECTED: AlreadySeen
+1881. Fraud Operations Analyst   @ Tango -> REJECTED: AlreadySeen
+1882. Copywriter @ Horizon Trade -> REJECTED: Blacklist
+1883. Account Executive   @ Okoora -> REJECTED: Whitelist
+1884. SEO & GEO Manager @ SO Digital - Splash & OptiWise -> REJECTED: Blacklist
+1885. Cyber Security Sales Manager   @ Matrix 2Bsecure -> REJECTED: Blacklist
+1886. PC Technician @ Peak Innovation -> REJECTED: Blacklist
+1887. רכז.ת הדרכה ורווחה HR @ Software AG Israel -> REJECTED: Blacklist
+1888. Research Development Mechanical Engineer @ Pylon Medical -> REJECTED: Blacklist
+1889. Sales Financial Analyst- כלכלן.נית מכירות   @ Kimberly-Clark -> REJECTED: Blacklist
+1890. AI Technical Project Manager (Delivery Lead) (Hybrid | Tel Aviv) @ AI-Crafters Israel -> REJECTED: Blacklist
+1891. מהנדס/ת אלקטרוניקה לתכנון כרטיסים   @ IAI - Israel Aerospace Industries -> REJECTED: Whitelist
+1892. Assistant Controller   @ Valens Semiconductor -> REJECTED: Blacklist
+1893. Retail Development Specialist   @ Wolt -> REJECTED: Whitelist
+1894. Release Manager- Temporary position, Israel @ AlgoSec -> REJECTED: Blacklist
+1895. Growth PPC Marketer @ Solara AI -> REJECTED: Blacklist
+1896. סטודנט.ית לאלגוריתמים ובקרה | Control & Algorithms Student   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+1897. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1898. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1899. Junior System Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1900. Student Help Desk @ Confidential Careers -> REJECTED: AlreadySeen
+1901. Junior Technical Support Engineer (fresh graduate)   @ OPSWAT -> REJECTED: AlreadySeen
+1902. SOC Analyst - Student position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1903. Junior IT & Systems Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1904. Technical Support Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+1905. Machine Learning Engineer, Multimodal models (LLM/VLM)   @ Mobileye -> REJECTED: AlreadySeen
+1906. Front End Engineer - AI Training (Remote, Freelance) @ Braintrust -> REJECTED: AlreadySeen
+1907. Copywriter @ Horizon Trade -> REJECTED: AlreadySeen
+1908. Account Executive   @ Okoora -> REJECTED: AlreadySeen
+1909. SEO & GEO Manager @ SO Digital - Splash & OptiWise -> REJECTED: AlreadySeen
+1910. PC Technician @ Peak Innovation -> REJECTED: AlreadySeen
+1911. Junior Data Analyst   @ Rayzone Group -> REJECTED: AlreadySeen
+1912. Research Development Mechanical Engineer @ Pylon Medical -> REJECTED: AlreadySeen
+1913. Sales Financial Analyst- כלכלן.נית מכירות   @ Kimberly-Clark -> REJECTED: AlreadySeen
+1914. AI Technical Project Manager (Delivery Lead) (Hybrid | Tel Aviv) @ AI-Crafters Israel -> REJECTED: AlreadySeen
+1915. Retail Development Specialist   @ Wolt -> REJECTED: AlreadySeen
+1916. Network and Information Security Expert @ Unilink Ltd. -> REJECTED: AlreadySeen
+1917. Business Operations Manager   @ monday.com -> REJECTED: AlreadySeen
+1918. Technical Support – Night Shifts (Student Position)   @ Oriient -> REJECTED: AlreadySeen
+1919. לבית תוכנה מוביל בתחום האירועים דרוש/ה איש/אשת מכירות טלפוניות @ AGILINA -> REJECTED: Blacklist
+1920. Accountant- מנהל/ת חשבונות @ job goals -> REJECTED: Blacklist
+1921. Mechanical Engineer @ Equashield Israel -> REJECTED: Blacklist
+1922. מהנדס/ת דינמיקה ועומסים   @ IAI - Israel Aerospace Industries -> REJECTED: Whitelist
+1923. Talent Acquisition Specialist (Global)   @ Candex -> REJECTED: Blacklist
+1924. Bookkeeper   @ Yotpo -> REJECTED: Blacklist
+1925. 📢 דרוש/ה Help Desk / System Administrator (ג’וניור) @ M-Challenge Computing Services -> REJECTED: Blacklist
+1926. Sales Development Representative @ bananaz -> REJECTED: Blacklist
+1927. Junior Full Stack Engineer - Remote @ Brand Bolt -> REJECTED: AlreadySeen
+1928. Junior Full Stack Engineer - Remote @ Brand Bolt -> REJECTED: AlreadySeen
+1929. Full Stack Developer Student   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1930. Junior Data Analyst   @ Rayzone Group -> REJECTED: AlreadySeen
+1931. Graduate Software Engineer, Open Source and Linux, Canonical Ubuntu   @ Canonical -> REJECTED: AlreadySeen
+1932. SOC Analyst - Student position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1933. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1934. Security Release Project Manager Student @ Intel Corporation -> REJECTED: AlreadySeen
+1935. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1936. Junior QA Engineer @ Iriscom -> REJECTED: AlreadySeen
+1937. Junior QA Engineer @ Confidential Careers -> REJECTED: AlreadySeen
+1938. SOLIDWORKS Application Engineer (Student Position)   @ Systematics Ltd. Solutions at work. -> REJECTED: AlreadySeen
+1939. 17694 - Junior System QA Tester @ Qualitest acq -> REJECTED: AlreadySeen
+1940. AI Research Intern   @ Cisco -> REJECTED: AlreadySeen
+1941. Junior Hardware Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1942. סטודנט.ית לאיכות   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+1943. Quality Assurance Manual Tester- Entry level @ Origami.ms -> REJECTED: AlreadySeen
+1944. Electrical Engineering Graduate, Graviton Team   @ Amazon Web Services (AWS) -> REJECTED: AlreadySeen
+1945. Technical Support Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+1946. סטודנט.ית לאלגוריתמים ובקרה | Control & Algorithms Student   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+1947. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1948. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1949. Junior System Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1950. Student Help Desk @ Confidential Careers -> REJECTED: AlreadySeen
+1951. Junior Technical Support Engineer (fresh graduate)   @ OPSWAT -> REJECTED: AlreadySeen
+1952. SOC Analyst - Student position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1953. Junior IT & Systems Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1954. Technical Support Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+1955. Machine Learning Engineer, Multimodal models (LLM/VLM)   @ Mobileye -> REJECTED: AlreadySeen
+1956. לבית תוכנה מוביל בתחום האירועים דרוש/ה איש/אשת מכירות טלפוניות @ AGILINA -> REJECTED: AlreadySeen
+1957. Junior QA Engineer @ Iriscom -> REJECTED: AlreadySeen
+1958. Foundation Models for Decision Making - Internship   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1959. Mechanical Engineer @ Equashield Israel -> REJECTED: AlreadySeen
+1960. Solution Specialist - Automation Platforms   @ Supervize IT Solutions -> REJECTED: AlreadySeen
+1961. Talent Acquisition Specialist (Global)   @ Candex -> REJECTED: AlreadySeen
+1962. Bookkeeper   @ Yotpo -> REJECTED: AlreadySeen
+1963. Copywriter @ Horizon Trade -> REJECTED: AlreadySeen
+1964. Account Executive   @ Okoora -> REJECTED: AlreadySeen
+1965. 📢 דרוש/ה Help Desk / System Administrator (ג’וניור) @ M-Challenge Computing Services -> REJECTED: AlreadySeen
+1966. Sales Development Representative @ bananaz -> REJECTED: AlreadySeen
+1967. PC Technician @ Peak Innovation -> REJECTED: AlreadySeen
+1968. Junior Data Analyst   @ Rayzone Group -> REJECTED: AlreadySeen
+1969. רכז.ת הדרכה ורווחה HR @ Software AG Israel -> REJECTED: AlreadySeen
+1970. Research Development Mechanical Engineer @ Pylon Medical -> REJECTED: AlreadySeen
+1971. Sales Financial Analyst- כלכלן.נית מכירות   @ Kimberly-Clark -> REJECTED: AlreadySeen
+1972. AI Technical Project Manager (Delivery Lead) (Hybrid | Tel Aviv) @ AI-Crafters Israel -> REJECTED: AlreadySeen
+1973. Retail Development Specialist   @ Wolt -> REJECTED: AlreadySeen
+1974. Field Application Engineer @ STG Electronics -> REJECTED: AlreadySeen
+1975. IT Engineer- Student @ AlgoSec -> REJECTED: AlreadySeen
+1976. Network and Information Security Expert @ Unilink Ltd. -> REJECTED: AlreadySeen
+1977. Business Operations Manager   @ monday.com -> REJECTED: AlreadySeen
+1978. מהנדס/ת מערכת חימוש מיירט   @ IAI - Israel Aerospace Industries -> REJECTED: Whitelist
+1979. VIP Account Manager @ SuperPlay -> REJECTED: Blacklist
+1980. Bookkeeper @ Association of Contractors and Builders Tel Aviv & Central region -> REJECTED: Blacklist
+1981. Junior Full Stack Engineer - Remote @ Brand Bolt -> REJECTED: AlreadySeen
+1982. Junior Full Stack Engineer - Remote @ Brand Bolt -> REJECTED: AlreadySeen
+1983. Full Stack Developer Student   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1984. Junior Data Analyst   @ Rayzone Group -> REJECTED: AlreadySeen
+1985. Graduate Software Engineer, Open Source and Linux, Canonical Ubuntu   @ Canonical -> REJECTED: AlreadySeen
+1986. SOC Analyst - Student position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1987. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1988. Security Release Project Manager Student @ Intel Corporation -> REJECTED: AlreadySeen
+1989. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+1990. Junior QA Engineer @ Confidential Careers -> REJECTED: AlreadySeen
+1991. SOLIDWORKS Application Engineer (Student Position)   @ Systematics Ltd. Solutions at work. -> REJECTED: AlreadySeen
+1992. 17694 - Junior System QA Tester @ Qualitest acq -> REJECTED: AlreadySeen
+1993. AI Research Intern   @ Cisco -> REJECTED: AlreadySeen
+1994. Junior Hardware Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+1995. סטודנט.ית לאיכות   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+1996. Quality Assurance Manual Tester- Entry level @ Origami.ms -> REJECTED: AlreadySeen
+1997. Electrical Engineering Graduate, Graviton Team   @ Amazon Web Services (AWS) -> REJECTED: AlreadySeen
+1998. Technical Support Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+1999. סטודנט.ית לאלגוריתמים ובקרה | Control & Algorithms Student   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+2000. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+2001. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+2002. Junior System Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+2003. Student Help Desk @ Confidential Careers -> REJECTED: AlreadySeen
+2004. Junior Technical Support Engineer (fresh graduate)   @ OPSWAT -> REJECTED: AlreadySeen
+2005. SOC Analyst - Student position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+2006. Junior IT & Systems Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+2007. Technical Support Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+2008. Machine Learning Engineer, Multimodal models (LLM/VLM)   @ Mobileye -> REJECTED: AlreadySeen
+2009. Front End Engineer - AI Training (Remote, Freelance) @ Braintrust -> REJECTED: AlreadySeen
+2010. Junior Full Stack Engineer - Remote @ Brand Bolt -> REJECTED: AlreadySeen
+2011. Junior Full Stack Engineer - Remote @ Brand Bolt -> REJECTED: AlreadySeen
+2012. Full Stack Developer Student   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+2013. Junior Data Analyst   @ Rayzone Group -> REJECTED: AlreadySeen
+2014. Graduate Software Engineer, Open Source and Linux, Canonical Ubuntu   @ Canonical -> REJECTED: AlreadySeen
+2015. SOC Analyst - Student position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+2016. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+2017. Security Release Project Manager Student @ Intel Corporation -> REJECTED: AlreadySeen
+2018. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+2019. Junior QA Engineer @ Confidential Careers -> REJECTED: AlreadySeen
+2020. SOLIDWORKS Application Engineer (Student Position)   @ Systematics Ltd. Solutions at work. -> REJECTED: AlreadySeen
+2021. 17694 - Junior System QA Tester @ Qualitest acq -> REJECTED: AlreadySeen
+2022. AI Research Intern   @ Cisco -> REJECTED: AlreadySeen
+2023. Junior Hardware Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+2024. סטודנט.ית לאיכות   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+2025. Quality Assurance Manual Tester- Entry level @ Origami.ms -> REJECTED: AlreadySeen
+2026. Electrical Engineering Graduate, Graviton Team   @ Amazon Web Services (AWS) -> REJECTED: AlreadySeen
+2027. Technical Support Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+2028. סטודנט.ית לאלגוריתמים ובקרה | Control & Algorithms Student   @ Rafael Advanced Defense Systems -> REJECTED: AlreadySeen
+2029. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+2030. PHY Algorithms Developer student for Wireless SoC   @ Apple -> REJECTED: AlreadySeen
+2031. Junior System Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+2032. Student Help Desk @ Confidential Careers -> REJECTED: AlreadySeen
+2033. Junior Technical Support Engineer (fresh graduate)   @ OPSWAT -> REJECTED: AlreadySeen
+2034. SOC Analyst - Student position   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+2035. Junior IT & Systems Engineer   @ Elbit Systems Israel -> REJECTED: AlreadySeen
+2036. Technical Support Engineer - Entry Level   @ Check Point Software -> REJECTED: AlreadySeen
+2037. Machine Learning Engineer (Student Position)   @ Mobileye -> REJECTED: AlreadySeen
+2038. Machine Learning Engineer, Multimodal models (LLM/VLM)   @ Mobileye -> REJECTED: AlreadySeen
+2039. Front End Engineer - AI Training (Remote, Freelance) @ Braintrust -> REJECTED: AlreadySeen
+(Total: 2039)

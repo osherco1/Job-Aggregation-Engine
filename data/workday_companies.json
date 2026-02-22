@@ -1,0 +1,102 @@
+[
+  {
+    "id": "intel",
+    "name": "Intel",
+    "url": "https://intel.wd1.myworkdayjobs.com/External"
+  },
+  {
+    "id": "nvidia",
+    "name": "NVIDIA",
+    "url": "https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite"
+  },
+  {
+    "id": "general-motors",
+    "name": "General Motors",
+    "url": "https://generalmotors.wd5.myworkdayjobs.com/Careers_GM"
+  },
+  {
+    "id": "salesforce",
+    "name": "Salesforce",
+    "url": "https://salesforce.wd12.myworkdayjobs.com/External_Career_Site"
+  },
+  {
+    "id": "workday",
+    "name": "Workday",
+    "url": "https://workday.wd5.myworkdayjobs.com/Workday"
+  },
+  {
+    "id": "dell",
+    "name": "Dell Technologies",
+    "url": "https://dell.wd1.myworkdayjobs.com/External"
+  },
+  {
+    "id": "cisco",
+    "name": "Cisco",
+    "url": "https://cisco.wd5.myworkdayjobs.com/Cisco_Careers"
+  },
+  {
+    "id": "kla",
+    "name": "KLA",
+    "url": "https://kla.wd1.myworkdayjobs.com/Israel"
+  },
+  {
+    "id": "applied-materials",
+    "name": "Applied Materials",
+    "url": "https://amat.wd1.myworkdayjobs.com/External"
+  },
+  {
+    "id": "marvell",
+    "name": "Marvell",
+    "url": "https://marvell.wd1.myworkdayjobs.com/MarvellCareers"
+  },
+  {
+    "id": "samsung",
+    "name": "Samsung",
+    "url": "https://sec.wd3.myworkdayjobs.com/Samsung_Careers"
+  },
+  {
+    "id": "genesys",
+    "name": "Genesys",
+    "url": "https://genesys.wd1.myworkdayjobs.com/Genesys"
+  },
+  {
+    "id": "medtronic",
+    "name": "Medtronic",
+    "url": "https://medtronic.wd1.myworkdayjobs.com/MedtronicCareers"
+  },
+  {
+    "id": "deutsche-bank",
+    "name": "Deutsche Bank",
+    "url": "https://db.wd3.myworkdayjobs.com/DBWebsite"
+  },
+  {
+    "id": "checkout",
+    "name": "Checkout.com",
+    "url": "https://checkout.wd3.myworkdayjobs.com/CheckoutCareers"
+  },
+  {
+    "id": "hpe",
+    "name": "HP Enterprise",
+    "url": "https://hpe.wd5.myworkdayjobs.com/ACJobSite"
+  },
+  {
+    "id": "yahoo",
+    "name": "Yahoo",
+    "url": "https://ouryahoo.wd5.myworkdayjobs.com/careers"
+  },
+  {
+    "id": "kyndryl",
+    "name": "Kyndryl",
+    "url": "https://kyndryl.wd5.myworkdayjobs.com/KyndrylProfessionalCareers"
+  },
+  {
+    "id": "pfizer",
+    "name": "Pfizer",
+    "url": "https://pfizer.wd1.myworkdayjobs.com/PfizerCareers"
+  },
+  {
+    "id": "chevron",
+    "name": "Chevron",
+    "url": "https://chevron.wd5.myworkdayjobs.com/jobs"
+  }
+]

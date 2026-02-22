@@ -1,0 +1,452 @@
+I'll perform a comprehensive scan of the entire workspace to build the architecture report. Let me start by mapping the full file structure and then diving into each module.
+
+[4 tools called]
+
+Now let me read all the core modules in parallel:
+
+[5 tools called]
+
+Now let me read the services, ATS layer, and config files:
+
+[5 tools called]
+
+Now let me read the ATS workers and utilities:
+
+[9 tools called]
+
+Now let me read the remaining utilities and data files:
+
+[6 tools called]
+
+Now let me scan for all `fs` usage across the project and the tools, plus check the `.env` structure and the `run_bot.bat`:
+
+[4 tools called]
+
+Now let me get the full list of environment variables used across the project:
+
+[3 tools called]
+
+I now have comprehensive coverage of every file in the codebase. Let me compile the full report.
+
+---
+
+# 📋 Codebase Architecture & Cloud Readiness Report
+
+## 1. Global Architecture Breakdown
+
+### 1.1 File Structure Map
+
+```
+linkedin_job_bot/
+├── 🔵 ENTRY POINTS
+│   ├── scraper.js                     # LinkedIn standalone entry
+│   ├── ats/orchestrator.js            # Unified pipeline entry (ATS + LinkedIn)
+│   └── run_bot.bat                    # Windows shortcut → node scraper.js
+│
+├── 🟢 LINKEDIN CORE
+│   ├── linkedin_client.js             # Voyager API client (fetchJobs, fetchJobDetails)
+│   ├── scraper.js                     # Search matrix, pagination, enrichment, email
+│   ├── mailer.js                      # SMTP email (sendJobReport, sendCriticalAlert)
+│   └── filters_shared.js             # Blacklist/whitelist keyword arrays + titlePassesSemanticFilters()
+│
+├── 🟠 ATS LAYER
+│   ├── ats/orchestrator.js            # Central controller: parallel ATS + LinkedIn
+│   ├── ats/workers/
+│   │   ├── comeetWorker.js            # Comeet API v1.0 (token-based, WAF handling)
+│   │   ├── greenhouseWorker.js        # Greenhouse public API (/v1/boards)
+│   │   └── workdayWorker.js           # Workday CXS API (session-based, cookie jar)
+│   ├── ats/filters/
+│   │   └── ats_guard.js               # Title/department/description seniority filter
+│   ├── ats/config/
+│   │   └── companiesConfig.js         # Loads companies_list.json + comeet_auto + greenhouse CSV
+│   ├── ats/utils/
+│   │   ├── httpClient.js              # Shared axios instance with redirect interception
+│   │   ├── httpClientWrapper.js       # Retry/backoff/rate-limit wrapper
+│   │   ├── rateLimiter.js             # Token-bucket rate limiter (Comeet)
+│   │   ├── normalizeJob.js            # Legacy normalizer (Comeet + Greenhouse)
+│   │   ├── locationGate.js            # Israel/Remote location filter
+│   │   ├── semanticGate.js            # Delegates to filters_shared.titlePassesSemanticFilters
+│   │   └── comeetRunConfig.js         # Batch pause config from env vars
+│   └── ats/types/
+│       └── interfaces.d.ts            # TypeScript interfaces (documentation-only)
+│
+├── 🟣 SERVICES
+│   ├── services/JobStateService.js    # ATS dedup: loads/persists ats_sent_jobs_history.json
+│   └── services/EmailNotifier.js      # Unified multi-source email report
+│
+├── ⚙️ CONFIGURATION
+│   ├── config/paths.js                # Centralized PATHS object (all fs paths)
+│   ├── config/vocabulary.js           # ATS guard vocabulary (departments, title patterns, seniority regex)
+│   └── .env                           # Secrets + feature flags (not committed)
+│
+├── 📁 DATA (Runtime State)
+│   ├── data/seen_jobs.json            # LinkedIn dedup memory
+│   ├── data/ats_sent_jobs_history.json # ATS dedup memory
+│   ├── data/companies_list.json       # ATS company registry (Comeet + Greenhouse)
+│   ├── data/comeet_companies_auto.json # Auto-harvested Comeet companies
+│   ├── data/greenhouse_list.csv       # Greenhouse board tokens
+│   └── data/workday_companies.json    # Workday tenant configs
+│
+├── 🛠️ TOOLING (Dev/Ops utilities)
+│   ├── tools/linkedin/
+│   │   ├── analyze_logs.js            # Calibration report generator
+│   │   ├── archive_logs.js            # Move old logs to archive
+│   │   ├── reset_data.js             # Wipe seen_jobs + logs
+│   │   ├── show_acc_history.js        # Display acceptance history
+│   │   └── show_rejected_history.js   # Display rejection history
+│   ├── tools/comeet/
+│   │   ├── harvest_comeet_puppeteer.js # 🔴 PUPPETEER - scrape Comeet tokens
+│   │   ├── harvest_tokens.js          # Token harvesting logic
+│   │   ├── add_comeet_company.js      # Add company to config
+│   │   ├── add_comeet_quick.js        # Quick-add company
+│   │   ├── inject_verified.js         # Inject verified tokens
+│   │   ├── debug_token.js            # Debug individual token
+│   │   ├── run_comeet_debug.js       # Full Comeet debug run
+│   │   └── clean_comeet_debug_logs.js # Clean debug artifacts
+│   ├── tools/workday/
+│   │   ├── add_workday_company.js     # Add Workday company
+│   │   ├── check_workday_nvidia.js    # Debug: test Nvidia endpoint
+│   │   ├── inspect_nvidia_locations.js # Debug: inspect location facets
+│   │   ├── test_workday_loop.js       # Debug: pagination test
+│   │   └── verify_workday_fix.js      # Debug: verify fixes
+│   ├── tools/benchmark_workday.js     # Performance benchmarking
+│   ├── tools/run_comeet_debug.js      # Comeet debug runner (root alias)
+│   ├── tools/run_greenhouse_debug.js  # Greenhouse debug runner
+│   └── utils/ats_discover.js          # 🔴 PUPPETEER - ATS credential discovery
+│
+├── 📊 OUTPUT & LOGS
+│   ├── output/linkedin/               # enriched_jobs_*.json
+│   ├── output/ats/                    # ats_enriched_jobs_*.json
+│   ├── logs/linkedin/{summaries,filtered,archive}/
+│   ├── logs/ats/{summaries,filtered,raw}/
+│   ├── logs/ats/comeet/{production,dropped,errors,summaries,raw,runtime.log}
+│   ├── logs/ats/greenhouse/{production,dropped,errors,summaries,raw,runtime.log}
+│   └── debug_artifacts/               # Raw Voyager JSON dumps
+│
+└── 📦 DEPENDENCIES (package.json)
+    ├── axios ^1.13.2                  # HTTP client
+    ├── axios-cookiejar-support ^6.0.5 # Cookie jar for Workday
+    ├── cheerio ^1.1.2                 # HTML parsing (ats_discover)
+    ├── csv-parser ^3.2.0             # CSV parsing
+    ├── dotenv ^16.6.1                # .env loader
+    ├── nodemailer ^7.0.11            # SMTP email
+    ├── puppeteer ^24.36.1            # 🔴 Headless Chrome (~400MB)
+    └── tough-cookie ^6.0.0           # Cookie management (Workday)
+```
+
+### 1.2 Dependency Tree (Module Import Graph)
+
+| Module | Imports From | Imported By |
+|--------|-------------|-------------|
+| `scraper.js` | `linkedin_client`, `mailer`, `filters_shared`, `config/paths` | `ats/orchestrator` |
+| `linkedin_client.js` | `mailer` (sendCriticalAlert), `axios` | `scraper` |
+| `mailer.js` | `nodemailer`, `dotenv` | `scraper`, `linkedin_client` |
+| `filters_shared.js` | *(none – pure data)* | `scraper`, `ats/utils/semanticGate` |
+| `ats/orchestrator.js` | `config/paths`, `companiesConfig`, `httpClient`, `normalizeJob`, `locationGate`, `semanticGate`, `ComeetWorker`, `GreenhouseWorker`, `WorkdayWorker`, `JobStateService`, `EmailNotifier`, `scraper` | *(entry point)* |
+| `services/JobStateService.js` | `fs`, `path` | `ats/orchestrator` |
+| `services/EmailNotifier.js` | `nodemailer`, `dotenv` | `ats/orchestrator` |
+| `ats/workers/comeetWorker.js` | `fs`, `https`, `httpClientWrapper`, `config/paths`, `ats_guard` | `ats/orchestrator` |
+| `ats/workers/greenhouseWorker.js` | `fs`, `httpClientWrapper`, `config/paths`, `ats_guard` | `ats/orchestrator` |
+| `ats/workers/workdayWorker.js` | `axios`, `fs`, `tough-cookie`, `axios-cookiejar-support`, `config/paths`, `ats_guard` | `ats/orchestrator` |
+| `ats/filters/ats_guard.js` | `config/vocabulary` | `comeetWorker`, `greenhouseWorker`, `workdayWorker` |
+| `ats/config/companiesConfig.js` | `fs`, `path` | `ats/orchestrator` |
+| `config/paths.js` | `path` | `scraper`, `ats/orchestrator`, `comeetWorker`, `greenhouseWorker` |
+| `config/vocabulary.js` | *(none – pure data)* | `ats/filters/ats_guard` |
+| `utils/ats_discover.js` | `axios`, `cheerio`, `puppeteer`, `fs.promises` | *(standalone tool)* |
+
+---
+
+## 2. State Management & I/O Mapping
+
+### 2.1 Complete Filesystem I/O Registry
+
+| File | Operation | Path(s) | Schema / Purpose | Cloud Migration |
+|------|-----------|---------|-----------------|-----------------|
+| **`scraper.js`** | **READ** `fs.readFileSync` | `data/seen_jobs.json` | `string[]` (job ID array → Set) | → DynamoDB Table `SeenJobs` |
+| **`scraper.js`** | **WRITE** `fs.writeFileSync` | `data/seen_jobs.json` | `string[]` – persisted Set of seen job IDs | → DynamoDB `SeenJobs` |
+| **`scraper.js`** | **WRITE** `fs.writeFileSync` | `output/linkedin/enriched_jobs_*.json` | Enriched job objects array | → S3 bucket or DynamoDB `Jobs` table |
+| **`scraper.js`** | **WRITE** `fs.writeFileSync` | `logs/linkedin/summaries/run_summary_*.json` | Run statistics object | → CloudWatch Logs / S3 |
+| **`scraper.js`** | **WRITE** `fs.writeFileSync` | `logs/linkedin/filtered/filtered_jobs_debug_*.json` | Filtered jobs debug array | → CloudWatch Logs / S3 |
+| **`linkedin_client.js`** | **WRITE** `fs.writeFileSync` | `debug_artifacts/debug_linkedin_response.json` | Raw Voyager JSON dump | → S3 (debug) or remove |
+| **`linkedin_client.js`** | **WRITE** `fs.writeFileSync` | `debug_artifacts/debug_job_details_*.json` | Raw job details JSON | → S3 (debug) or remove |
+| **`services/JobStateService.js`** | **READ** `fs.readFileSync` | `data/ats_sent_jobs_history.json` | `{ lastUpdated, totalCount, sentJobIds: string[] }` | → DynamoDB Table `AtsSentJobs` |
+| **`services/JobStateService.js`** | **WRITE** `fs.writeFileSync` | `data/ats_sent_jobs_history.json` | Same schema as READ | → DynamoDB `AtsSentJobs` |
+| **`ats/orchestrator.js`** | **WRITE** `fs.writeFileSync` | `output/ats/ats_enriched_jobs_*.json` | Unified ATS jobs array | → S3 / DynamoDB |
+| **`ats/orchestrator.js`** | **WRITE** `fs.writeFileSync` | `logs/ats/summaries/ats_run_summary_*.json` | Run summary object | → CloudWatch / S3 |
+| **`ats/orchestrator.js`** | **WRITE** `fs.writeFileSync` | `logs/ats/filtered/ats_filtered_jobs_debug_*.json` | Filtered jobs debug | → CloudWatch / S3 |
+| **`ats/workers/comeetWorker.js`** | **WRITE** `fs.writeFileSync` | `logs/ats/comeet/raw/raw_*.json` | Raw API responses (debug only) | → S3 (debug) or remove |
+| **`ats/workers/comeetWorker.js`** | **WRITE** `fs.writeFileSync` | `logs/ats/comeet/dropped/dropped_*.json` | Dropped jobs with reasons | → S3 / CloudWatch |
+| **`ats/workers/comeetWorker.js`** | **WRITE** `fs.writeFileSync` | `logs/ats/comeet/errors/error_*.json` | Error diagnostics | → CloudWatch / S3 |
+| **`ats/workers/comeetWorker.js`** | **WRITE** `fs.writeFileSync` | `logs/ats/comeet/summaries/run_summary_*.json` | Worker run summary | → CloudWatch / S3 |
+| **`ats/workers/comeetWorker.js`** | **APPEND** `fs.appendFileSync` | `logs/ats/comeet/runtime.log` | Real-time tailing log | → CloudWatch Logs stream |
+| **`ats/workers/greenhouseWorker.js`** | **WRITE** `fs.writeFileSync` | `logs/ats/greenhouse/raw/raw_*.json` | Raw API responses (debug only) | → S3 (debug) or remove |
+| **`ats/workers/greenhouseWorker.js`** | **WRITE** `fs.writeFileSync` | `logs/ats/greenhouse/dropped/dropped_*.json` | Dropped jobs with reasons | → S3 / CloudWatch |
+| **`ats/workers/greenhouseWorker.js`** | **WRITE** `fs.writeFileSync` | `logs/ats/greenhouse/errors/error_*.json` | Error diagnostics | → CloudWatch / S3 |
+| **`ats/workers/greenhouseWorker.js`** | **WRITE** `fs.writeFileSync` | `logs/ats/greenhouse/summaries/run_summary_*.json` | Worker run summary | → CloudWatch / S3 |
+| **`ats/workers/greenhouseWorker.js`** | **APPEND** `fs.appendFileSync` | `logs/ats/greenhouse/runtime.log` | Real-time tailing log | → CloudWatch Logs stream |
+| **`ats/workers/workdayWorker.js`** | `ensureDir` only | `config/paths` dirs | Directory creation | → N/A (remove) |
+| **`ats/config/companiesConfig.js`** | **READ** `fs.readFileSync` | `data/companies_list.json` | Company config array | → DynamoDB Table `Companies` |
+| **`ats/config/companiesConfig.js`** | **READ** `fs.readFileSync` | `data/comeet_companies_auto.json` | Auto-harvested Comeet configs | → DynamoDB `Companies` |
+| **`ats/config/companiesConfig.js`** | **READ** `fs.readFileSync` | `data/greenhouse_list.csv` | CSV: id,name,type,uid | → DynamoDB `Companies` |
+| **`utils/ats_discover.js`** | **WRITE** `fs.promises.writeFile` | `data/companies_list.json` | Discovery output | → Offline tool only |
+
+### 2.2 Critical State File Schemas
+
+**`data/seen_jobs.json`** – LinkedIn deduplication memory
+```json
+["4123456789", "4123456790", "4123456791"]
+```
+- **Type:** `string[]` (numeric job IDs as strings)
+- **Loaded into:** `Set<string>` in `scraper.js:loadSeenJobIds()`
+- **Growth:** ~500 IDs/day (DAILY_NEW_JOBS_LIMIT)
+- **DynamoDB Schema:** Table `SeenJobs`, PK: `jobId` (S), TTL: 30d recommended
+
+**`data/ats_sent_jobs_history.json`** – ATS deduplication memory
+```json
+{
+  "lastUpdated": "2026-02-19T...",
+  "totalCount": 1234,
+  "sentJobIds": ["comeet_abc123", "greenhouse_456", "workday_nvidia_JR789"]
+}
+```
+- **Type:** Object with `sentJobIds: string[]`
+- **Loaded into:** `Set<string>` in `JobStateService`
+- **DynamoDB Schema:** Table `AtsSentJobs`, PK: `jobId` (S), Attribute: `source` (S), TTL: 60d
+
+**`data/companies_list.json`** – Company registry
+```json
+[
+  { "id": "melio", "name": "Melio", "type": "comeet", "uid": "...", "token": "..." },
+  { "id": "gong", "name": "Gong", "type": "greenhouse", "uid": "gong" }
+]
+```
+- **DynamoDB Schema:** Table `Companies`, PK: `id` (S), Attributes: type, uid, token, enabled
+
+### 2.3 Modules Requiring Dependency Injection / Refactoring
+
+| Module | Current Coupling | Required Refactoring |
+|--------|-----------------|---------------------|
+| **`scraper.js`** | Direct `fs.readFileSync/writeFileSync` for `seen_jobs.json`, output files, and log files | Inject `StorageAdapter` interface (fs vs DynamoDB/S3) |
+| **`services/JobStateService.js`** | Direct `fs` for `ats_sent_jobs_history.json`; **singleton pattern** with `module.exports = { jobStateService }` | Replace singleton with factory; inject `StorageAdapter` |
+| **`ats/config/companiesConfig.js`** | Direct `fs.readFileSync` for 3 config files | Inject config loader (fs vs DynamoDB) |
+| **`ats/workers/comeetWorker.js`** | 6 direct `fs.writeFileSync` / `fs.appendFileSync` calls for logging | Inject `Logger` interface (fs vs CloudWatch) |
+| **`ats/workers/greenhouseWorker.js`** | 6 direct `fs.writeFileSync` / `fs.appendFileSync` calls for logging | Inject `Logger` interface (fs vs CloudWatch) |
+| **`ats/orchestrator.js`** | Direct `fs.writeFileSync` for 3 output/log files | Inject `StorageAdapter` |
+| **`linkedin_client.js`** | Direct `fs.writeFileSync` for debug artifacts | Inject `DebugLogger` or remove in production |
+| **`config/paths.js`** | All paths are `path.join()` to local fs | Replace with abstracted path provider (S3 keys, DynamoDB table names) |
+
+---
+
+## 3. Execution Flow & Cloud Blockers
+
+### 3.1 Execution Paths
+
+#### Path A: Standalone LinkedIn Scraper (`node scraper.js` / `run_bot.bat`)
+
+```
+scraper.js (entry)
+  ├── loadSeenJobIds()                    # READ seen_jobs.json
+  ├── FOR each query in SEARCH_QUERIES (16 queries)
+  │     ├── FOR each page in [0, 25, 50, 75]
+  │     │     ├── fetchJobs(query, start)  # linkedin_client → Voyager API
+  │     │     ├── FOR each new job
+  │     │     │     ├── fetchJobDetails()   # linkedin_client → GraphQL
+  │     │     │     ├── passesFilters()     # blacklist/whitelist check
+  │     │     │     └── randomDelay(3-6s)   # ⚠️ Anti-bot delay
+  │     │     └── randomDelay(3-7s)         # ⚠️ Inter-page delay
+  │     └── randomDelay(10-20s)             # ⚠️ Inter-query delay
+  │   └── randomDelay(120-180s)             # ⚠️ Inter-batch cooldown
+  ├── sendJobReport(allNewJobs)             # SMTP email
+  ├── saveSeenJobIds()                      # WRITE seen_jobs.json
+  └── WRITE summaries + filtered logs       # Timestamped JSON files
+```
+
+#### Path B: Unified Pipeline (`node ats/orchestrator.js`)
+
+```
+orchestrator.run()
+  ├── ⚡ PARALLEL PHASE (Promise.allSettled)
+  │     ├── runAtsWorkers()
+  │     │     ├── loadCompaniesConfig()        # READ 3 config files
+  │     │     ├── ⚡ Promise.all([comeet, greenhouse, workday])
+  │     │     │     ├── ComeetWorker.fetchAllJobs() × N companies
+  │     │     │     │     └── randomDelay(3-6s) per company
+  │     │     │     │     └── WAF cooldown(2-5min) on 403/406  ⚠️
+  │     │     │     ├── GreenhouseWorker.fetchAllJobs() × N companies
+  │     │     │     │     └── randomDelay(6-12s) per company
+  │     │     │     └── WorkdayWorker × N companies
+  │     │     │           └── initSession() + detectLocationFacet() + paginate
+  │     │     │           └── randomDelay(5-6s) per page
+  │     │     └── persistResults()             # WRITE jobs + summary + filtered
+  │     │
+  │     └── runLinkedInPhase()
+  │           └── runLinkedinScraper({ skipEmail: true })
+  │                 └── [Same as Path A, minus email]
+  │
+  ├── deduplicateJobs()
+  │     └── jobStateService.filterNewJobs()     # READ ats_sent_jobs_history.json
+  ├── sendNotification()
+  │     └── emailNotifier.sendUnifiedReport()   # SMTP email
+  └── persistState()
+        └── jobStateService.persistState()      # WRITE ats_sent_jobs_history.json
+```
+
+### 3.2 Cloud Blockers
+
+#### 🔴 CRITICAL: Lambda Timeout (15-min limit)
+
+| Bottleneck | Estimated Duration | Impact |
+|-----------|-------------------|--------|
+| **LinkedIn scraper full run** | **30–90 minutes** | 🔴 **Far exceeds 15-min limit.** 16 queries × 4 pages × (3-7s page delay + 3-6s per job enrichment) + 10-20s query gaps + 120-180s batch cooldowns. |
+| **Comeet WAF cooldown** | 2–5 min per 403/406 | 🔴 Single WAF block can consume >30% of Lambda timeout. Multiple blocks could cascade. |
+| **ATS batch (all workers parallel)** | 5–20 minutes | 🟡 Depends on company count. Comeet (3-6s/co) + Greenhouse (6-12s/co) + Workday (5-6s/page × multiple pages). |
+| **Workday session initialization** | 2s fixed + cookie establishment | 🟡 Minor but adds up across companies. |
+
+**Recommendation:** Split LinkedIn scraper into per-query Lambda invocations triggered by EventBridge → SQS, each processing 1 query with 4 pages (estimated 2-5 min each). ATS workers can each be a separate Lambda.
+
+#### 🔴 CRITICAL: Puppeteer / Headless Chrome Dependency
+
+| Module | Puppeteer Usage | Lambda Impact |
+|--------|----------------|---------------|
+| `utils/ats_discover.js` | `puppeteer.launch()` for headless network interception | 🔴 ~400MB uncompressed. Exceeds Lambda 250MB deployment limit. Requires Lambda container image or Lambda Layer with `@sparticuz/chromium`. |
+| `tools/comeet/harvest_comeet_puppeteer.js` | `puppeteer.launch()` for token scraping | 🔴 Same. Offline tool – **should NOT be deployed to Lambda.** |
+
+**Recommendation:** Classify `tools/*` and `utils/ats_discover.js` as offline/dev-only. Strip `puppeteer` from production `package.json`. If ATS discovery is needed in cloud, use a separate Lambda container image.
+
+#### 🔴 CRITICAL: `process.exit()` Calls
+
+| File | Lines | Trigger | Impact |
+|------|-------|---------|--------|
+| `linkedin_client.js` | 115, 139 | Auth challenge (302/303 redirect) | 🔴 **Kills the Lambda container immediately.** No graceful shutdown, no state persistence. |
+| `scraper.js` | 609 | Fatal error in standalone mode | 🟡 Only in `require.main === module` block. Orchestrator mode is safe. |
+
+**Recommendation:** Replace `process.exit(1)` in `linkedin_client.js` with `throw new Error('CRITICAL_AUTH_FAIL')` – the orchestrator already catches this.
+
+#### 🟡 MODERATE: In-Memory State Assumptions
+
+| Pattern | File(s) | Issue |
+|---------|---------|-------|
+| **Singleton `JobStateService`** | `services/JobStateService.js:153` | `const jobStateService = new JobStateService()` – module-level singleton. In Lambda, this persists across warm invocations but resets on cold starts. |
+| **`this.runStats` on worker instances** | `comeetWorker.js`, `greenhouseWorker.js`, `workdayWorker.js` | Run statistics accumulate in memory during a run. Lost if Lambda freezes or crashes. |
+| **Comeet `RateLimiter` singleton** | `ats/utils/httpClientWrapper.js:10` | `rateLimiters.comeet` persists across warm Lambda invocations – could cause unexpected timing. |
+| **WorkdayWorker session state** | `workdayWorker.js:153-168` | `CookieJar`, `_sessionInitialized`, `_locationFacet` cached per instance. New Lambda invocation = new session needed. |
+| **LinkedIn `seenIds` Set** | `scraper.js:249` | Built from `seen_jobs.json` at start. In a distributed Lambda setup, parallel invocations could duplicate jobs. |
+
+#### 🟡 MODERATE: Environment Variable Dependencies
+
+| Variable | Used In | Required? | Secret? |
+|----------|---------|-----------|---------|
+| `LINKEDIN_LI_AT` | `linkedin_client.js` | ✅ Yes | 🔒 Yes → AWS Secrets Manager |
+| `LINKEDIN_JSESSIONID` | `linkedin_client.js` | ✅ Yes | 🔒 Yes → AWS Secrets Manager |
+| `LINKEDIN_CSRF_TOKEN` | `linkedin_client.js` | ✅ Yes | 🔒 Yes → AWS Secrets Manager |
+| `LINKEDIN_ACCEPT_LANGUAGE` | `linkedin_client.js` | ❌ Optional | No |
+| `LINKEDIN_USER_AGENT` | `linkedin_client.js` | ❌ Optional | No |
+| `JOBBOT_SMTP_USER` | `mailer.js`, `EmailNotifier.js` | ✅ Yes | 🔒 Yes → AWS Secrets Manager |
+| `JOBBOT_SMTP_PASS` | `mailer.js`, `EmailNotifier.js` | ✅ Yes | 🔒 Yes → AWS Secrets Manager |
+| `JOBBOT_TO_EMAIL` | `mailer.js`, `EmailNotifier.js` | ❌ Optional | No |
+| `DRY_RUN` | `scraper.js`, `orchestrator.js` | ❌ Optional | No → Lambda env var |
+| `SKIP_LINKEDIN` | `orchestrator.js` | ❌ Optional | No → Lambda env var |
+| `SKIP_ATS` | `orchestrator.js` | ❌ Optional | No → Lambda env var |
+| `ATS_GUARD_DRY_RUN` | All workers | ❌ Optional | No → Lambda env var |
+| `ATS_QUIET_MODE` | All workers | ❌ Optional | No → Lambda env var |
+| `DEBUG_COMEET` | `comeetWorker.js` | ❌ Optional | No |
+| `DEBUG_GREENHOUSE` | `greenhouseWorker.js` | ❌ Optional | No |
+| `DEBUG_WORKDAY` | `workdayWorker.js` | ❌ Optional | No |
+| `COMEET_DELAY_MIN_MS` / `MAX_MS` | `comeetWorker.js` | ❌ Optional | No |
+| `COMEET_COOLDOWN_403_MIN_MS` / `MAX_MS` | `comeetWorker.js` | ❌ Optional | No |
+| `COMEET_RATE_LIMIT_MIN_MS` / `MAX_MS` | `rateLimiter.js` | ❌ Optional | No |
+| `COMEET_BATCH_*` | `comeetRunConfig.js` | ❌ Optional | No |
+| `GREENHOUSE_DELAY_MIN_MS` / `MAX_MS` | `greenhouseWorker.js` | ❌ Optional | No |
+| `WORKDAY_DELAY_MIN_MS` / `MAX_MS` | `workdayWorker.js` | ❌ Optional | No |
+| `EMAIL_TO` / `EMAIL_USER` | `scraper.js` (legacy) | ❌ Optional | No |
+
+**Total:** 6 secrets, 20+ configuration flags.
+
+#### 🟢 LOW RISK: Items That Translate Well
+
+| Component | Cloud Mapping |
+|-----------|---------------|
+| `ats/filters/ats_guard.js` | Pure logic, no I/O – deploy as-is |
+| `filters_shared.js` | Pure data arrays – deploy as-is |
+| `config/vocabulary.js` | Pure data – deploy as-is |
+| `ats/utils/locationGate.js` | Pure logic – deploy as-is |
+| `ats/utils/semanticGate.js` | Pure logic – deploy as-is |
+| `ats/utils/httpClient.js` | Axios-based – deploy as-is (remove redirect `process.exit`) |
+| `ats/utils/httpClientWrapper.js` | Retry logic – deploy as-is |
+| `mailer.js` / `EmailNotifier.js` | nodemailer SMTP – works in Lambda. Consider SES as alternative. |
+
+---
+
+## 4. Summary: Tightly Coupled Modules Requiring Immediate Refactoring
+
+### Priority 1 – Must Fix Before Any Lambda Deployment
+
+| # | Module | Coupling | Refactoring Required |
+|---|--------|----------|---------------------|
+| 1 | **`scraper.js`** | `fs` ×6 calls (seen_jobs.json, output, summaries, filtered logs) + 30-90min runtime | **Split into per-query Lambdas.** Extract `StorageAdapter` interface. Replace `loadSeenJobIds()`/`saveSeenJobIds()` with DynamoDB calls. |
+| 2 | **`services/JobStateService.js`** | `fs` ×3 calls + singleton module-level instance | **Replace module singleton with factory function.** Inject `StorageBackend` (fs ↔ DynamoDB). Add atomic conditional writes for distributed dedup. |
+| 3 | **`linkedin_client.js`** | `process.exit(1)` on 302/303 + `fs.writeFileSync` for debug artifacts | **Remove `process.exit()` calls** – throw errors instead. Make debug artifact writing optional/injectable. |
+| 4 | **`ats/config/companiesConfig.js`** | `fs.readFileSync` ×3 for config files | **Inject config source** (fs ↔ DynamoDB). Cache in Lambda warm starts. |
+| 5 | **`config/paths.js`** | All paths are `path.join()` to local filesystem | **Abstract to resource locator** that maps to S3 keys / DynamoDB table names / CloudWatch log groups. |
+
+### Priority 2 – Required for Production-Quality Cloud Deployment
+
+| # | Module | Coupling | Refactoring Required |
+|---|--------|----------|---------------------|
+| 6 | **`ats/workers/comeetWorker.js`** | 6 `fs.writeFileSync` + 1 `fs.appendFileSync` for structured logging | **Inject `Logger` interface.** Replace `appendFileSync(runtime.log)` with structured CloudWatch Logs. |
+| 7 | **`ats/workers/greenhouseWorker.js`** | Same as comeetWorker | Same refactoring as #6. |
+| 8 | **`ats/workers/workdayWorker.js`** | Session-based with `CookieJar`, Akamai anti-bot handling, per-instance state | **Consider running as a containerized Lambda** due to session complexity. May need Step Functions for multi-page pagination with delays. |
+| 9 | **`ats/orchestrator.js`** | `fs.writeFileSync` ×3 + orchestrates the entire pipeline in a single long-running process | **Decompose into Step Functions state machine**: ATS Phase → LinkedIn Phase → Dedup → Email → Persist. Each step = 1 Lambda. |
+| 10 | **`package.json`** | `puppeteer ^24.36.1` (~400MB) | **Remove from production deps.** Move to `devDependencies`. Use `@sparticuz/chromium` Lambda Layer only for tools that need it. |
+
+### Recommended Target Architecture (AWS)
+
+```
+EventBridge (cron) ──▶ Step Functions State Machine
+                        │
+                        ├─▶ Lambda: ATS-Comeet (per-company fan-out via SQS)
+                        ├─▶ Lambda: ATS-Greenhouse (per-company fan-out via SQS)
+                        ├─▶ Lambda: ATS-Workday (container image, per-company)
+                        ├─▶ Lambda: LinkedIn-Query (per-query fan-out via SQS, ×16)
+                        ├─▶ Lambda: Dedup-and-Merge (reads DynamoDB SeenJobs + AtsSentJobs)
+                        ├─▶ Lambda: Send-Email (SES or SMTP)
+                        └─▶ Lambda: Persist-State (DynamoDB writes)
+
+DynamoDB Tables:
+  - SeenJobs          (PK: jobId, TTL: 30d)
+  - AtsSentJobs       (PK: jobId, source, TTL: 60d)
+  - Companies         (PK: id, type, uid, token, enabled)
+  - RunSummaries      (PK: runId, timestamp)
+
+S3 Bucket:
+  - debug-artifacts/  (optional, for raw API responses)
+  - enriched-jobs/    (timestamped output files)
+
+Secrets Manager:
+  - linkedin-credentials (LI_AT, JSESSIONID, CSRF_TOKEN)
+  - smtp-credentials (SMTP_USER, SMTP_PASS)
+```
+
+---
+
+*Report generated from exhaustive scan of 35+ source files, 7 data files, and full dependency analysis. All `fs`, `process.env`, and `process.exit` references traced to source.*
+
+[1 tool called]
+
+The report is complete. Here's a quick summary of the most critical takeaways for your migration [[memory:12266497]]:
+
+**Top 3 Showstoppers:**
+
+1. **LinkedIn scraper runtime (30-90 min)** far exceeds Lambda's 15-minute limit. Must be decomposed into per-query Lambdas with SQS fan-out.
+
+2. **`process.exit(1)` in `linkedin_client.js`** (lines 115 and 139) will kill Lambda containers on auth challenges. Must be replaced with thrown errors.
+
+3. **Puppeteer (`~400MB`)** in `package.json` makes the deployment package too large. It's only used by offline tools (`ats_discover.js`, `harvest_comeet_puppeteer.js`) and should be moved to `devDependencies`.
+
+**Most tightly coupled modules** that need immediate refactoring for statelessness:
+- `scraper.js` — 6 direct `fs` operations
+- `services/JobStateService.js` — singleton + `fs` for dedup state
+- `ats/config/companiesConfig.js` — reads 3 config files from disk
+- `config/paths.js` — all paths hardcoded to local filesystem
+
+The pure-logic modules (`filters_shared.js`, `ats_guard.js`, `vocabulary.js`, `locationGate.js`, `semanticGate.js`) are cloud-ready with zero changes.
