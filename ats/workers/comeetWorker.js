@@ -1,4 +1,3 @@
-const fs = require('fs');
 const path = require('path');
 const https = require('https');
 const { requestWithDelayWrapper } = require('../utils/httpClientWrapper');
@@ -26,38 +25,30 @@ const RUNTIME_LOG_PATH = PATHS.ATS.LOGS.COMEET.RUNTIME_LOG;
 // ============================================================================
 
 /**
- * Ensure directory exists (recursive)
- */
-function ensureDir(dirPath) {
-  try {
-    if (!fs.existsSync(dirPath)) {
-      fs.mkdirSync(dirPath, { recursive: true });
-    }
-  } catch (err) {
-    // eslint-disable-next-line no-console
-    console.error(`ComeetWorker: failed to ensure directory ${dirPath}:`, err.message || err);
-  }
-}
-
-/**
  * Log message to runtime log file (for tailing in separate terminal)
  * @param {string} message - Log message
  * @param {string} level - Log level (INFO, WARN, ERROR, DEBUG)
+ * @param {StorageAdapter} storageAdapter - Optional storage adapter for logging
  */
-function logRuntime(message, level = 'INFO') {
+function logRuntime(message, level = 'INFO', storageAdapter = null) {
   const timestamp = new Date().toISOString();
   const logLine = `[${timestamp}] [${level}] ${message}\n`;
 
-  try {
-    // Ensure log directory exists
-    ensureDir(path.dirname(RUNTIME_LOG_PATH));
-    fs.appendFileSync(RUNTIME_LOG_PATH, logLine);
-  } catch (err) {
-    // Fallback to console if file write fails
-    console.error('ComeetWorker: Failed to write to runtime log:', err.message);
+  // If storage adapter is provided, use it for structured logging
+  // Otherwise, fall back to console (for backward compatibility)
+  if (storageAdapter) {
+    // Fire-and-forget log write
+    storageAdapter.writeRunLog({
+      type: 'runtime',
+      source: 'comeet',
+      timestamp,
+      payload: { message, level },
+    }).catch(() => {
+      // Ignore errors - logging is non-critical
+    });
   }
 
-  // Only log to console if not in quiet mode, or if it's an error
+  // Always log to console if not in quiet mode, or if it's an error
   if (!QUIET_MODE || level === 'ERROR') {
     if (level === 'ERROR') {
       console.error(`[CM] ${message}`);
@@ -107,19 +98,28 @@ function timestampString() {
 
 /**
  * Save raw API response (debug only)
+ * @param {string} companyName
+ * @param {Object} rawResponse
+ * @param {StorageAdapter} storageAdapter
  */
-function saveRawResponse(companyName, rawResponse) {
-  if (!DEBUG_COMEET) return;
+async function saveRawResponse(companyName, rawResponse, storageAdapter) {
+  if (!DEBUG_COMEET || !storageAdapter) return;
 
   try {
-    ensureDir(PATHS.ATS.LOGS.COMEET.RAW);
     const timestamp = timestampString();
     const safeName = safeCompanyName(companyName);
-    const fileName = `raw_${safeName}_${timestamp}.json`;
-    const filePath = path.join(PATHS.ATS.LOGS.COMEET.RAW, fileName);
+    const payload = {
+      companyName: safeName,
+      rawResponse,
+    };
 
-    fs.writeFileSync(filePath, JSON.stringify(rawResponse, null, 2), 'utf-8');
-    logRuntime(`[RAW] Saved raw response to ${fileName}`);
+    await storageAdapter.writeRunLog({
+      type: 'raw',
+      source: 'comeet',
+      timestamp: `${safeName}_${timestamp}`,
+      payload,
+    });
+    logRuntime(`[RAW] Saved raw response for ${safeName}`, 'DEBUG', storageAdapter);
   } catch (err) {
     // eslint-disable-next-line no-console
     console.error('ComeetWorker: failed to save raw response:', err.message || err);
@@ -128,16 +128,16 @@ function saveRawResponse(companyName, rawResponse) {
 
 /**
  * Save dropped jobs with reasons
+ * @param {string} companyName
+ * @param {Array} droppedJobs
+ * @param {StorageAdapter} storageAdapter
  */
-function saveDroppedJobs(companyName, droppedJobs) {
-  if (!droppedJobs || droppedJobs.length === 0) return;
+async function saveDroppedJobs(companyName, droppedJobs, storageAdapter) {
+  if (!droppedJobs || droppedJobs.length === 0 || !storageAdapter) return;
 
   try {
-    ensureDir(PATHS.ATS.LOGS.COMEET.DROPPED);
     const timestamp = timestampString();
     const safeName = safeCompanyName(companyName);
-    const fileName = `dropped_${safeName}_${timestamp}.json`;
-    const filePath = path.join(PATHS.ATS.LOGS.COMEET.DROPPED, fileName);
 
     // Redact tokens from dropped jobs
     const safeDropped = droppedJobs.map(job => {
@@ -148,8 +148,16 @@ function saveDroppedJobs(companyName, droppedJobs) {
       return safe;
     });
 
-    fs.writeFileSync(filePath, JSON.stringify(safeDropped, null, 2), 'utf-8');
-    logRuntime(`[DROPPED] Saved ${droppedJobs.length} dropped jobs to ${fileName}`);
+    await storageAdapter.writeRunLog({
+      type: 'filtered',
+      source: 'comeet',
+      timestamp: `${safeName}_${timestamp}`,
+      payload: {
+        companyName: safeName,
+        droppedJobs: safeDropped,
+      },
+    });
+    logRuntime(`[DROPPED] Saved ${droppedJobs.length} dropped jobs for ${safeName}`, 'INFO', storageAdapter);
   } catch (err) {
     // eslint-disable-next-line no-console
     console.error('ComeetWorker: failed to save dropped jobs:', err.message || err);
@@ -158,14 +166,16 @@ function saveDroppedJobs(companyName, droppedJobs) {
 
 /**
  * Save error information
+ * @param {string} companyName
+ * @param {Object} errorInfo
+ * @param {StorageAdapter} storageAdapter
  */
-function saveErrorInfo(companyName, errorInfo) {
+async function saveErrorInfo(companyName, errorInfo, storageAdapter) {
+  if (!storageAdapter) return;
+
   try {
-    ensureDir(PATHS.ATS.LOGS.COMEET.ERRORS);
     const timestamp = timestampString();
     const safeName = safeCompanyName(companyName);
-    const fileName = `error_${safeName}_${timestamp}.json`;
-    const filePath = path.join(PATHS.ATS.LOGS.COMEET.ERRORS, fileName);
 
     // Redact token from URL
     const safeErrorInfo = {
@@ -173,8 +183,16 @@ function saveErrorInfo(companyName, errorInfo) {
       requestUrl: errorInfo.requestUrl ? redactToken(errorInfo.requestUrl) : null,
     };
 
-    fs.writeFileSync(filePath, JSON.stringify(safeErrorInfo, null, 2), 'utf-8');
-    logRuntime(`[ERROR] Saved error info to ${fileName}`, 'WARN');
+    await storageAdapter.writeRunLog({
+      type: 'error',
+      source: 'comeet',
+      timestamp: `${safeName}_${timestamp}`,
+      payload: {
+        companyName: safeName,
+        errorInfo: safeErrorInfo,
+      },
+    });
+    logRuntime(`[ERROR] Saved error info for ${safeName}`, 'WARN', storageAdapter);
   } catch (err) {
     // eslint-disable-next-line no-console
     console.error('ComeetWorker: failed to save error info:', err.message || err);
@@ -183,16 +201,21 @@ function saveErrorInfo(companyName, errorInfo) {
 
 /**
  * Save run summary
+ * @param {Object} runStats
+ * @param {StorageAdapter} storageAdapter
  */
-function saveRunSummary(runStats) {
-  try {
-    ensureDir(PATHS.ATS.LOGS.COMEET.SUMMARIES);
-    const timestamp = timestampString();
-    const fileName = `run_summary_${timestamp}.json`;
-    const filePath = path.join(PATHS.ATS.LOGS.COMEET.SUMMARIES, fileName);
+async function saveRunSummary(runStats, storageAdapter) {
+  if (!storageAdapter) return;
 
-    fs.writeFileSync(filePath, JSON.stringify(runStats, null, 2), 'utf-8');
-    logRuntime(`[SUMMARY] Saved run summary to ${fileName}`);
+  try {
+    const timestamp = timestampString();
+    await storageAdapter.writeRunLog({
+      type: 'summary',
+      source: 'comeet',
+      timestamp,
+      payload: runStats,
+    });
+    logRuntime(`[SUMMARY] Saved run summary`, 'INFO', storageAdapter);
   } catch (err) {
     // eslint-disable-next-line no-console
     console.error('ComeetWorker: failed to save run summary:', err.message || err);
@@ -414,8 +437,9 @@ function passesDepartmentGate(rawJob) {
 // ============================================================================
 
 class ComeetWorker {
-  constructor(httpClient) {
+  constructor(httpClient, storageAdapter = null) {
     this.httpClient = httpClient;
+    this.storageAdapter = storageAdapter;
 
     // HTTPS Agent with keepAlive for persistent connections
     this.httpsAgent = new https.Agent({
@@ -476,10 +500,10 @@ class ComeetWorker {
    * Finalize run statistics and save summary
    * Should be called by orchestrator after all companies are processed
    */
-  finalizeRun() {
+  async finalizeRun() {
     this.runStats.endTime = new Date().toISOString();
     this.runStats.totalDurationMs = new Date(this.runStats.endTime) - new Date(this.runStats.startTime);
-    saveRunSummary(this.runStats);
+    await saveRunSummary(this.runStats, this.storageAdapter);
   }
 
   /**
@@ -578,8 +602,8 @@ class ComeetWorker {
     let cooldownAppliedMs = 0;
     let errorInfo = null;
 
-    try {
-      logRuntime(`Fetching: ${company.name || company.id} (UID: ${uid})`, 'DEBUG');
+      try {
+        logRuntime(`Fetching: ${company.name || company.id} (UID: ${uid})`, 'DEBUG', this.storageAdapter);
 
       httpStartTime = Date.now();
       const response = await requestWithDelay({
@@ -625,7 +649,7 @@ class ComeetWorker {
           retried: false,
           cooldownAppliedMs: cooldownMs,
         };
-        saveErrorInfo(company.name || company.id, errorInfo);
+        await saveErrorInfo(company.name || company.id, errorInfo, this.storageAdapter);
 
         // Update run statistics
         this.runStats.companiesProcessed += 1;
@@ -673,7 +697,7 @@ class ComeetWorker {
           attempt: 1,
           retried: false,
         };
-        saveErrorInfo(company.name || company.id, errorInfo);
+        await saveErrorInfo(company.name || company.id, errorInfo, this.storageAdapter);
 
         // Update run statistics
         this.runStats.companiesProcessed += 1;
@@ -716,7 +740,7 @@ class ComeetWorker {
           attempt: 1,
           retried: false,
         };
-        saveErrorInfo(company.name || company.id, errorInfo);
+        await saveErrorInfo(company.name || company.id, errorInfo, this.storageAdapter);
 
         // Update run statistics
         this.runStats.companiesProcessed += 1;
@@ -740,10 +764,10 @@ class ComeetWorker {
       const rawJobs = Array.isArray(response.data) ? response.data : [];
 
       if (rawJobs.length === 0) {
-        logRuntime(`No jobs found for ${company.name || company.id}`);
+        logRuntime(`No jobs found for ${company.name || company.id}`, 'INFO', this.storageAdapter);
 
         // Save raw response even if no jobs
-        saveRawResponse(company.name || company.id, response.data);
+        await saveRawResponse(company.name || company.id, response.data, this.storageAdapter);
 
         // Update run statistics
         this.runStats.companiesProcessed += 1;
@@ -897,15 +921,12 @@ class ComeetWorker {
 
       processingDurationMs = Date.now() - processingStartTime;
 
-      // Ensure production directory exists (for future use by orchestrator)
-      ensureDir(PATHS.ATS.LOGS.COMEET.PRODUCTION);
-
       // Save raw API response (debug only)
-      saveRawResponse(company.name || company.id, response.data);
+      await saveRawResponse(company.name || company.id, response.data, this.storageAdapter);
 
       // Save dropped jobs with reasons
       if (droppedJobs.length > 0) {
-        saveDroppedJobs(company.name || company.id, droppedJobs);
+        await saveDroppedJobs(company.name || company.id, droppedJobs, this.storageAdapter);
       }
 
       // Filter by ATS guard verdict (unless dry run)
@@ -943,7 +964,9 @@ class ComeetWorker {
       logRuntime(
         `${companyLabel} - Fetched: ${stats.fetched}, ` +
         `Guard: ${stats.passedGuard}/${stats.droppedGuard}, ` +
-        `Final: ${finalJobs.length}`
+        `Final: ${finalJobs.length}`,
+        'INFO',
+        this.storageAdapter
       );
 
       return { jobs: finalJobs, stats };
@@ -985,7 +1008,7 @@ class ComeetWorker {
         attempt: 1,
         retried: false,
       };
-      saveErrorInfo(company.name || company.id, errorInfo);
+      await saveErrorInfo(company.name || company.id, errorInfo, this.storageAdapter);
 
       // Update run statistics
       this.runStats.companiesProcessed += 1;

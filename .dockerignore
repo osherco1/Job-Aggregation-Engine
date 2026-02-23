@@ -1,0 +1,51 @@
+# Development tools (never deployed)
+tools/
+debug_artifacts/
+
+# Logs and output (generated at runtime, not needed in image)
+logs/
+output/
+data/
+
+# Node modules (installed in container)
+node_modules/
+
+# Development files
+.env
+.env.local
+.env.example
+*.log
+
+# Git files
+.git/
+.gitignore
+
+# Documentation (not needed in production)
+docs/
+promts/
+*.md
+!README.md
+
+# Docker files (not needed inside the image)
+Dockerfile
+.dockerignore
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test files
+test/
+tests/
+*.test.js
+*.spec.js
+
+# Plan files
+.cursor/
+plans/

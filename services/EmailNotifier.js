@@ -292,10 +292,15 @@ class EmailNotifier {
     }
 }
 
-// Singleton instance
-const emailNotifier = new EmailNotifier();
+/**
+ * Factory function to create an EmailNotifier instance
+ * @returns {EmailNotifier}
+ */
+function createEmailNotifier() {
+    return new EmailNotifier();
+}
 
 module.exports = {
     EmailNotifier,
-    emailNotifier,
+    createEmailNotifier,
 };

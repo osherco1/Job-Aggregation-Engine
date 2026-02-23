@@ -1,7 +1,7 @@
 require('dotenv').config();
-const fs = require('fs');
 const path = require('path');
 const { PATHS } = require('./config/paths');
+const { createStorageAdapter } = require('./services/storage');
 
 let chalk;
 try {
@@ -13,23 +13,13 @@ try {
   chalk = null;
 }
 
-const { fetchJobs, fetchJobDetails } = require('./linkedin_client');
+const { fetchJobs, fetchJobDetails, LinkedInAuthChallengeError } = require('./linkedin_client');
 const { sendJobReport } = require('./mailer');
 
 // Centralized directories for all generated artifacts.
 // NOTE: LinkedIn module must only ever write under PATHS.LINKEDIN.*.
 const DATA_DIR = PATHS.DATA;
 const OUTPUT_DIR = PATHS.LINKEDIN.OUTPUT;
-
-function ensureDir(dirPath) {
-  try {
-    if (!fs.existsSync(dirPath)) {
-      fs.mkdirSync(dirPath, { recursive: true });
-    }
-  } catch (e) {
-    console.error(`Failed to ensure directory ${dirPath}:`, e.message || e);
-  }
-}
 
 // LEVEL_PREFIX captures junior / early-career intent across English + Hebrew.
 // This is the full, verbose version used for most queries.
@@ -160,35 +150,6 @@ function passesFilters(job, runStats, filteredJobsLog) {
 
   return true;
 }
-const SEEN_JOBS_FILE = path.join(DATA_DIR, 'seen_jobs.json');
-
-function loadSeenJobIds() {
-  try {
-    ensureDir(path.dirname(SEEN_JOBS_FILE));
-    if (!fs.existsSync(SEEN_JOBS_FILE)) {
-      return new Set();
-    }
-    const raw = fs.readFileSync(SEEN_JOBS_FILE, 'utf-8');
-    const parsed = JSON.parse(raw);
-    if (Array.isArray(parsed)) {
-      return new Set(parsed);
-    }
-    return new Set();
-  } catch (e) {
-    console.error('Failed to load seen_jobs.json, starting with empty memory:', e.message || e);
-    return new Set();
-  }
-}
-
-function saveSeenJobIds(seenIds) {
-  try {
-    ensureDir(path.dirname(SEEN_JOBS_FILE));
-    const arr = Array.from(seenIds);
-    fs.writeFileSync(SEEN_JOBS_FILE, JSON.stringify(arr, null, 2), 'utf-8');
-  } catch (e) {
-    console.error('Failed to save seen_jobs.json:', e.message || e);
-  }
-}
 
 // Simple sleep helper to space out requests and reduce bot detection risk.
 function sleep(ms) {
@@ -217,10 +178,11 @@ async function randomDelay(minMs, maxMs) {
  * Main LinkedIn scraper function
  * @param {Object} options - Configuration options
  * @param {boolean} options.skipEmail - If true, skip email sending (for orchestrator integration)
+ * @param {StorageAdapter} options.storage - Storage adapter instance (defaults to createStorageAdapter())
  * @returns {Promise<Array>} - Array of new jobs found
  */
 async function runLinkedinScraper(options = {}) {
-  const { skipEmail = false } = options;
+  const { skipEmail = false, storage = createStorageAdapter() } = options;
 
   const runStats = {
     startTime: new Date().toISOString(),
@@ -253,7 +215,7 @@ async function runLinkedinScraper(options = {}) {
     console.log('🚀 Starting Clean Run v2.0 - Binary Filter Active');
     console.log('Starting LinkedIn Voyager multi-query job fetch...');
 
-    seenIds = loadSeenJobIds();
+    seenIds = await storage.loadSeenJobIds();
 
     // Explicit pagination offsets in multiples of 25 (Voyager standard page size).
     const pageOffsets = [0, 25, 50, 75];
@@ -316,7 +278,7 @@ async function runLinkedinScraper(options = {}) {
             }
           } catch (err) {
             runStats.errors += 1;
-            if (err && err.message === 'CRITICAL_AUTH_FAIL') {
+            if (err instanceof LinkedInAuthChallengeError || (err && err.message === 'CRITICAL_AUTH_FAIL')) {
               console.error(
                 '🛑 STOPPING BOT: Authentication failed. Please update .env file.'
               );
@@ -519,16 +481,12 @@ async function runLinkedinScraper(options = {}) {
         );
       });
 
-      // Persist enriched jobs with a timestamped filename.
-      const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-      const outputFile = `enriched_jobs_${timestamp}.json`;
+      // Persist enriched jobs via storage adapter
       try {
-        ensureDir(OUTPUT_DIR);
-        const fullPath = path.join(OUTPUT_DIR, outputFile);
-        fs.writeFileSync(fullPath, JSON.stringify(allNewJobs, null, 2), 'utf-8');
-        console.log(`Saved enriched jobs to ${fullPath}`);
+        await storage.writeEnrichedJobs(allNewJobs, 'linkedin');
+        console.log(`Saved enriched jobs via storage adapter`);
       } catch (e) {
-        console.error('Failed to save enriched jobs file:', e.message || e);
+        console.error('Failed to save enriched jobs:', e.message || e);
       }
 
       // Send an email report summarizing all new enriched jobs (unless DRY_RUN or skipEmail).
@@ -549,7 +507,7 @@ async function runLinkedinScraper(options = {}) {
     }
 
     // Persist updated seen job IDs so duplicates are skipped next run.
-    saveSeenJobIds(seenIds);
+    await storage.saveSeenJobIds(seenIds);
     runStats.status = quotaReached ? 'QUOTA_REACHED' : 'SUCCESS';
   } catch (err) {
     runStats.errors += 1;
@@ -563,39 +521,29 @@ async function runLinkedinScraper(options = {}) {
     runStats.newJobsAdded = allNewJobs.length;
 
     try {
-      // LinkedIn run summaries live under logs/linkedin/summaries.
-      const summariesDir = PATHS.LINKEDIN.LOGS.SUMMARIES;
-      ensureDir(summariesDir);
-      const summaryPath = path.join(
-        summariesDir,
-        `run_summary_${logTimestamp}.json`
-      );
-      fs.writeFileSync(
-        summaryPath,
-        JSON.stringify(runStats, null, 2),
-        'utf-8'
-      );
-      console.log(`Saved run summary to ${summaryPath}`);
+      // Write run summary via storage adapter
+      await storage.writeRunLog({
+        type: 'summary',
+        source: 'linkedin',
+        timestamp: logTimestamp,
+        payload: runStats,
+      });
+      console.log(`Saved run summary via storage adapter`);
     } catch (e) {
-      console.error('Failed to write run_summary.json:', e.message || e);
+      console.error('Failed to write run_summary:', e.message || e);
     }
 
     try {
-      // LinkedIn filtered/debug logs live under logs/linkedin/filtered.
-      const filteredDir = PATHS.LINKEDIN.LOGS.FILTERED;
-      ensureDir(filteredDir);
-      const filteredPath = path.join(
-        filteredDir,
-        `filtered_jobs_debug_${logTimestamp}.json`
-      );
-      fs.writeFileSync(
-        filteredPath,
-        JSON.stringify(filteredJobsLog, null, 2),
-        'utf-8'
-      );
-      console.log(`Saved filtered jobs debug log to ${filteredPath}`);
+      // Write filtered jobs debug log via storage adapter
+      await storage.writeRunLog({
+        type: 'filtered',
+        source: 'linkedin',
+        timestamp: logTimestamp,
+        payload: filteredJobsLog,
+      });
+      console.log(`Saved filtered jobs debug log via storage adapter`);
     } catch (e) {
-      console.error('Failed to write filtered_jobs_debug.json:', e.message || e);
+      console.error('Failed to write filtered_jobs_debug:', e.message || e);
     }
   }
 
@@ -606,7 +554,7 @@ async function runLinkedinScraper(options = {}) {
 if (require.main === module) {
   runLinkedinScraper().catch((err) => {
     console.error('Fatal error in LinkedIn scraper:', err.message || err);
-    process.exit(1);
+    process.exitCode = 1;
   });
 }
 

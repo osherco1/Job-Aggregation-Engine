@@ -6,8 +6,8 @@
  */
 
 const path = require('path');
-const fs = require('fs');
 const { PATHS } = require('../config/paths');
+const { createStorageAdapter } = require('../services/storage');
 
 const { loadCompaniesConfig } = require('./config/companiesConfig');
 const { createHttpClient } = require('./utils/httpClient');
@@ -17,18 +17,12 @@ const { passesSemanticGate } = require('./utils/semanticGate');
 const { ComeetWorker } = require('./workers/comeetWorker');
 const { GreenhouseWorker } = require('./workers/greenhouseWorker');
 const { WorkdayWorker } = require('./workers/workdayWorker');
+const { LinkedInAuthChallengeError } = require('../linkedin_client');
+const { sendCriticalAlert } = require('../mailer');
 
-// Workday companies list
-let workdayCompanies = [];
-try {
-  workdayCompanies = require('../data/workday_companies.json');
-} catch (err) {
-  console.warn('Orchestrator: workday_companies.json not found or invalid:', err.message);
-}
-
-// Services
-const { jobStateService } = require('../services/JobStateService');
-const { emailNotifier } = require('../services/EmailNotifier');
+// Services (factories - will be called in run() function)
+const { createJobStateService } = require('../services/JobStateService');
+const { createEmailNotifier } = require('../services/EmailNotifier');
 
 // LinkedIn scraper (optional - may not be available)
 let runLinkedinScraper = null;
@@ -47,16 +41,6 @@ const SKIP_ATS = process.env.SKIP_ATS === 'true';
 const OUTPUT_DIR = PATHS.ATS.OUTPUT;
 const LOGS_SUMMARIES_DIR = PATHS.ATS.LOGS.SUMMARIES;
 const LOGS_FILTERED_DIR = PATHS.ATS.LOGS.FILTERED;
-
-function ensureDir(dirPath) {
-  try {
-    if (!fs.existsSync(dirPath)) {
-      fs.mkdirSync(dirPath, { recursive: true });
-    }
-  } catch (err) {
-    console.error(`Failed to ensure directory ${dirPath}:`, err.message || err);
-  }
-}
 
 function initRunSummary(totalCompanies) {
   return {
@@ -107,70 +91,51 @@ function logFilteredJob(reason, unifiedJob, company) {
   });
 }
 
-async function persistResults(allUnifiedJobs, runStats) {
+async function persistResults(allUnifiedJobs, runStats, storageAdapter) {
   const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-
-  ensureDir(OUTPUT_DIR);
-  ensureDir(LOGS_SUMMARIES_DIR);
-  ensureDir(LOGS_FILTERED_DIR);
-
-  const jobsFile = path.join(
-    OUTPUT_DIR,
-    `ats_enriched_jobs_${timestamp}.json`
-  );
-  const summaryFile = path.join(
-    LOGS_SUMMARIES_DIR,
-    `ats_run_summary_${timestamp}.json`
-  );
-  const filteredFile = path.join(
-    LOGS_FILTERED_DIR,
-    `ats_filtered_jobs_debug_${timestamp}.json`
-  );
 
   if (!DRY_RUN) {
     try {
-      fs.writeFileSync(
-        jobsFile,
-        JSON.stringify(allUnifiedJobs, null, 2),
-        'utf-8'
-      );
-      console.log(`Saved unified jobs to ${jobsFile}`);
+      await storageAdapter.writeEnrichedJobs(allUnifiedJobs, 'ats');
+      console.log(`Saved unified jobs via storage adapter`);
     } catch (err) {
       console.error(
-        'Failed to write unified jobs file:',
+        'Failed to write unified jobs:',
         err.message || err
       );
     }
   } else {
     console.log(
-      `[DRY_RUN] Skipping write of unified jobs file (would be ${jobsFile})`
+      `[DRY_RUN] Skipping write of unified jobs`
     );
   }
 
   try {
-    fs.writeFileSync(
-      summaryFile,
-      JSON.stringify(runStats, null, 2),
-      'utf-8'
-    );
-    console.log(`Saved run summary to ${summaryFile}`);
+    await storageAdapter.writeRunLog({
+      type: 'summary',
+      source: 'ats',
+      timestamp,
+      payload: runStats,
+    });
+    console.log(`Saved run summary via storage adapter`);
   } catch (err) {
     console.error(
-      'Failed to write run summary file:',
+      'Failed to write run summary:',
       err.message || err
     );
   }
 
   try {
-    fs.writeFileSync(
-      filteredFile,
-      JSON.stringify(filteredJobsBuffer, null, 2),
-      'utf-8'
-    );
-    console.log(`Saved filtered jobs debug log to ${filteredFile}`);
+    await storageAdapter.writeRunLog({
+      type: 'filtered',
+      source: 'ats',
+      timestamp,
+      payload: filteredJobsBuffer,
+    });
+    console.log(`Saved filtered jobs debug log via storage adapter`);
   } catch (err) {
     console.error(
-      'Failed to write filtered jobs debug file:',
+      'Failed to write filtered jobs debug:',
       err.message || err
     );
   }
@@ -224,7 +189,7 @@ async function processBatch(companies, worker, workerName, progressCallback) {
 /**
  * Phase 1: Run ATS workers (Comeet, Greenhouse & Workday) in TRUE PARALLEL
  */
-async function runAtsWorkers(errors) {
+async function runAtsWorkers(errors, storageAdapter) {
   console.log('\n' + '='.repeat(60));
   console.log('📊 PHASE 1: ATS Workers (Comeet, Greenhouse & Workday) - PARALLEL');
   console.log('='.repeat(60));
@@ -234,21 +199,23 @@ async function runAtsWorkers(errors) {
     return [];
   }
 
-  const companies = loadCompaniesConfig();
+  const companies = await loadCompaniesConfig(storageAdapter);
+  
+  // Filter workday companies from the merged list
+  const workdayCompanies = companies.filter(c => c.type === 'workday');
 
   // Split companies by type
   const comeetCompanies = companies.filter(c => c.type === 'comeet');
   const greenhouseCompanies = companies.filter(c => c.type === 'greenhouse');
 
-  // Workday companies loaded from separate file
   const workdayCompanyCount = workdayCompanies.length;
 
   console.log(`📂 Loaded ${companies.length + workdayCompanyCount} companies:`);
   console.log(`   Comeet: ${comeetCompanies.length}, Greenhouse: ${greenhouseCompanies.length}, Workday: ${workdayCompanyCount}`);
 
   const httpClient = createHttpClient();
-  const comeetWorker = new ComeetWorker(httpClient);
-  const greenhouseWorker = new GreenhouseWorker(httpClient);
+  const comeetWorker = new ComeetWorker(httpClient, storageAdapter);
+  const greenhouseWorker = new GreenhouseWorker(httpClient, storageAdapter);
 
   // Reset worker stats
   comeetWorker.resetRunStats();
@@ -349,10 +316,10 @@ async function runAtsWorkers(errors) {
 
   // Finalize worker run statistics
   if (typeof comeetWorker.finalizeRun === 'function') {
-    comeetWorker.finalizeRun();
+    await comeetWorker.finalizeRun();
   }
   if (typeof greenhouseWorker.finalizeRun === 'function') {
-    greenhouseWorker.finalizeRun();
+    await greenhouseWorker.finalizeRun();
   }
 
   // Build run stats for persistence (include Workday)
@@ -363,7 +330,7 @@ async function runAtsWorkers(errors) {
   runStats.endTime = new Date().toISOString();
   runStats.status = deriveStatus(runStats, errors);
 
-  await persistResults(allAtsJobs, runStats);
+  await persistResults(allAtsJobs, runStats, storageAdapter);
 
   // Summary with Workday
   console.log(`✅ ATS Phase complete: ${allAtsJobs.length} jobs`);
@@ -376,7 +343,7 @@ async function runAtsWorkers(errors) {
 /**
  * Phase 2: Run LinkedIn scraper
  */
-async function runLinkedInPhase(errors) {
+async function runLinkedInPhase(errors, storageAdapter) {
   console.log('\n' + '='.repeat(60));
   console.log('🔗 PHASE 2: LinkedIn Scraper');
   console.log('='.repeat(60));
@@ -393,17 +360,32 @@ async function runLinkedInPhase(errors) {
 
   try {
     console.log('🔍 Starting LinkedIn scraper (skipEmail mode)...');
-    const linkedinJobs = await runLinkedinScraper({ skipEmail: true });
+    const linkedinJobs = await runLinkedinScraper({ skipEmail: true, storage: storageAdapter });
     console.log(`✅ LinkedIn Phase complete: ${linkedinJobs.length} jobs`);
     return linkedinJobs;
   } catch (err) {
     const errorMsg = err && err.message ? err.message : String(err);
-    console.error(`LinkedIn scraper failed: ${errorMsg}`);
-
-    errors.push({
-      source: 'LinkedIn',
-      message: errorMsg,
-    });
+    
+    // Handle critical auth challenge
+    if (err instanceof LinkedInAuthChallengeError) {
+      console.error('🛑 CRITICAL: LinkedIn authentication challenge detected');
+      try {
+        await sendCriticalAlert(err.details);
+      } catch (alertErr) {
+        console.error('Failed to send critical alert:', alertErr.message || alertErr);
+      }
+      errors.push({
+        source: 'LinkedIn',
+        message: 'CRITICAL_AUTH_CHALLENGE - LinkedIn authentication failed',
+        details: err.details,
+      });
+    } else {
+      console.error(`LinkedIn scraper failed: ${errorMsg}`);
+      errors.push({
+        source: 'LinkedIn',
+        message: errorMsg,
+      });
+    }
 
     return [];
   }
@@ -412,16 +394,13 @@ async function runLinkedInPhase(errors) {
 /**
  * Phase 3: Deduplication
  */
-function deduplicateJobs(allJobs) {
+async function deduplicateJobs(allJobs, jobStateService) {
   console.log('\n' + '='.repeat(60));
   console.log('🔄 PHASE 3: Deduplication');
   console.log('='.repeat(60));
 
-  // Load history
-  jobStateService.loadHistory();
-
-  // Filter new jobs
-  const newJobs = jobStateService.filterNewJobs(allJobs);
+  // Filter new jobs (loadHistory is called inside filterNewJobs)
+  const newJobs = await jobStateService.filterNewJobs(allJobs);
 
   console.log(`✅ Deduplication complete: ${newJobs.length} new jobs out of ${allJobs.length} total`);
 
@@ -431,7 +410,7 @@ function deduplicateJobs(allJobs) {
 /**
  * Phase 4: Email Notification
  */
-async function sendNotification(newJobs, errors) {
+async function sendNotification(newJobs, errors, emailNotifier) {
   console.log('\n' + '='.repeat(60));
   console.log('📧 PHASE 4: Email Notification');
   console.log('='.repeat(60));
@@ -455,13 +434,13 @@ async function sendNotification(newJobs, errors) {
 /**
  * Phase 5: Persist state
  */
-function persistState(emailSuccess) {
+async function persistState(emailSuccess, jobStateService) {
   console.log('\n' + '='.repeat(60));
   console.log('💾 PHASE 5: Persist State');
   console.log('='.repeat(60));
 
   if (emailSuccess) {
-    jobStateService.persistState();
+    await jobStateService.persistState();
     console.log('✅ Job history updated');
   } else {
     jobStateService.rollback();
@@ -475,101 +454,129 @@ function persistState(emailSuccess) {
 async function run() {
   const startTime = Date.now();
   const errors = [];
+  
+  // Create storage adapter (will be FileStorageAdapter locally, MongoStorageAdapter in cloud)
+  const storageAdapter = createStorageAdapter();
 
-  console.log('\n' + '🚀'.repeat(30));
-  console.log('🤖 UNIFIED JOB ORCHESTRATOR');
-  console.log('🚀'.repeat(30));
-  console.log(`   Started at: ${new Date().toISOString()}`);
-  console.log(`   DRY_RUN: ${DRY_RUN}`);
-  console.log(`   SKIP_LINKEDIN: ${SKIP_LINKEDIN}`);
-  console.log(`   SKIP_ATS: ${SKIP_ATS}`);
-  console.log('   MODE: Parallel Execution ⚡');
-  console.log('');
+  try {
+    console.log('\n' + '🚀'.repeat(30));
+    console.log('🤖 UNIFIED JOB ORCHESTRATOR');
+    console.log('🚀'.repeat(30));
+    console.log(`   Started at: ${new Date().toISOString()}`);
+    console.log(`   DRY_RUN: ${DRY_RUN}`);
+    console.log(`   SKIP_LINKEDIN: ${SKIP_LINKEDIN}`);
+    console.log(`   SKIP_ATS: ${SKIP_ATS}`);
+    console.log('   MODE: Parallel Execution ⚡');
+    console.log('');
 
-  // ============================================================
-  // PARALLEL PHASE: ATS + LinkedIn run simultaneously
-  // Runtime = Max(Time_ATS, Time_LinkedIn), not Sum()
-  // ============================================================
-  console.log('\n' + '='.repeat(60));
-  console.log('⚡ PARALLEL PHASE: ATS + LinkedIn (running simultaneously)');
-  console.log('='.repeat(60));
+    // ============================================================
+    // PARALLEL PHASE: ATS + LinkedIn run simultaneously
+    // Runtime = Max(Time_ATS, Time_LinkedIn), not Sum()
+    // ============================================================
+    console.log('\n' + '='.repeat(60));
+    console.log('⚡ PARALLEL PHASE: ATS + LinkedIn (running simultaneously)');
+    console.log('='.repeat(60));
 
-  // Create separate error arrays to avoid race conditions
-  const atsErrors = [];
-  const linkedinErrors = [];
+    // Create separate error arrays to avoid race conditions
+    const atsErrors = [];
+    const linkedinErrors = [];
 
-  const [atsResult, linkedinResult] = await Promise.allSettled([
-    runAtsWorkers(atsErrors),
-    runLinkedInPhase(linkedinErrors),
-  ]);
+    const [atsResult, linkedinResult] = await Promise.allSettled([
+      runAtsWorkers(atsErrors, storageAdapter),
+      runLinkedInPhase(linkedinErrors, storageAdapter),
+    ]);
 
-  // Merge errors from both phases
-  errors.push(...atsErrors, ...linkedinErrors);
+    // Merge errors from both phases
+    errors.push(...atsErrors, ...linkedinErrors);
 
-  // Extract ATS jobs (handle rejection gracefully)
-  let atsJobs = [];
-  if (atsResult.status === 'fulfilled') {
-    atsJobs = atsResult.value || [];
-  } else {
-    console.error('❌ ATS phase failed completely:', atsResult.reason);
-    errors.push({
-      source: 'ATS Phase',
-      message: atsResult.reason?.message || String(atsResult.reason),
-    });
+    // Extract ATS jobs (handle rejection gracefully)
+    let atsJobs = [];
+    if (atsResult.status === 'fulfilled') {
+      atsJobs = atsResult.value || [];
+    } else {
+      console.error('❌ ATS phase failed completely:', atsResult.reason);
+      errors.push({
+        source: 'ATS Phase',
+        message: atsResult.reason?.message || String(atsResult.reason),
+      });
+    }
+
+    // Extract LinkedIn jobs (handle rejection gracefully)
+    let linkedinJobs = [];
+    if (linkedinResult.status === 'fulfilled') {
+      linkedinJobs = linkedinResult.value || [];
+    } else {
+      console.error('❌ LinkedIn phase failed completely:', linkedinResult.reason);
+      errors.push({
+        source: 'LinkedIn Phase',
+        message: linkedinResult.reason?.message || String(linkedinResult.reason),
+      });
+    }
+
+    // Combine all jobs from both phases
+    const allJobs = [...atsJobs, ...linkedinJobs];
+    console.log(`\n📊 Total jobs collected: ${allJobs.length} (ATS: ${atsJobs.length}, LinkedIn: ${linkedinJobs.length})`);
+
+    // Create service instances using factories
+    const jobStateService = createJobStateService(storageAdapter);
+    const emailNotifier = createEmailNotifier();
+
+    // Phase 3: Deduplication
+    const newJobs = await deduplicateJobs(allJobs, jobStateService);
+
+    // Phase 4: Email Notification
+    const emailSuccess = await sendNotification(newJobs, errors, emailNotifier);
+
+    // Phase 5: Persist State
+    await persistState(emailSuccess, jobStateService);
+
+    // Final Summary
+    const totalDuration = Math.round((Date.now() - startTime) / 1000);
+    console.log('\n' + '='.repeat(60));
+    console.log('📋 FINAL SUMMARY');
+    console.log('='.repeat(60));
+    console.log(`   Total jobs fetched: ${allJobs.length}`);
+    console.log(`   New jobs (after dedup): ${newJobs.length}`);
+    console.log(`   Errors: ${errors.length}`);
+    console.log(`   Email sent: ${emailSuccess ? 'Yes' : 'No'}`);
+    console.log(`   Duration: ${totalDuration}s (parallel execution)`);
+    console.log('='.repeat(60) + '\n');
+
+    // Return summary for testing
+    return {
+      totalJobs: allJobs.length,
+      newJobs: newJobs.length,
+      errors: errors.length,
+      emailSuccess,
+      duration: totalDuration,
+    };
+  } finally {
+    // CRITICAL: Close the storage adapter to release resources (e.g., MongoDB connection pool).
+    // Without this, the Node.js event loop never clears and the process hangs indefinitely,
+    // consuming Cloud Run execution time and incurring unnecessary costs.
+    try {
+      await storageAdapter.close();
+    } catch (closeErr) {
+      console.error('Failed to close storage adapter:', closeErr.message || closeErr);
+    }
   }
-
-  // Extract LinkedIn jobs (handle rejection gracefully)
-  let linkedinJobs = [];
-  if (linkedinResult.status === 'fulfilled') {
-    linkedinJobs = linkedinResult.value || [];
-  } else {
-    console.error('❌ LinkedIn phase failed completely:', linkedinResult.reason);
-    errors.push({
-      source: 'LinkedIn Phase',
-      message: linkedinResult.reason?.message || String(linkedinResult.reason),
-    });
-  }
-
-  // Combine all jobs from both phases
-  const allJobs = [...atsJobs, ...linkedinJobs];
-  console.log(`\n📊 Total jobs collected: ${allJobs.length} (ATS: ${atsJobs.length}, LinkedIn: ${linkedinJobs.length})`);
-
-  // Phase 3: Deduplication
-  const newJobs = deduplicateJobs(allJobs);
-
-  // Phase 4: Email Notification
-  const emailSuccess = await sendNotification(newJobs, errors);
-
-  // Phase 5: Persist State
-  persistState(emailSuccess);
-
-  // Final Summary
-  const totalDuration = Math.round((Date.now() - startTime) / 1000);
-  console.log('\n' + '='.repeat(60));
-  console.log('📋 FINAL SUMMARY');
-  console.log('='.repeat(60));
-  console.log(`   Total jobs fetched: ${allJobs.length}`);
-  console.log(`   New jobs (after dedup): ${newJobs.length}`);
-  console.log(`   Errors: ${errors.length}`);
-  console.log(`   Email sent: ${emailSuccess ? 'Yes' : 'No'}`);
-  console.log(`   Duration: ${totalDuration}s (parallel execution)`);
-  console.log('='.repeat(60) + '\n');
-
-  // Return summary for testing
-  return {
-    totalJobs: allJobs.length,
-    newJobs: newJobs.length,
-    errors: errors.length,
-    emailSuccess,
-    duration: totalDuration,
-  };
 }
 
 if (require.main === module) {
-  run().catch((err) => {
-    console.error('Orchestrator failed:', err && err.message ? err.message : err);
-    process.exitCode = 1;
-  });
+  run()
+    .catch((err) => {
+      console.error('Orchestrator failed:', err && err.message ? err.message : err);
+      process.exitCode = 1;
+    })
+    .finally(() => {
+      // Fail-safe: guarantee the process terminates even if some handle leaked.
+      // The storageAdapter.close() in run()'s finally block handles graceful teardown;
+      // this setTimeout is a last-resort safeguard for Cloud Run cost protection.
+      setTimeout(() => {
+        console.warn('⚠️  Process did not exit naturally — forcing shutdown.');
+        process.exit(process.exitCode || 0);
+      }, 5000).unref(); // unref() so this timer alone won't keep the process alive
+    });
 }
 
 module.exports = { run };

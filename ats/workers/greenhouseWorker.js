@@ -1,4 +1,3 @@
-const fs = require('fs');
 const path = require('path');
 const { requestWithDelayWrapper } = require('../utils/httpClientWrapper');
 const { PATHS } = require('../../config/paths');
@@ -21,38 +20,29 @@ const RUNTIME_LOG_PATH = PATHS.ATS.LOGS.GREENHOUSE.RUNTIME_LOG;
 // ============================================================================
 
 /**
- * Ensure directory exists (recursive)
- */
-function ensureDir(dirPath) {
-  try {
-    if (!fs.existsSync(dirPath)) {
-      fs.mkdirSync(dirPath, { recursive: true });
-    }
-  } catch (err) {
-    // eslint-disable-next-line no-console
-    console.error(`GreenhouseWorker: failed to ensure directory ${dirPath}:`, err.message || err);
-  }
-}
-
-/**
  * Log message to runtime log file (for tailing in separate terminal)
  * @param {string} message - Log message
  * @param {string} level - Log level (INFO, WARN, ERROR, DEBUG)
+ * @param {StorageAdapter} storageAdapter - Optional storage adapter for logging
  */
-function logRuntime(message, level = 'INFO') {
+function logRuntime(message, level = 'INFO', storageAdapter = null) {
   const timestamp = new Date().toISOString();
   const logLine = `[${timestamp}] [${level}] ${message}\n`;
 
-  try {
-    // Ensure log directory exists
-    ensureDir(path.dirname(RUNTIME_LOG_PATH));
-    fs.appendFileSync(RUNTIME_LOG_PATH, logLine);
-  } catch (err) {
-    // Fallback to console if file write fails
-    console.error('GreenhouseWorker: Failed to write to runtime log:', err.message);
+  // If storage adapter is provided, use it for structured logging
+  if (storageAdapter) {
+    // Fire-and-forget log write
+    storageAdapter.writeRunLog({
+      type: 'runtime',
+      source: 'greenhouse',
+      timestamp,
+      payload: { message, level },
+    }).catch(() => {
+      // Ignore errors - logging is non-critical
+    });
   }
 
-  // Only log to console if not in quiet mode, or if it's an error
+  // Always log to console if not in quiet mode, or if it's an error
   if (!QUIET_MODE || level === 'ERROR') {
     if (level === 'ERROR') {
       console.error(`[GH] ${message}`);
@@ -111,19 +101,28 @@ function decodeHtml(html) {
 
 /**
  * Save raw API response (debug only)
+ * @param {string} companyName
+ * @param {Object} rawResponse
+ * @param {StorageAdapter} storageAdapter
  */
-function saveRawResponse(companyName, rawResponse) {
-  if (!DEBUG_GREENHOUSE) return;
+async function saveRawResponse(companyName, rawResponse, storageAdapter) {
+  if (!DEBUG_GREENHOUSE || !storageAdapter) return;
 
   try {
-    ensureDir(PATHS.ATS.LOGS.GREENHOUSE.RAW);
     const timestamp = timestampString();
     const safeName = safeCompanyName(companyName);
-    const fileName = `raw_${safeName}_${timestamp}.json`;
-    const filePath = path.join(PATHS.ATS.LOGS.GREENHOUSE.RAW, fileName);
+    const payload = {
+      companyName: safeName,
+      rawResponse,
+    };
 
-    fs.writeFileSync(filePath, JSON.stringify(rawResponse, null, 2), 'utf-8');
-    logRuntime(`[RAW] Saved raw response to ${fileName}`);
+    await storageAdapter.writeRunLog({
+      type: 'raw',
+      source: 'greenhouse',
+      timestamp: `${safeName}_${timestamp}`,
+      payload,
+    });
+    logRuntime(`[RAW] Saved raw response for ${safeName}`, 'DEBUG', storageAdapter);
   } catch (err) {
     // eslint-disable-next-line no-console
     console.error('GreenhouseWorker: failed to save raw response:', err.message || err);
@@ -132,19 +131,27 @@ function saveRawResponse(companyName, rawResponse) {
 
 /**
  * Save dropped jobs with reasons
+ * @param {string} companyName
+ * @param {Array} droppedJobs
+ * @param {StorageAdapter} storageAdapter
  */
-function saveDroppedJobs(companyName, droppedJobs) {
-  if (!droppedJobs || droppedJobs.length === 0) return;
+async function saveDroppedJobs(companyName, droppedJobs, storageAdapter) {
+  if (!droppedJobs || droppedJobs.length === 0 || !storageAdapter) return;
 
   try {
-    ensureDir(PATHS.ATS.LOGS.GREENHOUSE.DROPPED);
     const timestamp = timestampString();
     const safeName = safeCompanyName(companyName);
-    const fileName = `dropped_${safeName}_${timestamp}.json`;
-    const filePath = path.join(PATHS.ATS.LOGS.GREENHOUSE.DROPPED, fileName);
 
-    fs.writeFileSync(filePath, JSON.stringify(droppedJobs, null, 2), 'utf-8');
-    logRuntime(`[DROPPED] Saved ${droppedJobs.length} dropped jobs to ${fileName}`);
+    await storageAdapter.writeRunLog({
+      type: 'filtered',
+      source: 'greenhouse',
+      timestamp: `${safeName}_${timestamp}`,
+      payload: {
+        companyName: safeName,
+        droppedJobs,
+      },
+    });
+    logRuntime(`[DROPPED] Saved ${droppedJobs.length} dropped jobs for ${safeName}`, 'INFO', storageAdapter);
   } catch (err) {
     // eslint-disable-next-line no-console
     console.error('GreenhouseWorker: failed to save dropped jobs:', err.message || err);
@@ -153,17 +160,27 @@ function saveDroppedJobs(companyName, droppedJobs) {
 
 /**
  * Save error information
+ * @param {string} companyName
+ * @param {Object} errorInfo
+ * @param {StorageAdapter} storageAdapter
  */
-function saveErrorInfo(companyName, errorInfo) {
+async function saveErrorInfo(companyName, errorInfo, storageAdapter) {
+  if (!storageAdapter) return;
+
   try {
-    ensureDir(PATHS.ATS.LOGS.GREENHOUSE.ERRORS);
     const timestamp = timestampString();
     const safeName = safeCompanyName(companyName);
-    const fileName = `error_${safeName}_${timestamp}.json`;
-    const filePath = path.join(PATHS.ATS.LOGS.GREENHOUSE.ERRORS, fileName);
 
-    fs.writeFileSync(filePath, JSON.stringify(errorInfo, null, 2), 'utf-8');
-    logRuntime(`[ERROR] Saved error info to ${fileName}`, 'WARN');
+    await storageAdapter.writeRunLog({
+      type: 'error',
+      source: 'greenhouse',
+      timestamp: `${safeName}_${timestamp}`,
+      payload: {
+        companyName: safeName,
+        errorInfo,
+      },
+    });
+    logRuntime(`[ERROR] Saved error info for ${safeName}`, 'WARN', storageAdapter);
   } catch (err) {
     // eslint-disable-next-line no-console
     console.error('GreenhouseWorker: failed to save error info:', err.message || err);
@@ -172,16 +189,21 @@ function saveErrorInfo(companyName, errorInfo) {
 
 /**
  * Save run summary
+ * @param {Object} runStats
+ * @param {StorageAdapter} storageAdapter
  */
-function saveRunSummary(runStats) {
-  try {
-    ensureDir(PATHS.ATS.LOGS.GREENHOUSE.SUMMARIES);
-    const timestamp = timestampString();
-    const fileName = `run_summary_${timestamp}.json`;
-    const filePath = path.join(PATHS.ATS.LOGS.GREENHOUSE.SUMMARIES, fileName);
+async function saveRunSummary(runStats, storageAdapter) {
+  if (!storageAdapter) return;
 
-    fs.writeFileSync(filePath, JSON.stringify(runStats, null, 2), 'utf-8');
-    logRuntime(`[SUMMARY] Saved run summary to ${fileName}`);
+  try {
+    const timestamp = timestampString();
+    await storageAdapter.writeRunLog({
+      type: 'summary',
+      source: 'greenhouse',
+      timestamp,
+      payload: runStats,
+    });
+    logRuntime(`[SUMMARY] Saved run summary`, 'INFO', storageAdapter);
   } catch (err) {
     // eslint-disable-next-line no-console
     console.error('GreenhouseWorker: failed to save run summary:', err.message || err);
@@ -323,8 +345,9 @@ function filterJob(rawJob) {
 // ============================================================================
 
 class GreenhouseWorker {
-  constructor(httpClient) {
+  constructor(httpClient, storageAdapter = null) {
     this.httpClient = httpClient;
+    this.storageAdapter = storageAdapter;
 
     // Initialize run statistics
     this.runStats = {
@@ -365,10 +388,10 @@ class GreenhouseWorker {
    * Finalize run statistics and save summary
    * Should be called by orchestrator after all companies are processed
    */
-  finalizeRun() {
+  async finalizeRun() {
     this.runStats.endTime = new Date().toISOString();
     this.runStats.totalDurationMs = new Date(this.runStats.endTime) - new Date(this.runStats.startTime);
-    saveRunSummary(this.runStats);
+    await saveRunSummary(this.runStats, this.storageAdapter);
   }
 
   /**
@@ -388,7 +411,7 @@ class GreenhouseWorker {
   async fetchAllJobs(company) {
     // Human-like delay before fetching (avoid WAF detection)
     const delayMs = await randomDelay(GREENHOUSE_DELAY_MIN_MS, GREENHOUSE_DELAY_MAX_MS);
-    logRuntime(`Sleeping for ${delayMs}ms before fetching ${company.name || company.id}...`, 'DEBUG');
+    logRuntime(`Sleeping for ${delayMs}ms before fetching ${company.name || company.id}...`, 'DEBUG', this.storageAdapter);
 
     const companyStartTime = Date.now();
     const emptyResult = {
@@ -451,7 +474,7 @@ class GreenhouseWorker {
     let errorInfo = null;
 
     try {
-      logRuntime(`Fetching: ${company.name || company.id} (UID: ${uid})`, 'DEBUG');
+      logRuntime(`Fetching: ${company.name || company.id} (UID: ${uid})`, 'DEBUG', this.storageAdapter);
 
       httpStartTime = Date.now();
       const response = await requestWithDelay({
@@ -466,7 +489,7 @@ class GreenhouseWorker {
 
       // Handle non-200 status codes
       if (response.status !== 200) {
-        logRuntime(`HTTP ${response.status} for ${company.id}: ${response.statusText}`, 'WARN');
+        logRuntime(`HTTP ${response.status} for ${company.id}: ${response.statusText}`, 'WARN', this.storageAdapter);
 
         errorInfo = {
           companyId: company.id,
@@ -481,7 +504,7 @@ class GreenhouseWorker {
           attempt: 1,
           retried: false,
         };
-        saveErrorInfo(company.name || company.id, errorInfo);
+        await saveErrorInfo(company.name || company.id, errorInfo, this.storageAdapter);
 
         // Update run statistics
         this.runStats.companiesProcessed += 1;
@@ -517,10 +540,10 @@ class GreenhouseWorker {
         : (Array.isArray(response.data) ? response.data : []);
 
       if (rawJobs.length === 0) {
-        logRuntime(`No jobs found for ${company.name || company.id}`);
+        logRuntime(`No jobs found for ${company.name || company.id}`, 'INFO', this.storageAdapter);
 
         // Save raw response even if no jobs
-        saveRawResponse(company.name || company.id, response.data);
+        await saveRawResponse(company.name || company.id, response.data, this.storageAdapter);
 
         // Update run statistics
         this.runStats.companiesProcessed += 1;
@@ -677,15 +700,12 @@ class GreenhouseWorker {
 
       processingDurationMs = Date.now() - processingStartTime;
 
-      // Ensure production directory exists (for future use by orchestrator)
-      ensureDir(PATHS.ATS.LOGS.GREENHOUSE.PRODUCTION);
-
       // Save raw API response (debug only)
-      saveRawResponse(company.name || company.id, response.data);
+      await saveRawResponse(company.name || company.id, response.data, this.storageAdapter);
 
       // Save dropped jobs with reasons
       if (droppedJobs.length > 0) {
-        saveDroppedJobs(company.name || company.id, droppedJobs);
+        await saveDroppedJobs(company.name || company.id, droppedJobs, this.storageAdapter);
       }
 
       // Filter by ATS guard verdict (unless dry run)
@@ -723,7 +743,9 @@ class GreenhouseWorker {
       logRuntime(
         `${companyLabel} - Fetched: ${stats.fetched}, ` +
         `Guard: ${stats.passedGuard}/${stats.droppedGuard}, ` +
-        `Final: ${finalJobs.length}`
+        `Final: ${finalJobs.length}`,
+        'INFO',
+        this.storageAdapter
       );
 
       return { jobs: finalJobs, stats };
@@ -761,7 +783,7 @@ class GreenhouseWorker {
         attempt: 1,
         retried: false,
       };
-      saveErrorInfo(company.name || company.id, errorInfo);
+      await saveErrorInfo(company.name || company.id, errorInfo, this.storageAdapter);
 
       // Update run statistics
       this.runStats.companiesProcessed += 1;

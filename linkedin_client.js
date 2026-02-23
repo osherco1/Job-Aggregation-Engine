@@ -3,6 +3,18 @@ const fs = require('fs');
 const path = require('path');
 const { sendCriticalAlert } = require('./mailer');
 
+/**
+ * Custom error class for LinkedIn authentication challenges
+ * Replaces process.exit(1) to allow graceful shutdown
+ */
+class LinkedInAuthChallengeError extends Error {
+  constructor(details) {
+    super('CRITICAL_AUTH_CHALLENGE');
+    this.name = 'LinkedInAuthChallengeError';
+    this.details = details;
+  }
+}
+
 // Single canonical User-Agent used for all LinkedIn requests.
 const DEFAULT_USER_AGENT =
   process.env.LINKEDIN_USER_AGENT ||
@@ -98,7 +110,7 @@ axiosClient.interceptors.response.use(
         'CRITICAL: LinkedIn Auth Challenge Detected (302). Stopping immediately.'
       );
       try {
-        // Fire-and-forget; process will exit right after this call.
+        // Fire-and-forget alert email
         sendCriticalAlert({
           status: response.status,
           url: response.config && response.config.url,
@@ -111,8 +123,13 @@ axiosClient.interceptors.response.use(
           e.message || e
         );
       }
-      // Hard kill to avoid any further network activity with a challenged session.
-      process.exit(1);
+      // Throw error instead of process.exit(1) to allow graceful shutdown
+      return Promise.reject(new LinkedInAuthChallengeError({
+        status: response.status,
+        url: response.config && response.config.url,
+        timestamp: new Date().toISOString(),
+        source: 'response',
+      }));
     }
     return response;
   },
@@ -123,7 +140,7 @@ axiosClient.interceptors.response.use(
         'CRITICAL: LinkedIn Auth Challenge Detected (302). Stopping immediately.'
       );
       try {
-        // Fire-and-forget; process will exit right after this call.
+        // Fire-and-forget alert email
         sendCriticalAlert({
           status,
           url: error.config && error.config.url,
@@ -136,7 +153,13 @@ axiosClient.interceptors.response.use(
           e.message || e
         );
       }
-      process.exit(1);
+      // Throw error instead of process.exit(1) to allow graceful shutdown
+      return Promise.reject(new LinkedInAuthChallengeError({
+        status,
+        url: error.config && error.config.url,
+        timestamp: new Date().toISOString(),
+        source: 'error',
+      }));
     }
     return Promise.reject(error);
   }
@@ -608,6 +631,7 @@ module.exports = {
   fetchJobs,
   normalizeResponse,
   fetchJobDetails,
+  LinkedInAuthChallengeError,
 };
 
 

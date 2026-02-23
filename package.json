@@ -3,11 +3,14 @@
     "axios": "^1.13.2",
     "axios-cookiejar-support": "^6.0.5",
     "cheerio": "^1.1.2",
-    "csv-parser": "^3.2.0",
     "dotenv": "^16.6.1",
+    "mongodb": "^6.0.0",
     "nodemailer": "^7.0.11",
-    "puppeteer": "^24.36.1",
     "tough-cookie": "^6.0.0"
+  },
+  "devDependencies": {
+    "csv-parser": "^3.2.0",
+    "puppeteer": "^24.36.1"
   },
   "scripts": {
     "analyze": "node tools/analyze_logs.js",
