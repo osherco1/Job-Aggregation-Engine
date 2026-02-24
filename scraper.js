@@ -179,7 +179,7 @@ async function randomDelay(minMs, maxMs) {
  * @param {Object} options - Configuration options
  * @param {boolean} options.skipEmail - If true, skip email sending (for orchestrator integration)
  * @param {StorageAdapter} options.storage - Storage adapter instance (defaults to createStorageAdapter())
- * @returns {Promise<Array>} - Array of new jobs found
+ * @returns {Promise<{jobs: Array, errors: Array}>} - Jobs found and any fetch errors encountered
  */
 async function runLinkedinScraper(options = {}) {
   const { skipEmail = false, storage = createStorageAdapter() } = options;
@@ -203,6 +203,7 @@ async function runLinkedinScraper(options = {}) {
     errors: 0,
   };
   const filteredJobsLog = []; // To store { title, company, reason }
+  const fetchErrors = []; // Surfaced to orchestrator for email gating
 
   const isDryRun = process.env.DRY_RUN === 'true';
 
@@ -286,10 +287,16 @@ async function runLinkedinScraper(options = {}) {
               throw err;
             }
 
+            const errorMsg = err && err.message ? err.message : String(err);
             console.error(
               `Failed to fetch jobs for query "${query}" page ${i + 1}:`,
-              err.message || err
+              errorMsg
             );
+            // Surface to orchestrator so it can trigger an error-path email
+            fetchErrors.push({
+              source: `LinkedIn/fetchJobs`,
+              message: `Query page ${i + 1} failed: ${errorMsg}`,
+            });
             // Small randomized delay even on error to avoid hammering the endpoint (3–7 seconds).
             await randomDelay(3000, 7000);
             continue;
@@ -353,10 +360,15 @@ async function runLinkedinScraper(options = {}) {
               details = await fetchJobDetails(job.jobId);
             } catch (err) {
               runStats.errors += 1;
+              const detailErrorMsg = err && err.message ? err.message : String(err);
               console.error(
                 `Failed to fetch job details for jobId=${job.jobId}:`,
-                err.message || err
+                detailErrorMsg
               );
+              fetchErrors.push({
+                source: `LinkedIn/fetchJobDetails`,
+                message: `jobId=${job.jobId}: ${detailErrorMsg}`,
+              });
               details = {
                 description: null,
                 applyUrl: null,
@@ -547,7 +559,7 @@ async function runLinkedinScraper(options = {}) {
     }
   }
 
-  return allNewJobs;
+  return { jobs: allNewJobs, errors: fetchErrors };
 }
 
 // Run as standalone script if executed directly

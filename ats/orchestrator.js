@@ -360,7 +360,16 @@ async function runLinkedInPhase(errors, storageAdapter) {
 
   try {
     console.log('🔍 Starting LinkedIn scraper (skipEmail mode)...');
-    const linkedinJobs = await runLinkedinScraper({ skipEmail: true, storage: storageAdapter });
+    const result = await runLinkedinScraper({ skipEmail: true, storage: storageAdapter });
+    const linkedinJobs = result.jobs || [];
+    const scraperErrors = result.errors || [];
+
+    // Surface any fetch/detail errors from the scraper into the orchestrator's error list
+    if (scraperErrors.length > 0) {
+      console.warn(`⚠️  LinkedIn scraper encountered ${scraperErrors.length} non-fatal error(s)`);
+      errors.push(...scraperErrors);
+    }
+
     console.log(`✅ LinkedIn Phase complete: ${linkedinJobs.length} jobs`);
     return linkedinJobs;
   } catch (err) {
@@ -409,6 +418,12 @@ async function deduplicateJobs(allJobs, jobStateService) {
 
 /**
  * Phase 4: Email Notification
+ *
+ * Gatekeeper rules (to avoid ~32 "no jobs" emails per day on a 45-min schedule):
+ *   1. ALWAYS send if new jobs were found.
+ *   2. ALWAYS send if any errors occurred (LinkedIn blocks, ATS failures, etc.).
+ *   3. Send once per day at the heartbeat hour (UTC 6 = 08:00 Israel time) as a "sign of life".
+ *   4. Otherwise, skip the email — the run is still logged to Cloud Run + MongoDB.
  */
 async function sendNotification(newJobs, errors, emailNotifier) {
   console.log('\n' + '='.repeat(60));
@@ -419,6 +434,22 @@ async function sendNotification(newJobs, errors, emailNotifier) {
     console.log('[DRY_RUN] Skipping email notification');
     return true;
   }
+
+  const hasNewJobs = Array.isArray(newJobs) && newJobs.length > 0;
+  const hasErrors = Array.isArray(errors) && errors.length > 0;
+  const isHeartbeatHour = new Date().getUTCHours() === 6;
+
+  if (!hasNewJobs && !hasErrors && !isHeartbeatHour) {
+    console.log('Skip sending empty report (no jobs, no errors, not heartbeat hour)');
+    return true;
+  }
+
+  // Log which gate triggered the email
+  const triggers = [];
+  if (hasNewJobs) triggers.push(`${newJobs.length} new jobs`);
+  if (hasErrors) triggers.push(`${errors.length} errors`);
+  if (isHeartbeatHour) triggers.push('heartbeat hour (UTC 6 / IL 08:00)');
+  console.log(`📨 Sending email — triggered by: ${triggers.join(', ')}`);
 
   const success = await emailNotifier.sendUnifiedReport(newJobs, errors);
 
