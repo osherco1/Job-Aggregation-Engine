@@ -7,6 +7,9 @@
 
 const { MongoClient } = require('mongodb');
 const { StorageAdapter } = require('./StorageAdapter');
+// #region agent log
+const _dbgLog=(m,d,h)=>{try{require('fs').appendFileSync(require('path').join(__dirname,'..','..', '.cursor','debug.log'),JSON.stringify({location:m,data:d,hypothesisId:h,timestamp:Date.now()})+'\n');}catch(_){}};
+// #endregion
 
 class MongoStorageAdapter extends StorageAdapter {
   constructor(mongoUri) {
@@ -26,7 +29,13 @@ class MongoStorageAdapter extends StorageAdapter {
       COMPANIES: 'companies',
       RUN_LOGS: 'run_logs',
       ENRICHED_JOBS: 'enriched_jobs',
+      CALIBRATION_REJECTED: 'calibration_rejected',
+      CALIBRATION_PASSED: 'calibration_passed',
+      RUN_SUMMARIES: 'run_summaries',
     };
+
+    // TTL indexes setup flag (avoid re-creating on every reconnect)
+    this._ttlIndexesEnsured = false;
     
     // Database name (extracted from URI or default)
     this.dbName = this._extractDbName(mongoUri);
@@ -76,6 +85,14 @@ class MongoStorageAdapter extends StorageAdapter {
         this.connected = true;
         this.db = this.client.db(this.dbName);
         console.log(`MongoStorageAdapter: Connected to database '${this.dbName}'`);
+
+        // Ensure TTL indexes on first connection (non-blocking)
+        if (!this._ttlIndexesEnsured) {
+          this._ttlIndexesEnsured = true;
+          this._ensureTTLIndexes().catch(err =>
+            console.warn('MongoStorageAdapter: TTL index setup warning:', err.message || err)
+          );
+        }
       }
     } catch (err) {
       this.connected = false;
@@ -158,8 +175,14 @@ class MongoStorageAdapter extends StorageAdapter {
       const collection = await this._getCollection(this.collections.ATS_SENT_HISTORY);
       const docs = await collection.find({}).toArray();
       const jobIds = new Set(docs.map(doc => String(doc._id)));
+      // #region agent log
+      _dbgLog('MongoStorageAdapter.js:loadSentHistory:OK',{count:jobIds.size,sampleIds:Array.from(jobIds).slice(0,5)},'H1');
+      // #endregion
       return jobIds;
     } catch (err) {
+      // #region agent log
+      _dbgLog('MongoStorageAdapter.js:loadSentHistory:CATCH',{error:err.message||String(err)},'H1');
+      // #endregion
       console.error('MongoStorageAdapter: Failed to load sent history:', err.message || err);
       return new Set();
     }
@@ -199,10 +222,18 @@ class MongoStorageAdapter extends StorageAdapter {
       }));
 
       if (operations.length > 0) {
-        await collection.bulkWrite(operations, { ordered: false });
+        const result = await collection.bulkWrite(operations, { ordered: false });
+        // #region agent log
+        _dbgLog('MongoStorageAdapter.js:persistSentHistory:OK',{opsCount:operations.length,upsertedCount:result.upsertedCount,modifiedCount:result.modifiedCount,matchedCount:result.matchedCount},'H4');
+        // #endregion
       }
     } catch (err) {
+      // #region agent log
+      _dbgLog('MongoStorageAdapter.js:persistSentHistory:CATCH',{error:err.message||String(err),idsCount:ids?ids.size:0},'H4');
+      // #endregion
       console.error('MongoStorageAdapter: Failed to persist sent history:', err.message || err);
+      // FIX 2: FAIL-FAST — throw so orchestrator knows persistence failed
+      throw err;
     }
   }
 
@@ -234,7 +265,62 @@ class MongoStorageAdapter extends StorageAdapter {
   }
 
   /**
-   * Write a run log entry to run_logs collection
+   * Ensure TTL indexes on calibration and summary collections.
+   * Called once on first connection. Non-blocking.
+   * @returns {Promise<void>}
+   */
+  async _ensureTTLIndexes() {
+    try {
+      const rejCol = await this._getCollection(this.collections.CALIBRATION_REJECTED);
+      const sumCol = await this._getCollection(this.collections.RUN_SUMMARIES);
+
+      // 60-day TTL for calibration_rejected
+      await rejCol.createIndex(
+        { createdAt: 1 },
+        { expireAfterSeconds: 60 * 24 * 60 * 60, background: true }
+      );
+      // 30-day TTL for run_summaries
+      await sumCol.createIndex(
+        { createdAt: 1 },
+        { expireAfterSeconds: 30 * 24 * 60 * 60, background: true }
+      );
+      // #region agent log
+      _dbgLog('MongoStorageAdapter.js:_ensureTTLIndexes:OK',{calibrationRejectedTTL:'60d',runSummariesTTL:'30d'},'FIX1');
+      // #endregion
+      console.log('MongoStorageAdapter: TTL indexes ensured (calibration_rejected=60d, run_summaries=30d)');
+    } catch (err) {
+      // #region agent log
+      _dbgLog('MongoStorageAdapter.js:_ensureTTLIndexes:CATCH',{error:err.message||String(err)},'FIX1');
+      // #endregion
+      console.warn('MongoStorageAdapter: TTL index creation warning:', err.message || err);
+    }
+  }
+
+  /**
+   * Strip a job object to lightweight calibration metadata.
+   * Removes raw API responses, HTML descriptions, and embedded objects.
+   * @param {Object} job - Any job-like object
+   * @returns {Object} Lightweight { jobId, title, companyName, location, url, reason, source }
+   */
+  _stripJobForCalibration(job) {
+    return {
+      jobId: job.jobId || undefined,
+      title: job.title || undefined,
+      companyName: job.companyName || job.companyId || job.sourceCompanyId || undefined,
+      location: job.location || undefined,
+      url: job.url || undefined,
+      reason: job.reason || undefined,
+      source: job.source || undefined,
+    };
+  }
+
+  /**
+   * Write a run log entry to run_logs or run_summaries collection.
+   *
+   * Production optimization:
+   *   - type 'raw' and 'runtime' are SKIPPED entirely (these bloated the DB).
+   *   - type 'summary' is redirected to the run_summaries collection (with TTL).
+   *
    * @param {Object} entry - { type, source, timestamp, payload }
    * @returns {Promise<void>}
    */
@@ -246,8 +332,21 @@ class MongoStorageAdapter extends StorageAdapter {
       return;
     }
 
+    // FIX 1: Production — completely skip noisy log types that bloat the DB
+    if (process.env.NODE_ENV === 'production' && (type === 'raw' || type === 'runtime')) {
+      // #region agent log
+      _dbgLog('MongoStorageAdapter.js:writeRunLog:SKIPPED',{type,source,reason:'production_gate'},'FIX1');
+      // #endregion
+      return;
+    }
+
     try {
-      const collection = await this._getCollection(this.collections.RUN_LOGS);
+      // Redirect summaries to dedicated TTL-indexed collection
+      const collectionName = type === 'summary'
+        ? this.collections.RUN_SUMMARIES
+        : this.collections.RUN_LOGS;
+
+      const collection = await this._getCollection(collectionName);
       const now = new Date();
       
       // Generate a unique runId if not provided (based on timestamp)
@@ -297,6 +396,63 @@ class MongoStorageAdapter extends StorageAdapter {
     } catch (err) {
       // Logging is non-critical, so we don't throw
       console.error('MongoStorageAdapter: Failed to write enriched jobs:', err.message || err);
+    }
+  }
+
+  /**
+   * Write lightweight REJECTED job data to calibration_rejected collection.
+   * All raw/HTML/description fields are stripped — only metadata is persisted.
+   * Collection has a 60-day TTL index.
+   *
+   * @param {Array<Object>} jobs - Array of job-like objects (any shape)
+   * @returns {Promise<void>}
+   */
+  async writeCalibrationRejected(jobs) {
+    if (!Array.isArray(jobs) || jobs.length === 0) return;
+
+    try {
+      const collection = await this._getCollection(this.collections.CALIBRATION_REJECTED);
+      const now = new Date();
+
+      const docs = jobs.map(job => ({
+        ...this._stripJobForCalibration(job),
+        createdAt: now,
+      }));
+
+      await collection.insertMany(docs, { ordered: false });
+      // #region agent log
+      _dbgLog('MongoStorageAdapter.js:writeCalibrationRejected:OK',{count:docs.length},'FIX1');
+      // #endregion
+    } catch (err) {
+      console.error('MongoStorageAdapter: Failed to write calibration rejected:', err.message || err);
+    }
+  }
+
+  /**
+   * Write lightweight PASSED job data to calibration_passed collection.
+   * All raw/HTML/description fields are stripped — only metadata is persisted.
+   *
+   * @param {Array<Object>} jobs - Array of job-like objects (any shape)
+   * @returns {Promise<void>}
+   */
+  async writeCalibrationPassed(jobs) {
+    if (!Array.isArray(jobs) || jobs.length === 0) return;
+
+    try {
+      const collection = await this._getCollection(this.collections.CALIBRATION_PASSED);
+      const now = new Date();
+
+      const docs = jobs.map(job => ({
+        ...this._stripJobForCalibration(job),
+        createdAt: now,
+      }));
+
+      await collection.insertMany(docs, { ordered: false });
+      // #region agent log
+      _dbgLog('MongoStorageAdapter.js:writeCalibrationPassed:OK',{count:docs.length},'FIX1');
+      // #endregion
+    } catch (err) {
+      console.error('MongoStorageAdapter: Failed to write calibration passed:', err.message || err);
     }
   }
 

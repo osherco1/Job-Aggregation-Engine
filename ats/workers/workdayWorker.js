@@ -609,13 +609,26 @@ class WorkdayWorker {
 
         // =====================================================================
         // JOB ID EXTRACTION
+        // FIX 3: Deterministic IDs — extract JR number from title/bulletFields
+        //        before falling back to non-deterministic Date.now()
         // =====================================================================
         const externalPath = rawJob.externalPath || rawJob.path || '';
         const jobIdMatch = externalPath.match(/_(JR\d+)$/) || externalPath.match(/([A-Z0-9_-]+)$/i);
+
+        // FIX 3: Try to extract JR requisition number from title or bulletFields
+        const _titleStr = rawJob.title || '';
+        const _bulletsStr = Array.isArray(rawJob.bulletFields) ? rawJob.bulletFields.join(' ') : '';
+        const _jrMatch = _titleStr.match(/(JR\d{4,})/) || _bulletsStr.match(/(JR\d{4,})/);
+
         const jobId = rawJob.id || rawJob.jobId || rawJob.jobRequisitionId ||
             (jobIdMatch ? jobIdMatch[1] : null) ||
             externalPath.replace(/[\/\s]/g, '_') ||
+            (_jrMatch ? _jrMatch[1] : null) ||
             `unknown_${Date.now()}`;
+        // #region agent log
+        const _idSource = rawJob.id ? 'rawJob.id' : rawJob.jobId ? 'rawJob.jobId' : rawJob.jobRequisitionId ? 'rawJob.jobRequisitionId' : (jobIdMatch ? 'externalPath_regex' : (externalPath.replace(/[\/\s]/g, '_') ? 'externalPath_replace' : (_jrMatch ? 'title_bulletFields_JR' : 'DATE_NOW_FALLBACK')));
+        try{require('fs').appendFileSync(require('path').join(__dirname,'..','..', '.cursor','debug.log'),JSON.stringify({location:'workdayWorker.js:_normalizeJob',data:{finalJobId:`workday_${this.tenant}_${jobId}`,idSource:_idSource,hasExternalPath:!!externalPath,jrExtracted:_jrMatch?_jrMatch[1]:null,title:title.substring(0,50)},hypothesisId:'H3',timestamp:Date.now()})+'\n');}catch(_){}
+        // #endregion
 
         // =====================================================================
         // LOCATION EXTRACTION - Cascading Fallback Strategy

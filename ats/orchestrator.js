@@ -33,6 +33,9 @@ try {
   console.warn('Orchestrator: LinkedIn scraper not available:', err.message);
 }
 
+// #region agent log
+const _dbgLog=(m,d,h)=>{try{require('fs').appendFileSync(require('path').join(__dirname,'..', '.cursor','debug.log'),JSON.stringify({location:m,data:d,hypothesisId:h,timestamp:Date.now()})+'\n');}catch(_){}};
+// #endregion
 const DRY_RUN = process.env.DRY_RUN === 'true';
 const SKIP_LINKEDIN = process.env.SKIP_LINKEDIN === 'true';
 const SKIP_ATS = process.env.SKIP_ATS === 'true';
@@ -94,22 +97,14 @@ function logFilteredJob(reason, unifiedJob, company) {
 async function persistResults(allUnifiedJobs, runStats, storageAdapter) {
   const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
 
-  if (!DRY_RUN) {
-    try {
-      await storageAdapter.writeEnrichedJobs(allUnifiedJobs, 'ats');
-      console.log(`Saved unified jobs via storage adapter`);
-    } catch (err) {
-      console.error(
-        'Failed to write unified jobs:',
-        err.message || err
-      );
-    }
-  } else {
-    console.log(
-      `[DRY_RUN] Skipping write of unified jobs`
-    );
+  // FIX 1: Replaced writeEnrichedJobs (bloated) with calibration_passed.
+  // calibration_passed is now written AFTER dedup+email in run(), not here.
+  // This eliminates the massive enriched_jobs collection.
+  if (DRY_RUN) {
+    console.log(`[DRY_RUN] Skipping write of unified jobs`);
   }
 
+  // Write run summary (now routed to run_summaries collection with 30-day TTL)
   try {
     await storageAdapter.writeRunLog({
       type: 'summary',
@@ -125,19 +120,17 @@ async function persistResults(allUnifiedJobs, runStats, storageAdapter) {
     );
   }
 
-  try {
-    await storageAdapter.writeRunLog({
-      type: 'filtered',
-      source: 'ats',
-      timestamp,
-      payload: filteredJobsBuffer,
-    });
-    console.log(`Saved filtered jobs debug log via storage adapter`);
-  } catch (err) {
-    console.error(
-      'Failed to write filtered jobs debug:',
-      err.message || err
-    );
+  // Write orchestrator-level filtered jobs to calibration_rejected (lightweight)
+  if (filteredJobsBuffer.length > 0) {
+    try {
+      await storageAdapter.writeCalibrationRejected(filteredJobsBuffer);
+      console.log(`Saved ${filteredJobsBuffer.length} filtered jobs to calibration_rejected`);
+    } catch (err) {
+      console.error(
+        'Failed to write calibration rejected:',
+        err.message || err
+      );
+    }
   }
 }
 
@@ -470,6 +463,10 @@ async function persistState(emailSuccess, jobStateService) {
   console.log('💾 PHASE 5: Persist State');
   console.log('='.repeat(60));
 
+  // #region agent log
+  _dbgLog('orchestrator.js:persistState',{emailSuccess,pendingNewIds:jobStateService.getStats().pendingCount,historyCount:jobStateService.getStats().historyCount},'H5');
+  // #endregion
+
   if (emailSuccess) {
     await jobStateService.persistState();
     console.log('✅ Job history updated');
@@ -485,6 +482,10 @@ async function persistState(emailSuccess, jobStateService) {
 async function run() {
   const startTime = Date.now();
   const errors = [];
+
+  // FIX 4: Cloud Run State Reset — clear module-level buffers at run start
+  // Prevents stale data from leaking between container reuses
+  filteredJobsBuffer.length = 0;
   
   // Create storage adapter (will be FileStorageAdapter locally, MongoStorageAdapter in cloud)
   const storageAdapter = createStorageAdapter();
@@ -552,6 +553,10 @@ async function run() {
     const jobStateService = createJobStateService(storageAdapter);
     const emailNotifier = createEmailNotifier();
 
+    // #region agent log
+    _dbgLog('orchestrator.js:pre-dedup',{totalJobsCollected:allJobs.length,filteredJobsBufferLen:filteredJobsBuffer.length,sampleJobIds:allJobs.slice(0,5).map(j=>j.jobId)},'H2');
+    // #endregion
+
     // Phase 3: Deduplication
     const newJobs = await deduplicateJobs(allJobs, jobStateService);
 
@@ -560,6 +565,16 @@ async function run() {
 
     // Phase 5: Persist State
     await persistState(emailSuccess, jobStateService);
+
+    // Phase 5b: Write calibration_passed (lightweight, post-dedup, post-email)
+    if (emailSuccess && newJobs.length > 0 && !DRY_RUN) {
+      try {
+        await storageAdapter.writeCalibrationPassed(newJobs);
+        console.log(`✅ Saved ${newJobs.length} passed jobs to calibration_passed`);
+      } catch (err) {
+        console.error('Failed to write calibration passed:', err.message || err);
+      }
+    }
 
     // Final Summary
     const totalDuration = Math.round((Date.now() - startTime) / 1000);

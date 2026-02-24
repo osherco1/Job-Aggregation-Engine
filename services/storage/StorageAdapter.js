@@ -93,6 +93,24 @@ class StorageAdapter {
   }
 
   /**
+   * Write lightweight rejected job data (calibration collection)
+   * @param {Array<Object>} jobs - Array of { jobId, title, companyName, location, url, reason, source }
+   * @returns {Promise<void>}
+   */
+  async writeCalibrationRejected(jobs) {
+    // No-op default for non-Mongo adapters (e.g., FileStorageAdapter)
+  }
+
+  /**
+   * Write lightweight passed job data (calibration collection)
+   * @param {Array<Object>} jobs - Array of { jobId, title, companyName, location, url, source }
+   * @returns {Promise<void>}
+   */
+  async writeCalibrationPassed(jobs) {
+    // No-op default for non-Mongo adapters (e.g., FileStorageAdapter)
+  }
+
+  /**
    * Close / release any resources held by this adapter (e.g., database connections).
    * Subclasses that hold open connections MUST override this.
    * The default implementation is a no-op so file-based adapters work without changes.

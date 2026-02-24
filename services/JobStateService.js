@@ -7,6 +7,10 @@
  * Uses StorageAdapter for persistence (file-based locally, MongoDB in cloud).
  */
 
+// #region agent log
+const _dbgLog=(m,d,h)=>{try{require('fs').appendFileSync(require('path').join(__dirname,'..', '.cursor','debug.log'),JSON.stringify({location:m,data:d,hypothesisId:h,timestamp:Date.now()})+'\n');}catch(_){}};
+// #endregion
+
 class JobStateService {
     constructor(storageAdapter) {
         if (!storageAdapter) {
@@ -47,9 +51,11 @@ class JobStateService {
         }
 
         const newJobs = [];
+        const _dupDetails = { alreadySent: 0, alreadyInRun: 0, noJobId: 0 };
 
         for (const job of jobs) {
             if (!job || !job.jobId) {
+                _dupDetails.noJobId++;
                 continue;
             }
 
@@ -57,11 +63,13 @@ class JobStateService {
 
             // Check if already sent
             if (this.sentJobIds.has(jobId)) {
+                _dupDetails.alreadySent++;
                 continue;
             }
 
             // Check if already added in this run
             if (this.newJobIds.has(jobId)) {
+                _dupDetails.alreadyInRun++;
                 continue;
             }
 
@@ -69,6 +77,10 @@ class JobStateService {
             this.newJobIds.add(jobId);
             newJobs.push(job);
         }
+
+        // #region agent log
+        _dbgLog('JobStateService.js:filterNewJobs',{inputCount:jobs.length,historySize:this.sentJobIds.size,newJobsCount:newJobs.length,dupDetails:_dupDetails,newJobIds:newJobs.map(j=>j.jobId).slice(0,10),historySample:Array.from(this.sentJobIds).slice(0,5)},'H1');
+        // #endregion
 
         console.log(`JobStateService: Filtered ${jobs.length} jobs -> ${newJobs.length} new jobs`);
         return newJobs;
@@ -104,6 +116,8 @@ class JobStateService {
             console.log(`JobStateService: Persisted ${addedCount} new job IDs (total: ${this.sentJobIds.size})`);
         } catch (err) {
             console.error('JobStateService: Failed to persist state:', err.message);
+            // FIX 2: FAIL-FAST — propagate error to orchestrator so it doesn't falsely report success
+            throw err;
         }
     }
 

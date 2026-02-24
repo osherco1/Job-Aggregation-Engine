@@ -139,19 +139,10 @@ async function saveDroppedJobs(companyName, droppedJobs, storageAdapter) {
   if (!droppedJobs || droppedJobs.length === 0 || !storageAdapter) return;
 
   try {
-    const timestamp = timestampString();
-    const safeName = safeCompanyName(companyName);
-
-    await storageAdapter.writeRunLog({
-      type: 'filtered',
-      source: 'greenhouse',
-      timestamp: `${safeName}_${timestamp}`,
-      payload: {
-        companyName: safeName,
-        droppedJobs,
-      },
-    });
-    logRuntime(`[DROPPED] Saved ${droppedJobs.length} dropped jobs for ${safeName}`, 'INFO', storageAdapter);
+    // FIX 1 & 5: Use lightweight calibration_rejected instead of bloated writeRunLog.
+    // Data stripping happens in writeCalibrationRejected (defense in depth).
+    await storageAdapter.writeCalibrationRejected(droppedJobs);
+    logRuntime(`[DROPPED] Saved ${droppedJobs.length} dropped jobs for ${companyName} to calibration_rejected`, 'INFO', storageAdapter);
   } catch (err) {
     // eslint-disable-next-line no-console
     console.error('GreenhouseWorker: failed to save dropped jobs:', err.message || err);
@@ -592,17 +583,17 @@ class GreenhouseWorker {
         const filterResult = filterJob(rawJob);
 
         if (!filterResult.passed) {
-          // Job was filtered out - track it
-          const normalized = normalizeGreenhouseJob(rawJob, company);
+          // Job was filtered out - track it (lightweight, no raw/normalized)
           droppedJobs.push({
             jobId: rawJob.id ? `greenhouse_${rawJob.id}` : 'unknown',
             title: rawJob.title || 'Unknown',
+            companyName: company.name || company.id,
             location: (rawJob.location && typeof rawJob.location === 'object' && rawJob.location.name)
               ? rawJob.location.name
               : (typeof rawJob.location === 'string' ? rawJob.location : 'Unknown'),
+            url: rawJob.absolute_url || '',
             reason: filterResult.reason || 'Unknown filter reason',
-            raw: rawJob,
-            normalized: normalized
+            source: 'greenhouse',
           });
 
           // Update stats by reason category
@@ -631,11 +622,13 @@ class GreenhouseWorker {
           droppedJobs.push({
             jobId: rawJob.id ? `greenhouse_${rawJob.id}` : 'unknown',
             title: rawJob.title || 'Unknown',
+            companyName: company.name || company.id,
             location: (rawJob.location && typeof rawJob.location === 'object' && rawJob.location.name)
               ? rawJob.location.name
               : (typeof rawJob.location === 'string' ? rawJob.location : 'Unknown'),
+            url: rawJob.absolute_url || '',
             reason: 'Normalization failed',
-            raw: rawJob
+            source: 'greenhouse',
           });
           continue;
         }
@@ -671,14 +664,15 @@ class GreenhouseWorker {
           stats.droppedGuard += 1;
           const reasonLower = (guard.reason || '').toLowerCase();
 
-          // Track dropped by ATS guard
+          // Track dropped by ATS guard (lightweight, no raw/normalized)
           droppedJobs.push({
             jobId: unified.jobId,
             title: unified.title,
+            companyName: company.name || company.id,
             location: unified.location,
+            url: unified.url || '',
             reason: `ATS_GUARD: ${guard.reason}`,
-            raw: rawJob,
-            normalized: unified
+            source: 'greenhouse',
           });
 
           // Update stats by reason

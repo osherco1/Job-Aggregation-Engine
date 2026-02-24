@@ -136,28 +136,10 @@ async function saveDroppedJobs(companyName, droppedJobs, storageAdapter) {
   if (!droppedJobs || droppedJobs.length === 0 || !storageAdapter) return;
 
   try {
-    const timestamp = timestampString();
-    const safeName = safeCompanyName(companyName);
-
-    // Redact tokens from dropped jobs
-    const safeDropped = droppedJobs.map(job => {
-      const safe = { ...job };
-      if (safe.raw && safe.raw.token) {
-        safe.raw = { ...safe.raw, token: '***REDACTED***' };
-      }
-      return safe;
-    });
-
-    await storageAdapter.writeRunLog({
-      type: 'filtered',
-      source: 'comeet',
-      timestamp: `${safeName}_${timestamp}`,
-      payload: {
-        companyName: safeName,
-        droppedJobs: safeDropped,
-      },
-    });
-    logRuntime(`[DROPPED] Saved ${droppedJobs.length} dropped jobs for ${safeName}`, 'INFO', storageAdapter);
+    // FIX 1 & 5: Use lightweight calibration_rejected instead of bloated writeRunLog.
+    // Data stripping happens in writeCalibrationRejected (defense in depth).
+    await storageAdapter.writeCalibrationRejected(droppedJobs);
+    logRuntime(`[DROPPED] Saved ${droppedJobs.length} dropped jobs for ${companyName} to calibration_rejected`, 'INFO', storageAdapter);
   } catch (err) {
     // eslint-disable-next-line no-console
     console.error('ComeetWorker: failed to save dropped jobs:', err.message || err);
@@ -817,15 +799,15 @@ class ComeetWorker {
         const filterResult = filterJob(rawJob);
 
         if (!filterResult.passed) {
-          // Job was filtered out - track it
-          const normalized = normalizeComeetJob(rawJob, company);
+          // Job was filtered out - track it (lightweight, no raw/normalized)
           droppedJobs.push({
             jobId: rawJob.position_uid ? `comeet_${rawJob.position_uid}` : 'unknown',
             title: rawJob.name || 'Unknown',
+            companyName: company.name || company.id,
             location: rawJob.location_object?.name || rawJob.location || 'Unknown',
+            url: rawJob.careers_page_active_url || rawJob.careers_page_url || '',
             reason: filterResult.reason || 'Unknown filter reason',
-            raw: rawJob,
-            normalized: normalized
+            source: 'comeet',
           });
 
           // Update stats by reason category
@@ -854,9 +836,11 @@ class ComeetWorker {
           droppedJobs.push({
             jobId: rawJob.position_uid ? `comeet_${rawJob.position_uid}` : 'unknown',
             title: rawJob.name || 'Unknown',
+            companyName: company.name || company.id,
             location: rawJob.location_object?.name || rawJob.location || 'Unknown',
+            url: rawJob.careers_page_active_url || rawJob.careers_page_url || '',
             reason: 'Normalization failed',
-            raw: rawJob
+            source: 'comeet',
           });
           continue;
         }
@@ -892,14 +876,15 @@ class ComeetWorker {
           stats.droppedGuard += 1;
           const reasonLower = (guard.reason || '').toLowerCase();
 
-          // Track dropped by ATS guard
+          // Track dropped by ATS guard (lightweight, no raw/normalized)
           droppedJobs.push({
             jobId: unified.jobId,
             title: unified.title,
+            companyName: company.name || company.id,
             location: unified.location,
+            url: unified.url || '',
             reason: `ATS_GUARD: ${guard.reason}`,
-            raw: rawJob,
-            normalized: unified
+            source: 'comeet',
           });
 
           // Update stats by reason
