@@ -332,8 +332,9 @@ class MongoStorageAdapter extends StorageAdapter {
       return;
     }
 
-    // FIX 1: Production — completely skip noisy log types that bloat the DB
-    if (process.env.NODE_ENV === 'production' && (type === 'raw' || type === 'runtime')) {
+    // Production — only allow 'summary' (routed to run_summaries); skip everything
+    // else to prevent implicit recreation of the dropped run_logs collection.
+    if (process.env.NODE_ENV === 'production' && type !== 'summary') {
       // #region agent log
       _dbgLog('MongoStorageAdapter.js:writeRunLog:SKIPPED',{type,source,reason:'production_gate'},'FIX1');
       // #endregion
@@ -373,6 +374,10 @@ class MongoStorageAdapter extends StorageAdapter {
    * @returns {Promise<void>}
    */
   async writeEnrichedJobs(jobs, source = 'unknown') {
+    // #region agent log
+    if (process.env.NODE_ENV === 'production') { _dbgLog('MongoStorageAdapter.js:writeEnrichedJobs:BLOCKED',{source,jobCount:Array.isArray(jobs)?jobs.length:0,reason:'production_guard'},'FIX_B'); return; }
+    // #endregion
+
     if (!Array.isArray(jobs) || jobs.length === 0) {
       return;
     }

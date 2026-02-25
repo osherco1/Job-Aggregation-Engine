@@ -10,7 +10,7 @@
 # Dependencies
 # -----------------------------------------
 node_modules/
-package-lock.json
+
 
 # -----------------------------------------
 # Secrets & Environment Variables

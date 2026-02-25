@@ -493,12 +493,14 @@ async function runLinkedinScraper(options = {}) {
         );
       });
 
-      // Persist enriched jobs via storage adapter
-      try {
-        await storage.writeEnrichedJobs(allNewJobs, 'linkedin');
-        console.log(`Saved enriched jobs via storage adapter`);
-      } catch (e) {
-        console.error('Failed to save enriched jobs:', e.message || e);
+      // Persist enriched jobs via storage adapter (local dev only — collection is deprecated in prod)
+      if (process.env.NODE_ENV !== 'production') {
+        try {
+          await storage.writeEnrichedJobs(allNewJobs, 'linkedin');
+          console.log(`Saved enriched jobs via storage adapter`);
+        } catch (e) {
+          console.error('Failed to save enriched jobs:', e.message || e);
+        }
       }
 
       // Send an email report summarizing all new enriched jobs (unless DRY_RUN or skipEmail).
