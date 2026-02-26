@@ -573,30 +573,68 @@ class WorkdayWorker {
         }
 
         // =====================================================================
-        // TITLE EXTRACTION - Cascading Fallback Strategy
+        // JR NUMBER EXTRACTION (deterministic ID — must run before title logic)
         // =====================================================================
-        // Priority: direct title > bulletFields[0] > jobRequisition.title > name
+        const JR_RE = /JR\d{4,}/;
+        const JR_ONLY_RE = /^JR\d+$/i;
+
+        const externalPath = rawJob.externalPath || rawJob.path || '';
+        const bullets = Array.isArray(rawJob.bulletFields) ? rawJob.bulletFields : [];
+
+        let jrNumber = null;
+
+        // Priority 1: jobRequisition.id (most authoritative)
+        if (rawJob.jobRequisition?.id && JR_RE.test(rawJob.jobRequisition.id)) {
+            jrNumber = rawJob.jobRequisition.id.match(JR_RE)[0];
+        }
+
+        // Priority 2: externalPath (e.g. /…/Software-Engineer_JR0281055-1)
+        if (!jrNumber) {
+            const pathJr = externalPath.match(JR_RE);
+            if (pathJr) jrNumber = pathJr[0];
+        }
+
+        // Priority 3: bulletFields (NVIDIA puts the JR as the last bullet)
+        if (!jrNumber) {
+            for (let i = bullets.length - 1; i >= 0; i--) {
+                const m = (bullets[i] || '').match(JR_RE);
+                if (m) { jrNumber = m[0]; break; }
+            }
+        }
+
+        // Priority 4: title or name field (sometimes JR leaks there)
+        if (!jrNumber) {
+            const titleJr = (rawJob.title || '').match(JR_RE) || (rawJob.name || '').match(JR_RE);
+            if (titleJr) jrNumber = titleJr[0];
+        }
+
+        // Build final jobId: prefer JR, then rawJob.id, then externalPath slug, then Date.now()
+        const jobId = jrNumber
+            || rawJob.id || rawJob.jobId || rawJob.jobRequisitionId
+            || (externalPath ? externalPath.replace(/^\//, '').replace(/[\/\s]/g, '_') : null)
+            || `unknown_${Date.now()}`;
+
+        // =====================================================================
+        // TITLE EXTRACTION — skip JR-only strings and location-like strings
+        // =====================================================================
+        const locationIndicators = /^(\d+ Locations?|Israel|Remote|United States|US|India|UK|Germany|China|Japan)/i;
+        const titleCandidates = [];
+
+        if (rawJob.title && typeof rawJob.title === 'string') titleCandidates.push(rawJob.title.trim());
+        for (const b of bullets) {
+            if (b && typeof b === 'string') titleCandidates.push(b.trim());
+        }
+        if (rawJob.jobRequisition?.title) titleCandidates.push(rawJob.jobRequisition.title.trim());
+        if (rawJob.name && typeof rawJob.name === 'string') titleCandidates.push(rawJob.name.trim());
+
         let title = '';
-
-        // Try 1: Direct title field
-        if (rawJob.title && typeof rawJob.title === 'string') {
-            title = rawJob.title.trim();
-        }
-
-        // Try 2: bulletFields array (common in Workday CXS responses)
-        if (!title && Array.isArray(rawJob.bulletFields) && rawJob.bulletFields.length > 0) {
-            // First bullet is usually the title
-            title = (rawJob.bulletFields[0] || '').trim();
-        }
-
-        // Try 3: Nested jobRequisition object
-        if (!title && rawJob.jobRequisition?.title) {
-            title = rawJob.jobRequisition.title.trim();
-        }
-
-        // Try 4: Fallback to 'name' field
-        if (!title && rawJob.name && typeof rawJob.name === 'string') {
-            title = rawJob.name.trim();
+        for (const candidate of titleCandidates) {
+            if (!candidate) continue;
+            if (JR_ONLY_RE.test(candidate)) continue;
+            if (locationIndicators.test(candidate)) continue;
+            if (/^(Full time|Part time|Regular|Temporary)$/i.test(candidate)) continue;
+            title = candidate;
+            break;
         }
 
         if (!title) {
@@ -606,29 +644,6 @@ class WorkdayWorker {
             }
             return null;
         }
-
-        // =====================================================================
-        // JOB ID EXTRACTION
-        // FIX 3: Deterministic IDs — extract JR number from title/bulletFields
-        //        before falling back to non-deterministic Date.now()
-        // =====================================================================
-        const externalPath = rawJob.externalPath || rawJob.path || '';
-        const jobIdMatch = externalPath.match(/_(JR\d+)$/) || externalPath.match(/([A-Z0-9_-]+)$/i);
-
-        // FIX 3: Try to extract JR requisition number from title or bulletFields
-        const _titleStr = rawJob.title || '';
-        const _bulletsStr = Array.isArray(rawJob.bulletFields) ? rawJob.bulletFields.join(' ') : '';
-        const _jrMatch = _titleStr.match(/(JR\d{4,})/) || _bulletsStr.match(/(JR\d{4,})/);
-
-        const jobId = rawJob.id || rawJob.jobId || rawJob.jobRequisitionId ||
-            (jobIdMatch ? jobIdMatch[1] : null) ||
-            externalPath.replace(/[\/\s]/g, '_') ||
-            (_jrMatch ? _jrMatch[1] : null) ||
-            `unknown_${Date.now()}`;
-        // #region agent log
-        const _idSource = rawJob.id ? 'rawJob.id' : rawJob.jobId ? 'rawJob.jobId' : rawJob.jobRequisitionId ? 'rawJob.jobRequisitionId' : (jobIdMatch ? 'externalPath_regex' : (externalPath.replace(/[\/\s]/g, '_') ? 'externalPath_replace' : (_jrMatch ? 'title_bulletFields_JR' : 'DATE_NOW_FALLBACK')));
-        try{require('fs').appendFileSync(require('path').join(__dirname,'..','..', '.cursor','debug.log'),JSON.stringify({location:'workdayWorker.js:_normalizeJob',data:{finalJobId:`workday_${this.tenant}_${jobId}`,idSource:_idSource,hasExternalPath:!!externalPath,jrExtracted:_jrMatch?_jrMatch[1]:null,title:title.substring(0,50)},hypothesisId:'H3',timestamp:Date.now()})+'\n');}catch(_){}
-        // #endregion
 
         // =====================================================================
         // LOCATION EXTRACTION - Cascading Fallback Strategy

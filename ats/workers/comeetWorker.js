@@ -3,6 +3,7 @@ const https = require('https');
 const { requestWithDelayWrapper } = require('../utils/httpClientWrapper');
 const { PATHS } = require('../../config/paths');
 const { evaluateAtsGuard } = require('../filters/ats_guard');
+const { evaluateStructuredGate } = require('../filters/structuredGate');
 
 const DEBUG_COMEET = process.env.DEBUG_COMEET === 'true';
 const ATS_GUARD_DRY_RUN = process.env.ATS_GUARD_DRY_RUN === 'true';
@@ -279,6 +280,10 @@ function normalizeComeetJob(rawJob, company) {
     url: url,
     description: description,
     raw: rawJob,
+    structuredSignals: {
+      experience_level: rawJob.experience_level || null,
+      employment_type: rawJob.employment_type || null,
+    },
   };
 }
 
@@ -847,7 +852,32 @@ class ComeetWorker {
         stats.normalized += 1;
         allNormalizedJobs.push(unified);
 
-        // ATS Guard (for seniority/title filtering)
+        // ── Structured Fast-Track Gate (runs before regex-based ATS Guard) ──
+        const structGate = evaluateStructuredGate(unified, 'comeet');
+
+        if (structGate.verdict === 'FAIL') {
+          stats.droppedGuard += 1;
+          stats.droppedByReason = stats.droppedByReason || {};
+          stats.droppedByReason['STRUCTURED_GATE'] = (stats.droppedByReason['STRUCTURED_GATE'] || 0) + 1;
+          droppedJobs.push({
+            jobId: unified.jobId,
+            title: unified.title,
+            companyName: company.name || company.id,
+            location: unified.location,
+            url: unified.url || '',
+            reason: `STRUCTURED_GATE: ${structGate.reason}`,
+            source: 'comeet',
+          });
+          continue;
+        }
+
+        if (structGate.verdict === 'WHITELIST') {
+          stats.passedGuard += 1;
+          unifiedJobs.push(unified);
+          continue;
+        }
+
+        // ── ATS Guard (regex-based seniority/title filtering) ──
         const guard = evaluateAtsGuard(rawJob, {
           companyId: company.id,
           source: 'comeet',
