@@ -419,39 +419,6 @@ class FileStorageAdapter extends StorageAdapter {
     }
   }
 
-  /**
-   * Write enriched jobs array to output directory
-   * @param {Array<Object>} jobs
-   * @param {string} source - 'linkedin' or 'ats'
-   * @returns {Promise<void>}
-   */
-  async writeEnrichedJobs(jobs, source = 'unknown') {
-    if (!Array.isArray(jobs) || jobs.length === 0) {
-      return;
-    }
-
-    try {
-      // Sanitize timestamp for Windows compatibility
-      const timestamp = this._sanitizeTimestamp();
-      let targetDir;
-      let filename;
-
-      if (source === 'linkedin') {
-        targetDir = this.linkedinOutputDir;
-        filename = `enriched_jobs_${timestamp}.json`;
-      } else {
-        targetDir = this.outputDir;
-        filename = `ats_enriched_jobs_${timestamp}.json`;
-      }
-
-      const filePath = path.join(targetDir, filename);
-      // Ensure the target directory exists (recursive) right before write
-      fs.mkdirSync(path.dirname(filePath), { recursive: true });
-      fs.writeFileSync(filePath, JSON.stringify(jobs, null, 2), 'utf-8');
-    } catch (err) {
-      console.error('FileStorageAdapter: Failed to write enriched jobs:', err.message || err);
-    }
-  }
 }
 
 module.exports = { FileStorageAdapter };

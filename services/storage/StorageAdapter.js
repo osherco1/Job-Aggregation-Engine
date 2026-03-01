@@ -83,16 +83,6 @@ class StorageAdapter {
   }
 
   /**
-   * Write enriched jobs array (fire-and-forget, non-critical)
-   * @param {Array<Object>} jobs - Array of enriched job objects
-   * @param {string} source - Source identifier (e.g., 'linkedin', 'ats')
-   * @returns {Promise<void>}
-   */
-  async writeEnrichedJobs(jobs, source = 'unknown') {
-    throw new Error('writeEnrichedJobs() must be implemented by subclass');
-  }
-
-  /**
    * Write lightweight rejected job data (calibration collection)
    * @param {Array<Object>} jobs - Array of { jobId, title, companyName, location, url, reason, source }
    * @returns {Promise<void>}

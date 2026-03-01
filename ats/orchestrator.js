@@ -138,7 +138,7 @@ async function persistResults(allUnifiedJobs, runStats, storageAdapter) {
  * Process a batch of companies with a specific worker
  * Returns { jobs: [], stats: { succeeded, failed }, errors: [] }
  */
-async function processBatch(companies, worker, workerName, progressCallback) {
+async function processBatch(companies, worker, workerName, progressCallback, knownJobIds) {
   const jobs = [];
   const batchErrors = [];
   let succeeded = 0;
@@ -153,7 +153,7 @@ async function processBatch(companies, worker, workerName, progressCallback) {
     }
 
     try {
-      const workerResult = await worker.fetchAllJobs(company);
+      const workerResult = await worker.fetchAllJobs(company, knownJobIds);
       let rawJobs = workerResult;
 
       if (workerResult && !Array.isArray(workerResult) && Array.isArray(workerResult.jobs)) {
@@ -182,7 +182,7 @@ async function processBatch(companies, worker, workerName, progressCallback) {
 /**
  * Phase 1: Run ATS workers (Comeet, Greenhouse & Workday) in TRUE PARALLEL
  */
-async function runAtsWorkers(errors, storageAdapter) {
+async function runAtsWorkers(errors, storageAdapter, knownJobIds) {
   console.log('\n' + '='.repeat(60));
   console.log('📊 PHASE 1: ATS Workers (Comeet, Greenhouse & Workday) - PARALLEL');
   console.log('='.repeat(60));
@@ -280,11 +280,11 @@ async function runAtsWorkers(errors, storageAdapter) {
     processBatch(comeetCompanies, comeetWorker, 'comeet', (name, current, total) => {
       comeetProgress = current;
       updateProgress();
-    }),
+    }, knownJobIds),
     processBatch(greenhouseCompanies, greenhouseWorker, 'greenhouse', (name, current, total) => {
       greenhouseProgress = current;
       updateProgress();
-    }),
+    }, knownJobIds),
     processWorkdayBatch(workdayCompanies, (name, current, total) => {
       workdayProgress = current;
       updateProgress();
@@ -513,8 +513,11 @@ async function run() {
     const atsErrors = [];
     const linkedinErrors = [];
 
+    // Load known job IDs BEFORE the parallel phase (for ATS silent dedup)
+    const knownJobIds = await storageAdapter.loadSentHistory();
+
     const [atsResult, linkedinResult] = await Promise.allSettled([
-      runAtsWorkers(atsErrors, storageAdapter),
+      runAtsWorkers(atsErrors, storageAdapter, knownJobIds),
       runLinkedInPhase(linkedinErrors, storageAdapter),
     ]);
 

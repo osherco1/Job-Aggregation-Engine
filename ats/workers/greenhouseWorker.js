@@ -20,29 +20,12 @@ const RUNTIME_LOG_PATH = PATHS.ATS.LOGS.GREENHOUSE.RUNTIME_LOG;
 // ============================================================================
 
 /**
- * Log message to runtime log file (for tailing in separate terminal)
+ * Log message to console (debugging only; no DB writes)
  * @param {string} message - Log message
  * @param {string} level - Log level (INFO, WARN, ERROR, DEBUG)
- * @param {StorageAdapter} storageAdapter - Optional storage adapter for logging
+ * @param {StorageAdapter} storageAdapter - Ignored (kept for API compatibility)
  */
 function logRuntime(message, level = 'INFO', storageAdapter = null) {
-  const timestamp = new Date().toISOString();
-  const logLine = `[${timestamp}] [${level}] ${message}\n`;
-
-  // If storage adapter is provided, use it for structured logging
-  if (storageAdapter) {
-    // Fire-and-forget log write
-    storageAdapter.writeRunLog({
-      type: 'runtime',
-      source: 'greenhouse',
-      timestamp,
-      payload: { message, level },
-    }).catch(() => {
-      // Ignore errors - logging is non-critical
-    });
-  }
-
-  // Always log to console if not in quiet mode, or if it's an error
   if (!QUIET_MODE || level === 'ERROR') {
     if (level === 'ERROR') {
       console.error(`[GH] ${message}`);
@@ -100,33 +83,15 @@ function decodeHtml(html) {
 }
 
 /**
- * Save raw API response (debug only)
+ * Save raw API response (debug only — console only, no DB)
  * @param {string} companyName
  * @param {Object} rawResponse
  * @param {StorageAdapter} storageAdapter
  */
 async function saveRawResponse(companyName, rawResponse, storageAdapter) {
-  if (!DEBUG_GREENHOUSE || !storageAdapter) return;
-
-  try {
-    const timestamp = timestampString();
-    const safeName = safeCompanyName(companyName);
-    const payload = {
-      companyName: safeName,
-      rawResponse,
-    };
-
-    await storageAdapter.writeRunLog({
-      type: 'raw',
-      source: 'greenhouse',
-      timestamp: `${safeName}_${timestamp}`,
-      payload,
-    });
-    logRuntime(`[RAW] Saved raw response for ${safeName}`, 'DEBUG', storageAdapter);
-  } catch (err) {
-    // eslint-disable-next-line no-console
-    console.error('GreenhouseWorker: failed to save raw response:', err.message || err);
-  }
+  if (!DEBUG_GREENHOUSE) return;
+  const safeName = safeCompanyName(companyName);
+  console.log(`[GH][RAW] Response for ${safeName}`);
 }
 
 /**
@@ -150,32 +115,14 @@ async function saveDroppedJobs(companyName, droppedJobs, storageAdapter) {
 }
 
 /**
- * Save error information
+ * Save error information (console only, no DB)
  * @param {string} companyName
  * @param {Object} errorInfo
  * @param {StorageAdapter} storageAdapter
  */
 async function saveErrorInfo(companyName, errorInfo, storageAdapter) {
-  if (!storageAdapter) return;
-
-  try {
-    const timestamp = timestampString();
-    const safeName = safeCompanyName(companyName);
-
-    await storageAdapter.writeRunLog({
-      type: 'error',
-      source: 'greenhouse',
-      timestamp: `${safeName}_${timestamp}`,
-      payload: {
-        companyName: safeName,
-        errorInfo,
-      },
-    });
-    logRuntime(`[ERROR] Saved error info for ${safeName}`, 'WARN', storageAdapter);
-  } catch (err) {
-    // eslint-disable-next-line no-console
-    console.error('GreenhouseWorker: failed to save error info:', err.message || err);
-  }
+  const safeName = safeCompanyName(companyName);
+  console.error(`[GH][ERROR] ${safeName}:`, JSON.stringify(errorInfo));
 }
 
 /**
@@ -194,7 +141,6 @@ async function saveRunSummary(runStats, storageAdapter) {
       timestamp,
       payload: runStats,
     });
-    logRuntime(`[SUMMARY] Saved run summary`, 'INFO', storageAdapter);
   } catch (err) {
     // eslint-disable-next-line no-console
     console.error('GreenhouseWorker: failed to save run summary:', err.message || err);
@@ -397,9 +343,10 @@ class GreenhouseWorker {
    * Uses Greenhouse public API with ?content=true parameter.
    *
    * @param {Object} company - Company config with { uid, name, id }
+   * @param {Set<string>} [knownJobIds] - Set of job IDs already sent (for silent dedup; skip calibration_rejected)
    * @returns {Promise<{jobs: Array<UnifiedJob>, stats: object}>}
    */
-  async fetchAllJobs(company) {
+  async fetchAllJobs(company, knownJobIds) {
     // Human-like delay before fetching (avoid WAF detection)
     const delayMs = await randomDelay(GREENHOUSE_DELAY_MIN_MS, GREENHOUSE_DELAY_MAX_MS);
     logRuntime(`Sleeping for ${delayMs}ms before fetching ${company.name || company.id}...`, 'DEBUG', this.storageAdapter);
@@ -409,6 +356,7 @@ class GreenhouseWorker {
       jobs: [],
       stats: {
         fetched: 0,
+        skippedDedup: 0,
         passedLocation: 0,
         droppedLocation: 0,
         passedDepartment: 0,
@@ -550,6 +498,7 @@ class GreenhouseWorker {
 
       const stats = {
         fetched: rawJobs.length,
+        skippedDedup: 0,
         passedLocation: 0,
         droppedLocation: 0,
         passedDepartment: 0,
@@ -579,7 +528,17 @@ class GreenhouseWorker {
 
       // Process each raw job
       for (const rawJob of rawJobs) {
-        // Apply explicit filter with reason tracking
+        // STEP 0: Silent dedup — skip already-known jobs (no calibration_rejected write)
+        const jobId = rawJob.id
+          ? `greenhouse_${String(rawJob.id).trim()}`
+          : null;
+
+        if (jobId && knownJobIds && knownJobIds.has(jobId)) {
+          stats.skippedDedup = (stats.skippedDedup || 0) + 1;
+          continue;
+        }
+
+        // STEP 1: Business logic filters (explicit filter with reason tracking)
         const filterResult = filterJob(rawJob);
 
         if (!filterResult.passed) {

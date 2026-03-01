@@ -26,30 +26,12 @@ const RUNTIME_LOG_PATH = PATHS.ATS.LOGS.COMEET.RUNTIME_LOG;
 // ============================================================================
 
 /**
- * Log message to runtime log file (for tailing in separate terminal)
+ * Log message to console (debugging only; no DB writes)
  * @param {string} message - Log message
  * @param {string} level - Log level (INFO, WARN, ERROR, DEBUG)
- * @param {StorageAdapter} storageAdapter - Optional storage adapter for logging
+ * @param {StorageAdapter} storageAdapter - Ignored (kept for API compatibility)
  */
 function logRuntime(message, level = 'INFO', storageAdapter = null) {
-  const timestamp = new Date().toISOString();
-  const logLine = `[${timestamp}] [${level}] ${message}\n`;
-
-  // If storage adapter is provided, use it for structured logging
-  // Otherwise, fall back to console (for backward compatibility)
-  if (storageAdapter) {
-    // Fire-and-forget log write
-    storageAdapter.writeRunLog({
-      type: 'runtime',
-      source: 'comeet',
-      timestamp,
-      payload: { message, level },
-    }).catch(() => {
-      // Ignore errors - logging is non-critical
-    });
-  }
-
-  // Always log to console if not in quiet mode, or if it's an error
   if (!QUIET_MODE || level === 'ERROR') {
     if (level === 'ERROR') {
       console.error(`[CM] ${message}`);
@@ -98,33 +80,15 @@ function timestampString() {
 
 
 /**
- * Save raw API response (debug only)
+ * Save raw API response (debug only — console only, no DB)
  * @param {string} companyName
  * @param {Object} rawResponse
  * @param {StorageAdapter} storageAdapter
  */
 async function saveRawResponse(companyName, rawResponse, storageAdapter) {
-  if (!DEBUG_COMEET || !storageAdapter) return;
-
-  try {
-    const timestamp = timestampString();
-    const safeName = safeCompanyName(companyName);
-    const payload = {
-      companyName: safeName,
-      rawResponse,
-    };
-
-    await storageAdapter.writeRunLog({
-      type: 'raw',
-      source: 'comeet',
-      timestamp: `${safeName}_${timestamp}`,
-      payload,
-    });
-    logRuntime(`[RAW] Saved raw response for ${safeName}`, 'DEBUG', storageAdapter);
-  } catch (err) {
-    // eslint-disable-next-line no-console
-    console.error('ComeetWorker: failed to save raw response:', err.message || err);
-  }
+  if (!DEBUG_COMEET) return;
+  const safeName = safeCompanyName(companyName);
+  console.log(`[CM][RAW] Response for ${safeName}`);
 }
 
 /**
@@ -148,38 +112,18 @@ async function saveDroppedJobs(companyName, droppedJobs, storageAdapter) {
 }
 
 /**
- * Save error information
+ * Save error information (console only, no DB)
  * @param {string} companyName
  * @param {Object} errorInfo
  * @param {StorageAdapter} storageAdapter
  */
 async function saveErrorInfo(companyName, errorInfo, storageAdapter) {
-  if (!storageAdapter) return;
-
-  try {
-    const timestamp = timestampString();
-    const safeName = safeCompanyName(companyName);
-
-    // Redact token from URL
-    const safeErrorInfo = {
-      ...errorInfo,
-      requestUrl: errorInfo.requestUrl ? redactToken(errorInfo.requestUrl) : null,
-    };
-
-    await storageAdapter.writeRunLog({
-      type: 'error',
-      source: 'comeet',
-      timestamp: `${safeName}_${timestamp}`,
-      payload: {
-        companyName: safeName,
-        errorInfo: safeErrorInfo,
-      },
-    });
-    logRuntime(`[ERROR] Saved error info for ${safeName}`, 'WARN', storageAdapter);
-  } catch (err) {
-    // eslint-disable-next-line no-console
-    console.error('ComeetWorker: failed to save error info:', err.message || err);
-  }
+  const safeName = safeCompanyName(companyName);
+  const safeErrorInfo = {
+    ...errorInfo,
+    requestUrl: errorInfo.requestUrl ? redactToken(errorInfo.requestUrl) : null,
+  };
+  console.error(`[CM][ERROR] ${safeName}:`, JSON.stringify(safeErrorInfo));
 }
 
 /**
@@ -198,7 +142,6 @@ async function saveRunSummary(runStats, storageAdapter) {
       timestamp,
       payload: runStats,
     });
-    logRuntime(`[SUMMARY] Saved run summary`, 'INFO', storageAdapter);
   } catch (err) {
     // eslint-disable-next-line no-console
     console.error('ComeetWorker: failed to save run summary:', err.message || err);
@@ -505,14 +448,16 @@ class ComeetWorker {
    * Uses token-based API v1.0 with anti-bot protection, rate limiting, and retries.
    *
    * @param {Object} company - Company config with { uid, token, name, id }
+   * @param {Set<string>} [knownJobIds] - Set of job IDs already sent (for silent dedup; skip calibration_rejected)
    * @returns {Promise<{jobs: Array<UnifiedJob>, stats: object}>}
    */
-  async fetchAllJobs(company) {
+  async fetchAllJobs(company, knownJobIds) {
     const companyStartTime = Date.now();
     const emptyResult = {
       jobs: [],
       stats: {
         fetched: 0,
+        skippedDedup: 0,
         passedLocation: 0,
         droppedLocation: 0,
         passedDepartment: 0,
@@ -770,6 +715,7 @@ class ComeetWorker {
 
       const stats = {
         fetched: rawJobs.length,
+        skippedDedup: 0,
         passedLocation: 0,
         droppedLocation: 0,
         passedDepartment: 0,
@@ -800,7 +746,17 @@ class ComeetWorker {
 
       // Process each raw job
       for (const rawJob of rawJobs) {
-        // Apply explicit filter with reason tracking
+        // STEP 0: Silent dedup — skip already-known jobs (no calibration_rejected write)
+        const jobId = rawJob.position_uid
+          ? `comeet_${String(rawJob.position_uid).trim()}`
+          : null;
+
+        if (jobId && knownJobIds && knownJobIds.has(jobId)) {
+          stats.skippedDedup = (stats.skippedDedup || 0) + 1;
+          continue;
+        }
+
+        // STEP 1: Business logic filters (explicit filter with reason tracking)
         const filterResult = filterJob(rawJob);
 
         if (!filterResult.passed) {

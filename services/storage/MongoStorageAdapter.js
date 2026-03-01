@@ -27,8 +27,6 @@ class MongoStorageAdapter extends StorageAdapter {
       SEEN_JOBS: 'seen_jobs',
       ATS_SENT_HISTORY: 'ats_sent_history',
       COMPANIES: 'companies',
-      RUN_LOGS: 'run_logs',
-      ENRICHED_JOBS: 'enriched_jobs',
       CALIBRATION_REJECTED: 'calibration_rejected',
       CALIBRATION_PASSED: 'calibration_passed',
       RUN_SUMMARIES: 'run_summaries',
@@ -146,11 +144,11 @@ class MongoStorageAdapter extends StorageAdapter {
           filter: { _id: jobId },
           update: {
             $set: {
-              _id: jobId,
               source: 'linkedin',
-              firstSeenAt: now,
+              lastSeenAt: now,
             },
             $setOnInsert: {
+              firstSeenAt: now,
               createdAt: now,
             },
           },
@@ -209,11 +207,11 @@ class MongoStorageAdapter extends StorageAdapter {
           filter: { _id: jobId },
           update: {
             $set: {
-              _id: jobId,
-              sentAt: now,
+              lastUpdatedAt: now,
               ...metadata,
             },
             $setOnInsert: {
+              sentAt: now,
               createdAt: now,
             },
           },
@@ -315,44 +313,29 @@ class MongoStorageAdapter extends StorageAdapter {
   }
 
   /**
-   * Write a run log entry to run_logs or run_summaries collection.
-   *
-   * Production optimization:
-   *   - type 'raw' and 'runtime' are SKIPPED entirely (these bloated the DB).
-   *   - type 'summary' is redirected to the run_summaries collection (with TTL).
+   * Write a run log entry. Only type 'summary' is persisted to MongoDB (run_summaries).
+   * Any other type (runtime, error, raw, filtered) returns immediately without writing.
    *
    * @param {Object} entry - { type, source, timestamp, payload }
    * @returns {Promise<void>}
    */
   async writeRunLog(entry) {
     const { type, source, timestamp, payload } = entry;
-    
-    if (!type || !source) {
-      console.warn('MongoStorageAdapter: writeRunLog requires type and source');
-      return;
+
+    if (type !== 'summary') {
+      return; // Only summaries are persisted to MongoDB
     }
 
-    // Production — only allow 'summary' (routed to run_summaries); skip everything
-    // else to prevent implicit recreation of the dropped run_logs collection.
-    if (process.env.NODE_ENV === 'production' && type !== 'summary') {
-      // #region agent log
-      _dbgLog('MongoStorageAdapter.js:writeRunLog:SKIPPED',{type,source,reason:'production_gate'},'FIX1');
-      // #endregion
+    if (!source) {
+      console.warn('MongoStorageAdapter: writeRunLog requires source');
       return;
     }
 
     try {
-      // Redirect summaries to dedicated TTL-indexed collection
-      const collectionName = type === 'summary'
-        ? this.collections.RUN_SUMMARIES
-        : this.collections.RUN_LOGS;
-
-      const collection = await this._getCollection(collectionName);
+      const collection = await this._getCollection(this.collections.RUN_SUMMARIES);
       const now = new Date();
-      
-      // Generate a unique runId if not provided (based on timestamp)
       const runId = timestamp || now.toISOString();
-      
+
       await collection.insertOne({
         runId,
         source,
@@ -362,45 +345,7 @@ class MongoStorageAdapter extends StorageAdapter {
         createdAt: now,
       });
     } catch (err) {
-      // Logging is non-critical, so we don't throw
       console.error('MongoStorageAdapter: Failed to write run log:', err.message || err);
-    }
-  }
-
-  /**
-   * Write enriched jobs array to enriched_jobs collection
-   * @param {Array<Object>} jobs
-   * @param {string} source - 'linkedin' or 'ats'
-   * @returns {Promise<void>}
-   */
-  async writeEnrichedJobs(jobs, source = 'unknown') {
-    // #region agent log
-    if (process.env.NODE_ENV === 'production') { _dbgLog('MongoStorageAdapter.js:writeEnrichedJobs:BLOCKED',{source,jobCount:Array.isArray(jobs)?jobs.length:0,reason:'production_guard'},'FIX_B'); return; }
-    // #endregion
-
-    if (!Array.isArray(jobs) || jobs.length === 0) {
-      return;
-    }
-
-    try {
-      const collection = await this._getCollection(this.collections.ENRICHED_JOBS);
-      const now = new Date();
-      
-      // Insert jobs with metadata
-      const documents = jobs.map(job => ({
-        ...job,
-        source,
-        enrichedAt: now,
-        createdAt: now,
-      }));
-
-      // Use insertMany for batch insert
-      if (documents.length > 0) {
-        await collection.insertMany(documents, { ordered: false });
-      }
-    } catch (err) {
-      // Logging is non-critical, so we don't throw
-      console.error('MongoStorageAdapter: Failed to write enriched jobs:', err.message || err);
     }
   }
 
