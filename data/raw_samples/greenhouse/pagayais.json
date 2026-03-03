@@ -1,0 +1,452 @@
+{
+  "_meta": {
+    "source": "greenhouse",
+    "companyId": "pagayais",
+    "companyName": "Pagaya Israel",
+    "uid": "pagayais",
+    "endpoint": "https://boards-api.greenhouse.io/v1/boards/pagayais/jobs?content=true",
+    "httpStatus": 200,
+    "sampledAt": "2026-03-01T22:03:12.043Z",
+    "jobCount": 10
+  },
+  "raw": {
+    "jobs": [
+      {
+        "absolute_url": "https://job-boards.greenhouse.io/pagayais/jobs/7540401003",
+        "data_compliance": [
+          {
+            "type": "gdpr",
+            "requires_consent": false,
+            "requires_processing_consent": false,
+            "requires_retention_consent": false,
+            "retention_period": null,
+            "demographic_data_consent_applies": false
+          }
+        ],
+        "internal_job_id": 5683430003,
+        "location": {
+          "name": "Tel Aviv, Israel"
+        },
+        "metadata": null,
+        "id": 7540401003,
+        "updated_at": "2025-11-26T08:17:08-05:00",
+        "requisition_id": "1279",
+        "title": "Legal Counsel",
+        "company_name": "Pagaya Israel",
+        "first_published": "2025-11-26T08:17:08-05:00",
+        "language": "en",
+        "content": "&lt;h2&gt;&lt;strong&gt;About Pagaya&lt;/strong&gt;&lt;/h2&gt;\n&lt;p&gt;Pagaya is a global technology company making life-changing financial products and services available to more people nationwide, as it reshapes the financial services ecosystem. By using machine learning, a vast data network and a sophisticated AI-driven approach, Pagaya provides comprehensive consumer credit and residential real estate solutions for its partners, their customers, and investors. Its proprietary API and capital solutions integrate into its network of partners to deliver seamless user experiences and greater access to the mainstream economy. Pagaya has offices in New York and Tel Aviv. For more information, visit&amp;nbsp;&lt;a href=&quot;http://pagaya.com/&quot; target=&quot;_blank&quot; data-saferedirecturl=&quot;https://www.google.com/url?q=http://pagaya.com/&amp;amp;source=gmail&amp;amp;ust=1693382443511000&amp;amp;usg=AOvVaw0tBAw-dMj_zGwNI8CjNR8Z&quot;&gt;pagaya.com&lt;/a&gt;.&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;About the Role&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;As a Legal Counsel, you will play a key role in providing high-quality legal, regulatory, and compliance advice across multiple domains — including data protection &amp;amp; privacy, information security, private investment funds and employment (HR) — to all areas of the business.&lt;br&gt;You will serve as a trusted advisor to management and cross-functional teams, ensuring that our business operates within the complex global regulatory landscape while enabling innovation and growth.&lt;/p&gt;\n&lt;p&gt;We are looking for a smart, proactive, and business-oriented lawyer who is passionate about technology, people, and compliance. The ideal candidate will thrive in a fast-paced, global environment and will enjoy the challenge of navigating legal and operational issues across data, security, and HR.&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Responsibilities&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Provide legal support and strategic advice on a wide range of topics, including data protection, cybersecurity, HR/employment, private fund investment funds&amp;nbsp; and commercial matters.&lt;/li&gt;\n&lt;li&gt;Draft, review, and negotiate various commercial agreements, including vendor, SaaS, partnership, data processing, and employment-related contracts.&lt;/li&gt;\n&lt;li&gt;Advise internal teams — including IT, Security, HR, Engineering and Finance — on compliance with applicable laws and company policies.&lt;/li&gt;\n&lt;li&gt;Ensure compliance with global privacy and data protection frameworks (GDPR, CCPA, Israeli law, etc.) and collaborate with security teams to align contractual and operational security requirements.&lt;/li&gt;\n&lt;li&gt;Contribute to the development and implementation of company-wide legal, privacy, and security governance frameworks.&lt;/li&gt;\n&lt;li&gt;Provide practical, business-focused solutions to complex legal questions in a dynamic fintech and data-driven environment.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;Requirements&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;LL.B, J.D., or equivalent, and license to practice law in Israel.&lt;/li&gt;\n&lt;li&gt;5+ years of experience in commercial, technology, or corporate law — with exposure to data protection, cybersecurity, or employment law being a strong advantage.&lt;/li&gt;\n&lt;li&gt;Proven experience drafting and negotiating complex commercial agreements (B2B SaaS, data licensing, service agreements, etc.).&lt;/li&gt;\n&lt;li&gt;Solid understanding of privacy and data protection laws (GDPR, CCPA, Israeli law).&lt;/li&gt;\n&lt;li&gt;Familiarity with information security frameworks (ISO 27001, SOC 2) and/or employment compliance practices – an advantage.&lt;/li&gt;\n&lt;li&gt;Excellent analytical, drafting, and negotiation skills, with the ability to communicate clearly and effectively to both legal and non-legal stakeholders.&lt;/li&gt;\n&lt;li&gt;Fluency in English – a must.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;Our Team&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Pagaya was founded in 2016 by seasoned research, finance, and technology entrepreneurs, and we are now 500+ strong in New York, Los Angeles, and Tel Aviv.&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;We move fast and smart, identifying new opportunities and building end-to-end solutions from AI models and unique data sources. Every Pagaya team member is solving new and exciting challenges every day in a culture based on partnership, collaboration, and community.&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Join a team of builders who are working every day to enable better outcomes for our partners and their customers.&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Our Values&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Our values are at the heart of everything we do. We believe great solutions are built through a great community.&lt;/span&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;u&gt;Advance Inclusion&lt;/u&gt;- We create a world where everyone can win, designing systems that better represent people and generate sustainable value for our employees, partners and investors.&lt;/li&gt;\n&lt;li&gt;&lt;u&gt;Be Accountable Together&lt;/u&gt;- We proudly own our actions and our results, taking initiative to ensure our work gets over the finish line as a team.&lt;/li&gt;\n&lt;li&gt;&lt;u&gt;Continuously Learn&lt;/u&gt;- We challenge ourselves for the sake of getting better as individuals, as teams, and as an organization to deliver for our partners.&lt;/li&gt;\n&lt;li&gt;&lt;u&gt;Debate and Commit&lt;/u&gt;- We respectfully and openly debate to strengthen our ideas and build shared conviction - once we decide, we go all in, together.&lt;/li&gt;\n&lt;li&gt;&lt;u&gt;Dream Big and Act&lt;/u&gt;- We boldly tackle complex problems, pressure-test solutions in real-time, and adapt with speed and energy.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;More than just a job&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;We believe health, happiness, and productivity go hand-in-hand. That&#39;s why we&#39;re continually looking to enhance the ways we support you with benefits programs and perks that allow every Pagayan to do the best work of their life.&amp;nbsp;&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;em&gt;Pagaya is an equal opportunity employer. Pagaya is encouraging diversity and actively seeking applicants from all backgrounds, as are committed to creating a diverse workforce together with an inclusive environment for all. Employment is decided on the basis of qualifications, skills, and business needs.&lt;/em&gt;&lt;/p&gt;\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;div class=&quot;content-conclusion&quot;&gt;&lt;p&gt;&lt;a href=&quot;https://pagaya.com/privacy-policy&quot;&gt;https://pagaya.com/privacy-policy&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;",
+        "departments": [
+          {
+            "id": 4030492003,
+            "name": "Legal",
+            "child_ids": [
+              4054128003,
+              4054129003
+            ],
+            "parent_id": null
+          }
+        ],
+        "offices": [
+          {
+            "id": 4020985003,
+            "name": "Pagaya Israel",
+            "location": "Tel Aviv",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ]
+      },
+      {
+        "absolute_url": "https://job-boards.greenhouse.io/pagayais/jobs/7575635003",
+        "data_compliance": [
+          {
+            "type": "gdpr",
+            "requires_consent": false,
+            "requires_processing_consent": false,
+            "requires_retention_consent": false,
+            "retention_period": null,
+            "demographic_data_consent_applies": false
+          }
+        ],
+        "internal_job_id": 5695363003,
+        "location": {
+          "name": "Tel Aviv, Israel"
+        },
+        "metadata": null,
+        "id": 7575635003,
+        "updated_at": "2025-12-31T07:59:59-05:00",
+        "requisition_id": "1297",
+        "title": "Production Analyst",
+        "company_name": "Pagaya Israel",
+        "first_published": "2025-12-31T07:59:59-05:00",
+        "language": "en",
+        "content": "&lt;h2&gt;&lt;strong&gt;About Pagaya&lt;/strong&gt;&lt;/h2&gt;\n&lt;p&gt;Pagaya is a global technology company making life-changing financial products and services available to more people nationwide, as it reshapes the financial services ecosystem. By using machine learning, a vast data network and a sophisticated AI-driven approach, Pagaya provides comprehensive consumer credit and residential real estate solutions for its partners, their customers, and investors. Its proprietary API and capital solutions integrate into its network of partners to deliver seamless user experiences and greater access to the mainstream economy. Pagaya has offices in New York and Tel Aviv. For more information, visit&amp;nbsp;&lt;a href=&quot;http://pagaya.com/&quot; target=&quot;_blank&quot; data-saferedirecturl=&quot;https://www.google.com/url?q=http://pagaya.com/&amp;amp;source=gmail&amp;amp;ust=1693382443511000&amp;amp;usg=AOvVaw0tBAw-dMj_zGwNI8CjNR8Z&quot;&gt;pagaya.com&lt;/a&gt;.&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;About the Role&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;We are looking for an ambitious &lt;strong&gt;Production Analyst&lt;/strong&gt;, who wants to make a strong impact by implementing detailed investment policy configurations (Python) and performing comprehensive quality checks, ensuring that the policy delivers the required portfolio KPI’s.The Analysts conduct various analyses projects, highly influencing the business aspects of the company. You should be comfortable working quickly and handling a busy workload, demonstrate meticulous attention to detail and critical thinking while collaborating effectively with both highly technical teams and executive stakeholders.&lt;/p&gt;\n&lt;p&gt;This individual will join the Portfolio Management &amp;amp; Research department, and will be part of a team that has both data scientists and data analysts, focusing on the company&#39;s main credit products and working closely with the production environment.&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Responsibilities&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Managing and implementing (Python) underwriting policies in the production environment.&lt;/li&gt;\n&lt;li&gt;Perform quality analytics checks to ensure the policy logic meets the defined requirements (Portfolio KPI’s)&amp;nbsp; and works correctly in all scenarios, with a direct impact on the overall performance and outcomes of the portfolio.&lt;/li&gt;\n&lt;li&gt;Conducting tests to evaluate each component of the policy configuration to validate the results.&lt;/li&gt;\n&lt;li&gt;Monitoring of the policy behavior in production and analyze if the actual results meet the expectations.&lt;/li&gt;\n&lt;li&gt;Demonstrate the ability to present and provide meaningful business insights from data.&lt;/li&gt;\n&lt;li&gt;Perform ad-hoc analysis to support business decisions.&lt;/li&gt;\n&lt;li&gt;Create innovative &amp;amp; interactive dashboards, scorecards, and weekly/monthly reports on the status of key business measurements tailored to all audiences (from executive management to business line employees) using BI tools, Python and SQL queries.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;Requirements&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;3+ years of proven track record in analyzing data using Python and SQL.&lt;/li&gt;\n&lt;li&gt;Bachelor’s Degree in Information Systems Management, Computer Science, or other quantitative disciplines required.&lt;/li&gt;\n&lt;li&gt;Experience with Pandas/ Numpy.&lt;/li&gt;\n&lt;li&gt;Experience in using BI systems, and understanding software systems architecture and databases.&lt;/li&gt;\n&lt;li&gt;Proven track record of handling large complex datasets, while being detail-oriented and maintaining accuracy.&lt;/li&gt;\n&lt;li&gt;Capacity to multitask and prioritize effectively, thriving in high-pressure environments.&lt;/li&gt;\n&lt;li&gt;Ability to step outside of an existing process and redefine it and the capability to implement processes where one is lacking.&lt;/li&gt;\n&lt;li&gt;Experience with Looker - an advantage.&lt;/li&gt;\n&lt;li&gt;English and Hebrew Speaking and writing- Fluent&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;Our Team&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Pagaya was founded in 2016 by seasoned research, finance, and technology entrepreneurs, and we are now 500+ strong in New York, Los Angeles, and Tel Aviv.&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;We move fast and smart, identifying new opportunities and building end-to-end solutions from AI models and unique data sources. Every Pagaya team member is solving new and exciting challenges every day in a culture based on partnership, collaboration, and community.&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Join a team of builders who are working every day to enable better outcomes for our partners and their customers.&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Our Values&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Our values are at the heart of everything we do. We believe great solutions are built through a great community.&lt;/span&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;u&gt;Advance Inclusion&lt;/u&gt;- We create a world where everyone can win, designing systems that better represent people and generate sustainable value for our employees, partners and investors.&lt;/li&gt;\n&lt;li&gt;&lt;u&gt;Be Accountable Together&lt;/u&gt;- We proudly own our actions and our results, taking initiative to ensure our work gets over the finish line as a team.&lt;/li&gt;\n&lt;li&gt;&lt;u&gt;Continuously Learn&lt;/u&gt;- We challenge ourselves for the sake of getting better as individuals, as teams, and as an organization to deliver for our partners.&lt;/li&gt;\n&lt;li&gt;&lt;u&gt;Debate and Commit&lt;/u&gt;- We respectfully and openly debate to strengthen our ideas and build shared conviction - once we decide, we go all in, together.&lt;/li&gt;\n&lt;li&gt;&lt;u&gt;Dream Big and Act&lt;/u&gt;- We boldly tackle complex problems, pressure-test solutions in real-time, and adapt with speed and energy.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;More than just a job&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;We believe health, happiness, and productivity go hand-in-hand. That&#39;s why we&#39;re continually looking to enhance the ways we support you with benefits programs and perks that allow every Pagayan to do the best work of their life.&amp;nbsp;&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;em&gt;Pagaya is an equal opportunity employer. Pagaya is encouraging diversity and actively seeking applicants from all backgrounds, as are committed to creating a diverse workforce together with an inclusive environment for all. Employment is decided on the basis of qualifications, skills, and business needs.&lt;/em&gt;&lt;/p&gt;\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;div class=&quot;content-conclusion&quot;&gt;&lt;p&gt;&lt;a href=&quot;https://pagaya.com/privacy-policy&quot;&gt;https://pagaya.com/privacy-policy&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;",
+        "departments": [
+          {
+            "id": 4063370003,
+            "name": "Portfolio Management ",
+            "child_ids": [],
+            "parent_id": 4036835003
+          }
+        ],
+        "offices": [
+          {
+            "id": 4020985003,
+            "name": "Pagaya Israel",
+            "location": "Tel Aviv",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ]
+      },
+      {
+        "absolute_url": "https://job-boards.greenhouse.io/pagayais/jobs/7572205003",
+        "data_compliance": [
+          {
+            "type": "gdpr",
+            "requires_consent": false,
+            "requires_processing_consent": false,
+            "requires_retention_consent": false,
+            "retention_period": null,
+            "demographic_data_consent_applies": false
+          }
+        ],
+        "internal_job_id": 5694064003,
+        "location": {
+          "name": "Tel Aviv, Israel"
+        },
+        "metadata": null,
+        "id": 7572205003,
+        "updated_at": "2025-12-24T11:00:03-05:00",
+        "requisition_id": "1295",
+        "title": "Senior Backend Engineer (Research Department)",
+        "company_name": "Pagaya Israel",
+        "first_published": "2025-12-24T11:00:03-05:00",
+        "language": "en",
+        "content": "&lt;h2&gt;&lt;strong&gt;About Pagaya&lt;/strong&gt;&lt;/h2&gt;\n&lt;p&gt;Pagaya is a global technology company making life-changing financial products and services available to more people nationwide, as it reshapes the financial services ecosystem. By using machine learning, a vast data network and a sophisticated AI-driven approach, Pagaya provides comprehensive consumer credit and residential real estate solutions for its partners, their customers, and investors. Its proprietary API and capital solutions integrate into its network of partners to deliver seamless user experiences and greater access to the mainstream economy. Pagaya has offices in New York and Tel Aviv. For more information, visit&amp;nbsp;&lt;a href=&quot;http://pagaya.com/&quot; target=&quot;_blank&quot; data-saferedirecturl=&quot;https://www.google.com/url?q=http://pagaya.com/&amp;amp;source=gmail&amp;amp;ust=1693382443511000&amp;amp;usg=AOvVaw0tBAw-dMj_zGwNI8CjNR8Z&quot;&gt;pagaya.com&lt;/a&gt;.&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;About the Role &amp;amp; &lt;/strong&gt;&lt;strong&gt;Responsibilities&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;Join Pagaya’s research engineering team.&lt;br&gt;The team is responsible for building and maintaining the foundational infrastructure that empowers Pagaya’s research and portfolio groups. Our goal is to equip Pagaya’s researchers with best-in-class tools and systems, enabling them to efficiently develop and deploy cutting-edge data science and machine learning models. As a Research Software Engineer, you will design and implement critical components of these core systems.&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Requirements&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;7+ Years of engineering experience with main focus on backend development&lt;/li&gt;\n&lt;li&gt;3+ Years of experience with Python- Must&lt;/li&gt;\n&lt;li&gt;Experience in developing and maintaining applications at scale.&lt;/li&gt;\n&lt;li&gt;Experience with public cloud (AWS/GCP/Azure)&amp;nbsp;&lt;/li&gt;\n&lt;li&gt;Proven ability to work in teams.&lt;/li&gt;\n&lt;li&gt;Proven technical leadership skills.&lt;/li&gt;\n&lt;li&gt;Bonus: experience in performance optimization and Research environment.&lt;/li&gt;\n&lt;li&gt;Bonus: knowledge of data science frameworks such as numpy and scikit-learn.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;Our Team&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Pagaya was founded in 2016 by seasoned research, finance, and technology entrepreneurs, and we are now 500+ strong in New York, Los Angeles, and Tel Aviv.&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;We move fast and smart, identifying new opportunities and building end-to-end solutions from AI models and unique data sources. Every Pagaya team member is solving new and exciting challenges every day in a culture based on partnership, collaboration, and community.&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Join a team of builders who are working every day to enable better outcomes for our partners and their customers.&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Our Values&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Our values are at the heart of everything we do. We believe great solutions are built through a great community.&lt;/span&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;u&gt;Advance Inclusion&lt;/u&gt;- We create a world where everyone can win, designing systems that better represent people and generate sustainable value for our employees, partners and investors.&lt;/li&gt;\n&lt;li&gt;&lt;u&gt;Be Accountable Together&lt;/u&gt;- We proudly own our actions and our results, taking initiative to ensure our work gets over the finish line as a team.&lt;/li&gt;\n&lt;li&gt;&lt;u&gt;Continuously Learn&lt;/u&gt;- We challenge ourselves for the sake of getting better as individuals, as teams, and as an organization to deliver for our partners.&lt;/li&gt;\n&lt;li&gt;&lt;u&gt;Debate and Commit&lt;/u&gt;- We respectfully and openly debate to strengthen our ideas and build shared conviction - once we decide, we go all in, together.&lt;/li&gt;\n&lt;li&gt;&lt;u&gt;Dream Big and Act&lt;/u&gt;- We boldly tackle complex problems, pressure-test solutions in real-time, and adapt with speed and energy.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;More than just a job&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;We believe health, happiness, and productivity go hand-in-hand. That&#39;s why we&#39;re continually looking to enhance the ways we support you with benefits programs and perks that allow every Pagayan to do the best work of their life.&amp;nbsp;&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;&lt;em data-stringify-type=&quot;italic&quot;&gt;Pagaya is an equal opportunity employer. Pagaya is encouraging diversity and actively seeking applicants from all backgrounds, as are committed to creating a diverse workforce together with an inclusive environment for all. Employment is decided on the basis of qualifications, skills, and business needs.&lt;/em&gt;&lt;/p&gt;&lt;div class=&quot;content-conclusion&quot;&gt;&lt;p&gt;&lt;a href=&quot;https://pagaya.com/privacy-policy&quot;&gt;https://pagaya.com/privacy-policy&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;",
+        "departments": [
+          {
+            "id": 4087794003,
+            "name": "Research & Modeling",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ],
+        "offices": [
+          {
+            "id": 4020985003,
+            "name": "Pagaya Israel",
+            "location": "Tel Aviv",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ]
+      },
+      {
+        "absolute_url": "https://job-boards.greenhouse.io/pagayais/jobs/7499251003",
+        "data_compliance": [
+          {
+            "type": "gdpr",
+            "requires_consent": false,
+            "requires_processing_consent": false,
+            "requires_retention_consent": false,
+            "retention_period": null,
+            "demographic_data_consent_applies": false
+          }
+        ],
+        "internal_job_id": 5666891003,
+        "location": {
+          "name": "Tel Aviv, Israel"
+        },
+        "metadata": null,
+        "id": 7499251003,
+        "updated_at": "2025-11-17T08:50:44-05:00",
+        "requisition_id": "1254",
+        "title": "Senior Data Scientist",
+        "company_name": "Pagaya Israel",
+        "first_published": "2025-10-16T10:35:33-04:00",
+        "language": "en",
+        "content": "&lt;h2&gt;&lt;strong&gt;About Pagaya&lt;/strong&gt;&lt;/h2&gt;\n&lt;p&gt;Pagaya is a global technology company making life-changing financial products and services available to more people nationwide, as it reshapes the financial services ecosystem. By using machine learning, a vast data network and a sophisticated AI-driven approach, Pagaya provides comprehensive consumer credit and residential real estate solutions for its partners, their customers, and investors. Its proprietary API and capital solutions integrate into its network of partners to deliver seamless user experiences and greater access to the mainstream economy. Pagaya has offices in New York and Tel Aviv. For more information, visit&amp;nbsp;&lt;a href=&quot;http://pagaya.com/&quot; target=&quot;_blank&quot; data-saferedirecturl=&quot;https://www.google.com/url?q=http://pagaya.com/&amp;amp;source=gmail&amp;amp;ust=1693382443511000&amp;amp;usg=AOvVaw0tBAw-dMj_zGwNI8CjNR8Z&quot;&gt;pagaya.com&lt;/a&gt;.&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;About the Role&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;We are looking for a Senior Data Scientist to lead strategic research initiatives focusing on our Auto loans asset class. This individual will be at the forefront of Pagaya’s research, working hands-on to advance our models while also mentoring and collaborating with data scientists across the department.&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Responsibilities&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Spearhead strategic research of new cutting edge Machine Learning models&lt;/li&gt;\n&lt;li&gt;Mentor and advise data scientists.&lt;/li&gt;\n&lt;li&gt;Design solutions for the company’s core mission using Data Science methodologies from various domains&lt;/li&gt;\n&lt;li&gt;Work in a short life-cycle research and development environment&lt;/li&gt;\n&lt;li&gt;Generate and test working hypotheses in unexplored territory&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;Requirements&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;5+ years of experience in Machine Learning, working with tabular data on predictive modeling&lt;/li&gt;\n&lt;li&gt;Track record of translating research into business impact&lt;/li&gt;\n&lt;li&gt;MSc or PhD in a related field- Math/EE/CS/Physics/Stats&lt;/li&gt;\n&lt;li&gt;Great interpersonal skills, and strong collaborator&amp;nbsp;&lt;/li&gt;\n&lt;li&gt;Good applied statistics skills, such as distributions, statistical testing, regression, etc.&lt;/li&gt;\n&lt;li&gt;Proficient in Python and the Data Science Stack&lt;/li&gt;\n&lt;li&gt;Independent and fast learner that can work alone and in teams&lt;/li&gt;\n&lt;li&gt;Ability to learn and explore new fields of expertise&lt;/li&gt;\n&lt;li&gt;Knowledge in some of the following can be an advantage: optimization, risk and finance&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;Our Team&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Pagaya was founded in 2016 by seasoned research, finance, and technology entrepreneurs, and we are now 500+ strong in New York, Los Angeles, and Tel Aviv.&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;We move fast and smart, identifying new opportunities and building end-to-end solutions from AI models and unique data sources. Every Pagaya team member is solving new and exciting challenges every day in a culture based on partnership, collaboration, and community.&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Join a team of builders who are working every day to enable better outcomes for our partners and their customers.&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Our Values&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Our values are at the heart of everything we do. We believe great solutions are built through a great community.&lt;/span&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;u&gt;Advance Inclusion&lt;/u&gt;- We create a world where everyone can win, designing systems that better represent people and generate sustainable value for our employees, partners and investors.&lt;/li&gt;\n&lt;li&gt;&lt;u&gt;Be Accountable Together&lt;/u&gt;- We proudly own our actions and our results, taking initiative to ensure our work gets over the finish line as a team.&lt;/li&gt;\n&lt;li&gt;&lt;u&gt;Continuously Learn&lt;/u&gt;- We challenge ourselves for the sake of getting better as individuals, as teams, and as an organization to deliver for our partners.&lt;/li&gt;\n&lt;li&gt;&lt;u&gt;Debate and Commit&lt;/u&gt;- We respectfully and openly debate to strengthen our ideas and build shared conviction - once we decide, we go all in, together.&lt;/li&gt;\n&lt;li&gt;&lt;u&gt;Dream Big and Act&lt;/u&gt;- We boldly tackle complex problems, pressure-test solutions in real-time, and adapt with speed and energy.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;More than just a job&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;We believe health, happiness, and productivity go hand-in-hand. That&#39;s why we&#39;re continually looking to enhance the ways we support you with benefits programs and perks that allow every Pagayan to do the best work of their life.&amp;nbsp;&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;&lt;em data-stringify-type=&quot;italic&quot;&gt;Pagaya is an equal opportunity employer. Pagaya is encouraging diversity and actively seeking applicants from all backgrounds, as are committed to creating a diverse workforce together with an inclusive environment for all. Employment is decided on the basis of qualifications, skills, and business needs.&lt;/em&gt;&lt;/p&gt;&lt;div class=&quot;content-conclusion&quot;&gt;&lt;p&gt;&lt;a href=&quot;https://pagaya.com/privacy-policy&quot;&gt;https://pagaya.com/privacy-policy&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;",
+        "departments": [
+          {
+            "id": 4087794003,
+            "name": "Research & Modeling",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ],
+        "offices": [
+          {
+            "id": 4020985003,
+            "name": "Pagaya Israel",
+            "location": "Tel Aviv",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ]
+      },
+      {
+        "absolute_url": "https://job-boards.greenhouse.io/pagayais/jobs/7501813003",
+        "data_compliance": [
+          {
+            "type": "gdpr",
+            "requires_consent": false,
+            "requires_processing_consent": false,
+            "requires_retention_consent": false,
+            "retention_period": null,
+            "demographic_data_consent_applies": false
+          }
+        ],
+        "internal_job_id": 5667938003,
+        "location": {
+          "name": "Tel Aviv, Israel"
+        },
+        "metadata": null,
+        "id": 7501813003,
+        "updated_at": "2025-11-27T05:18:58-05:00",
+        "requisition_id": "1255",
+        "title": "Senior DevOps Engineer",
+        "company_name": "Pagaya Israel",
+        "first_published": "2025-10-19T04:54:00-04:00",
+        "language": "en",
+        "content": "&lt;h2&gt;&lt;strong&gt;About Pagaya&lt;/strong&gt;&lt;/h2&gt;\n&lt;p&gt;Pagaya is a global technology company making life-changing financial products and services available to more people nationwide, as it reshapes the financial services ecosystem. By using machine learning, a vast data network and a sophisticated AI-driven approach, Pagaya provides comprehensive consumer credit and residential real estate solutions for its partners, their customers, and investors. Its proprietary API and capital solutions integrate into its network of partners to deliver seamless user experiences and greater access to the mainstream economy. Pagaya has offices in New York and Tel Aviv. For more information, visit&amp;nbsp;&lt;a href=&quot;http://pagaya.com/&quot; target=&quot;_blank&quot; data-saferedirecturl=&quot;https://www.google.com/url?q=http://pagaya.com/&amp;amp;source=gmail&amp;amp;ust=1693382443511000&amp;amp;usg=AOvVaw0tBAw-dMj_zGwNI8CjNR8Z&quot;&gt;pagaya.com&lt;/a&gt;.&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;About the Role&lt;/strong&gt;&lt;strong&gt;&amp;nbsp; &amp;nbsp;&lt;/strong&gt;&lt;strong&gt;&amp;nbsp;&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;We are looking for a hands-on Senior DevOps Engineer with a strong cloud-native mindset to build, maintain, and evolve our highly scalable, highly-available cloud infrastructure. This role is pivotal in driving operational excellence, security, and automation across our entire engineering organization.&amp;nbsp;You will promote communication, integration, and collaboration to significantly enhance our software development productivity and reliability. You&#39;ll work closely with engineering and product teams to streamline delivery, enforce platform standards, and enable a high-velocity development environment—all while keeping reliability and security top of mind.&lt;/p&gt;\n&lt;p&gt;&lt;strong data-stringify-type=&quot;bold&quot;&gt;Responsibilities&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Design, Automate, and Manage complex cloud infrastructure on AWS using best-in-class Infrastructure as Code (IaC) practices.&lt;/li&gt;\n&lt;li&gt;Lead the operation and enhancement of our production Kubernetes environments (EKS), focusing on automation, security, observability, and seamless CI/CD integration.&lt;/li&gt;\n&lt;li&gt;Drive continuous improvement across platform tooling, developer experience, and operational processes to meet our ambitious performance and uptime goals.&lt;/li&gt;\n&lt;li&gt;Implement and enforce security-first infrastructure patterns, including strong IAM, network segmentation, and secure secrets management.&lt;/li&gt;\n&lt;li&gt;Actively contribute to high-level technical design discussions and cross-functional architectural decision-making, ensuring solutions align with long-term platform strategy.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p class=&quot;p1&quot;&gt;&lt;strong&gt;Requirements&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;7+ years of experience as a DevOps Engineer, Platform Engineer, or in a similar infrastructure-focused role.&lt;/li&gt;\n&lt;li&gt;Strong hands-on expertise across the AWS Stack (e.g. EC2, EKS, RDS, VPC, IAM, S3, Lambda).&lt;/li&gt;\n&lt;li&gt;Mastery of Infrastructure as Code - Terraform or equivalent.&lt;/li&gt;\n&lt;li&gt;Deep operational knowledge of Kubernetes, including architecture, cluster management, networking, and advanced debugging in production environments.&amp;nbsp;&lt;/li&gt;\n&lt;li&gt;Strong expertise in designing and managing CI/CD methodologies and platforms (e.g. Jenkins, Github Actions).&lt;/li&gt;\n&lt;li&gt;Experience with monitoring tools such as Prometheus, DataDog, Coralogix (OTEL), Grafana etc.&lt;/li&gt;\n&lt;li&gt;Proven prior experience building and maintaining highly-available, production-grade, and service-oriented systems.&lt;/li&gt;\n&lt;li&gt;Strong scripting and automation background in languages such as Python or Bash.&lt;/li&gt;\n&lt;li&gt;Exceptional communication and collaboration skills with the ability to articulate complex technical needs and influence cross-functional teams.&lt;/li&gt;\n&lt;li&gt;Strong knowledge of AWS Networking - an advantage.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;Our Team&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Pagaya was founded in 2016 by seasoned research, finance, and technology entrepreneurs, and we are now 500+ strong in New York, Los Angeles, and Tel Aviv.&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;We move fast and smart, identifying new opportunities and building end-to-end solutions from AI models and unique data sources. Every Pagaya team member is solving new and exciting challenges every day in a culture based on partnership, collaboration, and community.&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Join a team of builders who are working every day to enable better outcomes for our partners and their customers.&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Our Values&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Our values are at the heart of everything we do. We believe great solutions are built through a great community.&lt;/span&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;u&gt;Advance Inclusion&lt;/u&gt;- We create a world where everyone can win, designing systems that better represent people and generate sustainable value for our employees, partners and investors.&lt;/li&gt;\n&lt;li&gt;&lt;u&gt;Be Accountable Together&lt;/u&gt;- We proudly own our actions and our results, taking initiative to ensure our work gets over the finish line as a team.&lt;/li&gt;\n&lt;li&gt;&lt;u&gt;Continuously Learn&lt;/u&gt;- We challenge ourselves for the sake of getting better as individuals, as teams, and as an organization to deliver for our partners.&lt;/li&gt;\n&lt;li&gt;&lt;u&gt;Debate and Commit&lt;/u&gt;- We respectfully and openly debate to strengthen our ideas and build shared conviction - once we decide, we go all in, together.&lt;/li&gt;\n&lt;li&gt;&lt;u&gt;Dream Big and Act&lt;/u&gt;- We boldly tackle complex problems, pressure-test solutions in real-time, and adapt with speed and energy.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;More than just a job&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;We believe health, happiness, and productivity go hand-in-hand. That&#39;s why we&#39;re continually looking to enhance the ways we support you with benefits programs and perks that allow every Pagayan to do the best work of their life.&amp;nbsp;&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;em&gt;Pagaya is an equal opportunity employer. Pagaya is encouraging diversity and actively seeking applicants from all backgrounds, as are committed to creating a diverse workforce together with an inclusive environment for all. Employment is decided on the basis of qualifications, skills, and business needs.&lt;/em&gt;&lt;/p&gt;\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;div class=&quot;content-conclusion&quot;&gt;&lt;p&gt;&lt;a href=&quot;https://pagaya.com/privacy-policy&quot;&gt;https://pagaya.com/privacy-policy&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;",
+        "departments": [
+          {
+            "id": 4043260003,
+            "name": "Engineering",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ],
+        "offices": [
+          {
+            "id": 4020985003,
+            "name": "Pagaya Israel",
+            "location": "Tel Aviv",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ]
+      },
+      {
+        "absolute_url": "https://job-boards.greenhouse.io/pagayais/jobs/6087076003",
+        "data_compliance": [
+          {
+            "type": "gdpr",
+            "requires_consent": false,
+            "requires_processing_consent": false,
+            "requires_retention_consent": false,
+            "retention_period": null,
+            "demographic_data_consent_applies": false
+          }
+        ],
+        "internal_job_id": 4995559003,
+        "location": {
+          "name": "Tel Aviv, Israel"
+        },
+        "metadata": null,
+        "id": 6087076003,
+        "updated_at": "2025-10-22T10:27:47-04:00",
+        "requisition_id": "1092",
+        "title": "Senior Software Engineer",
+        "company_name": "Pagaya Israel",
+        "first_published": "2024-08-13T05:09:27-04:00",
+        "language": "en",
+        "content": "&lt;h2&gt;&lt;strong&gt;About Pagaya&lt;/strong&gt;&lt;/h2&gt;\n&lt;p&gt;Pagaya is a global technology company making life-changing financial products and services available to more people nationwide, as it reshapes the financial services ecosystem. By using machine learning, a vast data network and a sophisticated AI-driven approach, Pagaya provides comprehensive consumer credit and residential real estate solutions for its partners, their customers, and investors. Its proprietary API and capital solutions integrate into its network of partners to deliver seamless user experiences and greater access to the mainstream economy. Pagaya has offices in New York and Tel Aviv. For more information, visit&amp;nbsp;&lt;a href=&quot;http://pagaya.com/&quot; target=&quot;_blank&quot; data-saferedirecturl=&quot;https://www.google.com/url?q=http://pagaya.com/&amp;amp;source=gmail&amp;amp;ust=1693382443511000&amp;amp;usg=AOvVaw0tBAw-dMj_zGwNI8CjNR8Z&quot;&gt;pagaya.com&lt;/a&gt;.&lt;/p&gt;\n&lt;div class=&quot;p-rich_text_section&quot;&gt;&lt;strong data-stringify-type=&quot;bold&quot;&gt;About the Role &amp;amp; Responsibilities&lt;/strong&gt;&lt;/div&gt;\n&lt;ul class=&quot;p-rich_text_list p-rich_text_list__bullet&quot; data-stringify-type=&quot;unordered-list&quot; data-indent=&quot;0&quot; data-border=&quot;0&quot;&gt;\n&lt;li&gt;Build high-leverage internal platforms that power Pagaya’s decisioning and analytics.&lt;/li&gt;\n&lt;li&gt;Lead technical projects end-to-end, covering all stages from architecture to execution.&amp;nbsp;&lt;/li&gt;\n&lt;li&gt;Own your work: partner closely with research, product, engineering and ops to turn complex requirements into simple, reliable systems.&lt;/li&gt;\n&lt;li&gt;Be a technical leader for our infrastructure and products.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;div class=&quot;p-rich_text_section&quot;&gt;&lt;strong data-stringify-type=&quot;bold&quot;&gt;Requirements&lt;/strong&gt;&lt;/div&gt;\n&lt;ul class=&quot;p-rich_text_list p-rich_text_list__bullet&quot; data-stringify-type=&quot;unordered-list&quot; data-indent=&quot;0&quot; data-border=&quot;0&quot;&gt;\n&lt;li&gt;8+ years of programming experience in developing high-quality, full-stack web applications and services.&lt;/li&gt;\n&lt;li&gt;Fluent in Python.&lt;/li&gt;\n&lt;li&gt;Familiar with cloud-native technologies&amp;nbsp; (AWS, Docker, Kubernetes)&lt;/li&gt;\n&lt;li&gt;Willingness and motivation to do client-side work in React and Typescript, when needed (~20%).&lt;/li&gt;\n&lt;li&gt;A strong sense of ownership over code and systems developed.&lt;/li&gt;\n&lt;li&gt;Exceptional communication and teamwork capabilities, effectively working with cross-functional teams to achieve shared goals.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;div class=&quot;p-rich_text_section&quot;&gt;&lt;strong data-stringify-type=&quot;bold&quot;&gt;Advantages&lt;/strong&gt;&lt;/div&gt;\n&lt;ul class=&quot;p-rich_text_list p-rich_text_list__bullet&quot; data-stringify-type=&quot;unordered-list&quot; data-indent=&quot;0&quot; data-border=&quot;0&quot;&gt;\n&lt;li&gt;Experience in high-scale cloud-native distributed systems.&lt;/li&gt;\n&lt;li&gt;A solid understanding of software design principles and adherence to industry best practices.&lt;/li&gt;\n&lt;li&gt;Interest in AI-assisted coding and AI-native applications, and motivation to bring new paradigms into existing workflows.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;Our Team&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Pagaya was founded in 2016 by seasoned research, finance, and technology entrepreneurs, and we are now 500+ strong in New York, Los Angeles, and Tel Aviv.&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;We move fast and smart, identifying new opportunities and building end-to-end solutions from AI models and unique data sources. Every Pagaya team member is solving new and exciting challenges every day in a culture based on partnership, collaboration, and community.&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Join a team of builders who are working every day to enable better outcomes for our partners and their customers.&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Our Values&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Our values are at the heart of everything we do. We believe great solutions are built through a great community.&lt;/span&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;u&gt;Advance Inclusion&lt;/u&gt;- We create a world where everyone can win, designing systems that better represent people and generate sustainable value for our employees, partners and investors.&lt;/li&gt;\n&lt;li&gt;&lt;u&gt;Be Accountable Together&lt;/u&gt;- We proudly own our actions and our results, taking initiative to ensure our work gets over the finish line as a team.&lt;/li&gt;\n&lt;li&gt;&lt;u&gt;Continuously Learn&lt;/u&gt;- We challenge ourselves for the sake of getting better as individuals, as teams, and as an organization to deliver for our partners.&lt;/li&gt;\n&lt;li&gt;&lt;u&gt;Debate and Commit&lt;/u&gt;- We respectfully and openly debate to strengthen our ideas and build shared conviction - once we decide, we go all in, together.&lt;/li&gt;\n&lt;li&gt;&lt;u&gt;Dream Big and Act&lt;/u&gt;- We boldly tackle complex problems, pressure-test solutions in real-time, and adapt with speed and energy.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;More than just a job&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;We believe health, happiness, and productivity go hand-in-hand. That&#39;s why we&#39;re continually looking to enhance the ways we support you with benefits programs and perks that allow every Pagayan to do the best work of their life.&amp;nbsp;&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;&lt;em&gt;Pagaya is an equal opportunity employer. Pagaya is encouraging diversity and actively seeking applicants from all backgrounds, as are committed to creating a diverse workforce together with an inclusive environment for all. Employment is decided on the basis of qualifications, skills, and business needs.&lt;/em&gt;&lt;/p&gt;&lt;div class=&quot;content-conclusion&quot;&gt;&lt;p&gt;&lt;a href=&quot;https://pagaya.com/privacy-policy&quot;&gt;https://pagaya.com/privacy-policy&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;",
+        "departments": [
+          {
+            "id": 4043260003,
+            "name": "Engineering",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ],
+        "offices": [
+          {
+            "id": 4020985003,
+            "name": "Pagaya Israel",
+            "location": "Tel Aviv",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ]
+      },
+      {
+        "absolute_url": "https://job-boards.greenhouse.io/pagayais/jobs/7574681003",
+        "data_compliance": [
+          {
+            "type": "gdpr",
+            "requires_consent": false,
+            "requires_processing_consent": false,
+            "requires_retention_consent": false,
+            "retention_period": null,
+            "demographic_data_consent_applies": false
+          }
+        ],
+        "internal_job_id": 5695021003,
+        "location": {
+          "name": "Tel Aviv, Israel"
+        },
+        "metadata": null,
+        "id": 7574681003,
+        "updated_at": "2025-12-30T07:44:54-05:00",
+        "requisition_id": "1296",
+        "title": "SOC Manager",
+        "company_name": "Pagaya Israel",
+        "first_published": "2025-12-30T07:44:54-05:00",
+        "language": "en",
+        "content": "&lt;p&gt;&lt;strong&gt;About Pagaya&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;Pagaya is a global technology company making life-changing financial products and services available to more people nationwide, as it reshapes the financial services ecosystem. By using machine learning, a vast data network and a sophisticated AI-driven approach, Pagaya provides comprehensive consumer credit and residential real estate solutions for its partners, their customers, and investors. Its proprietary API and capital solutions integrate into its network of partners to deliver seamless user experiences and greater access to the mainstream economy. Pagaya has offices in New York and Tel Aviv. For more information, visit&amp;nbsp;&lt;a href=&quot;http://pagaya.com/&quot; target=&quot;_blank&quot; data-saferedirecturl=&quot;https://www.google.com/url?q=http://pagaya.com/&amp;amp;source=gmail&amp;amp;ust=1693382443511000&amp;amp;usg=AOvVaw0tBAw-dMj_zGwNI8CjNR8Z&quot;&gt;pagaya.com&lt;/a&gt;.&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;About the Role&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;We are seeking an experienced SOC Manager to lead our Security Operations Center (SOC), with full responsibility for detection, response, and operational excellence. This role combines hands-on technical leadership with people management, process ownership, and alignment to business risk.&lt;/p&gt;\n&lt;p&gt;The SOC Manager will be accountable for the effectiveness, maturity, and scalability of security operations across the organization.&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;What you will do?&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Oversee day-to-day SOC operations, ensuring timely threat detection, incident response, and threat mitigation. Own day-to-day SOC operations, ensuring effective threat detection, incident response, and containment across all environments.&lt;/li&gt;\n&lt;li&gt;Develop and implement SOC policies, processes, and playbooks to improve security effectiveness.&lt;/li&gt;\n&lt;li&gt;Continuously evaluate and enhance SIEM configurations, alerting mechanisms, and automation. Continuously optimize SIEM content, alert quality, detection coverage, and automation capabilities.&lt;/li&gt;\n&lt;li&gt;Team Management &amp;amp; Training- Recruit, mentor, and manage a team of SOC analysts and incident responders.&lt;/li&gt;\n&lt;li&gt;Lead incident investigation, containment, and remediation efforts, coordinating with internal teams and external partners.&lt;/li&gt;\n&lt;li&gt;Align security operations with MITRE ATT&amp;amp;CK, NIST, and other cybersecurity frameworks.&lt;/li&gt;\n&lt;li&gt;Produce clear, executive-level incident reporting and risk summaries for security leadership and stakeholders.&lt;/li&gt;\n&lt;li&gt;Stay updated on emerging threats, attack techniques, and security technologies to drive continuous improvements.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;Requirements&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;5+ years of experience in SOC leadership, cybersecurity operations, or incident response.&lt;/li&gt;\n&lt;li&gt;Strong hands-on experience with SIEM platforms (Splunk preferred) and threat detection methodologies.&lt;/li&gt;\n&lt;li&gt;Deep expertise in incident response, threat hunting, and forensic analysis.&lt;/li&gt;\n&lt;li&gt;Knowledge of cloud security (AWS, Azure, GCP) and network defense strategies.&lt;/li&gt;\n&lt;li&gt;Proficiency in scripting (Python, PowerShell, or Bash) for security automation.&lt;/li&gt;\n&lt;li&gt;Familiarity with MITRE ATT&amp;amp;CK, NIST, CIS, and other security frameworks.&lt;/li&gt;\n&lt;li&gt;Excellent communication and leadership skills with a track record of team development and cross-functional collaboration.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;Preferred Qualifications&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Security certifications such as CISSP, GCIH, GCFA, OSCP, or SIEM-specific certifications.&lt;/li&gt;\n&lt;li&gt;Experience leading SOC optimization projects and implementing SOAR solutions.&lt;/li&gt;\n&lt;li&gt;Background in offensive security (Red Team/Purple Team) is a plus.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;Our Team&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;Pagaya was founded in 2016 by seasoned research, finance, and technology entrepreneurs, and we are now 500+ strong in New York, Los Angeles, and Tel Aviv.&lt;/p&gt;\n&lt;p&gt;We move fast and smart, identifying new opportunities and building end-to-end solutions from AI models and unique data sources. Every Pagaya team member is solving new and exciting challenges every day in a culture based on partnership, collaboration, and community.&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Join a team of builders who are working every day to enable better outcomes for our partners and their customers.&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Our Values&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;Our values are at the heart of everything we do. We believe great solutions are built through a great community.&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;u&gt;Advance Inclusion&lt;/u&gt;- We create a world where everyone can win, designing systems that better represent people and generate sustainable value for our employees, partners and investors.&lt;/li&gt;\n&lt;li&gt;&lt;u&gt;Be Accountable Together&lt;/u&gt;- We proudly own our actions and our results, taking initiative to ensure our work gets over the finish line as a team.&lt;/li&gt;\n&lt;li&gt;&lt;u&gt;Continuously Learn&lt;/u&gt;- We challenge ourselves for the sake of getting better as individuals, as teams, and as an organization to deliver for our partners.&lt;/li&gt;\n&lt;li&gt;&lt;u&gt;Debate and Commit&lt;/u&gt;- We respectfully and openly debate to strengthen our ideas and build shared conviction - once we decide, we go all in, together.&lt;/li&gt;\n&lt;li&gt;&lt;u&gt;Dream Big and Act&lt;/u&gt;- We boldly tackle complex problems, pressure-test solutions in real-time, and adapt with speed and energy.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;More than just a job&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;We believe health, happiness, and productivity go hand-in-hand. That&#39;s why we&#39;re continually looking to enhance the ways we support you with benefits programs and perks that allow every Pagayan to do the best work of their life.&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;&lt;br&gt;&lt;em data-stringify-type=&quot;italic&quot;&gt;Pagaya is an equal opportunity employer. Pagaya is encouraging diversity and actively seeking applicants from all backgrounds, as are committed to creating a diverse workforce together with an inclusive environment for all. Employment is decided on the basis of qualifications, skills, and business needs.&lt;/em&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;&lt;div class=&quot;content-conclusion&quot;&gt;&lt;p&gt;&lt;a href=&quot;https://pagaya.com/privacy-policy&quot;&gt;https://pagaya.com/privacy-policy&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;",
+        "departments": [
+          {
+            "id": 4043200003,
+            "name": "Information Technology & Cyber",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ],
+        "offices": [
+          {
+            "id": 4020985003,
+            "name": "Pagaya Israel",
+            "location": "Tel Aviv",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ]
+      },
+      {
+        "absolute_url": "https://job-boards.greenhouse.io/pagayais/jobs/6662776003",
+        "data_compliance": [
+          {
+            "type": "gdpr",
+            "requires_consent": false,
+            "requires_processing_consent": false,
+            "requires_retention_consent": false,
+            "retention_period": null,
+            "demographic_data_consent_applies": false
+          }
+        ],
+        "internal_job_id": 5245933003,
+        "location": {
+          "name": "Tel Aviv, Israel"
+        },
+        "metadata": null,
+        "id": 6662776003,
+        "updated_at": "2025-10-23T08:17:39-04:00",
+        "requisition_id": "1218",
+        "title": "Software Engineer- Data Platform ",
+        "company_name": "Pagaya Israel",
+        "first_published": "2025-07-28T04:44:21-04:00",
+        "language": "en",
+        "content": "&lt;h2&gt;&lt;strong&gt;About Pagaya&lt;/strong&gt;&lt;/h2&gt;\n&lt;p&gt;Pagaya is a global technology company making life-changing financial products and services available to more people nationwide, as it reshapes the financial services ecosystem. By using machine learning, a vast data network and a sophisticated AI-driven approach, Pagaya provides comprehensive consumer credit and residential real estate solutions for its partners, their customers, and investors. Its proprietary API and capital solutions integrate into its network of partners to deliver seamless user experiences and greater access to the mainstream economy. Pagaya has offices in New York and Tel Aviv. For more information, visit&amp;nbsp;&lt;a href=&quot;http://pagaya.com/&quot; target=&quot;_blank&quot; data-saferedirecturl=&quot;https://www.google.com/url?q=http://pagaya.com/&amp;amp;source=gmail&amp;amp;ust=1693382443511000&amp;amp;usg=AOvVaw0tBAw-dMj_zGwNI8CjNR8Z&quot;&gt;pagaya.com&lt;/a&gt;.&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;About the Role&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;The Data Engineering team is a cross-functional team responsible for data integration, monitoring, and quality. This includes automating data flows, alerting, fetching, and checking across various stages of data transformation and projection.&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Key Responsibilities&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Create data tools for analytics and data scientist team members that assist them in building and optimizing our product into an innovative industry leader.&lt;/li&gt;\n&lt;li&gt;Develop data architecture for data ingestion, validation, and processing.&lt;/li&gt;\n&lt;li&gt;Identify, design, and implement process improvements, such as automating manual tasks, optimizing data delivery, and redesigning infrastructure for enhanced scalability.&lt;/li&gt;\n&lt;li&gt;Create and maintain optimal data pipeline architecture using microservices.&lt;/li&gt;\n&lt;li&gt;Work with other members of the data team, including data architects, data analysts, and data scientists.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;Key Takeaways&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Use the tools and languages that are best suited to the job - Complete flexibility to problem-solving with novelty and creativity encouraged.&lt;/li&gt;\n&lt;li&gt;Be around very bright and lovely people.&lt;/li&gt;\n&lt;li&gt;Your intellectual curiosity and hard work contributions will be welcome to our culture of knowledge sharing, transparency, and shared fun and achievement.&lt;/li&gt;\n&lt;li&gt;Provide education and documentation to empower team members to make the most of technical resources.&lt;/li&gt;\n&lt;li&gt;Contribute to our software engineering culture of writing correct, maintainable, elegant, and testable code.&lt;/li&gt;\n&lt;li&gt;Utilize AWS services and tools such as S3, EventBridge, Athena, and DynamoDB to build a robust and scalable data architecture for data ingestion, processing, and storage.&lt;/li&gt;\n&lt;li&gt;Collaborate on data infrastructure that supports LLM-driven workflows — leveraging tools like Cursor to accelerate code development, enhance reproducibility, and streamline iteration on intelligent systems.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;Requirements&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;5+ years of experience as a Software Engineer using Python.&lt;/li&gt;\n&lt;li&gt;Experience with microservices and K8s.&lt;/li&gt;\n&lt;li&gt;Experience in ELT/ETL processes and SQL, with strong analytical and problem-solving skills, with the ability to evaluate and interpret complex data.&lt;/li&gt;\n&lt;li&gt;Building and designing complex applications.&lt;/li&gt;\n&lt;li&gt;Willingness to get your hands dirty, understand a new problem deeply, and build things from scratch when they don&#39;t already exist.&lt;/li&gt;\n&lt;li&gt;Bachelor&#39;s degree in Computer Science, Computer Engineering, or related fields from reputable academic institutions.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;Our Team&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Pagaya was founded in 2016 by seasoned research, finance, and technology entrepreneurs, and we are now 500+ strong in New York, Los Angeles, and Tel Aviv.&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;We move fast and smart, identifying new opportunities and building end-to-end solutions from AI models and unique data sources. Every Pagaya team member is solving new and exciting challenges every day in a culture based on partnership, collaboration, and community.&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Join a team of builders who are working every day to enable better outcomes for our partners and their customers.&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Our Values&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Our values are at the heart of everything we do. We believe great solutions are built through a great community.&lt;/span&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;u&gt;Advance Inclusion&lt;/u&gt;- We create a world where everyone can win, designing systems that better represent people and generate sustainable value for our employees, partners and investors.&lt;/li&gt;\n&lt;li&gt;&lt;u&gt;Be Accountable Together&lt;/u&gt;- We proudly own our actions and our results, taking initiative to ensure our work gets over the finish line as a team.&lt;/li&gt;\n&lt;li&gt;&lt;u&gt;Continuously Learn&lt;/u&gt;- We challenge ourselves for the sake of getting better as individuals, as teams, and as an organization to deliver for our partners.&lt;/li&gt;\n&lt;li&gt;&lt;u&gt;Debate and Commit&lt;/u&gt;- We respectfully and openly debate to strengthen our ideas and build shared conviction - once we decide, we go all in, together.&lt;/li&gt;\n&lt;li&gt;&lt;u&gt;Dream Big and Act&lt;/u&gt;- We boldly tackle complex problems, pressure-test solutions in real-time, and adapt with speed and energy.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;More than just a job&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;We believe health, happiness, and productivity go hand-in-hand. That&#39;s why we&#39;re continually looking to enhance the ways we support you with benefits programs and perks that allow every Pagayan to do the best work of their life.&amp;nbsp;&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;em&gt;Pagaya is an equal opportunity employer. Pagaya is encouraging diversity and actively seeking applicants from all backgrounds, as are committed to creating a diverse workforce together with an inclusive environment for all. Employment is decided on the basis of qualifications, skills, and business needs.&lt;/em&gt;&lt;/p&gt;\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;div class=&quot;content-conclusion&quot;&gt;&lt;p&gt;&lt;a href=&quot;https://pagaya.com/privacy-policy&quot;&gt;https://pagaya.com/privacy-policy&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;",
+        "departments": [
+          {
+            "id": 4043260003,
+            "name": "Engineering",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ],
+        "offices": [
+          {
+            "id": 4020985003,
+            "name": "Pagaya Israel",
+            "location": "Tel Aviv",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ]
+      },
+      {
+        "absolute_url": "https://job-boards.greenhouse.io/pagayais/jobs/6647520003",
+        "data_compliance": [
+          {
+            "type": "gdpr",
+            "requires_consent": false,
+            "requires_processing_consent": false,
+            "requires_retention_consent": false,
+            "retention_period": null,
+            "demographic_data_consent_applies": false
+          }
+        ],
+        "internal_job_id": 4995559003,
+        "location": {
+          "name": "Tel Aviv, Israel"
+        },
+        "metadata": null,
+        "id": 6647520003,
+        "updated_at": "2025-10-22T10:27:49-04:00",
+        "requisition_id": "1092",
+        "title": "Software Tech Lead",
+        "company_name": "Pagaya Israel",
+        "first_published": "2025-07-14T04:06:12-04:00",
+        "language": "en",
+        "content": "&lt;div class=&quot;p-rich_text_section&quot;&gt;\n&lt;h2&gt;&lt;strong&gt;About Pagaya&lt;/strong&gt;&lt;/h2&gt;\n&lt;p&gt;Pagaya is a global technology company making life-changing financial products and services available to more people nationwide, as it reshapes the financial services ecosystem. By using machine learning, a vast data network and a sophisticated AI-driven approach, Pagaya provides comprehensive consumer credit and residential real estate solutions for its partners, their customers, and investors. Its proprietary API and capital solutions integrate into its network of partners to deliver seamless user experiences and greater access to the mainstream economy. Pagaya has offices in New York and Tel Aviv. For more information, visit&amp;nbsp;&lt;a href=&quot;http://pagaya.com/&quot; target=&quot;_blank&quot; data-saferedirecturl=&quot;https://www.google.com/url?q=http://pagaya.com/&amp;amp;source=gmail&amp;amp;ust=1693382443511000&amp;amp;usg=AOvVaw0tBAw-dMj_zGwNI8CjNR8Z&quot;&gt;pagaya.com&lt;/a&gt;.&lt;/p&gt;\n&lt;/div&gt;\n&lt;div class=&quot;p-rich_text_section&quot;&gt;&lt;strong data-stringify-type=&quot;bold&quot;&gt;About the Role &amp;amp; Responsibilities&lt;/strong&gt;&lt;/div&gt;\n&lt;ul class=&quot;p-rich_text_list p-rich_text_list__bullet&quot; data-stringify-type=&quot;unordered-list&quot; data-indent=&quot;0&quot; data-border=&quot;0&quot;&gt;\n&lt;li&gt;Drive the technical vision for Hive Team - We&#39;re building high-leverage internal platforms that power Pagaya’s decisioning and analytics.&lt;/li&gt;\n&lt;li&gt;Lead complex, cross-functional technical projects from inception to implementation, ensuring alignment with architectural standards and best practices.&lt;/li&gt;\n&lt;li&gt;Mentor and guide engineers to foster technical excellence, while partnering with product, engineering, research, and ops to translate complex requirements into scalable, reliable systems.&lt;/li&gt;\n&lt;li&gt;Establish and champion engineering best practices, high coding standards and a winning professional culture, within our team and across the engineering organization.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;div class=&quot;p-rich_text_section&quot;&gt;\n&lt;p&gt;&lt;strong&gt;Requirements&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;10+ years of programming experience in developing high-quality, full-stack web applications and services.&lt;/li&gt;\n&lt;li&gt;Highly Fluent in Python, experienced in Python for Web (e.g. FastAPI).&lt;/li&gt;\n&lt;li&gt;Proficient and experienced in cloud-native technologies (AWS, Docker, Kubernetes), and distributed systems.&lt;/li&gt;\n&lt;li&gt;Proven track of technological leadership, and ability to ship complex software projects to Production.&lt;/li&gt;\n&lt;li&gt;Exceptional communication and teamwork capabilities, effectively working with cross-functional teams to achieve shared goals.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;Advantages&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Experience in Web technologies - React, Typescript, Vite, Tailwind, and alike.&lt;/li&gt;\n&lt;li&gt;Comprehensive knowledge of software design principles, industry best practices, and product thinking.&lt;/li&gt;\n&lt;li&gt;Passionate about AI-assisted coding and AI-native applications, and motivation to figure out how to evolve new paradigms within existing workflows. Recipes for brownies are always welcome.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;Our Team&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Pagaya was founded in 2016 by seasoned research, finance, and technology entrepreneurs, and we are now 500+ strong in New York, Los Angeles, and Tel Aviv.&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;We move fast and smart, identifying new opportunities and building end-to-end solutions from AI models and unique data sources. Every Pagaya team member is solving new and exciting challenges every day in a culture based on partnership, collaboration, and community.&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Join a team of builders who are working every day to enable better outcomes for our partners and their customers.&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Our Values&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Our values are at the heart of everything we do. We believe great solutions are built through a great community.&lt;/span&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;u&gt;Advance Inclusion&lt;/u&gt;- We create a world where everyone can win, designing systems that better represent people and generate sustainable value for our employees, partners and investors.&lt;/li&gt;\n&lt;li&gt;&lt;u&gt;Be Accountable Together&lt;/u&gt;- We proudly own our actions and our results, taking initiative to ensure our work gets over the finish line as a team.&lt;/li&gt;\n&lt;li&gt;&lt;u&gt;Continuously Learn&lt;/u&gt;- We challenge ourselves for the sake of getting better as individuals, as teams, and as an organization to deliver for our partners.&lt;/li&gt;\n&lt;li&gt;&lt;u&gt;Debate and Commit&lt;/u&gt;- We respectfully and openly debate to strengthen our ideas and build shared conviction - once we decide, we go all in, together.&lt;/li&gt;\n&lt;li&gt;&lt;u&gt;Dream Big and Act&lt;/u&gt;- We boldly tackle complex problems, pressure-test solutions in real-time, and adapt with speed and energy.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;More than just a job&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;We believe health, happiness, and productivity go hand-in-hand. That&#39;s why we&#39;re continually looking to enhance the ways we support you with benefits programs and perks that allow every Pagayan to do the best work of their life.&amp;nbsp;&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;em&gt;Pagaya is an equal opportunity employer. Pagaya is encouraging diversity and actively seeking applicants from all backgrounds, as are committed to creating a diverse workforce together with an inclusive environment for all. Employment is decided on the basis of qualifications, skills, and business needs.&lt;/em&gt;&lt;/p&gt;\n&lt;/div&gt;\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;div class=&quot;content-conclusion&quot;&gt;&lt;p&gt;&lt;a href=&quot;https://pagaya.com/privacy-policy&quot;&gt;https://pagaya.com/privacy-policy&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;",
+        "departments": [
+          {
+            "id": 4043260003,
+            "name": "Engineering",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ],
+        "offices": [
+          {
+            "id": 4020985003,
+            "name": "Pagaya Israel",
+            "location": "Tel Aviv",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ]
+      },
+      {
+        "absolute_url": "https://job-boards.greenhouse.io/pagayais/jobs/7533527003",
+        "data_compliance": [
+          {
+            "type": "gdpr",
+            "requires_consent": false,
+            "requires_processing_consent": false,
+            "requires_retention_consent": false,
+            "retention_period": null,
+            "demographic_data_consent_applies": false
+          }
+        ],
+        "internal_job_id": 5680793003,
+        "location": {
+          "name": "Tel Aviv, Israel"
+        },
+        "metadata": null,
+        "id": 7533527003,
+        "updated_at": "2025-12-07T08:09:16-05:00",
+        "requisition_id": "1275",
+        "title": "Validation Data Scientist",
+        "company_name": "Pagaya Israel",
+        "first_published": "2025-11-19T10:41:14-05:00",
+        "language": "en",
+        "content": "&lt;h2&gt;&lt;strong&gt;About Pagaya&lt;/strong&gt;&lt;/h2&gt;\n&lt;p&gt;Pagaya is a global technology company making life-changing financial products and services available to more people nationwide, as it reshapes the financial services ecosystem. By using machine learning, a vast data network and a sophisticated AI-driven approach, Pagaya provides comprehensive consumer credit and residential real estate solutions for its partners, their customers, and investors. Its proprietary API and capital solutions integrate into its network of partners to deliver seamless user experiences and greater access to the mainstream economy. Pagaya has offices in New York and Tel Aviv. For more information, visit&amp;nbsp;&lt;a href=&quot;http://pagaya.com/&quot; target=&quot;_blank&quot; data-saferedirecturl=&quot;https://www.google.com/url?q=http://pagaya.com/&amp;amp;source=gmail&amp;amp;ust=1693382443511000&amp;amp;usg=AOvVaw0tBAw-dMj_zGwNI8CjNR8Z&quot;&gt;pagaya.com&lt;/a&gt;.&lt;/p&gt;\n&lt;h3&gt;&lt;strong&gt;About the Role&lt;/strong&gt;&lt;/h3&gt;\n&lt;p&gt;Pagaya is seeking an experienced data scientist to join our Model Validation team. The ideal candidate will bring a blend of data science knowledge and analytical skills, understanding in Finance and an understanding of the regulatory landscape of credit lending. As a core team member, you will work closely with model developers to assess model performance, data quality, conceptual soundness, and produce thorough, compliant documentation for regulatory review, ensuring our models meet the highest standards. You will be required to challenge the models, helping Pagaya deliver high-quality validated models for loan pricing and underwriting.&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Key Responsibilities:&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Conduct thorough validation of ML models to assess performance, data quality, robustness, conceptual soundness, regulatory requirements and more&lt;/li&gt;\n&lt;li&gt;Conduct independent tests to assess performance and limitations, and establish model assumptions&lt;/li&gt;\n&lt;li&gt;Suggest and develop alternative models to challenge and improve existing models&lt;/li&gt;\n&lt;li&gt;Provide insights into the&#39; strengths and weaknesses of models in terms of Data Science methodology and Finance as well as recommend practical solutions.&lt;/li&gt;\n&lt;li&gt;Prepare comprehensive validation documentation&lt;/li&gt;\n&lt;li&gt;Support the ongoing monitoring and improvement of existing predictive models&lt;/li&gt;\n&lt;li&gt;Stay updated on the latest research in ML credit risk modeling and financial news, ensuring that our practices align with industry standards&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;Required Qualifications:&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;3+ years of experience in Data Science roles with experience with ML models- Must&lt;/li&gt;\n&lt;li&gt;Python - experience with data science packages (pandas, numpy,&amp;nbsp; sklearn, seaborn)&lt;/li&gt;\n&lt;li&gt;Bachelor&#39;s degree in Data Science, Statistics, Computer Science, or a related quantitative field&lt;/li&gt;\n&lt;li&gt;Excellent problem-solving skills with the ability to think critically and creatively&lt;/li&gt;\n&lt;li&gt;Strong communication skills and the ability to work effectively in a collaborative team environment&lt;/li&gt;\n&lt;li&gt;Fluent in English, both verbal and written&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;Preferred Qualifications:&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Masters degree&lt;/li&gt;\n&lt;li&gt;Experience in Finance, specifically with financial data or models - advantage&lt;/li&gt;\n&lt;li&gt;Experience with cloud platforms (e.g., AWS) and distributed computing&lt;/li&gt;\n&lt;li&gt;Familiarity with regulatory compliance requirements for financial models (e.g., SR 11-7)&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;Our Team&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Pagaya was founded in 2016 by seasoned research, finance, and technology entrepreneurs, and we are now 500+ strong in New York, Los Angeles, and Tel Aviv.&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;We move fast and smart, identifying new opportunities and building end-to-end solutions from AI models and unique data sources. Every Pagaya team member is solving new and exciting challenges every day in a culture based on partnership, collaboration, and community.&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Join a team of builders who are working every day to enable better outcomes for our partners and their customers.&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Our Values&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Our values are at the heart of everything we do. We believe great solutions are built through a great community.&lt;/span&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;u&gt;Advance Inclusion&lt;/u&gt;- We create a world where everyone can win, designing systems that better represent people and generate sustainable value for our employees, partners and investors.&lt;/li&gt;\n&lt;li&gt;&lt;u&gt;Be Accountable Together&lt;/u&gt;- We proudly own our actions and our results, taking initiative to ensure our work gets over the finish line as a team.&lt;/li&gt;\n&lt;li&gt;&lt;u&gt;Continuously Learn&lt;/u&gt;- We challenge ourselves for the sake of getting better as individuals, as teams, and as an organization to deliver for our partners.&lt;/li&gt;\n&lt;li&gt;&lt;u&gt;Debate and Commit&lt;/u&gt;- We respectfully and openly debate to strengthen our ideas and build shared conviction - once we decide, we go all in, together.&lt;/li&gt;\n&lt;li&gt;&lt;u&gt;Dream Big and Act&lt;/u&gt;- We boldly tackle complex problems, pressure-test solutions in real-time, and adapt with speed and energy.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;More than just a job&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;We believe health, happiness, and productivity go hand-in-hand. That&#39;s why we&#39;re continually looking to enhance the ways we support you with benefits programs and perks that allow every Pagayan to do the best work of their life.&amp;nbsp;&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;em&gt;Pagaya is an equal opportunity employer. Pagaya is encouraging diversity and actively seeking applicants from all backgrounds, as are committed to creating a diverse workforce together with an inclusive environment for all. Employment is decided on the basis of qualifications, skills, and business needs.&lt;/em&gt;&lt;/p&gt;\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;&lt;em data-stringify-type=&quot;italic&quot;&gt;Pagaya is an equal opportunity employer. Pagaya is encouraging diversity and actively seeking applicants from all backgrounds, as are committed to creating a diverse workforce together with an inclusive environment for all. Employment is decided on the basis of qualifications, skills, and business needs.&lt;/em&gt;&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;div class=&quot;content-conclusion&quot;&gt;&lt;p&gt;&lt;a href=&quot;https://pagaya.com/privacy-policy&quot;&gt;https://pagaya.com/privacy-policy&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;",
+        "departments": [
+          {
+            "id": 4052134003,
+            "name": "Risk",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ],
+        "offices": [
+          {
+            "id": 4020985003,
+            "name": "Pagaya Israel",
+            "location": "Tel Aviv",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ]
+      }
+    ],
+    "meta": {
+      "total": 10
+    }
+  }
+}

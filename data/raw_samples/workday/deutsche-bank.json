@@ -1,0 +1,802 @@
+{
+  "_meta": {
+    "source": "workday",
+    "companyId": "deutsche-bank",
+    "companyName": "Deutsche Bank",
+    "originalUrl": "https://db.wd3.myworkdayjobs.com/DBWebsite",
+    "parsedTenant": "db",
+    "parsedInstance": "wd3",
+    "parsedSite": "DBWebsite",
+    "siteUrl": "https://db.wd3.myworkdayjobs.com/DBWebsite",
+    "apiEndpoint": "https://db.wd3.myworkdayjobs.com/wday/cxs/db/DBWebsite/jobs",
+    "sessionInitStatus": 200,
+    "cookiesEstablished": [
+      "PLAY_SESSION",
+      "wd-browser-id",
+      "CALYPSO_CSRF_TOKEN",
+      "CXS_SESSION",
+      "wday_vps_cookie",
+      "__cf_bm",
+      "__cflb",
+      "_cfuvid"
+    ],
+    "jobsApiStatus": 200,
+    "sampledAt": "2026-03-01T22:03:48.808Z",
+    "totalReported": 1533,
+    "jobCountThisPage": 20,
+    "facetCount": 4,
+    "requestPayload": {
+      "appliedFacets": {},
+      "limit": 20,
+      "offset": 0,
+      "searchText": ""
+    }
+  },
+  "raw": {
+    "total": 1533,
+    "jobPostings": [
+      {
+        "title": "Senior Engineer Java/Python, AVP",
+        "externalPath": "/job/Pune---Margarpatta/Senior-Engineer-Java-Python--AVP_R0424171",
+        "locationsText": "Pune - Margarpatta",
+        "postedOn": "Posted Today",
+        "bulletFields": [
+          "R0424171"
+        ]
+      },
+      {
+        "title": "Senior Engineer Java/Python, AVP",
+        "externalPath": "/job/Pune---Margarpatta/Senior-Engineer-Java-Python--AVP_R0424436",
+        "locationsText": "Pune - Margarpatta",
+        "postedOn": "Posted Today",
+        "bulletFields": [
+          "R0424436"
+        ]
+      },
+      {
+        "title": "Senior Engineer Java/Python, AVP",
+        "externalPath": "/job/Pune---Margarpatta/Senior-Engineer-Java-Python--AVP_R0424437",
+        "locationsText": "Pune - Margarpatta",
+        "postedOn": "Posted Today",
+        "bulletFields": [
+          "R0424437"
+        ]
+      },
+      {
+        "title": "Senior Engineer Java/Python, AVP",
+        "externalPath": "/job/Pune---Margarpatta/Senior-Engineer-Java-Python--AVP_R0424438-1",
+        "locationsText": "Pune - Margarpatta",
+        "postedOn": "Posted Today",
+        "bulletFields": [
+          "R0424438"
+        ]
+      },
+      {
+        "title": "Senior QA Engineer, AVP",
+        "externalPath": "/job/Pune---Margarpatta/Senior-QA-Engineer--AVP_R0424443",
+        "locationsText": "Pune - Margarpatta",
+        "postedOn": "Posted Today",
+        "bulletFields": [
+          "R0424443"
+        ]
+      },
+      {
+        "title": "Senior QA Engineer, AVP",
+        "externalPath": "/job/Pune---Margarpatta/Senior-QA-Engineer--AVP_R0424445",
+        "locationsText": "Pune - Margarpatta",
+        "postedOn": "Posted Today",
+        "bulletFields": [
+          "R0424445"
+        ]
+      },
+      {
+        "title": "Senior QA Engineer, AVP",
+        "externalPath": "/job/Pune---Margarpatta/Senior-QA-Engineer--AVP_R0424895",
+        "locationsText": "Pune - Margarpatta",
+        "postedOn": "Posted Today",
+        "bulletFields": [
+          "R0424895"
+        ]
+      },
+      {
+        "title": "Sr. Requirement Engineer, AVP",
+        "externalPath": "/job/Pune---Margarpatta/Sr-Requirement-Engineer--AVP_R0424419",
+        "locationsText": "Pune - Margarpatta",
+        "postedOn": "Posted Today",
+        "bulletFields": [
+          "R0424419"
+        ]
+      },
+      {
+        "title": "IT Architect Lead",
+        "externalPath": "/job/Pune---Business-Bay/Lead-Technology-Manager_R0332171",
+        "locationsText": "Pune - Business Bay",
+        "postedOn": "Posted Today",
+        "bulletFields": [
+          "R0332171"
+        ]
+      },
+      {
+        "title": "Business Functional Analyst - One Data Platform (f/m/x)",
+        "externalPath": "/job/Bucharest-6A-Dimitrie-Pompeiu-Blvd/Business-Functional-Analyst---One-Data-Platform--f-m-x-_R0425117",
+        "locationsText": "2 Locations",
+        "postedOn": "Posted Today",
+        "bulletFields": [
+          "R0425117"
+        ]
+      },
+      {
+        "title": "Clearing and Settlement Analyst, NCT",
+        "externalPath": "/job/Bangalore-Velankani-Tech-Park/Clearing-and-Settlement-Analyst--NCT_R0427091",
+        "locationsText": "Bangalore, Velankani Tech Park",
+        "postedOn": "Posted Today",
+        "bulletFields": [
+          "R0427091"
+        ]
+      },
+      {
+        "title": "Risk Lead, VP",
+        "externalPath": "/job/Mumbai-Nirlon-Knowledge-Pk-B1/Risk-Lead--VP_R0424033",
+        "locationsText": "Mumbai Nirlon Knowledge Pk B1",
+        "postedOn": "Posted Yesterday",
+        "bulletFields": [
+          "R0424033"
+        ]
+      },
+      {
+        "title": "Risk Lead, VP",
+        "externalPath": "/job/Mumbai-Nirlon-Knowledge-Pk-B1/Risk-Lead--VP_R0423044-1",
+        "locationsText": "Mumbai Nirlon Knowledge Pk B1",
+        "postedOn": "Posted Yesterday",
+        "bulletFields": [
+          "R0423044"
+        ]
+      },
+      {
+        "title": "Sr. Credit Manager",
+        "externalPath": "/job/Mumbai-Nirlon-Knowledge-Pk-B1/Sr-Credit-Manager_R0426142",
+        "locationsText": "Mumbai Nirlon Knowledge Pk B1",
+        "postedOn": "Posted Yesterday",
+        "bulletFields": [
+          "R0426142"
+        ]
+      },
+      {
+        "title": "Market Risk Analyst",
+        "externalPath": "/job/Pune---Business-Bay/Market-Risk-Analyst_R0417797",
+        "locationsText": "Pune - Business Bay",
+        "postedOn": "Posted Yesterday",
+        "bulletFields": [
+          "R0417797"
+        ]
+      },
+      {
+        "title": "Risk Portfolio Specialist",
+        "externalPath": "/job/Mumbai-Nirlon-Knowledge-Pk-B1/Risk-Portfolio-Specialist_R0414936",
+        "locationsText": "Mumbai Nirlon Knowledge Pk B1",
+        "postedOn": "Posted Yesterday",
+        "bulletFields": [
+          "R0414936"
+        ]
+      },
+      {
+        "title": "Assistant Vice President – {DB9167232}",
+        "externalPath": "/job/Jacksonville-5201-Gate-Parkway/Assistant-Vice-President----DB9167232-_R0427608",
+        "locationsText": "Jacksonville, 5201 Gate Parkway",
+        "postedOn": "Posted Yesterday",
+        "bulletFields": [
+          "R0427608"
+        ]
+      },
+      {
+        "title": "Assistant Vice President – {TS9734971}",
+        "externalPath": "/job/Jacksonville-5201-Gate-Parkway/Assistant-Vice-President----TS9734971-_R0427606",
+        "locationsText": "Jacksonville, 5201 Gate Parkway",
+        "postedOn": "Posted Yesterday",
+        "bulletFields": [
+          "R0427606"
+        ]
+      },
+      {
+        "title": "Vice President – {TS8605967}",
+        "externalPath": "/job/New-York-1-Columbus-Circle/Vice-President----TS8605967-_R0427602",
+        "locationsText": "New York, 1 Columbus Circle",
+        "postedOn": "Posted Yesterday",
+        "bulletFields": [
+          "R0427602"
+        ]
+      },
+      {
+        "title": "CRDU- Large Exposure Monitoring and Risk and Finance Alignment",
+        "externalPath": "/job/Pune---Business-Bay/CTP-Associate_R0420847",
+        "locationsText": "Pune - Business Bay",
+        "postedOn": "Posted Yesterday",
+        "bulletFields": [
+          "R0420847"
+        ]
+      }
+    ],
+    "facets": [
+      {
+        "facetParameter": "jobFamilyGroup",
+        "descriptor": "Job Category",
+        "values": [
+          {
+            "descriptor": "Technology",
+            "id": "645e861bc53a0168c673f8fe073b20a8",
+            "count": 534
+          },
+          {
+            "descriptor": "Sales Coverage",
+            "id": "645e861bc53a0132f7ac3eff073b30a8",
+            "count": 245
+          },
+          {
+            "descriptor": "Operations_",
+            "id": "645e861bc53a01190cc155ff073b32a8",
+            "count": 221
+          },
+          {
+            "descriptor": "Change Execution",
+            "id": "fac778d2ad6610124521a61920850000",
+            "count": 95
+          },
+          {
+            "descriptor": "Legal, Compliance & Regulatory",
+            "id": "645e861bc53a01cdcfe461ff073b36a8",
+            "count": 88
+          },
+          {
+            "descriptor": "Finance",
+            "id": "5066073ca7e2101245223341d7580000",
+            "count": 66
+          },
+          {
+            "descriptor": "Trading & Research",
+            "id": "645e861bc53a01b5d23eeffe073b1ea8",
+            "count": 54
+          },
+          {
+            "descriptor": "Client Advisory & Origination",
+            "id": "645e861bc53a0147c83610ff073b28a8",
+            "count": 50
+          },
+          {
+            "descriptor": "Administration &/or Support",
+            "id": "5066073ca7e2101245220996aad10000",
+            "count": 43
+          },
+          {
+            "descriptor": "Business Effectiveness",
+            "id": "645e861bc53a01a78a5c17ff073b2ca8",
+            "count": 38
+          },
+          {
+            "descriptor": "Risk",
+            "id": "f55022835b2a101245241cf3834d0000",
+            "count": 33
+          },
+          {
+            "descriptor": "Product Management_",
+            "id": "645e861bc53a014c75e2fcfe073b22a8",
+            "count": 21
+          },
+          {
+            "descriptor": "Portfolio Management_",
+            "id": "6a937d8c6e1110124520600dfb9e0000",
+            "count": 19
+          },
+          {
+            "descriptor": "Human Capital Management & Development",
+            "id": "645e861bc53a01e4f0fa65ff073b38a8",
+            "count": 14
+          },
+          {
+            "descriptor": "Audit",
+            "id": "b65a0cd016d8101245212da234570000",
+            "count": 9
+          },
+          {
+            "descriptor": "Marketing & Communications",
+            "id": "645e861bc53a01412e4e5aff073b34a8",
+            "count": 3
+          }
+        ]
+      },
+      {
+        "facetParameter": "Country",
+        "descriptor": "Country",
+        "values": [
+          {
+            "descriptor": "India",
+            "id": "c4f78be1a8f14da0ab49ce1162348a5e",
+            "count": 610
+          },
+          {
+            "descriptor": "United States of America",
+            "id": "bc33aa3152ec42d4995f4791a106ed09",
+            "count": 219
+          },
+          {
+            "descriptor": "Romania",
+            "id": "f2e609fe92974a55a05fc1cdc2852122",
+            "count": 194
+          },
+          {
+            "descriptor": "Germany",
+            "id": "dcc5b7608d8644b3a93716604e78e995",
+            "count": 131
+          },
+          {
+            "descriptor": "United Kingdom",
+            "id": "29247e57dbaf46fb855b224e03170bc7",
+            "count": 61
+          },
+          {
+            "descriptor": "Italy",
+            "id": "8cd04a563fd94da7b06857a79faaf815",
+            "count": 50
+          },
+          {
+            "descriptor": "Philippines",
+            "id": "e56f1daf83e04bacae794ba5c5593560",
+            "count": 43
+          },
+          {
+            "descriptor": "Singapore",
+            "id": "80938777cac5440fab50d729f9634969",
+            "count": 34
+          },
+          {
+            "descriptor": "Luxembourg",
+            "id": "328b82f597514643a7683a78fc67c3f1",
+            "count": 25
+          },
+          {
+            "descriptor": "Switzerland",
+            "id": "187134fccb084a0ea9b4b95f23890dbe",
+            "count": 24
+          },
+          {
+            "descriptor": "Japan",
+            "id": "8b705da2becf43cfaccc091da0988ab2",
+            "count": 19
+          },
+          {
+            "descriptor": "Spain",
+            "id": "bd34c524a6a04ae6915f5d96fa086199",
+            "count": 18
+          },
+          {
+            "descriptor": "Belgium",
+            "id": "a04ea128f43a42e59b1e6a19e8f0b374",
+            "count": 16
+          },
+          {
+            "descriptor": "Hong Kong",
+            "id": "d4afdeb461d446e4babd204bd102dba8",
+            "count": 15
+          },
+          {
+            "descriptor": "China",
+            "id": "6cb77610a8a543aea2d6bc10457e35d4",
+            "count": 9
+          },
+          {
+            "descriptor": "Saudi Arabia",
+            "id": "50423b5190ad49bb89e94cd58dfaad69",
+            "count": 8
+          },
+          {
+            "descriptor": "Brazil",
+            "id": "1a29bb1357b240ab99a2fa755cc87c0e",
+            "count": 7
+          },
+          {
+            "descriptor": "France",
+            "id": "54c5b6971ffb4bf0b116fe7651ec789a",
+            "count": 7
+          },
+          {
+            "descriptor": "Indonesia",
+            "id": "b31234dbcdda4da9ba8fa073c5944e36",
+            "count": 6
+          },
+          {
+            "descriptor": "Netherlands",
+            "id": "9696868b09c64d52a62ee13b052383cc",
+            "count": 6
+          },
+          {
+            "descriptor": "Malaysia",
+            "id": "972dc4ba8d454bc0b893ff84b1529077",
+            "count": 5
+          },
+          {
+            "descriptor": "United Arab Emirates",
+            "id": "7b4fa1f369bd4604ba3692682fcbe345",
+            "count": 4
+          },
+          {
+            "descriptor": "Ukraine",
+            "id": "a4051ef996ac40778d4c79e3f2dedfd2",
+            "count": 3
+          },
+          {
+            "descriptor": "Thailand",
+            "id": "873d0f604e3b458c990cb4d83a5c0f14",
+            "count": 3
+          },
+          {
+            "descriptor": "Australia",
+            "id": "d903bb3fedad45039383f6de334ad4db",
+            "count": 3
+          },
+          {
+            "descriptor": "Vietnam",
+            "id": "db69e8c8446c11de98360015c5e6daf6",
+            "count": 3
+          },
+          {
+            "descriptor": "South Africa",
+            "id": "4db3c26940b944919b83612cc1193eed",
+            "count": 2
+          },
+          {
+            "descriptor": "Taiwan",
+            "id": "a4e08b475d6a4176853c9d1cb9854e02",
+            "count": 2
+          },
+          {
+            "descriptor": "Mexico",
+            "id": "e2adff9272454660ac4fdb56fc70bb51",
+            "count": 2
+          },
+          {
+            "descriptor": "Korea, Republic of",
+            "id": "7a5a2aadf9d34086a2bfbfd408bc28da",
+            "count": 2
+          },
+          {
+            "descriptor": "Czechia",
+            "id": "fc078443155c4ad294201ecf5a61a499",
+            "count": 1
+          },
+          {
+            "descriptor": "Hungary",
+            "id": "9db257f5937e4421b2fac64eec6832f8",
+            "count": 1
+          },
+          {
+            "descriptor": "Portugal",
+            "id": "2e8c5034deb045d49315417c347472ca",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "facetParameter": "Location",
+        "descriptor": "Location",
+        "values": [
+          {
+            "descriptor": "Bucharest, 6A Dimitrie Pompeiu Blvd",
+            "id": "b3df871f1f9d01ba670b9c0fa8402030",
+            "count": 175
+          },
+          {
+            "descriptor": "Pune - Business Bay",
+            "id": "b3df871f1f9d01ccaebc2b17a8409644",
+            "count": 165
+          },
+          {
+            "descriptor": "Bangalore, Velankani Tech Park",
+            "id": "b3df871f1f9d01bd381a9d16a8402043",
+            "count": 136
+          },
+          {
+            "descriptor": "New York, 1 Columbus Circle",
+            "id": "b7fe2a32091201813c6f9f755b0158f6",
+            "count": 108
+          },
+          {
+            "descriptor": "Pune - Margarpatta",
+            "id": "b3df871f1f9d014784a8771aa840824c",
+            "count": 87
+          },
+          {
+            "descriptor": "London, 21 Moorfields",
+            "id": "9db3faa797901001f3eef30c76a60000",
+            "count": 51
+          },
+          {
+            "descriptor": "Mumbai Nirlon Know. Pk B4-B5",
+            "id": "b3df871f1f9d0182a64e4c1aa8401a4c",
+            "count": 51
+          },
+          {
+            "descriptor": "Jacksonville, 5201 Gate Parkway",
+            "id": "b3df871f1f9d013f29755610a8408c31",
+            "count": 44
+          },
+          {
+            "descriptor": "Cary, 3000 CentreGreen Way",
+            "id": "b3df871f1f9d01af2a30fe10a8403833",
+            "count": 43
+          },
+          {
+            "descriptor": "Mumbai Nirlon Knowledge Pk B1",
+            "id": "b3df871f1f9d016ab9f1081aa840824b",
+            "count": 37
+          },
+          {
+            "descriptor": "Jaipur",
+            "id": "b3df871f1f9d011e6a4ccb16a8409443",
+            "count": 37
+          },
+          {
+            "descriptor": "Berlin Otto-Suhr-Allee 16",
+            "id": "645e861bc53a01c57121b3b90c3b5ef9",
+            "count": 34
+          },
+          {
+            "descriptor": "Singapore, One Raffles Quay",
+            "id": "b3df871f1f9d015344e24111a840f833",
+            "count": 33
+          },
+          {
+            "descriptor": "Mumbai Nirlon Know. Pk B7",
+            "id": "b3df871f1f9d019945a24e1aa840204c",
+            "count": 31
+          },
+          {
+            "descriptor": "Manila Net Quad Center",
+            "id": "b3df871f1f9d013b7294980ea8401a2d",
+            "count": 29
+          },
+          {
+            "descriptor": "Luxembourg 2 Blvd K. Adenauer",
+            "id": "b3df871f1f9d019c22b2210ea840e22b",
+            "count": 24
+          },
+          {
+            "descriptor": "Frankfurt Taunusanlage 12",
+            "id": "645e861bc53a01398798ecbb0c3bd301",
+            "count": 21
+          },
+          {
+            "descriptor": "Frankfurt Theodor-H-A IBC",
+            "id": "645e861bc53a01ddfd64e6bb0c3bba01",
+            "count": 21
+          },
+          {
+            "descriptor": "Japan, Tokyo, Azabudai Hills Mori JP Tower",
+            "id": "54d1c8be29bc102396266957e5d00000",
+            "count": 19
+          },
+          {
+            "descriptor": "Bucharest Ion Mihalache Blvd",
+            "id": "b3df871f1f9d018c8d95f60fa840a430",
+            "count": 18
+          },
+          {
+            "descriptor": "Bangalore, Raheja Towers, 26-27 M. G. Road",
+            "id": "b3df871f1f9d01d658303b17a840c044",
+            "count": 16
+          },
+          {
+            "descriptor": "New Delhi, 18 & 20 Kasturba GM",
+            "id": "b3df871f1f9d01050ccd701aa840704c",
+            "count": 15
+          },
+          {
+            "descriptor": "Hong Kong, Intl Commerce Ctr",
+            "id": "b3df871f1f9d016f7efdd316a840ac43",
+            "count": 15
+          },
+          {
+            "descriptor": "Brussels Avenue Marnix 13-15",
+            "id": "b3df871f1f9d01a816661013a8401439",
+            "count": 13
+          },
+          {
+            "descriptor": "Manila",
+            "id": "b3df871f1f9d01cf8fdc920ea840082d",
+            "count": 13
+          },
+          {
+            "descriptor": "Zürich Prime Tower",
+            "id": "645e861bc53a01e14313d6bd0c3b1709",
+            "count": 12
+          },
+          {
+            "descriptor": "Milano Bicocca Calendario 3",
+            "id": "b3df871f1f9d012e6f356a14a840f63c",
+            "count": 11
+          },
+          {
+            "descriptor": "Jacksonville, 5022 Gate Parkway",
+            "id": "b3df871f1f9d01bdd4c42b10a8401c31",
+            "count": 10
+          },
+          {
+            "descriptor": "Barcelona, Edificio Mitre",
+            "id": "645e861bc53a01941ba11dbe0c3b2a0a",
+            "count": 9
+          },
+          {
+            "descriptor": "Milano Via Turati 25-27",
+            "id": "b3df871f1f9d01865e10b514a840ca3d",
+            "count": 8
+          },
+          {
+            "descriptor": "Riyadh",
+            "id": "b3df871f1f9d0138a942f510a8402433",
+            "count": 8
+          },
+          {
+            "descriptor": "Geneva Place des Bergues 3",
+            "id": "645e861bc53a01fae26019bd0c3b5106",
+            "count": 8
+          },
+          {
+            "descriptor": "Paris",
+            "id": "b3df871f1f9d01eaa12c541da8404653",
+            "count": 7
+          },
+          {
+            "descriptor": "Mumbai Capital",
+            "id": "b3df871f1f9d010234f22d1aa840d84b",
+            "count": 7
+          },
+          {
+            "descriptor": "Mumbai",
+            "id": "b3df871f1f9d0149074f2b1aa840d24b",
+            "count": 7
+          },
+          {
+            "descriptor": "Sao Paulo Edificio Pedro Mariz",
+            "id": "b3df871f1f9d01eb11eec10ca8404e28",
+            "count": 7
+          },
+          {
+            "descriptor": "Madrid Paseo Castellana 18",
+            "id": "645e861bc53a0126f66cdebd0c3b3a09",
+            "count": 7
+          },
+          {
+            "descriptor": "Pune - Supreme",
+            "id": "b3df871f1f9d0137bedb7c1aa8408e4c",
+            "count": 6
+          },
+          {
+            "descriptor": "Ahmadabad",
+            "id": "b3df871f1f9d013f65403817a840ba44",
+            "count": 6
+          },
+          {
+            "descriptor": "Jakarta, Jl. Imam Bonjol No. 80",
+            "id": "b3df871f1f9d0139c7351617a8405c44",
+            "count": 6
+          },
+          {
+            "descriptor": "Amsterdam",
+            "id": "b3df871f1f9d01b12eb20e0fa8407c2e",
+            "count": 6
+          },
+          {
+            "descriptor": "New York, 875 Third Avenue",
+            "id": "ba5ad562a14f01a181bc3a92df059fe9",
+            "count": 5
+          },
+          {
+            "descriptor": "Chennai",
+            "id": "b3df871f1f9d01ad5fb25717a8400c45",
+            "count": 5
+          },
+          {
+            "descriptor": "Kuala Lumpur Menara IMC",
+            "id": "b3df871f1f9d01b82befac0ea840562d",
+            "count": 5
+          },
+          {
+            "descriptor": "Shanghai Two IFC",
+            "id": "b3df871f1f9d01125487460ca8409a27",
+            "count": 5
+          },
+          {
+            "descriptor": "Frankfurt Weserst 54/Mainz Landst 11-17",
+            "id": "645e861bc53a01bfe7a3dbbb0c3b8d01",
+            "count": 5
+          },
+          {
+            "descriptor": "London, 45 Cannon Street",
+            "id": "44c96a2330f601619708e9a3e701a1df",
+            "count": 4
+          },
+          {
+            "descriptor": "Mumbai Kodak House",
+            "id": "b3df871f1f9d01ef0f02311aa840de4b",
+            "count": 4
+          },
+          {
+            "descriptor": "Mumbai Sidrah Building",
+            "id": "b3df871f1f9d0197b29d251aa840c64b",
+            "count": 4
+          },
+          {
+            "descriptor": "London 10 Upper Bank Street",
+            "id": "b3df871f1f9d019fd2fbd516a840b243",
+            "count": 4
+          },
+          {
+            "descriptor": "San Francisco Office",
+            "id": "645e861bc53a01a683401bbe0c3b200a",
+            "count": 4
+          },
+          {
+            "descriptor": "Zürich Uraniastrasse 9",
+            "id": "645e861bc53a01b50b9bc7bd0c3bdb08",
+            "count": 4
+          },
+          {
+            "descriptor": "Romania, Bucharest, Offsite",
+            "id": "b3df871f1f9d01094fa71310a840e230",
+            "count": 3
+          },
+          {
+            "descriptor": "Germany, München, Offsite",
+            "id": "645e861bc53a01060138f1b50c3b08eb",
+            "count": 3
+          },
+          {
+            "descriptor": "Beijing China Central Place",
+            "id": "b3df871f1f9d0176437c740ca8400c28",
+            "count": 3
+          }
+        ]
+      },
+      {
+        "facetParameter": "workerSubType",
+        "descriptor": "Job Type",
+        "values": [
+          {
+            "descriptor": "A (Permanent Local Staff)",
+            "id": "645e861bc53a015625eefdaefb3a1909",
+            "count": 1490
+          },
+          {
+            "descriptor": "Q (Interns / Practical Work Exp.) (Fixed Term)",
+            "id": "645e861bc53a01f8c083feaefb3a1c09",
+            "count": 26
+          },
+          {
+            "descriptor": "E (Graduate Trainees)",
+            "id": "645e861bc53a0145cdb4feaefb3a1d09",
+            "count": 8
+          },
+          {
+            "descriptor": "D (Fixed Term Employee) (Fixed Term)",
+            "id": "645e861bc53a011deac2fdaefb3a1809",
+            "count": 4
+          },
+          {
+            "descriptor": "M (Apprentices)",
+            "id": "645e861bc53a018fc2809ac3fb3a9444",
+            "count": 3
+          },
+          {
+            "descriptor": "CWR - Fixed Price - Non-IT Other Professional Services Resource",
+            "id": "645e861bc53a012c063587acfb3abf06",
+            "count": 1
+          },
+          {
+            "descriptor": "CWR - Time & Material - Temporary Admin & Clerical Resource",
+            "id": "645e861bc53a0125b7ec82acfb3aaa06",
+            "count": 1
+          }
+        ]
+      }
+    ],
+    "userAuthenticated": false
+  }
+}

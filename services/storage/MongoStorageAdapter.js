@@ -30,6 +30,7 @@ class MongoStorageAdapter extends StorageAdapter {
       CALIBRATION_REJECTED: 'calibration_rejected',
       CALIBRATION_PASSED: 'calibration_passed',
       RUN_SUMMARIES: 'run_summaries',
+      SYSTEM_STATE: 'system_state',
     };
 
     // TTL indexes setup flag (avoid re-creating on every reconnect)
@@ -106,6 +107,15 @@ class MongoStorageAdapter extends StorageAdapter {
   async _getCollection(collectionName) {
     await this._ensureConnected();
     return this.db.collection(collectionName);
+  }
+
+  /**
+   * Public collection access for calibration aggregations.
+   * @param {string} collectionName
+   * @returns {Promise<Collection>}
+   */
+  async getCollection(collectionName) {
+    return this._getCollection(collectionName);
   }
 
   /**
@@ -270,10 +280,16 @@ class MongoStorageAdapter extends StorageAdapter {
   async _ensureTTLIndexes() {
     try {
       const rejCol = await this._getCollection(this.collections.CALIBRATION_REJECTED);
+      const passCol = await this._getCollection(this.collections.CALIBRATION_PASSED);
       const sumCol = await this._getCollection(this.collections.RUN_SUMMARIES);
 
       // 60-day TTL for calibration_rejected
       await rejCol.createIndex(
+        { createdAt: 1 },
+        { expireAfterSeconds: 60 * 24 * 60 * 60, background: true }
+      );
+      // 60-day TTL for calibration_passed (prevents unbounded growth)
+      await passCol.createIndex(
         { createdAt: 1 },
         { expireAfterSeconds: 60 * 24 * 60 * 60, background: true }
       );
@@ -283,9 +299,9 @@ class MongoStorageAdapter extends StorageAdapter {
         { expireAfterSeconds: 30 * 24 * 60 * 60, background: true }
       );
       // #region agent log
-      _dbgLog('MongoStorageAdapter.js:_ensureTTLIndexes:OK',{calibrationRejectedTTL:'60d',runSummariesTTL:'30d'},'FIX1');
+      _dbgLog('MongoStorageAdapter.js:_ensureTTLIndexes:OK',{calibrationRejectedTTL:'60d',calibrationPassedTTL:'60d',runSummariesTTL:'30d'},'FIX1');
       // #endregion
-      console.log('MongoStorageAdapter: TTL indexes ensured (calibration_rejected=60d, run_summaries=30d)');
+      console.log('MongoStorageAdapter: TTL indexes ensured (calibration_rejected=60d, calibration_passed=60d, run_summaries=30d)');
     } catch (err) {
       // #region agent log
       _dbgLog('MongoStorageAdapter.js:_ensureTTLIndexes:CATCH',{error:err.message||String(err)},'FIX1');
@@ -297,8 +313,9 @@ class MongoStorageAdapter extends StorageAdapter {
   /**
    * Strip a job object to lightweight calibration metadata.
    * Removes raw API responses, HTML descriptions, and embedded objects.
+   * Preserves observability fields for calibration aggregation (gate, matchedKeywords, etc.).
    * @param {Object} job - Any job-like object
-   * @returns {Object} Lightweight { jobId, title, companyName, location, url, reason, source }
+   * @returns {Object} Lightweight calibration record with core + observability fields
    */
   _stripJobForCalibration(job) {
     return {
@@ -309,6 +326,15 @@ class MongoStorageAdapter extends StorageAdapter {
       url: job.url || undefined,
       reason: job.reason || undefined,
       source: job.source || undefined,
+      // Observability fields for calibration report aggregation
+      gate: job.gate || undefined,
+      matchedKeywords: Array.isArray(job.matchedKeywords) ? job.matchedKeywords : undefined,
+      matchedBlacklistPatterns: Array.isArray(job.matchedBlacklistPatterns) ? job.matchedBlacklistPatterns : undefined,
+      structuredLevel: job.structuredLevel || undefined,
+      structuredDepartment: job.structuredDepartment || undefined,
+      matchedLocationKeyword: job.matchedLocationKeyword || undefined,
+      employmentType: job.employmentType || undefined,
+      fallbackTier: job.fallbackTier != null ? job.fallbackTier : undefined,
     };
   }
 
@@ -403,6 +429,88 @@ class MongoStorageAdapter extends StorageAdapter {
       // #endregion
     } catch (err) {
       console.error('MongoStorageAdapter: Failed to write calibration passed:', err.message || err);
+    }
+  }
+
+  /**
+   * Get approximate database size in bytes (for volume-based calibration trigger).
+   * @returns {Promise<number>} dataSize in bytes, or 0 on error
+   */
+  async getDbSizeBytes() {
+    try {
+      await this._ensureConnected();
+      const stats = await this.db.command({ dbStats: 1 });
+      return stats.dataSize != null ? Number(stats.dataSize) : 0;
+    } catch (err) {
+      console.warn('MongoStorageAdapter: getDbSizeBytes failed:', err.message || err);
+      return 0;
+    }
+  }
+
+  /**
+   * Volume-based cleanup protocol (Master PRD): hard-purge calibration_rejected >7d,
+   * drop zombie collections (run_logs, enriched_jobs), delete old run_summaries to free space.
+   * @returns {Promise<{ purgedRejected: number, droppedCollections: string[] }>}
+   */
+  async runVolumeCleanupProtocol() {
+    const result = { purgedRejected: 0, droppedCollections: [] };
+    try {
+      await this._ensureConnected();
+      const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
+      const rejCol = await this._getCollection(this.collections.CALIBRATION_REJECTED);
+      const deleteResult = await rejCol.deleteMany({ createdAt: { $lt: sevenDaysAgo } });
+      result.purgedRejected = deleteResult.deletedCount || 0;
+
+      const zombieNames = ['run_logs', 'enriched_jobs'];
+      const collections = await this.db.listCollections().toArray();
+      const names = collections.map((c) => c.name);
+      for (const z of zombieNames) {
+        if (names.includes(z)) {
+          await this.db.collection(z).drop();
+          result.droppedCollections.push(z);
+        }
+      }
+
+      const sumCol = await this._getCollection(this.collections.RUN_SUMMARIES);
+      const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
+      await sumCol.deleteMany({ createdAt: { $lt: thirtyDaysAgo } });
+    } catch (err) {
+      console.error('MongoStorageAdapter: runVolumeCleanupProtocol failed:', err.message || err);
+    }
+    return result;
+  }
+
+  /**
+   * Get the last successful calibration timestamp from system_state.
+   * @returns {Promise<Date>} Last calibration date, or epoch (1970) if never run.
+   */
+  async getLastCalibrationTime() {
+    try {
+      const col = await this._getCollection(this.collections.SYSTEM_STATE);
+      const doc = await col.findOne({ _id: 'calibration_timer' });
+      return doc && doc.lastCalibrationAt instanceof Date
+        ? doc.lastCalibrationAt
+        : new Date(0);
+    } catch (err) {
+      console.warn('MongoStorageAdapter: getLastCalibrationTime failed:', err.message || err);
+      return new Date(0);
+    }
+  }
+
+  /**
+   * Update the last calibration timestamp to now. Called after a successful calibration run.
+   * @returns {Promise<void>}
+   */
+  async updateLastCalibrationTime() {
+    try {
+      const col = await this._getCollection(this.collections.SYSTEM_STATE);
+      await col.updateOne(
+        { _id: 'calibration_timer' },
+        { $set: { lastCalibrationAt: new Date(), updatedAt: new Date() } },
+        { upsert: true }
+      );
+    } catch (err) {
+      console.warn('MongoStorageAdapter: updateLastCalibrationTime failed:', err.message || err);
     }
   }
 

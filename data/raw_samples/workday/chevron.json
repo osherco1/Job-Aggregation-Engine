@@ -1,0 +1,572 @@
+{
+  "_meta": {
+    "source": "workday",
+    "companyId": "chevron",
+    "companyName": "Chevron",
+    "originalUrl": "https://chevron.wd5.myworkdayjobs.com/jobs",
+    "parsedTenant": "chevron",
+    "parsedInstance": "wd5",
+    "parsedSite": "jobs",
+    "siteUrl": "https://chevron.wd5.myworkdayjobs.com/jobs",
+    "apiEndpoint": "https://chevron.wd5.myworkdayjobs.com/wday/cxs/chevron/jobs/jobs",
+    "sessionInitStatus": 200,
+    "cookiesEstablished": [
+      "PLAY_SESSION",
+      "wd-browser-id",
+      "CALYPSO_CSRF_TOKEN",
+      "CXS_SESSION",
+      "wday_vps_cookie",
+      "__cf_bm",
+      "__cflb",
+      "_cfuvid"
+    ],
+    "jobsApiStatus": 200,
+    "sampledAt": "2026-03-01T22:04:41.911Z",
+    "totalReported": 149,
+    "jobCountThisPage": 20,
+    "facetCount": 4,
+    "requestPayload": {
+      "appliedFacets": {},
+      "limit": 20,
+      "offset": 0,
+      "searchText": ""
+    }
+  },
+  "raw": {
+    "total": 149,
+    "jobPostings": [
+      {
+        "title": "Field Specialist A, Nights",
+        "externalPath": "/job/Carlsbad-New-Mexico-United-States-of-America/Field-Specialist-A--Nights_R000069378",
+        "timeType": "Full time",
+        "locationsText": "Carlsbad, New Mexico, United States of America",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "R000069378"
+        ]
+      },
+      {
+        "title": "IAM Engineer",
+        "externalPath": "/job/Buenos-Aires-Buenos-Aires-Argentina/IAM-Engineer_R000069036",
+        "timeType": "Full time",
+        "locationsText": "Buenos Aires, Buenos Aires, Argentina",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "R000069036"
+        ]
+      },
+      {
+        "title": "SAP ABAP Application Developer",
+        "externalPath": "/job/Ayala-Makati-City-Philippines/SAP-ABAP-Application-Developer_R000068059",
+        "timeType": "Full time",
+        "locationsText": "Ayala, Makati City, Philippines",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "R000068059"
+        ]
+      },
+      {
+        "title": "Scale House Attendant",
+        "externalPath": "/job/Richmond-California-United-States-of-America/Scale-House-Attendant_R000069358",
+        "timeType": "Full time",
+        "locationsText": "Richmond, California, United States of America",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "R000069358"
+        ]
+      },
+      {
+        "title": "Procurement Specialist, Expediting",
+        "externalPath": "/job/Ayala-Makati-City-Philippines/Procurement-Specialist--Expediting_R000067964",
+        "timeType": "Full time",
+        "locationsText": "Ayala, Makati City, Philippines",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "R000067964"
+        ]
+      },
+      {
+        "title": "Retail Loyalty Support Specialist",
+        "externalPath": "/job/Ayala-Makati-City-Philippines/Retail-Loyalty-Support-Specialist_R000067795-1",
+        "timeType": "Full time",
+        "locationsText": "Ayala, Makati City, Philippines",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "R000067795"
+        ]
+      },
+      {
+        "title": "Credit Analyst (Night Shift)",
+        "externalPath": "/job/Ayala-Makati-City-Philippines/Credit-Analyst--Night-Shift-_R000067391",
+        "timeType": "Full time",
+        "locationsText": "Ayala, Makati City, Philippines",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "R000067391"
+        ]
+      },
+      {
+        "title": "Subsea Geospatial Analyst",
+        "externalPath": "/job/Bengaluru-Karnataka-India/Subsea-Geospatial-Analyst_R000069373",
+        "timeType": "Full time",
+        "locationsText": "Bengaluru, Karnataka, India",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "R000069373"
+        ]
+      },
+      {
+        "title": "Senior Subsea Pipeline Engineer",
+        "externalPath": "/job/Bengaluru-Karnataka-India/Senior-Subsea-Pipeline-Engineer_R000069372",
+        "timeType": "Full time",
+        "locationsText": "Bengaluru, Karnataka, India",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "R000069372"
+        ]
+      },
+      {
+        "title": "Fixed Asset Analyst",
+        "externalPath": "/job/Ayala-Makati-City-Philippines/Fixed-Asset-Analyst_R000069079",
+        "timeType": "Full time",
+        "locationsText": "Ayala, Makati City, Philippines",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "R000069079"
+        ]
+      },
+      {
+        "title": "Operator - EMED",
+        "externalPath": "/job/TAMAR-PLATFORM/Operator---EMED_R000069340",
+        "timeType": "Full time",
+        "locationsText": "TAMAR PLATFORM",
+        "postedOn": "Posted 3 Days Ago",
+        "bulletFields": [
+          "R000069340"
+        ]
+      },
+      {
+        "title": "Production Specialist, Subsurface",
+        "externalPath": "/job/Carlsbad-New-Mexico-United-States-of-America/Production-Specialist--Subsurface_R000069182",
+        "timeType": "Full time",
+        "locationsText": "Carlsbad, New Mexico, United States of America",
+        "postedOn": "Posted 3 Days Ago",
+        "bulletFields": [
+          "R000069182"
+        ]
+      },
+      {
+        "title": "Field Specialist",
+        "externalPath": "/job/Keene-North-Dakota-United-States-of-America/Field-Specialist_R000069263",
+        "timeType": "Full time",
+        "locationsText": "Keene, North Dakota, United States of America",
+        "postedOn": "Posted 3 Days Ago",
+        "bulletFields": [
+          "R000069263"
+        ]
+      },
+      {
+        "title": "Operator Intern",
+        "externalPath": "/job/El-Segundo-California-United-States-of-America/Operator-Intern_R000069037",
+        "timeType": "Full time",
+        "locationsText": "El Segundo, California, United States of America",
+        "postedOn": "Posted 3 Days Ago",
+        "bulletFields": [
+          "R000069037"
+        ]
+      },
+      {
+        "title": "Developer - Trading Liquids Front Office",
+        "externalPath": "/job/Buenos-Aires-Buenos-Aires-Argentina/Developer---Trading-Liquids-Front-Office_R000068990",
+        "timeType": "Full time",
+        "locationsText": "Buenos Aires, Buenos Aires, Argentina",
+        "postedOn": "Posted 3 Days Ago",
+        "bulletFields": [
+          "R000068990"
+        ]
+      },
+      {
+        "title": "Category Specialist - DMC Egypt",
+        "externalPath": "/job/Cairo-Egypt/Category-Specialist---DMC-Egypt_R000069331",
+        "timeType": "Full time",
+        "locationsText": "Cairo, Egypt",
+        "postedOn": "Posted 3 Days Ago",
+        "bulletFields": [
+          "R000069331"
+        ]
+      },
+      {
+        "title": "ENGINE IT Staff Augmentation Talent Advisor",
+        "externalPath": "/job/Bengaluru-Karnataka-India/ENGINE-IT-Staff-Augmentation-Talent-Advisor_R000069328",
+        "timeType": "Full time",
+        "locationsText": "Bengaluru, Karnataka, India",
+        "postedOn": "Posted 3 Days Ago",
+        "bulletFields": [
+          "R000069328"
+        ]
+      },
+      {
+        "title": "Technical Lead: Benchmarking & Performance",
+        "externalPath": "/job/Bengaluru-Karnataka-India/Technical-Lead--Benchmarking---Performance_R000067424-2",
+        "timeType": "Full time",
+        "locationsText": "Bengaluru, Karnataka, India",
+        "postedOn": "Posted 3 Days Ago",
+        "bulletFields": [
+          "R000067424"
+        ]
+      },
+      {
+        "title": "Computerized Maintenance Management System Engineer",
+        "externalPath": "/job/Bengaluru-Karnataka-India/Computerized-Maintenance-Management-System-Engineer_R000069327",
+        "timeType": "Full time",
+        "locationsText": "Bengaluru, Karnataka, India",
+        "postedOn": "Posted 3 Days Ago",
+        "bulletFields": [
+          "R000069327"
+        ]
+      },
+      {
+        "title": "Associate Business Consultant",
+        "externalPath": "/job/Ho-Chi-Minh-City-Ho-Chi-Minh-Vietnam/Associate-Business-Consultant_R000068909",
+        "timeType": "Full time",
+        "locationsText": "Ho Chi Minh City, Ho Chi Minh, Vietnam",
+        "postedOn": "Posted 3 Days Ago",
+        "bulletFields": [
+          "R000068909"
+        ]
+      }
+    ],
+    "facets": [
+      {
+        "facetParameter": "timeType",
+        "descriptor": "Full/Part-time",
+        "values": [
+          {
+            "descriptor": "Full time",
+            "id": "e37be09190560119a25e91b94b2f7c00",
+            "count": 137
+          },
+          {
+            "descriptor": "Part time",
+            "id": "e37be09190560101814991b94b2f7b00",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "facetParameter": "workerSubType",
+        "descriptor": "Job Type",
+        "values": [
+          {
+            "descriptor": "Casual",
+            "id": "3cd342d9804f01a934e7ff03bb00c40e",
+            "count": 1
+          },
+          {
+            "descriptor": "Fixed-Term (Fixed Term)",
+            "id": "3cd342d9804f01dd46710104bb00c90e",
+            "count": 2
+          },
+          {
+            "descriptor": "Intern (Fixed Term)",
+            "id": "3cd342d9804f01e3bd250104bb00c80e",
+            "count": 6
+          },
+          {
+            "descriptor": "Regular",
+            "id": "3cd342d9804f01076f740004bb00c60e",
+            "count": 140
+          }
+        ]
+      },
+      {
+        "facetParameter": "jobFamilyGroup",
+        "descriptor": "Job Category",
+        "values": [
+          {
+            "descriptor": "Administrative Services",
+            "id": "3cd342d9804f01cbe488d377c400881b",
+            "count": 4
+          },
+          {
+            "descriptor": "Aviation",
+            "id": "3cd342d9804f01f0aa4bd677c400901b",
+            "count": 1
+          },
+          {
+            "descriptor": "Business & Commercial",
+            "id": "3cd342d9804f0107efafce77c400781b",
+            "count": 7
+          },
+          {
+            "descriptor": "Corporate Affairs",
+            "id": "3cd342d9804f01e4fb36d277c400841b",
+            "count": 1
+          },
+          {
+            "descriptor": "Facilities Engineering",
+            "id": "3cd342d9804f016cef45cd77c400741b",
+            "count": 9
+          },
+          {
+            "descriptor": "Finance",
+            "id": "3cd342d9804f01b578e6cd77c400761b",
+            "count": 16
+          },
+          {
+            "descriptor": "Health, Safety, & Environment",
+            "id": "3cd342d9804f01ddb415d877c400961b",
+            "count": 2
+          },
+          {
+            "descriptor": "Human Resources",
+            "id": "3cd342d9804f013c98f1d477c4008c1b",
+            "count": 2
+          },
+          {
+            "descriptor": "Information Technology",
+            "id": "3cd342d9804f01cb43f6cf77c4007c1b",
+            "count": 70
+          },
+          {
+            "descriptor": "Interns",
+            "id": "3cd342d9804f012dabadd177c400821b",
+            "count": 6
+          },
+          {
+            "descriptor": "Legal",
+            "id": "3cd342d9804f0183566fcb77c400701b",
+            "count": 1
+          },
+          {
+            "descriptor": "Marine",
+            "id": "3cd342d9804f013dbbf1d277c400861b",
+            "count": 1
+          },
+          {
+            "descriptor": "Operations & Maintenance",
+            "id": "3cd342d9804f01c44b93d977c4009a1b",
+            "count": 12
+          },
+          {
+            "descriptor": "Procurement / Supply Chain Management",
+            "id": "3cd342d9804f0106948ed077c4007e1b",
+            "count": 4
+          },
+          {
+            "descriptor": "Research & Development",
+            "id": "3cd342d9804f0161b0bfd877c400981b",
+            "count": 4
+          },
+          {
+            "descriptor": "Subsurface",
+            "id": "3cd342d9804f01adcf23d177c400801b",
+            "count": 7
+          },
+          {
+            "descriptor": "Wells",
+            "id": "3cd342d9804f0138c6b3cc77c400721b",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "facetParameter": "locationMainGroup",
+        "values": [
+          {
+            "facetParameter": "locations",
+            "descriptor": "Locations",
+            "values": [
+              {
+                "descriptor": "Ashdod, Southern District, Israel",
+                "id": "6a448ff989321001767a196d234a0000",
+                "count": 2
+              },
+              {
+                "descriptor": "Ashkelon, Southern District, Israel",
+                "id": "7765d137f9e5100175ce91d952730000",
+                "count": 1
+              },
+              {
+                "descriptor": "Ayala, Makati City, Philippines",
+                "id": "d4430cf7ead9100196ac687769930000",
+                "count": 23
+              },
+              {
+                "descriptor": "Bangalore, Karnataka, India",
+                "id": "aa336186dc72014ef75a24b1b530b15f",
+                "count": 16
+              },
+              {
+                "descriptor": "Bangkok, Thailand",
+                "id": "aa336186dc7201ba3a2c49b3b530c974",
+                "count": 1
+              },
+              {
+                "descriptor": "Bengaluru, Karnataka, India",
+                "id": "5652fe3bcf17100175cef0b997ee0000",
+                "count": 39
+              },
+              {
+                "descriptor": "Brisbane Head Office",
+                "id": "50223c6daa9b019db67eb402b7001321",
+                "count": 1
+              },
+              {
+                "descriptor": "Buenos Aires, Buenos Aires, Argentina",
+                "id": "aa336186dc7201e1614648b1b5302d61",
+                "count": 23
+              },
+              {
+                "descriptor": "Buenos Aires BASSC Madero Office",
+                "id": "aa336186dc72012060e4b035b630257c",
+                "count": 3
+              },
+              {
+                "descriptor": "Cairo, Egypt",
+                "id": "aa336186dc7201d0d67737b3b5301f74",
+                "count": 1
+              },
+              {
+                "descriptor": "Carlsbad, New Mexico, United States of America",
+                "id": "aa336186dc7201223b4357b1b530bb61",
+                "count": 3
+              },
+              {
+                "descriptor": "Denver, Colorado, United States of America",
+                "id": "aa336186dc7201321e1283b1b5308063",
+                "count": 1
+              },
+              {
+                "descriptor": "El Segundo, California, United States of America",
+                "id": "aa336186dc7201e2cf3591b1b530e063",
+                "count": 1
+              },
+              {
+                "descriptor": "GOT North Pailin Offshore Field",
+                "id": "aa336186dc72016e6433784bb630d6bb",
+                "count": 1
+              },
+              {
+                "descriptor": "Gray, Louisiana, United States of America",
+                "id": "aa336186dc720160c259bbb1b530c065",
+                "count": 1
+              },
+              {
+                "descriptor": "Herzliya, Israel",
+                "id": "cb36508ebf6701377997b179ac010fb4",
+                "count": 2
+              },
+              {
+                "descriptor": "Ho Chi Minh City, Ho Chi Minh, Vietnam",
+                "id": "aa336186dc720163590cd3b1b5306466",
+                "count": 1
+              },
+              {
+                "descriptor": "Houston, Texas, United States of America",
+                "id": "aa336186dc7201165072d8b1b530ae66",
+                "count": 5
+              },
+              {
+                "descriptor": "Karachi, Pakistan",
+                "id": "aa336186dc720187e5a54db3b530f674",
+                "count": 1
+              },
+              {
+                "descriptor": "Keene, North Dakota, United States of America",
+                "id": "f3a8430b6ce8100191ecf17144990000",
+                "count": 1
+              },
+              {
+                "descriptor": "Makati City Chevron 6750 Office",
+                "id": "aa336186dc720102dbf8003db6300993",
+                "count": 3
+              },
+              {
+                "descriptor": "Maracaibo, Zulia, Venezuela",
+                "id": "aa336186dc720141de2a1cb2b5307169",
+                "count": 2
+              },
+              {
+                "descriptor": "Minot, North Dakota, United States of America",
+                "id": "d1dc2677329210018d177cf77db70000",
+                "count": 1
+              },
+              {
+                "descriptor": "Ningbo, Zhejiang, China",
+                "id": "aa336186dc72013bd22823b3b5304873",
+                "count": 2
+              },
+              {
+                "descriptor": "Omaezaki-City, Shizuoka, Japan",
+                "id": "aa336186dc7201a1fc445db2b530da6b",
+                "count": 1
+              },
+              {
+                "descriptor": "Pascagoula, Mississippi, United States of America",
+                "id": "aa336186dc7201cbb64c68b2b5306d6c",
+                "count": 1
+              },
+              {
+                "descriptor": "Perth, Western Australia, Australia",
+                "id": "aa336186dc720164744476b2b530cc6c",
+                "count": 2
+              },
+              {
+                "descriptor": "Port Arthur, Texas, United States of America",
+                "id": "aa336186dc7201a9d96f88b2b530676d",
+                "count": 1
+              },
+              {
+                "descriptor": "Richmond, California, United States of America",
+                "id": "aa336186dc7201aba7e79cb2b5303e6e",
+                "count": 3
+              },
+              {
+                "descriptor": "RMZ Ecoworld 32",
+                "id": "337488f6e81d1001f5d115721a580000",
+                "count": 1
+              },
+              {
+                "descriptor": "Rotterdam, Netherlands",
+                "id": "aa336186dc7201147c87a4b2b530846e",
+                "count": 2
+              },
+              {
+                "descriptor": "San Ramon, California, United States of America",
+                "id": "aa336186dc7201fd1512beb2b530456f",
+                "count": 1
+              },
+              {
+                "descriptor": "Seneca, Illinois, United States of America",
+                "id": "6f79715ae0181000d2be3714449f0000",
+                "count": 1
+              },
+              {
+                "descriptor": "Sugar Land, Texas, United States of America",
+                "id": "aa336186dc72012c0ff2e2b2b530af70",
+                "count": 1
+              },
+              {
+                "descriptor": "TAMAR PLATFORM",
+                "id": "bcbd66227edf100107092ab841110000",
+                "count": 1
+              },
+              {
+                "descriptor": "Tokyo, Tokyo, Japan",
+                "id": "aa336186dc72011fab36f4b2b5307271",
+                "count": 1
+              },
+              {
+                "descriptor": "Westferry, London, United Kingdom",
+                "id": "22a5d867c379100197d67c523e9a0000",
+                "count": 1
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "userAuthenticated": false
+  }
+}

@@ -183,6 +183,19 @@ function requestWithDelayWrapper(httpClient, options = {}) {
         return result.response;
       };
     }
+    if (enableRetries && provider === 'greenhouse') {
+      return async (config) => {
+        const result = await requestWithRetry(httpClient, config, {
+          provider: 'greenhouse',
+          maxRetries: maxRetries || 1,
+          retryOn429: true,
+          retryOn5xx: true,
+          retryOnTimeout: true,
+          retryOnNetwork: false,
+        });
+        return result.response;
+      };
+    }
     // Standard wrapper without retries (but still uses rate limiting if provider specified)
     if (provider === 'comeet') {
       // Even without retries, apply rate limiting

@@ -203,6 +203,7 @@ async function runLinkedinScraper(options = {}) {
     errors: 0,
   };
   const filteredJobsLog = []; // To store { title, company, reason }
+  const linkedinCalibrationDrops = []; // To store lightweight semantic drops for calibration_rejected
   const fetchErrors = []; // Surfaced to orchestrator for email gating
 
   const isDryRun = process.env.DRY_RUN === 'true';
@@ -434,6 +435,26 @@ async function runLinkedinScraper(options = {}) {
               } else {
                 console.log(dropMsg);
               }
+
+              // Persist lightweight semantic rejection for calibration (exclude dedup noise).
+              const lastLogEntry = filteredJobsLog[filteredJobsLog.length - 1] || {};
+              const semanticReason =
+                lastLogEntry && lastLogEntry.title === title && lastLogEntry.company === company
+                  ? lastLogEntry.reason
+                  : 'TitleFilter';
+
+              if (semanticReason && semanticReason !== 'AlreadySeen') {
+                linkedinCalibrationDrops.push({
+                  jobId: enrichedJob.jobId,
+                  title,
+                  companyName: enrichedJob.companyName || company,
+                  location: enrichedJob.location || 'Unknown location',
+                  url: enrichedJob.applyUrl || enrichedJob.url || null,
+                  reason: semanticReason,
+                  gate: 'linkedin_title',
+                  source: 'linkedin',
+                });
+              }
             } else {
               const keepMsg = `✅ KEPT for reporting: jobId=${enrichedJob.jobId} | title="${title}"`;
               if (chalk && typeof chalk.green === 'function') {
@@ -523,8 +544,20 @@ async function runLinkedinScraper(options = {}) {
     const logTimestamp = new Date().toISOString().split('.')[0].replace(/:/g, '-');
     runStats.endTime = new Date().toISOString();
     runStats.newJobsAdded = allNewJobs.length;
+    if (runStats.startTime && runStats.endTime) {
+      const start = new Date(runStats.startTime);
+      const end = new Date(runStats.endTime);
+      if (!Number.isNaN(start.getTime()) && !Number.isNaN(end.getTime()) && end >= start) {
+        runStats.totalDurationMs = end.getTime() - start.getTime();
+      }
+    }
 
     try {
+      if (Array.isArray(linkedinCalibrationDrops) && linkedinCalibrationDrops.length > 0) {
+        await storage.writeCalibrationRejected(linkedinCalibrationDrops);
+        console.log(`Saved ${linkedinCalibrationDrops.length} LinkedIn semantic drops to calibration_rejected`);
+      }
+
       // Write run summary via storage adapter
       await storage.writeRunLog({
         type: 'summary',
@@ -534,7 +567,7 @@ async function runLinkedinScraper(options = {}) {
       });
       console.log(`Saved run summary via storage adapter`);
     } catch (e) {
-      console.error('Failed to write run_summary:', e.message || e);
+      console.error('Failed to persist LinkedIn calibration artifacts:', e.message || e);
     }
   }
 

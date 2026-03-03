@@ -19,6 +19,7 @@ const { GreenhouseWorker } = require('./workers/greenhouseWorker');
 const { WorkdayWorker } = require('./workers/workdayWorker');
 const { LinkedInAuthChallengeError } = require('../linkedin_client');
 const { sendCriticalAlert } = require('../mailer');
+const { checkVolumeTrigger, runCalibrationAndNotify } = require('../services/calibration/calibrationReport');
 
 // Services (factories - will be called in run() function)
 const { createJobStateService } = require('../services/JobStateService');
@@ -82,18 +83,6 @@ function deriveStatus(runStats, errors) {
   return 'PARTIAL_FAIL';
 }
 
-const filteredJobsBuffer = [];
-
-function logFilteredJob(reason, unifiedJob, company) {
-  filteredJobsBuffer.push({
-    reason,
-    title: unifiedJob.title,
-    location: unifiedJob.location,
-    companyId: company.id,
-    source: unifiedJob.source,
-  });
-}
-
 async function persistResults(allUnifiedJobs, runStats, storageAdapter) {
   const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
 
@@ -120,18 +109,7 @@ async function persistResults(allUnifiedJobs, runStats, storageAdapter) {
     );
   }
 
-  // Write orchestrator-level filtered jobs to calibration_rejected (lightweight)
-  if (filteredJobsBuffer.length > 0) {
-    try {
-      await storageAdapter.writeCalibrationRejected(filteredJobsBuffer);
-      console.log(`Saved ${filteredJobsBuffer.length} filtered jobs to calibration_rejected`);
-    } catch (err) {
-      console.error(
-        'Failed to write calibration rejected:',
-        err.message || err
-      );
-    }
-  }
+  // Workers persist their own dropped jobs to calibration_rejected; no orchestrator-level buffer.
 }
 
 /**
@@ -237,6 +215,7 @@ async function runAtsWorkers(errors, storageAdapter, knownJobIds) {
     const batchErrors = [];
     let succeeded = 0;
     let failed = 0;
+    const workdayRunStats = [];
 
     for (let i = 0; i < wdCompanies.length; i++) {
       const company = wdCompanies[i];
@@ -246,20 +225,19 @@ async function runAtsWorkers(errors, storageAdapter, knownJobIds) {
       }
 
       try {
-        // Workday requires a new worker instance per company (different tenant/site)
-        const worker = new WorkdayWorker({
-          name: company.name,
-          url: company.url
-        });
+        const worker = new WorkdayWorker(
+          { name: company.name, url: company.url },
+          { storageAdapter, knownJobIds }
+        );
 
-        // fetchAllJobs now returns Array<UnifiedJob> directly
-        const companyJobs = await worker.fetchAllJobs(company);
+        const { jobs: companyJobs, stats: companyStats } = await worker.fetchAllJobs(company);
 
         for (const job of companyJobs || []) {
           if (job && job.jobId) {
             jobs.push(job);
           }
         }
+        workdayRunStats.push({ companyId: company.id, companyName: company.name, ...companyStats });
         succeeded += 1;
       } catch (err) {
         failed += 1;
@@ -272,7 +250,7 @@ async function runAtsWorkers(errors, storageAdapter, knownJobIds) {
       }
     }
 
-    return { jobs, stats: { succeeded, failed }, errors: batchErrors };
+    return { jobs, stats: { succeeded, failed }, errors: batchErrors, workdayRunStats };
   }
 
   // Run ALL THREE batches in TRUE PARALLEL
@@ -324,6 +302,29 @@ async function runAtsWorkers(errors, storageAdapter, knownJobIds) {
   runStats.status = deriveStatus(runStats, errors);
 
   await persistResults(allAtsJobs, runStats, storageAdapter);
+
+  // Dual-trigger calibration (Master PRD): volume >= 350MB OR time >= 7 days since last calibration
+  try {
+    const SEVEN_DAYS_MS = 7 * 24 * 60 * 60 * 1000;
+    const volumeTriggered = await checkVolumeTrigger(storageAdapter);
+    const lastCal = typeof storageAdapter.getLastCalibrationTime === 'function'
+      ? await storageAdapter.getLastCalibrationTime()
+      : new Date(0);
+    const timeTriggered = (Date.now() - lastCal.getTime()) >= SEVEN_DAYS_MS;
+
+    if (volumeTriggered || timeTriggered) {
+      const triggerType = volumeTriggered ? 'volume' : 'time';
+      console.log(`Calibration trigger: ${triggerType} (volume=${volumeTriggered}, timeSinceLastCal=${Math.round((Date.now() - lastCal.getTime()) / 3600000)}h)`);
+      const emailNotifier = createEmailNotifier();
+      const ok = await runCalibrationAndNotify(storageAdapter, emailNotifier, triggerType);
+      if (ok && typeof storageAdapter.updateLastCalibrationTime === 'function') {
+        await storageAdapter.updateLastCalibrationTime();
+        console.log('Calibration timer reset');
+      }
+    }
+  } catch (calErr) {
+    console.warn('Calibration check failed:', calErr.message || calErr);
+  }
 
   // Summary with Workday
   console.log(`✅ ATS Phase complete: ${allAtsJobs.length} jobs`);
@@ -467,7 +468,13 @@ async function persistState(emailSuccess, jobStateService) {
   _dbgLog('orchestrator.js:persistState',{emailSuccess,pendingNewIds:jobStateService.getStats().pendingCount,historyCount:jobStateService.getStats().historyCount},'H5');
   // #endregion
 
-  if (emailSuccess) {
+  // #region agent log
+  fetch('http://127.0.0.1:7242/ingest/61a56e06-6640-4063-b879-e276fdb70bb5',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'e92a09'},body:JSON.stringify({sessionId:'e92a09',location:'orchestrator.js:persistState',message:'persistState branch',data:{DRY_RUN,emailSuccess,pendingCount:jobStateService.getStats().pendingCount},timestamp:Date.now()})}).catch(()=>{});
+  // #endregion
+  if (DRY_RUN) {
+    jobStateService.rollback();
+    console.log('[DRY_RUN] Skipping persistState (no side-effects in test mode)');
+  } else if (emailSuccess) {
     await jobStateService.persistState();
     console.log('✅ Job history updated');
   } else {
@@ -483,10 +490,6 @@ async function run() {
   const startTime = Date.now();
   const errors = [];
 
-  // FIX 4: Cloud Run State Reset — clear module-level buffers at run start
-  // Prevents stale data from leaking between container reuses
-  filteredJobsBuffer.length = 0;
-  
   // Create storage adapter (will be FileStorageAdapter locally, MongoStorageAdapter in cloud)
   const storageAdapter = createStorageAdapter();
 
@@ -514,7 +517,15 @@ async function run() {
     const linkedinErrors = [];
 
     // Load known job IDs BEFORE the parallel phase (for ATS silent dedup)
-    const knownJobIds = await storageAdapter.loadSentHistory();
+    const knownJobIds = process.env.RESET_DEDUP === 'true'
+      ? new Set()
+      : await storageAdapter.loadSentHistory();
+    if (process.env.RESET_DEDUP === 'true') {
+      console.log('⚠️  [TEST MODE] Bypassing Silent Dedup (knownJobIds empty)');
+    }
+    // #region agent log
+    fetch('http://127.0.0.1:7242/ingest/61a56e06-6640-4063-b879-e276fdb70bb5',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'e92a09'},body:JSON.stringify({sessionId:'e92a09',location:'orchestrator.js:knownJobIds',message:'knownJobIds loaded',data:{size:knownJobIds.size,RESET_DEDUP:process.env.RESET_DEDUP},timestamp:Date.now()})}).catch(()=>{});
+    // #endregion
 
     const [atsResult, linkedinResult] = await Promise.allSettled([
       runAtsWorkers(atsErrors, storageAdapter, knownJobIds),
@@ -557,7 +568,7 @@ async function run() {
     const emailNotifier = createEmailNotifier();
 
     // #region agent log
-    _dbgLog('orchestrator.js:pre-dedup',{totalJobsCollected:allJobs.length,filteredJobsBufferLen:filteredJobsBuffer.length,sampleJobIds:allJobs.slice(0,5).map(j=>j.jobId)},'H2');
+    _dbgLog('orchestrator.js:pre-dedup',{totalJobsCollected:allJobs.length,sampleJobIds:allJobs.slice(0,5).map(j=>j.jobId)},'H2');
     // #endregion
 
     // Phase 3: Deduplication

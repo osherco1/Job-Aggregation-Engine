@@ -1,0 +1,307 @@
+{
+  "_meta": {
+    "source": "workday",
+    "companyId": "kla",
+    "companyName": "KLA",
+    "originalUrl": "https://kla.wd1.myworkdayjobs.com/Israel",
+    "parsedTenant": "kla",
+    "parsedInstance": "wd1",
+    "parsedSite": "Israel",
+    "siteUrl": "https://kla.wd1.myworkdayjobs.com/Israel",
+    "apiEndpoint": "https://kla.wd1.myworkdayjobs.com/wday/cxs/kla/Israel/jobs",
+    "sessionInitStatus": 200,
+    "cookiesEstablished": [
+      "PLAY_SESSION",
+      "wd-browser-id",
+      "CALYPSO_CSRF_TOKEN",
+      "CXS_SESSION",
+      "wday_vps_cookie",
+      "__cf_bm",
+      "__cflb",
+      "_cfuvid"
+    ],
+    "jobsApiStatus": 200,
+    "sampledAt": "2026-03-01T22:05:11.961Z",
+    "totalReported": 23,
+    "jobCountThisPage": 20,
+    "facetCount": 4,
+    "requestPayload": {
+      "appliedFacets": {},
+      "limit": 20,
+      "offset": 0,
+      "searchText": ""
+    }
+  },
+  "raw": {
+    "total": 23,
+    "jobPostings": [
+      {
+        "title": "Team Lead – Software",
+        "externalPath": "/job/Migdal-Haemek-Israel/Software-and-ML-Team-Leader_2533312",
+        "locationsText": "Migdal Ha'emek, Israel",
+        "postedOn": "Posted 3 Days Ago",
+        "bulletFields": [
+          "2533312"
+        ]
+      },
+      {
+        "title": "CA Flow and Performance (CFP) Engineer",
+        "externalPath": "/job/Migdal-Haemek-Israel/CA-Flow-and-Performance--CFP--Engineer_2634523",
+        "locationsText": "Migdal Ha'emek, Israel",
+        "postedOn": "Posted 4 Days Ago",
+        "bulletFields": [
+          "2634523"
+        ]
+      },
+      {
+        "title": "System Integrator",
+        "externalPath": "/job/Migdal-Haemek-Israel/System-Integrator_2634646",
+        "locationsText": "Migdal Ha'emek, Israel",
+        "postedOn": "Posted 4 Days Ago",
+        "bulletFields": [
+          "2634646"
+        ]
+      },
+      {
+        "title": "System Integration Engineer – Spare Parts Tool Owner",
+        "externalPath": "/job/Migdal-Haemek-Israel/System-Integration-Engineer---Spare-Parts-Tool-Owner_2634584",
+        "locationsText": "Migdal Ha'emek, Israel",
+        "postedOn": "Posted 5 Days Ago",
+        "bulletFields": [
+          "2634584"
+        ]
+      },
+      {
+        "title": "Spare Parts Test Engineer",
+        "externalPath": "/job/Migdal-Haemek-Israel/Spare-Parts-Test-Engineer_2634619",
+        "locationsText": "Migdal Ha'emek, Israel",
+        "postedOn": "Posted 5 Days Ago",
+        "bulletFields": [
+          "2634619"
+        ]
+      },
+      {
+        "title": "Integration Engineer",
+        "externalPath": "/job/Migdal-Haemek-Israel/Integration-Engineer_2634508",
+        "locationsText": "Migdal Ha'emek, Israel",
+        "postedOn": "Posted 7 Days Ago",
+        "bulletFields": [
+          "2634508"
+        ]
+      },
+      {
+        "title": "Customer Support Engineer",
+        "externalPath": "/job/Migdal-Haemek-Israel/Customer-Support-Engineer_2634129",
+        "locationsText": "Migdal Ha'emek, Israel",
+        "postedOn": "Posted 14 Days Ago",
+        "bulletFields": [
+          "2634129"
+        ]
+      },
+      {
+        "title": "OMD Final Integration Engineer",
+        "externalPath": "/job/Migdal-Haemek-Israel/OMD-Final-Integration-Engineer_2634233",
+        "locationsText": "Migdal Ha'emek, Israel",
+        "postedOn": "Posted 14 Days Ago",
+        "bulletFields": [
+          "2634233"
+        ]
+      },
+      {
+        "title": "Final Integration Engineer",
+        "externalPath": "/job/Migdal-Haemek-Israel/Final-Integration-Engineer_2634238",
+        "locationsText": "Migdal Ha'emek, Israel",
+        "postedOn": "Posted 14 Days Ago",
+        "bulletFields": [
+          "2634238"
+        ]
+      },
+      {
+        "title": "Payroll Manager",
+        "externalPath": "/job/Yavne-Israel/Payroll-Manager_2532658",
+        "locationsText": "Yavne, Israel",
+        "postedOn": "Posted 17 Days Ago",
+        "bulletFields": [
+          "2532658"
+        ]
+      },
+      {
+        "title": "Optic Lab Technician",
+        "externalPath": "/job/Migdal-Haemek-Israel/Optic-Lab-Technician_2633942",
+        "locationsText": "Migdal Ha'emek, Israel",
+        "postedOn": "Posted 27 Days Ago",
+        "bulletFields": [
+          "2633942"
+        ]
+      },
+      {
+        "title": "System Integrator, Laser-Based Platforms",
+        "externalPath": "/job/Yavne-Israel/System-Integrator--Laser-Based-Platforms_2634069",
+        "locationsText": "Yavne, Israel",
+        "postedOn": "Posted 28 Days Ago",
+        "bulletFields": [
+          "2634069"
+        ]
+      },
+      {
+        "title": "X‑ray Integration Engineer",
+        "externalPath": "/job/Migdal-Haemek-Israel/X-ray-Integration-Engineer_2634002",
+        "locationsText": "Migdal Ha'emek, Israel",
+        "postedOn": "Posted 30+ Days Ago",
+        "bulletFields": [
+          "2634002"
+        ]
+      },
+      {
+        "title": "BI & Data Solutions Developer",
+        "externalPath": "/job/Migdal-Haemek-Israel/BI---Data-Solutions-Developer_2633901",
+        "locationsText": "Migdal Ha'emek, Israel",
+        "postedOn": "Posted 30+ Days Ago",
+        "bulletFields": [
+          "2633901"
+        ]
+      },
+      {
+        "title": "Head of PCB Marketing",
+        "externalPath": "/job/Yavne-Israel/Head-of-PCB-Marketing_2633949",
+        "locationsText": "Yavne, Israel",
+        "postedOn": "Posted 30+ Days Ago",
+        "bulletFields": [
+          "2633949"
+        ]
+      },
+      {
+        "title": "MDE Mechanical Engineer",
+        "externalPath": "/job/Migdal-Haemek-Israel/MDE-Mechanical-Engineer_2533171",
+        "locationsText": "Migdal Ha'emek, Israel",
+        "postedOn": "Posted 30+ Days Ago",
+        "bulletFields": [
+          "2533171"
+        ]
+      },
+      {
+        "title": "Technical Writer",
+        "externalPath": "/job/Migdal-Haemek-Israel/Technical-Writer_2533621-2",
+        "locationsText": "Migdal Ha'emek, Israel",
+        "postedOn": "Posted 30+ Days Ago",
+        "bulletFields": [
+          "2533621"
+        ]
+      },
+      {
+        "title": "Engineering Product Manager",
+        "externalPath": "/job/Yavne-Israel/Engineering-Product-Manager_2533592",
+        "locationsText": "Yavne, Israel",
+        "postedOn": "Posted 30+ Days Ago",
+        "bulletFields": [
+          "2533592"
+        ]
+      },
+      {
+        "title": "Final Integration Engineer",
+        "externalPath": "/job/Migdal-Haemek-Israel/Final-Integration-Engineer_2533556-2",
+        "locationsText": "Migdal Ha'emek, Israel",
+        "postedOn": "Posted 30+ Days Ago",
+        "bulletFields": [
+          "2533556"
+        ]
+      },
+      {
+        "title": "Director, Head of the Central Platform Group (CPG)",
+        "externalPath": "/job/Migdal-Haemek-Israel/Dir--Engineering_2533363",
+        "locationsText": "Migdal Ha'emek, Israel",
+        "postedOn": "Posted 30+ Days Ago",
+        "bulletFields": [
+          "2533363"
+        ]
+      }
+    ],
+    "facets": [
+      {
+        "facetParameter": "jobFamilyGroup",
+        "descriptor": "Job Category",
+        "values": [
+          {
+            "descriptor": "Manufacturing",
+            "id": "bcb876733f86014ab61c03ff551baf1e",
+            "count": 14
+          },
+          {
+            "descriptor": "Engineering",
+            "id": "bcb876733f8601b7cce000ff551b9f1e",
+            "count": 3
+          },
+          {
+            "descriptor": "Marketing",
+            "id": "bcb876733f8601e5557803ff551bb11e",
+            "count": 2
+          },
+          {
+            "descriptor": "Engineering Services",
+            "id": "bcb876733f860139e42801ff551ba11e",
+            "count": 1
+          },
+          {
+            "descriptor": "Service",
+            "id": "bcb876733f860172f7ff03ff551bb51e",
+            "count": 1
+          },
+          {
+            "descriptor": "Information Technology",
+            "id": "bcb876733f8601be109502ff551bab1e",
+            "count": 1
+          },
+          {
+            "descriptor": "Finance",
+            "id": "bcb876733f86013a9bff01ff551ba71e",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "facetParameter": "workerSubType",
+        "descriptor": "Job Type",
+        "values": [
+          {
+            "descriptor": "Regular",
+            "id": "bcb876733f86019ab2b99a52051b260c",
+            "count": 23
+          }
+        ]
+      },
+      {
+        "facetParameter": "timeType",
+        "descriptor": "Time Type",
+        "values": [
+          {
+            "descriptor": "Full time",
+            "id": "af2f3cf19b62019c1932b08c18175800",
+            "count": 23
+          }
+        ]
+      },
+      {
+        "facetParameter": "locationMainGroup",
+        "values": [
+          {
+            "facetParameter": "primaryLocation",
+            "descriptor": "Primary Location",
+            "values": [
+              {
+                "descriptor": "Migdal Ha'emek, Israel",
+                "id": "bcb876733f86017ae58f53b95d1b83ba",
+                "count": 18
+              },
+              {
+                "descriptor": "Yavne, Israel",
+                "id": "bcb876733f860109e9903aba5d1b9ebd",
+                "count": 5
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "userAuthenticated": false
+  }
+}

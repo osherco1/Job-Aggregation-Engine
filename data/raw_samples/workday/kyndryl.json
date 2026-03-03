@@ -1,0 +1,1605 @@
+{
+  "_meta": {
+    "source": "workday",
+    "companyId": "kyndryl",
+    "companyName": "Kyndryl",
+    "originalUrl": "https://kyndryl.wd5.myworkdayjobs.com/KyndrylProfessionalCareers",
+    "parsedTenant": "kyndryl",
+    "parsedInstance": "wd5",
+    "parsedSite": "KyndrylProfessionalCareers",
+    "siteUrl": "https://kyndryl.wd5.myworkdayjobs.com/KyndrylProfessionalCareers",
+    "apiEndpoint": "https://kyndryl.wd5.myworkdayjobs.com/wday/cxs/kyndryl/KyndrylProfessionalCareers/jobs",
+    "sessionInitStatus": 200,
+    "cookiesEstablished": [
+      "PLAY_SESSION",
+      "wd-browser-id",
+      "CALYPSO_CSRF_TOKEN",
+      "CXS_SESSION",
+      "wday_vps_cookie",
+      "__cf_bm",
+      "__cflb",
+      "_cfuvid"
+    ],
+    "jobsApiStatus": 200,
+    "sampledAt": "2026-03-01T22:03:42.264Z",
+    "totalReported": 963,
+    "jobCountThisPage": 20,
+    "facetCount": 6,
+    "requestPayload": {
+      "appliedFacets": {},
+      "limit": 20,
+      "offset": 0,
+      "searchText": ""
+    }
+  },
+  "raw": {
+    "total": 963,
+    "jobPostings": [
+      {
+        "title": "Cloud Engineer",
+        "externalPath": "/job/Petach-Tikva-Center-District-Israel/Cloud-Engineer_R-53816",
+        "locationsText": "Petach Tikva, Center District, Israel",
+        "postedOn": "Posted Today",
+        "remoteType": "Partially Remote",
+        "bulletFields": [
+          "R-53816"
+        ]
+      },
+      {
+        "title": "Agent Forward Engineer",
+        "externalPath": "/job/MA-USA/Agent-Forward-Engineer_R-54092",
+        "locationsText": "MA, USA",
+        "postedOn": "Posted Yesterday",
+        "remoteType": "Fully Remote",
+        "bulletFields": [
+          "R-54092"
+        ]
+      },
+      {
+        "title": "Executive Administrative Assistant",
+        "externalPath": "/job/Heredia-Costa-Rica/Executive-Administrative-Assistant_R-58095",
+        "locationsText": "Heredia, Costa Rica",
+        "postedOn": "Posted 2 Days Ago",
+        "remoteType": "Partially Remote",
+        "bulletFields": [
+          "R-58095"
+        ]
+      },
+      {
+        "title": "SQL database Administrator",
+        "externalPath": "/job/Bangalore-Karnataka-India/SQL-database-Administrator_R-48830",
+        "locationsText": "3 Locations",
+        "postedOn": "Posted 2 Days Ago",
+        "remoteType": "In Person",
+        "bulletFields": [
+          "R-48830"
+        ]
+      },
+      {
+        "title": "ServiceNow Architect ITOM ITSM ITAM",
+        "externalPath": "/job/Hyderabad-Telangana-India/ServiceNow-Architect-ITOM-ITSM-ITAM_R-55286-1",
+        "locationsText": "Hyderabad, Telangana, India",
+        "postedOn": "Posted 2 Days Ago",
+        "remoteType": "In Person",
+        "bulletFields": [
+          "R-55286"
+        ]
+      },
+      {
+        "title": "Agentic AI Architect",
+        "externalPath": "/job/Chennai-Tamil-Nadu-India/Agentic-AI-Architect_R-50004-1",
+        "locationsText": "2 Locations",
+        "postedOn": "Posted 2 Days Ago",
+        "remoteType": "In Person",
+        "bulletFields": [
+          "R-50004"
+        ]
+      },
+      {
+        "title": "SOAR Automation Engineer",
+        "externalPath": "/job/Noida-Uttar-Pradesh-India/SOAR-Automation-Engineer-GenAI-Engineer_R-52613-1",
+        "locationsText": "Noida, Uttar Pradesh, India",
+        "postedOn": "Posted 2 Days Ago",
+        "remoteType": "In Person",
+        "bulletFields": [
+          "R-52613"
+        ]
+      },
+      {
+        "title": "Customer Partner for Finance sector",
+        "externalPath": "/job/Tokyo-Japan/Customer-Partner-for-Finance-sector_R-57615-1",
+        "locationsText": "Tokyo, Japan",
+        "postedOn": "Posted 2 Days Ago",
+        "remoteType": "In Person",
+        "bulletFields": [
+          "R-57615"
+        ]
+      },
+      {
+        "title": "Agentic AI Architect",
+        "externalPath": "/job/Tokyo-Japan/Agentic-AI-Architect_R-53247",
+        "locationsText": "Tokyo, Japan",
+        "postedOn": "Posted 2 Days Ago",
+        "remoteType": "Partially Remote",
+        "bulletFields": [
+          "R-53247"
+        ]
+      },
+      {
+        "title": "Azure Cloud Architect",
+        "externalPath": "/job/Madrid-Spain/Azure-Cloud-Architect_R-57621",
+        "locationsText": "Madrid, Spain",
+        "postedOn": "Posted 2 Days Ago",
+        "remoteType": "Partially Remote",
+        "bulletFields": [
+          "R-57621"
+        ]
+      },
+      {
+        "title": "Director, Consult Partner - Digital Workplace Services, Manufacturing and Engineering",
+        "externalPath": "/job/All-Cities---USA/Director--Consult-Partner---TMT---DWS_R-43654",
+        "locationsText": "All Cities - USA",
+        "postedOn": "Posted 3 Days Ago",
+        "remoteType": "Fully Remote",
+        "bulletFields": [
+          "R-43654"
+        ]
+      },
+      {
+        "title": "Network Operations Analyst (NOC)",
+        "externalPath": "/job/Hortolandia-So-Paulo-Brazil/Network-Operations-Analyst--NOC-_R-57902-1",
+        "locationsText": "Hortolandia, São Paulo, Brazil",
+        "postedOn": "Posted 3 Days Ago",
+        "remoteType": "In Person",
+        "bulletFields": [
+          "R-57902"
+        ]
+      },
+      {
+        "title": "Network Operations Analyst (NOC)",
+        "externalPath": "/job/Hortolandia-So-Paulo-Brazil/Network-Operations-Analyst--NOC-_R-57901-1",
+        "locationsText": "Hortolandia, São Paulo, Brazil",
+        "postedOn": "Posted 3 Days Ago",
+        "remoteType": "In Person",
+        "bulletFields": [
+          "R-57901"
+        ]
+      },
+      {
+        "title": "Network Operations Analyst (NOC)",
+        "externalPath": "/job/Hortolandia-So-Paulo-Brazil/Network-Operations-Analyst--NOC-_R-57900",
+        "locationsText": "Hortolandia, São Paulo, Brazil",
+        "postedOn": "Posted 3 Days Ago",
+        "remoteType": "In Person",
+        "bulletFields": [
+          "R-57900"
+        ]
+      },
+      {
+        "title": "Customer Partner - Federal Government",
+        "externalPath": "/job/CA152583-Ottawa-CA152583/Customer-Partner---Federal-Government_R-56505",
+        "locationsText": "2 Locations",
+        "postedOn": "Posted 3 Days Ago",
+        "remoteType": "Partially Remote",
+        "bulletFields": [
+          "R-56505"
+        ]
+      },
+      {
+        "title": "Data Architect",
+        "externalPath": "/job/Madrid-Spain/Data-Architect_R-58027",
+        "locationsText": "2 Locations",
+        "postedOn": "Posted 3 Days Ago",
+        "remoteType": "Partially Remote",
+        "bulletFields": [
+          "R-58027"
+        ]
+      },
+      {
+        "title": "Cybersecurity Consultant",
+        "externalPath": "/job/Madrid-Spain/Cybersecurity-Consultant_R-55390",
+        "locationsText": "Madrid, Spain",
+        "postedOn": "Posted 3 Days Ago",
+        "remoteType": "Partially Remote",
+        "bulletFields": [
+          "R-55390"
+        ]
+      },
+      {
+        "title": "Resiliency Solution Architect",
+        "externalPath": "/job/Roma-Italy/Resiliency-Customer-Technical-Solutioner_R-51912",
+        "locationsText": "3 Locations",
+        "postedOn": "Posted 3 Days Ago",
+        "remoteType": "Partially Remote",
+        "bulletFields": [
+          "R-51912"
+        ]
+      },
+      {
+        "title": "zSystems Network System Programmer",
+        "externalPath": "/job/Bangalore-Karnataka-India/zSystems-Network-System-Programmer_R-57863",
+        "locationsText": "2 Locations",
+        "postedOn": "Posted 3 Days Ago",
+        "remoteType": "Partially Remote",
+        "bulletFields": [
+          "R-57863"
+        ]
+      },
+      {
+        "title": "Senior IT Auditor with Consulting Skills",
+        "externalPath": "/job/Hoofddorp-North-Holland-Netherlands/Senior-IT-Auditor-with-Consulting-Skills_R-54631-1",
+        "locationsText": "Hoofddorp, North Holland, Netherlands",
+        "postedOn": "Posted 3 Days Ago",
+        "remoteType": "Partially Remote",
+        "bulletFields": [
+          "R-54631"
+        ]
+      }
+    ],
+    "facets": [
+      {
+        "facetParameter": "remoteType",
+        "descriptor": "Remote Type",
+        "values": [
+          {
+            "descriptor": "Partially Remote",
+            "id": "b32e24160f341001a343b54cc16e0000",
+            "count": 515
+          },
+          {
+            "descriptor": "In Person",
+            "id": "b32e24160f341001a343b4175dd20000",
+            "count": 369
+          },
+          {
+            "descriptor": "Fully Remote",
+            "id": "b32e24160f341001a343b54cc16e0001",
+            "count": 79
+          }
+        ]
+      },
+      {
+        "facetParameter": "jobFamilyGroup",
+        "descriptor": "Job Category",
+        "values": [
+          {
+            "descriptor": "Technical Specialist Group",
+            "id": "08600430365f101d9ba8535c615b0000",
+            "count": 355
+          },
+          {
+            "descriptor": "Customer Management & Sales Group",
+            "id": "5d4574f56a26101d9bada83109950000",
+            "count": 129
+          },
+          {
+            "descriptor": "Consulting",
+            "id": "1e5bde59cd7b101d9ba8d169ae7c0000",
+            "count": 124
+          },
+          {
+            "descriptor": "Software Engineering Group",
+            "id": "07af781d896b101d9ba3b40f836f0000",
+            "count": 103
+          },
+          {
+            "descriptor": "Architect Group",
+            "id": "d81e70248647101d9ba322697c6d0000",
+            "count": 87
+          },
+          {
+            "descriptor": "Project Management Group",
+            "id": "0900d2009f02101d9ba3a148fd1e0000",
+            "count": 49
+          },
+          {
+            "descriptor": "Data Science Group",
+            "id": "9991250c32dd101d9ba972a2d8bc0000",
+            "count": 37
+          },
+          {
+            "descriptor": "Enterprise Operations Group",
+            "id": "275ec09969be101d9b9e961dc7500000",
+            "count": 21
+          },
+          {
+            "descriptor": "Services Delivery Group",
+            "id": "e07cbb1376d1101d9ba5d2a1940d0000",
+            "count": 16
+          },
+          {
+            "descriptor": "Design Group",
+            "id": "c4f48076700a101d9baa50b5d6760000",
+            "count": 14
+          },
+          {
+            "descriptor": "Finance Group",
+            "id": "c25962a91176101d9ba806c4e7c90000",
+            "count": 9
+          },
+          {
+            "descriptor": "Human Resources Group",
+            "id": "899294bdd4cd101d9ba1436d7c530000",
+            "count": 6
+          },
+          {
+            "descriptor": "Legal Group",
+            "id": "275ec09969be101d9b9ebb110d7a0000",
+            "count": 4
+          },
+          {
+            "descriptor": "Supply Chain Group",
+            "id": "ae784cf28930101d9baa300042130000",
+            "count": 3
+          },
+          {
+            "descriptor": "Corporate Affairs Group",
+            "id": "f6ec0b8f7d47101d9ba3e99bc2770000",
+            "count": 2
+          },
+          {
+            "descriptor": "Product Management Group",
+            "id": "4eb7fe7692811001592e43060be10000",
+            "count": 1
+          },
+          {
+            "descriptor": "Marketing Group",
+            "id": "7cacd23022291024d208e06bc21b0000",
+            "count": 1
+          },
+          {
+            "descriptor": "Offering Management Group",
+            "id": "ae784cf28930101d9baa0ac4ad230000",
+            "count": 1
+          },
+          {
+            "descriptor": "General Management Group",
+            "id": "f6ec0b8f7d47101d9ba41a9ab9e60000",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "facetParameter": "workerSubType",
+        "descriptor": "Job Type",
+        "values": [
+          {
+            "descriptor": "Regular",
+            "id": "06348ac310c7011204c53187b2750000",
+            "count": 939
+          },
+          {
+            "descriptor": "Fixed Term (Fixed Term)",
+            "id": "06348ac310c7011204c5352553f00000",
+            "count": 22
+          },
+          {
+            "descriptor": "On Demand / Casual (Fixed Term)",
+            "id": "06348ac310c7011204c547d105ae0000",
+            "count": 1
+          },
+          {
+            "descriptor": "Student (Fixed Term)",
+            "id": "06348ac310c7011204c5395d45a00000",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "facetParameter": "timeType",
+        "descriptor": "Time Type",
+        "values": [
+          {
+            "descriptor": "Full time",
+            "id": "34b304c6b3b8010fbf100f0de1650003",
+            "count": 962
+          },
+          {
+            "descriptor": "Part time",
+            "id": "34b304c6b3b8010fbf100f0de1650002",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "facetParameter": "locationMainGroup",
+        "values": [
+          {
+            "facetParameter": "locationCountry",
+            "descriptor": "Location Country",
+            "values": [
+              {
+                "descriptor": "Argentina",
+                "id": "e42ad5eac46d4cc9b367ceaef42577c5",
+                "count": 7
+              },
+              {
+                "descriptor": "Australia",
+                "id": "d903bb3fedad45039383f6de334ad4db",
+                "count": 1
+              },
+              {
+                "descriptor": "Austria",
+                "id": "d004c0d1a6c84511ab048669fcdf9fd7",
+                "count": 8
+              },
+              {
+                "descriptor": "Belgium",
+                "id": "a04ea128f43a42e59b1e6a19e8f0b374",
+                "count": 4
+              },
+              {
+                "descriptor": "Brazil",
+                "id": "1a29bb1357b240ab99a2fa755cc87c0e",
+                "count": 46
+              },
+              {
+                "descriptor": "Bulgaria",
+                "id": "25f4875dc598484dbeee857eb2d81652",
+                "count": 1
+              },
+              {
+                "descriptor": "Canada",
+                "id": "a30a87ed25634629aa6c3958aa2b91ea",
+                "count": 24
+              },
+              {
+                "descriptor": "China",
+                "id": "6cb77610a8a543aea2d6bc10457e35d4",
+                "count": 9
+              },
+              {
+                "descriptor": "Colombia",
+                "id": "e8106cd6a3534f2dba6fdee2d41db89d",
+                "count": 30
+              },
+              {
+                "descriptor": "Costa Rica",
+                "id": "99abe7e6bb3f4c108aebebf01a369ec5",
+                "count": 13
+              },
+              {
+                "descriptor": "Cyprus",
+                "id": "db69c370446c11de98360015c5e6daf6",
+                "count": 1
+              },
+              {
+                "descriptor": "Czechia",
+                "id": "fc078443155c4ad294201ecf5a61a499",
+                "count": 5
+              },
+              {
+                "descriptor": "Ecuador",
+                "id": "2752bce253374948a6bad7ed2059e054",
+                "count": 2
+              },
+              {
+                "descriptor": "Finland",
+                "id": "0afb2fa656da42e8bfb6d47bd24a26fa",
+                "count": 2
+              },
+              {
+                "descriptor": "France",
+                "id": "54c5b6971ffb4bf0b116fe7651ec789a",
+                "count": 10
+              },
+              {
+                "descriptor": "Germany",
+                "id": "dcc5b7608d8644b3a93716604e78e995",
+                "count": 13
+              },
+              {
+                "descriptor": "Greece",
+                "id": "566388c1eb974c42bd9e3da4c2f57d60",
+                "count": 4
+              },
+              {
+                "descriptor": "Hong Kong",
+                "id": "d4afdeb461d446e4babd204bd102dba8",
+                "count": 3
+              },
+              {
+                "descriptor": "Hungary",
+                "id": "9db257f5937e4421b2fac64eec6832f8",
+                "count": 9
+              },
+              {
+                "descriptor": "India",
+                "id": "c4f78be1a8f14da0ab49ce1162348a5e",
+                "count": 243
+              },
+              {
+                "descriptor": "Ireland",
+                "id": "04a05835925f45b3a59406a2a6b72c8a",
+                "count": 1
+              },
+              {
+                "descriptor": "Israel",
+                "id": "084562884af243748dad7c84c304d89a",
+                "count": 5
+              },
+              {
+                "descriptor": "Italy",
+                "id": "8cd04a563fd94da7b06857a79faaf815",
+                "count": 38
+              },
+              {
+                "descriptor": "Japan",
+                "id": "8b705da2becf43cfaccc091da0988ab2",
+                "count": 239
+              },
+              {
+                "descriptor": "Luxembourg",
+                "id": "328b82f597514643a7683a78fc67c3f1",
+                "count": 2
+              },
+              {
+                "descriptor": "Malaysia",
+                "id": "972dc4ba8d454bc0b893ff84b1529077",
+                "count": 1
+              },
+              {
+                "descriptor": "Mexico",
+                "id": "e2adff9272454660ac4fdb56fc70bb51",
+                "count": 50
+              },
+              {
+                "descriptor": "Netherlands",
+                "id": "9696868b09c64d52a62ee13b052383cc",
+                "count": 24
+              },
+              {
+                "descriptor": "Peru",
+                "id": "0eb156ca580c4db786a7894bdaa77450",
+                "count": 20
+              },
+              {
+                "descriptor": "Philippines",
+                "id": "e56f1daf83e04bacae794ba5c5593560",
+                "count": 1
+              },
+              {
+                "descriptor": "Poland",
+                "id": "131d5ac7e3ee4d7b962bdc96e498e412",
+                "count": 4
+              },
+              {
+                "descriptor": "Portugal",
+                "id": "2e8c5034deb045d49315417c347472ca",
+                "count": 14
+              },
+              {
+                "descriptor": "Romania",
+                "id": "f2e609fe92974a55a05fc1cdc2852122",
+                "count": 2
+              },
+              {
+                "descriptor": "Saudi Arabia",
+                "id": "50423b5190ad49bb89e94cd58dfaad69",
+                "count": 1
+              },
+              {
+                "descriptor": "Singapore",
+                "id": "80938777cac5440fab50d729f9634969",
+                "count": 15
+              },
+              {
+                "descriptor": "Slovakia",
+                "id": "d2f29df0c90f4cea9e7d17f2ed8a86ad",
+                "count": 3
+              },
+              {
+                "descriptor": "Spain",
+                "id": "bd34c524a6a04ae6915f5d96fa086199",
+                "count": 57
+              },
+              {
+                "descriptor": "Sweden",
+                "id": "6a800a4736884df5826858d435650f45",
+                "count": 3
+              },
+              {
+                "descriptor": "Switzerland",
+                "id": "187134fccb084a0ea9b4b95f23890dbe",
+                "count": 7
+              },
+              {
+                "descriptor": "Taiwan",
+                "id": "a4e08b475d6a4176853c9d1cb9854e02",
+                "count": 1
+              },
+              {
+                "descriptor": "Thailand",
+                "id": "873d0f604e3b458c990cb4d83a5c0f14",
+                "count": 9
+              },
+              {
+                "descriptor": "United Arab Emirates",
+                "id": "7b4fa1f369bd4604ba3692682fcbe345",
+                "count": 1
+              },
+              {
+                "descriptor": "United Kingdom",
+                "id": "29247e57dbaf46fb855b224e03170bc7",
+                "count": 11
+              },
+              {
+                "descriptor": "United States of America",
+                "id": "bc33aa3152ec42d4995f4791a106ed09",
+                "count": 39
+              }
+            ]
+          },
+          {
+            "facetParameter": "locations",
+            "descriptor": "Locations",
+            "values": [
+              {
+                "descriptor": "All Cities, Germany",
+                "id": "d79ad15a4b0910014ee3aed4b6170000",
+                "count": 9
+              },
+              {
+                "descriptor": "All Cities, Hungary",
+                "id": "2709825969a110014ee44791d1b90000",
+                "count": 1
+              },
+              {
+                "descriptor": "All Cities - Austria",
+                "id": "1dfd810ced6c10014ee36c3ac7310000",
+                "count": 1
+              },
+              {
+                "descriptor": "All Cities - Bulgaria",
+                "id": "49bdd9e6780710014ee3a37566f70000",
+                "count": 1
+              },
+              {
+                "descriptor": "All Cities - Czechia",
+                "id": "2709825969a110014ee3e8a5aef40000",
+                "count": 1
+              },
+              {
+                "descriptor": "All Cities - France",
+                "id": "8b5f3ffcc67010014ee45a9c36930000",
+                "count": 1
+              },
+              {
+                "descriptor": "All Cities - Italy",
+                "id": "e9d5881da63a10014ee57f9751df0000",
+                "count": 1
+              },
+              {
+                "descriptor": "All Cities - Netherlands",
+                "id": "49bdd9e6780710014ee4d50f130b0000",
+                "count": 1
+              },
+              {
+                "descriptor": "All Cities - Poland",
+                "id": "2709825969a110014ee50b5966e50000",
+                "count": 1
+              },
+              {
+                "descriptor": "All Cities - Slovakia",
+                "id": "d79ad15a4b0910014ee4cde9c2da0000",
+                "count": 1
+              },
+              {
+                "descriptor": "All Cities - Spain",
+                "id": "1dfd810ced6c10014ee55b0e70180000",
+                "count": 1
+              },
+              {
+                "descriptor": "All Cities - Switzerland",
+                "id": "c30b266e4d9d10014ee5ebde8b090000",
+                "count": 1
+              },
+              {
+                "descriptor": "All Cities - USA",
+                "id": "2709825969a110014ee5d89c3d190000",
+                "count": 3
+              },
+              {
+                "descriptor": "Amsterdam, North Holland, Netherlands",
+                "id": "e1a4aca257d110001212ad5e2e430000",
+                "count": 2
+              },
+              {
+                "descriptor": "ARMTZ Buenos Aires (ARMTZ) - Martinez",
+                "id": "06348ac310c7011257287165801b0000",
+                "count": 1
+              },
+              {
+                "descriptor": "Athens, Attiki, Greece",
+                "id": "83aaee0d07c31000120f2e65721d0000",
+                "count": 4
+              },
+              {
+                "descriptor": "Atlanta, GA, USA",
+                "id": "f3de759605031000121bd7c8dae10000",
+                "count": 2
+              },
+              {
+                "descriptor": "AU152333 SYDNEY (AU152333)",
+                "id": "06348ac310c70112572b1cd89fe20000",
+                "count": 1
+              },
+              {
+                "descriptor": "Bangalore, Karnataka, India",
+                "id": "19a4f62fcb191000120e81ce53dc0000",
+                "count": 146
+              },
+              {
+                "descriptor": "Bangkok, Thailand",
+                "id": "3e5fa276710a1000121a0310ee4c0000",
+                "count": 4
+              },
+              {
+                "descriptor": "Barcelona, Spain",
+                "id": "87f83995f87010001213b41ec5830000",
+                "count": 8
+              },
+              {
+                "descriptor": "Basel, Basel-City, Switzerland",
+                "id": "c404074a0cb6100012158282e4240000",
+                "count": 1
+              },
+              {
+                "descriptor": "Beijing (KCN51647) TEC Flex Office",
+                "id": "ee4f1108cb931001038f0bf8d1940000",
+                "count": 7
+              },
+              {
+                "descriptor": "Bertrange, Luxembourg",
+                "id": "9b767095157a10001219b6c2f64b0000",
+                "count": 2
+              },
+              {
+                "descriptor": "Bilbao, Vizcaya, Spain",
+                "id": "6e1a016a418810001216136c8f450000",
+                "count": 3
+              },
+              {
+                "descriptor": "Bogota, Cundinamarca, Colombia",
+                "id": "19a4f62fcb19100012082fdea6b60000",
+                "count": 21
+              },
+              {
+                "descriptor": "Boulder, CO, USA",
+                "id": "e1a4aca257d110001216f6444a890000",
+                "count": 1
+              },
+              {
+                "descriptor": "Bratislavský kraj, Slovakia",
+                "id": "4066af91bba910001217faaceed00000",
+                "count": 2
+              },
+              {
+                "descriptor": "BRMM Hortolandia (BRMM)",
+                "id": "06348ac310c701125728638daa110000",
+                "count": 6
+              },
+              {
+                "descriptor": "Brno, Jihomoravský kraj, Czechia",
+                "id": "c404074a0cb61000120741d13bde0000",
+                "count": 4
+              },
+              {
+                "descriptor": "Brussels, Brussels-Capital Region, Belgium",
+                "id": "6e1a016a41881000120c6b63029f0000",
+                "count": 3
+              },
+              {
+                "descriptor": "Bucharest, Bucureşti, Romania",
+                "id": "10e04944d5431000121356db3c490000",
+                "count": 2
+              },
+              {
+                "descriptor": "Budapest, Hungary",
+                "id": "c404074a0cb6100012187db4f25e0000",
+                "count": 7
+              },
+              {
+                "descriptor": "Buenos Aires, Argentina",
+                "id": "6a4a5b2e7289100012109c84c9e20000",
+                "count": 6
+              },
+              {
+                "descriptor": "CA, USA",
+                "id": "014b9fb1efe310001218705149d80000",
+                "count": 1
+              },
+              {
+                "descriptor": "CA152583 Ottawa (CA152583)",
+                "id": "06348ac310c701125726519db9210000",
+                "count": 1
+              },
+              {
+                "descriptor": "CA525 Acheson (CA525) Edmonton",
+                "id": "06348ac310c701125727f2eb33710000",
+                "count": 1
+              },
+              {
+                "descriptor": "CAISM008 Montreal (CAISM008)",
+                "id": "06348ac310c701125727c823f2ef0000",
+                "count": 1
+              },
+              {
+                "descriptor": "Calgary, Alberta, Canada",
+                "id": "6e1a016a41881000120b3714ba190000",
+                "count": 10
+              },
+              {
+                "descriptor": "CAMARK5 Markham (CAMARK5)",
+                "id": "06348ac310c701125727d868797c0000",
+                "count": 1
+              },
+              {
+                "descriptor": "Chemnitz, Saxony, Germany",
+                "id": "e1a4aca257d11000120f329dd2a80000",
+                "count": 1
+              },
+              {
+                "descriptor": "Chennai, Tamil Nadu, India",
+                "id": "19a4f62fcb191000120e6f1536b70000",
+                "count": 108
+              },
+              {
+                "descriptor": "Chicago, IL, USA",
+                "id": "83aaee0d07c3100012171224e1be0000",
+                "count": 1
+              },
+              {
+                "descriptor": "CIO KPop-Dallas (US152527)",
+                "id": "8cc10374f37510016a6fb701f9370000",
+                "count": 9
+              },
+              {
+                "descriptor": "CIO KPop-Frankfurt (DE152531)",
+                "id": "061d87d95c5f1001692d41a08dac0000",
+                "count": 1
+              },
+              {
+                "descriptor": "CIO KPop-Pune (IN152532)",
+                "id": "1770dbb9a25010016a6b0beb24f80000",
+                "count": 2
+              },
+              {
+                "descriptor": "COBOG Bogotá (COBOG)",
+                "id": "06348ac310c70112572858b8a5870000",
+                "count": 3
+              },
+              {
+                "descriptor": "Courbevoie, Hauts-de-Seine, France",
+                "id": "19a4f62fcb191000120f3f339fec0000",
+                "count": 5
+              },
+              {
+                "descriptor": "Dallas",
+                "id": "ed03b3e522521000120fb5850c4c0000",
+                "count": 2
+              },
+              {
+                "descriptor": "Dallas, TX, USA",
+                "id": "c6ed0a634c541000121acea943470000",
+                "count": 1
+              },
+              {
+                "descriptor": "DE152345 NORDRHEIN-WESTFALEN",
+                "id": "06348ac310c70112572744497ae40000",
+                "count": 2
+              },
+              {
+                "descriptor": "Dusseldorf, North Rhine-Westphalia, Germany",
+                "id": "c404074a0cb61000120f59fa0ac00000",
+                "count": 1
+              },
+              {
+                "descriptor": "Espoo (KFI51644) Quartetto Fuuga",
+                "id": "dede0c0625461000bc2e4e6121090000",
+                "count": 2
+              },
+              {
+                "descriptor": "Fukuoka, Japan",
+                "id": "3dcd944d3948100012144f4e80740000",
+                "count": 1
+              },
+              {
+                "descriptor": "Geneva, Switzerland",
+                "id": "87f83995f87010001218657382280000",
+                "count": 1
+              },
+              {
+                "descriptor": "Granada, Spain",
+                "id": "19a4f62fcb191000121583ad4b980000",
+                "count": 2
+              },
+              {
+                "descriptor": "Greater Noida, Uttar Pradesh, India",
+                "id": "83aaee0d07c31000120ef045bc330000",
+                "count": 90
+              },
+              {
+                "descriptor": "Gurgaon, Haryana, India",
+                "id": "014b9fb1efe310001210e3a990e80000",
+                "count": 20
+              },
+              {
+                "descriptor": "Hamburg, Germany",
+                "id": "f3de7596050310001216cc477a820000",
+                "count": 1
+              },
+              {
+                "descriptor": "Heredia, Costa Rica",
+                "id": "e1a4aca257d1100012085def80180000",
+                "count": 13
+              },
+              {
+                "descriptor": "Hiroshima, Japan",
+                "id": "3e5fa276710a10001215db64e53c0000",
+                "count": 4
+              },
+              {
+                "descriptor": "Hong Kong, Hong Kong Island, Hong Kong",
+                "id": "f3de75960503100012166ee59a610000",
+                "count": 3
+              },
+              {
+                "descriptor": "Hoofddorp, North Holland, Netherlands",
+                "id": "a673e5b4bf6b100012136bb3a3280000",
+                "count": 21
+              },
+              {
+                "descriptor": "Hortolandia, São Paulo, Brazil",
+                "id": "6a4a5b2e72891000120f73fc380b0000",
+                "count": 36
+              },
+              {
+                "descriptor": "Hyderabad, Telangana, India",
+                "id": "87f83995f87010001211ab0c2b4d0000",
+                "count": 93
+              },
+              {
+                "descriptor": "IN152015 NOIDA (IN152015) ARTHA INFRATE",
+                "id": "06348ac310c70112572a85268f2e0000",
+                "count": 5
+              },
+              {
+                "descriptor": "INDIVYA HYD - DIVYASHREE",
+                "id": "06348ac310c70112572b6c48822f0000",
+                "count": 2
+              },
+              {
+                "descriptor": "INDLFCHE CHENNAI - DLF IT PARK",
+                "id": "06348ac310c70112572b7d24a74a0000",
+                "count": 1
+              },
+              {
+                "descriptor": "INEMTECH PUNE - ETZ",
+                "id": "06348ac310c70112572b983faacc0000",
+                "count": 2
+              },
+              {
+                "descriptor": "INMANBP Bangalore (INMANBP) Manyatha",
+                "id": "06348ac310c70112572bbece16560000",
+                "count": 12
+              },
+              {
+                "descriptor": "Italy Milan (ITMILVP22) Office",
+                "id": "2bdee3255e281001a5ffa8f032dc0000",
+                "count": 10
+              },
+              {
+                "descriptor": "ITMILCOP",
+                "id": "4eeebc860c331001e76dd9f337ea0000",
+                "count": 7
+              },
+              {
+                "descriptor": "ITTORLEO Torino (ITTORLEO) Palazzo Leonardo",
+                "id": "06348ac310c701125729c64057cf0000",
+                "count": 1
+              },
+              {
+                "descriptor": "JPMAKUHA MAKUHARI",
+                "id": "06348ac310c70112572927df4f420000",
+                "count": 1
+              },
+              {
+                "descriptor": "Jyväskylä (KFI51661) Samlink Office",
+                "id": "e472248545791002030908b6871a0000",
+                "count": 1
+              },
+              {
+                "descriptor": "KAE51629 Abu Dhabi (KAE51629) Regus Al Bateen C6",
+                "id": "8e3f37f79abf1009e4b5979e73a50000",
+                "count": 1
+              },
+              {
+                "descriptor": "KBE51627 Brussels (KBE51627) Regus",
+                "id": "0bf577b2d8e81009e5feaffbf62c0000",
+                "count": 1
+              },
+              {
+                "descriptor": "KCO51575 Medellin (KCO51575)",
+                "id": "70a9359399d910017ed3fe62fb280000",
+                "count": 2
+              },
+              {
+                "descriptor": "KDE51427 Chemnitz (KDE51417) DECHERO",
+                "id": "06348ac310c70112572c5860feca0000",
+                "count": 2
+              },
+              {
+                "descriptor": "KDE51557 München (KDE51557) Neue Siederei",
+                "id": "30f756f4715e10017ed386a3318b0000",
+                "count": 2
+              },
+              {
+                "descriptor": "KDE51614 Hamburg (KDE51614) REGUS On Demand",
+                "id": "294cb853862b1010a90f0e819ed90000",
+                "count": 2
+              },
+              {
+                "descriptor": "KDE51622 Berlin (KDE51622) REGUS On Demand",
+                "id": "637a64820a14100c66e24cd5366f0000",
+                "count": 3
+              },
+              {
+                "descriptor": "Kelsterbach, Hesse, Germany",
+                "id": "014b9fb1efe310001211d154ffcd0000",
+                "count": 3
+              },
+              {
+                "descriptor": "KES51574 Granada (KES51574)",
+                "id": "cb69582797fd010ee08ff3105b590000",
+                "count": 1
+              },
+              {
+                "descriptor": "KES51576 Barcelona Numancia (KES51576)",
+                "id": "70a9359399d910017edd485f818f0000",
+                "count": 1
+              },
+              {
+                "descriptor": "KIN51438 Hyderabad (KIN51438) Gachibowli",
+                "id": "836d14f67bf3101e140fb33788700000",
+                "count": 1
+              },
+              {
+                "descriptor": "KIN51514 Gurugram (KIN51514)",
+                "id": "f1dae26d286201009a47300f74910000",
+                "count": 1
+              },
+              {
+                "descriptor": "KIN51515 Mumbai (KIN51515) We Work",
+                "id": "df7fbf3015f410141c389dec22dc0000",
+                "count": 5
+              },
+              {
+                "descriptor": "KIN51561 Uttar Pradesh (KIN51561) Regus Max Towers",
+                "id": "b5f966028c52101fb56a18c9f2de0000",
+                "count": 2
+              },
+              {
+                "descriptor": "KIN51618 Pune (KIN51618) Regus",
+                "id": "1ffcce1d5e951010a910252387c50000",
+                "count": 17
+              },
+              {
+                "descriptor": "KIN51655 Gurugram (KIN51655)",
+                "id": "9a9c6f14c1e21000f287b14247230000",
+                "count": 28
+              },
+              {
+                "descriptor": "Kitakyushu, Fukuoka, Japan",
+                "id": "10e04944d5431000121522c83d230000",
+                "count": 2
+              },
+              {
+                "descriptor": "KMX51582 Mexico Puerta Polanco (KMX51582)",
+                "id": "30f756f4715e100181e92faed4970000",
+                "count": 9
+              },
+              {
+                "descriptor": "KMX51611 Mexico City (KMX51611) WeWork",
+                "id": "a9e9d45a36de1010a982c35b2fcc0000",
+                "count": 2
+              },
+              {
+                "descriptor": "KPT51568 Porto Salvo (KPT51568) RDC",
+                "id": "c5fc729be105100181f3979756c60000",
+                "count": 1
+              },
+              {
+                "descriptor": "Kuala Lumpur (KMY51691)",
+                "id": "6f89e0f935b91001467ac2762d740000",
+                "count": 1
+              },
+              {
+                "descriptor": "KUS51513 Sterling (KUS51513) 43290 Old Ox Rd",
+                "id": "30f756f4715e10017ab7ce04e1b30000",
+                "count": 1
+              },
+              {
+                "descriptor": "KUS51617 No City (KUS51617) Lansing",
+                "id": "03e32ebacb1f1010a9198a18bb5b0000",
+                "count": 3
+              },
+              {
+                "descriptor": "Lima, Peru",
+                "id": "83aaee0d07c3100012124218a98e0000",
+                "count": 19
+              },
+              {
+                "descriptor": "Lisbon (KPT51698) DC",
+                "id": "53e404120be41001467247403be30000",
+                "count": 1
+              },
+              {
+                "descriptor": "Liverpool Office Hub (GBLIVROY)",
+                "id": "75b7c74615001001f3d819dd601b0000",
+                "count": 4
+              },
+              {
+                "descriptor": "London, United Kingdom",
+                "id": "19a4f62fcb19100012142bde33600000",
+                "count": 10
+              },
+              {
+                "descriptor": "MA, USA",
+                "id": "3dcd944d3948100012187683819c0000",
+                "count": 1
+              },
+              {
+                "descriptor": "Madrid, Spain",
+                "id": "83aaee0d07c310001211227e35d50000",
+                "count": 41
+              },
+              {
+                "descriptor": "Madrid HQ (KES51610)",
+                "id": "9d75fc307e4a10017ee2d48039690000",
+                "count": 10
+              },
+              {
+                "descriptor": "Manyatha Embassy Business Park (INMANNZ) Non-SEZ",
+                "id": "9a5897a6188a10019f8394320f220000",
+                "count": 1
+              },
+              {
+                "descriptor": "Markham, Ontario, Canada",
+                "id": "a673e5b4bf6b1000120bcaf03f730000",
+                "count": 1
+              },
+              {
+                "descriptor": "MD, USA",
+                "id": "3dcd944d394810001216e73c3a010000",
+                "count": 2
+              },
+              {
+                "descriptor": "Medellin, Antioquia, Colombia",
+                "id": "e1a4aca257d110001208a512e0fb0000",
+                "count": 9
+              },
+              {
+                "descriptor": "Melbourne, Victoria, Australia",
+                "id": "c404074a0cb61000120ce2a18fec0000",
+                "count": 1
+              },
+              {
+                "descriptor": "MesseTurm (DEFAMESS) HQ",
+                "id": "1e47d49f5fd010012fb1481ea98d0000",
+                "count": 2
+              },
+              {
+                "descriptor": "Mexico City, Distrito Federal, Mexico",
+                "id": "83aaee0d07c3100012188c0fd3d50000",
+                "count": 41
+              },
+              {
+                "descriptor": "Milan (KIT51642) Regus Central Station",
+                "id": "5af1145f4fba1000ee6b0bca91fb0000",
+                "count": 1
+              },
+              {
+                "descriptor": "Milano, Italy",
+                "id": "19a4f62fcb191000120d5f3d39a20000",
+                "count": 6
+              },
+              {
+                "descriptor": "Montreal, Quebec, Canada",
+                "id": "e1a4aca257d11000120b1468df8c0000",
+                "count": 7
+              },
+              {
+                "descriptor": "Muenchen, Bavaria, Germany",
+                "id": "4066af91bba91000120f2e59176b0000",
+                "count": 5
+              },
+              {
+                "descriptor": "Mulhuddart, Dublin, Ireland",
+                "id": "3dcd944d39481000120eacb8ade30000",
+                "count": 1
+              },
+              {
+                "descriptor": "Mumbai, Maharashtra, India",
+                "id": "c404074a0cb61000120e877ba7ee0000",
+                "count": 37
+              },
+              {
+                "descriptor": "Nagoya, Aichi, Japan",
+                "id": "f3de759605031000121ae2cffd720000",
+                "count": 1
+              },
+              {
+                "descriptor": "Naha, Okinawa, Japan",
+                "id": "a673e5b4bf6b1000120e6686882b0000",
+                "count": 4
+              },
+              {
+                "descriptor": "New York, NY, USA",
+                "id": "83aaee0d07c310001216d67deac20000",
+                "count": 13
+              },
+              {
+                "descriptor": "Nicosia, Lefkosia (Lefkoşa), Cyprus",
+                "id": "6a4a5b2e72891000120af1165e4b0000",
+                "count": 1
+              },
+              {
+                "descriptor": "NJ, USA",
+                "id": "7b842fec3d891000a2baa9c37f450000",
+                "count": 3
+              },
+              {
+                "descriptor": "No City (KCA51676) British Columbia P5T",
+                "id": "74abe795fac81001f5363f0791ea0000",
+                "count": 1
+              },
+              {
+                "descriptor": "No City (KGB51624) London",
+                "id": "2dd47c77950610039b838dbaa23d0000",
+                "count": 5
+              },
+              {
+                "descriptor": "No City (KUS51414) South Carolina Default WKL",
+                "id": "06348ac310c70112572beac68a310000",
+                "count": 1
+              },
+              {
+                "descriptor": "No City (KUS51415) California Default WKL",
+                "id": "06348ac310c70112572b43f885610000",
+                "count": 3
+              },
+              {
+                "descriptor": "No City (KUS51446) Washington Default MY3",
+                "id": "06348ac310c70112572b3d5aad780000",
+                "count": 3
+              },
+              {
+                "descriptor": "No City (USILVIRT) Illinois Default WKL",
+                "id": "2874e6d644721000ccd2d5a2b91f0000",
+                "count": 1
+              },
+              {
+                "descriptor": "Noida, Uttar Pradesh, India",
+                "id": "6a4a5b2e7289100012121d9218690000",
+                "count": 30
+              },
+              {
+                "descriptor": "Noida India (INNOIGAL) WeWork Galaxy SO",
+                "id": "6ec2773c149110019b6390b2fa050000",
+                "count": 1
+              },
+              {
+                "descriptor": "Norwalk, CT, USA",
+                "id": "f3de759605031000121f03f994a50000",
+                "count": 1
+              },
+              {
+                "descriptor": "Osaka, Japan",
+                "id": "a673e5b4bf6b1000120e7768b86d0000",
+                "count": 3
+              },
+              {
+                "descriptor": "Ottawa, Ontario, Canada",
+                "id": "87f83995f8701000120e2f4893160000",
+                "count": 9
+              },
+              {
+                "descriptor": "PELML Lima (PELML) La Molina",
+                "id": "06348ac310c70112572844d9448b0000",
+                "count": 1
+              },
+              {
+                "descriptor": "Petach Tikva, Center District, Israel",
+                "id": "57d37753f7ea1000120da1e9481b0000",
+                "count": 5
+              },
+              {
+                "descriptor": "PLWROUL Wroclaw (PLWROUL)",
+                "id": "06348ac310c70112572a2ad9c01b0000",
+                "count": 1
+              },
+              {
+                "descriptor": "Porto, Portugal",
+                "id": "ed03b3e5225210001213f72cfc3f0000",
+                "count": 1
+              },
+              {
+                "descriptor": "Porto Salvo, Lisbon, Portugal",
+                "id": "6a4a5b2e728910001214e5a0e2a40000",
+                "count": 9
+              },
+              {
+                "descriptor": "Praha, Czechia",
+                "id": "4066af91bba91000120733291d5d0000",
+                "count": 1
+              },
+              {
+                "descriptor": "Pune, Maharashtra, India",
+                "id": "6e1a016a41881000120ec616532f0000",
+                "count": 57
+              },
+              {
+                "descriptor": "Quebec, Canada",
+                "id": "9b767095157a10001211a536d90d0000",
+                "count": 1
+              },
+              {
+                "descriptor": "Quezon City, National Capital Region (Manila), Philippines",
+                "id": "014b9fb1efe3100012146c28f8240000",
+                "count": 1
+              },
+              {
+                "descriptor": "Quito, Pichincha, Ecuador",
+                "id": "c404074a0cb610001210c14ecf3a0000",
+                "count": 2
+              },
+              {
+                "descriptor": "Research Triangle Park, NC, USA",
+                "id": "a673e5b4bf6b10001218476a22d90000",
+                "count": 1
+              },
+              {
+                "descriptor": "Rio De Janeiro, Brazil",
+                "id": "e1a4aca257d11000120c29614e810000",
+                "count": 1
+              },
+              {
+                "descriptor": "Riyadh (KSA51706) Bahrain Tower",
+                "id": "e94247125c231000de956eb46ac90000",
+                "count": 1
+              },
+              {
+                "descriptor": "Roma, Italy",
+                "id": "9b767095157a10001214fb6d4b120000",
+                "count": 13
+              },
+              {
+                "descriptor": "Rome (KIT51637) Spaces Eur Laurentina",
+                "id": "2d57b2c545d71000ee692a72e9ac0000",
+                "count": 2
+              },
+              {
+                "descriptor": "RTPMAIN Research Triangle Park (RTPMAIN) Raleigh Main",
+                "id": "06348ac310c7011257270eaf1ab90000",
+                "count": 1
+              },
+              {
+                "descriptor": "Salamanca, Spain",
+                "id": "19a4f62fcb19100012156878779c0000",
+                "count": 1
+              },
+              {
+                "descriptor": "Sant Cugat del Vallès, Barcelona, Spain",
+                "id": "c6ed0a634c5410001219559ddcf50000",
+                "count": 1
+              },
+              {
+                "descriptor": "Sao Paulo, Brazil",
+                "id": "6a4a5b2e72891000120f7c6a05070000",
+                "count": 4
+              },
+              {
+                "descriptor": "Sao Paulo (KBR51645) WeWork Office",
+                "id": "148dc8a5b6181001a78657abd58d0000",
+                "count": 10
+              },
+              {
+                "descriptor": "Sapporo, Hokkaido, Japan",
+                "id": "3dcd944d394810001214770f79d10000",
+                "count": 3
+              },
+              {
+                "descriptor": "Segrate, Milano, Italy",
+                "id": "ed03b3e52252100012105a43e13c0000",
+                "count": 3
+              },
+              {
+                "descriptor": "Sendai, Miyagi, Japan",
+                "id": "6e1a016a418810001213dfa11bb20000",
+                "count": 4
+              },
+              {
+                "descriptor": "Sevilla, Spain",
+                "id": "3dcd944d394810001211732ce5d60000",
+                "count": 1
+              },
+              {
+                "descriptor": "Sevilla (KES51692) Business Regist. Office",
+                "id": "0db9f012dcee1001467752a5dc760000",
+                "count": 1
+              },
+              {
+                "descriptor": "Shanghai (KCN51646) TEC Flex Office",
+                "id": "5652f0526b4f1001038f999f365a0000",
+                "count": 1
+              },
+              {
+                "descriptor": "Shenyang, Liaoning, China",
+                "id": "e1a4aca257d11000120a150073030000",
+                "count": 8
+              },
+              {
+                "descriptor": "Singapore, South East, Singapore",
+                "id": "10e04944d543100012130b11237a0000",
+                "count": 2
+              },
+              {
+                "descriptor": "Singapore, South West, Singapore",
+                "id": "9b767095157a10001218210549660000",
+                "count": 15
+              },
+              {
+                "descriptor": "Stockholm (KSE51689) Serviced Office",
+                "id": "e424c7c9999c1001e195de2147110000",
+                "count": 3
+              },
+              {
+                "descriptor": "Stuttgart (KDE51660) NEO",
+                "id": "9bc459eefecd1001d72a5dd3d33a0000",
+                "count": 2
+              },
+              {
+                "descriptor": "Szekesfehervar, Fejer, Hungary",
+                "id": "9b767095157a1000121f69eb95930000",
+                "count": 2
+              },
+              {
+                "descriptor": "Taipei, New Taipei City, Taiwan",
+                "id": "10e04944d543100012170fff6ba20000",
+                "count": 1
+              },
+              {
+                "descriptor": "THBNGKOK Bangkok (THBNGKOK) Thailand",
+                "id": "06348ac310c70112572b025f2e5c0000",
+                "count": 5
+              },
+              {
+                "descriptor": "TN, USA",
+                "id": "9b767095157a1000121da6bc816a0000",
+                "count": 1
+              },
+              {
+                "descriptor": "Tokyo, Japan",
+                "id": "83aaee0d07c31000120dcfecbefa0000",
+                "count": 184
+              },
+              {
+                "descriptor": "Tokyo (KJP51658) Roppongi Hills",
+                "id": "ee4f1108cb93100103afa4e83c170000",
+                "count": 35
+              },
+              {
+                "descriptor": "Tomar (KPT51639)",
+                "id": "e339a086064610015372244542f00000",
+                "count": 1
+              },
+              {
+                "descriptor": "Toronto (KCA51701) HQ",
+                "id": "0db9f012dcee10014678c148b8000000",
+                "count": 18
+              },
+              {
+                "descriptor": "Turino, Italy",
+                "id": "f3de7596050310001215784ef7b30000",
+                "count": 7
+              },
+              {
+                "descriptor": "US151980 NO CITY (US151980) RHODE ISLA",
+                "id": "06348ac310c7011257277fe681ce0000",
+                "count": 1
+              },
+              {
+                "descriptor": "US152426 NO CITY (US152426) NEBRASKA DE",
+                "id": "06348ac310c70112572ab5eddea40000",
+                "count": 1
+              },
+              {
+                "descriptor": "US152580 New York (US152580) One Vanderbilt",
+                "id": "06348ac310c70112572b6779af690000",
+                "count": 1
+              },
+              {
+                "descriptor": "VA, USA",
+                "id": "19a4f62fcb19100012160d7441240000",
+                "count": 4
+              },
+              {
+                "descriptor": "Valbonne (KFR51693)",
+                "id": "90a9cf0038451001478d5cbb641e0000",
+                "count": 4
+              },
+              {
+                "descriptor": "Vienna Spaces Francis (ATVIFRAN)",
+                "id": "e2462b36d1c8100114e48c7433910000",
+                "count": 4
+              },
+              {
+                "descriptor": "Viseu (KPT51656) KYNTECH",
+                "id": "e27dc5ea2fd2100152e9ee1452ad0000",
+                "count": 1
+              },
+              {
+                "descriptor": "Washington, DC, USA",
+                "id": "83aaee0d07c310001216eafb9a890000",
+                "count": 3
+              },
+              {
+                "descriptor": "Wien, Vienna, Austria",
+                "id": "9b767095157a10001213a124a6d30000",
+                "count": 3
+              },
+              {
+                "descriptor": "Winnipeg, Manitoba, Canada",
+                "id": "6a4a5b2e72891000120e37c15cb80000",
+                "count": 1
+              },
+              {
+                "descriptor": "Wroclaw, Lower Silesian, Poland",
+                "id": "87f83995f8701000121491d504c80000",
+                "count": 2
+              },
+              {
+                "descriptor": "Zurich, Switzerland",
+                "id": "3e5fa276710a10001217598033fc0000",
+                "count": 4
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "facetParameter": "distance",
+        "descriptor": "Distance",
+        "values": [
+          {
+            "descriptor": "10 miles",
+            "id": "a538cdb60a631000078a2c60ed1700f3",
+            "count": 1
+          },
+          {
+            "descriptor": "25 miles",
+            "id": "a538cdb60a631000078a2c6a410300f4",
+            "count": 1
+          },
+          {
+            "descriptor": "50 miles",
+            "id": "a538cdb60a631000078a2c6eadd300f5",
+            "count": 1
+          },
+          {
+            "descriptor": "100 miles",
+            "id": "a538cdb60a631000078a2c71efcc00f6",
+            "count": 1
+          },
+          {
+            "descriptor": "Any Distance",
+            "id": "a538cdb60a631000078a2c74f73b00f7",
+            "count": 1
+          }
+        ]
+      }
+    ],
+    "userAuthenticated": false
+  }
+}

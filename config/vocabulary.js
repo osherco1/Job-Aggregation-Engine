@@ -18,6 +18,65 @@ const allowedTechnicalDepartments = [
   'Research', // Riskified (Data Scientist)
 ];
 
+// Centralized Israel location keywords for Location Gate (all ATS workers + Guard).
+// Used instead of hardcoded city lists in workers.
+const israelLocationKeywords = [
+  'israel',
+  'tel aviv',
+  'tel-aviv',
+  'herzliya',
+  'haifa',
+  'rehovot',
+  'jerusalem',
+  'ramat gan',
+  'petah tikva',
+  'beer sheva',
+  'netanya',
+  'yokneam',
+  'raanana',
+];
+
+// Structured seniority indicators for Guard fast-track (before description regex).
+// juniorPass = fast-PASS; seniorFail = fast-FAIL; null/other = fall through to title/description checks.
+const structuredLevelIndicators = {
+  juniorPass: [
+    'junior',
+    'entry level',
+    'intern',
+    'student',
+    'new college graduate',
+    'academic',
+  ],
+  seniorFail: [
+    'senior',
+    'staff',
+    'principal',
+    'director',
+    'management',
+    'vp',
+    'head of',
+  ],
+};
+
+/**
+ * Normalize employment type strings from ATS APIs to a closed enum.
+ * Handles variants like "Full-time", "Full time", "Full Time Employee", "Shifts", "Temporary".
+ * @param {string|null|undefined} raw - Raw employment_type value from API
+ * @returns {string} One of: 'full-time' | 'part-time' | 'shifts' | 'temporary' | 'contract' | 'internship' | 'unknown'
+ */
+function normalizeEmploymentType(raw) {
+  if (raw == null || typeof raw !== 'string') return 'unknown';
+  const normalized = raw.toLowerCase().trim();
+  if (!normalized) return 'unknown';
+  if (/full\s*[- ]?time|full\s*time\s*employee/i.test(normalized)) return 'full-time';
+  if (/part\s*[- ]?time/i.test(normalized)) return 'part-time';
+  if (/shift/i.test(normalized)) return 'shifts';
+  if (/temporary|temp\b/i.test(normalized)) return 'temporary';
+  if (/contract/i.test(normalized)) return 'contract';
+  if (/intern/i.test(normalized)) return 'internship';
+  return 'unknown';
+}
+
 // Technical keywords that indicate this is at least an engineering / data / platform role.
 // Used by ats_guard's cheap title check.
 const technicalTitleKeywords = [
@@ -93,6 +152,9 @@ const companyOverrides = {
 module.exports = {
   departmentsBlacklist,
   allowedTechnicalDepartments,
+  israelLocationKeywords,
+  structuredLevelIndicators,
+  normalizeEmploymentType,
   technicalTitleKeywords,
   titleSeniorPatterns,
   contentSeniorityPatterns,

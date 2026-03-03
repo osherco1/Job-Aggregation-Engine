@@ -1,0 +1,581 @@
+{
+  "_meta": {
+    "source": "workday",
+    "companyId": "intel",
+    "companyName": "Intel",
+    "originalUrl": "https://intel.wd1.myworkdayjobs.com/External",
+    "parsedTenant": "intel",
+    "parsedInstance": "wd1",
+    "parsedSite": "External",
+    "siteUrl": "https://intel.wd1.myworkdayjobs.com/External",
+    "apiEndpoint": "https://intel.wd1.myworkdayjobs.com/wday/cxs/intel/External/jobs",
+    "sessionInitStatus": 200,
+    "cookiesEstablished": [
+      "PLAY_SESSION",
+      "wd-browser-id",
+      "CALYPSO_CSRF_TOKEN",
+      "CXS_SESSION",
+      "wday_vps_cookie",
+      "__cf_bm",
+      "__cflb",
+      "_cfuvid"
+    ],
+    "jobsApiStatus": 200,
+    "sampledAt": "2026-03-01T22:04:28.450Z",
+    "totalReported": 462,
+    "jobCountThisPage": 20,
+    "facetCount": 4,
+    "requestPayload": {
+      "appliedFacets": {},
+      "limit": 20,
+      "offset": 0,
+      "searchText": ""
+    }
+  },
+  "raw": {
+    "total": 462,
+    "jobPostings": [
+      {
+        "title": "Quantum Error Correction Technical Lead",
+        "externalPath": "/job/US-Oregon-Hillsboro/Quantum-Error-Correction-Technical-Lead_JR0281065",
+        "locationsText": "3 Locations",
+        "postedOn": "Posted 5 Days Ago",
+        "bulletFields": [
+          "Spotlight Job",
+          "JR0281065"
+        ]
+      },
+      {
+        "title": "Senior Physical Design Application Engineer",
+        "externalPath": "/job/US-Arizona-Phoenix/Senior-Physical-Design-Application-Engineer_JR0280535",
+        "locationsText": "3 Locations",
+        "postedOn": "Posted 6 Days Ago",
+        "bulletFields": [
+          "Spotlight Job",
+          "JR0280535"
+        ]
+      },
+      {
+        "title": "IP Enablement Application Engineer",
+        "externalPath": "/job/US-Arizona-Phoenix/IP-Enablement-Application-Engineer_JR0279356",
+        "locationsText": "3 Locations",
+        "postedOn": "Posted 6 Days Ago",
+        "bulletFields": [
+          "Spotlight Job",
+          "JR0279356"
+        ]
+      },
+      {
+        "title": "Memory Design Application Engineer",
+        "externalPath": "/job/US-Arizona-Phoenix/Memory-Design-Application-Engineer_JR0279355",
+        "locationsText": "3 Locations",
+        "postedOn": "Posted 6 Days Ago",
+        "bulletFields": [
+          "Spotlight Job",
+          "JR0279355"
+        ]
+      },
+      {
+        "title": "Senior Analog / Mixed Signal Application Engineer",
+        "externalPath": "/job/US-Arizona-Phoenix/Senior-Analog---Mixed-Signal-Application-Engineer_JR0279353",
+        "locationsText": "3 Locations",
+        "postedOn": "Posted 6 Days Ago",
+        "bulletFields": [
+          "Spotlight Job",
+          "JR0279353"
+        ]
+      },
+      {
+        "title": "DFT Application Engineer",
+        "externalPath": "/job/US-Arizona-Phoenix/DFT-Application-Engineer_JR0279352",
+        "locationsText": "3 Locations",
+        "postedOn": "Posted 6 Days Ago",
+        "bulletFields": [
+          "Spotlight Job",
+          "JR0279352"
+        ]
+      },
+      {
+        "title": "Senior Silicon Application Engineer (Packaging Design)",
+        "externalPath": "/job/US-Arizona-Phoenix/Senior-Silicon-Application-Engineer--Packaging-Design-_JR0279351",
+        "locationsText": "3 Locations",
+        "postedOn": "Posted 6 Days Ago",
+        "bulletFields": [
+          "Spotlight Job",
+          "JR0279351"
+        ]
+      },
+      {
+        "title": "Senior Physical Verification Application Engineer",
+        "externalPath": "/job/US-Arizona-Phoenix/Senior-Physical-Verification-Application-Engineer_JR0279354",
+        "locationsText": "3 Locations",
+        "postedOn": "Posted 6 Days Ago",
+        "bulletFields": [
+          "Spotlight Job",
+          "JR0279354"
+        ]
+      },
+      {
+        "title": "CPU Circuit Design Engineer",
+        "externalPath": "/job/US-Texas-Austin/CPU-Circuit-Design-Engineer_JR0278906",
+        "locationsText": "US, Texas, Austin",
+        "postedOn": "Posted 10 Days Ago",
+        "bulletFields": [
+          "Spotlight Job",
+          "JR0278906"
+        ]
+      },
+      {
+        "title": "Layout Design Engineer",
+        "externalPath": "/job/Mexico-Guadalajara/Layout-Design-Engineer_JR0281079",
+        "locationsText": "Mexico, Guadalajara",
+        "postedOn": "Posted 12 Days Ago",
+        "bulletFields": [
+          "Spotlight Job",
+          "JR0281079"
+        ]
+      },
+      {
+        "title": "Layout Design Engineer",
+        "externalPath": "/job/Mexico-Guadalajara/Layout-Design-Engineer_JR0280770",
+        "locationsText": "Mexico, Guadalajara",
+        "postedOn": "Posted 18 Days Ago",
+        "bulletFields": [
+          "Spotlight Job",
+          "JR0280770"
+        ]
+      },
+      {
+        "title": "Automation Software Development Engineer",
+        "externalPath": "/job/US-Oregon-Hillsboro/Automation-Software-Development-Engineer_JR0280658",
+        "locationsText": "US, Oregon, Hillsboro",
+        "postedOn": "Posted 20 Days Ago",
+        "bulletFields": [
+          "Spotlight Job",
+          "JR0280658"
+        ]
+      },
+      {
+        "title": "Information Security System Officer (ISSO)",
+        "externalPath": "/job/US-Virginia-Fairfax/Information-Security-System-Officer--ISSO-_JR0280283",
+        "locationsText": "US, Virginia, Fairfax",
+        "postedOn": "Posted 24 Days Ago",
+        "bulletFields": [
+          "Spotlight Job",
+          "JR0280283"
+        ]
+      },
+      {
+        "title": "Senior Cloud Software Development Engineer",
+        "externalPath": "/job/US-Oregon-Hillsboro/Senior-Cloud-Software-Development-Engineer_JR0280271",
+        "locationsText": "2 Locations",
+        "postedOn": "Posted 30+ Days Ago",
+        "bulletFields": [
+          "Spotlight Job",
+          "JR0280271"
+        ]
+      },
+      {
+        "title": "DTCO Systems Analysis Engineer - Memory",
+        "externalPath": "/job/US-Texas-Austin/DTCO-Systems-Analysis-Engineer---Memory_JR0280241",
+        "locationsText": "US, Texas, Austin",
+        "postedOn": "Posted 30+ Days Ago",
+        "bulletFields": [
+          "Spotlight Job",
+          "JR0280241"
+        ]
+      },
+      {
+        "title": "Sr. Infrastructure Engineer – Linux OS",
+        "externalPath": "/job/US-Arizona-Phoenix/Sr-Infrastructure-Engineer---Linux-OS_JR0277458",
+        "locationsText": "US, Arizona, Phoenix",
+        "postedOn": "Posted 30+ Days Ago",
+        "bulletFields": [
+          "Spotlight Job",
+          "JR0277458"
+        ]
+      },
+      {
+        "title": "Sr. Infrastructure Engineer – Storage",
+        "externalPath": "/job/US-Arizona-Phoenix/Sr-Infrastructure-Engineer---Storage_JR0277455",
+        "locationsText": "US, Arizona, Phoenix",
+        "postedOn": "Posted 30+ Days Ago",
+        "bulletFields": [
+          "Spotlight Job",
+          "JR0277455"
+        ]
+      },
+      {
+        "title": "Sr. Infrastructure Engineer – Virtualization and Cloud Platforms",
+        "externalPath": "/job/US-Arizona-Phoenix/Sr-Infrastructure-Engineer---Virtualization-and-Cloud-Platforms_JR0277457",
+        "locationsText": "US, Arizona, Phoenix",
+        "postedOn": "Posted 30+ Days Ago",
+        "bulletFields": [
+          "Spotlight Job",
+          "JR0277457"
+        ]
+      },
+      {
+        "title": "Sr. Infrastructure Engineer – Windows OS",
+        "externalPath": "/job/US-Arizona-Phoenix/Sr-Infrastructure-Engineer---Windows-OS_JR0277459",
+        "locationsText": "US, Arizona, Phoenix",
+        "postedOn": "Posted 30+ Days Ago",
+        "bulletFields": [
+          "Spotlight Job",
+          "JR0277459"
+        ]
+      },
+      {
+        "title": "System and Hardware enabling student",
+        "externalPath": "/job/Israel-Haifa/System-and-Hardware-enabling-student_JR0281097",
+        "locationsText": "Israel, Haifa",
+        "postedOn": "Posted Today",
+        "bulletFields": [
+          "JR0281097"
+        ]
+      }
+    ],
+    "facets": [
+      {
+        "facetParameter": "jobFamilyGroup",
+        "descriptor": "Job Category",
+        "values": [
+          {
+            "descriptor": "Silicon Hardware Engineering",
+            "id": "c37a9eaa90371000c6fd2261025d0000",
+            "count": 149
+          },
+          {
+            "descriptor": "Software Engineering",
+            "id": "ace7a3d23b7e01a0544279031a0ec85c",
+            "count": 71
+          },
+          {
+            "descriptor": "Intern",
+            "id": "dc8bf79476611087d67b36517cf17036",
+            "count": 58
+          },
+          {
+            "descriptor": "Manufacturing and Process Development",
+            "id": "dc8bf79476611087d67b5159c64a703c",
+            "count": 49
+          },
+          {
+            "descriptor": "Contract Employee",
+            "id": "dc8bf79476611087d67bc98084127048",
+            "count": 43
+          },
+          {
+            "descriptor": "Platform Hardware and Systems Engineering",
+            "id": "c37a9eaa90371000c6fd29069de10000",
+            "count": 29
+          },
+          {
+            "descriptor": "Supply Chain",
+            "id": "c37a9eaa90371000c6fd6537fef70000",
+            "count": 15
+          },
+          {
+            "descriptor": "Finance",
+            "id": "dc8bf79476611087d67aed516c5e702c",
+            "count": 12
+          },
+          {
+            "descriptor": "Business Strategy and Enablement",
+            "id": "6fbee4bf2e511000c6fd6a78c26e0000",
+            "count": 9
+          },
+          {
+            "descriptor": "Information Technology",
+            "id": "dc8bf79476611087d67b2cccdde47034",
+            "count": 5
+          },
+          {
+            "descriptor": "Project and Program Management",
+            "id": "f31a130ea31c1000c6fd81ebbafd0000",
+            "count": 5
+          },
+          {
+            "descriptor": "Sales",
+            "id": "dc8bf79476611087d67bb92d84227044",
+            "count": 5
+          },
+          {
+            "descriptor": "Human Resources",
+            "id": "dc8bf79476611087d67b1a254db17032",
+            "count": 4
+          },
+          {
+            "descriptor": "Construction and Corporate Services",
+            "id": "259d777b50b21000c6fcae2828b50000",
+            "count": 3
+          },
+          {
+            "descriptor": "Data, UX, and Ecosystem Sciences",
+            "id": "a55ea4dd831d1000c6fce5a0c4d30000",
+            "count": 3
+          },
+          {
+            "descriptor": "Marketing",
+            "id": "dc8bf79476611087d67b67d653eb703e",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "facetParameter": "workerSubType",
+        "descriptor": "Job Type",
+        "values": [
+          {
+            "descriptor": "Regular",
+            "id": "dc8bf79476611087dfde9c6b065bae76",
+            "count": 360
+          },
+          {
+            "descriptor": "Student / Intern (Fixed Term)",
+            "id": "dc8bf79476611087dfde99931439ae75",
+            "count": 58
+          },
+          {
+            "descriptor": "Intel Contract Employee (Fixed Term)",
+            "id": "dc8bf79476611087dfde8d38b882ae74",
+            "count": 44
+          }
+        ]
+      },
+      {
+        "facetParameter": "timeType",
+        "descriptor": "Time Type",
+        "values": [
+          {
+            "descriptor": "Full time",
+            "id": "dc193d6170de10860883d9bf7c0e01a9",
+            "count": 444
+          },
+          {
+            "descriptor": "Part time",
+            "id": "dc193d6170de10860883d9a5954a01a8",
+            "count": 18
+          }
+        ]
+      },
+      {
+        "facetParameter": "locationMainGroup",
+        "values": [
+          {
+            "facetParameter": "locations",
+            "descriptor": "Locations",
+            "values": [
+              {
+                "descriptor": "Canada, Toronto",
+                "id": "1e4a4eb3adf1019f4237e975bf81b3ce",
+                "count": 11
+              },
+              {
+                "descriptor": "Costa Rica, San Jose",
+                "id": "1e4a4eb3adf101888ff41a77bf81a2cf",
+                "count": 3
+              },
+              {
+                "descriptor": "Germany, Munich",
+                "id": "1e4a4eb3adf101311d06d076bf815ccf",
+                "count": 1
+              },
+              {
+                "descriptor": "India, Bangalore",
+                "id": "1e4a4eb3adf101f44070f976bf8184cf",
+                "count": 59
+              },
+              {
+                "descriptor": "Indonesia, Jakarta",
+                "id": "1e4a4eb3adf1010e54b27374bf8166cd",
+                "count": 1
+              },
+              {
+                "descriptor": "Ireland, Leixlip",
+                "id": "1e4a4eb3adf101424c5a8574bf8175cd",
+                "count": 9
+              },
+              {
+                "descriptor": "Israel, Haifa",
+                "id": "1e4a4eb3adf1013563ba9174bf817fcd",
+                "count": 24
+              },
+              {
+                "descriptor": "Israel, Jerusalem",
+                "id": "1e4a4eb3adf101f41cd29774bf8184cd",
+                "count": 4
+              },
+              {
+                "descriptor": "Israel, Kiryat-Gat",
+                "id": "1e4a4eb3adf101cb242c9e74bf8189cd",
+                "count": 2
+              },
+              {
+                "descriptor": "Israel, Petah-Tikva",
+                "id": "1e4a4eb3adf101aaeda8a474bf818ecd",
+                "count": 15
+              },
+              {
+                "descriptor": "Japan, Tokyo",
+                "id": "1e4a4eb3adf1017e01a9cd74bf81b1cd",
+                "count": 4
+              },
+              {
+                "descriptor": "Malaysia, Kulim",
+                "id": "1e4a4eb3adf101740c9ff674bf81d4cd",
+                "count": 27
+              },
+              {
+                "descriptor": "Malaysia, Penang",
+                "id": "1e4a4eb3adf1016620eafb74bf81d9cd",
+                "count": 51
+              },
+              {
+                "descriptor": "Mexico, Guadalajara",
+                "id": "1e4a4eb3adf101717b7c0175bf81decd",
+                "count": 27
+              },
+              {
+                "descriptor": "Poland, Gdansk",
+                "id": "1e4a4eb3adf10124b3604375bf811ace",
+                "count": 11
+              },
+              {
+                "descriptor": "PRC, Beijing",
+                "id": "1e4a4eb3adf101274b92fb75bf81c2ce",
+                "count": 1
+              },
+              {
+                "descriptor": "PRC, Chengdu",
+                "id": "1e4a4eb3adf101b8e4180176bf81c7ce",
+                "count": 2
+              },
+              {
+                "descriptor": "PRC, Shanghai",
+                "id": "1e4a4eb3adf1017ae1675974bf8152cd",
+                "count": 4
+              },
+              {
+                "descriptor": "PRC, Shenzhen",
+                "id": "1e4a4eb3adf1018866765f74bf8157cd",
+                "count": 1
+              },
+              {
+                "descriptor": "Romania, Timisoara",
+                "id": "1e4a4eb3adf101fc3983e778bf8131d1",
+                "count": 1
+              },
+              {
+                "descriptor": "Taiwan, Hsinchu",
+                "id": "1e4a4eb3adf101e2d0f3b175bf817ece",
+                "count": 1
+              },
+              {
+                "descriptor": "Taiwan, Taipei",
+                "id": "1e4a4eb3adf101a35ab0bc75bf8188ce",
+                "count": 12
+              },
+              {
+                "descriptor": "US, Arizona, Phoenix",
+                "id": "1e4a4eb3adf101b8aec18a77bf810dd0",
+                "count": 89
+              },
+              {
+                "descriptor": "US, California, Folsom",
+                "id": "1e4a4eb3adf1018c4bf78f77bf8112d0",
+                "count": 59
+              },
+              {
+                "descriptor": "US, California, San Francisco",
+                "id": "1e4a4eb3adf1019ec42cde77bf8158d0",
+                "count": 1
+              },
+              {
+                "descriptor": "US, California, San Jose",
+                "id": "1e4a4eb3adf10129d05fe377bf815dd0",
+                "count": 3
+              },
+              {
+                "descriptor": "US, California, Santa Clara",
+                "id": "1e4a4eb3adf10118b1dfe877bf8162d0",
+                "count": 94
+              },
+              {
+                "descriptor": "US, Colorado, Fort Collins",
+                "id": "1e4a4eb3adf101989587fd77bf8176d0",
+                "count": 1
+              },
+              {
+                "descriptor": "US, Massachusetts, Beaver Brook",
+                "id": "da6b8032b879100204a63a809f6c0000",
+                "count": 3
+              },
+              {
+                "descriptor": "US, New Mexico, Albuquerque",
+                "id": "1e4a4eb3adf10146fd5c5276bf81eece",
+                "count": 5
+              },
+              {
+                "descriptor": "US, Oregon, Hillsboro",
+                "id": "1e4a4eb3adf1011246675c76bf81f8ce",
+                "count": 120
+              },
+              {
+                "descriptor": "US, Texas, Austin",
+                "id": "1e4a4eb3adf1016541777876bf8111cf",
+                "count": 36
+              },
+              {
+                "descriptor": "US, Virginia, Fairfax",
+                "id": "1e4a4eb3adf101fa2a777d76bf8116cf",
+                "count": 2
+              },
+              {
+                "descriptor": "Vietnam, Ho_Chi_Minh_City",
+                "id": "1e4a4eb3adf101bf12a99b76bf812fcf",
+                "count": 19
+              },
+              {
+                "descriptor": "Virtual India",
+                "id": "fabab36f05f51000ba74e9448dc20000",
+                "count": 2
+              },
+              {
+                "descriptor": "Virtual Netherlands",
+                "id": "fabab36f05f51000c0466fd146810000",
+                "count": 1
+              },
+              {
+                "descriptor": "Virtual Poland",
+                "id": "c559ea5919e51000c86c5fae6ef90000",
+                "count": 1
+              },
+              {
+                "descriptor": "Virtual Romania",
+                "id": "f3618c39c7881000c8e7beb2fd520000",
+                "count": 1
+              },
+              {
+                "descriptor": "Virtual Singapore",
+                "id": "04a88582f0711000c9aee341739d0000",
+                "count": 1
+              },
+              {
+                "descriptor": "Virtual United Kingdom",
+                "id": "fabab36f05f51000cba5731014dd0000",
+                "count": 1
+              },
+              {
+                "descriptor": "Virtual US",
+                "id": "1e4a4eb3adf101cc4e292078bf8199d0",
+                "count": 6
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "userAuthenticated": false
+  }
+}

@@ -1,0 +1,1158 @@
+{
+  "_meta": {
+    "source": "workday",
+    "companyId": "samsung",
+    "companyName": "Samsung",
+    "originalUrl": "https://sec.wd3.myworkdayjobs.com/Samsung_Careers",
+    "parsedTenant": "sec",
+    "parsedInstance": "wd3",
+    "parsedSite": "Samsung_Careers",
+    "siteUrl": "https://sec.wd3.myworkdayjobs.com/Samsung_Careers",
+    "apiEndpoint": "https://sec.wd3.myworkdayjobs.com/wday/cxs/sec/Samsung_Careers/jobs",
+    "sessionInitStatus": 200,
+    "cookiesEstablished": [
+      "PLAY_SESSION",
+      "wd-browser-id",
+      "CALYPSO_CSRF_TOKEN",
+      "CXS_SESSION",
+      "wday_vps_cookie",
+      "__cf_bm",
+      "__cflb",
+      "_cfuvid"
+    ],
+    "jobsApiStatus": 200,
+    "sampledAt": "2026-03-01T22:04:15.751Z",
+    "totalReported": 766,
+    "jobCountThisPage": 20,
+    "facetCount": 7,
+    "requestPayload": {
+      "appliedFacets": {},
+      "limit": 20,
+      "offset": 0,
+      "searchText": ""
+    }
+  },
+  "raw": {
+    "total": 766,
+    "jobPostings": [
+      {
+        "title": "Q&R New Technology/Product Quality Team Representative",
+        "externalPath": "/job/12100-Samsung-Blvd-Austin-TX-USA/Q-R-New-Technology-Product-Quality-Team-Representative_R113764",
+        "locationsText": "12100 Samsung Blvd, Austin, TX, USA",
+        "postedOn": "Posted 2 Days Ago",
+        "remoteType": "On-site",
+        "bulletFields": [
+          "R113764"
+        ]
+      },
+      {
+        "title": "PCS Operations Technician - Days",
+        "externalPath": "/job/1530-FM-973-Taylor-TX-USA/PCS-Operations-Technician---Days_R113897",
+        "locationsText": "1530 FM 973 Taylor, TX, USA",
+        "postedOn": "Posted 2 Days Ago",
+        "remoteType": "On-site",
+        "bulletFields": [
+          "R113897"
+        ]
+      },
+      {
+        "title": "AI Strategy Internship - Finance",
+        "externalPath": "/job/700-Sylvan-Ave-Englewood-Cliffs-NJ-USA/AI-Strategy-Internship---Finance_R114999",
+        "locationsText": "700 Sylvan Ave Englewood Cliffs, NJ, USA",
+        "postedOn": "Posted 2 Days Ago",
+        "remoteType": "On-site",
+        "bulletFields": [
+          "R114999"
+        ]
+      },
+      {
+        "title": "PCS Equipment Engineer",
+        "externalPath": "/job/1530-FM-973-Taylor-TX-USA/PCS-Equipment-Engineer_R113895",
+        "locationsText": "1530 FM 973 Taylor, TX, USA",
+        "postedOn": "Posted 2 Days Ago",
+        "remoteType": "On-site",
+        "bulletFields": [
+          "R113895"
+        ]
+      },
+      {
+        "title": "PCS Operations Technician - Days",
+        "externalPath": "/job/12100-Samsung-Blvd-Austin-TX-USA/PSC-Operations-Technician---Days_R111883-1",
+        "locationsText": "12100 Samsung Blvd, Austin, TX, USA",
+        "postedOn": "Posted 2 Days Ago",
+        "remoteType": "On-site",
+        "bulletFields": [
+          "R111883"
+        ]
+      },
+      {
+        "title": "CVD Equipment Engineer",
+        "externalPath": "/job/1530-FM-973-Taylor-TX-USA/CVD-Equipment-Engineer_R113933",
+        "locationsText": "1530 FM 973 Taylor, TX, USA",
+        "postedOn": "Posted 2 Days Ago",
+        "remoteType": "On-site",
+        "bulletFields": [
+          "R113933"
+        ]
+      },
+      {
+        "title": "CVD Process Engineer - Days",
+        "externalPath": "/job/1530-FM-973-Taylor-TX-USA/CVD-Process-Engineer---Days_R115001-1",
+        "locationsText": "1530 FM 973 Taylor, TX, USA",
+        "postedOn": "Posted 2 Days Ago",
+        "remoteType": "On-site",
+        "bulletFields": [
+          "R115001"
+        ]
+      },
+      {
+        "title": "Director, Business Development – Samsung TV Plus",
+        "externalPath": "/job/One-Pennsylvania-Plaza-26th-Floor-New-York-NY-USA/Director--Business-Development---Samsung-TV-Plus_R112337",
+        "locationsText": "One Pennsylvania Plaza, 26th Floor, New York, NY, USA",
+        "postedOn": "Posted 2 Days Ago",
+        "remoteType": "On-site",
+        "bulletFields": [
+          "R112337"
+        ]
+      },
+      {
+        "title": "CVD Equipment Technician  - Nights",
+        "externalPath": "/job/1530-FM-973-Taylor-TX-USA/CVD-Equipment-Technician----Nights_R113931-1",
+        "locationsText": "1530 FM 973 Taylor, TX, USA",
+        "postedOn": "Posted 2 Days Ago",
+        "remoteType": "On-site",
+        "bulletFields": [
+          "R113931"
+        ]
+      },
+      {
+        "title": "CVD Equipment Technician - Days",
+        "externalPath": "/job/1530-FM-973-Taylor-TX-USA/CVD-Equipment-Technician---Days_R113930",
+        "locationsText": "1530 FM 973 Taylor, TX, USA",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "R113930"
+        ]
+      },
+      {
+        "title": "Metals Equipment Engineer",
+        "externalPath": "/job/1530-FM-973-Taylor-TX-USA/Metals-Equipment-Engineer---Days_R113913-1",
+        "locationsText": "1530 FM 973 Taylor, TX, USA",
+        "postedOn": "Posted 2 Days Ago",
+        "remoteType": "On-site",
+        "bulletFields": [
+          "R113913"
+        ]
+      },
+      {
+        "title": "Specialist 1 - Technology Sourcing",
+        "externalPath": "/job/645-Clyde-Avenue-Mountain-View-CA-USA/Specialist-1---Technology-Sourcing_R114965",
+        "locationsText": "645 Clyde Avenue, Mountain View, CA, USA",
+        "postedOn": "Posted 2 Days Ago",
+        "remoteType": "On-site",
+        "bulletFields": [
+          "R114965"
+        ]
+      },
+      {
+        "title": "Senior Manager, Technical Operations",
+        "externalPath": "/job/12130-Millennium-Dr-Los-Angeles-CA-USA/Senior-Manager--Technical-Operations_R114928",
+        "locationsText": "12130 Millennium Dr., Los Angeles, CA USA",
+        "postedOn": "Posted 2 Days Ago",
+        "remoteType": "On-site",
+        "bulletFields": [
+          "R114928"
+        ]
+      },
+      {
+        "title": "Manager, Live Event Streaming Ops",
+        "externalPath": "/job/12130-Millennium-Dr-Los-Angeles-CA-USA/Manager--Live-Event-Streaming-Ops_R114927",
+        "locationsText": "12130 Millennium Dr., Los Angeles, CA USA",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "R114927"
+        ]
+      },
+      {
+        "title": "Lead Memory Controller Architect",
+        "externalPath": "/job/3655-N-1st-St-San-Jose-CA-USA/Lead-Memory-Controller-Architect_R114997",
+        "locationsText": "2 Locations",
+        "postedOn": "Posted 2 Days Ago",
+        "remoteType": "On-site",
+        "bulletFields": [
+          "R114997"
+        ]
+      },
+      {
+        "title": "CPU Architect",
+        "externalPath": "/job/3655-N-1st-St-San-Jose-CA-USA/CPU-Architect_R114996-1",
+        "locationsText": "2 Locations",
+        "postedOn": "Posted 2 Days Ago",
+        "remoteType": "On-site",
+        "bulletFields": [
+          "R114996"
+        ]
+      },
+      {
+        "title": "GPU Design Verification Engineer (GCDV)",
+        "externalPath": "/job/3655-N-1st-St-San-Jose-CA-USA/GPU-Design-Verification-Engineer--GCDV-_R114995-1",
+        "locationsText": "2 Locations",
+        "postedOn": "Posted 2 Days Ago",
+        "remoteType": "On-site",
+        "bulletFields": [
+          "R114995"
+        ]
+      },
+      {
+        "title": "Director- Creative Marketing Management",
+        "externalPath": "/job/700-Sylvan-Ave-Englewood-Cliffs-NJ-USA/Senior-Professional-M---Creative-Marketing-Management_R113813",
+        "locationsText": "700 Sylvan Ave Englewood Cliffs, NJ, USA",
+        "postedOn": "Posted 2 Days Ago",
+        "remoteType": "On-site",
+        "bulletFields": [
+          "R113813"
+        ]
+      },
+      {
+        "title": "Senior Manager, National Sales – Regional Accounts- Remote",
+        "externalPath": "/job/Illinois-USA-Home-Office/Senior-Manager--National-Sales---Regional-Accounts--Remote_R114696",
+        "locationsText": "Illinois, USA Home Office",
+        "postedOn": "Posted 2 Days Ago",
+        "remoteType": "Remote",
+        "bulletFields": [
+          "R114696"
+        ]
+      },
+      {
+        "title": "Equipment Engineering Team Leader: CVD",
+        "externalPath": "/job/1530-FM-973-Taylor-TX-USA/Equipment-Engineering-Team-Leader--CVD_R114530-1",
+        "locationsText": "1530 FM 973 Taylor, TX, USA",
+        "postedOn": "Posted 2 Days Ago",
+        "remoteType": "On-site",
+        "bulletFields": [
+          "R114530"
+        ]
+      }
+    ],
+    "facets": [
+      {
+        "facetParameter": "remoteType",
+        "descriptor": "Remote Type",
+        "values": [
+          {
+            "descriptor": "On-site",
+            "id": "0fee2666525710120f3e0f09e7730000",
+            "count": 447
+          },
+          {
+            "descriptor": "Hybrid",
+            "id": "0fee2666525710120f3e0e6f0ce40000",
+            "count": 183
+          },
+          {
+            "descriptor": "Remote",
+            "id": "0fee2666525710120f3e0f09e7730001",
+            "count": 6
+          }
+        ]
+      },
+      {
+        "facetParameter": "Location_Country",
+        "descriptor": "Country / Region",
+        "values": [
+          {
+            "descriptor": "United States of America",
+            "id": "bc33aa3152ec42d4995f4791a106ed09",
+            "count": 473
+          },
+          {
+            "descriptor": "France",
+            "id": "54c5b6971ffb4bf0b116fe7651ec789a",
+            "count": 52
+          },
+          {
+            "descriptor": "Türkiye",
+            "id": "c2e3bac5bbbb47b29dfc6e8b56a1586e",
+            "count": 42
+          },
+          {
+            "descriptor": "Germany",
+            "id": "dcc5b7608d8644b3a93716604e78e995",
+            "count": 38
+          },
+          {
+            "descriptor": "United Kingdom",
+            "id": "29247e57dbaf46fb855b224e03170bc7",
+            "count": 15
+          },
+          {
+            "descriptor": "Ukraine",
+            "id": "a4051ef996ac40778d4c79e3f2dedfd2",
+            "count": 11
+          },
+          {
+            "descriptor": "Singapore",
+            "id": "80938777cac5440fab50d729f9634969",
+            "count": 9
+          },
+          {
+            "descriptor": "Canada",
+            "id": "a30a87ed25634629aa6c3958aa2b91ea",
+            "count": 9
+          },
+          {
+            "descriptor": "Italy",
+            "id": "8cd04a563fd94da7b06857a79faaf815",
+            "count": 9
+          },
+          {
+            "descriptor": "Indonesia",
+            "id": "b31234dbcdda4da9ba8fa073c5944e36",
+            "count": 8
+          },
+          {
+            "descriptor": "Thailand",
+            "id": "873d0f604e3b458c990cb4d83a5c0f14",
+            "count": 7
+          },
+          {
+            "descriptor": "Poland",
+            "id": "131d5ac7e3ee4d7b962bdc96e498e412",
+            "count": 7
+          },
+          {
+            "descriptor": "Netherlands",
+            "id": "9696868b09c64d52a62ee13b052383cc",
+            "count": 7
+          },
+          {
+            "descriptor": "Czechia",
+            "id": "fc078443155c4ad294201ecf5a61a499",
+            "count": 6
+          },
+          {
+            "descriptor": "Austria",
+            "id": "d004c0d1a6c84511ab048669fcdf9fd7",
+            "count": 5
+          },
+          {
+            "descriptor": "Switzerland",
+            "id": "187134fccb084a0ea9b4b95f23890dbe",
+            "count": 5
+          },
+          {
+            "descriptor": "Brazil",
+            "id": "1a29bb1357b240ab99a2fa755cc87c0e",
+            "count": 4
+          },
+          {
+            "descriptor": "Hungary",
+            "id": "9db257f5937e4421b2fac64eec6832f8",
+            "count": 4
+          },
+          {
+            "descriptor": "India",
+            "id": "c4f78be1a8f14da0ab49ce1162348a5e",
+            "count": 4
+          },
+          {
+            "descriptor": "Croatia",
+            "id": "1face6f426c14de9979a134697da0db3",
+            "count": 3
+          },
+          {
+            "descriptor": "Romania",
+            "id": "f2e609fe92974a55a05fc1cdc2852122",
+            "count": 3
+          },
+          {
+            "descriptor": "Latvia",
+            "id": "1c026f3b1b8640d8bdfcb95466663e4d",
+            "count": 3
+          },
+          {
+            "descriptor": "Greece",
+            "id": "566388c1eb974c42bd9e3da4c2f57d60",
+            "count": 3
+          },
+          {
+            "descriptor": "Philippines",
+            "id": "e56f1daf83e04bacae794ba5c5593560",
+            "count": 3
+          },
+          {
+            "descriptor": "Myanmar",
+            "id": "8ae7375b330441989443b02b66699ff9",
+            "count": 3
+          },
+          {
+            "descriptor": "Belgium",
+            "id": "a04ea128f43a42e59b1e6a19e8f0b374",
+            "count": 2
+          },
+          {
+            "descriptor": "Laos",
+            "id": "db69cbe0446c11de98360015c5e6daf6",
+            "count": 2
+          },
+          {
+            "descriptor": "Vietnam",
+            "id": "db69e8c8446c11de98360015c5e6daf6",
+            "count": 1
+          },
+          {
+            "descriptor": "Slovenia",
+            "id": "db69d9f0446c11de98360015c5e6daf6",
+            "count": 1
+          },
+          {
+            "descriptor": "Moldova",
+            "id": "db69d266446c11de98360015c5e6daf6",
+            "count": 1
+          },
+          {
+            "descriptor": "Cambodia",
+            "id": "db69bf9c446c11de98360015c5e6daf6",
+            "count": 1
+          },
+          {
+            "descriptor": "Jordan",
+            "id": "809723fc85024f499ca856efcd8d6b34",
+            "count": 1
+          },
+          {
+            "descriptor": "Panama",
+            "id": "a390372e575c41ecb7240c51ce9067bd",
+            "count": 1
+          },
+          {
+            "descriptor": "Colombia",
+            "id": "e8106cd6a3534f2dba6fdee2d41db89d",
+            "count": 1
+          },
+          {
+            "descriptor": "Spain",
+            "id": "bd34c524a6a04ae6915f5d96fa086199",
+            "count": 1
+          },
+          {
+            "descriptor": "Ireland",
+            "id": "04a05835925f45b3a59406a2a6b72c8a",
+            "count": 1
+          },
+          {
+            "descriptor": "Malaysia",
+            "id": "972dc4ba8d454bc0b893ff84b1529077",
+            "count": 1
+          },
+          {
+            "descriptor": "Morocco",
+            "id": "7aaca3f6fc774f16802a4df4718a5b53",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "facetParameter": "hiringCompany",
+        "descriptor": "Company",
+        "values": [
+          {
+            "descriptor": "Samsung Austin Semiconductor, LLC.",
+            "id": "189767dd6c9201aedeefa811a729d283",
+            "count": 317
+          },
+          {
+            "descriptor": "Samsung Electronics America, Inc.",
+            "id": "189767dd6c9201b6d4407011a7296a83",
+            "count": 152
+          },
+          {
+            "descriptor": "Samsung Electronics France S.A.S",
+            "id": "189767dd6c920142f756d411a7292284",
+            "count": 53
+          },
+          {
+            "descriptor": "Samsung Electronics Industry and Commerc",
+            "id": "a3b5bba20c45018b4a244a429f14a659",
+            "count": 42
+          },
+          {
+            "descriptor": "Samsung Electronics GmbH",
+            "id": "189767dd6c9201c767abcb11a7291284",
+            "count": 33
+          },
+          {
+            "descriptor": "Samsung R&D Institute India - Bangalore",
+            "id": "189767dd6c9201554f3e5312a7290a85",
+            "count": 17
+          },
+          {
+            "descriptor": "Samsung Electronics UK Ltd",
+            "id": "189767dd6c9201ca9dafb911a729f283",
+            "count": 17
+          },
+          {
+            "descriptor": "Samsung Electronics Ukraine Company, LLC",
+            "id": "189767dd6c92013b1b837c13a7292287",
+            "count": 12
+          },
+          {
+            "descriptor": "Thai Samsung Electronics Co., Ltd.",
+            "id": "189767dd6c920190658c6c12a7293a85",
+            "count": 11
+          },
+          {
+            "descriptor": "Samsung Electronics Italia S.p.A",
+            "id": "189767dd6c92015084a4e111a7293a84",
+            "count": 9
+          },
+          {
+            "descriptor": "Samsung Electronics Canada, Inc.",
+            "id": "189767dd6c92013bf1588a11a7299a83",
+            "count": 9
+          },
+          {
+            "descriptor": "PT Samsung Electronics Indonesia",
+            "id": "189767dd6c920108d4206412a7292a85",
+            "count": 8
+          },
+          {
+            "descriptor": "Samsung Electronics Polska, SP.Zo.o",
+            "id": "189767dd6c920140da52fc11a7296a84",
+            "count": 8
+          },
+          {
+            "descriptor": "Samsung Electronics Benelux B.V.",
+            "id": "189767dd6c9201b7bf60ea11a7294a84",
+            "count": 8
+          },
+          {
+            "descriptor": "Samsung Electronics Singapore Pte. Ltd.",
+            "id": "189767dd6c9201538cb44a12a729fa84",
+            "count": 6
+          },
+          {
+            "descriptor": "Samsung Electronics Czech and Slovak, s.r.o.",
+            "id": "189767dd6c92017cfe34dd11a7293284",
+            "count": 6
+          },
+          {
+            "descriptor": "Samsung Electronics Home Appliance America",
+            "id": "189767dd6c92015edf23a011a729c283",
+            "count": 6
+          },
+          {
+            "descriptor": "Samsung Electronics Switzerland GmbH",
+            "id": "189767dd6c92016644a91512a7299a84",
+            "count": 5
+          },
+          {
+            "descriptor": "Samsung Electronics Austria Gmbh",
+            "id": "189767dd6c92014e6fff0c12a7298a84",
+            "count": 5
+          },
+          {
+            "descriptor": "Samsung Electronics Adria",
+            "id": "189767dd6c92019f9e1a1112a7299284",
+            "count": 4
+          },
+          {
+            "descriptor": "Samsung Eletronica Da Amazonia LTDA",
+            "id": "189767dd6c920104a78a6113a729f286",
+            "count": 4
+          },
+          {
+            "descriptor": "Samsung Electronics Philippines Corp",
+            "id": "189767dd6c92019456837512a7294a85",
+            "count": 3
+          },
+          {
+            "descriptor": "SAMSUNG ELECTRONICS GREECE S.M.S.A",
+            "id": "189767dd6c920184763c2b12a729c284",
+            "count": 3
+          },
+          {
+            "descriptor": "Samsung Electronics Baltics",
+            "id": "189767dd6c9201bd306f1e12a729aa84",
+            "count": 3
+          },
+          {
+            "descriptor": "Samsung Asia Pte. Ltd.",
+            "id": "9cc839290d3a014823f9f4c6071436a5",
+            "count": 3
+          },
+          {
+            "descriptor": "Samsung Electronics Romania S.R.L",
+            "id": "189767dd6c9201d97a7bf311a7295a84",
+            "count": 3
+          },
+          {
+            "descriptor": "Samsung Electronics Magyarorszag Zrt.",
+            "id": "189767dd6c9201f095dcd811a7292a84",
+            "count": 3
+          },
+          {
+            "descriptor": "Samsung Electronics Co., Ltd",
+            "id": "189767dd6c9201c29f5e2011a7290283",
+            "count": 3
+          },
+          {
+            "descriptor": "LAOS Samsung Electronics Sole Co., Ltd.",
+            "id": "189767dd6c920144ac4d7112a7294285",
+            "count": 2
+          },
+          {
+            "descriptor": "SAMSUNG SEMICONDUCTOR EUROPE GMBH",
+            "id": "189767dd6c9201d5105dc711a7290a84",
+            "count": 2
+          },
+          {
+            "descriptor": "SAMSUNG MALAYSIA ELECTRONICS (SME) SDN. BHD.",
+            "id": "189767dd6c92019f331c7f12a7295a85",
+            "count": 1
+          },
+          {
+            "descriptor": "Samsung Vina Electronics Co., Ltd.",
+            "id": "189767dd6c9201d240d44512a729f284",
+            "count": 1
+          },
+          {
+            "descriptor": "Samsung Electronics Europe Logistics B.V",
+            "id": "189767dd6c92014aebfae511a7294284",
+            "count": 1
+          },
+          {
+            "descriptor": "Samsung Electronics Iberia, S.A.",
+            "id": "189767dd6c920102f921d011a7291a84",
+            "count": 1
+          },
+          {
+            "descriptor": "Samsung Electronics Holding GmbH",
+            "id": "189767dd6c9201e3ec9cc211a7290284",
+            "count": 1
+          },
+          {
+            "descriptor": "SAMSUNG ELECTRONICS COLOMBIA S.A",
+            "id": "189767dd6c9201c071475913a729e286",
+            "count": 1
+          },
+          {
+            "descriptor": "SAMSUNG ELECTRONICS LATINOAMERICA (ZONA LIBRE), S.A.",
+            "id": "189767dd6c92018ffdb05013a729d286",
+            "count": 1
+          },
+          {
+            "descriptor": "Samsung Electronics Maghreb Arab",
+            "id": "189767dd6c9201e135a94713a729c286",
+            "count": 1
+          },
+          {
+            "descriptor": "Samsung Electronics Levant Jordan LLC",
+            "id": "189767dd6c9201f4d9284313a729ba86",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "facetParameter": "jobFamilyGroup",
+        "descriptor": "Job Category",
+        "values": [
+          {
+            "descriptor": "R&D (JFG)",
+            "id": "189767dd6c9201b4198fe1a6db2997c7",
+            "count": 154
+          },
+          {
+            "descriptor": "Marketing (JFG)",
+            "id": "189767dd6c9201a24f64d1a6db298dc7",
+            "count": 119
+          },
+          {
+            "descriptor": "Sales (JFG)",
+            "id": "189767dd6c9201c6e5aee7a6db299bc7",
+            "count": 89
+          },
+          {
+            "descriptor": "Production Engineering (JFG)",
+            "id": "189767dd6c9201d48510dba6db2993c7",
+            "count": 85
+          },
+          {
+            "descriptor": "EHS (JFG)",
+            "id": "189767dd6c920162dfa8c4a6db2985c7",
+            "count": 74
+          },
+          {
+            "descriptor": "Business Management (JFG)",
+            "id": "189767dd6c920111f76cbba6db297fc7",
+            "count": 49
+          },
+          {
+            "descriptor": "Software R&D (JFG)",
+            "id": "189767dd6c9201e189e3eaa6db299dc7",
+            "count": 45
+          },
+          {
+            "descriptor": "SCM & Logistics (JFG)",
+            "id": "189767dd6c92015e879ee4a6db2999c7",
+            "count": 28
+          },
+          {
+            "descriptor": "Manufacturing (JFG)",
+            "id": "189767dd6c92015ef075d4a6db298fc7",
+            "count": 24
+          },
+          {
+            "descriptor": "Finance (JFG)",
+            "id": "189767dd6c9201cda9b8c7a6db2987c7",
+            "count": 22
+          },
+          {
+            "descriptor": "QA & CS (JFG)",
+            "id": "189767dd6c9201fe2536dea6db2995c7",
+            "count": 21
+          },
+          {
+            "descriptor": "Procurement (JFG)",
+            "id": "189767dd6c92014f9161d7a6db2991c7",
+            "count": 19
+          },
+          {
+            "descriptor": "HR (JFG)",
+            "id": "189767dd6c92017e32a6caa6db2989c7",
+            "count": 15
+          },
+          {
+            "descriptor": "Legal Affairs (JFG)",
+            "id": "189767dd6c9201a2cb4bcea6db298bc7",
+            "count": 8
+          },
+          {
+            "descriptor": "Design (JFG)",
+            "id": "189767dd6c9201e5819dc1a6db2983c7",
+            "count": 7
+          },
+          {
+            "descriptor": "Corporate Affairs (JFG)",
+            "id": "189767dd6c9201913284bea6db2981c7",
+            "count": 7
+          }
+        ]
+      },
+      {
+        "facetParameter": "workerSubType",
+        "descriptor": "Job Type",
+        "values": [
+          {
+            "descriptor": "Regular",
+            "id": "189767dd6c9201c90a60ce9c2c297619",
+            "count": 561
+          },
+          {
+            "descriptor": "Intern(Empl.)",
+            "id": "189767dd6c920145d5c3e59c2c297819",
+            "count": 124
+          },
+          {
+            "descriptor": "Direct Outsourced",
+            "id": "189767dd6c9201ab5b6a33a42c298319",
+            "count": 75
+          },
+          {
+            "descriptor": "Contractor (Fixed Term)",
+            "id": "189767dd6c920189af34e29c2c297719",
+            "count": 4
+          },
+          {
+            "descriptor": "Affiliate",
+            "id": "189767dd6c9201223a72ec9c2c297a19",
+            "count": 1
+          },
+          {
+            "descriptor": "Intern(CW)",
+            "id": "189767dd6c92017ca7ab47a42c298419",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "facetParameter": "timeType",
+        "descriptor": "Time Type",
+        "values": [
+          {
+            "descriptor": "Full time",
+            "id": "02858ad19657019e8b031af2d6264900",
+            "count": 637
+          },
+          {
+            "descriptor": "Part time",
+            "id": "02858ad1965701c3b2f019f2d6264800",
+            "count": 5
+          }
+        ]
+      },
+      {
+        "facetParameter": "locationMainGroup",
+        "values": [
+          {
+            "facetParameter": "locations",
+            "descriptor": "Locations",
+            "values": [
+              {
+                "descriptor": "12100 Samsung Blvd, Austin, TX, USA",
+                "id": "189767dd6c9201c7ec227985a529067b",
+                "count": 118
+              },
+              {
+                "descriptor": "12130 Millennium Dr., Los Angeles, CA USA",
+                "id": "189767dd6c9201683b1cf286a529e37c",
+                "count": 6
+              },
+              {
+                "descriptor": "1530 FM 973 Taylor, TX, USA",
+                "id": "e2e963279736101307c7218e23e80000",
+                "count": 180
+              },
+              {
+                "descriptor": "161 N Clark St. Suite 2230, Chicago, IL, USA",
+                "id": "1f8774991d6401c2fe85f52b0623652b",
+                "count": 2
+              },
+              {
+                "descriptor": "18500 Von Karman Ave, STE 700, Irvine CA, USA",
+                "id": "189767dd6c9201f7a11b9e81a529ca75",
+                "count": 1
+              },
+              {
+                "descriptor": "19 Chapin Road, Pine Brook, NJ, USA",
+                "id": "189767dd6c9201bbbb1ba184a529fb79",
+                "count": 1
+              },
+              {
+                "descriptor": "2002 Victoria Avenue, Regina, Canada",
+                "id": "b490edaa905001fba37aeb509b1b3ea6",
+                "count": 1
+              },
+              {
+                "descriptor": "2050 Derry Rd W Mississauga, Canada",
+                "id": "189767dd6c9201d74aef2585a5299b7a",
+                "count": 7
+              },
+              {
+                "descriptor": "240 Dividend Dr, Coppell, TX, USA",
+                "id": "189767dd6c92014da7c68084a529d379",
+                "count": 3
+              },
+              {
+                "descriptor": "24A, Kifissias Avenue,, Athens, Greece",
+                "id": "189767dd6c92013528366f89a5290980",
+                "count": 3
+              },
+              {
+                "descriptor": "2727 Paces Ferry Road SE, Atlanta, GA, USA",
+                "id": "189767dd6c920121e28f6c84a529ba79",
+                "count": 1
+              },
+              {
+                "descriptor": "284 Mawsons Way Newberry, SC, USA",
+                "id": "189767dd6c920132898dee88a529647f",
+                "count": 6
+              },
+              {
+                "descriptor": "3000 Hillswood Drive, Chertsey, United Kingdom",
+                "id": "189767dd6c92013f4ad4f889a529cd80",
+                "count": 1
+              },
+              {
+                "descriptor": "3245 146th Place SE, Bellevue, WA, USA",
+                "id": "189767dd6c920124d517b483a529d778",
+                "count": 8
+              },
+              {
+                "descriptor": "3655 N 1st St, San Jose, CA, USA",
+                "id": "189767dd6c9201d2eed84985a529c87a",
+                "count": 16
+              },
+              {
+                "descriptor": "3900 N Capital of Texas Hwy, Austin, TX, USA",
+                "id": "189767dd6c9201d24193c587a529ed7d",
+                "count": 17
+              },
+              {
+                "descriptor": "3 MacArthur Place, Santa Ana, CA, USA",
+                "id": "b3de64aa962d1014d12136a4258f0000",
+                "count": 2
+              },
+              {
+                "descriptor": "565 Great Northern Way, Vancouver, Canada",
+                "id": "189767dd6c920171b3295e88a529af7e",
+                "count": 1
+              },
+              {
+                "descriptor": "595 Bay St, Suite 0408, Toronto, Canada",
+                "id": "157f45e9197f1016939c0b88ddf40000",
+                "count": 1
+              },
+              {
+                "descriptor": "645 Clyde Avenue, Mountain View, CA, USA",
+                "id": "189767dd6c9201de7df2a581a529d475",
+                "count": 35
+              },
+              {
+                "descriptor": "6555 Excellence Way, Plano, TX, USA",
+                "id": "502ab515a87601e1dd395608ad1e7f3b",
+                "count": 8
+              },
+              {
+                "descriptor": "6625 Excellence Way, Plano, TX, USA",
+                "id": "31fc7bab264601f2a48f9e5ec5243c60",
+                "count": 24
+              },
+              {
+                "descriptor": "665 Clyde Avenue, Mountain View,  CA, USA",
+                "id": "189767dd6c9201c7fed64881a5295975",
+                "count": 2
+              },
+              {
+                "descriptor": "6 Duntes Street, Riga, Latvia",
+                "id": "189767dd6c9201dbbd167787a529837d",
+                "count": 3
+              },
+              {
+                "descriptor": "6 rue Fructidor, Saint-Ouen, France",
+                "id": "2b110ef0cde41002ff87cbff1da20000",
+                "count": 52
+              },
+              {
+                "descriptor": "700 Pennsylvania Avenue, Suite 600, Washington DC, USA",
+                "id": "6a20bab9d029011973c6d88d8e20f38c",
+                "count": 2
+              },
+              {
+                "descriptor": "700 Sylvan Ave Englewood Cliffs, NJ, USA",
+                "id": "1f4238392e88100ef1bbe7f4983e0000",
+                "count": 36
+              },
+              {
+                "descriptor": "9808 Scranton Rd, San Diego, CA, USA",
+                "id": "3ae5f8a2566e01fc79a6e98e55420e52",
+                "count": 4
+              },
+              {
+                "descriptor": "Airport Plaza, Diegem, Belgium",
+                "id": "189767dd6c9201cc51125489a529e67f",
+                "count": 2
+              },
+              {
+                "descriptor": "Bavaria Towers, Munich, Germany",
+                "id": "39065a4e567f0126a5c0e8b862498003",
+                "count": 2
+              },
+              {
+                "descriptor": "BITEXCO Financial Tower, Ho Chi Minh, Vietnam",
+                "id": "189767dd6c920121754ee67da5296470",
+                "count": 1
+              },
+              {
+                "descriptor": "Blvd Stefan cel Mare, Chisinau, Moldova",
+                "id": "189767dd6c9201cb2c6a3083a5291778",
+                "count": 1
+              },
+              {
+                "descriptor": "Bolsunovska St., Kyiv, Ukraine",
+                "id": "189767dd6c920100fbe74884a5298e79",
+                "count": 11
+              },
+              {
+                "descriptor": "Budapest Gateway Office Centre, Budapest, Hungary",
+                "id": "189767dd6c9201db53c87a87a529887d",
+                "count": 4
+              },
+              {
+                "descriptor": "Cerkezkoy, Tekirda, Turkiye",
+                "id": "af1154f4252401ae3f431903ce2bc53e",
+                "count": 42
+              },
+              {
+                "descriptor": "Communications House,, Staines-Upon-Thames, United Kingdom",
+                "id": "189767dd6c9201d01d574c89a529dc7f",
+                "count": 1
+              },
+              {
+                "descriptor": "Costa del Este, Panama City, Panama",
+                "id": "189767dd6c9201f5a9a8ab83a529cd78",
+                "count": 1
+              },
+              {
+                "descriptor": "Duesseldorf, Germany Home Office",
+                "id": "2385b35ccd020105ce2ee53ef06d0000",
+                "count": 1
+              },
+              {
+                "descriptor": "Empire Tower, Bangkok, Thailand",
+                "id": "189767dd6c920190e63bf37da5297370",
+                "count": 7
+              },
+              {
+                "descriptor": "Eschborn, Germany Home Office",
+                "id": "270725556edc0105ce06612aaaa80000",
+                "count": 4
+              },
+              {
+                "descriptor": "Evert van de Beekstraat 310, Amsterdam, Netherlands",
+                "id": "189767dd6c920108305f8287a529927d",
+                "count": 6
+              },
+              {
+                "descriptor": "Giesshuebelstrasse 30, Zurich, Switzerland",
+                "id": "189767dd6c9201ca06b5008aa529d780",
+                "count": 5
+              },
+              {
+                "descriptor": "Grange Offices, Dublin, Ireland",
+                "id": "189767dd6c9201643b81ce85a5296f7b",
+                "count": 1
+              },
+              {
+                "descriptor": "Illinois, USA Home Office",
+                "id": "189767dd6c92015f51feeb84a529557a",
+                "count": 2
+              },
+              {
+                "descriptor": "Junction City Tower, Yangon, Myanmar",
+                "id": "189767dd6c9201a00f83a187a529be7d",
+                "count": 3
+              },
+              {
+                "descriptor": "King Hussein Business Park, Amman, Jordan",
+                "id": "189767dd6c9201dd3dcd1d7fa529fe71",
+                "count": 1
+              },
+              {
+                "descriptor": "Kolao Tower, Vientiane, Laos",
+                "id": "189767dd6c9201538e901a88a5295a7e",
+                "count": 2
+              },
+              {
+                "descriptor": "Letaliska cesta, Ljubljana, Slovenia",
+                "id": "189767dd6c9201ce458dde85a529837b",
+                "count": 1
+              },
+              {
+                "descriptor": "Lotissement la colline 2, Casablanca, Morocco",
+                "id": "cfb32d9aebfe019e33a70dd9606f044b",
+                "count": 1
+              },
+              {
+                "descriptor": "Mapletree Business City, Singapore, Singapore",
+                "id": "189767dd6c920145a7a1c67da5293c70",
+                "count": 9
+              },
+              {
+                "descriptor": "Mercu 2, Kuala Lumpur, Malaysia",
+                "id": "31fc7bab2646018e0978224f2525908b",
+                "count": 1
+              },
+              {
+                "descriptor": "Metroffice, Bucharest 2, Romania",
+                "id": "189767dd6c9201e693d1c285a529607b",
+                "count": 3
+              },
+              {
+                "descriptor": "Oficina 607, Bogota, Colombia",
+                "id": "189767dd6c92014c227c9e83a529bc78",
+                "count": 1
+              },
+              {
+                "descriptor": "Olof Palmestraat 10, Delft, Netherlands",
+                "id": "189767dd6c9201c5ba797e87a5298d7d",
+                "count": 1
+              },
+              {
+                "descriptor": "One Pennsylvania Plaza, 26th Floor, New York, NY, USA",
+                "id": "89abf27ec3f61038a12cbd91f1e80000",
+                "count": 21
+              },
+              {
+                "descriptor": "Parque dos Resedas, Campinas, Brazil",
+                "id": "189767dd6c9201078c8d8983a529a378",
+                "count": 4
+              },
+              {
+                "descriptor": "Parque Empresarial Omega, Madrid, Spain",
+                "id": "189767dd6c920124ccea2687a529247d",
+                "count": 1
+              },
+              {
+                "descriptor": "Phnom Penh Center, Phnom Penh, Cambodia",
+                "id": "189767dd6c9201ba346ed27da5294b70",
+                "count": 1
+              },
+              {
+                "descriptor": "Postepu, Warszawa, Poland",
+                "id": "38ad101a9fa0017802598d159a5ba231",
+                "count": 7
+              },
+              {
+                "descriptor": "Praterstrasse 31, Vienna, Austria",
+                "id": "189767dd6c9201a14ec85b89a529f07f",
+                "count": 5
+              },
+              {
+                "descriptor": "Radnička cesta, Zagreb, Croatia",
+                "id": "189767dd6c92016ad6c8088aa529e180",
+                "count": 3
+              },
+              {
+                "descriptor": "Ratinger Str. 9, Düsseldorf, Germany",
+                "id": "2079ebb8f54601cecb395316c501f8b4",
+                "count": 2
+              },
+              {
+                "descriptor": "Samsung ESBO Floor 3 Eighty Strand London WC2R 0RE",
+                "id": "911b21efc47610092bc3c3bcc0ff0000",
+                "count": 7
+              },
+              {
+                "descriptor": "Samsung House 2000 Hillswood Drive, Chertsey, United Kingdom",
+                "id": "15ba52b49815011d25f8d295c32c42d0",
+                "count": 6
+              },
+              {
+                "descriptor": "Samsung Space, Eschborn, Germany",
+                "id": "189767dd6c9201ea65ab1287a5290b7d",
+                "count": 29
+              },
+              {
+                "descriptor": "Science Hub Tower 4, Manila, Philippines",
+                "id": "189767dd6c9201db7267fb7da5297d70",
+                "count": 3
+              },
+              {
+                "descriptor": "SSIR, Goldstone, Bangalore, India",
+                "id": "0c974e8c1228010867596ab21b3c3469",
+                "count": 4
+              },
+              {
+                "descriptor": "The Park , Prague, Czech Republic",
+                "id": "189767dd6c9201e936cd0c8aa529e680",
+                "count": 6
+              },
+              {
+                "descriptor": "Via Mike Bongiorno, Milano, Italy",
+                "id": "189767dd6c92016157048a87a5299c7d",
+                "count": 9
+              },
+              {
+                "descriptor": "Wisma GKBI, Jakarta, Indonesia",
+                "id": "189767dd6c9201bc2d6fce7da5294670",
+                "count": 8
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "userAuthenticated": false
+  }
+}

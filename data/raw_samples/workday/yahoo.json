@@ -1,0 +1,404 @@
+{
+  "_meta": {
+    "source": "workday",
+    "companyId": "yahoo",
+    "companyName": "Yahoo",
+    "originalUrl": "https://ouryahoo.wd5.myworkdayjobs.com/careers",
+    "parsedTenant": "ouryahoo",
+    "parsedInstance": "wd5",
+    "parsedSite": "careers",
+    "siteUrl": "https://ouryahoo.wd5.myworkdayjobs.com/careers",
+    "apiEndpoint": "https://ouryahoo.wd5.myworkdayjobs.com/wday/cxs/ouryahoo/careers/jobs",
+    "sessionInitStatus": 200,
+    "cookiesEstablished": [
+      "PLAY_SESSION",
+      "wd-browser-id",
+      "CALYPSO_CSRF_TOKEN",
+      "CXS_SESSION",
+      "wday_vps_cookie",
+      "__cf_bm",
+      "__cflb",
+      "_cfuvid"
+    ],
+    "jobsApiStatus": 200,
+    "sampledAt": "2026-03-01T22:04:48.162Z",
+    "totalReported": 95,
+    "jobCountThisPage": 20,
+    "facetCount": 6,
+    "requestPayload": {
+      "appliedFacets": {},
+      "limit": 20,
+      "offset": 0,
+      "searchText": ""
+    }
+  },
+  "raw": {
+    "total": 95,
+    "jobPostings": [
+      {
+        "title": "Machine Learning Engineer",
+        "externalPath": "/job/United-States-of-America/ML-Engineer_JR0026099",
+        "locationsText": "United States of America",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "JR0026099"
+        ]
+      },
+      {
+        "title": "Senior Backend Engineer (Node.JS, AWS)",
+        "externalPath": "/job/United-States-of-America/Senior-Backend-Engineer--NodeJS--AWS-_JR0026977",
+        "locationsText": "United States of America",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "JR0026977"
+        ]
+      },
+      {
+        "title": "Sr. Software Dev Engineer",
+        "externalPath": "/job/India/Sr-Software-Dev-Engineer_JR0026055",
+        "locationsText": "India",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "JR0026055"
+        ]
+      },
+      {
+        "title": "Order Quality Assurance Analyst",
+        "externalPath": "/job/India/Order-Quality-Assurance-Analyst_JR0026770",
+        "locationsText": "India",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "JR0026770"
+        ]
+      },
+      {
+        "title": "Backend Software Dev Engineer II, Yahoo Mail",
+        "externalPath": "/job/United-States-of-America/Backend-Software-Dev-Engineer-II--Yahoo-Mail_JR0026889",
+        "locationsText": "United States of America",
+        "postedOn": "Posted 4 Days Ago",
+        "bulletFields": [
+          "JR0026889"
+        ]
+      },
+      {
+        "title": "Principal Backend Engineer, Yahoo Weather",
+        "externalPath": "/job/United-States-of-America/Principal-iOS-Engineer--Yahoo-Weather_JR0026640-1",
+        "locationsText": "United States of America",
+        "postedOn": "Posted 4 Days Ago",
+        "bulletFields": [
+          "JR0026640"
+        ]
+      },
+      {
+        "title": "Sr. Director Consumer Data Product - Activation",
+        "externalPath": "/job/United-States-of-America/Sr-Director-Consumer-Data-Product---Activation_JR0026917-1",
+        "locationsText": "United States of America",
+        "postedOn": "Posted 4 Days Ago",
+        "bulletFields": [
+          "JR0026917"
+        ]
+      },
+      {
+        "title": "Global Communications AI Adoption Lead",
+        "externalPath": "/job/United-States-of-America/Global-Communications-AI-Adoption-Lead_JR0026985",
+        "locationsText": "United States of America",
+        "postedOn": "Posted 4 Days Ago",
+        "bulletFields": [
+          "JR0026985"
+        ]
+      },
+      {
+        "title": "Senior Software Engineer",
+        "externalPath": "/job/United-States-of-America/Senior-Software-Engineer_JR0026440",
+        "locationsText": "United States of America",
+        "postedOn": "Posted 4 Days Ago",
+        "bulletFields": [
+          "JR0026440"
+        ]
+      },
+      {
+        "title": "Director of Content Design, Yahoo Finance",
+        "externalPath": "/job/United-States-of-America/Director-of-Content-Design--Yahoo-Finance_JR0026790",
+        "locationsText": "United States of America",
+        "postedOn": "Posted 4 Days Ago",
+        "bulletFields": [
+          "JR0026790"
+        ]
+      },
+      {
+        "title": "Content Analyst and Knowledge Engineer",
+        "externalPath": "/job/United-States-of-America/Content-Analyst-and-Knowledge-Engineer_JR0026637-1",
+        "locationsText": "United States of America",
+        "postedOn": "Posted 4 Days Ago",
+        "bulletFields": [
+          "JR0026637"
+        ]
+      },
+      {
+        "title": "Programmatic Deals Sales Specialist, Yahoo Ads",
+        "externalPath": "/job/United-States-of-America/Programmatic-Deals-Specialist--Yahoo-Ads_JR0026507",
+        "locationsText": "United States of America",
+        "postedOn": "Posted 5 Days Ago",
+        "bulletFields": [
+          "JR0026507"
+        ]
+      },
+      {
+        "title": "Principal Software Apps Engineer - iOS (IC5)",
+        "externalPath": "/job/Ireland/Principal-Software-Apps-Engineer---iOS_JR0026858",
+        "locationsText": "Ireland",
+        "postedOn": "Posted 5 Days Ago",
+        "bulletFields": [
+          "JR0026858"
+        ]
+      },
+      {
+        "title": "Senior Backend Engineer (IC4)",
+        "externalPath": "/job/Ireland/Senior-Backend-Engineer_JR0026840",
+        "locationsText": "Ireland",
+        "postedOn": "Posted 5 Days Ago",
+        "bulletFields": [
+          "JR0026840"
+        ]
+      },
+      {
+        "title": "Principal Software Engineer - Web (IC5)",
+        "externalPath": "/job/Ireland/Principal-Software-Engineer_JR0026725",
+        "locationsText": "Ireland",
+        "postedOn": "Posted 5 Days Ago",
+        "bulletFields": [
+          "JR0026725"
+        ]
+      },
+      {
+        "title": "Principal Software Apps Engineer - Android (IC5)",
+        "externalPath": "/job/Ireland/Principal-Software-Apps-Engineer---Android_JR0026860",
+        "locationsText": "Ireland",
+        "postedOn": "Posted 5 Days Ago",
+        "bulletFields": [
+          "JR0026860"
+        ]
+      },
+      {
+        "title": "Machine Learning Engineer II (IC3)",
+        "externalPath": "/job/Ireland/Machine-Learning-Engineer---2_JR0026841",
+        "locationsText": "Ireland",
+        "postedOn": "Posted 5 Days Ago",
+        "bulletFields": [
+          "JR0026841"
+        ]
+      },
+      {
+        "title": "Backend Engineer II (IC3)",
+        "externalPath": "/job/Ireland/Senior-Backend-Engineer_JR0026802",
+        "locationsText": "Ireland",
+        "postedOn": "Posted 5 Days Ago",
+        "bulletFields": [
+          "JR0026802"
+        ]
+      },
+      {
+        "title": "Data Engineer II (IC3)",
+        "externalPath": "/job/Ireland/Senior-Data-Engineer_JR0026593",
+        "locationsText": "Ireland",
+        "postedOn": "Posted 5 Days Ago",
+        "bulletFields": [
+          "JR0026593"
+        ]
+      },
+      {
+        "title": "Senior Frontend Engineer",
+        "externalPath": "/job/Taiwan/Senior-Frontend-Engineer_JR0026906",
+        "locationsText": "Taiwan",
+        "postedOn": "Posted 5 Days Ago",
+        "bulletFields": [
+          "JR0026906"
+        ]
+      }
+    ],
+    "facets": [
+      {
+        "facetParameter": "jobFamilyGroup",
+        "descriptor": "Job Category",
+        "values": [
+          {
+            "descriptor": "Software Development",
+            "id": "91f14896cbbe0150163e1d3fc7463fb2",
+            "count": 57
+          },
+          {
+            "descriptor": "Engineering",
+            "id": "91f14896cbbe0172a9e4f13ec7462fb2",
+            "count": 12
+          },
+          {
+            "descriptor": "Design Group",
+            "id": "ccf1f0023ffe01f1e1538680105f273b",
+            "count": 8
+          },
+          {
+            "descriptor": "Sales",
+            "id": "91f14896cbbe0198ebe3173fc7463db2",
+            "count": 4
+          },
+          {
+            "descriptor": "Marketing",
+            "id": "91f14896cbbe019e3d23113fc7463bb2",
+            "count": 4
+          },
+          {
+            "descriptor": "Information Systems",
+            "id": "91f14896cbbe014ea5db023fc74635b2",
+            "count": 4
+          },
+          {
+            "descriptor": "Content",
+            "id": "91f14896cbbe01142c95e33ec74629b2",
+            "count": 4
+          },
+          {
+            "descriptor": "Finance",
+            "id": "91f14896cbbe01aa2185f73ec74631b2",
+            "count": 1
+          },
+          {
+            "descriptor": "Business Development",
+            "id": "91f14896cbbe016318b8d53ec74623b2",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "facetParameter": "Location_Country",
+        "descriptor": "Country",
+        "values": [
+          {
+            "descriptor": "United States of America",
+            "id": "bc33aa3152ec42d4995f4791a106ed09",
+            "count": 72
+          },
+          {
+            "descriptor": "Ireland",
+            "id": "04a05835925f45b3a59406a2a6b72c8a",
+            "count": 12
+          },
+          {
+            "descriptor": "India",
+            "id": "c4f78be1a8f14da0ab49ce1162348a5e",
+            "count": 5
+          },
+          {
+            "descriptor": "Taiwan",
+            "id": "a4e08b475d6a4176853c9d1cb9854e02",
+            "count": 3
+          },
+          {
+            "descriptor": "United Kingdom",
+            "id": "29247e57dbaf46fb855b224e03170bc7",
+            "count": 2
+          },
+          {
+            "descriptor": "Canada",
+            "id": "a30a87ed25634629aa6c3958aa2b91ea",
+            "count": 2
+          },
+          {
+            "descriptor": "Israel",
+            "id": "084562884af243748dad7c84c304d89a",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "facetParameter": "Location_Region_State_Province",
+        "descriptor": "Region",
+        "values": [
+          {
+            "descriptor": "District of Columbia",
+            "id": "0d2bcd0308f541938f3ae29e7cc69ae0",
+            "count": 72
+          },
+          {
+            "descriptor": "Taipei City",
+            "id": "c5684b475b7345d0839454b2a03c5d2d",
+            "count": 3
+          },
+          {
+            "descriptor": "Ontario",
+            "id": "218a720b28a74c67b5c6d42c00bdadfa",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "facetParameter": "workerSubType",
+        "descriptor": "Job Type",
+        "values": [
+          {
+            "descriptor": "Employee - Regular",
+            "id": "6b53d73377f84f4b9d963aa8eb3761c0",
+            "count": 95
+          }
+        ]
+      },
+      {
+        "facetParameter": "timeType",
+        "descriptor": "Time Type",
+        "values": [
+          {
+            "descriptor": "Full time",
+            "id": "db2d1e94eda84deab7077e82bcf9b2ba",
+            "count": 95
+          }
+        ]
+      },
+      {
+        "facetParameter": "locationMainGroup",
+        "values": [
+          {
+            "facetParameter": "locations",
+            "descriptor": "Locations",
+            "values": [
+              {
+                "descriptor": "Canada",
+                "id": "429c19fc6ff8100159408692adfb0000",
+                "count": 2
+              },
+              {
+                "descriptor": "India",
+                "id": "6d64c16fe5b1100158e8711ae7cc0000",
+                "count": 5
+              },
+              {
+                "descriptor": "Ireland",
+                "id": "6d64c16fe5b1100158e7898681c60000",
+                "count": 12
+              },
+              {
+                "descriptor": "Israel",
+                "id": "4d7fc20f8904100158e5e838d3170000",
+                "count": 1
+              },
+              {
+                "descriptor": "Taiwan",
+                "id": "4d7fc20f8904100158e69413766d0000",
+                "count": 3
+              },
+              {
+                "descriptor": "United Kingdom",
+                "id": "4d7fc20f8904100158e6bf7090040000",
+                "count": 2
+              },
+              {
+                "descriptor": "United States of America",
+                "id": "429c19fc6ff810015940b81d49a00000",
+                "count": 72
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "userAuthenticated": false
+  }
+}

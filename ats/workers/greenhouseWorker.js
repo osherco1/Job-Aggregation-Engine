@@ -2,6 +2,7 @@ const path = require('path');
 const { requestWithDelayWrapper } = require('../utils/httpClientWrapper');
 const { PATHS } = require('../../config/paths');
 const { evaluateAtsGuard } = require('../filters/ats_guard');
+const { israelLocationKeywords } = require('../../config/vocabulary');
 
 const DEBUG_GREENHOUSE = process.env.DEBUG_GREENHOUSE === 'true';
 const ATS_GUARD_DRY_RUN = process.env.ATS_GUARD_DRY_RUN === 'true';
@@ -151,15 +152,29 @@ async function saveRunSummary(runStats, storageAdapter) {
 // NORMALIZATION & FILTERING LOGIC
 // ============================================================================
 
+/** Metadata field names that may contain Job Level / Seniority (case-insensitive). */
+const STRUCTURED_LEVEL_NAMES = ['job level', 'level', 'seniority', 'experience level'];
+
 /**
- * Normalize raw Greenhouse job to UnifiedJob structure
+ * Extract structuredLevel from Greenhouse metadata[] (polymorphic by company).
+ */
+function extractStructuredLevel(metadata) {
+  if (!Array.isArray(metadata)) return null;
+  const entry = metadata.find(
+    (m) => m && m.name && STRUCTURED_LEVEL_NAMES.includes(String(m.name).toLowerCase().trim())
+  );
+  return entry && entry.value != null ? String(entry.value).trim() : null;
+}
+
+/**
+ * Normalize raw Greenhouse job to UnifiedJob structure.
+ * jobId prefix: gh_ (dedup parity). postedAt from first_published, updatedAt from updated_at.
  */
 function normalizeGreenhouseJob(rawJob, company) {
   if (!rawJob || !rawJob.id || !rawJob.title) {
     return null;
   }
 
-  // Extract location from job.location.name
   let location = '';
   if (rawJob.location) {
     if (typeof rawJob.location === 'string') {
@@ -169,112 +184,101 @@ function normalizeGreenhouseJob(rawJob, company) {
     }
   }
 
-  // Extract description from job.content (decode HTML if needed)
   let description = null;
   if (rawJob.content) {
     description = decodeHtml(String(rawJob.content).trim());
   }
 
-  // Extract URL from job.absolute_url
   let url = '';
   if (rawJob.absolute_url) {
     url = String(rawJob.absolute_url).trim();
   }
 
-  // Extract postedAt from job.updated_at
-  let postedAt = null;
-  if (rawJob.updated_at) {
-    postedAt = String(rawJob.updated_at).trim();
-  }
+  const postedAt =
+    rawJob.first_published != null && String(rawJob.first_published).trim()
+      ? String(rawJob.first_published).trim()
+      : rawJob.updated_at != null
+        ? String(rawJob.updated_at).trim()
+        : null;
+  const updatedAt =
+    rawJob.updated_at != null ? String(rawJob.updated_at).trim() : undefined;
+
+  const departments = Array.isArray(rawJob.departments)
+    ? rawJob.departments.map((d) =>
+        d && typeof d === 'object'
+          ? { id: d.id, name: d.name, child_ids: d.child_ids, parent_id: d.parent_id }
+          : { name: String(d) }
+      )
+    : [];
+  const metadata = Array.isArray(rawJob.metadata) ? rawJob.metadata : [];
+  const structuredLevel = extractStructuredLevel(metadata);
 
   return {
-    jobId: `greenhouse_${String(rawJob.id).trim()}`,
+    jobId: `gh_${String(rawJob.id).trim()}`,
     source: 'greenhouse',
     sourceCompanyId: company.id,
     companyName: company.name || company.id,
     title: String(rawJob.title).trim(),
-    location: location,
-    url: url,
-    description: description,
-    postedAt: postedAt,
+    location,
+    url,
+    description,
+    postedAt,
+    updatedAt,
+    offices: Array.isArray(rawJob.offices) ? rawJob.offices : [],
+    departments,
+    metadata,
+    structuredLevel,
+    language: rawJob.language != null ? String(rawJob.language) : undefined,
+    requisitionId: rawJob.requisition_id != null ? String(rawJob.requisition_id) : undefined,
+    internalJobId: rawJob.internal_job_id != null ? String(rawJob.internal_job_id) : undefined,
     raw: rawJob,
   };
 }
 
 /**
- * Explicit job filter with reason tracking
- * Returns: { passed: boolean, reason?: string }
+ * Location Gate only (Hub & Spoke: title/department in ATS Guard).
+ * Aggregates location from rawJob.location and offices[].name, offices[].location.
+ * Uses centralized israelLocationKeywords. Pass if any string contains "remote".
  */
 function filterJob(rawJob) {
   if (!rawJob) {
-    return { passed: false, reason: 'Invalid job data' };
+    return { passed: false, reason: 'Invalid job data', gate: 'location' };
   }
 
-  // Location filter: Must be Israel (IL) or Remote
-  let locationStr = '';
+  const pool = [];
   if (rawJob.location) {
     if (typeof rawJob.location === 'string') {
-      locationStr = rawJob.location;
+      pool.push(rawJob.location);
     } else if (typeof rawJob.location === 'object') {
-      locationStr = rawJob.location.name || rawJob.location.city || rawJob.location.country || '';
+      if (rawJob.location.name) pool.push(rawJob.location.name);
+      if (rawJob.location.city) pool.push(rawJob.location.city);
+      if (rawJob.location.country) pool.push(rawJob.location.country);
     }
   }
-
-  const locationLower = locationStr.toLowerCase();
-  const isIsrael = locationLower.includes('israel') ||
-    locationLower.includes('tel aviv') ||
-    locationLower.includes('tel-aviv') ||
-    locationLower.includes('haifa') ||
-    locationLower.includes('jerusalem') ||
-    (rawJob.location && typeof rawJob.location === 'object' && rawJob.location.country === 'IL');
-  const isRemote = locationLower.includes('remote');
-
-  if (!isIsrael && !isRemote) {
-    return { passed: false, reason: `Location: ${locationStr || 'Unknown'} (not IL/Remote)` };
-  }
-
-  // Title filter: No Senior/VP/Manager in title
-  const title = (rawJob.title || '').toLowerCase();
-  const titleBlacklist = ['senior', 'sr.', 'sr ', 'vp ', 'vice president', 'manager', 'director', 'head of', 'lead '];
-  const hasBlacklistedTitle = titleBlacklist.some(term => title.includes(term));
-
-  if (hasBlacklistedTitle) {
-    return { passed: false, reason: `Title: Contains blacklisted term (${rawJob.title})` };
-  }
-
-  // Department filter: Tech/Product/Design only (if departments exist)
-  if (rawJob.departments && Array.isArray(rawJob.departments) && rawJob.departments.length > 0) {
-    const deptNames = rawJob.departments
-      .map(dept => (dept.name || dept).toLowerCase().trim())
-      .filter(Boolean);
-
-    const blacklist = [
-      'sales',
-      'legal',
-      'finance',
-      'hr',
-      'human resources',
-      'marketing'
-    ];
-
-    const hasBlacklistedDept = deptNames.some(deptName =>
-      blacklist.some(blacklisted =>
-        deptName === blacklisted || deptName.includes(blacklisted)
-      )
-    );
-
-    if (hasBlacklistedDept) {
-      // Exception: "Product Marketing" is technical
-      const hasProductMarketing = deptNames.some(deptName => deptName.includes('product marketing'));
-      if (!hasProductMarketing) {
-        const deptDisplay = rawJob.departments.map(d => d.name || d).join(', ');
-        return { passed: false, reason: `Department: ${deptDisplay} (non-technical)` };
+  if (Array.isArray(rawJob.offices)) {
+    for (const office of rawJob.offices) {
+      if (office && typeof office === 'object') {
+        if (office.name) pool.push(office.name);
+        if (office.location) pool.push(office.location);
       }
     }
   }
 
-  // All filters passed
-  return { passed: true };
+  const locationLower = pool.map((s) => String(s).toLowerCase()).join(' ');
+  if (locationLower.includes('remote')) {
+    return { passed: true, matchedLocationKeyword: 'remote', gate: 'location' };
+  }
+  const keywords = israelLocationKeywords || [];
+  const matched = keywords.find((k) => locationLower.includes(k));
+  if (matched) {
+    return { passed: true, matchedLocationKeyword: matched, gate: 'location' };
+  }
+  if (rawJob.location && typeof rawJob.location === 'object' && rawJob.location.country === 'IL') {
+    return { passed: true, matchedLocationKeyword: 'il', gate: 'location' };
+  }
+
+  const locationStr = pool[0] || 'Unknown';
+  return { passed: false, reason: `Location: ${locationStr} (not IL/Remote)`, gate: 'location' };
 }
 
 // ============================================================================
@@ -296,6 +300,7 @@ class GreenhouseWorker {
       totalFetched: 0,
       totalKept: 0,
       totalDropped: 0,
+      totalSkippedDedup: 0,
       droppedByReason: {},
       errors: [],
       companies: []
@@ -315,6 +320,7 @@ class GreenhouseWorker {
       totalFetched: 0,
       totalKept: 0,
       totalDropped: 0,
+      totalSkippedDedup: 0,
       droppedByReason: {},
       errors: [],
       companies: []
@@ -403,7 +409,11 @@ class GreenhouseWorker {
     // Greenhouse public API endpoint with ?content=true
     const targetUrl = `https://boards-api.greenhouse.io/v1/boards/${uid}/jobs?content=true`;
 
-    const requestWithDelay = requestWithDelayWrapper(this.httpClient);
+    const requestWithDelay = requestWithDelayWrapper(this.httpClient, {
+      provider: 'greenhouse',
+      enableRetries: true,
+      maxRetries: 1,
+    });
 
     let httpStartTime = 0;
     let httpDurationMs = 0;
@@ -528,23 +538,18 @@ class GreenhouseWorker {
 
       // Process each raw job
       for (const rawJob of rawJobs) {
-        // STEP 0: Silent dedup — skip already-known jobs (no calibration_rejected write)
-        const jobId = rawJob.id
-          ? `greenhouse_${String(rawJob.id).trim()}`
-          : null;
+        const jobId = rawJob.id ? `gh_${String(rawJob.id).trim()}` : null;
 
         if (jobId && knownJobIds && knownJobIds.has(jobId)) {
           stats.skippedDedup = (stats.skippedDedup || 0) + 1;
           continue;
         }
 
-        // STEP 1: Business logic filters (explicit filter with reason tracking)
         const filterResult = filterJob(rawJob);
 
         if (!filterResult.passed) {
-          // Job was filtered out - track it (lightweight, no raw/normalized)
           droppedJobs.push({
-            jobId: rawJob.id ? `greenhouse_${rawJob.id}` : 'unknown',
+            jobId: jobId || 'unknown',
             title: rawJob.title || 'Unknown',
             companyName: company.name || company.id,
             location: (rawJob.location && typeof rawJob.location === 'object' && rawJob.location.name)
@@ -553,6 +558,8 @@ class GreenhouseWorker {
             url: rawJob.absolute_url || '',
             reason: filterResult.reason || 'Unknown filter reason',
             source: 'greenhouse',
+            gate: filterResult.gate || 'location',
+            matchedLocationKeyword: filterResult.matchedLocationKeyword,
           });
 
           // Update stats by reason category
@@ -575,11 +582,10 @@ class GreenhouseWorker {
         stats.passedLocation += 1;
         stats.passedDepartment += 1;
 
-        // Normalize to UnifiedJob
         const unified = normalizeGreenhouseJob(rawJob, company);
         if (!unified) {
           droppedJobs.push({
-            jobId: rawJob.id ? `greenhouse_${rawJob.id}` : 'unknown',
+            jobId: jobId || 'unknown',
             title: rawJob.title || 'Unknown',
             companyName: company.name || company.id,
             location: (rawJob.location && typeof rawJob.location === 'object' && rawJob.location.name)
@@ -588,42 +594,46 @@ class GreenhouseWorker {
             url: rawJob.absolute_url || '',
             reason: 'Normalization failed',
             source: 'greenhouse',
+            gate: 'normalization',
           });
           continue;
         }
         stats.normalized += 1;
+        unified.matchedLocationKeyword = filterResult.matchedLocationKeyword;
         allNormalizedJobs.push(unified);
 
-        // ATS Guard (for seniority/title filtering)
-        const guard = evaluateAtsGuard(rawJob, {
+        const guardPayload = {
+          title: unified.title,
+          location: unified.location,
+          departments: unified.departments,
+          description: unified.description,
+          structuredLevel: unified.structuredLevel,
+        };
+        const guard = evaluateAtsGuard(guardPayload, {
           companyId: company.id,
           source: 'greenhouse',
         });
 
-        // Attach debug analysis
         if (!rawJob._debug_analysis || typeof rawJob._debug_analysis !== 'object') {
           rawJob._debug_analysis = {};
         }
-
         rawJob._debug_analysis.companyId = company.id;
         rawJob._debug_analysis.title = unified.title || null;
         rawJob._debug_analysis.location = unified.location || null;
         rawJob._debug_analysis.atsGuardVerdict = guard.verdict;
         rawJob._debug_analysis.atsGuardReason = guard.reason;
         rawJob._debug_analysis.verdict =
-          guard.verdict === 'PASS'
-            ? 'PASS'
-            : `ATS_GUARD: ${guard.reason}`;
+          guard.verdict === 'PASS' ? 'PASS' : `ATS_GUARD: ${guard.reason}`;
 
-        // Track guard stats
         if (guard.verdict === 'PASS') {
           stats.passedGuard += 1;
+          unified.matchedKeywords = guard.matchedKeywords || [];
+          unified.gate = null;
           unifiedJobs.push(unified);
         } else {
           stats.droppedGuard += 1;
           const reasonLower = (guard.reason || '').toLowerCase();
 
-          // Track dropped by ATS guard (lightweight, no raw/normalized)
           droppedJobs.push({
             jobId: unified.jobId,
             title: unified.title,
@@ -632,6 +642,11 @@ class GreenhouseWorker {
             url: unified.url || '',
             reason: `ATS_GUARD: ${guard.reason}`,
             source: 'greenhouse',
+            gate: guard.gate || 'ats_guard',
+            matchedBlacklistPatterns: guard.matchedBlacklistPatterns || [],
+            structuredLevel: unified.structuredLevel,
+            structuredDepartment: undefined,
+            matchedLocationKeyword: unified.matchedLocationKeyword,
           });
 
           // Update stats by reason
@@ -677,6 +692,7 @@ class GreenhouseWorker {
       this.runStats.totalFetched += stats.fetched;
       this.runStats.totalKept += stats.kept;
       this.runStats.totalDropped += stats.dropped;
+      this.runStats.totalSkippedDedup += (stats.skippedDedup || 0);
 
       // Aggregate dropped by reason
       if (stats.droppedByReason) {

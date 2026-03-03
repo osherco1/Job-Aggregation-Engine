@@ -1,0 +1,80 @@
+{
+  "_meta": {
+    "source": "comeet",
+    "companyId": "appnext",
+    "companyName": "Appnext",
+    "uid": "42.003",
+    "endpoint": "https://www.comeet.co/careers-api/1.0/company/42.003/positions?token=***REDACTED***",
+    "httpStatus": 200,
+    "sampledAt": "2026-03-01T22:02:55.456Z",
+    "jobCount": 2
+  },
+  "raw": [
+    {
+      "name": "Full-Stack Developer",
+      "department": "R&D",
+      "email_name": "appnext.BE.650@applynow.io",
+      "location": "India",
+      "careers_page_url": "https://www.comeet.com/jobs/appnext/42.003/full-stack-developer/BE.650",
+      "careers_page_active_url": "https://www.comeet.com/jobs/appnext/42.003/full-stack-developer/BE.650",
+      "req_company_number": "",
+      "employment_type": "Full-time",
+      "experience_level": "Associate",
+      "position_uid": "BE.650",
+      "location_object": {
+        "name": "India",
+        "country": "IN",
+        "city": "",
+        "state": null,
+        "postal_code": null,
+        "street_name": null,
+        "arrival_instructions": null,
+        "street_number": null,
+        "timezone": "Asia/Calcutta",
+        "location_uid": "E7.10D"
+      },
+      "careers_page_detected_url": null,
+      "picture_url": null,
+      "time_updated": "2026-01-18T08:05:40Z",
+      "is_discreet": false,
+      "company_name": "Appnext",
+      "position_company_number": null,
+      "position_url": "https://www.comeet.co/careers-api/1.0/company/42.003/positions/BE.650?token=24390C1218B4FD9212186C9243B4F486",
+      "Team": null,
+      "Remote": "Hybrid"
+    },
+    {
+      "name": "Senior Growth Manager",
+      "department": "Sales & Bizdev",
+      "email_name": "appnext.82.268@applynow.io",
+      "location": "Russia",
+      "careers_page_url": "https://www.comeet.com/jobs/appnext/42.003/senior-growth-manager/82.268",
+      "careers_page_active_url": "https://www.comeet.com/jobs/appnext/42.003/senior-growth-manager/82.268",
+      "req_company_number": "",
+      "employment_type": "Full-time",
+      "experience_level": null,
+      "position_uid": "82.268",
+      "location_object": {
+        "name": "Russia",
+        "country": "",
+        "city": null,
+        "state": null,
+        "postal_code": null,
+        "street_name": null,
+        "arrival_instructions": null,
+        "street_number": null,
+        "timezone": "Asia/Jerusalem",
+        "location_uid": "E7.10E"
+      },
+      "careers_page_detected_url": null,
+      "picture_url": null,
+      "time_updated": "2026-01-21T12:14:08Z",
+      "is_discreet": false,
+      "company_name": "Appnext",
+      "position_company_number": null,
+      "position_url": "https://www.comeet.co/careers-api/1.0/company/42.003/positions/82.268?token=24390C1218B4FD9212186C9243B4F486",
+      "Team": null,
+      "Remote": null
+    }
+  ]
+}

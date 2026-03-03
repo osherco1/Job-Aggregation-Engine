@@ -290,6 +290,51 @@ class EmailNotifier {
             return false;
         }
     }
+
+    /**
+     * Send calibration alert with Markdown report as MIME attachment (Master PRD).
+     * @param {string} subject - e.g. "System Alert: DB Volume Trigger" or "Weekly Calibration Report"
+     * @param {string} reportMd - Full markdown content of the report
+     * @param {'volume'|'time'} [triggerType] - volume or time-based trigger
+     * @returns {Promise<boolean>}
+     */
+    async sendCalibrationAlert(subject, reportMd, triggerType = 'time') {
+        const { JOBBOT_SMTP_USER, JOBBOT_TO_EMAIL } = process.env;
+        const toAddress = JOBBOT_TO_EMAIL || JOBBOT_SMTP_USER;
+
+        if (!toAddress) {
+            console.error('EmailNotifier: No recipient email configured');
+            return false;
+        }
+
+        try {
+            const transporter = this.getTransporter();
+            const summary = triggerType === 'volume'
+                ? 'Database size exceeded the threshold. Cleanup protocol was executed. See attached report.'
+                : 'Weekly calibration report. See attached .md file.';
+
+            await transporter.sendMail({
+                from: JOBBOT_SMTP_USER || toAddress,
+                to: toAddress,
+                subject,
+                text: summary + '\n\n---\nReport attached as calibration-report.md',
+                html: `<p>${escapeHtml(summary)}</p><p>Report attached as <strong>calibration-report.md</strong></p>`,
+                attachments: [
+                    {
+                        filename: 'calibration-report.md',
+                        content: Buffer.from(reportMd || '', 'utf8'),
+                        contentType: 'text/markdown; charset=utf-8',
+                    },
+                ],
+            });
+
+            console.log(`EmailNotifier: Calibration alert sent to ${toAddress}`);
+            return true;
+        } catch (err) {
+            console.error('EmailNotifier: Failed to send calibration alert:', err.message || err);
+            return false;
+        }
+    }
 }
 
 /**

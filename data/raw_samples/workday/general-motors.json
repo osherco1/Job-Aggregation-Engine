@@ -1,0 +1,2279 @@
+{
+  "_meta": {
+    "source": "workday",
+    "companyId": "general-motors",
+    "companyName": "General Motors",
+    "originalUrl": "https://generalmotors.wd5.myworkdayjobs.com/Careers_GM",
+    "parsedTenant": "generalmotors",
+    "parsedInstance": "wd5",
+    "parsedSite": "Careers_GM",
+    "siteUrl": "https://generalmotors.wd5.myworkdayjobs.com/Careers_GM",
+    "apiEndpoint": "https://generalmotors.wd5.myworkdayjobs.com/wday/cxs/generalmotors/Careers_GM/jobs",
+    "sessionInitStatus": 200,
+    "cookiesEstablished": [
+      "PLAY_SESSION",
+      "wd-browser-id",
+      "CALYPSO_CSRF_TOKEN",
+      "CXS_SESSION",
+      "wday_vps_cookie",
+      "__cf_bm",
+      "__cflb",
+      "_cfuvid"
+    ],
+    "jobsApiStatus": 200,
+    "sampledAt": "2026-03-01T22:04:09.539Z",
+    "totalReported": 696,
+    "jobCountThisPage": 20,
+    "facetCount": 11,
+    "requestPayload": {
+      "appliedFacets": {},
+      "limit": 20,
+      "offset": 0,
+      "searchText": ""
+    }
+  },
+  "raw": {
+    "total": 696,
+    "jobPostings": [
+      {
+        "title": "Supplier Quality Supervisor",
+        "externalPath": "/job/Giza-Egypt/Supplier-Quality-Supervisor_JR-202602618",
+        "locationsText": "Giza, Egypt",
+        "postedOn": "Posted Today",
+        "remoteType": "Onsite",
+        "bulletFields": [
+          "JR-202602618"
+        ]
+      },
+      {
+        "title": "Software Engineer, AV HIL Platform and Services",
+        "externalPath": "/job/Sunnyvale-California-United-States-of-America/Software-Engineer--AV-HIL-Platform-and-Services_JR-202602819-2",
+        "locationsText": "Sunnyvale, California, United States of America",
+        "postedOn": "Posted 2 Days Ago",
+        "remoteType": "Hybrid",
+        "bulletFields": [
+          "JR-202602819",
+          "Exempt"
+        ]
+      },
+      {
+        "title": "Design Release Engineer - Seating Components",
+        "externalPath": "/job/Warren-Michigan-United-States-of-America/Design-Release-Engineer---Seating-Components_JR-202604143-1",
+        "locationsText": "Warren, Michigan, United States of America",
+        "postedOn": "Posted 2 Days Ago",
+        "remoteType": "Hybrid",
+        "bulletFields": [
+          "JR-202604143",
+          "Exempt"
+        ]
+      },
+      {
+        "title": "Senior Software Test Engineering – AVIP Diagnostics QA",
+        "externalPath": "/job/Markham-Ontario-Canada/Senior-Software-Test-Engineering---AVIP-Diagnostics-QA_JR-202603925",
+        "locationsText": "Markham, Ontario, Canada",
+        "postedOn": "Posted 2 Days Ago",
+        "remoteType": "Hybrid",
+        "bulletFields": [
+          "JR-202603925"
+        ]
+      },
+      {
+        "title": "Warehouse Supervisor - Operations",
+        "externalPath": "/job/Hudson-Wisconsin-United-States-of-America/Warehouse-Supervisor---Operations_JR-202600605",
+        "locationsText": "Hudson, Wisconsin, United States of America",
+        "postedOn": "Posted 2 Days Ago",
+        "remoteType": "Onsite",
+        "bulletFields": [
+          "JR-202600605",
+          "Exempt"
+        ]
+      },
+      {
+        "title": "Sub-System Lead Specialist - Vehicle Dynamics",
+        "externalPath": "/job/Markham-Ontario-Canada/Sub-System-Lead-Specialist---Vehicle-Dynamics_JR-202604112",
+        "locationsText": "2 Locations",
+        "postedOn": "Posted 2 Days Ago",
+        "remoteType": "Hybrid",
+        "bulletFields": [
+          "JR-202604112"
+        ]
+      },
+      {
+        "title": "Senior Program Manager– Customer Experience Forum & Human Interface Guidelines",
+        "externalPath": "/job/Warren-Michigan-United-States-of-America/Senior-Program-Manager--Customer-Experience-Forum---Human-Interface-Guidelines_JR-202603838-1",
+        "locationsText": "Warren, Michigan, United States of America",
+        "postedOn": "Posted 2 Days Ago",
+        "remoteType": "Hybrid",
+        "bulletFields": [
+          "JR-202603838",
+          "Exempt"
+        ]
+      },
+      {
+        "title": "Production Worker - Temporary, Full Time",
+        "externalPath": "/job/Marion-Indiana-United-States-of-America/Production-Worker---Temporary--Full-Time_JR-202604605",
+        "locationsText": "Marion, Indiana, United States of America",
+        "postedOn": "Posted 2 Days Ago",
+        "remoteType": "Onsite",
+        "bulletFields": [
+          "JR-202604605",
+          "Non-Exempt"
+        ]
+      },
+      {
+        "title": "Hardware Engineer - Compute",
+        "externalPath": "/job/Warren-Michigan-United-States-of-America/Hardware-Engineer---Compute_JR-202601948-1",
+        "locationsText": "Warren, Michigan, United States of America",
+        "postedOn": "Posted 2 Days Ago",
+        "remoteType": "Hybrid",
+        "bulletFields": [
+          "JR-202601948",
+          "Exempt"
+        ]
+      },
+      {
+        "title": "Sr. Hardware Engineer - Compute",
+        "externalPath": "/job/Warren-Michigan-United-States-of-America/Sr-Hardware-Engineer---Compute_JR-202604116-1",
+        "locationsText": "Warren, Michigan, United States of America",
+        "postedOn": "Posted 2 Days Ago",
+        "remoteType": "Hybrid",
+        "bulletFields": [
+          "JR-202604116",
+          "Exempt"
+        ]
+      },
+      {
+        "title": "Staff Software Engineer, Reliability",
+        "externalPath": "/job/San-Francisco-California-United-States-of-America/Staff-Software-Engineer--Reliability_JR-202603821-1",
+        "locationsText": "5 Locations",
+        "postedOn": "Posted 2 Days Ago",
+        "remoteType": "Remote/Hybrid",
+        "bulletFields": [
+          "JR-202603821",
+          "Exempt"
+        ]
+      },
+      {
+        "title": "Senior Buyer - Raw Materials",
+        "externalPath": "/job/Warren-Michigan-United-States-of-America/Senior-Buyer---Raw-Materials_JR-202601848",
+        "locationsText": "Warren, Michigan, United States of America",
+        "postedOn": "Posted 2 Days Ago",
+        "remoteType": "Hybrid",
+        "bulletFields": [
+          "JR-202601848",
+          "Exempt"
+        ]
+      },
+      {
+        "title": "Technical Specialist - Starters and P0 Motor",
+        "externalPath": "/job/Warren-Michigan-United-States-of-America/Technical-Specialist---Starters-and-P0-Motor_JR-202604014-1",
+        "locationsText": "2 Locations",
+        "postedOn": "Posted 2 Days Ago",
+        "remoteType": "Hybrid",
+        "bulletFields": [
+          "JR-202604014",
+          "Exempt"
+        ]
+      },
+      {
+        "title": "Senior Buyer - In Vehicle Software",
+        "externalPath": "/job/Warren-Michigan-United-States-of-America/Senior-Buyer---In-Vehicle-Software_JR-202601836",
+        "locationsText": "2 Locations",
+        "postedOn": "Posted 2 Days Ago",
+        "remoteType": "Hybrid",
+        "bulletFields": [
+          "JR-202601836",
+          "Exempt"
+        ]
+      },
+      {
+        "title": "Sales Operations & Commercial Strategy Manager – Argentina, Paraguay & Uruguay",
+        "externalPath": "/job/Buenos-Aires-Argentina/Sales-Operations---Commercial-Strategy-Manager---Argentina--Paraguay---Uruguay_JR-202604291",
+        "locationsText": "Buenos Aires, Argentina",
+        "postedOn": "Posted 2 Days Ago",
+        "remoteType": "Hybrid",
+        "bulletFields": [
+          "JR-202604291"
+        ]
+      },
+      {
+        "title": "Senior Software Engineer – Simulation Validation",
+        "externalPath": "/job/Sunnyvale-California-United-States-of-America/Senior-Software-Engineer---Simulation-Validation_JR-202519080",
+        "locationsText": "Sunnyvale, California, United States of America",
+        "postedOn": "Posted 2 Days Ago",
+        "remoteType": "Hybrid",
+        "bulletFields": [
+          "JR-202519080",
+          "Exempt"
+        ]
+      },
+      {
+        "title": "Assistant Purchasing Program Manager",
+        "externalPath": "/job/Warren-Michigan-United-States-of-America/Assistant-Purchasing-Program-Manager_JR-202604105",
+        "locationsText": "Warren, Michigan, United States of America",
+        "postedOn": "Posted 2 Days Ago",
+        "remoteType": "Hybrid",
+        "bulletFields": [
+          "JR-202604105",
+          "Exempt"
+        ]
+      },
+      {
+        "title": "Retail Marketing (Peru / Bolivia)",
+        "externalPath": "/job/Lima-Peru/Retail-Marketing--Peru---Bolivia-_JR-202604256",
+        "locationsText": "Lima, Peru",
+        "postedOn": "Posted 2 Days Ago",
+        "remoteType": "Hybrid",
+        "bulletFields": [
+          "JR-202604256"
+        ]
+      },
+      {
+        "title": "District Sales Manager - Raleigh (Cadillac)",
+        "externalPath": "/job/Remote---North-Carolina/District-Sales-Manager---Raleigh--Cadillac-_JR-202603707",
+        "locationsText": "Remote - North Carolina",
+        "postedOn": "Posted 2 Days Ago",
+        "remoteType": "Remote",
+        "bulletFields": [
+          "JR-202603707",
+          "Exempt"
+        ]
+      },
+      {
+        "title": "Quality Manager",
+        "externalPath": "/job/Romulus-Michigan-United-States-of-America/Quality-Manager_JR-202603892",
+        "locationsText": "Romulus, Michigan, United States of America",
+        "postedOn": "Posted 2 Days Ago",
+        "remoteType": "Onsite",
+        "bulletFields": [
+          "JR-202603892",
+          "Exempt"
+        ]
+      }
+    ],
+    "facets": [
+      {
+        "facetParameter": "Location_Country",
+        "descriptor": "Location Country/Territory",
+        "values": [
+          {
+            "descriptor": "United States of America",
+            "id": "bc33aa3152ec42d4995f4791a106ed09",
+            "count": 555
+          },
+          {
+            "descriptor": "Canada",
+            "id": "a30a87ed25634629aa6c3958aa2b91ea",
+            "count": 44
+          },
+          {
+            "descriptor": "Philippines",
+            "id": "e56f1daf83e04bacae794ba5c5593560",
+            "count": 23
+          },
+          {
+            "descriptor": "Brazil",
+            "id": "1a29bb1357b240ab99a2fa755cc87c0e",
+            "count": 19
+          },
+          {
+            "descriptor": "Mexico",
+            "id": "e2adff9272454660ac4fdb56fc70bb51",
+            "count": 12
+          },
+          {
+            "descriptor": "China",
+            "id": "6cb77610a8a543aea2d6bc10457e35d4",
+            "count": 7
+          },
+          {
+            "descriptor": "United Arab Emirates",
+            "id": "7b4fa1f369bd4604ba3692682fcbe345",
+            "count": 5
+          },
+          {
+            "descriptor": "Argentina",
+            "id": "e42ad5eac46d4cc9b367ceaef42577c5",
+            "count": 5
+          },
+          {
+            "descriptor": "Ireland",
+            "id": "04a05835925f45b3a59406a2a6b72c8a",
+            "count": 5
+          },
+          {
+            "descriptor": "United Kingdom",
+            "id": "29247e57dbaf46fb855b224e03170bc7",
+            "count": 4
+          },
+          {
+            "descriptor": "India",
+            "id": "c4f78be1a8f14da0ab49ce1162348a5e",
+            "count": 4
+          },
+          {
+            "descriptor": "Israel",
+            "id": "084562884af243748dad7c84c304d89a",
+            "count": 4
+          },
+          {
+            "descriptor": "Korea, Republic of",
+            "id": "7a5a2aadf9d34086a2bfbfd408bc28da",
+            "count": 4
+          },
+          {
+            "descriptor": "Peru",
+            "id": "0eb156ca580c4db786a7894bdaa77450",
+            "count": 1
+          },
+          {
+            "descriptor": "Ecuador",
+            "id": "2752bce253374948a6bad7ed2059e054",
+            "count": 1
+          },
+          {
+            "descriptor": "Colombia",
+            "id": "e8106cd6a3534f2dba6fdee2d41db89d",
+            "count": 1
+          },
+          {
+            "descriptor": "Chile",
+            "id": "53fe09ef12b9408682a1d2439823f2e0",
+            "count": 1
+          },
+          {
+            "descriptor": "Egypt",
+            "id": "d865e83093ad42319653b08e61f7db49",
+            "count": 1
+          },
+          {
+            "descriptor": "New Zealand",
+            "id": "55273a1b49934d97ae15342ef51f6b95",
+            "count": 1
+          },
+          {
+            "descriptor": "Japan",
+            "id": "8b705da2becf43cfaccc091da0988ab2",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "facetParameter": "Location_Region_State_Province",
+        "descriptor": "Location Region/State/Province",
+        "values": [
+          {
+            "descriptor": "Michigan",
+            "id": "b8372eef6b5341a39cdc95ac32790cba",
+            "count": 359
+          },
+          {
+            "descriptor": "California",
+            "id": "ec3d210e4240442e99a28fa70419aec5",
+            "count": 170
+          },
+          {
+            "descriptor": "Texas",
+            "id": "fc77e3a1ab36487f9646d14f7242dd77",
+            "count": 94
+          },
+          {
+            "descriptor": "Ontario",
+            "id": "218a720b28a74c67b5c6d42c00bdadfa",
+            "count": 43
+          },
+          {
+            "descriptor": "District of Columbia",
+            "id": "0d2bcd0308f541938f3ae29e7cc69ae0",
+            "count": 27
+          },
+          {
+            "descriptor": "National Capital Region (Manila)",
+            "id": "aa699087f7cd4868b3e3e1d3d94fc4f6",
+            "count": 23
+          },
+          {
+            "descriptor": "New York",
+            "id": "9819bf0148e54f89adb255aa7bead635",
+            "count": 18
+          },
+          {
+            "descriptor": "São Paulo",
+            "id": "6177762425c54ca8aa31aac74fb08fad",
+            "count": 14
+          },
+          {
+            "descriptor": "Ohio",
+            "id": "41493c81d9214eb190fd14067c7d974d",
+            "count": 13
+          },
+          {
+            "descriptor": "Indiana",
+            "id": "28489665bcac44028a70d0642c932be4",
+            "count": 9
+          },
+          {
+            "descriptor": "Shanghai",
+            "id": "12022932d53e4131959783deec185438",
+            "count": 7
+          },
+          {
+            "descriptor": "Washington",
+            "id": "de9b48948ef8421db97ddf4ea206e931",
+            "count": 6
+          },
+          {
+            "descriptor": "México",
+            "id": "85d60fd3574542f8be5c31f6fb5ae313",
+            "count": 5
+          },
+          {
+            "descriptor": "Dubai",
+            "id": "1db225a7cdc64df8b1dda64a09ec71f0",
+            "count": 5
+          },
+          {
+            "descriptor": "Karnātaka",
+            "id": "701eb5584934425d930bc84b9e8b04eb",
+            "count": 4
+          },
+          {
+            "descriptor": "Limerick",
+            "id": "8508305323e644eebde9c8bdf33a9f5c",
+            "count": 4
+          },
+          {
+            "descriptor": "Tel Aviv District",
+            "id": "49914de6235944f18d05f57d58149203",
+            "count": 4
+          },
+          {
+            "descriptor": "Tennessee",
+            "id": "00044a0287144032bca6973ac0eedb3e",
+            "count": 4
+          },
+          {
+            "descriptor": "North Carolina",
+            "id": "1486a0a4a8464c3b9ec482d4038deb99",
+            "count": 4
+          },
+          {
+            "descriptor": "Rio Grande do Sul",
+            "id": "53883d8305064e7fa0816737ec3f1a47",
+            "count": 4
+          },
+          {
+            "descriptor": "Worcestershire",
+            "id": "f8d08bd5e9ec48a488ba0669d4e81861",
+            "count": 4
+          },
+          {
+            "descriptor": "Missouri",
+            "id": "790e3c3ddfaa4123905237a05f1df9e9",
+            "count": 3
+          },
+          {
+            "descriptor": "Guanajuato",
+            "id": "aa61022afa734cc484addf9c844464d0",
+            "count": 3
+          },
+          {
+            "descriptor": "Incheon",
+            "id": "2c9f0b26967f4e6cbe5e9894949b34aa",
+            "count": 3
+          },
+          {
+            "descriptor": "Buenos Aires",
+            "id": "758d5939ee334162b54a2ef2d7d29ab6",
+            "count": 3
+          },
+          {
+            "descriptor": "Dublin",
+            "id": "deaadda0e7dc4726a28d1221725f3de5",
+            "count": 2
+          },
+          {
+            "descriptor": "Wisconsin",
+            "id": "96f29b3353ac4653b1a860751618e36b",
+            "count": 2
+          },
+          {
+            "descriptor": "Nevada",
+            "id": "33e7c3874e0e4d28a8047926aa4a1d21",
+            "count": 2
+          },
+          {
+            "descriptor": "Kentucky",
+            "id": "66d386e70a2946b695835e59cebcd7b2",
+            "count": 2
+          },
+          {
+            "descriptor": "San Luis Potosí",
+            "id": "92bdecb0bceb492d99b98a9bf4b79cae",
+            "count": 2
+          },
+          {
+            "descriptor": "Kansas",
+            "id": "975ef5fd66c048909a4d64b64b762836",
+            "count": 2
+          },
+          {
+            "descriptor": "Coahuila",
+            "id": "dc448b82dcaf493c80715385cebf2e6e",
+            "count": 2
+          },
+          {
+            "descriptor": "Santa Fe",
+            "id": "e40eb9ae5df34a008929da89c2a232cc",
+            "count": 2
+          },
+          {
+            "descriptor": "Pennsylvania",
+            "id": "f620a79f2dc44473828b42881312de2b",
+            "count": 1
+          },
+          {
+            "descriptor": "Auckland",
+            "id": "3ee128e099f3417fb64d6bfde4072001",
+            "count": 1
+          },
+          {
+            "descriptor": "Louisiana",
+            "id": "777facb47a8442bfba79628424812d64",
+            "count": 1
+          },
+          {
+            "descriptor": "Cundinamarca",
+            "id": "2db86ddc0b4844afbd6b3b7432c30ccb",
+            "count": 1
+          },
+          {
+            "descriptor": "Pichincha",
+            "id": "67a13380ebdc4ab0889c8a9c2ffb35a1",
+            "count": 1
+          },
+          {
+            "descriptor": "Gyeongsangnam-do",
+            "id": "fa85825f973b4989ba7137b768b4f7dc",
+            "count": 1
+          },
+          {
+            "descriptor": "Tokyo",
+            "id": "6534030e79d54ac897646438ed66ac9a",
+            "count": 1
+          },
+          {
+            "descriptor": "Lima",
+            "id": "9f4695254805492bba2c0cac7f7796e7",
+            "count": 1
+          },
+          {
+            "descriptor": "Santa Catarina",
+            "id": "c804c182e52e4d6bb6c5117da9b81568",
+            "count": 1
+          },
+          {
+            "descriptor": "Quebec",
+            "id": "ef8a53af14534128b795fd55d75ec08b",
+            "count": 1
+          },
+          {
+            "descriptor": "Region Metropolitana de Santiago",
+            "id": "ea75ae953e9d45ce87314070d8c528b0",
+            "count": 1
+          },
+          {
+            "descriptor": "Giza",
+            "id": "c09fca7ef074478ea3635e5c507da091",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "facetParameter": "remoteType",
+        "descriptor": "Remote Type",
+        "values": [
+          {
+            "descriptor": "Hybrid",
+            "id": "2acf779afcf91001504f3ef9439e0001",
+            "count": 429
+          },
+          {
+            "descriptor": "Onsite",
+            "id": "2acf779afcf91001504f3ef9439e0002",
+            "count": 178
+          },
+          {
+            "descriptor": "Remote/Hybrid",
+            "id": "a2b9206fd65b10267f109e2d859e0000",
+            "count": 68
+          },
+          {
+            "descriptor": "Remote",
+            "id": "2acf779afcf91001504f3ef9439e0000",
+            "count": 21
+          }
+        ]
+      },
+      {
+        "facetParameter": "jobFamilyGroup",
+        "descriptor": "Job Category",
+        "values": [
+          {
+            "descriptor": "Engineering Group",
+            "id": "81219c91208501dea617b5999c1b01d6",
+            "count": 324
+          },
+          {
+            "descriptor": "Software and Services Group",
+            "id": "5ce64061bbf21001e72608a46d250000",
+            "count": 71
+          },
+          {
+            "descriptor": "Information Technology Group",
+            "id": "81219c91208501f8ce07be999c1b21d6",
+            "count": 58
+          },
+          {
+            "descriptor": "Hourly Manufacturing Group",
+            "id": "81219c912085019d1307c2999c1b2dd6",
+            "count": 39
+          },
+          {
+            "descriptor": "Special Hiring Programs Group",
+            "id": "81219c91208501029134b6999c1b05d6",
+            "count": 35
+          },
+          {
+            "descriptor": "Manufacturing Group",
+            "id": "81219c91208501dc4919bb999c1b17d6",
+            "count": 30
+          },
+          {
+            "descriptor": "Marketing, Sales, and Service Group",
+            "id": "81219c9120850192b95bbc999c1b1bd6",
+            "count": 23
+          },
+          {
+            "descriptor": "Finance Group",
+            "id": "81219c9120850165d7e1b2999c1bfbd5",
+            "count": 21
+          },
+          {
+            "descriptor": "Purchasing and Supply Chain Group",
+            "id": "81219c91208501b6f157b4999c1bffd5",
+            "count": 19
+          },
+          {
+            "descriptor": "Human Resources Group",
+            "id": "81219c912085018226afbe999c1b23d6",
+            "count": 16
+          },
+          {
+            "descriptor": "Research and Development Group",
+            "id": "81219c91208501da38bdc0999c1b29d6",
+            "count": 12
+          },
+          {
+            "descriptor": "Corporate Strategy, Development, and Planning Group",
+            "id": "81219c912085018f29e9bc999c1b1dd6",
+            "count": 12
+          },
+          {
+            "descriptor": "Creative Design Group",
+            "id": "81219c912085017addb4bb999c1b19d6",
+            "count": 10
+          },
+          {
+            "descriptor": "Hourly Warehousing Group",
+            "id": "81219c9120850168b229c3999c1b31d6",
+            "count": 4
+          },
+          {
+            "descriptor": "Communications Group",
+            "id": "81219c91208501fcc11db7999c1b09d6",
+            "count": 4
+          },
+          {
+            "descriptor": "Hourly Engineering Group",
+            "id": "81219c91208501d85571c1999c1b2bd6",
+            "count": 3
+          },
+          {
+            "descriptor": "Data Management and Analytics Group",
+            "id": "81219c91208501c4eb61bf999c1b25d6",
+            "count": 3
+          },
+          {
+            "descriptor": "Quality Group",
+            "id": "81219c912085016d870eb8999c1b0dd6",
+            "count": 3
+          },
+          {
+            "descriptor": "Workplace Safety Group",
+            "id": "81219c91208501f836a9b6999c1b07d6",
+            "count": 3
+          },
+          {
+            "descriptor": "Medical Group",
+            "id": "81219c9120850156e617b9999c1b11d6",
+            "count": 2
+          },
+          {
+            "descriptor": "Security Group",
+            "id": "81219c91208501d97097b7999c1b0bd6",
+            "count": 2
+          },
+          {
+            "descriptor": "Hourly Operations Support Group",
+            "id": "81219c91208501fac797c2999c1b2fd6",
+            "count": 1
+          },
+          {
+            "descriptor": "Support Group",
+            "id": "81219c91208501eef97eb8999c1b0fd6",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "facetParameter": "jobFamilies",
+        "descriptor": "Job Families",
+        "values": [
+          {
+            "descriptor": "Software Engineering",
+            "id": "81219c9120850116c34e56729c1b88a0",
+            "count": 160
+          },
+          {
+            "descriptor": "Systems Engineering",
+            "id": "51884505018d1001e73172cdbbcb0000",
+            "count": 41
+          },
+          {
+            "descriptor": "Student Intern",
+            "id": "81219c91208501ed795c71729c1b01a1",
+            "count": 33
+          },
+          {
+            "descriptor": "Artificial Intelligence Machine Learning Scientist",
+            "id": "6813d8bd0ee501f7cc26287a90269db8",
+            "count": 31
+          },
+          {
+            "descriptor": "HID Designers",
+            "id": "b4de6bf8d7a01028163e03ab99eb0000",
+            "count": 21
+          },
+          {
+            "descriptor": "Manufacturing Engineering",
+            "id": "81219c91208501b13d7d6e729c1beaa0",
+            "count": 20
+          },
+          {
+            "descriptor": "Hardware Engineering",
+            "id": "adcf1fd4b0811001e749ea9f631c0000",
+            "count": 18
+          },
+          {
+            "descriptor": "Machine Learning Engineering",
+            "id": "9a7db3783a6501542c31d6869026e187",
+            "count": 18
+          },
+          {
+            "descriptor": "Design Release Engineering",
+            "id": "81219c912085013033c84c729c1b46a0",
+            "count": 17
+          },
+          {
+            "descriptor": "Mechanical - MFG",
+            "id": "81219c91208501915ef340729c1b10a0",
+            "count": 17
+          },
+          {
+            "descriptor": "Maintenance",
+            "id": "81219c912085016957cd72729c1b0ba1",
+            "count": 17
+          },
+          {
+            "descriptor": "Product Management",
+            "id": "93762c373ad61001fdc884d1a2640000",
+            "count": 13
+          },
+          {
+            "descriptor": "Calibration Engineering",
+            "id": "81219c912085010687b73c729c1bec9f",
+            "count": 13
+          },
+          {
+            "descriptor": "Purchasing",
+            "id": "81219c912085017cab4679729c1b2fa1",
+            "count": 13
+          },
+          {
+            "descriptor": "Research and Development Laboratories",
+            "id": "81219c912085016430a280729c1b57a1",
+            "count": 12
+          },
+          {
+            "descriptor": "Production",
+            "id": "81219c9120850168daba3e729c1bfe9f",
+            "count": 10
+          },
+          {
+            "descriptor": "Software Development",
+            "id": "81219c912085016a2ee374729c1b17a1",
+            "count": 10
+          },
+          {
+            "descriptor": "Specialty Trade - MFG",
+            "id": "81219c91208501fa8b9141729c1b16a0",
+            "count": 9
+          },
+          {
+            "descriptor": "Cyber Security",
+            "id": "81219c91208501e95b8a81729c1b5da1",
+            "count": 9
+          },
+          {
+            "descriptor": "Sales",
+            "id": "81219c91208501803a927c729c1b3fa1",
+            "count": 9
+          },
+          {
+            "descriptor": "Controls System Engineering",
+            "id": "81219c9120850185bacd66729c1bb6a0",
+            "count": 9
+          },
+          {
+            "descriptor": "Electrical - MFG",
+            "id": "81219c91208501f41bbc40729c1b0ea0",
+            "count": 8
+          },
+          {
+            "descriptor": "Accounting",
+            "id": "81219c9120850144def585729c1b73a1",
+            "count": 8
+          },
+          {
+            "descriptor": "Project and Program Management",
+            "id": "81219c912085018a063455729c1b80a0",
+            "count": 7
+          },
+          {
+            "descriptor": "Operations - MFG",
+            "id": "81219c912085013e0b2641729c1b12a0",
+            "count": 6
+          },
+          {
+            "descriptor": "Computer Aided Engineering",
+            "id": "81219c91208501a7c0457c729c1b3da1",
+            "count": 6
+          },
+          {
+            "descriptor": "Human Resources Business Partner",
+            "id": "81219c912085018db71f7b729c1b37a1",
+            "count": 6
+          },
+          {
+            "descriptor": "Data Engineering",
+            "id": "81219c912085018437336c729c1bdca0",
+            "count": 6
+          },
+          {
+            "descriptor": "Manufacturing Controls Engineering",
+            "id": "99c3aab60c93100871a26c682cde0000",
+            "count": 5
+          },
+          {
+            "descriptor": "Finance",
+            "id": "81219c91208501d8df1369729c1bc6a0",
+            "count": 5
+          },
+          {
+            "descriptor": "Technicians",
+            "id": "81219c91208501cc503f66729c1bb2a0",
+            "count": 5
+          },
+          {
+            "descriptor": "Sales Operations",
+            "id": "81219c912085016508314c729c1b42a0",
+            "count": 4
+          },
+          {
+            "descriptor": "Software Producer",
+            "id": "adcf1fd4b0811001e723ffee02e60000",
+            "count": 4
+          },
+          {
+            "descriptor": "Systems Configurator",
+            "id": "562ac9cb5fc51001060c0c318d6e0000",
+            "count": 4
+          },
+          {
+            "descriptor": "Information Technology Operations",
+            "id": "81219c912085017c72db3d729c1bf49f",
+            "count": 4
+          },
+          {
+            "descriptor": "Design",
+            "id": "81219c9120850139adea7e729c1b4da1",
+            "count": 4
+          },
+          {
+            "descriptor": "Software Test Engineering",
+            "id": "81219c91208501c7f1f87b729c1b3ba1",
+            "count": 4
+          },
+          {
+            "descriptor": "People Services",
+            "id": "81219c912085012ccc6878729c1b29a1",
+            "count": 4
+          },
+          {
+            "descriptor": "Business Planning",
+            "id": "81219c91208501b9b25e3a729c1bdc9f",
+            "count": 4
+          },
+          {
+            "descriptor": "Supplier Quality Engineering",
+            "id": "81219c91208501bcef8f55729c1b82a0",
+            "count": 3
+          },
+          {
+            "descriptor": "Safety Operations",
+            "id": "81219c91208501ad6b6739729c1bd89f",
+            "count": 3
+          },
+          {
+            "descriptor": "Engineering Operations",
+            "id": "81219c91208501e8a5ea50729c1b66a0",
+            "count": 3
+          },
+          {
+            "descriptor": "Industrial Engineering",
+            "id": "81219c91208501d46e6a50729c1b62a0",
+            "count": 3
+          },
+          {
+            "descriptor": "Warehousing and Distribution",
+            "id": "81219c912085016022854d729c1b4ca0",
+            "count": 3
+          },
+          {
+            "descriptor": "Vehicle Systems Engineering",
+            "id": "51884505018d1001e73909ec18060000",
+            "count": 3
+          },
+          {
+            "descriptor": "Quality Operations",
+            "id": "81219c91208501d0c1ee3e729c1b00a0",
+            "count": 3
+          },
+          {
+            "descriptor": "Facilities Engineering",
+            "id": "81219c91208501e726ff3c729c1bee9f",
+            "count": 3
+          },
+          {
+            "descriptor": "Quality and Reliability Engineering",
+            "id": "81219c91208501909ec77d729c1b47a1",
+            "count": 3
+          },
+          {
+            "descriptor": "Travel Management",
+            "id": "81219c9120850137c6927b729c1b39a1",
+            "count": 3
+          },
+          {
+            "descriptor": "Sculpting",
+            "id": "81219c912085016c4eb775729c1b1da1",
+            "count": 3
+          },
+          {
+            "descriptor": "Market Research",
+            "id": "81219c9120850125731571729c1bffa0",
+            "count": 3
+          },
+          {
+            "descriptor": "Supply Chain",
+            "id": "81219c91208501d2518d6d729c1be4a0",
+            "count": 3
+          },
+          {
+            "descriptor": "Marketing",
+            "id": "81219c912085018f438265729c1baca0",
+            "count": 3
+          },
+          {
+            "descriptor": "Vehicle Safety Technical Experts",
+            "id": "81219c9120850196754c70729c1bfba0",
+            "count": 2
+          },
+          {
+            "descriptor": "Internal Audit",
+            "id": "81219c9120850122d58966729c1bb4a0",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "facetParameter": "jobFamily",
+        "descriptor": "Job Family",
+        "values": [
+          {
+            "descriptor": "Software Engineering",
+            "id": "81219c9120850116c34e56729c1b88a0",
+            "count": 156
+          },
+          {
+            "descriptor": "Systems Engineering",
+            "id": "51884505018d1001e73172cdbbcb0000",
+            "count": 39
+          },
+          {
+            "descriptor": "Student Intern",
+            "id": "81219c91208501ed795c71729c1b01a1",
+            "count": 32
+          },
+          {
+            "descriptor": "Artificial Intelligence Machine Learning Scientist",
+            "id": "6813d8bd0ee501f7cc26287a90269db8",
+            "count": 31
+          },
+          {
+            "descriptor": "HID Designers",
+            "id": "b4de6bf8d7a01028163e03ab99eb0000",
+            "count": 21
+          },
+          {
+            "descriptor": "Manufacturing Engineering",
+            "id": "81219c91208501b13d7d6e729c1beaa0",
+            "count": 20
+          },
+          {
+            "descriptor": "Hardware Engineering",
+            "id": "adcf1fd4b0811001e749ea9f631c0000",
+            "count": 18
+          },
+          {
+            "descriptor": "Machine Learning Engineering",
+            "id": "9a7db3783a6501542c31d6869026e187",
+            "count": 18
+          },
+          {
+            "descriptor": "Design Release Engineering",
+            "id": "81219c912085013033c84c729c1b46a0",
+            "count": 17
+          },
+          {
+            "descriptor": "Mechanical - MFG",
+            "id": "81219c91208501915ef340729c1b10a0",
+            "count": 17
+          },
+          {
+            "descriptor": "Maintenance",
+            "id": "81219c912085016957cd72729c1b0ba1",
+            "count": 17
+          },
+          {
+            "descriptor": "Product Management",
+            "id": "93762c373ad61001fdc884d1a2640000",
+            "count": 13
+          },
+          {
+            "descriptor": "Calibration Engineering",
+            "id": "81219c912085010687b73c729c1bec9f",
+            "count": 13
+          },
+          {
+            "descriptor": "Purchasing",
+            "id": "81219c912085017cab4679729c1b2fa1",
+            "count": 13
+          },
+          {
+            "descriptor": "Research and Development Laboratories",
+            "id": "81219c912085016430a280729c1b57a1",
+            "count": 12
+          },
+          {
+            "descriptor": "Production",
+            "id": "81219c9120850168daba3e729c1bfe9f",
+            "count": 10
+          },
+          {
+            "descriptor": "Software Development",
+            "id": "81219c912085016a2ee374729c1b17a1",
+            "count": 10
+          },
+          {
+            "descriptor": "Cyber Security",
+            "id": "81219c91208501e95b8a81729c1b5da1",
+            "count": 9
+          },
+          {
+            "descriptor": "Sales",
+            "id": "81219c91208501803a927c729c1b3fa1",
+            "count": 9
+          },
+          {
+            "descriptor": "Controls System Engineering",
+            "id": "81219c9120850185bacd66729c1bb6a0",
+            "count": 9
+          },
+          {
+            "descriptor": "Specialty Trade - MFG",
+            "id": "81219c91208501fa8b9141729c1b16a0",
+            "count": 8
+          },
+          {
+            "descriptor": "Electrical - MFG",
+            "id": "81219c91208501f41bbc40729c1b0ea0",
+            "count": 8
+          },
+          {
+            "descriptor": "Accounting",
+            "id": "81219c9120850144def585729c1b73a1",
+            "count": 8
+          },
+          {
+            "descriptor": "Project and Program Management",
+            "id": "81219c912085018a063455729c1b80a0",
+            "count": 7
+          },
+          {
+            "descriptor": "Operations - MFG",
+            "id": "81219c912085013e0b2641729c1b12a0",
+            "count": 6
+          },
+          {
+            "descriptor": "Computer Aided Engineering",
+            "id": "81219c91208501a7c0457c729c1b3da1",
+            "count": 6
+          },
+          {
+            "descriptor": "Human Resources Business Partner",
+            "id": "81219c912085018db71f7b729c1b37a1",
+            "count": 6
+          },
+          {
+            "descriptor": "Data Engineering",
+            "id": "81219c912085018437336c729c1bdca0",
+            "count": 6
+          },
+          {
+            "descriptor": "Manufacturing Controls Engineering",
+            "id": "99c3aab60c93100871a26c682cde0000",
+            "count": 5
+          },
+          {
+            "descriptor": "Finance",
+            "id": "81219c91208501d8df1369729c1bc6a0",
+            "count": 5
+          },
+          {
+            "descriptor": "Technicians",
+            "id": "81219c91208501cc503f66729c1bb2a0",
+            "count": 5
+          },
+          {
+            "descriptor": "Sales Operations",
+            "id": "81219c912085016508314c729c1b42a0",
+            "count": 4
+          },
+          {
+            "descriptor": "Software Producer",
+            "id": "adcf1fd4b0811001e723ffee02e60000",
+            "count": 4
+          },
+          {
+            "descriptor": "Systems Configurator",
+            "id": "562ac9cb5fc51001060c0c318d6e0000",
+            "count": 4
+          },
+          {
+            "descriptor": "Information Technology Operations",
+            "id": "81219c912085017c72db3d729c1bf49f",
+            "count": 4
+          },
+          {
+            "descriptor": "Design",
+            "id": "81219c9120850139adea7e729c1b4da1",
+            "count": 4
+          },
+          {
+            "descriptor": "People Services",
+            "id": "81219c912085012ccc6878729c1b29a1",
+            "count": 4
+          },
+          {
+            "descriptor": "Business Planning",
+            "id": "81219c91208501b9b25e3a729c1bdc9f",
+            "count": 4
+          },
+          {
+            "descriptor": "Engineering Operations",
+            "id": "81219c91208501e8a5ea50729c1b66a0",
+            "count": 3
+          },
+          {
+            "descriptor": "Industrial Engineering",
+            "id": "81219c91208501d46e6a50729c1b62a0",
+            "count": 3
+          },
+          {
+            "descriptor": "Warehousing and Distribution",
+            "id": "81219c912085016022854d729c1b4ca0",
+            "count": 3
+          },
+          {
+            "descriptor": "Vehicle Systems Engineering",
+            "id": "51884505018d1001e73909ec18060000",
+            "count": 3
+          },
+          {
+            "descriptor": "Quality Operations",
+            "id": "81219c91208501d0c1ee3e729c1b00a0",
+            "count": 3
+          },
+          {
+            "descriptor": "Facilities Engineering",
+            "id": "81219c91208501e726ff3c729c1bee9f",
+            "count": 3
+          },
+          {
+            "descriptor": "Quality and Reliability Engineering",
+            "id": "81219c91208501909ec77d729c1b47a1",
+            "count": 3
+          },
+          {
+            "descriptor": "Software Test Engineering",
+            "id": "81219c91208501c7f1f87b729c1b3ba1",
+            "count": 3
+          },
+          {
+            "descriptor": "Travel Management",
+            "id": "81219c9120850137c6927b729c1b39a1",
+            "count": 3
+          },
+          {
+            "descriptor": "Sculpting",
+            "id": "81219c912085016c4eb775729c1b1da1",
+            "count": 3
+          },
+          {
+            "descriptor": "Market Research",
+            "id": "81219c9120850125731571729c1bffa0",
+            "count": 3
+          },
+          {
+            "descriptor": "Supply Chain",
+            "id": "81219c91208501d2518d6d729c1be4a0",
+            "count": 3
+          },
+          {
+            "descriptor": "Marketing",
+            "id": "81219c912085018f438265729c1baca0",
+            "count": 3
+          },
+          {
+            "descriptor": "Supplier Quality Engineering",
+            "id": "81219c91208501bcef8f55729c1b82a0",
+            "count": 3
+          },
+          {
+            "descriptor": "Safety Operations",
+            "id": "81219c91208501ad6b6739729c1bd89f",
+            "count": 3
+          },
+          {
+            "descriptor": "Vehicle Safety Technical Experts",
+            "id": "81219c9120850196754c70729c1bfba0",
+            "count": 2
+          },
+          {
+            "descriptor": "Internal Audit",
+            "id": "81219c9120850122d58966729c1bb4a0",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "facetParameter": "workerSubType",
+        "descriptor": "Job Type",
+        "values": [
+          {
+            "descriptor": "Regular",
+            "id": "81219c91208501cb82113285a61a3b0a",
+            "count": 657
+          },
+          {
+            "descriptor": "Intern (Fixed Term) (Trainee)",
+            "id": "81219c91208501e94c213185a61a320a",
+            "count": 32
+          },
+          {
+            "descriptor": "Fixed Term (Fixed Term)",
+            "id": "81219c91208501e733733285a61a3f0a",
+            "count": 2
+          },
+          {
+            "descriptor": "Temporary",
+            "id": "81219c9120850144d0e23185a61a390a",
+            "count": 2
+          },
+          {
+            "descriptor": "Co-Op (Fixed Term)",
+            "id": "81219c91208501ec00823185a61a360a",
+            "count": 2
+          },
+          {
+            "descriptor": "Casual",
+            "id": "81219c91208501f5dc523185a61a340a",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "facetParameter": "timeType",
+        "descriptor": "Time Type",
+        "values": [
+          {
+            "descriptor": "Full time",
+            "id": "0c201d97f67301580fc5b4454b199400",
+            "count": 694
+          },
+          {
+            "descriptor": "Part time",
+            "id": "0c201d97f67301583693b4454b199300",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "facetParameter": "hiringCompany",
+        "descriptor": "Company",
+        "values": [
+          {
+            "descriptor": "General Motors LLC",
+            "id": "983c57f4d0d801dfde36f5e2b21d4293",
+            "count": 547
+          },
+          {
+            "descriptor": "GM of Canada Company",
+            "id": "983c57f4d0d80168e6dc02e3b21d4c93",
+            "count": 42
+          },
+          {
+            "descriptor": "GM Philippines, Inc",
+            "id": "983c57f4d0d801c3d6cd4ae3b21dc493",
+            "count": 23
+          },
+          {
+            "descriptor": "GM do Brasil Ltda",
+            "id": "983c57f4d0d80130a93127e3b21d8893",
+            "count": 17
+          },
+          {
+            "descriptor": "General Motors de Mexico",
+            "id": "983c57f4d0d8012cc32909e3b21d5693",
+            "count": 12
+          },
+          {
+            "descriptor": "General Motors China",
+            "id": "983c57f4d0d801c85bc138e3b21da693",
+            "count": 7
+          },
+          {
+            "descriptor": "GM de Argentina S.R.L.",
+            "id": "983c57f4d0d80178ffd42ce3b21d9293",
+            "count": 5
+          },
+          {
+            "descriptor": "GM IT (Ireland) Limited",
+            "id": "983c57f4d0d801c4760318e4b21d1895",
+            "count": 5
+          },
+          {
+            "descriptor": "Regional Mktg Ofc Middle East",
+            "id": "983c57f4d0d8016fc926a9e3b21d6494",
+            "count": 5
+          },
+          {
+            "descriptor": "Cruise LLC",
+            "id": "c7b37e24ae9110095c12b5f1d46e0000",
+            "count": 4
+          },
+          {
+            "descriptor": "GM Speciality Vehicles UK Limited",
+            "id": "d9b62ed88cd0100116565f166e9f0000",
+            "count": 4
+          },
+          {
+            "descriptor": "General Motors Israel Ltd",
+            "id": "983c57f4d0d8012e57a9c0e3b21d8c94",
+            "count": 4
+          },
+          {
+            "descriptor": "GM Tech Center Ind(P) Ltd",
+            "id": "983c57f4d0d801e0262ab5e3b21d7894",
+            "count": 4
+          },
+          {
+            "descriptor": "GM Technical Center Korea",
+            "id": "983c57f4d0d80108487529e4b21d3695",
+            "count": 2
+          },
+          {
+            "descriptor": "GM Korea Company",
+            "id": "983c57f4d0d801edd7759de3b21d5094",
+            "count": 2
+          },
+          {
+            "descriptor": "Cruise",
+            "id": "8d0bb268a2d91009593be80bae400000",
+            "count": 1
+          },
+          {
+            "descriptor": "GM Personnel Service, Inc.",
+            "id": "0d31ae4db23f01e6695775745b593351",
+            "count": 1
+          },
+          {
+            "descriptor": "General Motors Japan Ltd",
+            "id": "983c57f4d0d8014f457897e3b21d4694",
+            "count": 1
+          },
+          {
+            "descriptor": "GM de Peru SA",
+            "id": "983c57f4d0d801b3a8476ee3b21d0094",
+            "count": 1
+          },
+          {
+            "descriptor": "GM Egypt",
+            "id": "983c57f4d0d8018b9db462e3b21dec93",
+            "count": 1
+          },
+          {
+            "descriptor": "General Motors del Ecuador SA",
+            "id": "983c57f4d0d80170f0255de3b21de293",
+            "count": 1
+          },
+          {
+            "descriptor": "General Motors New Zealand Ltd",
+            "id": "983c57f4d0d801b3451745e3b21dba93",
+            "count": 1
+          },
+          {
+            "descriptor": "General Motors Colmotores SA",
+            "id": "983c57f4d0d8010698283fe3b21db093",
+            "count": 1
+          },
+          {
+            "descriptor": "GM Chile Ind. Autom. Ltda",
+            "id": "983c57f4d0d801c870a632e3b21d9c93",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "facetParameter": "Skills",
+        "descriptor": "Skills",
+        "values": [
+          {
+            "descriptor": "Software Development",
+            "id": "47a92fb8be2601b8f7c9995bb9740e12",
+            "count": 177
+          },
+          {
+            "descriptor": "Scaled Agile Framework (SAFe)",
+            "id": "05bb305a139701dce9009293b574a910",
+            "count": 171
+          },
+          {
+            "descriptor": "Software Coding",
+            "id": "c07289c88ba010123f8796fcfcc50000",
+            "count": 139
+          },
+          {
+            "descriptor": "Cross-Functional Team Leadership",
+            "id": "05bb305a139701ac2af03659c374692d",
+            "count": 138
+          },
+          {
+            "descriptor": "Test",
+            "id": "58a908d048cd0120a382b2a6ca2a9a1c",
+            "count": 110
+          },
+          {
+            "descriptor": "Debugging",
+            "id": "aa41978aa89901d71d0dc57ef674ee61",
+            "count": 110
+          },
+          {
+            "descriptor": "Group Problem Solving",
+            "id": "9b9ac37ed120010456ea0b4ea42f0000",
+            "count": 99
+          },
+          {
+            "descriptor": "Data Architecture",
+            "id": "05bb305a1397010271551e726e759cff",
+            "count": 88
+          },
+          {
+            "descriptor": "Continued Learning",
+            "id": "4f8b1605e644010507cda3657105ac0b",
+            "count": 59
+          },
+          {
+            "descriptor": "Detail-Oriented",
+            "id": "05ebf02f31340178d84bcb68cd744f41",
+            "count": 58
+          },
+          {
+            "descriptor": "Microsoft Office",
+            "id": "b0b19c40d3430182043c6b46b101ef38",
+            "count": 57
+          },
+          {
+            "descriptor": "Waterfall Model",
+            "id": "feee6daa665701a6fa0cdd2b2475cba8",
+            "count": 56
+          },
+          {
+            "descriptor": "Computer Languages",
+            "id": "faa4a72f388d01cadbf74e2717751f9a",
+            "count": 56
+          },
+          {
+            "descriptor": "Agile Methodology",
+            "id": "da6f3927a7c401ac6d7166feb1740111",
+            "count": 55
+          },
+          {
+            "descriptor": "Computer Science",
+            "id": "47a92fb8be2601601dcc59280475df65",
+            "count": 48
+          },
+          {
+            "descriptor": "Machine Learning (ML)",
+            "id": "07dd7ff42f2e100171cc6edfc32f0001",
+            "count": 47
+          },
+          {
+            "descriptor": "Computer Logic and Flow Charting",
+            "id": "a743ae2daee601f6933e9ef304208b2d",
+            "count": 42
+          },
+          {
+            "descriptor": "Analytical Platforms",
+            "id": "09891623f03901b4e1b269f0042051cc",
+            "count": 41
+          },
+          {
+            "descriptor": "Artificial Intelligence (AI)",
+            "id": "ebe3aa53d3cc0191db95cacdbe74fc1f",
+            "count": 41
+          },
+          {
+            "descriptor": "Regulatory Compliance",
+            "id": "1731f79dc80501efc0ed4b0e3911d3ec",
+            "count": 38
+          },
+          {
+            "descriptor": "Enterprise Data Architecture",
+            "id": "3252229f56b30178d4d8dce48a181ad0",
+            "count": 37
+          },
+          {
+            "descriptor": "System Engineering",
+            "id": "06dcf85a9f23101adfddf534bcaa0000",
+            "count": 35
+          },
+          {
+            "descriptor": "Reliability Engineering",
+            "id": "f8d59582552301468730b7dc8d782a0d",
+            "count": 35
+          },
+          {
+            "descriptor": "Commercial Acumen",
+            "id": "8718e41d3b3c10011df3e29cb5fc0000",
+            "count": 34
+          },
+          {
+            "descriptor": "Design/Development/Integration",
+            "id": "58a908d048cd019011b5fc83ca2a5a1a",
+            "count": 33
+          },
+          {
+            "descriptor": "Strategic Leadership",
+            "id": "ea2b47ccd67401f57f19050abf745c1e",
+            "count": 33
+          },
+          {
+            "descriptor": "Determining IT System Requirements",
+            "id": "a743ae2daee60107405fb3f60420bf2d",
+            "count": 31
+          },
+          {
+            "descriptor": "Kronos (Inactive)",
+            "id": "bb7c7d7f3f1410012acd41738b350000",
+            "count": 30
+          },
+          {
+            "descriptor": "GMS",
+            "id": "817c64f2b8790182d77b81de0420b3f6",
+            "count": 30
+          },
+          {
+            "descriptor": "Computer Program Design Techniques",
+            "id": "a743ae2daee601b7f2d397f30420852d",
+            "count": 29
+          },
+          {
+            "descriptor": "Customer-Focused",
+            "id": "5e98be484b3210010832be1de1800001",
+            "count": 28
+          },
+          {
+            "descriptor": "Machining Processes",
+            "id": "223b7dea8ab6018b522fabd59d6f8512",
+            "count": 27
+          },
+          {
+            "descriptor": "Qualitative Research",
+            "id": "da6f3927a7c401501f8237a7b375b53b",
+            "count": 26
+          },
+          {
+            "descriptor": "Results-Oriented",
+            "id": "aa41978aa899014aa1ca117ec674cd38",
+            "count": 26
+          },
+          {
+            "descriptor": "Process Engineering",
+            "id": "223b7dea8ab6014c204cabd59d6f8712",
+            "count": 24
+          },
+          {
+            "descriptor": "Value Stream Mapping (VSM)",
+            "id": "ea2b47ccd67401cac54c5a6a08750770",
+            "count": 23
+          },
+          {
+            "descriptor": "SAP",
+            "id": "58a908d048cd015ee5f34384ca2a601a",
+            "count": 22
+          },
+          {
+            "descriptor": "Data Integration",
+            "id": "dd877d271a070132fa536152b5762726",
+            "count": 22
+          },
+          {
+            "descriptor": "Teamcenter Visualization",
+            "id": "feee6daa665701bb89ab19815f7548dd",
+            "count": 21
+          },
+          {
+            "descriptor": "Lockout Tagout",
+            "id": "ebe3aa53d3cc01b8e7b99c5f0875c272",
+            "count": 21
+          },
+          {
+            "descriptor": "Human Machine Interface (HMI)",
+            "id": "ebe3aa53d3cc015b1200bb6cbd745c1c",
+            "count": 20
+          },
+          {
+            "descriptor": "Analytical Thinking",
+            "id": "6c248fa65f2c01e312084f0b557537d3",
+            "count": 19
+          },
+          {
+            "descriptor": "Embedded Systems",
+            "id": "05bb305a139701a4312720e6de74054f",
+            "count": 19
+          },
+          {
+            "descriptor": "Advanced Coding",
+            "id": "df98364c4d170175ae5ab3f20120a05c",
+            "count": 18
+          },
+          {
+            "descriptor": "People Leadership",
+            "id": "05ebf02f313401731829e4d9b774da14",
+            "count": 18
+          },
+          {
+            "descriptor": "Dealership Operations",
+            "id": "feee6daa665701559087a6cf62753ae4",
+            "count": 17
+          },
+          {
+            "descriptor": "Data Science",
+            "id": "ca44ad12d29b01239c09736af574df5a",
+            "count": 17
+          },
+          {
+            "descriptor": "Managerial Courage",
+            "id": "b0b19c40d343011a2b356a46b101e138",
+            "count": 17
+          },
+          {
+            "descriptor": "Data Mining",
+            "id": "310c0286127b01c3fb37e109c774e530",
+            "count": 17
+          },
+          {
+            "descriptor": "Lead Cross-Functional Teams",
+            "id": "096b8bc87fb5012543a0252bf301ec11",
+            "count": 17
+          },
+          {
+            "descriptor": "Engineering Release Systems",
+            "id": "b032ba269c3601cfab02bc940320df8b",
+            "count": 17
+          },
+          {
+            "descriptor": "Professional Presentation",
+            "id": "f2fd76cff9b2100fd69d193d4a450001",
+            "count": 17
+          },
+          {
+            "descriptor": "Continual Improvement Process",
+            "id": "5e98be484b321001083126b455370000",
+            "count": 17
+          },
+          {
+            "descriptor": "Siemens Teamcenter",
+            "id": "6c248fa65f2c017cb4f930aab474d20c",
+            "count": 17
+          },
+          {
+            "descriptor": "Adaptability",
+            "id": "aa41978aa8990182baccdf3abf74dc25",
+            "count": 17
+          }
+        ]
+      },
+      {
+        "facetParameter": "locationMainGroup",
+        "values": [
+          {
+            "facetParameter": "locations",
+            "descriptor": "Locations",
+            "values": [
+              {
+                "descriptor": "Alvear, Santa Fe, Argentina",
+                "id": "107799e78de401f28c133467b8592f63",
+                "count": 2
+              },
+              {
+                "descriptor": "Arlington, Texas, United States of America",
+                "id": "d4e1946d0ed401c398089d06b71fbd13",
+                "count": 5
+              },
+              {
+                "descriptor": "Auckland, New Zealand",
+                "id": "899fdb5109a8010c3d0598acb61f9638",
+                "count": 1
+              },
+              {
+                "descriptor": "Austin, Texas, United States of America",
+                "id": "e30192a1b9ad01b3b30272abb61faf4c",
+                "count": 84
+              },
+              {
+                "descriptor": "Austin Technical Center - Austin Technical Center",
+                "id": "983c57f4d0d801919ecff82b581d39a4",
+                "count": 3
+              },
+              {
+                "descriptor": "Bay City, Michigan, United States of America",
+                "id": "899fdb5109a80145e2e674adb61faa38",
+                "count": 1
+              },
+              {
+                "descriptor": "Bedford, Indiana, United States of America",
+                "id": "899fdb5109a801b4b7ab82adb61faf38",
+                "count": 1
+              },
+              {
+                "descriptor": "Bellevue, Washington, United States of America",
+                "id": "2f3d18c6c1cd01d7a2d4c766b859a79f",
+                "count": 1
+              },
+              {
+                "descriptor": "Bengaluru, Karnataka, India",
+                "id": "e30192a1b9ad013b1b404fa9b61f874c",
+                "count": 4
+              },
+              {
+                "descriptor": "Bogota, Cundinamarca, Colombia",
+                "id": "107799e78de401755696d46ab8594963",
+                "count": 1
+              },
+              {
+                "descriptor": "Bowling Green, Kentucky, United States of America",
+                "id": "5e70e1905c63016dca365006b71f5f14",
+                "count": 2
+              },
+              {
+                "descriptor": "Buenos Aires, Argentina",
+                "id": "0b75b83ea92b01a574ba5b0485129ed0",
+                "count": 2
+              },
+              {
+                "descriptor": "Buffalo, New York, United States of America",
+                "id": "5e70e1905c63013cbc667506b71f6914",
+                "count": 10
+              },
+              {
+                "descriptor": "Changwon-si, Gyeongsangnam-do, Korea, Republic of",
+                "id": "d4e1946d0ed4016ea2194505b71f9f13",
+                "count": 1
+              },
+              {
+                "descriptor": "Concord, North Carolina, United States of America",
+                "id": "2f3d18c6c1cd018cd8d14867b859af9f",
+                "count": 3
+              },
+              {
+                "descriptor": "Cruise Automation - San Francisco HQ - Cruise-San Francisco-1201 Bryant Street and 530 10th Street",
+                "id": "983c57f4d0d801fa7de76425581d849e",
+                "count": 1
+              },
+              {
+                "descriptor": "Defiance, Ohio, United States of America",
+                "id": "e30192a1b9ad0131eb632cacb61fba4c",
+                "count": 6
+              },
+              {
+                "descriptor": "Detroit, Michigan, United States of America",
+                "id": "812c98c9baa401e717e2c606b71fd92b",
+                "count": 10
+              },
+              {
+                "descriptor": "Dubai, United Arab Emirates",
+                "id": "2f3d18c6c1cd01c4d1760260b8594d9f",
+                "count": 5
+              },
+              {
+                "descriptor": "Dublin, Ireland",
+                "id": "2f3d18c6c1cd0151dd534c64b8597a9f",
+                "count": 2
+              },
+              {
+                "descriptor": "Flint, Michigan, United States of America",
+                "id": "6111e68864d5017999ca520cb71ff338",
+                "count": 12
+              },
+              {
+                "descriptor": "Giza, Egypt",
+                "id": "aa32dff7183a01f5f9eb49c784123cdd",
+                "count": 1
+              },
+              {
+                "descriptor": "GM Automation - Sunnyvale - GM Automation - Sunnyvale",
+                "id": "6e8998d2daa010171f5a6d361f650000",
+                "count": 2
+              },
+              {
+                "descriptor": "GM Global Technical Center - Design Ctr",
+                "id": "983c57f4d0d801b13e949128581d27a1",
+                "count": 2
+              },
+              {
+                "descriptor": "GM Global Technical Center - Sloan Engineering Center",
+                "id": "983c57f4d0d801eb23699728581d2ca1",
+                "count": 3
+              },
+              {
+                "descriptor": "Grand Blanc, Michigan, United States of America",
+                "id": "d5cdc59b5cbe01165c151b08b71f900b",
+                "count": 1
+              },
+              {
+                "descriptor": "Gravatai, Rio Grande do Sul, Brazil",
+                "id": "2f3d18c6c1cd0103ea16fb60b8595c9f",
+                "count": 4
+              },
+              {
+                "descriptor": "Herzliya, Tel Aviv District, Israel",
+                "id": "107799e78de401bf89577c6bb8595d63",
+                "count": 4
+              },
+              {
+                "descriptor": "Hudson, Wisconsin, United States of America",
+                "id": "812c98c9baa401eb1b323e07b71fde2b",
+                "count": 2
+              },
+              {
+                "descriptor": "Incheon, Korea, Republic of",
+                "id": "7bdbee41d567012d625a6309b71ff550",
+                "count": 3
+              },
+              {
+                "descriptor": "Indaiatuba, Sao Paulo, Brazil",
+                "id": "899fdb5109a801fbe7d0d5a7b61f6038",
+                "count": 2
+              },
+              {
+                "descriptor": "Joinville, Santa Catarina, Brazil",
+                "id": "d4e1946d0ed4019109c52e01b71f7c13",
+                "count": 1
+              },
+              {
+                "descriptor": "Kansas City, Kansas, United States of America",
+                "id": "e30192a1b9ad01e80c23deacb61fc94c",
+                "count": 2
+              },
+              {
+                "descriptor": "Kokomo, Indiana, United States of America",
+                "id": "107799e78de401920de4316fb8598563",
+                "count": 1
+              },
+              {
+                "descriptor": "Lake Orion, Michigan, United States of America",
+                "id": "e30192a1b9ad01b8ed4dffacb61fce4c",
+                "count": 10
+              },
+              {
+                "descriptor": "Lansing, Michigan, United States of America",
+                "id": "107799e78de401742c495a6fb8598a63",
+                "count": 5
+              },
+              {
+                "descriptor": "Leamington Spa, Worcestershire, United Kingdom",
+                "id": "a84d2748cec61028690b298262060000",
+                "count": 4
+              },
+              {
+                "descriptor": "Lima, Peru",
+                "id": "812c98c9baa4017040604505b71fc92b",
+                "count": 1
+              },
+              {
+                "descriptor": "Limerick, Ireland",
+                "id": "812c98c9baa401909aeaba03b71fba2b",
+                "count": 4
+              },
+              {
+                "descriptor": "Lockport, New York, United States of America",
+                "id": "899fdb5109a8014dc08020afb61fd238",
+                "count": 2
+              },
+              {
+                "descriptor": "Marion, Indiana, United States of America",
+                "id": "d4e1946d0ed401cc9f679a08b71fcc13",
+                "count": 3
+              },
+              {
+                "descriptor": "Markham, Ontario, Canada",
+                "id": "d5cdc59b5cbe017126a2c802b71f490b",
+                "count": 40
+              },
+              {
+                "descriptor": "Markham Elevation Centre - Markham Elevation Centre",
+                "id": "983c57f4d0d801683115031e581de597",
+                "count": 1
+              },
+              {
+                "descriptor": "Mexico City, Mexico, Mexico",
+                "id": "43639ab19d9e1000d2a14852bc700000",
+                "count": 1
+              },
+              {
+                "descriptor": "Milford, Michigan, United States of America",
+                "id": "107799e78de4010793c4bb6fb8599963",
+                "count": 64
+              },
+              {
+                "descriptor": "Milford Proving Ground - Bldg 08",
+                "id": "983c57f4d0d801e938023628581dd2a0",
+                "count": 3
+              },
+              {
+                "descriptor": "Milford Proving Ground - Bldg 70 - Durability Test, Corrosion, Media Prep, Shuttle, Puma",
+                "id": "983c57f4d0d801547acff427581dc8a0",
+                "count": 1
+              },
+              {
+                "descriptor": "Milford Proving Ground - T-128",
+                "id": "3b410824430101d4e45ea013e7226f13",
+                "count": 2
+              },
+              {
+                "descriptor": "Moraine, Ohio, United States of America",
+                "id": "107799e78de401f091f1c16fb8599e63",
+                "count": 1
+              },
+              {
+                "descriptor": "Mountain View, California, United States of America",
+                "id": "b0be2c0a966710016c9654dbd0010000",
+                "count": 104
+              },
+              {
+                "descriptor": "Mountain View Technical Center - Mountain View Technical Center",
+                "id": "608c920536e910016db8acc82a590000",
+                "count": 7
+              },
+              {
+                "descriptor": "New York City, New York, United States of America",
+                "id": "2f3d18c6c1cd01b55b94bb68b859c39f",
+                "count": 1
+              },
+              {
+                "descriptor": "Oshawa, Ontario, Canada",
+                "id": "88b46ead68660128a3e7cb81b5599f64",
+                "count": 18
+              },
+              {
+                "descriptor": "Parma, Ohio, United States of America",
+                "id": "e30192a1b9ad0124a3ccb0adb61fdd4c",
+                "count": 2
+              },
+              {
+                "descriptor": "Pointe-Claire, Quebec, Canada",
+                "id": "cab0bc83409f01bbc4a04f07851253bf",
+                "count": 1
+              },
+              {
+                "descriptor": "Pontiac, Michigan, United States of America",
+                "id": "db7780503a74016716567709b71f521d",
+                "count": 9
+              },
+              {
+                "descriptor": "Pontiac Engineering Center GPS - Pontiac PPO, Bldg C",
+                "id": "983c57f4d0d801bce186e626581dd89f",
+                "count": 1
+              },
+              {
+                "descriptor": "Pudong, Shanghai, China",
+                "id": "107799e78de401d4239f956ab8594463",
+                "count": 1
+              },
+              {
+                "descriptor": "Quito, Pichincha, Ecuador",
+                "id": "afdead2ed74b019a5aff46027e64b204",
+                "count": 1
+              },
+              {
+                "descriptor": "Ramos Arizpe, Coahuila, Mexico",
+                "id": "6111e68864d5014fa1548b0ab71fe938",
+                "count": 2
+              },
+              {
+                "descriptor": "Remote - California",
+                "id": "812c98c9baa401284d6aa808b71fed2b",
+                "count": 5
+              },
+              {
+                "descriptor": "Remote - Canada",
+                "id": "d4e1946d0ed4014537ae9d02b71f8613",
+                "count": 1
+              },
+              {
+                "descriptor": "Remote - Indiana",
+                "id": "d5cdc59b5cbe01928aba020ab71fa40b",
+                "count": 1
+              },
+              {
+                "descriptor": "Remote - Louisiana",
+                "id": "7bdbee41d5670135b421b40db71f3651",
+                "count": 1
+              },
+              {
+                "descriptor": "Remote - Nevada",
+                "id": "2c72441cb73101c6a8e0ed08b71f2d64",
+                "count": 1
+              },
+              {
+                "descriptor": "Remote - North Carolina",
+                "id": "2f3d18c6c1cd01ff33da136ab859e69f",
+                "count": 1
+              },
+              {
+                "descriptor": "Remote - Texas",
+                "id": "db7780503a7401284a76cb0ab71f611d",
+                "count": 3
+              },
+              {
+                "descriptor": "Remote - United States",
+                "id": "e30192a1b9ad01f018f447afb61fec4c",
+                "count": 22
+              },
+              {
+                "descriptor": "Remote - Washington",
+                "id": "899fdb5109a801d56ff556b1b61ff038",
+                "count": 5
+              },
+              {
+                "descriptor": "Remote Workforce SCS & SP City",
+                "id": "afdead2ed74b019ff15bceff7d649e04",
+                "count": 1
+              },
+              {
+                "descriptor": "Reno, Nevada, United States of America",
+                "id": "88b46ead686601ff9bfe238ab559ed64",
+                "count": 1
+              },
+              {
+                "descriptor": "Roanoke, Indiana, United States of America",
+                "id": "5e70e1905c63014231f3200ab71f8c14",
+                "count": 3
+              },
+              {
+                "descriptor": "Rochester, New York, United States of America",
+                "id": "6111e68864d501e35a86a30fb71f1139",
+                "count": 6
+              },
+              {
+                "descriptor": "Romulus, Michigan, United States of America",
+                "id": "5e70e1905c63014a9deb370ab71f9114",
+                "count": 1
+              },
+              {
+                "descriptor": "Saginaw, Michigan, United States of America",
+                "id": "107799e78de4013e1839fa71b859cb63",
+                "count": 4
+              },
+              {
+                "descriptor": "San Francisco, California, United States of America",
+                "id": "e30192a1b9ad01d8d90ec6afb61ffb4c",
+                "count": 11
+              },
+              {
+                "descriptor": "San Luis Potosi, Mexico",
+                "id": "aa32dff7183a012f9c0f0bc984124edd",
+                "count": 2
+              },
+              {
+                "descriptor": "Santiago, Region Metropolitana de Santiago, Chile",
+                "id": "107799e78de4016dd07c526ab8593963",
+                "count": 1
+              },
+              {
+                "descriptor": "Sao Caetano do Sul, Sao Paulo, Brazil",
+                "id": "2c72441cb731012488ab8b00b71fdd63",
+                "count": 9
+              },
+              {
+                "descriptor": "Sao Jose dos Campos, Sao Paulo, Brazil",
+                "id": "5e70e1905c63014e2d5d5e01b71f2d14",
+                "count": 1
+              },
+              {
+                "descriptor": "Shanghai, China",
+                "id": "e30192a1b9ad01d6630163a8b61f7d4c",
+                "count": 6
+              },
+              {
+                "descriptor": "Shinagawa Ku, Tokyo, Japan",
+                "id": "899fdb5109a80153d8a7b3abb61f9138",
+                "count": 1
+              },
+              {
+                "descriptor": "Silao, Guanajuato, Mexico",
+                "id": "5e70e1905c63014c85392d05b71f4b14",
+                "count": 3
+              },
+              {
+                "descriptor": "Sorocaba, Sao Paulo, Brazil",
+                "id": "899fdb5109a801389157c8a8b61f6838",
+                "count": 1
+              },
+              {
+                "descriptor": "Spring Hill, Tennessee, United States of America",
+                "id": "812c98c9baa4018b0edd880ab71ffc2b",
+                "count": 4
+              },
+              {
+                "descriptor": "Sunnyvale, California, United States of America",
+                "id": "88b46ead6866013c0488b18ab559f764",
+                "count": 80
+              },
+              {
+                "descriptor": "Sunnyvale Technical Center - Sunnyvale Technical Center (CL)",
+                "id": "983c57f4d0d8014366f17425581d939e",
+                "count": 3
+              },
+              {
+                "descriptor": "Taguig City, National Capital Region (Manila), Philippines",
+                "id": "7bdbee41d5670129e2e9060ab71f0451",
+                "count": 23
+              },
+              {
+                "descriptor": "Toledo, Ohio, United States of America",
+                "id": "812c98c9baa4014ab256b80ab71f012c",
+                "count": 4
+              },
+              {
+                "descriptor": "Toluca, Mexico, Mexico",
+                "id": "623eeaef2a791000d2a0ad7cb11c0000",
+                "count": 4
+              },
+              {
+                "descriptor": "Vicente Lopez, Buenos Aires, Argentina",
+                "id": "2f3d18c6c1cd0102620b4560b859529f",
+                "count": 1
+              },
+              {
+                "descriptor": "Warren, Michigan, United States of America",
+                "id": "d4e1946d0ed40182b528810bb71fe013",
+                "count": 255
+              },
+              {
+                "descriptor": "Warren GPS - Warren GPS (CL)",
+                "id": "983c57f4d0d801b15763f126581de29f",
+                "count": 2
+              },
+              {
+                "descriptor": "Washington, District of Columbia, United States of America",
+                "id": "6111e68864d501ab237a4c10b71f1639",
+                "count": 1
+              },
+              {
+                "descriptor": "Wentzville, Missouri, United States of America",
+                "id": "5e70e1905c63014b2885e80ab71fa014",
+                "count": 3
+              },
+              {
+                "descriptor": "Work From Home - Canada",
+                "id": "983c57f4d0d8017c1d471c2e581d2da6",
+                "count": 1
+              },
+              {
+                "descriptor": "Work From Home - Ontario",
+                "id": "983c57f4d0d801106a5ac32e581dbea6",
+                "count": 1
+              },
+              {
+                "descriptor": "Work From Home - Pennsylvania",
+                "id": "983c57f4d0d8014af930bb2d581dd3a5",
+                "count": 1
+              },
+              {
+                "descriptor": "Work From Home - United States",
+                "id": "983c57f4d0d8016ee6380a2f581dffa6",
+                "count": 4
+              },
+              {
+                "descriptor": "Wyoming, Michigan, United States of America",
+                "id": "812c98c9baa4014b13222e0bb71f072c",
+                "count": 7
+              },
+              {
+                "descriptor": "Ypsilanti, Michigan, United States of America",
+                "id": "6111e68864d5014ed60cab10b71f1b39",
+                "count": 1
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "userAuthenticated": false
+  }
+}

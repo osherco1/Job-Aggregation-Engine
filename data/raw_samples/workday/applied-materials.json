@@ -1,0 +1,1580 @@
+{
+  "_meta": {
+    "source": "workday",
+    "companyId": "applied-materials",
+    "companyName": "Applied Materials",
+    "originalUrl": "https://amat.wd1.myworkdayjobs.com/External",
+    "parsedTenant": "amat",
+    "parsedInstance": "wd1",
+    "parsedSite": "External",
+    "siteUrl": "https://amat.wd1.myworkdayjobs.com/External",
+    "apiEndpoint": "https://amat.wd1.myworkdayjobs.com/wday/cxs/amat/External/jobs",
+    "sessionInitStatus": 200,
+    "cookiesEstablished": [
+      "PLAY_SESSION",
+      "wd-browser-id",
+      "CALYPSO_CSRF_TOKEN",
+      "CXS_SESSION",
+      "wday_vps_cookie",
+      "__cf_bm",
+      "__cflb",
+      "_cfuvid"
+    ],
+    "jobsApiStatus": 200,
+    "sampledAt": "2026-03-01T22:04:34.909Z",
+    "totalReported": 1502,
+    "jobCountThisPage": 20,
+    "facetCount": 7,
+    "requestPayload": {
+      "appliedFacets": {},
+      "limit": 20,
+      "offset": 0,
+      "searchText": ""
+    }
+  },
+  "raw": {
+    "total": 1502,
+    "jobPostings": [
+      {
+        "title": "Manufacturing Engineer",
+        "externalPath": "/job/AustinTX/Manufacturing-Engineer_R2611263",
+        "locationsText": "Austin,TX",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "R2611263"
+        ]
+      },
+      {
+        "title": "Manufacturing Technician",
+        "externalPath": "/job/SingaporeSGP/Manufacturing-Technician_R2613938",
+        "locationsText": "Singapore,SGP",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "R2613938"
+        ]
+      },
+      {
+        "title": "Manufacturing Technician",
+        "externalPath": "/job/SingaporeSGP/Manufacturing-Technician_R2613939",
+        "locationsText": "Singapore,SGP",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "R2613939"
+        ]
+      },
+      {
+        "title": "Manufacturing Technician",
+        "externalPath": "/job/SingaporeSGP/Manufacturing-Technician_R2613940",
+        "locationsText": "Singapore,SGP",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "R2613940"
+        ]
+      },
+      {
+        "title": "Manufacturing Technician",
+        "externalPath": "/job/SingaporeSGP/Manufacturing-Technician_R2613941",
+        "locationsText": "Singapore,SGP",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "R2613941"
+        ]
+      },
+      {
+        "title": "Manufacturing Technician",
+        "externalPath": "/job/SingaporeSGP/Manufacturing-Technician_R2613942",
+        "locationsText": "Singapore,SGP",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "R2613942"
+        ]
+      },
+      {
+        "title": "Manufacturing Technician",
+        "externalPath": "/job/SingaporeSGP/Manufacturing-Technician_R2613943",
+        "locationsText": "Singapore,SGP",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "R2613943"
+        ]
+      },
+      {
+        "title": "Manufacturing Technician",
+        "externalPath": "/job/SingaporeSGP/Manufacturing-Technician_R2613944",
+        "locationsText": "Singapore,SGP",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "R2613944"
+        ]
+      },
+      {
+        "title": "Manufacturing Technician",
+        "externalPath": "/job/SingaporeSGP/Manufacturing-Technician_R2613945",
+        "locationsText": "Singapore,SGP",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "R2613945"
+        ]
+      },
+      {
+        "title": "Manufacturing Technician",
+        "externalPath": "/job/SingaporeSGP/Manufacturing-Technician_R2613946",
+        "locationsText": "Singapore,SGP",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "R2613946"
+        ]
+      },
+      {
+        "title": "Manufacturing Technician",
+        "externalPath": "/job/SingaporeSGP/Manufacturing-Technician_R2613947",
+        "locationsText": "Singapore,SGP",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "R2613947"
+        ]
+      },
+      {
+        "title": "Manufacturing Technician",
+        "externalPath": "/job/SingaporeSGP/Manufacturing-Technician_R2613948",
+        "locationsText": "Singapore,SGP",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "R2613948"
+        ]
+      },
+      {
+        "title": "Manufacturing Technician",
+        "externalPath": "/job/SingaporeSGP/Manufacturing-Technician_R2613949",
+        "locationsText": "Singapore,SGP",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "R2613949"
+        ]
+      },
+      {
+        "title": "Manufacturing Technician",
+        "externalPath": "/job/SingaporeSGP/Manufacturing-Technician_R2613950",
+        "locationsText": "Singapore,SGP",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "R2613950"
+        ]
+      },
+      {
+        "title": "Manufacturing Technician",
+        "externalPath": "/job/SingaporeSGP/Manufacturing-Technician_R2613951",
+        "locationsText": "Singapore,SGP",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "R2613951"
+        ]
+      },
+      {
+        "title": "Manufacturing Technician",
+        "externalPath": "/job/SingaporeSGP/Manufacturing-Technician_R2613952",
+        "locationsText": "Singapore,SGP",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "R2613952"
+        ]
+      },
+      {
+        "title": "Manufacturing Technician",
+        "externalPath": "/job/SingaporeSGP/Manufacturing-Technician_R2613953",
+        "locationsText": "Singapore,SGP",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "R2613953"
+        ]
+      },
+      {
+        "title": "Manufacturing Technician",
+        "externalPath": "/job/SingaporeSGP/Manufacturing-Technician_R2613954",
+        "locationsText": "Singapore,SGP",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "R2613954"
+        ]
+      },
+      {
+        "title": "Manufacturing Technician",
+        "externalPath": "/job/SingaporeSGP/Manufacturing-Technician_R2613955",
+        "locationsText": "Singapore,SGP",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "R2613955"
+        ]
+      },
+      {
+        "title": "Manufacturing Technician",
+        "externalPath": "/job/SingaporeSGP/Manufacturing-Technician_R2613956",
+        "locationsText": "Singapore,SGP",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "R2613956"
+        ]
+      }
+    ],
+    "facets": [
+      {
+        "facetParameter": "Country",
+        "descriptor": "Country/Region",
+        "values": [
+          {
+            "descriptor": "United States of America",
+            "id": "bc33aa3152ec42d4995f4791a106ed09",
+            "count": 658
+          },
+          {
+            "descriptor": "Singapore",
+            "id": "80938777cac5440fab50d729f9634969",
+            "count": 300
+          },
+          {
+            "descriptor": "India",
+            "id": "c4f78be1a8f14da0ab49ce1162348a5e",
+            "count": 138
+          },
+          {
+            "descriptor": "Taiwan",
+            "id": "a4e08b475d6a4176853c9d1cb9854e02",
+            "count": 94
+          },
+          {
+            "descriptor": "Israel",
+            "id": "084562884af243748dad7c84c304d89a",
+            "count": 75
+          },
+          {
+            "descriptor": "Japan",
+            "id": "8b705da2becf43cfaccc091da0988ab2",
+            "count": 66
+          },
+          {
+            "descriptor": "Korea, Republic of",
+            "id": "7a5a2aadf9d34086a2bfbfd408bc28da",
+            "count": 56
+          },
+          {
+            "descriptor": "China",
+            "id": "6cb77610a8a543aea2d6bc10457e35d4",
+            "count": 48
+          },
+          {
+            "descriptor": "Germany",
+            "id": "dcc5b7608d8644b3a93716604e78e995",
+            "count": 23
+          },
+          {
+            "descriptor": "Italy",
+            "id": "8cd04a563fd94da7b06857a79faaf815",
+            "count": 23
+          },
+          {
+            "descriptor": "Malaysia",
+            "id": "972dc4ba8d454bc0b893ff84b1529077",
+            "count": 17
+          },
+          {
+            "descriptor": "Costa Rica",
+            "id": "99abe7e6bb3f4c108aebebf01a369ec5",
+            "count": 10
+          },
+          {
+            "descriptor": "France",
+            "id": "54c5b6971ffb4bf0b116fe7651ec789a",
+            "count": 6
+          },
+          {
+            "descriptor": "Netherlands",
+            "id": "9696868b09c64d52a62ee13b052383cc",
+            "count": 4
+          },
+          {
+            "descriptor": "Finland",
+            "id": "0afb2fa656da42e8bfb6d47bd24a26fa",
+            "count": 3
+          },
+          {
+            "descriptor": "Ireland",
+            "id": "04a05835925f45b3a59406a2a6b72c8a",
+            "count": 3
+          },
+          {
+            "descriptor": "Canada",
+            "id": "a30a87ed25634629aa6c3958aa2b91ea",
+            "count": 3
+          }
+        ]
+      },
+      {
+        "facetParameter": "State_Region_Province",
+        "descriptor": "State/Province",
+        "values": [
+          {
+            "descriptor": "California",
+            "id": "ec3d210e4240442e99a28fa70419aec5",
+            "count": 428
+          },
+          {
+            "descriptor": "South East",
+            "id": "ac86fdf18bbb4fc7a2cc6cca3952e108",
+            "count": 300
+          },
+          {
+            "descriptor": "Texas",
+            "id": "fc77e3a1ab36487f9646d14f7242dd77",
+            "count": 141
+          },
+          {
+            "descriptor": "Karnātaka",
+            "id": "701eb5584934425d930bc84b9e8b04eb",
+            "count": 135
+          },
+          {
+            "descriptor": "Center District",
+            "id": "3c145ef71da8436da952514d03d954ef",
+            "count": 71
+          },
+          {
+            "descriptor": "Hsinchu City",
+            "id": "641a84723d1146d3ab84d2b62fafd930",
+            "count": 51
+          },
+          {
+            "descriptor": "Gyeonggi-do",
+            "id": "88e02034096e497ea0a475dfb77a6a5b",
+            "count": 50
+          },
+          {
+            "descriptor": "Tainan City",
+            "id": "87d4784f345c486a95a358b16c1149d4",
+            "count": 49
+          },
+          {
+            "descriptor": "Massachusetts",
+            "id": "c66d738416b74fb180376cf59cc7ec8f",
+            "count": 47
+          },
+          {
+            "descriptor": "Arizona",
+            "id": "c7b20b0d4bc04711a00900569e9afabd",
+            "count": 38
+          },
+          {
+            "descriptor": "Shanghai",
+            "id": "12022932d53e4131959783deec185438",
+            "count": 29
+          },
+          {
+            "descriptor": "Hiroshima",
+            "id": "89f2b4498bae46b98057f7bc936719d4",
+            "count": 26
+          },
+          {
+            "descriptor": "Treviso",
+            "id": "6031841591ff429bbcd774432ff53114",
+            "count": 18
+          },
+          {
+            "descriptor": "Bavaria",
+            "id": "bd89fff5ffa6440a9abeaf2c5c1dc37c",
+            "count": 18
+          },
+          {
+            "descriptor": "Taichung City",
+            "id": "a1fecd9c6fd345ee8ad6b5fcde4b187a",
+            "count": 17
+          },
+          {
+            "descriptor": "Montana",
+            "id": "d649a916a12e4680887c98d5836d0647",
+            "count": 15
+          },
+          {
+            "descriptor": "Idaho",
+            "id": "b1c017b8f6294b0e82773aaca1dce33e",
+            "count": 15
+          },
+          {
+            "descriptor": "Iwate",
+            "id": "2aaaaf1cfb774730b751825f54f21669",
+            "count": 13
+          },
+          {
+            "descriptor": "Kaohsiung City",
+            "id": "33966a93b3514d418043059fb1334641",
+            "count": 12
+          },
+          {
+            "descriptor": "Chungcheongbuk-do",
+            "id": "9371a8fd7198401a9762cc0a534fbbaa",
+            "count": 12
+          },
+          {
+            "descriptor": "Mie",
+            "id": "cea6910363424c68a2d8fde6f7e9d28e",
+            "count": 12
+          },
+          {
+            "descriptor": "Tokyo",
+            "id": "6534030e79d54ac897646438ed66ac9a",
+            "count": 12
+          },
+          {
+            "descriptor": "Oregon",
+            "id": "6fcc4198762c4a7c807486c849fe94dd",
+            "count": 10
+          },
+          {
+            "descriptor": "Kedah",
+            "id": "b8d3b13eb22e468fa5a27f3f1efb970b",
+            "count": 10
+          },
+          {
+            "descriptor": "Heredia",
+            "id": "13f1450c04904e9f9bbc7e10a10aacd6",
+            "count": 10
+          },
+          {
+            "descriptor": "New York",
+            "id": "9819bf0148e54f89adb255aa7bead635",
+            "count": 9
+          },
+          {
+            "descriptor": "Taoyuan City",
+            "id": "a6436d2872254008a76cdaafbd037101",
+            "count": 8
+          },
+          {
+            "descriptor": "Pulau Pinang (Penang)",
+            "id": "05b047780403433b9a3b8f92e8ad0dd5",
+            "count": 7
+          },
+          {
+            "descriptor": "Shaanxi",
+            "id": "e9d15bbdb791417b905ba588096d7bfc",
+            "count": 7
+          },
+          {
+            "descriptor": "Beijing",
+            "id": "4b194fc4ae3b4cbe95a1b379454e1775",
+            "count": 6
+          },
+          {
+            "descriptor": "Kumamoto",
+            "id": "fcb96e0cc5e64886b254e7ab61438175",
+            "count": 5
+          },
+          {
+            "descriptor": "Kyoto",
+            "id": "da7f67f005c643be87ea47a9fdbfafe8",
+            "count": 5
+          },
+          {
+            "descriptor": "Guangdong",
+            "id": "9171988616764d5ba2a87a518af470d6",
+            "count": 5
+          },
+          {
+            "descriptor": "Anhui",
+            "id": "75fdf1c4ee6f425e935f84a6e540e2e6",
+            "count": 5
+          },
+          {
+            "descriptor": "Saxony",
+            "id": "e3c6ad91206a450783bf22b36aed2352",
+            "count": 5
+          },
+          {
+            "descriptor": "Monza e Brianza",
+            "id": "cd527ca279594ab6b5a36ce5883ae61c",
+            "count": 4
+          },
+          {
+            "descriptor": "Maryland",
+            "id": "586509e6daa741808206b095fee97e8f",
+            "count": 4
+          },
+          {
+            "descriptor": "Ibaraki",
+            "id": "3c467354c1a742d3ab2e2dce3ffdb4b8",
+            "count": 4
+          },
+          {
+            "descriptor": "Toyama",
+            "id": "6d6f29a949654f2abcf79074d1912923",
+            "count": 4
+          },
+          {
+            "descriptor": "Sichuan",
+            "id": "e8d349befce64b698a7562c13a55bbd2",
+            "count": 4
+          },
+          {
+            "descriptor": "Jiangsu",
+            "id": "8ad3cfa8b4f04b74aff60dbef3b1f9e2",
+            "count": 4
+          },
+          {
+            "descriptor": "Mahārāshtra",
+            "id": "a3c37012f51642f4a7b3dafc8ac37801",
+            "count": 3
+          },
+          {
+            "descriptor": "Kildare",
+            "id": "c5d3ad9528024237855d44d36222caa4",
+            "count": 3
+          },
+          {
+            "descriptor": "South District",
+            "id": "3f4563829f2e4f2a829ee04c2fb49a91",
+            "count": 3
+          },
+          {
+            "descriptor": "Virginia",
+            "id": "e0889a76c58d4fff9b54b80dadc49000",
+            "count": 3
+          },
+          {
+            "descriptor": "New Mexico",
+            "id": "32c182efea294964a9000772bc740672",
+            "count": 3
+          },
+          {
+            "descriptor": "Uusimaa",
+            "id": "f7954aa327894e62bb6101b303c7754a",
+            "count": 3
+          },
+          {
+            "descriptor": "Nagasaki",
+            "id": "dfc31c1651eb4883a019b804a05f5327",
+            "count": 3
+          },
+          {
+            "descriptor": "Osaka",
+            "id": "90d84369498c480895f7c7f495000381",
+            "count": 3
+          },
+          {
+            "descriptor": "Ontario",
+            "id": "218a720b28a74c67b5c6d42c00bdadfa",
+            "count": 3
+          },
+          {
+            "descriptor": "Fujian",
+            "id": "36dd74db17974762b59b8105b3c2f4db",
+            "count": 3
+          },
+          {
+            "descriptor": "Gyeongsangbuk-do",
+            "id": "20fe5425c7be45818cb7efcdd2debc78",
+            "count": 2
+          },
+          {
+            "descriptor": "Seoul",
+            "id": "443e53d4f94a4547af860b67235f9942",
+            "count": 2
+          },
+          {
+            "descriptor": "Oita",
+            "id": "b2c3111a5cea4f53b26650a661b47952",
+            "count": 2
+          },
+          {
+            "descriptor": "Aichi",
+            "id": "9d9ed12bc82a454da2b507f5ee39b7d6",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "facetParameter": "jobFamilyGroup",
+        "descriptor": "Job Category",
+        "values": [
+          {
+            "descriptor": "Engineering",
+            "id": "12cd0bd5b8c8100a5ff4c01480fc1e9a",
+            "count": 681
+          },
+          {
+            "descriptor": "Customer Service & Support",
+            "id": "12cd0bd5b8c8100a5ff4ba5af9341e96",
+            "count": 169
+          },
+          {
+            "descriptor": "Project/Program Management",
+            "id": "12cd0bd5b8c8100a5ff4e1dc9ef41eb4",
+            "count": 144
+          },
+          {
+            "descriptor": "Manufacturing",
+            "id": "12cd0bd5b8c8100a5ff4d9ff29a41eae",
+            "count": 101
+          },
+          {
+            "descriptor": "Interns",
+            "id": "12cd0bd5b8c8100a5ff4cfd6ca541ea6",
+            "count": 85
+          },
+          {
+            "descriptor": "Materials",
+            "id": "12cd0bd5b8c8100a5ff4df72616c1eb2",
+            "count": 56
+          },
+          {
+            "descriptor": "Quality",
+            "id": "12cd0bd5b8c8100a5ff4e47022e41eb6",
+            "count": 35
+          },
+          {
+            "descriptor": "Finance",
+            "id": "12cd0bd5b8c8100a5ff4c578fb541e9e",
+            "count": 34
+          },
+          {
+            "descriptor": "Information Technology",
+            "id": "12cd0bd5b8c8100a5ff4d2734ef41ea8",
+            "count": 32
+          },
+          {
+            "descriptor": "Marketing & Business Development",
+            "id": "12cd0bd5b8c8100a5ff4dcdeb66c1eb0",
+            "count": 25
+          },
+          {
+            "descriptor": "Human Resources",
+            "id": "12cd0bd5b8c8100a5ff4cd382aa41ea4",
+            "count": 25
+          },
+          {
+            "descriptor": "Business Operations",
+            "id": "12cd0bd5b8c8100a5ff4b2d6cf441e90",
+            "count": 19
+          },
+          {
+            "descriptor": "Sourcing",
+            "id": "12cd0bd5b8c8100a5ff4e9747bdc1eba",
+            "count": 16
+          },
+          {
+            "descriptor": "Logistics",
+            "id": "12cd0bd5b8c8100a5ff4d758f8741eac",
+            "count": 14
+          },
+          {
+            "descriptor": "Legal",
+            "id": "12cd0bd5b8c8100a5ff4d50461e41eaa",
+            "count": 14
+          },
+          {
+            "descriptor": "Sales",
+            "id": "12cd0bd5b8c8100a5ff4e6e754d41eb8",
+            "count": 11
+          },
+          {
+            "descriptor": "Fulfillmnt",
+            "id": "12cd0bd5b8c8100a5ff4c7f4b1841ea0",
+            "count": 9
+          },
+          {
+            "descriptor": "EH&S",
+            "id": "12cd0bd5b8c8100a5ff4bcb48d1c1e98",
+            "count": 9
+          },
+          {
+            "descriptor": "Corporate Development",
+            "id": "12cd0bd5b8c8100a5ff4b7d2fe641e94",
+            "count": 6
+          },
+          {
+            "descriptor": "Administration",
+            "id": "12cd0bd5b8c8100a5ff4afa61d0c1e8e",
+            "count": 6
+          },
+          {
+            "descriptor": "AIx Engineering",
+            "id": "46f54a07df811001f35598410dcd0000",
+            "count": 5
+          },
+          {
+            "descriptor": "Facilities and Real Estate",
+            "id": "12cd0bd5b8c8100a5ff4c2cbd8cc1e9c",
+            "count": 4
+          },
+          {
+            "descriptor": "NXP Netherlands",
+            "id": "12cd0bd5b8c8100a5ff4ebb9f73c1ebc",
+            "count": 1
+          },
+          {
+            "descriptor": "All Contractor/Temporary Workers",
+            "id": "63f8c4f5f1684536af2eb09fabfcdff5",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "facetParameter": "workerSubType",
+        "descriptor": "Job Type",
+        "values": [
+          {
+            "descriptor": "Assignee / Regular",
+            "id": "3741ce92b14a4d97b2188d3d8e55fc17",
+            "count": 1341
+          },
+          {
+            "descriptor": "Intern / Student",
+            "id": "ba9df317f7ac456da2faff4fd6a521c8",
+            "count": 85
+          },
+          {
+            "descriptor": "New College Grad",
+            "id": "0d53c44d1e55449580133c23db7d1bd5",
+            "count": 74
+          },
+          {
+            "descriptor": "Fixed Term (Fixed Term)",
+            "id": "29de623ce9734ebb8c43fa37826b5802",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "facetParameter": "timeType",
+        "descriptor": "Time Type",
+        "values": [
+          {
+            "descriptor": "Full time",
+            "id": "c8bf321dada84297882422e3abb382e7",
+            "count": 1499
+          },
+          {
+            "descriptor": "Part time",
+            "id": "0df2a83df5f64093bfd0102dc10a4fb1",
+            "count": 3
+          }
+        ]
+      },
+      {
+        "facetParameter": "locationMainGroup",
+        "values": [
+          {
+            "facetParameter": "locations",
+            "descriptor": "Locations",
+            "values": [
+              {
+                "descriptor": "Agrate Brianza",
+                "id": "6b8fd5e2d77f1001a5c8e84112b50000",
+                "count": 2
+              },
+              {
+                "descriptor": "Agrate MB,ITA",
+                "id": "13ceb99ba5341001a3445f4eb3420000",
+                "count": 1
+              },
+              {
+                "descriptor": "Albany,NY",
+                "id": "4ad874a1e0364f6896b58f34971f15ee",
+                "count": 6
+              },
+              {
+                "descriptor": "Albuquerque,NM",
+                "id": "c502ff42d7974db9b82f51508efb5bcd",
+                "count": 2
+              },
+              {
+                "descriptor": "Alzenau,DEU",
+                "id": "018cdb4b04db47a49b1d1e6fd410990a",
+                "count": 1
+              },
+              {
+                "descriptor": "Austin,TX",
+                "id": "16f3e0f5ed5d444cb77484050e203944",
+                "count": 139
+              },
+              {
+                "descriptor": "Bangalore,IND",
+                "id": "dda732f9b3a44b5dba2325b7c65805dc",
+                "count": 135
+              },
+              {
+                "descriptor": "Beijing,CHN",
+                "id": "e3d0db435990416ca790f23552267e7c",
+                "count": 6
+              },
+              {
+                "descriptor": "Benicia,CA",
+                "id": "00b542b6d1bb10018f608dd83aed0000",
+                "count": 2
+              },
+              {
+                "descriptor": "Bernin,FRA",
+                "id": "8e9ff016b2d310019bf40839e6530000",
+                "count": 3
+              },
+              {
+                "descriptor": "Bloomington,MN",
+                "id": "2e4156ee2d164cafb4bb9261b73d3c12",
+                "count": 1
+              },
+              {
+                "descriptor": "Boise,ID",
+                "id": "709a3ee5a2474d558443e56395f07fbe",
+                "count": 13
+              },
+              {
+                "descriptor": "Bundang,KOR",
+                "id": "e5ad5fff989047e5bb3a5cdca8c3fc31",
+                "count": 9
+              },
+              {
+                "descriptor": "Catania,ITA",
+                "id": "1e80e22142564e919d1c7133a6543640",
+                "count": 1
+              },
+              {
+                "descriptor": "Chandler,AZ",
+                "id": "11870aa013784a71a3943e61262583e8",
+                "count": 11
+              },
+              {
+                "descriptor": "Chengdu,CHN",
+                "id": "d2d458000d3b103567d7017b2f4ef2c3",
+                "count": 4
+              },
+              {
+                "descriptor": "Chennai,IND",
+                "id": "4bd68334142046c89b38d04057effeaf",
+                "count": 1
+              },
+              {
+                "descriptor": "CheongJu,KOR",
+                "id": "5f15f075210745a3af7d98996ebbedfd",
+                "count": 12
+              },
+              {
+                "descriptor": "Chitose,JPN",
+                "id": "5ae2903a46aa1001fd72e3f6b2ea0000",
+                "count": 10
+              },
+              {
+                "descriptor": "Chongqing,CHN",
+                "id": "2c77cfd7c1c41075c62eff91a33ee26a",
+                "count": 1
+              },
+              {
+                "descriptor": "ChunAn,KOR",
+                "id": "9e76360f4ac3456c88d412dd435accd0",
+                "count": 1
+              },
+              {
+                "descriptor": "Dallas-Richardson,TX",
+                "id": "f5dcb8fca62e4e27a4ed5fe54b9ed7b1",
+                "count": 2
+              },
+              {
+                "descriptor": "Darmstadt,DEU",
+                "id": "b9fe078e08f01028d575c29aa5e0159c",
+                "count": 1
+              },
+              {
+                "descriptor": "Dresden,DEU",
+                "id": "89141209e3dc4c4eb74d632e18271774",
+                "count": 5
+              },
+              {
+                "descriptor": "Dublin,IRL",
+                "id": "947736877e4345eea7e895061518b02e",
+                "count": 2
+              },
+              {
+                "descriptor": "Eindhoven,NLD",
+                "id": "1cb87fd30ae84c73bce8e4264f15ba59",
+                "count": 1
+              },
+              {
+                "descriptor": "Fagare,ITA",
+                "id": "d249b89d7e2e10019ede4bfe507d0000",
+                "count": 5
+              },
+              {
+                "descriptor": "Feldkirchen,DEU",
+                "id": "c3f06854e56942c985129bc53a4cc84b",
+                "count": 2
+              },
+              {
+                "descriptor": "Gloucester,MA",
+                "id": "30856570ab604f21b88790fd1a3f6016",
+                "count": 44
+              },
+              {
+                "descriptor": "Grenoble,FRA",
+                "id": "db1b3d84c04b4b92b4411dfa6e983c1e",
+                "count": 4
+              },
+              {
+                "descriptor": "Guangzhou,CHN",
+                "id": "d4e8b13b93100166e8fa7995e11c88e9",
+                "count": 4
+              },
+              {
+                "descriptor": "Guany-in,TWN",
+                "id": "b05fe1f675eb47c99f7fa26f918c4422",
+                "count": 1
+              },
+              {
+                "descriptor": "Gumi,KOR",
+                "id": "0558089180f541e594b159d371545434",
+                "count": 2
+              },
+              {
+                "descriptor": "Hefei,CHN",
+                "id": "a4a8479cb2e048e893e60043918f8dec",
+                "count": 5
+              },
+              {
+                "descriptor": "Heimstetten,DEU",
+                "id": "09ccab74eb6c4cc1af10526ddc014373",
+                "count": 14
+              },
+              {
+                "descriptor": "Hillsboro,OR",
+                "id": "8ba1427def2843d28e159b8de530aa72",
+                "count": 8
+              },
+              {
+                "descriptor": "Hiroshima,JPN",
+                "id": "efbb6e22506a4667b6bf3c6380ef3e23",
+                "count": 26
+              },
+              {
+                "descriptor": "Hokuriku,JPN",
+                "id": "4362ad374d5a4dc4909fb828ab8cbbcc",
+                "count": 4
+              },
+              {
+                "descriptor": "Home / Mobile,AL-001",
+                "id": "f707cb007272107a6d8725c1b2168bf5",
+                "count": 1
+              },
+              {
+                "descriptor": "Home / Mobile,AR-001",
+                "id": "da961e5bd8e71033da82f25947c4a2eb",
+                "count": 1
+              },
+              {
+                "descriptor": "Home / Mobile,AZ-001",
+                "id": "08d37731da194cc3b5744e12675c95e9",
+                "count": 2
+              },
+              {
+                "descriptor": "Home / Mobile,Bay Area,CA-002",
+                "id": "0f32bbc8aa07106eb8eae388637ec525",
+                "count": 1
+              },
+              {
+                "descriptor": "Home / Mobile,CA-001",
+                "id": "ae0c1e35a5994fcb87a2ba45bbbb19ab",
+                "count": 2
+              },
+              {
+                "descriptor": "Home / Mobile,CO-001",
+                "id": "2f3f90e50d514b7db7f38a783c3b215d",
+                "count": 1
+              },
+              {
+                "descriptor": "Home / Mobile,CT-001",
+                "id": "81ec197b24a843b28708948e6e99dc26",
+                "count": 1
+              },
+              {
+                "descriptor": "Home / Mobile,FL-001",
+                "id": "1bfb89b3b6c8467fb2da39bbaa695ecd",
+                "count": 1
+              },
+              {
+                "descriptor": "Home / Mobile,GA-001",
+                "id": "4b3d2f92037142c5926d3cc4aa42b207",
+                "count": 1
+              },
+              {
+                "descriptor": "Home / Mobile,IA-001",
+                "id": "c19b311445501035479aa818a7ab2828",
+                "count": 1
+              },
+              {
+                "descriptor": "Home / Mobile,ID-001",
+                "id": "ba9fbf93a4ba4deeb667c30cdb953fdc",
+                "count": 2
+              },
+              {
+                "descriptor": "Home / Mobile,IL-001",
+                "id": "609966b4b565481caa77a3ce0a5d65c0",
+                "count": 1
+              },
+              {
+                "descriptor": "Home / Mobile,IN-001",
+                "id": "ba4be6d186801036e7e0d93b12a1841b",
+                "count": 1
+              },
+              {
+                "descriptor": "Home / Mobile,KS-001",
+                "id": "677e290d6f9043a38ceede33cb8950b1",
+                "count": 1
+              },
+              {
+                "descriptor": "Home / Mobile,KY-001",
+                "id": "ba4be6d186801036ee1c35efc479a858",
+                "count": 1
+              },
+              {
+                "descriptor": "Home / Mobile, LA-001",
+                "id": "9b03d5d011490100ae4e101122980000",
+                "count": 1
+              },
+              {
+                "descriptor": "Home / Mobile,MA-001",
+                "id": "7c8b60cb02224ab388d8a9084ae5a80e",
+                "count": 1
+              },
+              {
+                "descriptor": "Home / Mobile,MD-001",
+                "id": "1c66b0167c6c4920b49283aa55ee95ee",
+                "count": 1
+              },
+              {
+                "descriptor": "Home / Mobile,ME-001",
+                "id": "1d4d5d57ba5d4396ac9be0ac4317fa29",
+                "count": 1
+              },
+              {
+                "descriptor": "Home / Mobile,MI-001",
+                "id": "20d2510497a044b99f1a377068a6d8a3",
+                "count": 1
+              },
+              {
+                "descriptor": "Home / Mobile,MN-001",
+                "id": "cfe82a8ff32640a2930a62cce495af79",
+                "count": 1
+              },
+              {
+                "descriptor": "Home / Mobile,MO-001",
+                "id": "5d4875a5eef94351ae793338413844ab",
+                "count": 1
+              },
+              {
+                "descriptor": "Home / Mobile,MT-001",
+                "id": "072a4c0db8e342d3b9492678a7de8296",
+                "count": 1
+              },
+              {
+                "descriptor": "Home / Mobile,NC-001",
+                "id": "aa963c28f7a34d2dbcdf9a32ed31f22e",
+                "count": 1
+              },
+              {
+                "descriptor": "Home / Mobile,ND-001",
+                "id": "f9dacea97002018e7d95f3c3eb2c32e1",
+                "count": 1
+              },
+              {
+                "descriptor": "Home / Mobile,NE-001",
+                "id": "02c5b304244a100094d9888dba680000",
+                "count": 1
+              },
+              {
+                "descriptor": "Home / Mobile,NH-001",
+                "id": "246a8b8e93874829ab26353475e21867",
+                "count": 1
+              },
+              {
+                "descriptor": "Home / Mobile,NJ-001",
+                "id": "b4d76b3d3e504052967ced19b2ea758b",
+                "count": 1
+              },
+              {
+                "descriptor": "Home / Mobile,NM-001",
+                "id": "e860071e620343388cf5e7d15093e778",
+                "count": 1
+              },
+              {
+                "descriptor": "Home / Mobile,NV-001",
+                "id": "71c3df3279e549f2bf834e7ee4992da8",
+                "count": 1
+              },
+              {
+                "descriptor": "Home / Mobile,NY-001",
+                "id": "4f23e2f846a94e3a8b88ea418b82cc46",
+                "count": 1
+              },
+              {
+                "descriptor": "Home / Mobile,OH-001",
+                "id": "ebc38c928e194c48b818faa937b03100",
+                "count": 1
+              },
+              {
+                "descriptor": "Home/Mobile,OK-001",
+                "id": "2c566b315bf110019ac3ff402bc20000",
+                "count": 1
+              },
+              {
+                "descriptor": "Home / Mobile,OR-001",
+                "id": "72d1776e33bd466e95df7d72be4e0044",
+                "count": 2
+              },
+              {
+                "descriptor": "Home / Mobile,PA-001",
+                "id": "4e1323d869bc4c3fb06092da7efe698c",
+                "count": 1
+              },
+              {
+                "descriptor": "Home / Mobile,RI-001",
+                "id": "84777e89117143f5ad4fe1337e883d14",
+                "count": 1
+              },
+              {
+                "descriptor": "Home / Mobile,SC-001",
+                "id": "da961e5bd8e71033dad1da33e8cba4bf",
+                "count": 1
+              },
+              {
+                "descriptor": "Home / Mobile,SD-001",
+                "id": "539fbdad0f3640e4b2573b3496e9297f",
+                "count": 1
+              },
+              {
+                "descriptor": "Home / Mobile,Taiwan",
+                "id": "f06f5d75ad950153ef3fa7c8be290349",
+                "count": 1
+              },
+              {
+                "descriptor": "Home / Mobile,TN-001",
+                "id": "f9c4b852a0f4402db6a324e6c09969ae",
+                "count": 1
+              },
+              {
+                "descriptor": "Home / Mobile,TX-001",
+                "id": "c4d742d9281e4ea78c53784847ed4cb8",
+                "count": 3
+              },
+              {
+                "descriptor": "Home / Mobile,UT-001",
+                "id": "5be285a92e4444d99f68811f43ca64ad",
+                "count": 2
+              },
+              {
+                "descriptor": "Home / Mobile,VA-001",
+                "id": "1f887972e46e4801994f4dd1939fa12d",
+                "count": 1
+              },
+              {
+                "descriptor": "Home / Mobile,VT-001",
+                "id": "35885b8e6a54402b97285cdc1db1d1d5",
+                "count": 1
+              },
+              {
+                "descriptor": "Home / Mobile,WA-001",
+                "id": "1b257c46d37f42f3a4a962dc605f79d1",
+                "count": 1
+              },
+              {
+                "descriptor": "Home / Mobile, Washington,DC-001",
+                "id": "7b87547ba7561000a2b7768b8bad0000",
+                "count": 1
+              },
+              {
+                "descriptor": "Home / Mobile,WI-001",
+                "id": "f06f5d75ad950185fbb77cb4c62a62f0",
+                "count": 1
+              },
+              {
+                "descriptor": "Home / Mobile,WY-001",
+                "id": "53c5926c222d01f1b5a4ce76a80036de",
+                "count": 1
+              },
+              {
+                "descriptor": "Hoofddorp,NLD",
+                "id": "1c23c8d56def4064b45f41fc037e15e2",
+                "count": 2
+              },
+              {
+                "descriptor": "Hsinchu,TWN",
+                "id": "7bc4268ce1a54f7eae159e801d7bb81d",
+                "count": 50
+              },
+              {
+                "descriptor": "Hudson,MA",
+                "id": "40c0e6948b7c4a17a83e6a40afea15aa",
+                "count": 1
+              },
+              {
+                "descriptor": "Hukou,TWN",
+                "id": "3e88e4c9fe4f4a9f9f778ebabf3e9fec",
+                "count": 1
+              },
+              {
+                "descriptor": "Hwaseong-Castle,KOR",
+                "id": "7438c91c8c5401c1fc5a38a54521254c",
+                "count": 2
+              },
+              {
+                "descriptor": "Hwaseong-Ehwa,KOR",
+                "id": "3eec9231be940100a2a9596b329a0000",
+                "count": 1
+              },
+              {
+                "descriptor": "Hwaseong-Lucestar,KOR",
+                "id": "ce4422b901a5476894cc6dace70ef7a8",
+                "count": 26
+              },
+              {
+                "descriptor": "Icheon-Godam,KOR",
+                "id": "375a16a2030d0100a1a3bca8b0140000",
+                "count": 8
+              },
+              {
+                "descriptor": "Icheon-Gwango,KOR",
+                "id": "91701bd453bb452da088ef466a8535ee",
+                "count": 12
+              },
+              {
+                "descriptor": "JPY",
+                "id": "84f21af92de61066d3566c34b74c74bb",
+                "count": 2
+              },
+              {
+                "descriptor": "Kalispell,MT",
+                "id": "a28e92b2acb542fbaa6f74f1748cf9e4",
+                "count": 14
+              },
+              {
+                "descriptor": "Kamimashiki,JPN",
+                "id": "6f33822cea371001ef91049adb660000",
+                "count": 1
+              },
+              {
+                "descriptor": "Kaohsiung,TWN",
+                "id": "e093c2faad611001a0fef98ed17e0000",
+                "count": 12
+              },
+              {
+                "descriptor": "Kirkkonummi,FIN",
+                "id": "565eb606a0ff01018fc57ace3f5b0000",
+                "count": 3
+              },
+              {
+                "descriptor": "Kiryat Gat,ISR",
+                "id": "02a748fa262e45279acae6f7e5bb6498",
+                "count": 3
+              },
+              {
+                "descriptor": "Kitakami,JPN",
+                "id": "f06f5d75ad9501004a7a1aa9bd296345",
+                "count": 13
+              },
+              {
+                "descriptor": "Kulim,MYS",
+                "id": "089aa4b467824bf5aa14857eb5ac8846",
+                "count": 10
+              },
+              {
+                "descriptor": "Kumamoto,JPN",
+                "id": "461de6aaa5ff4454a8be87a02f96f153",
+                "count": 5
+              },
+              {
+                "descriptor": "Kyoto,JPN",
+                "id": "949c2ba6aaaa45b7b0a6ca8216f04ab8",
+                "count": 5
+              },
+              {
+                "descriptor": "Leixlip,IRL",
+                "id": "cb7a71a4a98f495da9f6ec4806240970",
+                "count": 1
+              },
+              {
+                "descriptor": "Linkou,TWN",
+                "id": "dbc0bcf2399747ebaadd01015df84758",
+                "count": 8
+              },
+              {
+                "descriptor": "Linthicum,MD",
+                "id": "b0b5acb6377c1001e17f61a1f3b90000",
+                "count": 3
+              },
+              {
+                "descriptor": "Malta,NY",
+                "id": "b099cc8ade9f4630803aa3f2b4f00ec9",
+                "count": 3
+              },
+              {
+                "descriptor": "Manassas,VA",
+                "id": "abad975d0e76416b90cf4853753fa4d3",
+                "count": 2
+              },
+              {
+                "descriptor": "Mig Ha'emek,ISR",
+                "id": "4b7c2608c27a47a4bf60c7ab9a25ea9a",
+                "count": 1
+              },
+              {
+                "descriptor": "Milan,ITA",
+                "id": "f6e8921f9a6f4dbbab6b6787cf0eecbf",
+                "count": 1
+              },
+              {
+                "descriptor": "Mumbai,IND",
+                "id": "e53e552e0eb845f8b01d73eddf873289",
+                "count": 2
+              },
+              {
+                "descriptor": "Munich,DEU",
+                "id": "e75e78a2b7104492888984a8075a937d",
+                "count": 1
+              },
+              {
+                "descriptor": "Nagasaki,JPN",
+                "id": "bf811dba058c4ec498a5a725192899a2",
+                "count": 3
+              },
+              {
+                "descriptor": "Nagoya,JPN",
+                "id": "51075ae886514c638d1e070468754e32",
+                "count": 2
+              },
+              {
+                "descriptor": "Naka,JPN",
+                "id": "7dce524ed1a14613b65d72ce6fb88d97",
+                "count": 4
+              },
+              {
+                "descriptor": "Newburyport,MA",
+                "id": "a85285fa4eb94635a2cba50ec5efbc4b",
+                "count": 3
+              },
+              {
+                "descriptor": "Nijmegen,NLD",
+                "id": "6f67bfcffbe245ba986996b0f4cf3ad7",
+                "count": 1
+              },
+              {
+                "descriptor": "Ningbo,CHN",
+                "id": "3d9f7d881a991001fb6f05ad4b690000",
+                "count": 1
+              },
+              {
+                "descriptor": "Nishi Tokyo,JPN",
+                "id": "ff510a2ea8fb4c15b0a3caa7c7f46cf7",
+                "count": 2
+              },
+              {
+                "descriptor": "Oita,JPN",
+                "id": "1a9cf26697704b6f9a59554028739916",
+                "count": 2
+              },
+              {
+                "descriptor": "Osaka,JPN",
+                "id": "40afdee7cd4a45b6921ff6314168657a",
+                "count": 3
+              },
+              {
+                "descriptor": "Osan,KOR",
+                "id": "5a8ad041f07610018da8fbc5f0830000",
+                "count": 1
+              },
+              {
+                "descriptor": "Paju,KOR",
+                "id": "c73f38e84ea84acbb1dd2194970db101",
+                "count": 1
+              },
+              {
+                "descriptor": "Penang,MYS",
+                "id": "59b8ec9641361001f2d33f5a4ddd0000",
+                "count": 7
+              },
+              {
+                "descriptor": "Phoenix,AZ",
+                "id": "c02f29848d0a40bb8d36bde0b50e9519",
+                "count": 17
+              },
+              {
+                "descriptor": "Pune,IND",
+                "id": "a93bd63308e14d4b9f6ae1d7779fc3f9",
+                "count": 1
+              },
+              {
+                "descriptor": "Pyeongtaek-Mokok,KOR",
+                "id": "72d235f5bf664b6cb4fc88e56ffd3347",
+                "count": 10
+              },
+              {
+                "descriptor": "Pyeongtaek-NF Summit,KOR",
+                "id": "45fb4ef4eb21100181ad92f373f30000",
+                "count": 10
+              },
+              {
+                "descriptor": "Reggio Emilia,ITA",
+                "id": "d4e8b13b931001032e59568b941d3a28",
+                "count": 1
+              },
+              {
+                "descriptor": "Rehovot,ISR",
+                "id": "e77fbc66112c4468895a7d02d2283237",
+                "count": 71
+              },
+              {
+                "descriptor": "San Francisco,CRI",
+                "id": "974c0129e4cf1001587ef6a691f10000",
+                "count": 10
+              },
+              {
+                "descriptor": "San Jose,CA",
+                "id": "def7cbc76963017c21239eeca1014e9e",
+                "count": 1
+              },
+              {
+                "descriptor": "Santa Clara,CA",
+                "id": "afa12aeb23d946148e9eff5462879b4e",
+                "count": 423
+              },
+              {
+                "descriptor": "Sendai,JPN",
+                "id": "78faf41ab9674258946b71ab940b0e76",
+                "count": 1
+              },
+              {
+                "descriptor": "Seoul,KOR",
+                "id": "31298f6ca13d010190aeb54021740000",
+                "count": 2
+              },
+              {
+                "descriptor": "Shanghai,CHN",
+                "id": "147b35626c124b2a8d1e2a4a95d04463",
+                "count": 29
+              },
+              {
+                "descriptor": "Shenzhen,CHN",
+                "id": "11663426c4694de0b685b3bad8ab723e",
+                "count": 2
+              },
+              {
+                "descriptor": "Singapore,SGP",
+                "id": "aee755eb50ed4bee868452f20a98807b",
+                "count": 300
+              },
+              {
+                "descriptor": "Suzhou,CHN",
+                "id": "8e0e5d10552e45dca7011372942dbac6",
+                "count": 2
+              },
+              {
+                "descriptor": "Taichung,TWN",
+                "id": "4901b9d944204ce18bc78a26cde511e5",
+                "count": 17
+              },
+              {
+                "descriptor": "Tainan,TWN",
+                "id": "5774e87f79e849c39710b0e73c7bef4f",
+                "count": 49
+              },
+              {
+                "descriptor": "Tempe,AZ",
+                "id": "4fbba5eb35a244b5bf3344c7ab7f61e0",
+                "count": 10
+              },
+              {
+                "descriptor": "Tianjin,CHN",
+                "id": "c639359360cb4bd0967ab800b56c7663",
+                "count": 1
+              },
+              {
+                "descriptor": "Tokyo,JPN",
+                "id": "a4ecfa23239d4d74b685ad84f9cb3a36",
+                "count": 10
+              },
+              {
+                "descriptor": "Toronto,CAN",
+                "id": "a6e231b0f8ab4910b3cb3c29782f08c9",
+                "count": 3
+              },
+              {
+                "descriptor": "Toufen City, TWN",
+                "id": "31298f6ca13d0101918eb8f356770000",
+                "count": 1
+              },
+              {
+                "descriptor": "Tracy,CA",
+                "id": "22e3f3fd3b5e1001a0dab6ab67910000",
+                "count": 1
+              },
+              {
+                "descriptor": "Treviso,ITA",
+                "id": "0735a80f8a8f49f3a06dbfbd67130340",
+                "count": 17
+              },
+              {
+                "descriptor": "Wuxi,CHN",
+                "id": "b068da3f92dd4f74a808f320033585c9",
+                "count": 2
+              },
+              {
+                "descriptor": "Xi'an,CHN",
+                "id": "d5c0904612504a75a851c507a49d0fc2",
+                "count": 7
+              },
+              {
+                "descriptor": "Xiamen,CHN",
+                "id": "2c76e0972d82101cdf75d2d92211a38b",
+                "count": 3
+              },
+              {
+                "descriptor": "Yokkaichi,JPN",
+                "id": "c93681adb32b494e8e539cc37e7be64d",
+                "count": 12
+              },
+              {
+                "descriptor": "Yongin-Namsa,KOR",
+                "id": "c67399bca5811000b0b6128647070000",
+                "count": 1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "facetParameter": "distance",
+        "descriptor": "Distance",
+        "values": [
+          {
+            "descriptor": "10 miles",
+            "id": "a538cdb60a631000078a2c60ed1700f3",
+            "count": 1
+          },
+          {
+            "descriptor": "25 miles",
+            "id": "a538cdb60a631000078a2c6a410300f4",
+            "count": 1
+          },
+          {
+            "descriptor": "50 miles",
+            "id": "a538cdb60a631000078a2c6eadd300f5",
+            "count": 1
+          },
+          {
+            "descriptor": "100 miles",
+            "id": "a538cdb60a631000078a2c71efcc00f6",
+            "count": 1
+          },
+          {
+            "descriptor": "Any Distance",
+            "id": "a538cdb60a631000078a2c74f73b00f7",
+            "count": 1
+          }
+        ]
+      }
+    ],
+    "userAuthenticated": false
+  }
+}

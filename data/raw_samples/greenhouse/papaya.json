@@ -1,0 +1,18 @@
+{
+  "_meta": {
+    "source": "greenhouse",
+    "companyId": "papaya",
+    "companyName": "Papaya",
+    "uid": "papaya",
+    "endpoint": "https://boards-api.greenhouse.io/v1/boards/papaya/jobs?content=true",
+    "httpStatus": 200,
+    "sampledAt": "2026-03-01T22:03:24.948Z",
+    "jobCount": 0
+  },
+  "raw": {
+    "jobs": [],
+    "meta": {
+      "total": 0
+    }
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "sampledAt": "2026-03-01T22:05:18.008Z",
+  "durationSeconds": 175.6,
+  "sampleSizePerAts": 15,
+  "results": {
+    "comeet": {
+      "succeeded": 15,
+      "failed": 0,
+      "total": 15
+    },
+    "greenhouse": {
+      "succeeded": 15,
+      "failed": 0,
+      "total": 15
+    },
+    "workday": {
+      "succeeded": 15,
+      "failed": 0,
+      "total": 15
+    }
+  },
+  "files": {
+    "comeet": [
+      "appnext.json",
+      "claroty.json",
+      "dealhub.json",
+      "eitanmedical.json",
+      "elementor.json",
+      "etoro.json",
+      "finbounce.json",
+      "guesty.json",
+      "holisto.json",
+      "insightec.json",
+      "moonactive.json",
+      "rapyd.json",
+      "scaleops.json",
+      "silk.json",
+      "viber.json"
+    ],
+    "greenhouse": [
+      "axonius.json",
+      "beamup.json",
+      "catonetworks.json",
+      "cybereason.json",
+      "eonio.json",
+      "fireblocks.json",
+      "liveperson.json",
+      "melio.json",
+      "orcasecurity.json",
+      "pagayais.json",
+      "papaya.json",
+      "riskified.json",
+      "similarweb.json",
+      "snyk.json",
+      "taboola.json"
+    ],
+    "workday": [
+      "applied-materials.json",
+      "checkout.json",
+      "chevron.json",
+      "cisco.json",
+      "deutsche-bank.json",
+      "general-motors.json",
+      "genesys.json",
+      "intel.json",
+      "kla.json",
+      "kyndryl.json",
+      "marvell.json",
+      "nvidia.json",
+      "samsung.json",
+      "workday.json",
+      "yahoo.json"
+    ]
+  }
+}

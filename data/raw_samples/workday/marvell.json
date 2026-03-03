@@ -1,0 +1,849 @@
+{
+  "_meta": {
+    "source": "workday",
+    "companyId": "marvell",
+    "companyName": "Marvell",
+    "originalUrl": "https://marvell.wd1.myworkdayjobs.com/MarvellCareers",
+    "parsedTenant": "marvell",
+    "parsedInstance": "wd1",
+    "parsedSite": "MarvellCareers",
+    "siteUrl": "https://marvell.wd1.myworkdayjobs.com/MarvellCareers",
+    "apiEndpoint": "https://marvell.wd1.myworkdayjobs.com/wday/cxs/marvell/MarvellCareers/jobs",
+    "sessionInitStatus": 200,
+    "cookiesEstablished": [
+      "PLAY_SESSION",
+      "wd-browser-id",
+      "CALYPSO_CSRF_TOKEN",
+      "CXS_SESSION",
+      "wday_vps_cookie",
+      "__cf_bm",
+      "__cflb",
+      "_cfuvid"
+    ],
+    "jobsApiStatus": 200,
+    "sampledAt": "2026-03-01T22:05:18.003Z",
+    "totalReported": 444,
+    "jobCountThisPage": 20,
+    "facetCount": 6,
+    "requestPayload": {
+      "appliedFacets": {},
+      "limit": 20,
+      "offset": 0,
+      "searchText": ""
+    }
+  },
+  "raw": {
+    "total": 444,
+    "jobPostings": [
+      {
+        "title": "Principal Hardware System Design Engineer",
+        "externalPath": "/job/Yokneam/Principal-Hardware-System-Design-Engineer_2503821",
+        "locationsText": "Yokneam",
+        "postedOn": "Posted 3 Days Ago",
+        "bulletFields": [
+          "2503821"
+        ]
+      },
+      {
+        "title": "Distinguished Engineer: Advanced Optical Engines",
+        "externalPath": "/job/Santa-Clara-CA/Distinguished-Engineer--Advanced-Optical-Engines_2501691",
+        "locationsText": "Santa Clara, CA",
+        "postedOn": "Posted 11 Days Ago",
+        "bulletFields": [
+          "2501691"
+        ]
+      },
+      {
+        "title": "senior staff signal/power integrity engineer",
+        "externalPath": "/job/Yokneam/senior-staff-signal-power-integrity-engineer_2503373",
+        "locationsText": "Yokneam",
+        "postedOn": "Posted 30+ Days Ago",
+        "bulletFields": [
+          "2503373"
+        ]
+      },
+      {
+        "title": "Senior Principal Design Verification Engineer",
+        "externalPath": "/job/Santa-Clara-CA/Senior-Principal-Design-Verification-Engineer_2502955",
+        "locationsText": "Santa Clara, CA",
+        "postedOn": "Posted 30+ Days Ago",
+        "bulletFields": [
+          "2502955"
+        ]
+      },
+      {
+        "title": "Senior Staff ASIC Product Engineer",
+        "externalPath": "/job/Santa-Clara-CA/Senior-Staff-ASIC-Product-Engineer_2501566",
+        "locationsText": "Santa Clara, CA",
+        "postedOn": "Posted Yesterday",
+        "bulletFields": [
+          "2501566"
+        ]
+      },
+      {
+        "title": "SerDes Validation Senior Staff Engineer",
+        "externalPath": "/job/Santa-Clara-CA/SerDes-Validation-Senior-Staff-Engineer_2503970",
+        "locationsText": "Santa Clara, CA",
+        "postedOn": "Posted Yesterday",
+        "bulletFields": [
+          "2503970"
+        ]
+      },
+      {
+        "title": "Senior Principal Applications Engineering - Network Validation",
+        "externalPath": "/job/Santa-Clara-CA/Senior-Principal-Applications-Engineering---Network-Validation_2500444",
+        "locationsText": "Santa Clara, CA",
+        "postedOn": "Posted Yesterday",
+        "bulletFields": [
+          "2500444"
+        ]
+      },
+      {
+        "title": "Senior Staff Engineer SW/FW Engineer",
+        "externalPath": "/job/Westborough-MA/Senior-Staff-Engineer-SW-FW-Engineer_2600254",
+        "locationsText": "Westborough, MA",
+        "postedOn": "Posted Yesterday",
+        "bulletFields": [
+          "2600254"
+        ]
+      },
+      {
+        "title": "Optical Engineer, Advanced Photonic IC Development",
+        "externalPath": "/job/Santa-Clara-CA/Optical-Engineer--Advanced-Photonic-IC-Development_2600259",
+        "locationsText": "Santa Clara, CA",
+        "postedOn": "Posted Yesterday",
+        "bulletFields": [
+          "2600259"
+        ]
+      },
+      {
+        "title": "Principal Engineer, Hardware Systems & Silicon Validation",
+        "externalPath": "/job/Irvine-CA/Principal-Engineer--Hardware-Systems---Silicon-Validation_2503253",
+        "locationsText": "Irvine, CA",
+        "postedOn": "Posted Yesterday",
+        "bulletFields": [
+          "2503253"
+        ]
+      },
+      {
+        "title": "Senior Staff Post-Silicon Validation Engineer",
+        "externalPath": "/job/Santa-Clara-CA/Senior-Staff-Post-Silicon-Validation-Engineer_2504011",
+        "locationsText": "Santa Clara, CA",
+        "postedOn": "Posted Yesterday",
+        "bulletFields": [
+          "2504011"
+        ]
+      },
+      {
+        "title": "Silicon Photonics Advanced Development Engineer",
+        "externalPath": "/job/Santa-Clara-CA/Silicon-Photonics-Advanced-Development-Engineer_2600184",
+        "locationsText": "Santa Clara, CA",
+        "postedOn": "Posted Yesterday",
+        "bulletFields": [
+          "2600184"
+        ]
+      },
+      {
+        "title": "Staff Optical Engineer",
+        "externalPath": "/job/Santa-Clara-CA/Staff-Optical-Engineer_2600285",
+        "locationsText": "Santa Clara, CA",
+        "postedOn": "Posted Yesterday",
+        "bulletFields": [
+          "2600285"
+        ]
+      },
+      {
+        "title": "Senior Staff Optical Engineer, Validation",
+        "externalPath": "/job/Santa-Clara-CA/Senior-Staff-Optical-Engineer--Validation_2502595",
+        "locationsText": "Santa Clara, CA",
+        "postedOn": "Posted Yesterday",
+        "bulletFields": [
+          "2502595"
+        ]
+      },
+      {
+        "title": "Silicon Photonics Validation Engineer",
+        "externalPath": "/job/Santa-Clara-CA/Silicon-Photonics-Validation-Engineer_2503287",
+        "locationsText": "Santa Clara, CA",
+        "postedOn": "Posted Yesterday",
+        "bulletFields": [
+          "2503287"
+        ]
+      },
+      {
+        "title": "Optical Engineer, Senior Staff",
+        "externalPath": "/job/Santa-Clara-CA/Optical-Engineer--Senior-Staff_2502614",
+        "locationsText": "Santa Clara, CA",
+        "postedOn": "Posted Yesterday",
+        "bulletFields": [
+          "2502614"
+        ]
+      },
+      {
+        "title": "Silicon Photonics Engineer",
+        "externalPath": "/job/Ottawa-Canada/Silicon-Photonics-Engineer_2503579-1",
+        "locationsText": "Ottawa, Canada",
+        "postedOn": "Posted Yesterday",
+        "bulletFields": [
+          "2503579"
+        ]
+      },
+      {
+        "title": "Director Customer Support - US Customer Solutions Group",
+        "externalPath": "/job/Santa-Clara-CA/Director-Customer-Support---US-Customer-Solutions-Group_2501136",
+        "locationsText": "Santa Clara, CA",
+        "postedOn": "Posted Yesterday",
+        "bulletFields": [
+          "2501136"
+        ]
+      },
+      {
+        "title": "Senior Staff Validation Engineer",
+        "externalPath": "/job/US-CA---Santa-Clara/Senior-Staff-Validation-Engineer_2600340",
+        "locationsText": "US-CA - Santa Clara",
+        "postedOn": "Posted Yesterday",
+        "bulletFields": [
+          "2600340"
+        ]
+      },
+      {
+        "title": "Principal Financial / Market Intelligence Analyst",
+        "externalPath": "/job/Taipei/Principal-Financial---Market-Intelligence-Analyst_2600588-1",
+        "locationsText": "2 Locations",
+        "postedOn": "Posted Yesterday",
+        "bulletFields": [
+          "2600588"
+        ]
+      }
+    ],
+    "facets": [
+      {
+        "facetParameter": "jobFamilyGroup",
+        "descriptor": "Job Category",
+        "values": [
+          {
+            "descriptor": "Design Engineering",
+            "id": "65dea26481d0016bd6c014dd98175a01",
+            "count": 128
+          },
+          {
+            "descriptor": "Physical Design & Layout",
+            "id": "65dea26481d001dd99420ddd98172c01",
+            "count": 87
+          },
+          {
+            "descriptor": "Hardware Engineering",
+            "id": "65dea26481d0011d9f4e14dd98175801",
+            "count": 47
+          },
+          {
+            "descriptor": "Software Engineering",
+            "id": "65dea26481d001fb93160edd98173001",
+            "count": 35
+          },
+          {
+            "descriptor": "Test & Product Engineering",
+            "id": "65dea26481d00140b63919dd98177001",
+            "count": 34
+          },
+          {
+            "descriptor": "Application Engineering",
+            "id": "65dea26481d001660cf219dd98177401",
+            "count": 18
+          },
+          {
+            "descriptor": "Optical",
+            "id": "9e392e01df2001df819b36d51d01548b",
+            "count": 15
+          },
+          {
+            "descriptor": "Architecture",
+            "id": "65dea26481d0018af1070fdd98173601",
+            "count": 12
+          },
+          {
+            "descriptor": "Product Marketing",
+            "id": "65dea26481d0016f700b17dd98176601",
+            "count": 10
+          },
+          {
+            "descriptor": "Information Technology",
+            "id": "65dea26481d001c0743715dd98175c01",
+            "count": 8
+          },
+          {
+            "descriptor": "Finance & Accounting",
+            "id": "65dea26481d001e054590fdd98173801",
+            "count": 7
+          },
+          {
+            "descriptor": "Quality & Reliability Engineering",
+            "id": "65dea26481d0019002ed17dd98176a01",
+            "count": 6
+          },
+          {
+            "descriptor": "Project Management",
+            "id": "65dea26481d001c0645116dd98176201",
+            "count": 6
+          },
+          {
+            "descriptor": "Human Resources",
+            "id": "65dea26481d0017a7fac16dd98176401",
+            "count": 5
+          },
+          {
+            "descriptor": "Field Application Engineering",
+            "id": "65dea26481d00146f64a13dd98175201",
+            "count": 5
+          },
+          {
+            "descriptor": "Supply Chain",
+            "id": "65dea26481d00168dfc90ddd98172e01",
+            "count": 3
+          },
+          {
+            "descriptor": "Sales",
+            "id": "65dea26481d0017b474f18dd98176c01",
+            "count": 3
+          },
+          {
+            "descriptor": "Enterprise Security",
+            "id": "f3a95b4628751001f26c3db9d9e40000",
+            "count": 3
+          },
+          {
+            "descriptor": "Administrative Services",
+            "id": "65dea26481d001673efd15dd98176001",
+            "count": 3
+          },
+          {
+            "descriptor": "Purchasing",
+            "id": "65dea26481d00168dac718dd98176e01",
+            "count": 2
+          },
+          {
+            "descriptor": "Legal",
+            "id": "65dea26481d00132d97017dd98176801",
+            "count": 2
+          },
+          {
+            "descriptor": "Facilities & Security",
+            "id": "65dea26481d001b9919f15dd98175e01",
+            "count": 2
+          },
+          {
+            "descriptor": "Corporate Marketing & Communications",
+            "id": "65dea26481d001fa01fe13dd98175601",
+            "count": 2
+          },
+          {
+            "descriptor": "Foundry Technology",
+            "id": "65dea26481d001a762a312dd98174e01",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "facetParameter": "Country",
+        "descriptor": "Country",
+        "values": [
+          {
+            "descriptor": "United States of America",
+            "id": "bc33aa3152ec42d4995f4791a106ed09",
+            "count": 216
+          },
+          {
+            "descriptor": "India",
+            "id": "c4f78be1a8f14da0ab49ce1162348a5e",
+            "count": 53
+          },
+          {
+            "descriptor": "Vietnam",
+            "id": "db69e8c8446c11de98360015c5e6daf6",
+            "count": 43
+          },
+          {
+            "descriptor": "Canada",
+            "id": "a30a87ed25634629aa6c3958aa2b91ea",
+            "count": 33
+          },
+          {
+            "descriptor": "Singapore",
+            "id": "80938777cac5440fab50d729f9634969",
+            "count": 26
+          },
+          {
+            "descriptor": "Israel",
+            "id": "084562884af243748dad7c84c304d89a",
+            "count": 24
+          },
+          {
+            "descriptor": "Taiwan",
+            "id": "a4e08b475d6a4176853c9d1cb9854e02",
+            "count": 22
+          },
+          {
+            "descriptor": "Argentina",
+            "id": "e42ad5eac46d4cc9b367ceaef42577c5",
+            "count": 8
+          },
+          {
+            "descriptor": "Romania",
+            "id": "f2e609fe92974a55a05fc1cdc2852122",
+            "count": 7
+          },
+          {
+            "descriptor": "Italy",
+            "id": "8cd04a563fd94da7b06857a79faaf815",
+            "count": 7
+          },
+          {
+            "descriptor": "China",
+            "id": "6cb77610a8a543aea2d6bc10457e35d4",
+            "count": 6
+          },
+          {
+            "descriptor": "Spain",
+            "id": "bd34c524a6a04ae6915f5d96fa086199",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "facetParameter": "State_Region_Province",
+        "descriptor": "State/Region/Province",
+        "values": [
+          {
+            "descriptor": "California",
+            "id": "ec3d210e4240442e99a28fa70419aec5",
+            "count": 187
+          },
+          {
+            "descriptor": "Hồ Chí Minh",
+            "id": "0d2948816a92477fad023c84b4fd5a6f",
+            "count": 41
+          },
+          {
+            "descriptor": "Ontario",
+            "id": "218a720b28a74c67b5c6d42c00bdadfa",
+            "count": 30
+          },
+          {
+            "descriptor": "Hsinchu City",
+            "id": "641a84723d1146d3ab84d2b62fafd930",
+            "count": 19
+          },
+          {
+            "descriptor": "Texas",
+            "id": "fc77e3a1ab36487f9646d14f7242dd77",
+            "count": 15
+          },
+          {
+            "descriptor": "Vermont",
+            "id": "7df7a0cb48724af7891cb70410546897",
+            "count": 14
+          },
+          {
+            "descriptor": "Massachusetts",
+            "id": "c66d738416b74fb180376cf59cc7ec8f",
+            "count": 13
+          },
+          {
+            "descriptor": "Andhra Pradesh",
+            "id": "6422b80614484e959dbf3e672eb838fb",
+            "count": 13
+          },
+          {
+            "descriptor": "Cordoba",
+            "id": "0f6a31ad091444efbdbff7ce8dfc0bed",
+            "count": 8
+          },
+          {
+            "descriptor": "Pavia",
+            "id": "57cfc96fd8994274ac86495a595a5191",
+            "count": 7
+          },
+          {
+            "descriptor": "Bucureşti",
+            "id": "c1422b7a41c940be8a955e6e1441d29e",
+            "count": 7
+          },
+          {
+            "descriptor": "North Carolina",
+            "id": "1486a0a4a8464c3b9ec482d4038deb99",
+            "count": 6
+          },
+          {
+            "descriptor": "Idaho",
+            "id": "b1c017b8f6294b0e82773aaca1dce33e",
+            "count": 5
+          },
+          {
+            "descriptor": "Đà Nẵng",
+            "id": "6e1515dce0d8478a801e23a5e7d7e93d",
+            "count": 4
+          },
+          {
+            "descriptor": "Shanghai",
+            "id": "12022932d53e4131959783deec185438",
+            "count": 4
+          },
+          {
+            "descriptor": "New York",
+            "id": "9819bf0148e54f89adb255aa7bead635",
+            "count": 4
+          },
+          {
+            "descriptor": "Mahārāshtra",
+            "id": "a3c37012f51642f4a7b3dafc8ac37801",
+            "count": 4
+          },
+          {
+            "descriptor": "Karnātaka",
+            "id": "701eb5584934425d930bc84b9e8b04eb",
+            "count": 4
+          },
+          {
+            "descriptor": "Taipei City",
+            "id": "c5684b475b7345d0839454b2a03c5d2d",
+            "count": 3
+          },
+          {
+            "descriptor": "Jiangsu",
+            "id": "8ad3cfa8b4f04b74aff60dbef3b1f9e2",
+            "count": 3
+          },
+          {
+            "descriptor": "British Columbia",
+            "id": "cb76ca97a13347548a188f23caa96b17",
+            "count": 3
+          },
+          {
+            "descriptor": "Zhejiang",
+            "id": "10ae0aa3144f4d1e9e3cf7b723439a3c",
+            "count": 1
+          },
+          {
+            "descriptor": "Washington",
+            "id": "de9b48948ef8421db97ddf4ea206e931",
+            "count": 1
+          },
+          {
+            "descriptor": "Sichuan",
+            "id": "e8d349befce64b698a7562c13a55bbd2",
+            "count": 1
+          },
+          {
+            "descriptor": "Minnesota",
+            "id": "02f3984b69ba450080e456fe733f6741",
+            "count": 1
+          },
+          {
+            "descriptor": "Hsinchu County",
+            "id": "f10c4f05312b4a7083975d4031ca5791",
+            "count": 1
+          },
+          {
+            "descriptor": "Guangdong",
+            "id": "9171988616764d5ba2a87a518af470d6",
+            "count": 1
+          },
+          {
+            "descriptor": "Barcelona",
+            "id": "606f501c3a4f4fdc92fdc8000fc9be83",
+            "count": 1
+          },
+          {
+            "descriptor": "Arizona",
+            "id": "c7b20b0d4bc04711a00900569e9afabd",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "facetParameter": "Location",
+        "descriptor": "Location",
+        "values": [
+          {
+            "descriptor": "Santa Clara, CA",
+            "id": "65dea26481d00146ffa9c92a52177a36",
+            "count": 154
+          },
+          {
+            "descriptor": "Ho Chi Minh",
+            "id": "65dea26481d00171e2520d2a5217eb33",
+            "count": 41
+          },
+          {
+            "descriptor": "Bangalore",
+            "id": "65dea26481d00182a09be92952176e33",
+            "count": 39
+          },
+          {
+            "descriptor": "Irvine, CA",
+            "id": "65dea26481d0013b7358152a52170934",
+            "count": 36
+          },
+          {
+            "descriptor": "Singapore",
+            "id": "65dea26481d0012bd119352b52170038",
+            "count": 25
+          },
+          {
+            "descriptor": "Yokneam",
+            "id": "65dea26481d001e0ff91642b5217aa38",
+            "count": 21
+          },
+          {
+            "descriptor": "Hsinchu City",
+            "id": "65dea26481d0017cc992122a5217ff33",
+            "count": 19
+          },
+          {
+            "descriptor": "Ottawa, Canada",
+            "id": "171932d65be701a0f957d837670166b2",
+            "count": 18
+          },
+          {
+            "descriptor": "Austin, TX",
+            "id": "65dea26481d001b614a8e62952176433",
+            "count": 15
+          },
+          {
+            "descriptor": "Hyderabad",
+            "id": "65dea26481d0017b072e142a52170434",
+            "count": 13
+          },
+          {
+            "descriptor": "Burlington, VT",
+            "id": "65ec11c488130172003a48e94f09332d",
+            "count": 13
+          },
+          {
+            "descriptor": "Petah-Tikva",
+            "id": "65dea26481d001db4eed2a2a52175934",
+            "count": 12
+          },
+          {
+            "descriptor": "Westborough, MA",
+            "id": "cd52470f61510101601fb273c9a50000",
+            "count": 11
+          },
+          {
+            "descriptor": "Toronto, Canada",
+            "id": "5cb18f6e476a0102a987083a15119313",
+            "count": 11
+          },
+          {
+            "descriptor": "Westlake Village, CA",
+            "id": "b5285fa93ad2019987d5472bf701f9a3",
+            "count": 10
+          },
+          {
+            "descriptor": "Cordoba, Argentina",
+            "id": "b5285fa93ad201de2116992bf70126a4",
+            "count": 8
+          },
+          {
+            "descriptor": "Pavia, Italy",
+            "id": "b5285fa93ad2017af37d8c2bf70121a4",
+            "count": 7
+          },
+          {
+            "descriptor": "Bucharest, Romania",
+            "id": "b5285fa93ad2016246cda92bf70130a4",
+            "count": 7
+          },
+          {
+            "descriptor": "Morrisville, NC",
+            "id": "11a6ea410a0b019f34d095431616d47a",
+            "count": 6
+          },
+          {
+            "descriptor": "IL - Petah Tikva",
+            "id": "65dea26481d0010317989a2a5217d035",
+            "count": 5
+          },
+          {
+            "descriptor": "Boise, ID",
+            "id": "65dea26481d0012a3068ee2952178233",
+            "count": 5
+          },
+          {
+            "descriptor": "VN - Da Nang",
+            "id": "1747e9ea180d1001f1ae18cb510c0000",
+            "count": 4
+          },
+          {
+            "descriptor": "US-NY - Hudson Valley",
+            "id": "30b6aac7c57e10020dca8cc350df0000",
+            "count": 4
+          },
+          {
+            "descriptor": "US-CA - Santa Clara",
+            "id": "65dea26481d001382d16f12a52170637",
+            "count": 4
+          },
+          {
+            "descriptor": "Pune",
+            "id": "65dea26481d001372f354e2a5217cc34",
+            "count": 4
+          },
+          {
+            "descriptor": "IN - Bangalore",
+            "id": "65dea26481d001ab20487e2a52177b35",
+            "count": 4
+          },
+          {
+            "descriptor": "Vancouver, Canada",
+            "id": "b5285fa93ad201b9328ba12bf7012ba4",
+            "count": 3
+          },
+          {
+            "descriptor": "US-CA - Irvine",
+            "id": "65dea26481d001a9d34a0e2b52177437",
+            "count": 3
+          },
+          {
+            "descriptor": "Taipei",
+            "id": "65dea26481d001241477e12952175033",
+            "count": 3
+          },
+          {
+            "descriptor": "Shanghai",
+            "id": "65dea26481d001ffbd0a082b52175b37",
+            "count": 3
+          },
+          {
+            "descriptor": "Remote - CN - Jiangsu",
+            "id": "65dea26481d0012c92ec542a5217e534",
+            "count": 3
+          },
+          {
+            "descriptor": "US-MA - Westborough",
+            "id": "953c631fac880101ba35ea376e5c0000",
+            "count": 2
+          },
+          {
+            "descriptor": "CA-ON - Ottawa",
+            "id": "5f24b22cd6e40101ebab5f5ac80d0000",
+            "count": 2
+          },
+          {
+            "descriptor": "US-CA - Westlake Village",
+            "id": "95c6b64f872201bcfd5b9298a2011a8c",
+            "count": 1
+          },
+          {
+            "descriptor": "TW - Hsinchu - WXN",
+            "id": "2f15c8f5b0661001fce953ecd2eb0000",
+            "count": 1
+          },
+          {
+            "descriptor": "Shenzhen",
+            "id": "65dea26481d001fda8a8182b52179237",
+            "count": 1
+          },
+          {
+            "descriptor": "SG - Singapore",
+            "id": "65dea26481d001b84972b42a52172a36",
+            "count": 1
+          },
+          {
+            "descriptor": "Rochester, MN",
+            "id": "0154065a86c70100856f5818c4040000",
+            "count": 1
+          },
+          {
+            "descriptor": "Remote - US - WA",
+            "id": "b65e863b0ebc010de0d08aa44722f7c9",
+            "count": 1
+          },
+          {
+            "descriptor": "Ottawa",
+            "id": "65dea26481d001960ac8262a52174a34",
+            "count": 1
+          },
+          {
+            "descriptor": "Madrid",
+            "id": "65dea26481d00153aeec1c2a52172734",
+            "count": 1
+          },
+          {
+            "descriptor": "IN - Hyderabad",
+            "id": "65dea26481d0018110288d2a5217a335",
+            "count": 1
+          },
+          {
+            "descriptor": "Chandler, AZ",
+            "id": "65dea26481d00138fa48f22952179133",
+            "count": 1
+          },
+          {
+            "descriptor": "CN - Shenzhen",
+            "id": "65dea26481d001b5340b3d2a52179a34",
+            "count": 1
+          },
+          {
+            "descriptor": "CN - Shanghai",
+            "id": "65dea26481d001c392cd422a5217ae34",
+            "count": 1
+          },
+          {
+            "descriptor": "CN - Chengdu",
+            "id": "65dea26481d001d8ec37442a5217b334",
+            "count": 1
+          },
+          {
+            "descriptor": "CA-ON - Ontario - Toronto",
+            "id": "5cb18f6e476a0114c8ffff5002114ffd",
+            "count": 1
+          },
+          {
+            "descriptor": "Burlington, VT",
+            "id": "65ec11c48813012b8c2c19f7990a32f4",
+            "count": 1
+          },
+          {
+            "descriptor": "Barcelona, Spain",
+            "id": "b5285fa93ad201eb8bc07c2bf70117a4",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "facetParameter": "workerSubType",
+        "descriptor": "Job Type",
+        "values": [
+          {
+            "descriptor": "Regular",
+            "id": "65dea26481d00180af95ab4927173219",
+            "count": 381
+          },
+          {
+            "descriptor": "Intern (Fixed Term)",
+            "id": "65dea26481d001e09dfbab4927173419",
+            "count": 63
+          }
+        ]
+      },
+      {
+        "facetParameter": "timeType",
+        "descriptor": "Time Type",
+        "values": [
+          {
+            "descriptor": "Full time",
+            "id": "8d835e03b09d01f4765c6667aa117200",
+            "count": 307
+          },
+          {
+            "descriptor": "Part time",
+            "id": "8d835e03b09d01f765436667aa117100",
+            "count": 6
+          }
+        ]
+      }
+    ],
+    "userAuthenticated": false
+  }
+}

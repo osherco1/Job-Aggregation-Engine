@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "source": "greenhouse",
+    "companyId": "snyk",
+    "companyName": "Snyk",
+    "uid": "snyk",
+    "endpoint": "https://boards-api.greenhouse.io/v1/boards/snyk/jobs?content=true",
+    "httpStatus": 404,
+    "sampledAt": "2026-03-01T22:03:09.387Z",
+    "jobCount": 0
+  },
+  "raw": {
+    "status": 404,
+    "error": "Job not found"
+  }
+}

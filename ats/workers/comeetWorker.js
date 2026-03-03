@@ -4,6 +4,7 @@ const { requestWithDelayWrapper } = require('../utils/httpClientWrapper');
 const { PATHS } = require('../../config/paths');
 const { evaluateAtsGuard } = require('../filters/ats_guard');
 const { evaluateStructuredGate } = require('../filters/structuredGate');
+const { israelLocationKeywords, normalizeEmploymentType } = require('../../config/vocabulary');
 
 const DEBUG_COMEET = process.env.DEBUG_COMEET === 'true';
 const ATS_GUARD_DRY_RUN = process.env.ATS_GUARD_DRY_RUN === 'true';
@@ -185,12 +186,17 @@ function buildDescription(rawJob) {
 }
 
 /**
- * Normalize raw Comeet job to UnifiedJob structure
+ * Normalize raw Comeet job to UnifiedJob structure.
+ * Compound UID: use first segment (split by '-') as canonical dedup id to avoid phantom duplicates.
  */
 function normalizeComeetJob(rawJob, company) {
   if (!rawJob || !rawJob.position_uid || !rawJob.name) {
     return null;
   }
+
+  const positionUidRaw = String(rawJob.position_uid).trim();
+  const baseUid = positionUidRaw.includes('-') ? positionUidRaw.split('-')[0] : positionUidRaw;
+  const jobId = `comeet_${baseUid}`;
 
   // Extract URL with fallback chain
   let url = '';
@@ -202,101 +208,105 @@ function normalizeComeetJob(rawJob, company) {
     url = String(rawJob.url_comeet_hosted_page).trim();
   }
 
-  // Extract location from location_object
+  // Location: 4-tier fallback (country -> name -> top-level string -> Unknown)
   let location = '';
+  let fallbackTier = 0;
   if (rawJob.location_object && typeof rawJob.location_object === 'object') {
-    location = rawJob.location_object.name || rawJob.location_object.city || '';
-  } else if (typeof rawJob.location === 'string') {
-    location = rawJob.location;
+    const locObj = rawJob.location_object;
+    if (locObj.country != null && String(locObj.country).trim()) {
+      location = String(locObj.country).trim();
+      fallbackTier = 1;
+    } else if (locObj.name != null && String(locObj.name).trim()) {
+      location = String(locObj.name).trim();
+      fallbackTier = 2;
+    } else if (locObj.city != null && String(locObj.city).trim()) {
+      location = String(locObj.city).trim();
+      fallbackTier = 2;
+    }
+  }
+  if (!location && typeof rawJob.location === 'string' && rawJob.location.trim()) {
+    location = rawJob.location.trim();
+    fallbackTier = 3;
+  }
+  if (!location) {
+    location = 'Unknown';
+    fallbackTier = 4;
   }
 
-  // Build description from HTML fields
   const description = buildDescription(rawJob);
+  const employmentType = normalizeEmploymentType(rawJob.employment_type);
 
   return {
-    jobId: `comeet_${String(rawJob.position_uid).trim()}`,
+    jobId,
     source: 'comeet',
     sourceCompanyId: company.id,
     companyName: company.name || company.id,
     title: String(rawJob.name).trim(),
-    location: location.trim(),
-    url: url,
-    description: description,
+    location,
+    url,
+    description,
+    department: rawJob.department != null ? String(rawJob.department).trim() : undefined,
+    Remote: rawJob.Remote != null ? String(rawJob.Remote).trim() : undefined,
+    time_updated: rawJob.time_updated != null ? rawJob.time_updated : undefined,
+    country: rawJob.location_object && rawJob.location_object.country != null ? String(rawJob.location_object.country).trim() : undefined,
     raw: rawJob,
     structuredSignals: {
       experience_level: rawJob.experience_level || null,
       employment_type: rawJob.employment_type || null,
     },
+    employmentType,
+    fallbackTier,
   };
 }
 
 /**
- * Explicit job filter with reason tracking
- * Returns: { passed: boolean, reason?: string }
+ * Location Gate only (Hub & Spoke: title/department filtering is in ATS Guard).
+ * Defensive 4-tier fallback: location_object.country -> name -> top-level location -> "Unknown".
+ * Returns: { passed, reason?, matchedLocationKeyword?, fallbackTier?, gate: 'location' }
  */
 function filterJob(rawJob) {
   if (!rawJob) {
-    return { passed: false, reason: 'Invalid job data' };
+    return { passed: false, reason: 'Invalid job data', gate: 'location' };
   }
 
-  // Location filter: Must be Israel (IL) or Remote
-  if (!rawJob.location_object) {
-    return { passed: false, reason: 'Location: Missing location data' };
-  }
-
+  const keywords = israelLocationKeywords || [];
   const locObj = rawJob.location_object;
-  const locationName = (locObj.name || '').toLowerCase();
-  const locationCity = (locObj.city || '').toLowerCase();
-  const remoteField = (rawJob.Remote || '').toLowerCase();
+  const topLevelLocation = typeof rawJob.location === 'string' ? rawJob.location : '';
 
-  // Check if country is Israel
-  if (locObj.country === 'IL') {
-    // Pass location check
-  } else if (locationName.includes('remote') ||
-    locationCity.includes('remote') ||
-    remoteField === 'remote') {
-    // Pass location check (Remote)
-  } else {
-    // Fail location check
-    const locationStr = locObj.name || locObj.city || locObj.country || 'Unknown';
-    return { passed: false, reason: `Location: ${locationStr} (not IL/Remote)` };
-  }
-
-  // Title filter: No Senior/VP/Manager in title
-  const title = (rawJob.name || '').toLowerCase();
-  const titleBlacklist = ['senior', 'sr.', 'sr ', 'vp ', 'vice president', 'manager', 'director', 'head of', 'lead '];
-  const hasBlacklistedTitle = titleBlacklist.some(term => title.includes(term));
-
-  if (hasBlacklistedTitle) {
-    return { passed: false, reason: `Title: Contains blacklisted term (${rawJob.name})` };
-  }
-
-  // Department filter: Tech/Product/Design only
-  if (rawJob.department) {
-    const dept = String(rawJob.department).toLowerCase().trim();
-    const blacklist = [
-      'sales',
-      'legal',
-      'finance',
-      'hr',
-      'human resources',
-      'marketing'
-    ];
-
-    const isBlacklisted = blacklist.some(blacklisted =>
-      dept === blacklisted || dept.includes(blacklisted)
-    );
-
-    if (isBlacklisted) {
-      // Exception: "Product Marketing" is technical
-      if (!dept.includes('product marketing')) {
-        return { passed: false, reason: `Department: ${rawJob.department} (non-technical)` };
-      }
+  let resolved = '';
+  let fallbackTier = 0;
+  if (locObj && typeof locObj === 'object') {
+    if (locObj.country != null && String(locObj.country).trim()) {
+      resolved = String(locObj.country).trim();
+      fallbackTier = 1;
+    } else if ((locObj.name || locObj.city) != null && String(locObj.name || locObj.city).trim()) {
+      resolved = String(locObj.name || locObj.city).trim();
+      fallbackTier = 2;
     }
   }
+  if (!resolved && topLevelLocation.trim()) {
+    resolved = topLevelLocation.trim();
+    fallbackTier = 3;
+  }
+  if (!resolved) {
+    return { passed: false, reason: 'Location: missing location data', gate: 'location' };
+  }
+  resolved = resolved.toLowerCase();
+  const remoteField = (rawJob.Remote || '').toLowerCase();
 
-  // All filters passed
-  return { passed: true };
+  if (resolved === 'il') {
+    return { passed: true, matchedLocationKeyword: 'il', fallbackTier, gate: 'location' };
+  }
+  if (remoteField === 'remote' || resolved.includes('remote')) {
+    return { passed: true, matchedLocationKeyword: 'remote', fallbackTier, gate: 'location' };
+  }
+  const matched = keywords.find((k) => resolved.includes(k));
+  if (matched) {
+    return { passed: true, matchedLocationKeyword: matched, fallbackTier, gate: 'location' };
+  }
+
+  const locationStr = locObj ? (locObj.name || locObj.city || locObj.country || resolved) : resolved;
+  return { passed: false, reason: `Location: ${locationStr} (not IL/Remote)`, gate: 'location' };
 }
 
 /**
@@ -401,6 +411,7 @@ class ComeetWorker {
       totalFetched: 0,
       totalKept: 0,
       totalDropped: 0,
+      totalSkippedDedup: 0,
       droppedByReason: {},
       errors: [],
       companies: []
@@ -420,6 +431,7 @@ class ComeetWorker {
       totalFetched: 0,
       totalKept: 0,
       totalDropped: 0,
+      totalSkippedDedup: 0,
       droppedByReason: {},
       errors: [],
       companies: []
@@ -746,29 +758,31 @@ class ComeetWorker {
 
       // Process each raw job
       for (const rawJob of rawJobs) {
-        // STEP 0: Silent dedup — skip already-known jobs (no calibration_rejected write)
-        const jobId = rawJob.position_uid
-          ? `comeet_${String(rawJob.position_uid).trim()}`
-          : null;
+        // STEP 0: Silent dedup — use base UID (first segment before '-') for compound UID parity
+        const positionUidRaw = rawJob.position_uid ? String(rawJob.position_uid).trim() : '';
+        const baseUid = positionUidRaw.includes('-') ? positionUidRaw.split('-')[0] : positionUidRaw;
+        const jobId = baseUid ? `comeet_${baseUid}` : null;
 
         if (jobId && knownJobIds && knownJobIds.has(jobId)) {
           stats.skippedDedup = (stats.skippedDedup || 0) + 1;
           continue;
         }
 
-        // STEP 1: Business logic filters (explicit filter with reason tracking)
+        // STEP 1: Location Gate only (title/department in ATS Guard)
         const filterResult = filterJob(rawJob);
 
         if (!filterResult.passed) {
-          // Job was filtered out - track it (lightweight, no raw/normalized)
           droppedJobs.push({
-            jobId: rawJob.position_uid ? `comeet_${rawJob.position_uid}` : 'unknown',
+            jobId: jobId || 'unknown',
             title: rawJob.name || 'Unknown',
             companyName: company.name || company.id,
             location: rawJob.location_object?.name || rawJob.location || 'Unknown',
             url: rawJob.careers_page_active_url || rawJob.careers_page_url || '',
             reason: filterResult.reason || 'Unknown filter reason',
             source: 'comeet',
+            gate: filterResult.gate || 'location',
+            matchedLocationKeyword: filterResult.matchedLocationKeyword,
+            fallbackTier: filterResult.fallbackTier,
           });
 
           // Update stats by reason category
@@ -795,17 +809,19 @@ class ComeetWorker {
         const unified = normalizeComeetJob(rawJob, company);
         if (!unified) {
           droppedJobs.push({
-            jobId: rawJob.position_uid ? `comeet_${rawJob.position_uid}` : 'unknown',
+            jobId: jobId || 'unknown',
             title: rawJob.name || 'Unknown',
             companyName: company.name || company.id,
             location: rawJob.location_object?.name || rawJob.location || 'Unknown',
             url: rawJob.careers_page_active_url || rawJob.careers_page_url || '',
             reason: 'Normalization failed',
             source: 'comeet',
+            gate: 'normalization',
           });
           continue;
         }
         stats.normalized += 1;
+        unified.matchedLocationKeyword = filterResult.matchedLocationKeyword;
         allNormalizedJobs.push(unified);
 
         // ── Structured Fast-Track Gate (runs before regex-based ATS Guard) ──
@@ -823,46 +839,55 @@ class ComeetWorker {
             url: unified.url || '',
             reason: `STRUCTURED_GATE: ${structGate.reason}`,
             source: 'comeet',
+            gate: 'structured_level',
+            structuredLevel: unified.structuredSignals?.experience_level,
+            structuredDepartment: unified.department,
+            employmentType: unified.employmentType,
           });
           continue;
         }
 
         if (structGate.verdict === 'WHITELIST') {
           stats.passedGuard += 1;
+          unified.matchedKeywords = []; // whitelist pass from structured gate
           unifiedJobs.push(unified);
           continue;
         }
 
-        // ── ATS Guard (regex-based seniority/title filtering) ──
-        const guard = evaluateAtsGuard(rawJob, {
+        // ── ATS Guard (Hub): pass guardPayload from unified, not raw job ──
+        const guardPayload = {
+          title: unified.title,
+          location: unified.location,
+          departments: unified.department ? [{ name: unified.department }] : [],
+          description: unified.description,
+          structuredLevel: unified.structuredSignals?.experience_level,
+          employmentType: unified.employmentType,
+        };
+        const guard = evaluateAtsGuard(guardPayload, {
           companyId: company.id,
           source: 'comeet',
         });
 
-        // Attach debug analysis
         if (!rawJob._debug_analysis || typeof rawJob._debug_analysis !== 'object') {
           rawJob._debug_analysis = {};
         }
-
         rawJob._debug_analysis.companyId = company.id;
         rawJob._debug_analysis.title = unified.title || null;
         rawJob._debug_analysis.location = unified.location || null;
         rawJob._debug_analysis.atsGuardVerdict = guard.verdict;
         rawJob._debug_analysis.atsGuardReason = guard.reason;
         rawJob._debug_analysis.verdict =
-          guard.verdict === 'PASS'
-            ? 'PASS'
-            : `ATS_GUARD: ${guard.reason}`;
+          guard.verdict === 'PASS' ? 'PASS' : `ATS_GUARD: ${guard.reason}`;
 
-        // Track guard stats
         if (guard.verdict === 'PASS') {
           stats.passedGuard += 1;
+          unified.matchedKeywords = guard.matchedKeywords || [];
+          unified.gate = null;
           unifiedJobs.push(unified);
         } else {
           stats.droppedGuard += 1;
           const reasonLower = (guard.reason || '').toLowerCase();
 
-          // Track dropped by ATS guard (lightweight, no raw/normalized)
           droppedJobs.push({
             jobId: unified.jobId,
             title: unified.title,
@@ -871,6 +896,13 @@ class ComeetWorker {
             url: unified.url || '',
             reason: `ATS_GUARD: ${guard.reason}`,
             source: 'comeet',
+            gate: guard.gate || 'ats_guard',
+            matchedBlacklistPatterns: guard.matchedBlacklistPatterns || [],
+            structuredLevel: unified.structuredSignals?.experience_level,
+            structuredDepartment: unified.department,
+            employmentType: unified.employmentType,
+            matchedLocationKeyword: unified.matchedLocationKeyword,
+            fallbackTier: unified.fallbackTier,
           });
 
           // Update stats by reason
@@ -916,6 +948,7 @@ class ComeetWorker {
       this.runStats.totalFetched += stats.fetched;
       this.runStats.totalKept += stats.kept;
       this.runStats.totalDropped += stats.dropped;
+      this.runStats.totalSkippedDedup += (stats.skippedDedup || 0);
 
       // Aggregate dropped by reason
       if (stats.droppedByReason) {

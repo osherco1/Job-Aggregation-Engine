@@ -1,0 +1,972 @@
+{
+  "_meta": {
+    "source": "greenhouse",
+    "companyId": "orcasecurity",
+    "companyName": "Orca Security",
+    "uid": "orcasecurity",
+    "endpoint": "https://boards-api.greenhouse.io/v1/boards/orcasecurity/jobs?content=true",
+    "httpStatus": 200,
+    "sampledAt": "2026-03-01T22:03:37.142Z",
+    "jobCount": 21
+  },
+  "raw": {
+    "jobs": [
+      {
+        "absolute_url": "https://orca.security/about/careers/5791859004?gh_jid=5791859004",
+        "data_compliance": [
+          {
+            "type": "gdpr",
+            "requires_consent": true,
+            "requires_processing_consent": true,
+            "requires_retention_consent": false,
+            "retention_period": 120,
+            "demographic_data_consent_applies": false
+          }
+        ],
+        "internal_job_id": 5046155004,
+        "location": {
+          "name": "Germany"
+        },
+        "metadata": null,
+        "id": 5791859004,
+        "updated_at": "2026-02-09T07:01:09-05:00",
+        "requisition_id": null,
+        "title": "Account Executive ",
+        "company_name": "Orca Security",
+        "first_published": "2026-02-04T08:15:04-05:00",
+        "language": "en",
+        "content": "&lt;p&gt;&lt;strong&gt;Location: Germany - Munich \\ Frankfurt (remote).&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;\n&lt;h3&gt;&lt;strong&gt;Big Ideas. Real People.&lt;/strong&gt;&lt;/h3&gt;\n&lt;p&gt;At Orca, in the right environment and with the right team, talent has no boundaries. This team spirit, together with our drive to always aim high, has quickly earned us unicorn status and turned us into a global cloud security innovation leader. So if you’re ready to join an amazing team of people who inspire each other every day, now is the time to find your place in our pod.&lt;/p&gt;\n&lt;p&gt;We’re looking for driven and talented people like you to join our Sales team and our mission to change the future of cloud security. &lt;strong&gt;Ready to dive in and swim with our pod?&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;\n&lt;h3&gt;&lt;strong&gt;Highlights&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;strong&gt;High-growth: &lt;/strong&gt;Over the past seven years, we’ve consistently achieved milestones that take other companies a decade or more. During this time, we’ve significantly grown our employee base, expanded our customer reach, and rapidly advanced our product capabilities.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Disruptive innovation:&lt;/strong&gt; Our founders saw that traditional security didn’t work for the cloud so they set out to carve a new path. We’re relentless pioneers who invented agentless technology and continue to be the most comprehensive and innovative cloud security company.&amp;nbsp;&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Well-capitalized:&lt;/strong&gt; With a valuation of $1.8 billion, Orca is a cybersecurity unicorn dominating the cloud security space. We’re backed by an impressive team of investors such as Capital G, ICONIQ, GGV, and SVCI, a syndicate of CISOs who invest their own money after conducting their due diligence.&amp;nbsp;&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Respectful and transparent culture:&lt;/strong&gt; Our executives pride themselves on being accessible to everyone and believe in sharing knowledge with the employees. Each employee has a place in shaping the future of our industry.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h3&gt;&lt;strong&gt;About the Role&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;Close new Enterprise business opportunities in your territory independently and cooperatively.&lt;/li&gt;\n&lt;li&gt;Negotiate and bring to closure customer agreements to exceed booking and revenue quota targets.&lt;/li&gt;\n&lt;li&gt;Target key decision makers in prospect accounts and channel partners in the assigned territory.&lt;/li&gt;\n&lt;li&gt;Independently generate outbound pipeline by proactively identifying, engaging, qualifying target accounts through disciplined prospecting.&lt;/li&gt;\n&lt;li&gt;Establish and maintain existing relationships with key decision makers (typically at CISO level) and partners in the security industry to drive sales strategy and goal attainment.&lt;/li&gt;\n&lt;li&gt;Cross functionally collaborates with Channel, Sales Engineering Marketing, Sales Operations, Product and Customer Success, to drive engagement at both the individual contributor and executive level.&lt;/li&gt;\n&lt;li&gt;Partner with existing customers to maximize value and strengthen relationships, while managing and growing accounts through successful renewals and expansion opportunities.&lt;/li&gt;\n&lt;li&gt;Report accurate pipeline and sales stage using Salesforce.com&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h3&gt;&lt;strong&gt;What You Bring&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;3+ years of Cybersecurity enterprise sales experience and understanding of the competitive landscape.&lt;/li&gt;\n&lt;li&gt;Executive level contacts in the region and prior sales experience hunting net new accounts.&lt;/li&gt;\n&lt;li&gt;Repeated top performer in your region with a stable record with at least 2+ years in each organization or upward growth within the same.&lt;/li&gt;\n&lt;li&gt;Excellent communicator both written and verbal (yes... words matter….) to adeptly explain complicated concepts to a variety of audiences and skill levels.&lt;/li&gt;\n&lt;li&gt;Demonstrated experience with target account selling, solution selling, and/or consultative sales techniques.&lt;/li&gt;\n&lt;li&gt;MEDDIC experience - Must.&lt;/li&gt;\n&lt;li style=&quot;font-weight: bold;&quot;&gt;&lt;strong&gt;German &amp;amp; English speaker - Must.&amp;nbsp;&lt;/strong&gt;&lt;/li&gt;\n&lt;/ul&gt;",
+        "departments": [
+          {
+            "id": 4046952004,
+            "name": "Sales",
+            "child_ids": [
+              4050633004
+            ],
+            "parent_id": null
+          }
+        ],
+        "offices": [
+          {
+            "id": 4029262004,
+            "name": "Germany",
+            "location": "Germany",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ]
+      },
+      {
+        "absolute_url": "https://orca.security/about/careers/5797353004?gh_jid=5797353004",
+        "data_compliance": [
+          {
+            "type": "gdpr",
+            "requires_consent": false,
+            "requires_processing_consent": false,
+            "requires_retention_consent": false,
+            "retention_period": null,
+            "demographic_data_consent_applies": false
+          }
+        ],
+        "internal_job_id": 5048447004,
+        "location": {
+          "name": "Bengaluru, Karnataka, India"
+        },
+        "metadata": null,
+        "id": 5797353004,
+        "updated_at": "2026-02-09T03:32:12-05:00",
+        "requisition_id": null,
+        "title": "Account Executive ",
+        "company_name": "Orca Security",
+        "first_published": "2026-02-09T03:04:08-05:00",
+        "language": "en",
+        "content": "&lt;p&gt;&lt;/p&gt;\n&lt;h3&gt;&lt;strong&gt;Big Ideas. Real People.&lt;/strong&gt;&lt;/h3&gt;\n&lt;p&gt;At Orca, in the right environment and with the right team, talent has no boundaries. This team spirit, together with our drive to always aim high, has quickly earned us unicorn status and turned us into a global cloud security innovation leader. So if you’re ready to join an amazing team of people who inspire each other every day, now is the time to find your place in our pod.&lt;/p&gt;\n&lt;p&gt;We’re looking for driven and talented people like you to join our Sales team and our mission to change the future of cloud security. &lt;strong&gt;Ready to dive in and swim with our pod?&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;/p&gt;\n&lt;h3&gt;&lt;strong&gt;Highlights&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;strong&gt;High-growth: &lt;/strong&gt;Over the past seven years, we’ve consistently achieved milestones that take other companies a decade or more. During this time, we’ve significantly grown our employee base, expanded our customer reach, and rapidly advanced our product capabilities.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Disruptive innovation:&lt;/strong&gt; Our founders saw that traditional security didn’t work for the cloud—so they set out to carve a new path. We’re relentless pioneers who invented agentless technology and continue to be the most comprehensive and innovative cloud security company.&amp;nbsp;&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Well-capitalized:&lt;/strong&gt; With a valuation of $1.8 billion, Orca is a cybersecurity unicorn dominating the cloud security space. We’re backed by an impressive team of investors such as Capital G, ICONIQ, GGV, and SVCI, a syndicate of CISOs who invest their own money after conducting their due diligence.&amp;nbsp;&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Respectful and transparent culture:&lt;/strong&gt; Our executives pride themselves on being accessible to everyone and believe in sharing knowledge with the employees. Each employee has a place in shaping the future of our industry.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;/p&gt;\n&lt;h3&gt;&lt;strong&gt;About the Role&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;Close new Enterprise business opportunities in your region independently and cooperatively&lt;/li&gt;\n&lt;li&gt;Negotiate and bring to closure to customer agreements to exceed booking and revenue quota targets&lt;/li&gt;\n&lt;li&gt;Target key decision makers in prospect accounts and channel partners in the assigned territory&lt;/li&gt;\n&lt;li&gt;Establish and maintain existing relationships with key decision makers (typically at CISO level) and partners&amp;nbsp; in the security industry to drive sales strategy and goal attainment&lt;/li&gt;\n&lt;li&gt;Cross functionally collaborate with&amp;nbsp; Channel, Sales Engineering Marketing, Sales Operations, Product and Customer Success, to drive engagement at both the individual contributor and executive level&lt;/li&gt;\n&lt;li&gt;Report accurate pipeline and sales stage using Salesforce.com&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;/p&gt;\n&lt;h3&gt;&lt;strong&gt;What You Bring&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;5+ years of Cybersecurity enterprise sales experience and understanding of the competitive landscape&lt;/li&gt;\n&lt;li&gt;Located in Bangalore -India - Must&lt;/li&gt;\n&lt;li&gt;Executive level contacts in the region and prior sales experience hunting net new accounts&lt;/li&gt;\n&lt;li&gt;Repeated top performer in your region with stable record with at least 2+ years in each organization or upward growth within the same&lt;/li&gt;\n&lt;li&gt;Excellent communicator both written and verbal (yes... words matter….) &amp;nbsp;to adeptly explain complicated concepts to a variety of audiences and skill levels&lt;/li&gt;\n&lt;li&gt;Demonstrated experience with target account selling, solution selling, and/or consultative sales techniques, including qualified pipeline creation. MEDDIC experience is a plus&lt;/li&gt;\n&lt;/ul&gt;",
+        "departments": [
+          {
+            "id": 4046952004,
+            "name": "Sales",
+            "child_ids": [
+              4050633004
+            ],
+            "parent_id": null
+          }
+        ],
+        "offices": [
+          {
+            "id": 4029697004,
+            "name": "India",
+            "location": "Bengaluru, Karnataka, India",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ]
+      },
+      {
+        "absolute_url": "https://orca.security/about/careers/5741844004?gh_jid=5741844004",
+        "data_compliance": [
+          {
+            "type": "gdpr",
+            "requires_consent": false,
+            "requires_processing_consent": false,
+            "requires_retention_consent": false,
+            "retention_period": null,
+            "demographic_data_consent_applies": false
+          }
+        ],
+        "internal_job_id": 5022123004,
+        "location": {
+          "name": "United States"
+        },
+        "metadata": null,
+        "id": 5741844004,
+        "updated_at": "2026-02-01T15:58:11-05:00",
+        "requisition_id": null,
+        "title": "Account Executive Pac N. West ",
+        "company_name": "Orca Security",
+        "first_published": "2025-12-19T17:14:04-05:00",
+        "language": "en",
+        "content": "&lt;h3&gt;&lt;strong&gt;Big Ideas. Real People.&lt;/strong&gt;&lt;/h3&gt;\n&lt;p&gt;At Orca, in the right environment and with the right team, talent has no boundaries. This team spirit, together with our drive to always aim high, has quickly earned us unicorn status and turned us into a global cloud security innovation leader. So if you’re ready to join an amazing team of people who inspire each other every day, now is the time to find your place in our pod.&lt;/p&gt;\n&lt;p&gt;We’re looking for driven and talented people like you to join our Sales team and our mission to change the future of cloud security. &lt;strong&gt;Ready to dive in and swim with our pod?&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;\n&lt;h3&gt;&lt;strong&gt;Highlights&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;strong&gt;High-growth: &lt;/strong&gt;Over the past seven years, we’ve consistently achieved milestones that take other companies a decade or more. During this time, we’ve significantly grown our employee base, expanded our customer reach, and rapidly advanced our product capabilities.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Disruptive innovation:&lt;/strong&gt; Our founders saw that traditional security didn’t work for the cloud so they set out to carve a new path. We’re relentless pioneers who invented agentless technology and continue to be the most comprehensive and innovative cloud security company.&amp;nbsp;&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Well-capitalized:&lt;/strong&gt; With a valuation of $1.8 billion, Orca is a cybersecurity unicorn dominating the cloud security space. We’re backed by an impressive team of investors such as Capital G, ICONIQ, GGV, and SVCI, a syndicate of CISOs who invest their own money after conducting their due diligence.&amp;nbsp;&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Respectful and transparent culture:&lt;/strong&gt; Our executives pride themselves on being accessible to everyone and believe in sharing knowledge with the employees. Each employee has a place in shaping the future of our industry.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h3&gt;&lt;strong&gt;About the Role&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;Close new Enterprise business opportunities in your region independently and cooperatively&lt;/li&gt;\n&lt;li&gt;Negotiate and bring to closure to customer agreements to exceed booking and revenue quota targets&lt;/li&gt;\n&lt;li&gt;Target key decision makers in prospect accounts and channel partners in the assigned territory&lt;/li&gt;\n&lt;li&gt;Establish and maintain existing relationships with key decision makers (typically at CISO level) and partners&amp;nbsp; in the security industry to drive sales strategy and goal attainment&lt;/li&gt;\n&lt;li&gt;Cross functionally collaborate with&amp;nbsp; Channel, Sales Engineering Marketing, Sales Operations, Product and Customer Success, to drive engagement at both the individual contributor and executive level&lt;/li&gt;\n&lt;li&gt;Report accurate pipeline and sales stage using Salesforce.com&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h3&gt;&lt;strong&gt;What You’ll Do&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;5+ years of Cybersecurity enterprise sales experience and understanding of the competitive landscape&lt;/li&gt;\n&lt;li&gt;Executive level contacts in the region and prior sales experience hunting net new accounts&lt;/li&gt;\n&lt;li&gt;Repeated top performer in your region with stable record with at least 2+ years in each organization or upward growth within the same&lt;/li&gt;\n&lt;li&gt;Excellent communicator both written and verbal (yes... words matter….) &amp;nbsp;to adeptly explain complicated concepts to a variety of audiences and skill level&lt;/li&gt;\n&lt;li&gt;Demonstrated experience with target account selling, solution selling, and/or consultative sales techniques. MEDDIC experience a plus&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;&lt;em&gt;Orca Security is an equal opportunity employer. We do not discriminate based on race, religion, color, national origin, sex (including pregnancy, childbirth, reproductive health decisions, or related medical conditions), sexual orientation, gender identity, gender expression, age, status as a protected veteran, status as an individual with a disability, genetic information, political views or activity, or other applicable legally protected characteristics.&lt;/em&gt;&lt;/p&gt;",
+        "departments": [
+          {
+            "id": 4046952004,
+            "name": "Sales",
+            "child_ids": [
+              4050633004
+            ],
+            "parent_id": null
+          }
+        ],
+        "offices": [
+          {
+            "id": 4026827004,
+            "name": "United States",
+            "location": null,
+            "child_ids": [],
+            "parent_id": null
+          }
+        ]
+      },
+      {
+        "absolute_url": "https://orca.security/about/careers/5675367004?gh_jid=5675367004",
+        "data_compliance": [
+          {
+            "type": "gdpr",
+            "requires_consent": false,
+            "requires_processing_consent": false,
+            "requires_retention_consent": false,
+            "retention_period": null,
+            "demographic_data_consent_applies": false
+          }
+        ],
+        "internal_job_id": 4991978004,
+        "location": {
+          "name": "United States"
+        },
+        "metadata": null,
+        "id": 5675367004,
+        "updated_at": "2026-01-25T09:05:57-05:00",
+        "requisition_id": null,
+        "title": "Customer Success Engineer",
+        "company_name": "Orca Security",
+        "first_published": "2025-10-09T16:13:49-04:00",
+        "language": "en",
+        "content": "&lt;h3&gt;&lt;strong&gt;Big Ideas. Real People.&lt;/strong&gt;&lt;/h3&gt;\n&lt;p&gt;At Orca, in the right environment and with the right team, talent has no boundaries. This team spirit, together with our drive to always aim high, has quickly earned us unicorn status and turned us into a global cloud security innovation leader. So if you’re ready to join an amazing team of people who inspire each other every day, now is the time to find your place in our pod.&lt;/p&gt;\n&lt;p&gt;We’re looking for driven and talented people like you to join our Customer Success team and our mission to change the future of cloud security. &lt;strong&gt;Ready to dive in and swim with our pod?&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;\n&lt;h3&gt;&lt;strong&gt;Highlights&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;strong&gt;High-growth: &lt;/strong&gt;Over the past six years, we’ve consistently achieved milestones that take other companies a decade or more. During this time, we’ve significantly grown our employee base, expanded our customer reach, and rapidly advanced our product capabilities.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Disruptive innovation:&lt;/strong&gt; Our founders saw that traditional security didn’t work for the cloud so they set out to carve a new path. We’re relentless pioneers who invented agentless technology and continue to be the most comprehensive and innovative cloud security company.&amp;nbsp;&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Well-capitalized:&lt;/strong&gt; With a valuation of $1.8 billion, Orca is a cybersecurity unicorn dominating the cloud security space. We’re backed by an impressive team of investors such as Capital G, ICONIQ, GGV, and SVCI, a syndicate of CISOs who invest their own money after conducting their due diligence.&amp;nbsp;&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Respectful and transparent culture:&lt;/strong&gt; Our executives pride themselves on being accessible to everyone and believe in sharing knowledge with the employees. Each employee has a place in shaping the future of our industry.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h3&gt;&lt;strong&gt;About the Role&lt;/strong&gt;&lt;/h3&gt;\n&lt;p&gt;As a &lt;strong&gt;Customer Success Engineer for Strategic Accounts&lt;/strong&gt;, you’ll be the &lt;strong&gt;technical quarterback&lt;/strong&gt; for Orca’s largest and most complex customers. You’ll partner closely with executives, architects, and security teams to ensure they unlock the full value of the Orca Platform, driving adoption, expanding use cases, and shaping long-term cloud security strategies.&lt;/p&gt;\n&lt;p&gt;You’ll combine &lt;strong&gt;deep technical expertise&lt;/strong&gt; with &lt;strong&gt;strategic relationship management&lt;/strong&gt;, serving as the bridge between our customers and Orca’s product, engineering, and go-to-market teams. From on-site visits to executive workshops, you’ll ensure customers achieve measurable outcomes and see Orca as a critical part of their cloud security transformation.&lt;/p&gt;\n&lt;h3&gt;&lt;strong&gt;What You’ll Do&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;Serve as the &lt;strong&gt;trusted technical advisor&lt;/strong&gt; for Orca’s most strategic customers.&lt;br&gt;&lt;br&gt;&lt;/li&gt;\n&lt;li&gt;Lead &lt;strong&gt;customer visits, executive briefings, and technical workshops&lt;/strong&gt; to accelerate adoption and strengthen relationships.&lt;br&gt;&lt;br&gt;&lt;/li&gt;\n&lt;li&gt;Drive &lt;strong&gt;deployment, expansion, and operational excellence&lt;/strong&gt; through architecture reviews and best practice guidance.&lt;br&gt;&lt;br&gt;&lt;/li&gt;\n&lt;li&gt;Collaborate with customer stakeholders to align &lt;strong&gt;cloud security goals, compliance initiatives, and risk reduction strategies&lt;/strong&gt;.&lt;br&gt;&lt;br&gt;&lt;/li&gt;\n&lt;li&gt;Partner with &lt;strong&gt;Customer Success Managers&lt;/strong&gt; to design and execute tailored success plans tied to business outcomes.&lt;br&gt;&lt;br&gt;&lt;/li&gt;\n&lt;li&gt;Identify and remove technical blockers while advocating for customer needs across Product, Support, and Engineering.&lt;br&gt;&lt;br&gt;&lt;/li&gt;\n&lt;li&gt;Present &lt;strong&gt;platform value and innovation&lt;/strong&gt; in executive-level business reviews.&lt;br&gt;&lt;br&gt;&lt;/li&gt;\n&lt;li&gt;Collaborate with &lt;strong&gt;Sales&lt;/strong&gt; on renewals, expansions, and long-term strategic growth.&lt;br&gt;&lt;br&gt;&lt;/li&gt;\n&lt;li&gt;Provide insights and feedback to influence &lt;strong&gt;Orca’s product roadmap and customer experience&lt;/strong&gt;.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h3&gt;&lt;strong&gt;What You Bring&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;strong&gt;5+ years&lt;/strong&gt; in customer-facing technical roles (CSE, TAM, Solutions Architect, or DevOps/Security Engineer).&lt;br&gt;&lt;br&gt;&lt;/li&gt;\n&lt;li&gt;Proven experience with &lt;strong&gt;enterprise cloud environments&lt;/strong&gt; (AWS, Azure, GCP).&lt;br&gt;&lt;br&gt;&lt;/li&gt;\n&lt;li&gt;Hands-on knowledge of &lt;strong&gt;Kubernetes, containers, and CI/CD pipelines&lt;/strong&gt;.&lt;br&gt;&lt;br&gt;&lt;/li&gt;\n&lt;li&gt;Strong understanding of &lt;strong&gt;cloud security architecture&lt;/strong&gt; and the &lt;strong&gt;CNAPP ecosystem&lt;/strong&gt;.&lt;br&gt;&lt;br&gt;&lt;/li&gt;\n&lt;li&gt;Proficiency in &lt;strong&gt;scripting, automation, and API integrations&lt;/strong&gt;.&lt;br&gt;&lt;br&gt;&lt;/li&gt;\n&lt;li&gt;Exceptional communication and consulting skills—able to engage both technical teams and C-level executives.&lt;br&gt;&lt;br&gt;&lt;/li&gt;\n&lt;li&gt;A passion for helping customers &lt;strong&gt;operationalize security at scale&lt;/strong&gt; and deliver measurable value.&lt;br&gt;&lt;br&gt;&lt;/li&gt;\n&lt;li&gt;Bonus: Experience with &lt;strong&gt;IaC (Terraform)&lt;/strong&gt; or &lt;strong&gt;Kubernetes certifications (CKA/CKAD/CKS)&lt;/strong&gt;.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h3&gt;&lt;strong&gt;Why Orca?&lt;/strong&gt;&lt;/h3&gt;\n&lt;p&gt;At Orca, you’ll join a passionate global team on a mission to make cloud security frictionless. You’ll work alongside innovators who challenge norms, build boldly, and care deeply about customer success.&lt;/p&gt;\n&lt;p&gt;We’re not just protecting the cloud, we’re redefining how the world secures it.&lt;/p&gt;\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;&lt;em&gt;Orca Security is an equal opportunity employer. We do not discriminate based on race, religion, color, national origin, sex (including pregnancy, childbirth, reproductive health decisions, or related medical conditions), sexual orientation, gender identity, gender expression, age, status as a protected veteran, status as an individual with a disability, genetic information, political views or activity, or other applicable legally protected characteristics.&lt;/em&gt;&lt;/p&gt;",
+        "departments": [
+          {
+            "id": 4051032004,
+            "name": "Customer Success",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ],
+        "offices": [
+          {
+            "id": 4026827004,
+            "name": "United States",
+            "location": null,
+            "child_ids": [],
+            "parent_id": null
+          }
+        ]
+      },
+      {
+        "absolute_url": "https://orca.security/about/careers/5707304004?gh_jid=5707304004",
+        "data_compliance": [
+          {
+            "type": "gdpr",
+            "requires_consent": false,
+            "requires_processing_consent": false,
+            "requires_retention_consent": false,
+            "retention_period": null,
+            "demographic_data_consent_applies": false
+          }
+        ],
+        "internal_job_id": 5005879004,
+        "location": {
+          "name": "Singapore, Central, Singapore"
+        },
+        "metadata": null,
+        "id": 5707304004,
+        "updated_at": "2026-02-19T15:53:26-05:00",
+        "requisition_id": null,
+        "title": "Customer Success Engineer ",
+        "company_name": "Orca Security",
+        "first_published": "2025-11-16T07:27:14-05:00",
+        "language": "en",
+        "content": "&lt;h3&gt;&lt;strong&gt;Location:&lt;/strong&gt; Singapore, Hong Kong&amp;nbsp;&lt;/h3&gt;\n&lt;h3&gt;&lt;strong&gt;Big Ideas. Real People.&lt;/strong&gt;&lt;/h3&gt;\n&lt;p&gt;At Orca, in the right environment and with the right team, talent has no boundaries. This team spirit, together with our drive to always aim high, has quickly earned us unicorn status and turned us into a global cloud security innovation leader. So if you’re ready to join an amazing team of people who inspire each other every day, now is the time to find your place in our pod.&lt;/p&gt;\n&lt;p&gt;We’re looking for driven and talented people like you to join our team and our mission to change the future of cloud security.&amp;nbsp;&lt;strong&gt;Ready to dive in and swim with our pod?&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;\n&lt;h3&gt;&lt;strong&gt;Highlights&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;strong&gt;High-growth: &lt;/strong&gt;Over the past six years, we’ve consistently achieved milestones that take other companies a decade or more. During this time, we’ve significantly grown our employee base, expanded our customer reach, and rapidly advanced our product capabilities.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Disruptive innovation:&lt;/strong&gt; Our founders saw that traditional security didn’t work for the cloud—so they set out to carve a new path. We’re relentless pioneers who invented agentless technology and continue to be the most comprehensive and innovative cloud security company.&amp;nbsp;&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Well-capitalized:&lt;/strong&gt; With a valuation of $1.8 billion, Orca is a cybersecurity unicorn dominating the cloud security space. We’re backed by an impressive team of investors such as Capital G, ICONIQ, GGV, and SVCI, a syndicate of CISOs who invest their own money after conducting their due diligence.&amp;nbsp;&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Respectful and transparent culture:&lt;/strong&gt; Our executives pride themselves on being accessible to everyone and believe in sharing knowledge with the employees. Each employee has a place in shaping the future of our industry.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h3&gt;&lt;strong&gt;Customer Success Engineer – Strategic Accounts (English &amp;amp; Mandarin)&lt;/strong&gt;&lt;/h3&gt;\n&lt;p&gt;As a Customer Success Engineer for Strategic Accounts, you’ll be the technical quarterback for Orca’s largest and most complex customers. &lt;br&gt;You’ll partner closely with executives, architects, and security teams to ensure they unlock the full value of the Orca Platform—driving adoption, expanding use cases, and shaping long-term cloud security strategies.&lt;br&gt;You’ll combine deep technical expertise with strategic relationship management, serving as the bridge between our customers and Orca’s product, engineering, and go-to-market teams. From on-site visits to executive workshops, you’ll ensure customers achieve measurable outcomes and view Orca as a critical part of their cloud security transformation.&lt;/p&gt;\n&lt;h3&gt;&lt;strong&gt;What You’ll Do&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;Serve as the trusted technical advisor for Orca’s most strategic customers.&lt;/li&gt;\n&lt;li&gt;Lead customer visits, executive briefings, and technical workshops to accelerate adoption and strengthen relationships.&lt;/li&gt;\n&lt;li&gt;Drive deployment, expansion, and operational excellence through architecture reviews and best-practice guidance.&lt;/li&gt;\n&lt;li&gt;Collaborate with customer stakeholders to align cloud security goals, compliance initiatives, and risk reduction strategies.&lt;/li&gt;\n&lt;li&gt;Partner with Customer Success Managers to design and execute tailored success plans tied to business outcomes.&lt;/li&gt;\n&lt;li&gt;Identify and remove technical blockers while advocating for customer needs across Product, Support, and Engineering.&lt;/li&gt;\n&lt;li&gt;Present platform value and innovation in executive-level business reviews.&lt;/li&gt;\n&lt;li&gt;Collaborate with Sales on renewals, expansions, and long-term strategic growth.&lt;/li&gt;\n&lt;li&gt;Provide insights and feedback to influence Orca’s product roadmap and customer experience.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h3&gt;&lt;strong&gt;About you&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;strong&gt;Fluency in English and Mandarin&lt;/strong&gt; is required to support customers in the Greater China and APAC regions.&lt;/li&gt;\n&lt;li&gt;7+ years in customer-facing technical roles (CSE, TAM, Solutions Architect, or DevOps/Security Engineer).&lt;/li&gt;\n&lt;li&gt;Proven experience with enterprise cloud environments (AWS, Azure, GCP).&lt;/li&gt;\n&lt;li&gt;Hands on knowledge of Kubernetes, containers, and CI/CD pipelines.&lt;/li&gt;\n&lt;li&gt;Strong understanding of cloud security architecture and the CNAPP ecosystem.&lt;/li&gt;\n&lt;li&gt;Proficiency in scripting, automation, and API integrations.&lt;/li&gt;\n&lt;li&gt;Exceptional communication and consulting skills—able to engage both technical teams and C-level executives.&lt;/li&gt;\n&lt;li&gt;A passion for helping customers operationalize security at scale and deliver measurable value.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;Bonus:&lt;/strong&gt; Experience with IaC (Terraform) or Kubernetes certifications (CKA/CKAD/CKS).&lt;/p&gt;",
+        "departments": [
+          {
+            "id": 4051032004,
+            "name": "Customer Success",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ],
+        "offices": [
+          {
+            "id": 4034724004,
+            "name": "APAC",
+            "location": "Thailand",
+            "child_ids": [],
+            "parent_id": null
+          },
+          {
+            "id": 4029263004,
+            "name": "Singapore",
+            "location": "Singapore, Central, Singapore",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ]
+      },
+      {
+        "absolute_url": "https://orca.security/about/careers/5745961004?gh_jid=5745961004",
+        "data_compliance": [
+          {
+            "type": "gdpr",
+            "requires_consent": false,
+            "requires_processing_consent": false,
+            "requires_retention_consent": false,
+            "retention_period": null,
+            "demographic_data_consent_applies": false
+          }
+        ],
+        "internal_job_id": 5024404004,
+        "location": {
+          "name": "Bengaluru, Karnataka, India"
+        },
+        "metadata": null,
+        "id": 5745961004,
+        "updated_at": "2026-02-22T03:58:01-05:00",
+        "requisition_id": null,
+        "title": "Customer Success Specialist ",
+        "company_name": "Orca Security",
+        "first_published": "2026-01-06T02:40:43-05:00",
+        "language": "en",
+        "content": "&lt;p&gt;&lt;strong&gt;Location: India (remote).&lt;br&gt;&lt;/strong&gt;&lt;/p&gt;\n&lt;h3&gt;&lt;strong&gt;Big Ideas. Real People.&lt;/strong&gt;&lt;/h3&gt;\n&lt;p&gt;&lt;strong&gt;At Orca, we believe that in the right environment and with the right team, talent has no boundaries&lt;/strong&gt;. This team spirit, together with our drive to always aim high, have quickly earned us unicorn status and turned us into a global cloud security innovation leader. So if you’re ready to join an amazing team of people who inspire each other every day, now is the time to find your place in our pod. We’re looking for driven and talented people like you to join our Customer Success team and our mission to change the future of cloud security!&lt;/p&gt;\n&lt;h3&gt;&lt;strong&gt;Highlights&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;strong&gt;High-growth:&lt;/strong&gt; In just seven years, we’ve reached milestones that take other companies a decade or more. In the last two years, we’ve doubled our employee count, tripled our customer count, and rapidly expanded our product capabilities.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Disruptive innovation:&lt;/strong&gt; Our founders saw that traditional security didn’t work for the cloud—so they set out to carve a new path. We’re relentless pioneers who invented agentless technology and continue to be the most comprehensive and innovative cloud security company.&amp;nbsp;&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Well-capitalized:&lt;/strong&gt; With a valuation of $1.8 billion, Orca is a cybersecurity unicorn dominating the cloud security space. We’re backed by an impressive team of investors such as Capital G, ICONIQ, GGV, and SVCI, a syndicate of CISOs who invest their own money after conducting their due diligence.&amp;nbsp;&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Respectful and transparent culture:&lt;/strong&gt; Our executives pride themselves on being accessible to everyone and believe in sharing knowledge with the employees. Each employee has a place in shaping the future of our industry.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h3&gt;&lt;strong&gt;About the role&lt;/strong&gt;&lt;/h3&gt;\n&lt;p&gt;As a Customer Success Specialist at Orca Security, you will play a critical role in managing customer accounts, ensuring contract renewals, and driving customer success. You will be the primary point of contact for our customers, responsible for fostering strong relationships, monitoring their progress with our platform, and maximizing upsell opportunities. Your goal is to enable our customers to fully realize the value of Orca’s security solutions and support them in achieving their security objectives.&lt;/p&gt;\n&lt;h3&gt;&lt;strong&gt;On a typical day you&#39;ll&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;Serve as the primary point of contact for assigned customer accounts, building and maintaining strong, long-lasting relationships.&lt;/li&gt;\n&lt;li&gt;Manage and oversee contract renewals, ensuring timely communication and a smooth renewal process.&lt;/li&gt;\n&lt;li&gt;Monitor customer progress and platform adoption, proactively identifying areas where they may need additional support or training, or platform use case expansion.&lt;/li&gt;\n&lt;li&gt;Collaborate with the sales team to identify upsell opportunities and drive incremental revenue by aligning our solutions with customer needs.&lt;/li&gt;\n&lt;li&gt;Act as a trusted advisor, helping customers achieve their security goals and maximize the value of Orca Security’s platform.&lt;/li&gt;\n&lt;li&gt;Respond to customer inquiries and concerns promptly, ensuring a high level of satisfaction and engagement.&lt;/li&gt;\n&lt;li&gt;Gather and analyze customer feedback, sharing insights with internal teams to improve our products and services.&lt;/li&gt;\n&lt;li&gt;Develop and deliver customer success plans and periodic health check-ins to ensure ongoing alignment with customer objectives.&lt;/li&gt;\n&lt;li&gt;Advocate for customers internally, coordinating with support, product, and engineering teams to resolve issues and enhance their experience.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h3&gt;&lt;strong&gt;About you&lt;br&gt;&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;strong&gt;Experience:&lt;/strong&gt; 2-3 years in customer success, account management, or a related role, preferably in the software or cybersecurity industry.&lt;/li&gt;\n&lt;li&gt;Renewal experience - &lt;strong&gt;Must&lt;/strong&gt;.&lt;/li&gt;\n&lt;li&gt;Worked in nightshift- &lt;strong&gt;Must&lt;/strong&gt;.&amp;nbsp;&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Communication Skills:&lt;/strong&gt; Excellent verbal and written communication skills, with the ability to convey complex information clearly and concisely.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Customer-Centric Mindset:&lt;/strong&gt; A passion for delivering exceptional customer experiences and building lasting relationships.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Analytical Skills:&lt;/strong&gt; Strong ability to analyze data and customer needs, monitor progress, and identify opportunities for growth and improvement.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Proactivity:&lt;/strong&gt; A self-starter with the ability to anticipate customer needs and take initiative.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Collaboration:&lt;/strong&gt; Strong team player who can work cross-functionally with sales, support, and product teams.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Technical Aptitude:&lt;/strong&gt; Comfortable discussing technical concepts and understanding how they apply to customer needs; prior experience with SaaS or security platforms is a plus.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Organizational Skills: &lt;/strong&gt;Excellent time management and organizational abilities, with a proven ability to manage multiple accounts and priorities simultaneously.&lt;/li&gt;\n&lt;/ul&gt;",
+        "departments": [
+          {
+            "id": 4051032004,
+            "name": "Customer Success",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ],
+        "offices": [
+          {
+            "id": 4029697004,
+            "name": "India",
+            "location": "Bengaluru, Karnataka, India",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ]
+      },
+      {
+        "absolute_url": "https://orca.security/about/careers/5780979004?gh_jid=5780979004",
+        "data_compliance": [
+          {
+            "type": "gdpr",
+            "requires_consent": false,
+            "requires_processing_consent": false,
+            "requires_retention_consent": false,
+            "retention_period": null,
+            "demographic_data_consent_applies": false
+          }
+        ],
+        "internal_job_id": 5041185004,
+        "location": {
+          "name": "Tel Aviv-Yafo, Tel Aviv District, Israel"
+        },
+        "metadata": null,
+        "id": 5780979004,
+        "updated_at": "2026-01-25T09:05:57-05:00",
+        "requisition_id": null,
+        "title": "Head of Research",
+        "company_name": "Orca Security",
+        "first_published": "2026-01-25T04:49:54-05:00",
+        "language": "en",
+        "content": "&lt;h3&gt;&lt;strong&gt;Big Ideas. Real People.&lt;/strong&gt;&lt;/h3&gt;\n&lt;p&gt;At Orca, in the right environment and with the right team,&lt;strong&gt; talent has no boundaries&lt;/strong&gt;. This team spirit, together with our drive to always aim high, has quickly earned us unicorn status and turned us into a global cloud security innovation leader. So if you’re ready to join an amazing team of people who inspire each other every day, now is the time to find your place in our pod.&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;We’re looking for driven and talented people like you to join our team and our mission to change the future of cloud security. &lt;strong&gt;Ready to dive in and swim with our pod?&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;\n&lt;h3&gt;&lt;strong&gt;Highlights&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;strong&gt;High-growth:&lt;/strong&gt; Over the past Seven years, we’ve consistently achieved milestones that take other companies a decade or more. During this time, we’ve significantly grown our employee base, expanded our customer reach, and rapidly advanced our product capabilities.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Disruptive innovation:&lt;/strong&gt; Our founders saw that traditional security didn’t work for the cloud, so they set out to carve a new path. We’re relentless pioneers who invented agentless technology and continue to be the most comprehensive and innovative cloud security company.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Well-capitalized:&lt;/strong&gt; With a valuation of $1.8 billion, Orca is a cybersecurity unicorn dominating the cloud security space. We’re backed by an impressive team of investors such as Capital G, ICONIQ, GGV, and SVCI, a syndicate of CISOs who invest their own money after conducting their due diligence.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Respectful and transparent culture:&lt;/strong&gt;&amp;nbsp;Our executives pride themselves on being accessible to everyone and believe in sharing knowledge with the employees. Each employee has a place in shaping the future of our industry.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h3&gt;&lt;strong&gt;About the role&lt;/strong&gt;&lt;/h3&gt;\n&lt;div class=&quot;p-rich_text_section&quot;&gt;\n&lt;p&gt;As the Head of Research, you will lead Orca Security’s threat-research, security-innovation, and vulnerability-discovery efforts. You will define the strategy for how we uncover threats, identify novel attack vectors, influence product direction, and contribute thought leadership to the cybersecurity community. You will manage and grow a team of world-class researchers, work closely with product, engineering and go-to-market teams, and ensure our research remains cutting-edge, rigorous and impactful. This role emphasizes strong people leadership and cross-functional execution, alongside technical depth and hands-on research judgment.&amp;nbsp;&lt;/p&gt;\n&lt;h3&gt;&lt;strong&gt;What you&#39;ll do&amp;nbsp;&lt;/strong&gt;&lt;/h3&gt;\n&lt;/div&gt;\n&lt;ul class=&quot;p-rich_text_list p-rich_text_list__bullet p-rich_text_list--nested&quot; data-stringify-type=&quot;unordered-list&quot; data-list-tree=&quot;true&quot; data-indent=&quot;0&quot; data-border=&quot;0&quot;&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Develop, own and evolve the research strategy by defining high value focus areas (for example misconfigurations, identity threats, workload vulnerabilities, and emerging attack techniques), and ensure alignment with Orca’s product roadmap and business objectives.&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Lead, coach, and mentor a multidisciplinary research team (researchers, threat analysts, and engineers).&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Build a healthy, high-performing org, including hiring, onboarding, and performance management.&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Partner closely with product and engineering leadership to turn research insights into concrete roadmap items, detection logic, and customer value.&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Drive discovery of new vulnerabilities, attack techniques, or adversary behaviors across cloud and modern infrastructure environments (for example containers, serverless, data stores, IAM).&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Define metrics for research impact (for example vulnerabilities discovered, time to validate and operationalize new findings, research-driven product improvements, external reach).&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Establish and maintain external partnerships (industry peers, academic groups, independent researchers) to expand Orca’s capabilities and pipeline.&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Publish and present research findings (blog posts, white papers, conference talks).&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Lead vulnerability disclosure and responsible communications.&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Ensure the research function has the right infrastructure and processes (tooling, sandboxes, repeatable experimentation, documentation standards).&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Stay current with the threat landscape, emerging technologies, attacker tradecraft, and relevant compliance or regulatory shifts.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;div class=&quot;p-rich_text_section&quot;&gt;\n&lt;h3&gt;&lt;strong&gt;About you&lt;/strong&gt;&lt;/h3&gt;\n&lt;/div&gt;\n&lt;ul&gt;\n&lt;li&gt;7+ years of experience in security research, threat intelligence, vulnerability discovery, offensive security, or closely related roles.&lt;/li&gt;\n&lt;li&gt;Proven people management experience (mandatory), including hiring, mentoring, and growing high-performing teams.&lt;/li&gt;\n&lt;li&gt;Demonstrated ability to set a research vision, prioritize effectively, and execute through others in a cross-functional environment.&lt;/li&gt;\n&lt;li&gt;Strong research fundamentals: designing experiments, validating hypotheses, and turning ambiguous signals into clear findings and recommendations.&lt;/li&gt;\n&lt;li&gt;Excellent stakeholder management and partnership skills, including the ability to collaborate deeply with engineering and product teams.&lt;/li&gt;\n&lt;li&gt;Strong written and verbal communication skills, including the ability to communicate complex technical concepts to varied audiences.&lt;/li&gt;\n&lt;li&gt;Ability to operate hands-on when needed (for example to review technical work, guide investigations, or unblock the team).&lt;/li&gt;\n&lt;li&gt;Solid coding fluency and automation mindset (languages and stack flexible, Python/Go helpful).&lt;/li&gt;\n&lt;/ul&gt;",
+        "departments": [
+          {
+            "id": 4051030004,
+            "name": "R&D",
+            "child_ids": [
+              4051027004,
+              4051031004
+            ],
+            "parent_id": null
+          }
+        ],
+        "offices": [
+          {
+            "id": 4026144004,
+            "name": "Tel Aviv",
+            "location": "Tel Aviv-Yafo, Tel Aviv District, Israel",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ]
+      },
+      {
+        "absolute_url": "https://orca.security/about/careers/5746348004?gh_jid=5746348004",
+        "data_compliance": [
+          {
+            "type": "gdpr",
+            "requires_consent": false,
+            "requires_processing_consent": false,
+            "requires_retention_consent": false,
+            "retention_period": null,
+            "demographic_data_consent_applies": false
+          }
+        ],
+        "internal_job_id": 5024611004,
+        "location": {
+          "name": "Tel Aviv-Yafo, Tel Aviv District, Israel"
+        },
+        "metadata": null,
+        "id": 5746348004,
+        "updated_at": "2026-02-05T06:48:22-05:00",
+        "requisition_id": null,
+        "title": "Principal Software Engineer - CTO Office ",
+        "company_name": "Orca Security",
+        "first_published": "2026-01-04T03:22:23-05:00",
+        "language": "en",
+        "content": "&lt;div class=&quot;p-rich_text_section&quot;&gt;\n&lt;h3&gt;&lt;strong&gt;Big Ideas. Real People.&amp;nbsp;&lt;/strong&gt;&lt;/h3&gt;\n&lt;p&gt;At Orca, in the right environment and with the right team,&lt;strong&gt; talent has no boundaries&lt;/strong&gt;. This team spirit, together with our drive to always aim high, has quickly earned us unicorn status and turned us into a global cloud security innovation leader. So if you’re ready to join an amazing team of people who inspire each other every day, now is the time to find your place in our pod.&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;We’re looking for driven and talented people like you to join our CTO Office and our mission to change the future of cloud security.&amp;nbsp;&lt;strong&gt;Ready to dive in and swim with our pod?&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;\n&lt;h3&gt;&lt;strong&gt;Highlights:&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;strong&gt;High-growth:&lt;/strong&gt; Over the past seven years, we’ve consistently achieved milestones that take other companies a decade or more. During this time, we’ve significantly grown our employee base, expanded our customer reach, and rapidly advanced our product capabilities.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Disruptive innovation: &lt;/strong&gt;Our founders saw that traditional security didn’t work for the cloud so they set out to carve a new path. We’re relentless pioneers who invented agentless technology and continue to be the most comprehensive and innovative cloud security company.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Well-capitalized:&lt;/strong&gt; With a valuation of $1.8 billion, Orca is a cybersecurity unicorn dominating the cloud security space. We’re backed by an impressive team of investors such as Capital G, ICONIQ, GGV, and SVCI, a syndicate of CISOs who invest their own money after conducting their due diligence.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Respectful and transparent culture:&amp;nbsp;&lt;/strong&gt;Our executives pride themselves on being accessible to everyone and believe in sharing knowledge with the employees. Each employee has a place in shaping the future of our industry.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/div&gt;\n&lt;div class=&quot;p-rich_text_section&quot;&gt;\n&lt;h3&gt;&lt;strong&gt;About the role:&lt;/strong&gt;&lt;/h3&gt;\nWe’re looking for a highly experienced&lt;strong&gt; Principal Software Engineer&lt;/strong&gt; to join our &lt;strong&gt;CTO team&lt;/strong&gt; in a cross-company, hands-on role. This position is focused on solving complex engineering challenges, driving architectural decisions, and actively contributing code across multiple teams and domains.You’ll work closely with senior engineers, architects, and leadership to improve platform scalability, reliability, and engineering practices, while remaining deeply involved in day-to-day development.&lt;/div&gt;\n&lt;div class=&quot;p-rich_text_section&quot;&gt;\n&lt;h3&gt;&lt;strong&gt;On a typical day you&#39;ll:&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul data-start=&quot;768&quot; data-end=&quot;1539&quot;&gt;\n&lt;li data-start=&quot;768&quot; data-end=&quot;870&quot;&gt;\n&lt;p data-start=&quot;770&quot; data-end=&quot;870&quot;&gt;Take ownership of complex technical challenges across the platform, from design through production&lt;/p&gt;\n&lt;/li&gt;\n&lt;li data-start=&quot;871&quot; data-end=&quot;966&quot;&gt;\n&lt;p data-start=&quot;873&quot; data-end=&quot;966&quot;&gt;Design and evolve scalable, reliable architectures supporting high traffic and rapid growth&lt;/p&gt;\n&lt;/li&gt;\n&lt;li data-start=&quot;967&quot; data-end=&quot;1061&quot;&gt;\n&lt;p data-start=&quot;969&quot; data-end=&quot;1061&quot;&gt;Actively contribute code, prototypes, and reference implementations used by multiple teams&lt;/p&gt;\n&lt;/li&gt;\n&lt;li data-start=&quot;1062&quot; data-end=&quot;1143&quot;&gt;\n&lt;p data-start=&quot;1064&quot; data-end=&quot;1143&quot;&gt;Lead and participate in architecture and code reviews across the organization&lt;/p&gt;\n&lt;/li&gt;\n&lt;li data-start=&quot;1144&quot; data-end=&quot;1241&quot;&gt;\n&lt;p data-start=&quot;1146&quot; data-end=&quot;1241&quot;&gt;Improve engineering practices around CI/CD, testing, observability, and operational readiness&lt;/p&gt;\n&lt;/li&gt;\n&lt;li data-start=&quot;1242&quot; data-end=&quot;1349&quot;&gt;\n&lt;p data-start=&quot;1244&quot; data-end=&quot;1349&quot;&gt;Partner with infrastructure, security, and product teams to define and meet non-functional requirements&lt;/p&gt;\n&lt;/li&gt;\n&lt;li data-start=&quot;1350&quot; data-end=&quot;1445&quot;&gt;\n&lt;p data-start=&quot;1352&quot; data-end=&quot;1445&quot;&gt;Identify recurring technical gaps and build tools, libraries, or automation to address them&lt;/p&gt;\n&lt;/li&gt;\n&lt;li data-start=&quot;1446&quot; data-end=&quot;1539&quot;&gt;\n&lt;p data-start=&quot;1448&quot; data-end=&quot;1539&quot;&gt;Support incident analysis and guide long-term improvements in performance and reliability&lt;/p&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h3&gt;&lt;strong&gt;About you:&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul data-start=&quot;1557&quot; data-end=&quot;2221&quot;&gt;\n&lt;li data-start=&quot;1557&quot; data-end=&quot;1655&quot;&gt;\n&lt;p data-start=&quot;1559&quot; data-end=&quot;1655&quot;&gt;8+ years of experience building and operating large-scale, cloud-native or distributed systems&lt;/p&gt;\n&lt;/li&gt;\n&lt;li data-start=&quot;1656&quot; data-end=&quot;1745&quot;&gt;\n&lt;p data-start=&quot;1658&quot; data-end=&quot;1745&quot;&gt;Strong hands-on background with microservices, APIs, and modern backend architectures&lt;/p&gt;\n&lt;/li&gt;\n&lt;li data-start=&quot;1746&quot; data-end=&quot;1836&quot;&gt;\n&lt;p data-start=&quot;1748&quot; data-end=&quot;1836&quot;&gt;Proven ability to influence architecture and technical direction across multiple teams&lt;/p&gt;\n&lt;/li&gt;\n&lt;li data-start=&quot;1837&quot; data-end=&quot;1932&quot;&gt;\n&lt;p data-start=&quot;1839&quot; data-end=&quot;1932&quot;&gt;Comfortable writing production-grade code, debugging complex issues, and leading by example&lt;/p&gt;\n&lt;/li&gt;\n&lt;li data-start=&quot;1933&quot; data-end=&quot;2031&quot;&gt;\n&lt;p data-start=&quot;1935&quot; data-end=&quot;2031&quot;&gt;Strong understanding of system reliability, performance tuning, and operational best practices&lt;/p&gt;\n&lt;/li&gt;\n&lt;li data-start=&quot;2032&quot; data-end=&quot;2137&quot;&gt;\n&lt;p data-start=&quot;2034&quot; data-end=&quot;2137&quot;&gt;Clear communicator who can work effectively with engineers, leadership, and cross-functional partners&lt;/p&gt;\n&lt;/li&gt;\n&lt;li data-start=&quot;2138&quot; data-end=&quot;2221&quot;&gt;\n&lt;p data-start=&quot;2140&quot; data-end=&quot;2221&quot;&gt;Independent, proactive, and motivated by improving engineering quality at scale&lt;/p&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p data-start=&quot;2223&quot; data-end=&quot;2428&quot;&gt;If you enjoy working on hard technical problems, influencing engineering direction without people management, and staying deeply hands-on while operating at a broad organizational level, we’d love to talk.&lt;/p&gt;\n&lt;/div&gt;",
+        "departments": [
+          {
+            "id": 4051030004,
+            "name": "R&D",
+            "child_ids": [
+              4051027004,
+              4051031004
+            ],
+            "parent_id": null
+          }
+        ],
+        "offices": [
+          {
+            "id": 4026144004,
+            "name": "Tel Aviv",
+            "location": "Tel Aviv-Yafo, Tel Aviv District, Israel",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ]
+      },
+      {
+        "absolute_url": "https://orca.security/about/careers/5808406004?gh_jid=5808406004",
+        "data_compliance": [
+          {
+            "type": "gdpr",
+            "requires_consent": false,
+            "requires_processing_consent": false,
+            "requires_retention_consent": false,
+            "retention_period": null,
+            "demographic_data_consent_applies": false
+          }
+        ],
+        "internal_job_id": 5054221004,
+        "location": {
+          "name": "Bengaluru, Karnataka, India"
+        },
+        "metadata": null,
+        "id": 5808406004,
+        "updated_at": "2026-02-22T08:19:32-05:00",
+        "requisition_id": null,
+        "title": "Sales Development Representative ",
+        "company_name": "Orca Security",
+        "first_published": "2026-02-22T06:32:46-05:00",
+        "language": "en",
+        "content": "&lt;h1&gt;&lt;strong&gt;Location: Bengaluru, India&lt;/strong&gt;&lt;/h1&gt;\n&lt;h3&gt;&lt;strong&gt;Big Ideas. Real People.&lt;/strong&gt;&lt;/h3&gt;\n&lt;p&gt;At Orca, in the right environment and with the right team, talent has no boundaries. This team spirit, together with our drive to always aim high, has quickly earned us unicorn status and turned us into a global cloud security innovation leader. So if you’re ready to join an amazing team of people who inspire each other every day, now is the time to find your place in our pod.&lt;/p&gt;\n&lt;p&gt;We’re looking for driven and talented people like you to join our Sales team and our mission to change the future of cloud security. &lt;strong&gt;Ready to dive in and swim with our pod?&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;\n&lt;h3&gt;&lt;strong&gt;Highlights:&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;strong&gt;High-growth: &lt;/strong&gt;Over the past six years, we’ve consistently achieved milestones that take other companies a decade or more. During this time, we’ve significantly grown our employee base, expanded our customer reach, and rapidly advanced our product capabilities.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Disruptive innovation:&lt;/strong&gt; Our founders saw that traditional security didn’t work for the cloud so they set out to carve a new path. We’re relentless pioneers who invented agentless technology and continue to be the most comprehensive and innovative cloud security company.&amp;nbsp;&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Well-capitalized:&lt;/strong&gt; With a valuation of $1.8 billion, Orca is a cybersecurity unicorn dominating the cloud security space. We’re backed by an impressive team of investors such as Capital G, ICONIQ, GGV, and SVCI, a syndicate of CISOs who invest their own money after conducting their due diligence.&amp;nbsp;&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Respectful and transparent culture:&lt;/strong&gt; Our executives pride themselves on being accessible to everyone and believe in sharing knowledge with the employees. Each employee has a place in shaping the future of our industry.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h3&gt;&lt;strong&gt;About the role:&lt;/strong&gt;&lt;/h3&gt;\n&lt;p&gt;Orca Security is a fast growing, innovative cybersecurity company revolutionizing cloud security. We are seeking dynamic and ambitious individuals to join our team as Sales Development Representatives (SDRs) in with a focus on outbound activity. This role offers recent graduates a unique opportunity to kick start their career in sales while making a significant impact in a rapidly expanding company.&lt;/p&gt;\n&lt;h3&gt;&lt;strong&gt;On a typical day you&#39;ll:&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;Prospecting: Use various outbound methods, such as cold calling, emailing, and social selling, to identify and engage potential customers.&lt;/li&gt;\n&lt;li&gt;Lead Generation: Generate high-quality leads and opportunities through proactive outreach efforts.&lt;/li&gt;\n&lt;li&gt;Opportunity Qualification: Conduct thorough research to understand prospects&#39; business needs and qualify them as potential Orca Security customers.&lt;/li&gt;\n&lt;li&gt;Pipeline Development: Collaborate with the sales team to build and maintain a robust sales pipeline.&lt;/li&gt;\n&lt;li&gt;Relationship Building: Establish and nurture relationships with key decision-makers to drive engagement and interest in Orca Security&#39;s solutions.&lt;/li&gt;\n&lt;li&gt;Metrics Tracking: Maintain accurate records of all prospecting activities and provide regular reports on key performance metrics.&lt;/li&gt;\n&lt;li&gt;Continuous Learning: Stay up-to-date on industry trends, product knowledge, and sales techniques to continuously improve performance.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h3&gt;&lt;strong&gt;About you:&lt;/strong&gt;&lt;/h3&gt;\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Bachelor&#39;s degree is must&lt;/li&gt;\n&lt;li&gt;Must be based in Bengaluru.&lt;/li&gt;\n&lt;li&gt;Up to 2 years of experience in sales or customer-facing e (&lt;strong&gt;maximum&lt;/strong&gt;)&lt;/li&gt;\n&lt;li&gt;Strong work ethic and desire to grow and learn.&lt;/li&gt;\n&lt;li&gt;Strong communication and interpersonal skills.&lt;/li&gt;\n&lt;li&gt;Highly motivated with a passion for sales and technology.&lt;/li&gt;\n&lt;li&gt;Ability to thrive in a fast-paced, results-oriented environment.&lt;/li&gt;\n&lt;li&gt;Resilience and persistence in the face of challenges.&lt;/li&gt;\n&lt;li&gt;Eagerness to learn and adapt to new processes and technologies.&lt;/li&gt;\n&lt;li&gt;Competitive and curious.&amp;nbsp;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h3&gt;&lt;strong&gt;Ideal Candidate:&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;Tough, tenacious, and looking to earn next steps in their career. This is not an easy job, but it is a fantastic opportunity for individuals who are willing to work hard and seize the chance to lay the groundwork for future success at Orca Security. If you are ready to take on challenges, grow professionally, and contribute to a leading cybersecurity company, we want to hear from you!&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h3&gt;&lt;strong&gt;Benefits:&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;Competitive salary, and commission structure.&lt;/li&gt;\n&lt;li&gt;Competitive benefits.&lt;/li&gt;\n&lt;li&gt;Comprehensive training and professional development opportunities.&lt;/li&gt;\n&lt;li&gt;A fast-paced, dynamic work environment with opportunities for career advancement.&lt;/li&gt;\n&lt;li&gt;Exposure to cutting-edge cybersecurity technology and solutions.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;",
+        "departments": [
+          {
+            "id": 4046952004,
+            "name": "Sales",
+            "child_ids": [
+              4050633004
+            ],
+            "parent_id": null
+          }
+        ],
+        "offices": [
+          {
+            "id": 4029697004,
+            "name": "India",
+            "location": "Bengaluru, Karnataka, India",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ]
+      },
+      {
+        "absolute_url": "https://orca.security/about/careers/5650444004?gh_jid=5650444004",
+        "data_compliance": [
+          {
+            "type": "gdpr",
+            "requires_consent": false,
+            "requires_processing_consent": false,
+            "requires_retention_consent": false,
+            "retention_period": null,
+            "demographic_data_consent_applies": false
+          }
+        ],
+        "internal_job_id": 4980266004,
+        "location": {
+          "name": "United States"
+        },
+        "metadata": null,
+        "id": 5650444004,
+        "updated_at": "2026-01-25T09:05:57-05:00",
+        "requisition_id": null,
+        "title": "Sales Development Representative ",
+        "company_name": "Orca Security",
+        "first_published": "2025-09-15T15:29:51-04:00",
+        "language": "en",
+        "content": "&lt;p&gt;&lt;strong&gt;Location: Hybrid - Austin, Texas&lt;/strong&gt;&lt;/p&gt;\n&lt;h3&gt;&lt;strong&gt;Big Ideas. Real People.&lt;/strong&gt;&lt;/h3&gt;\n&lt;p&gt;At Orca, in the right environment and with the right team, talent has no boundaries. This team spirit, together with our drive to always aim high, has quickly earned us unicorn status and turned us into a global cloud security innovation leader. So if you’re ready to join an amazing team of people who inspire each other every day, now is the time to find your place in our pod.&lt;/p&gt;\n&lt;p&gt;We’re looking for driven and talented people like you to join our Sales team and our mission to change the future of cloud security. &lt;strong&gt;Ready to dive in and swim with our pod?&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;\n&lt;h3&gt;&lt;strong&gt;Highlights&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;strong&gt;High-growth: &lt;/strong&gt;Over the past six years, we’ve consistently achieved milestones that take other companies a decade or more. During this time, we’ve significantly grown our employee base, expanded our customer reach, and rapidly advanced our product capabilities.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Disruptive innovation:&lt;/strong&gt; Our founders saw that traditional security didn’t work for the cloud so they set out to carve a new path. We’re relentless pioneers who invented agentless technology and continue to be the most comprehensive and innovative cloud security company.&amp;nbsp;&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Well-capitalized:&lt;/strong&gt; With a valuation of $1.8 billion, Orca is a cybersecurity unicorn dominating the cloud security space. We’re backed by an impressive team of investors such as Capital G, ICONIQ, GGV, and SVCI, a syndicate of CISOs who invest their own money after conducting their due diligence.&amp;nbsp;&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Respectful and transparent culture:&lt;/strong&gt; Our executives pride themselves on being accessible to everyone and believe in sharing knowledge with the employees. Each employee has a place in shaping the future of our industry.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h3&gt;&lt;strong&gt;About the role&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;Prospecting: Use various outbound methods, such as cold calling, emailing, and social selling, to identify and engage potential customers.&lt;/li&gt;\n&lt;li&gt;Lead Generation: Generate high-quality leads and opportunities through proactive outreach efforts.&lt;/li&gt;\n&lt;li&gt;Opportunity Qualification: Conduct thorough research to understand prospects&#39; business needs and qualify them as potential Orca Security customers.&lt;/li&gt;\n&lt;li&gt;Pipeline Development: Collaborate with the sales team to build and maintain a robust sales pipeline.&lt;/li&gt;\n&lt;li&gt;Relationship Building: Establish and nurture relationships with key decision-makers to drive engagement and interest in Orca Security&#39;s solutions.&lt;/li&gt;\n&lt;li&gt;Metrics Tracking: Maintain accurate records of all prospecting activities and provide regular reports on key performance metrics.&lt;/li&gt;\n&lt;li&gt;Continuous Learning: Stay up-to-date on industry trends, product knowledge, and sales techniques to continuously improve performance.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h3&gt;&lt;strong&gt;About you&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;Strong work ethic and desire to grow and learn.&amp;nbsp;&lt;/li&gt;\n&lt;li&gt;Strong communication and interpersonal skills.&lt;/li&gt;\n&lt;li&gt;Highly motivated with a passion for sales and technology.&lt;/li&gt;\n&lt;li&gt;Ability to thrive in a fast-paced, results-oriented environment.&lt;/li&gt;\n&lt;li&gt;Resilience and persistence in the face of challenges.&lt;/li&gt;\n&lt;li&gt;Eagerness to learn and adapt to new processes and technologies.&lt;/li&gt;\n&lt;li&gt;Competitive and curious.&amp;nbsp;&lt;/li&gt;\n&lt;li&gt;Previous sales or customer-facing experience is a plus but not required.&lt;/li&gt;\n&lt;li&gt;Bachelor&#39;s degree is preferred or equivalent practical experience.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h3&gt;&lt;strong&gt;And also...&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;Tough, tenacious, and looking to earn next steps in their career. This is not an easy job, but it is a fantastic opportunity for individuals who are willing to work hard and seize the chance to lay the groundwork for future success at Orca Security.&lt;strong&gt; If you are ready to take on challenges, grow professionally, and contribute to a leading cybersecurity company, we want to hear from you!&lt;/strong&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h3&gt;&lt;strong&gt;Why join Orca Security?&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;Competitive salary, and commission structure.&lt;/li&gt;\n&lt;li&gt;Competitive benefits.&lt;/li&gt;\n&lt;li&gt;Comprehensive training and professional development opportunities.&lt;/li&gt;\n&lt;li&gt;A fast-paced, dynamic work environment with opportunities for career advancement.&lt;/li&gt;\n&lt;li&gt;Exposure to cutting-edge cybersecurity technology and solutions.&lt;/li&gt;\n&lt;li&gt;Located in Austin, Texas (hybrid work from home and in-office schedule).&amp;nbsp;&amp;nbsp;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;&lt;em&gt;Orca Security is an equal opportunity employer. We do not discriminate based on race, religion, color, national origin, sex (including pregnancy, childbirth, reproductive health decisions, or related medical conditions), sexual orientation, gender identity, gender expression, age, status as a protected veteran, status as an individual with a disability, genetic information, political views or activity, or other applicable legally protected characteristics.&lt;/em&gt;&lt;/p&gt;",
+        "departments": [
+          {
+            "id": 4046952004,
+            "name": "Sales",
+            "child_ids": [
+              4050633004
+            ],
+            "parent_id": null
+          }
+        ],
+        "offices": [
+          {
+            "id": 4026827004,
+            "name": "United States",
+            "location": null,
+            "child_ids": [],
+            "parent_id": null
+          }
+        ]
+      },
+      {
+        "absolute_url": "https://orca.security/about/careers/5797515004?gh_jid=5797515004",
+        "data_compliance": [
+          {
+            "type": "gdpr",
+            "requires_consent": false,
+            "requires_processing_consent": false,
+            "requires_retention_consent": false,
+            "retention_period": null,
+            "demographic_data_consent_applies": false
+          }
+        ],
+        "internal_job_id": 5048551004,
+        "location": {
+          "name": "Tel Aviv-Yafo, Tel Aviv District, Israel"
+        },
+        "metadata": null,
+        "id": 5797515004,
+        "updated_at": "2026-02-11T11:58:23-05:00",
+        "requisition_id": null,
+        "title": "Security Researcher",
+        "company_name": "Orca Security",
+        "first_published": "2026-02-10T09:55:08-05:00",
+        "language": "en",
+        "content": "&lt;h3&gt;&lt;strong&gt;Big Ideas. Real People.&lt;/strong&gt;&lt;/h3&gt;\n&lt;p&gt;At Orca, in the right environment and with the right team,&lt;strong&gt; talent has no boundaries&lt;/strong&gt;. This team spirit, together with our drive to always aim high, has quickly earned us unicorn status and turned us into a global cloud security innovation leader. So if you’re ready to join an amazing team of people who inspire each other every day, now is the time to find your place in our pod.&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;We’re looking for driven and talented people like you to join our team and our mission to change the future of cloud security. &lt;strong&gt;Ready to dive in and swim with our pod?&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;\n&lt;h3&gt;&lt;strong&gt;Highlights&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;strong&gt;High-growth:&lt;/strong&gt; Over the past seven years, we’ve consistently achieved milestones that take other companies a decade or more. During this time, we’ve significantly grown our employee base, expanded our customer reach, and rapidly advanced our product capabilities.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Disruptive innovation: &lt;/strong&gt;Our founders saw that traditional security didn’t work for the cloud—so they set out to carve a new path. We’re relentless pioneers who invented agentless technology and continue to be the most comprehensive and innovative cloud security company.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Well-capitalized:&lt;/strong&gt; With a valuation of $1.8 billion, Orca is a cybersecurity unicorn dominating the cloud security space. We’re backed by an impressive team of investors such as Capital G, ICONIQ, GGV, and SVCI, a syndicate of CISOs who invest their own money after conducting their due diligence.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Respectful and transparent culture:&amp;nbsp;&lt;/strong&gt;Our executives pride themselves on being accessible to everyone and believe in sharing knowledge with the employees. Each employee has a place in shaping the future of our industry.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;div&gt;\n&lt;h3&gt;&lt;strong&gt;About the role&lt;/strong&gt;&lt;/h3&gt;\nWe’re looking for a&amp;nbsp;&lt;strong&gt;Security Researcher&lt;/strong&gt; to help us stay ahead of threats across cloud, runtime, and application environments. This role is intentionally broad and can fit backgrounds in operating systems and Linux internals, vulnerability research, DFIR, penetration testing, and incident response, threat detection, AppSec, and cloud security.&lt;/div&gt;\n&lt;div&gt;\n&lt;h3&gt;&lt;strong&gt;On a typical day you&#39;ll&lt;/strong&gt;&lt;/h3&gt;\n&lt;/div&gt;\n&lt;ul&gt;\n&lt;li&gt;Research and analyze emerging threats across cloud platforms, applications, APIs, and runtime environments&lt;/li&gt;\n&lt;li&gt;Investigate attacks and security incidents, then turn findings into improved detections and product capabilities&lt;/li&gt;\n&lt;li&gt;Build detection logic, analytics, rules, and signatures for vulnerabilities, exposures, and active threats&lt;/li&gt;\n&lt;li&gt;Contribute to runtime and cloud security visibility and detection (Linux, containers, Kubernetes)&lt;/li&gt;\n&lt;li&gt;Prototype tools and automation to speed up research and improve detection accuracy&lt;/li&gt;\n&lt;li&gt;Share knowledge through internal enablement, blog posts, whitepapers, or conference talks&lt;/li&gt;\n&lt;/ul&gt;\n&lt;div&gt;\n&lt;h3&gt;&lt;strong&gt;About you&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;4+ years in security research or security engineering&lt;/li&gt;\n&lt;li&gt;Strong foundation in one or more of:&amp;nbsp;&lt;br&gt;Operating systems (especially Linux)&lt;br&gt;Vulnerability management/research&lt;br&gt;DFIR, incident response, or threat hunting&lt;br&gt;Cloud/container/runtime security&lt;/li&gt;\n&lt;li&gt;Strong analytical “attacker mindset” and ability to explain complex findings clearly&lt;/li&gt;\n&lt;li&gt;Proficiency in Python (Go is a plus)&lt;/li&gt;\n&lt;li&gt;Experience working with telemetry and data (SQL/Elastic or similar is a plus)&lt;/li&gt;\n&lt;li&gt;Comfortable collaborating across teams in English&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h3&gt;&lt;strong&gt;Nice to have&lt;/strong&gt;&lt;/h3&gt;\n&lt;/div&gt;\n&lt;ul&gt;\n&lt;li&gt;Kubernetes/containers, major clouds (AWS/Azure/GCP)&lt;/li&gt;\n&lt;li&gt;eBPF, reverse engineering, offensive security experience&lt;/li&gt;\n&lt;li&gt;Open-source security tooling familiarity, or AI/automation in security workflows&lt;/li&gt;\n&lt;/ul&gt;",
+        "departments": [
+          {
+            "id": 4051030004,
+            "name": "R&D",
+            "child_ids": [
+              4051027004,
+              4051031004
+            ],
+            "parent_id": null
+          }
+        ],
+        "offices": [
+          {
+            "id": 4026144004,
+            "name": "Tel Aviv",
+            "location": "Tel Aviv-Yafo, Tel Aviv District, Israel",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ]
+      },
+      {
+        "absolute_url": "https://orca.security/about/careers/5804782004?gh_jid=5804782004",
+        "data_compliance": [
+          {
+            "type": "gdpr",
+            "requires_consent": false,
+            "requires_processing_consent": false,
+            "requires_retention_consent": false,
+            "retention_period": null,
+            "demographic_data_consent_applies": false
+          }
+        ],
+        "internal_job_id": 5052392004,
+        "location": {
+          "name": "Tel Aviv-Yafo, Tel Aviv District, Israel"
+        },
+        "metadata": null,
+        "id": 5804782004,
+        "updated_at": "2026-02-17T09:44:30-05:00",
+        "requisition_id": null,
+        "title": "Senior Product Manager",
+        "company_name": "Orca Security",
+        "first_published": "2026-02-16T07:42:51-05:00",
+        "language": "en",
+        "content": "&lt;h3&gt;&lt;strong&gt;Big Ideas. Real People.&lt;/strong&gt;&lt;/h3&gt;\n&lt;p&gt;At Orca, in the right environment and with the right team, talent has no boundaries. This team spirit, together with our drive to always aim high, has quickly earned us unicorn status and turned us into a global cloud security innovation leader. So if you’re ready to join an amazing team of people who inspire each other every day, now is the time to find your place in our pod.&lt;/p&gt;\n&lt;p&gt;We’re looking for driven and talented people like you to join our product group and our mission to change the future of cloud security. &lt;strong&gt;Ready to dive in and swim with our pod?&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;\n&lt;h3&gt;&lt;strong&gt;Highlights&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;strong&gt;High-growth: &lt;/strong&gt;Over the past seven years, we’ve consistently achieved milestones that take other companies a decade or more. During this time, we’ve significantly grown our employee base, expanded our customer reach, and rapidly advanced our product capabilities.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Disruptive innovation:&lt;/strong&gt; Our founders saw that traditional security didn’t work for the cloud so they set out to carve a new path. We’re relentless pioneers who invented agentless technology and continue to be the most comprehensive and innovative cloud security company.&amp;nbsp;&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Well-capitalized:&lt;/strong&gt; With a valuation of $1.8 billion, Orca is a cybersecurity unicorn dominating the cloud security space. We’re backed by an impressive team of investors such as Capital G, ICONIQ, GGV, and SVCI, a syndicate of CISOs who invest their own money after conducting their due diligence.&amp;nbsp;&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Respectful and transparent culture:&lt;/strong&gt; Our executives pride themselves on being accessible to everyone and believe in sharing knowledge with the employees. Each employee has a place in shaping the future of our industry.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h3&gt;&lt;strong&gt;About the role&lt;/strong&gt;&lt;/h3&gt;\n&lt;p&gt;We’re looking for a senior product manager to own Orca’s AI infrastructure end to end. This is a high-impact role with full responsibility for the foundations behind all AI capabilities at Orca, and a key opportunity to shape the future of the Orca product and Orca’s market leadership in cloud security.&lt;/p&gt;\n&lt;h3&gt;&lt;strong&gt;What you&#39;ll do&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;Own and lead Orca’s AI infrastructure domain, with full responsibility for cross-platform AI initiatives.&lt;/li&gt;\n&lt;li&gt;Partner closely with R&amp;amp;D, Product Design, Marketing, and Sales to define and execute a roadmap that delivers cutting-edge security capabilities.&lt;/li&gt;\n&lt;li&gt;Act as the visionary owner of the domain — bringing bold ideas to the table and turning them into real, scalable product impact.&lt;/li&gt;\n&lt;li&gt;Shape Orca’s long-term product strategy and contribute directly to the company’s vision for cloud security.&amp;nbsp;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h3&gt;&lt;strong&gt;What we&#39;re looking for&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;strong&gt;5+ years&lt;/strong&gt; of experience as a Product Manager in complex SaaS platforms&lt;/li&gt;\n&lt;li&gt;Proven track record of owning and scaling &lt;strong&gt;security products&lt;/strong&gt;-&lt;strong&gt;Must&lt;/strong&gt;&lt;/li&gt;\n&lt;li&gt;Strong leadership and interpersonal skills with a “can-do” attitude.&lt;/li&gt;\n&lt;li&gt;Passion for user experience and delivering impactful, customer-centric products.&lt;/li&gt;\n&lt;li&gt;Experience leading AI features or working on AI platforms is a significant advantage.&lt;/li&gt;\n&lt;/ul&gt;",
+        "departments": [
+          {
+            "id": 4051027004,
+            "name": "Product ",
+            "child_ids": [],
+            "parent_id": 4051030004
+          }
+        ],
+        "offices": [
+          {
+            "id": 4026144004,
+            "name": "Tel Aviv",
+            "location": "Tel Aviv-Yafo, Tel Aviv District, Israel",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ]
+      },
+      {
+        "absolute_url": "https://orca.security/about/careers/5789042004?gh_jid=5789042004",
+        "data_compliance": [
+          {
+            "type": "gdpr",
+            "requires_consent": false,
+            "requires_processing_consent": false,
+            "requires_retention_consent": false,
+            "retention_period": null,
+            "demographic_data_consent_applies": false
+          }
+        ],
+        "internal_job_id": 5044807004,
+        "location": {
+          "name": "Tel Aviv-Yafo, Tel Aviv District, Israel"
+        },
+        "metadata": null,
+        "id": 5789042004,
+        "updated_at": "2026-02-16T08:17:09-05:00",
+        "requisition_id": null,
+        "title": "Senior Product Manager",
+        "company_name": "Orca Security",
+        "first_published": "2026-02-11T09:07:30-05:00",
+        "language": "en",
+        "content": "&lt;h3&gt;&lt;strong&gt;Big Ideas. Real People.&lt;/strong&gt;&lt;/h3&gt;\n&lt;p&gt;At Orca, in the right environment and with the right team, talent has no boundaries. This team spirit, together with our drive to always aim high, has quickly earned us unicorn status and turned us into a global cloud security innovation leader. So, if you’re ready to join an amazing team of people who inspire each other every day, now is the time to find your place in our pod.&lt;/p&gt;\n&lt;h3&gt;&lt;strong&gt;Highlights&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;strong&gt;High growth:&lt;/strong&gt; In just seven years, we’ve reached milestones that take other companies a decade or more. We’ve doubled our employee count, tripled our customer count, and rapidly expanded our product capabilities.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Disruptive innovation:&lt;/strong&gt; Our founders saw that traditional security didn’t work for the cloud so they set out to carve a new path. We’re relentless pioneers who invented agentless technology and continue to be the most comprehensive and innovative cloud security company.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Well-capitalized:&lt;/strong&gt; With a valuation of $1.8 billion, Orca is a cybersecurity unicorn dominating the cloud security space. We’re backed by an impressive team of investors such as Capital G, ICONIQ, GGV, and SVCI, a syndicate of CISOs who invest their own money after conducting their due diligence.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Respectful and transparent culture:&lt;/strong&gt; Our executives pride themselves on being accessible to everyone and believe in sharing knowledge with the employees. Each employee has a place in shaping the future of our industry.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h3&gt;&lt;strong&gt;About the role&lt;/strong&gt;&lt;/h3&gt;\n&lt;p&gt;We’re looking for a Product Manager to lead Orca’s Attack Surface Management (ASM) product offerings - covering asset exposure, attack path analysis, and a dedicated API Security portfolio (API discovery, posture, and risk prevention/detection).&lt;br&gt;This is a high-impact role spanning cloud security, network exposure, identity and access, and application/API security. You’ll define the strategy for how Orca discovers internet-exposed and cloud-connected assets, prioritizes critical exposures, and maps attack paths to crown-jewel assets - so teams can focus on what’s actually exploitable and cut noise.&lt;br&gt;You’ll collaborate with engineering, design, research/analyst teams, sales engineering, and customer success to turn complex, noisy security signals into simple, actionable, and measurable outcomes for enterprise security teams.&lt;/p&gt;\n&lt;p&gt;The role is based in Israel, working closely with a remote engineering team in the UK and reporting to an Israeli manager based in the US. &lt;strong&gt;It requires a high level of independence, ownership, and initiative.&lt;/strong&gt;&lt;/p&gt;\n&lt;h3&gt;&lt;strong&gt;On a typical day you’ll&lt;/strong&gt;&lt;/h3&gt;\n&lt;h4&gt;&lt;strong&gt;Product Strategy &amp;amp; Execution&lt;/strong&gt;&lt;/h4&gt;\n&lt;ul&gt;\n&lt;li&gt;Own the vision, strategy, and roadmap for Orca’s ASM, Exposure Management, and Attack Paths products - including continuous discovery and inventory across external and cloud attack surface&lt;/li&gt;\n&lt;li&gt;Drive attack path analysis that connects exposure → lateral movement → crown-jewel impact, with “break-the-path” remediation guidance&lt;/li&gt;\n&lt;li&gt;Own the API Security strategy - API discovery and inventory/ownership, auth posture (authn/authz), sensitive exposure signals, and risk prevention/detection&lt;/li&gt;\n&lt;li&gt;Establish and track success metrics: coverage, precision, adoption, time-to-triage/remediate, and measurable risk reduction&lt;/li&gt;\n&lt;li&gt;Identify and prioritize key initiatives across detection accuracy, automation, integrations, and enterprise readiness&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h4&gt;&lt;strong&gt;Collaboration &amp;amp; Delivery&lt;/strong&gt;&lt;/h4&gt;\n&lt;ul&gt;\n&lt;li&gt;Lead cross-functional execution with engineering (UK), security research and analyst, sales engineering, customer success, design, and marketing teams - to deliver best-in-class features on time.&lt;/li&gt;\n&lt;li&gt;Translate technical and regulatory requirements into clear product specifications.&lt;/li&gt;\n&lt;li&gt;Collaborate on go-to-market strategies, enablement materials, and field feedback loops to drive awareness and adoption of Attack Surface Management offerings.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h4&gt;&lt;strong&gt;Customer &amp;amp; Market Engagement&lt;/strong&gt;&lt;/h4&gt;\n&lt;ul&gt;\n&lt;li&gt;Engage with CISOs, security architects, and exposure management owners to understand their biggest ASM challenges around exposure, attack paths and API Security.&lt;/li&gt;\n&lt;li&gt;Stay ahead of trends in ASM, Exposure Management, CAASM/EASM, attack graph technologies, API security, and CNAPP ecosystems.&lt;/li&gt;\n&lt;li&gt;Represent Orca as a thought leader in Exposure Management and Attack Path prioritization, working with customers, partners, and industry analysts.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h3&gt;&lt;strong&gt;About you&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;3+ years of relevant cybersecurity background, including security research, threat intelligence, offensive security or closely related roles&lt;/li&gt;\n&lt;li&gt;2+ years of product management experience in B2B SaaS (preferably cybersecurity) building products for enterprise customers&lt;/li&gt;\n&lt;li&gt;Strong cloud security knowledge in at least one major cloud platform (AWS, Azure, or GCP), including networking, IAM, compute, and Kubernetes/serverless concepts&lt;/li&gt;\n&lt;li&gt;Technical depth to partner with engineering and customer-facing teams and translate complex problems into clear requirements&lt;/li&gt;\n&lt;li&gt;Ability to think with an attacker mindset and prioritize exposure and risk; offensive security experience is a strong advantage&lt;/li&gt;\n&lt;li&gt;Experience working with large-scale security data, signal quality, false positives, and prioritization tradeoffs is a strong advantage&lt;/li&gt;\n&lt;li&gt;Strong communication skills and comfort working cross-functionally across distributed teams&lt;/li&gt;\n&lt;li&gt;Highly independent, proactive, and execution driven&lt;/li&gt;\n&lt;li&gt;Fluent English (written and spoken)&lt;/li&gt;\n&lt;/ul&gt;",
+        "departments": [
+          {
+            "id": 4051027004,
+            "name": "Product ",
+            "child_ids": [],
+            "parent_id": 4051030004
+          }
+        ],
+        "offices": [
+          {
+            "id": 4026144004,
+            "name": "Tel Aviv",
+            "location": "Tel Aviv-Yafo, Tel Aviv District, Israel",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ]
+      },
+      {
+        "absolute_url": "https://orca.security/about/careers/5798960004?gh_jid=5798960004",
+        "data_compliance": [
+          {
+            "type": "gdpr",
+            "requires_consent": false,
+            "requires_processing_consent": false,
+            "requires_retention_consent": false,
+            "retention_period": null,
+            "demographic_data_consent_applies": false
+          }
+        ],
+        "internal_job_id": 5049328004,
+        "location": {
+          "name": "Tel Aviv-Yafo, Tel Aviv District, Israel"
+        },
+        "metadata": null,
+        "id": 5798960004,
+        "updated_at": "2026-02-11T11:58:26-05:00",
+        "requisition_id": null,
+        "title": "Senior Security Researcher",
+        "company_name": "Orca Security",
+        "first_published": "2026-02-11T01:53:18-05:00",
+        "language": "en",
+        "content": "&lt;p&gt;&lt;/p&gt;\n&lt;h3&gt;&lt;strong&gt;Big Ideas. Real People.&lt;/strong&gt;&lt;/h3&gt;\n&lt;p&gt;At Orca, in the right environment and with the right team,&lt;strong&gt; talent has no boundaries&lt;/strong&gt;. This team spirit, together with our drive to always aim high, has quickly earned us unicorn status and turned us into a global cloud security innovation leader. So if you’re ready to join an amazing team of people who inspire each other every day, now is the time to find your place in our pod.&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;We’re looking for driven and talented people like you to join our CTO office and our mission to change the future of cloud security.&amp;nbsp;&lt;strong&gt;Ready to dive in and swim with our pod?&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;/p&gt;\n&lt;h3&gt;&lt;strong&gt;Highlights&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;strong&gt;High-growth:&lt;/strong&gt; Over the past seven years, we’ve consistently achieved milestones that take other companies a decade or more. During this time, we’ve significantly grown our employee base, expanded our customer reach, and rapidly advanced our product capabilities.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Disruptive innovation: &lt;/strong&gt;Our founders saw that traditional security didn’t work for the cloud—so they set out to carve a new path. We’re relentless pioneers who invented agentless technology and continue to be the most comprehensive and innovative cloud security company.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Well-capitalized:&lt;/strong&gt; With a valuation of $1.8 billion, Orca is a cybersecurity unicorn dominating the cloud security space. We’re backed by an impressive team of investors such as Capital G, ICONIQ, GGV, and SVCI, a syndicate of CISOs who invest their own money after conducting their due diligence.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Respectful and transparent culture:&amp;nbsp;&lt;/strong&gt;Our executives pride themselves on being accessible to everyone and believe in sharing knowledge with the employees. Each employee has a place in shaping the future of our industry.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;div&gt;\n&lt;h3&gt;&lt;strong&gt;About the role&lt;/strong&gt;&lt;/h3&gt;\nWe’re looking for a&amp;nbsp;&lt;strong&gt;Senior Security Researcher&lt;/strong&gt; to drive high-impact research across cloud, runtime, and application environments, and translate it into product-grade detections. This is a hands-on role for someone who can lead investigations end-to-end: from understanding attacker tradecraft and vulnerabilities, through building reliable detection logic, to influencing product direction.&lt;br&gt;\n&lt;h3&gt;&lt;/h3&gt;\n&lt;h3&gt;&lt;strong&gt;On a typical day you&#39;ll&amp;nbsp;&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;Lead deep-dive research into real-world attacks, vulnerabilities, and emerging cloud and runtime techniques&lt;/li&gt;\n&lt;li&gt;Own complex investigations (DFIR, threat hunting, root-cause analysis) and convert learnings into durable detections&lt;/li&gt;\n&lt;li&gt;Design and implement advanced detection logic and analytics across cloud assets, containers, Kubernetes, and Linux runtime telemetry&lt;/li&gt;\n&lt;li&gt;Build prototypes and production-ready components that improve detection accuracy, fidelity, and coverage&lt;/li&gt;\n&lt;li&gt;Partner closely with engineering and product to shape roadmap priorities and guide implementation details&lt;/li&gt;\n&lt;li&gt;Develop research methodologies, testing frameworks, and validation processes for new detections&lt;/li&gt;\n&lt;li&gt;Mentor and level up other researchers and engineers through reviews, knowledge sharing, and technical guidance&lt;/li&gt;\n&lt;li&gt;Represent the team externally through publications, technical blogs, and conference talks&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/div&gt;\n&lt;div&gt;\n&lt;p&gt;&lt;/p&gt;\n&lt;h3&gt;&lt;strong&gt;About you&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;&amp;nbsp;7+ years of experience in security research, detection engineering, incident response, or comparable hands-on security roles&lt;/li&gt;\n&lt;li&gt;Demonstrated expertise in at least two of the following areas (and working knowledge in the others):&lt;br&gt;Linux internals / operating systems fundamentals&lt;br&gt;Cloud security (AWS/Azure/GCP), including common attack paths and misconfiguration patterns&lt;br&gt;DFIR, threat hunting, and investigation workflows using telemetry and logs&lt;br&gt;Vulnerability research or vulnerability management at scale (triage, prioritization, exploitation understanding)&lt;br&gt;Application and API security fundamentals&lt;/li&gt;\n&lt;li&gt;Strong programming skills in Python (Go is a strong plus); ability to produce maintainable research code and production logic&lt;/li&gt;\n&lt;li&gt;Strong data skills: comfortable working with large telemetry datasets (SQL and log analytics platforms such as Elastic or similar)&lt;/li&gt;\n&lt;li&gt;Ability to reason about attacker behavior, build threat models, and validate detections with repeatable testing&lt;/li&gt;\n&lt;li&gt;Excellent written and verbal English communication, including the ability to explain nuanced technical tradeoffs to non-research audiences&lt;/li&gt;\n&lt;li&gt;Track record of driving cross-team execution and shipping impactful security capabilities&lt;/li&gt;\n&lt;/ul&gt;\n&lt;strong&gt;&lt;/strong&gt;\n&lt;h3&gt;&lt;/h3&gt;\n&lt;h3&gt;&lt;/h3&gt;\n&lt;h3&gt;&lt;strong&gt;Nice to have&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;Experience with Kubernetes and container runtime security&lt;/li&gt;\n&lt;li&gt;eBPF or low-level telemetry approaches, syscall or kernel-level visibility&lt;/li&gt;\n&lt;li&gt;Reverse engineering and malware analysis&lt;/li&gt;\n&lt;li&gt;Offensive security background (web, cloud, exploit development)&lt;/li&gt;\n&lt;li&gt;Contributions to open-source security projects or published research&lt;/li&gt;\n&lt;li&gt;Experience using automation or AI-assisted techniques to scale research and detection workflows&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/div&gt;\n&lt;div&gt;\n&lt;h3&gt;&lt;strong&gt;Success looks like&amp;nbsp;&lt;/strong&gt;&lt;/h3&gt;\n&lt;/div&gt;\n&lt;ul&gt;\n&lt;li&gt;You consistently deliver new detections or improvements that measurably reduce false positives and increase coverage&lt;/li&gt;\n&lt;li&gt;Your investigations produce clear, actionable insights and influence product direction&lt;/li&gt;\n&lt;li&gt;You raise the technical bar for research quality, validation rigor, and operational maturity across the team&lt;/li&gt;\n&lt;/ul&gt;",
+        "departments": [
+          {
+            "id": 4051030004,
+            "name": "R&D",
+            "child_ids": [
+              4051027004,
+              4051031004
+            ],
+            "parent_id": null
+          }
+        ],
+        "offices": [
+          {
+            "id": 4026144004,
+            "name": "Tel Aviv",
+            "location": "Tel Aviv-Yafo, Tel Aviv District, Israel",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ]
+      },
+      {
+        "absolute_url": "https://orca.security/about/careers/5263129004?gh_jid=5263129004",
+        "data_compliance": [
+          {
+            "type": "gdpr",
+            "requires_consent": false,
+            "requires_processing_consent": false,
+            "requires_retention_consent": false,
+            "retention_period": null,
+            "demographic_data_consent_applies": false
+          }
+        ],
+        "internal_job_id": 4757728004,
+        "location": {
+          "name": "Tel Aviv-Yafo, Tel Aviv District, Israel"
+        },
+        "metadata": null,
+        "id": 5263129004,
+        "updated_at": "2026-01-26T09:59:11-05:00",
+        "requisition_id": null,
+        "title": "Senior Software Engineer ",
+        "company_name": "Orca Security",
+        "first_published": "2024-08-22T03:41:58-04:00",
+        "language": "en",
+        "content": "&lt;h3&gt;&lt;strong&gt;Big Ideas. Real People.&lt;/strong&gt;&lt;/h3&gt;\n&lt;p&gt;At Orca, in the right environment and with the right team,&lt;strong&gt; talent has no boundaries&lt;/strong&gt;. This team spirit, together with our drive to always aim high, has quickly earned us unicorn status and turned us into a global cloud security innovation leader. So if you’re ready to join an amazing team of people who inspire each other every day, now is the time to find your place in our pod.&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;We’re looking for driven and talented people like you to join our R&amp;amp;D team and our mission to change the future of cloud security. &lt;strong&gt;Ready to dive in and swim with our pod?&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;\n&lt;h3&gt;&lt;strong&gt;Highlights:&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;strong&gt;High-growth:&lt;/strong&gt; Over the past seven years, we’ve consistently achieved milestones that take other companies a decade or more. During this time, we’ve significantly grown our employee base, expanded our customer reach, and rapidly advanced our product capabilities.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Disruptive innovation:&lt;/strong&gt; Our founders saw that traditional security didn’t work for the cloud, so they set out to carve a new path. We’re relentless pioneers who invented agentless technology and continue to be the most comprehensive and innovative cloud security company.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Well-capitalized:&lt;/strong&gt; With a valuation of $1.8 billion, Orca is a cybersecurity unicorn dominating the cloud security space. We’re backed by an impressive team of investors such as Capital G, ICONIQ, GGV, and SVCI, a syndicate of CISOs who invest their own money after conducting their due diligence.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Respectful and transparent culture:&lt;/strong&gt;&amp;nbsp;Our executives pride themselves on being accessible to everyone and believe in sharing knowledge with the employees. Each employee has a place in shaping the future of our industry.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h3&gt;&lt;strong&gt;About the role:&lt;/strong&gt;&lt;/h3&gt;\n&lt;div class=&quot;p-rich_text_section&quot;&gt;As a Senior Software Engineer on the Data Platform, you’ll be part of one of Orca’s most strategic engineering groups, tasked with building the core data ingestion and processing infrastructure that powers our entire platform. The team is responsible for handling billions of cloud signals daily, ensuring scalability, reliability, and efficiency across Orca’s architecture.&lt;/div&gt;\n&lt;div class=&quot;p-rich_text_section&quot;&gt;&amp;nbsp;&lt;/div&gt;\n&lt;div class=&quot;p-rich_text_section&quot;&gt;You’ll work on large-scale distributed systems, own critical components of the cloud security data pipeline, and drive architectural decisions that influence how data is ingested, normalized, and made available for product teams across Orca. We&#39;re currently in the midst of a major architectural transformation, evolving our ingestion and processing layers to support real-time pipelines, improved observability, and greater horizontal scalability, and we’re looking for experienced engineers who are eager to make foundational impact!&lt;/div&gt;\n&lt;div class=&quot;p-rich_text_section&quot;&gt;&amp;nbsp;&lt;/div&gt;\n&lt;div class=&quot;p-rich_text_section&quot;&gt;&lt;strong&gt;Our Stack:&lt;/strong&gt; Python, Go, Rust, SingleStore, Postgres, ElasticSearch, Redis, Kafka, AWS&lt;/div&gt;\n&lt;div class=&quot;p-rich_text_section&quot;&gt;\n&lt;h3&gt;&lt;strong&gt;On a typical day you&#39;ll:&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul class=&quot;p-rich_text_list p-rich_text_list__bullet p-rich_text_list--nested&quot; data-stringify-type=&quot;unordered-list&quot; data-list-tree=&quot;true&quot; data-indent=&quot;0&quot; data-border=&quot;0&quot;&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Write clean, concise code that is stable, extensible, and unit-tested appropriately&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Write production-ready code that meets design specifications, anticipates edge cases, and accounts for scalability&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Diagnose complex issues, evaluate, recommend and execute the best solution&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Implement new requirements within our Agile delivery methodology while following our established architectural principles&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Lead initiatives end to end from design and planning to implementation and deployment, while aligning cross-functional teams and ensuring technical excellence&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Test software to ensure proper and efficient execution and adherence to business and technical requirements&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Provides input into the architecture and design of the product; collaborating with the team in solving problems the right way&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Develop expertise of AWS, Azure, and GCP products and technologies&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/div&gt;\n&lt;div class=&quot;p-rich_text_section&quot;&gt;\n&lt;h3&gt;&lt;strong&gt;About you:&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul class=&quot;p-rich_text_list p-rich_text_list__bullet p-rich_text_list--nested&quot; data-stringify-type=&quot;unordered-list&quot; data-list-tree=&quot;true&quot; data-indent=&quot;0&quot; data-border=&quot;0&quot;&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Bachelor’s degree in Computer Science, Engineering or relevant experience&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;5+ years of professional software development experience&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Proven experience building data-intensive systems at scale&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Experience in working with micro-service architecture &amp;amp; cloud-native services&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Solid understanding of software design principles, concurrency, synchronization, memory management, data structures, algorithms, etc&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Hands-on experience with databases such as SingleStore, Postgres, Elasticsearch, Redis&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Experience with Python / Go (Advantage)&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Experience with distributed data processing tools like Kafka (Advantage)&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/div&gt;",
+        "departments": [
+          {
+            "id": 4051030004,
+            "name": "R&D",
+            "child_ids": [
+              4051027004,
+              4051031004
+            ],
+            "parent_id": null
+          }
+        ],
+        "offices": [
+          {
+            "id": 4026144004,
+            "name": "Tel Aviv",
+            "location": "Tel Aviv-Yafo, Tel Aviv District, Israel",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ]
+      },
+      {
+        "absolute_url": "https://orca.security/about/careers/5804826004?gh_jid=5804826004",
+        "data_compliance": [
+          {
+            "type": "gdpr",
+            "requires_consent": false,
+            "requires_processing_consent": false,
+            "requires_retention_consent": false,
+            "retention_period": null,
+            "demographic_data_consent_applies": false
+          }
+        ],
+        "internal_job_id": 5052423004,
+        "location": {
+          "name": "Tel Aviv-Yafo, Tel Aviv District, Israel"
+        },
+        "metadata": null,
+        "id": 5804826004,
+        "updated_at": "2026-02-18T05:08:55-05:00",
+        "requisition_id": null,
+        "title": "Senior Software Engineer, AI Platform",
+        "company_name": "Orca Security",
+        "first_published": "2026-02-16T06:15:23-05:00",
+        "language": "en",
+        "content": "&lt;h3&gt;&lt;strong&gt;Big Ideas. Real People.&lt;/strong&gt;&lt;/h3&gt;\n&lt;p&gt;At Orca, in the right environment and with the right team,&lt;strong&gt; talent has no boundaries&lt;/strong&gt;. This team spirit, together with our drive to always aim high, has quickly earned us unicorn status and turned us into a global cloud security innovation leader. So if you’re ready to join an amazing team of people who inspire each other every day, now is the time to find your place in our pod.&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;We’re looking for driven and talented people like you to join our R&amp;amp;D team and our mission to change the future of cloud security. &lt;strong&gt;Ready to dive in and swim with our pod?&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;\n&lt;h3&gt;&lt;strong&gt;Highlights&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;strong&gt;High-growth:&lt;/strong&gt; Over the past seven years, we’ve consistently achieved milestones that take other companies a decade or more. During this time, we’ve significantly grown our employee base, expanded our customer reach, and rapidly advanced our product capabilities.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Disruptive innovation:&lt;/strong&gt; Our founders saw that traditional security didn’t work for the cloud, so they set out to carve a new path. We’re relentless pioneers who invented agentless technology and continue to be the most comprehensive and innovative cloud security company.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Well-capitalized:&lt;/strong&gt; With a valuation of $1.8 billion, Orca is a cybersecurity unicorn dominating the cloud security space. We’re backed by an impressive team of investors such as Capital G, ICONIQ, GGV, and SVCI, a syndicate of CISOs who invest their own money after conducting their due diligence.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Respectful and transparent culture:&lt;/strong&gt;&amp;nbsp;Our executives pride themselves on being accessible to everyone and believe in sharing knowledge with the employees. Each employee has a place in shaping the future of our industry.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;div class=&quot;p-rich_text_section&quot;&gt;\n&lt;h3&gt;&lt;strong&gt;About the role&lt;/strong&gt;&lt;/h3&gt;\n&lt;p&gt;As a &lt;strong&gt;Senior Software Engineer - AI&lt;/strong&gt; at Orca, you’ll design, build, and &lt;strong&gt;own production grade AI agents&lt;/strong&gt; that operate at the core of Orca’s cloud security platform. You’ll work on &lt;strong&gt;distributed, cloud native services&lt;/strong&gt; that embed agentic AI workflows into Orca’s existing microservices architecture.&lt;/p&gt;\nThis role goes beyond building AI logic: you’ll be responsible for &lt;strong&gt;operating AI systems in production&lt;/strong&gt;, ensuring they are &lt;strong&gt;observable, reliable, and continuously improving&lt;/strong&gt; through systematic evaluation and data driven iteration.&lt;/div&gt;\n&lt;div class=&quot;p-rich_text_section&quot;&gt;\n&lt;h3&gt;&lt;strong&gt;On a typical day you&#39;ll&lt;/strong&gt;&lt;/h3&gt;\n&lt;/div&gt;\n&lt;ul&gt;\n&lt;li&gt;Design and implement &lt;strong&gt;cloud-native, distributed services&lt;/strong&gt; that power Orca’s AI-driven security features&lt;/li&gt;\n&lt;li&gt;Build and maintain &lt;strong&gt;agentic AI systems&lt;/strong&gt; that reason over large-scale cloud security data and interact with multiple internal services&lt;/li&gt;\n&lt;li&gt;Own &lt;strong&gt;AI agents in production&lt;/strong&gt;, including deployment, monitoring, troubleshooting, and performance optimization&lt;/li&gt;\n&lt;li&gt;Implement &lt;strong&gt;observability for AI systems&lt;/strong&gt;, including metrics, logging, tracing, and alerting for agent behavior, quality, latency, and cost&lt;/li&gt;\n&lt;li&gt;Develop &lt;strong&gt;continuous evaluation pipelines&lt;/strong&gt; for agentic solutions, including offline testing, regression detection, and production feedback loops&lt;/li&gt;\n&lt;li&gt;Design and optimize &lt;strong&gt;RAG pipelines&lt;/strong&gt; that operate reliably over high-volume, high-variance security data&lt;/li&gt;\n&lt;li&gt;Apply strong software engineering practices: &lt;strong&gt;clear APIs, clean abstractions, robust error handling, and scalable data flows&lt;/strong&gt;&lt;/li&gt;\n&lt;li&gt;Lead services end to end - from design and implementation to deployment and long-term operation&lt;/li&gt;\n&lt;li&gt;Collaborate closely with Data Platform, Product, and Security Research teams to ensure AI behavior is correct, explainable, and trustworthy&lt;/li&gt;\n&lt;/ul&gt;\n&lt;div class=&quot;p-rich_text_section&quot;&gt;\n&lt;h3&gt;&lt;strong&gt;About you&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;5+ years of professional &lt;strong&gt;software engineering experience&lt;/strong&gt; building and operating production systems&lt;/li&gt;\n&lt;li&gt;Strong proficiency in &lt;strong&gt;Python &amp;amp; Typescript and experience designing backend services&lt;/strong&gt;&lt;/li&gt;\n&lt;li&gt;Solid experience building &lt;strong&gt;cloud-native, distributed systems&lt;/strong&gt; in a microservices architecture&lt;/li&gt;\n&lt;li&gt;Hands-on experience building, deploying, and &lt;strong&gt;maintaining AI systems in production&lt;/strong&gt;&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Proven hands-on experience building AI systems using LLM and agentic frameworks in production&lt;/strong&gt;&lt;/li&gt;\n&lt;li&gt;Practical experience with &lt;strong&gt;agentic AI workflows&lt;/strong&gt;, including tool use, multi-step reasoning, and orchestration&lt;/li&gt;\n&lt;li&gt;Experience implementing &lt;strong&gt;observability and monitoring&lt;/strong&gt; for complex systems (metrics, logs, traces)&lt;/li&gt;\n&lt;li&gt;Experience designing or working with &lt;strong&gt;evaluation frameworks&lt;/strong&gt; for AI systems (quality, drift, latency, cost)&lt;/li&gt;\n&lt;li&gt;Ability to reason about tradeoffs and continuously improve systems based on real-world data&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h3&gt;&lt;strong&gt;Big advantage&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;Experience evaluating AI systems in &lt;strong&gt;high-stakes domains&lt;/strong&gt; (security, reliability, correctness)&lt;/li&gt;\n&lt;li&gt;Background in &lt;strong&gt;cloud security, cybersecurity, or large-scale SaaS platforms&lt;/strong&gt;&lt;/li&gt;\n&lt;li&gt;Familiarity with &lt;strong&gt;RAG evaluation techniques&lt;/strong&gt;, prompt versioning, and regression testing&lt;/li&gt;\n&lt;li&gt;Experience operating AI-enabled services at scale in&amp;nbsp;&lt;strong&gt;AWS or similar cloud environments&lt;/strong&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/div&gt;",
+        "departments": [
+          {
+            "id": 4051030004,
+            "name": "R&D",
+            "child_ids": [
+              4051027004,
+              4051031004
+            ],
+            "parent_id": null
+          }
+        ],
+        "offices": [
+          {
+            "id": 4026144004,
+            "name": "Tel Aviv",
+            "location": "Tel Aviv-Yafo, Tel Aviv District, Israel",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ]
+      },
+      {
+        "absolute_url": "https://orca.security/about/careers/5652601004?gh_jid=5652601004",
+        "data_compliance": [
+          {
+            "type": "gdpr",
+            "requires_consent": false,
+            "requires_processing_consent": false,
+            "requires_retention_consent": false,
+            "retention_period": null,
+            "demographic_data_consent_applies": false
+          }
+        ],
+        "internal_job_id": 4981208004,
+        "location": {
+          "name": "Tel Aviv-Yafo, Tel Aviv District, Israel"
+        },
+        "metadata": null,
+        "id": 5652601004,
+        "updated_at": "2026-02-11T02:10:05-05:00",
+        "requisition_id": null,
+        "title": "Senior Software Engineer - CWPP Team",
+        "company_name": "Orca Security",
+        "first_published": "2025-09-17T04:51:51-04:00",
+        "language": "en",
+        "content": "&lt;h3&gt;&lt;strong&gt;Big Ideas. Real People.&lt;/strong&gt;&lt;/h3&gt;\n&lt;p&gt;At Orca, in the right environment and with the right team,&lt;strong&gt; talent has no boundaries&lt;/strong&gt;. This team spirit, together with our drive to always aim high, has quickly earned us unicorn status and turned us into a global cloud security innovation leader. So if you’re ready to join an amazing team of people who inspire each other every day, now is the time to find your place in our pod.&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;We’re looking for driven and talented people like you to join our R&amp;amp;D org. and our mission to change the future of cloud security. &lt;strong&gt;Ready to dive in and swim with our pod?&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;\n&lt;h3&gt;&lt;strong&gt;Highlights:&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;strong&gt;High-growth:&lt;/strong&gt; Over the past seven years, we’ve consistently achieved milestones that take other companies a decade or more. During this time, we’ve significantly grown our employee base, expanded our customer reach, and rapidly advanced our product capabilities.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Disruptive innovation: &lt;/strong&gt;Our founders saw that traditional security didn’t work for the cloud so they set out to carve a new path. We’re relentless pioneers who invented agentless technology and continue to be the most comprehensive and innovative cloud security company.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Well-capitalized:&lt;/strong&gt; With a valuation of $1.8 billion, Orca is a cybersecurity unicorn dominating the cloud security space. We’re backed by an impressive team of investors such as Capital G, ICONIQ, GGV, and SVCI, a syndicate of CISOs who invest their own money after conducting their due diligence.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Respectful and transparent culture:&amp;nbsp;&lt;/strong&gt;Our executives pride themselves on being accessible to everyone and believe in sharing knowledge with the employees. Each employee has a place in shaping the future of our industry.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h3&gt;&lt;strong&gt;About the role:&lt;/strong&gt;&lt;/h3&gt;\n&lt;p&gt;As a &lt;strong&gt;Senior Software Engineer&lt;/strong&gt; on the &lt;strong&gt;CWPP (Cloud Workload Protection Platform)&lt;/strong&gt; team at Orca Security, you’ll be part of a core group responsible for protecting our customers’ cloud workloads at scale. Our team scans and analyzes a wide variety of cloud assets - from virtual machines and container images to object storage buckets and databases, to uncover vulnerabilities, secrets, misconfigurations, and other security risks.&lt;/p&gt;\n&lt;p&gt;This role offers a unique opportunity to build the infrastructure that powers our deep forensics engine. You’ll help reconstruct customer file systems across multiple operating systems, extract OS-level and application-level metadata, and enable our security researchers to detect threats and vulnerabilities quickly and reliably. Your work will directly impact the safety and security of thousands of cloud environments worldwide.&lt;/p&gt;\n&lt;p&gt;We’re looking for engineers who are passionate about operating system internals, large-scale distributed systems, and cloud security, and who want to make a meaningful impact by building robust, high-performance security platforms. This is also a great opportunity to take ownership, lead initiatives, and grow through collaboration, mentorship, and technical leadership.&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Our Stack&lt;/strong&gt;: Python, Linux &amp;amp; Windows internals, Container Runtimes, Postgres, Redis, Kafka, AWS, GCP, Azure&lt;/p&gt;\n&lt;h3&gt;&lt;strong&gt;On a typical day you&#39;ll:&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;Design, implement, and maintain scalable backend services for scanning and analyzing cloud workloads (VMs, containers, buckets, databases, etc..)&lt;/li&gt;\n&lt;li&gt;Build infrastructure for reconstructing file systems across different operating systems (Linux and Windows) to enable deep analysis&lt;/li&gt;\n&lt;li&gt;Integrate security detection engines for vulnerabilities, secrets, compliance, and malware&lt;/li&gt;\n&lt;li&gt;Collaborate with security researchers and product managers to translate complex requirements into impactful product features&lt;/li&gt;\n&lt;li&gt;Write clean, efficient, and testable code, ensuring high performance and reliability&lt;/li&gt;\n&lt;li&gt;Participate in design and code reviews to uphold technical excellence and team standards&lt;/li&gt;\n&lt;li&gt;Lead features end-to-end - from design and planning to deployment and monitoring&lt;/li&gt;\n&lt;li&gt;Improve system observability, performance, and resilience in production environments&lt;/li&gt;\n&lt;li&gt;Stay current with developments in the cloud security landscape, vulnerability management, and OS internals&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h3&gt;&lt;strong&gt;About you:&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;Bachelor’s degree in Computer Science, Engineering, or equivalent experience&lt;/li&gt;\n&lt;li&gt;5+ years of professional software development experience&lt;/li&gt;\n&lt;li&gt;Strong experience building backend services or distributed systems&lt;/li&gt;\n&lt;li&gt;Hands-on experience with Python&lt;/li&gt;\n&lt;li&gt;Solid understanding of operating system internals&lt;/li&gt;\n&lt;li&gt;Familiarity with vulnerability management concepts or tooling&lt;/li&gt;\n&lt;li&gt;Experience with major cloud providers (Amazon Web Services, Google Cloud, Microsoft Azure)&lt;/li&gt;\n&lt;li&gt;Strong foundation in software design principles, concurrency, memory management, data structures, and algorithms&lt;/li&gt;\n&lt;li&gt;Passionate about building great products and solving real-world security challenges&lt;/li&gt;\n&lt;li&gt;Self-driven, proactive, and comfortable taking ownership and initiative&lt;/li&gt;\n&lt;li&gt;A strong communicator and a true team player who thrives in a collaborative environment&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h3&gt;&lt;strong&gt;Bonus points for having:&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;Familiarity with container internals and runtime security&lt;/li&gt;\n&lt;li&gt;Experience with large-scale file system analysis, malware analysis, or digital forensics&lt;/li&gt;\n&lt;li&gt;Background in cybersecurity, especially in cloud security domains&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;#LI-Hybrid&lt;/p&gt;",
+        "departments": [
+          {
+            "id": 4051030004,
+            "name": "R&D",
+            "child_ids": [
+              4051027004,
+              4051031004
+            ],
+            "parent_id": null
+          }
+        ],
+        "offices": [
+          {
+            "id": 4026144004,
+            "name": "Tel Aviv",
+            "location": "Tel Aviv-Yafo, Tel Aviv District, Israel",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ]
+      },
+      {
+        "absolute_url": "https://orca.security/about/careers/5595088004?gh_jid=5595088004",
+        "data_compliance": [
+          {
+            "type": "gdpr",
+            "requires_consent": false,
+            "requires_processing_consent": false,
+            "requires_retention_consent": false,
+            "retention_period": null,
+            "demographic_data_consent_applies": false
+          }
+        ],
+        "internal_job_id": 4956607004,
+        "location": {
+          "name": "Tel Aviv-Yafo, Tel Aviv District, Israel"
+        },
+        "metadata": null,
+        "id": 5595088004,
+        "updated_at": "2026-01-25T09:05:57-05:00",
+        "requisition_id": null,
+        "title": "Senior Software Engineer - KSPM Team",
+        "company_name": "Orca Security",
+        "first_published": "2025-08-07T08:05:10-04:00",
+        "language": "en",
+        "content": "&lt;h2&gt;&lt;strong&gt;Big Ideas. Real People.&amp;nbsp;&lt;/strong&gt;&lt;/h2&gt;\n&lt;p&gt;At Orca, in the right environment and with the right team,&lt;strong&gt; talent has no boundaries&lt;/strong&gt;. This team spirit, together with our drive to always aim high, has quickly earned us unicorn status and turned us into a global cloud security innovation leader. So if you’re ready to join an amazing team of people who inspire each other every day, now is the time to find your place in our pod.&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;We’re looking for driven and talented people like you to join our R&amp;amp;D org. and our mission to change the future of cloud security. &lt;strong&gt;Ready to dive in and swim with our pod?&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;\n&lt;h2&gt;&lt;strong&gt;Highlights&lt;/strong&gt;&lt;/h2&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;strong&gt;High-growth:&lt;/strong&gt; Over the past six years, we’ve consistently achieved milestones that take other companies a decade or more. During this time, we’ve significantly grown our employee base, expanded our customer reach, and rapidly advanced our product capabilities.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Disruptive innovation: &lt;/strong&gt;Our founders saw that traditional security didn’t work for the cloud so they set out to carve a new path. We’re relentless pioneers who invented agentless technology and continue to be the most comprehensive and innovative cloud security company.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Well-capitalized:&lt;/strong&gt; With a valuation of $1.8 billion, Orca is a cybersecurity unicorn dominating the cloud security space. We’re backed by an impressive team of investors such as Capital G, ICONIQ, GGV, and SVCI, a syndicate of CISOs who invest their own money after conducting their due diligence.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Respectful and transparent culture:&amp;nbsp;&lt;/strong&gt;Our executives pride themselves on being accessible to everyone and believe in sharing knowledge with the employees. Each employee has a place in shaping the future of our industry.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h2&gt;&lt;strong&gt;About the role&lt;/strong&gt;&lt;/h2&gt;\n&lt;p&gt;As a &lt;strong&gt;Senior Software Engineer&lt;/strong&gt; on the &lt;strong&gt;KSPM (Kubernetes Security Posture Management)&lt;/strong&gt; team at Orca Security, you’ll be part of a mission-critical group responsible for building and scaling one of the company’s fastest-growing products. Our team helps customers secure their Kubernetes environments across major cloud providers by offering deep visibility into misconfigurations, compliance risks, and security best practices.&lt;/p&gt;\n&lt;p&gt;You’ll contribute to a high-impact codebase that scans, analyzes, and interprets complex Kubernetes configurations and behaviors at scale. This is a unique opportunity to shape the future of Orca’s KSPM product - owning core backend components, driving architectural improvements, and delivering features that address real-world customer needs.&lt;/p&gt;\n&lt;p&gt;We&#39;re looking for engineers who are passionate about infrastructure, cloud security, and solving challenging problems at scale, and who want to make a meaningful impact on the security of modern, cloud-native systems.&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Our Stack&lt;/strong&gt;: Python, Go, K8s APIs, SingleStore, Postgres, Redis, Kafka, AWS, GCP, Azure, ElasticSearch&lt;/p&gt;\n&lt;h2&gt;&lt;strong&gt;On a typical day you&#39;ll&lt;/strong&gt;&lt;/h2&gt;\n&lt;ul&gt;\n&lt;li&gt;Design, implement, and maintain scalable backend services for onboarding, scanning, and analyzing Kubernetes environments&lt;/li&gt;\n&lt;li&gt;Collaborate with security researchers and product managers to translate complex requirements into impactful product features&lt;/li&gt;\n&lt;li&gt;Write clean, efficient, and testable code, ensuring high performance and reliability&lt;/li&gt;\n&lt;li&gt;Participate in design and code reviews to uphold technical excellence and team standards&lt;/li&gt;\n&lt;li&gt;Lead features end-to-end - from design and planning to deployment and monitoring&lt;/li&gt;\n&lt;li&gt;Improve system observability, performance, and resilience in production environments&lt;/li&gt;\n&lt;li&gt;Work closely with cross-functional teams to continuously enhance product capabilities and customer value&lt;/li&gt;\n&lt;li&gt;Stay current with developments in the Kubernetes ecosystem and cloud security landscape&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h2&gt;&lt;strong&gt;About you&lt;/strong&gt;&lt;/h2&gt;\n&lt;ul&gt;\n&lt;li&gt;Bachelor&#39;s degree in Computer Science, Engineering, or equivalent experience&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;5+ years&lt;/strong&gt; of professional software development experience&lt;/li&gt;\n&lt;li&gt;Hands on experience with&amp;nbsp;&lt;strong&gt;Python or Go &lt;/strong&gt;- &lt;strong&gt;Must&lt;/strong&gt;&lt;/li&gt;\n&lt;li&gt;Proven experience with microservices architecture and cloud-native systems&lt;/li&gt;\n&lt;li&gt;Solid foundation in software design principles, concurrency, memory management, data structures, and algorithms&lt;/li&gt;\n&lt;li&gt;Excellent communication skills and a collaborative, team-first mindset&lt;br&gt;&lt;br&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h2&gt;&lt;strong&gt;Bonus points for&lt;/strong&gt;&lt;/h2&gt;\n&lt;ul&gt;\n&lt;li&gt;Experience with major cloud providers (AWS, GCP, Azure) and managed Kubernetes solutions (EKS, GKE, AKS)&lt;/li&gt;\n&lt;li&gt;Familiarity with Kubernetes internals and container technologies&lt;/li&gt;\n&lt;li&gt;Background in cybersecurity, especially in cloud security domains&lt;/li&gt;\n&lt;/ul&gt;",
+        "departments": [
+          {
+            "id": 4051030004,
+            "name": "R&D",
+            "child_ids": [
+              4051027004,
+              4051031004
+            ],
+            "parent_id": null
+          }
+        ],
+        "offices": [
+          {
+            "id": 4026144004,
+            "name": "Tel Aviv",
+            "location": "Tel Aviv-Yafo, Tel Aviv District, Israel",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ]
+      },
+      {
+        "absolute_url": "https://orca.security/about/careers/5745050004?gh_jid=5745050004",
+        "data_compliance": [
+          {
+            "type": "gdpr",
+            "requires_consent": false,
+            "requires_processing_consent": false,
+            "requires_retention_consent": false,
+            "retention_period": null,
+            "demographic_data_consent_applies": false
+          }
+        ],
+        "internal_job_id": 5023848004,
+        "location": {
+          "name": "Tel Aviv-Yafo, Tel Aviv District, Israel"
+        },
+        "metadata": null,
+        "id": 5745050004,
+        "updated_at": "2026-01-25T09:05:57-05:00",
+        "requisition_id": null,
+        "title": "Senior Software Engineer - Orchestration",
+        "company_name": "Orca Security",
+        "first_published": "2025-12-30T01:16:56-05:00",
+        "language": "en",
+        "content": "&lt;h3&gt;&lt;strong&gt;Big Ideas. Real People.&lt;/strong&gt;&lt;/h3&gt;\n&lt;p&gt;At Orca, in the right environment and with the right team,&lt;strong&gt; talent has no boundaries&lt;/strong&gt;. This team spirit, together with our drive to always aim high, has quickly earned us unicorn status and turned us into a global cloud security innovation leader. So if you’re ready to join an amazing team of people who inspire each other every day, now is the time to find your place in our pod.&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;We’re looking for driven and talented people like you to join our R&amp;amp;D team and our mission to change the future of cloud security. &lt;strong&gt;Ready to dive in and swim with our pod?&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;\n&lt;h3&gt;&lt;strong&gt;Highlights:&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;strong&gt;High-growth:&lt;/strong&gt; Over the past six years, we’ve consistently achieved milestones that take other companies a decade or more. During this time, we’ve significantly grown our employee base, expanded our customer reach, and rapidly advanced our product capabilities.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Disruptive innovation:&lt;/strong&gt; Our founders saw that traditional security didn’t work for the cloud, so they set out to carve a new path. We’re relentless pioneers who invented agentless technology and continue to be the most comprehensive and innovative cloud security company.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Well-capitalized:&lt;/strong&gt; With a valuation of $1.8 billion, Orca is a cybersecurity unicorn dominating the cloud security space. We’re backed by an impressive team of investors such as Capital G, ICONIQ, GGV, and SVCI, a syndicate of CISOs who invest their own money after conducting their due diligence.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Respectful and transparent culture:&lt;/strong&gt;&amp;nbsp;Our executives pride themselves on being accessible to everyone and believe in sharing knowledge with the employees. Each employee has a place in shaping the future of our industry.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;div class=&quot;p-rich_text_section&quot;&gt;\n&lt;h3&gt;&lt;strong&gt;About the role:&lt;/strong&gt;&lt;/h3&gt;\nAs a Senior Software Engineer on the Cloud Platforms &amp;amp; Orchestration team, you’ll be part of one of Orca’s most strategic engineering teams, tasked with building the core orchestration infrastructure that powers our entire platform.&lt;br&gt;This includes, but is not limited to, processes orchestration and management, high-volume daily scan handling, and performance optimization.&lt;br&gt;Key responsibilities also involve ensuring data integrity, developing new scanning features, and overseeing the customer experience regarding scan visibility, onboarding experience, and cloud environment management.&lt;br&gt;You’ll work on large-scale distributed systems, own critical components of the cloud security data pipeline, and drive architectural decisions.&lt;br&gt;We’re looking for experienced engineers who are eager to make a foundational impact!&lt;/div&gt;\n&lt;div class=&quot;p-rich_text_section&quot;&gt;&amp;nbsp;&lt;/div&gt;\n&lt;div class=&quot;p-rich_text_section&quot;&gt;&lt;strong data-stringify-type=&quot;bold&quot;&gt;Our Stack&lt;/strong&gt;: Python, Django, Postgres, Redis, Kafka, Terraform and many more AWS services such as : SQS, DynamoDB, CloudFormation, EC2 and more.&lt;/div&gt;\n&lt;div class=&quot;p-rich_text_section&quot;&gt;\n&lt;h3&gt;&lt;strong&gt;On a typical day you&#39;ll:&lt;/strong&gt;&lt;/h3&gt;\n&lt;/div&gt;\n&lt;ul class=&quot;p-rich_text_list p-rich_text_list__bullet p-rich_text_list--nested&quot; data-stringify-type=&quot;unordered-list&quot; data-list-tree=&quot;true&quot; data-indent=&quot;0&quot; data-border=&quot;0&quot;&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Write clean, concise code that is stable, extensible, and unit-tested appropriately.&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Write production-ready code that meets design specifications, anticipates edge cases, and accounts for scalability.&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Diagnose complex issues, evaluate, recommend and execute the best solution Implement new requirements within our Agile delivery methodology while following our established architectural principles.&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Lead initiatives end to end from design and planning to implementation and deployment, while aligning cross-functional teams and ensuring technical excellence.&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Test software to ensure proper and efficient execution and adherence to business and technical requirements&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Provides input into the architecture and design of the product, collaborating with the team in solving problems the right way.&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Develop expertise of AWS, Azure, and GCP and other cloud providers and technologies.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;div class=&quot;p-rich_text_section&quot;&gt;\n&lt;h3&gt;&lt;strong&gt;About you:&lt;/strong&gt;&lt;/h3&gt;\n&lt;/div&gt;\n&lt;ul class=&quot;p-rich_text_list p-rich_text_list__bullet p-rich_text_list--nested&quot; data-stringify-type=&quot;unordered-list&quot; data-list-tree=&quot;true&quot; data-indent=&quot;0&quot; data-border=&quot;0&quot;&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Bachelor’s degree in Computer Science, Engineering or relevant experience.&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;5+ years of professional software development experience.&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Proven experience building data-intensive systems at scale.&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Experience in working with micro-service architecture &amp;amp; cloud-native services.&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Solid understanding of software design principles, concurrency, synchronization, memory management, data structures, algorithms, etc.&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Experience with distributed data processing tools like SQS, Kafka.&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Hands-on experience with databases such as Postgres, Redis (Advantage).&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Experience with Python (Advantage).&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Experience with IaC tools like Terraform, CloudFormation (Advantage).&lt;/li&gt;\n&lt;/ul&gt;",
+        "departments": [
+          {
+            "id": 4051030004,
+            "name": "R&D",
+            "child_ids": [
+              4051027004,
+              4051031004
+            ],
+            "parent_id": null
+          }
+        ],
+        "offices": [
+          {
+            "id": 4026144004,
+            "name": "Tel Aviv",
+            "location": "Tel Aviv-Yafo, Tel Aviv District, Israel",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ]
+      },
+      {
+        "absolute_url": "https://orca.security/about/careers/5685377004?gh_jid=5685377004",
+        "data_compliance": [
+          {
+            "type": "gdpr",
+            "requires_consent": false,
+            "requires_processing_consent": false,
+            "requires_retention_consent": false,
+            "retention_period": null,
+            "demographic_data_consent_applies": false
+          }
+        ],
+        "internal_job_id": 4995988004,
+        "location": {
+          "name": "Tel Aviv-Yafo, Tel Aviv District, Israel"
+        },
+        "metadata": null,
+        "id": 5685377004,
+        "updated_at": "2026-02-23T03:53:36-05:00",
+        "requisition_id": null,
+        "title": "Software Engineering Team Lead",
+        "company_name": "Orca Security",
+        "first_published": "2025-10-23T01:40:41-04:00",
+        "language": "en",
+        "content": "&lt;h3&gt;&lt;strong&gt;Big Ideas. Real People.&lt;/strong&gt;&lt;/h3&gt;\n&lt;p&gt;At Orca, in the right environment and with the right team, talent has no boundaries. This team spirit, together with our drive to always aim high, has quickly earned us unicorn status and turned us into a global cloud security innovation leader. So if you’re ready to join an amazing team of people who inspire each other every day, now is the time to find your place in our pod.&lt;/p&gt;\n&lt;p&gt;We’re looking for driven and talented people like you to join our Sales team and our mission to change the future of cloud security. &lt;strong&gt;Ready to dive in and swim with our pod?&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;\n&lt;h3&gt;&lt;strong&gt;Highlights:&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;strong&gt;High-growth: &lt;/strong&gt;Over the past seven years, we’ve consistently achieved milestones that take other companies a decade or more. During this time, we’ve significantly grown our employee base, expanded our customer reach, and rapidly advanced our product capabilities.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Disruptive innovation:&lt;/strong&gt; Our founders saw that traditional security didn’t work for the cloud so they set out to carve a new path. We’re relentless pioneers who invented agentless technology and continue to be the most comprehensive and innovative cloud security company.&amp;nbsp;&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Well-capitalized:&lt;/strong&gt; With a valuation of $1.8 billion, Orca is a cybersecurity unicorn dominating the cloud security space. We’re backed by an impressive team of investors such as Capital G, ICONIQ, GGV, and SVCI, a syndicate of CISOs who invest their own money after conducting their due diligence.&amp;nbsp;&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Respectful and transparent culture:&lt;/strong&gt; Our executives pride themselves on being accessible to everyone and believe in sharing knowledge with the employees. Each employee has a place in shaping the future of our industry.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h3&gt;&lt;strong&gt;About the Role:&amp;nbsp;&lt;/strong&gt;&lt;/h3&gt;\n&lt;p&gt;As a &lt;strong&gt;Team Lead on the Data Platform&lt;/strong&gt;, you’ll guide one of Orca’s most strategic engineering groups - the team building and evolving the core data ingestion and processing infrastructure that powers our entire platform. Handling billions of cloud signals daily, the team ensures scalability, reliability, and efficiency across Orca’s architecture.&lt;/p&gt;\n&lt;p&gt;You’ll lead a group of talented senior engineers, providing both technical and people leadership while staying hands-on in design and implementation. Together, you’ll drive key architectural decisions and evolve our ingestion and processing layers to support real-time pipelines, improve observability, and enable greater horizontal scalability.&lt;/p&gt;\n&lt;p&gt;We’re looking for an experienced Team Leader eager to make a foundational impact on Orca’s next-generation cloud security data platform.&lt;/p&gt;\n&lt;p&gt;Our Stack:&amp;nbsp;&lt;strong&gt;Python, Go, SingleStore, Postgres, Redis, Kafka, AWS.&lt;/strong&gt;&lt;/p&gt;\n&lt;h3&gt;&lt;strong&gt;What You’ll Do:&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;Lead, mentor, and develop a team of senior software engineers through one-on-ones, feedback, and technical guidance&lt;/li&gt;\n&lt;li&gt;Own and drive the delivery of high-impact projects end-to-end, from design through deployment and production monitoring&lt;/li&gt;\n&lt;li&gt;Design and review architecture for large-scale distributed systems focused on data ingestion, normalization, and availability&lt;/li&gt;\n&lt;li&gt;Collaborate cross-functionally with Product, SRE, and other R&amp;amp;D teams to define priorities, interfaces, and success metrics&lt;/li&gt;\n&lt;li&gt;Ensure the reliability, scalability, and observability of core services, introducing SLOs and best practices for operations&lt;/li&gt;\n&lt;li&gt;Participate in incident management, postmortems, and continuous improvement initiatives&lt;/li&gt;\n&lt;li&gt;Foster a culture of technical excellence and accountability within the team&lt;/li&gt;\n&lt;li&gt;Write and review clean, maintainable, and tested, take part of the on-call rotation&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h3&gt;&lt;strong&gt;What You Bring:&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;Bachelor’s degree in Computer Science, Engineering, or equivalent experience&lt;/li&gt;\n&lt;li&gt;7+ years of professional software development experience, including at least 2 years in a team lead role&lt;/li&gt;\n&lt;li&gt;Proven experience leading teams that build and operate large-scale, data-intensive systems&lt;/li&gt;\n&lt;li&gt;Strong understanding of distributed systems design, concurrency, synchronization, data modeling, and performance optimization&lt;/li&gt;\n&lt;li&gt;Hands-on experience with at least one of:&lt;strong&gt; Python, Go&lt;/strong&gt; - &lt;strong&gt;Must&lt;/strong&gt;&lt;/li&gt;\n&lt;li&gt;Experience with distributed data processing tools like Kafka (Advantage)&lt;/li&gt;\n&lt;li&gt;Hands-on experience with databases such as SingleStore, Postgres, Redis&lt;/li&gt;\n&lt;li&gt;Solid understanding of cloud-native architectures and services (AWS preferred)&lt;/li&gt;\n&lt;li&gt;Excellent communication and collaboration skills, with the ability to align engineers, product managers, and stakeholders&lt;/li&gt;\n&lt;li&gt;Experience mentoring engineers and guiding technical growth&lt;/li&gt;\n&lt;li&gt;Comfortable balancing hands-on technical work with people and project leadership responsibilities&lt;/li&gt;\n&lt;li&gt;Experience with real-time data processing and streaming pipelines (Advantage)&lt;/li&gt;\n&lt;/ul&gt;",
+        "departments": [
+          {
+            "id": 4051030004,
+            "name": "R&D",
+            "child_ids": [
+              4051027004,
+              4051031004
+            ],
+            "parent_id": null
+          }
+        ],
+        "offices": [
+          {
+            "id": 4026144004,
+            "name": "Tel Aviv",
+            "location": "Tel Aviv-Yafo, Tel Aviv District, Israel",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ]
+      },
+      {
+        "absolute_url": "https://orca.security/about/careers/5573407004?gh_jid=5573407004",
+        "data_compliance": [
+          {
+            "type": "gdpr",
+            "requires_consent": false,
+            "requires_processing_consent": false,
+            "requires_retention_consent": false,
+            "retention_period": null,
+            "demographic_data_consent_applies": false
+          }
+        ],
+        "internal_job_id": 4946892004,
+        "location": {
+          "name": "Tel Aviv-Yafo, Tel Aviv District, Israel"
+        },
+        "metadata": null,
+        "id": 5573407004,
+        "updated_at": "2026-02-05T07:44:55-05:00",
+        "requisition_id": null,
+        "title": "Staff Engineer - CTO Office ",
+        "company_name": "Orca Security",
+        "first_published": "2025-06-26T05:28:30-04:00",
+        "language": "en",
+        "content": "&lt;div class=&quot;p-rich_text_section&quot;&gt;\n&lt;h3&gt;&lt;strong&gt;Big Ideas. Real People.&amp;nbsp;&lt;/strong&gt;&lt;/h3&gt;\n&lt;p&gt;At Orca, in the right environment and with the right team,&lt;strong&gt; talent has no boundaries&lt;/strong&gt;. This team spirit, together with our drive to always aim high, has quickly earned us unicorn status and turned us into a global cloud security innovation leader. So if you’re ready to join an amazing team of people who inspire each other every day, now is the time to find your place in our pod.&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;We’re looking for driven and talented people like you to join our CTO Office and our mission to change the future of cloud security.&amp;nbsp;&lt;strong&gt;Ready to dive in and swim with our pod?&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Highlights&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;strong&gt;High-growth:&lt;/strong&gt; Over the past seven years, we’ve consistently achieved milestones that take other companies a decade or more. During this time, we’ve significantly grown our employee base, expanded our customer reach, and rapidly advanced our product capabilities.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Disruptive innovation: &lt;/strong&gt;Our founders saw that traditional security didn’t work for the cloud so they set out to carve a new path. We’re relentless pioneers who invented agentless technology and continue to be the most comprehensive and innovative cloud security company.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Well-capitalized:&lt;/strong&gt; With a valuation of $1.8 billion, Orca is a cybersecurity unicorn dominating the cloud security space. We’re backed by an impressive team of investors such as Capital G, ICONIQ, GGV, and SVCI, a syndicate of CISOs who invest their own money after conducting their due diligence.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Respectful and transparent culture:&amp;nbsp;&lt;/strong&gt;Our executives pride themselves on being accessible to everyone and believe in sharing knowledge with the employees. Each employee has a place in shaping the future of our industry.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/div&gt;\n&lt;div class=&quot;p-rich_text_section&quot;&gt;&lt;strong data-stringify-type=&quot;bold&quot;&gt;About the role&lt;br&gt;&lt;br&gt;&lt;/strong&gt;&lt;/div&gt;\n&lt;div class=&quot;p-rich_text_section&quot;&gt;We’re looking for an experienced &lt;strong&gt;Staff Engineer&lt;/strong&gt; to join our&lt;strong&gt; CTO Office&lt;/strong&gt;, focusing squarely on engineering excellence and platform scalability. You’ll partner with senior technical leaders to define best practices, design and validate scalable architectures, and build the frameworks and automation that enable our teams to deliver reliable, high-performance products at scale.&lt;/div&gt;\n&lt;div class=&quot;p-rich_text_section&quot;&gt;&amp;nbsp;&lt;/div&gt;\n&lt;div class=&quot;p-rich_text_section&quot;&gt;&lt;strong data-stringify-type=&quot;bold&quot;&gt;On a typical day, you’ll&lt;br&gt;&lt;/strong&gt;\n&lt;ul class=&quot;p-rich_text_list p-rich_text_list__bullet p-rich_text_list--nested&quot; data-stringify-type=&quot;unordered-list&quot; data-list-tree=&quot;true&quot; data-indent=&quot;0&quot; data-border=&quot;0&quot;&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;&lt;strong data-stringify-type=&quot;bold&quot;&gt;Architect for scale &amp;amp; reliability:&lt;/strong&gt;&amp;nbsp;Design, review and validate core platform components to support rapid growth in traffic, data volume, and feature velocity.&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;&lt;strong data-stringify-type=&quot;bold&quot;&gt;Elevate engineering standards:&lt;/strong&gt;&amp;nbsp;Define and evangelize coding standards, CI/CD pipelines, test automation frameworks, and observability practices.&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;&lt;strong data-stringify-type=&quot;bold&quot;&gt;Lead reviews &amp;amp; mentor:&lt;/strong&gt;&amp;nbsp;Conduct regular architecture and code reviews; coach senior engineers and drive continual improvement across teams.&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;&lt;strong data-stringify-type=&quot;bold&quot;&gt;Cross-functional collaboration:&lt;/strong&gt;&amp;nbsp;Work with product, security, and infrastructure teams to align on non-functional requirements (reliability, latency, throughput).&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;&lt;strong data-stringify-type=&quot;bold&quot;&gt;Build tooling &amp;amp; automation:&lt;/strong&gt;&amp;nbsp;Identify workflow gaps and develop internal tools or frameworks to automate testing, deployment, monitoring, and remediation.&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;&lt;strong data-stringify-type=&quot;bold&quot;&gt;Monitor &amp;amp; optimize:&lt;/strong&gt;&amp;nbsp;Analyze system metrics, troubleshoot production incidents, and recommend performance and reliability improvements.&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;&lt;strong data-stringify-type=&quot;bold&quot;&gt;Prototype &amp;amp; validate:&lt;/strong&gt; Run targeted proof-of-concepts focused on operational excellence, benchmark solutions and recommend adoption plans.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;About you&lt;/strong&gt;&lt;/p&gt;\n&lt;/div&gt;\n&lt;div class=&quot;p-rich_text_section&quot;&gt;\n&lt;ul class=&quot;p-rich_text_list p-rich_text_list__bullet p-rich_text_list--nested&quot; data-stringify-type=&quot;unordered-list&quot; data-list-tree=&quot;true&quot; data-indent=&quot;0&quot; data-border=&quot;0&quot;&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;&lt;strong data-stringify-type=&quot;bold&quot;&gt;Deep systems expertise:&lt;/strong&gt;&amp;nbsp;&lt;strong&gt;8+ years&lt;/strong&gt; building large scale distributed or cloud native services, with hands on experience in microservices, event-driven architectures, and API design.&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;&lt;strong data-stringify-type=&quot;bold&quot;&gt;Proven impact:&lt;/strong&gt;&amp;nbsp;Demonstrable track record of driving significant performance, reliability, or scalability improvements in production environments.&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;&lt;strong data-stringify-type=&quot;bold&quot;&gt;Hands-on leadership:&lt;/strong&gt;&amp;nbsp;You write code, debug complex issues, and prototype solutions alongside your peers—and you set the bar for craftsmanship.&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;&lt;strong data-stringify-type=&quot;bold&quot;&gt;Standards &amp;amp; tooling advocate:&lt;/strong&gt;&amp;nbsp;Passionate about CI/CD, test automation, observability, and incident post-mortem culture.&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;&lt;strong data-stringify-type=&quot;bold&quot;&gt;Excellent communicator:&lt;/strong&gt;&amp;nbsp;Able to translate deep technical topics into clear recommendations for engineers, executives, and non-technical stakeholders.&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;&lt;strong data-stringify-type=&quot;bold&quot;&gt;Autonomous &amp;amp; strategic:&lt;/strong&gt;&amp;nbsp;Self-directed with a strong internal compass; you balance short-term delivery with long-term platform health and roadmap vision.&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;&lt;strong data-stringify-type=&quot;bold&quot;&gt;Service-minded collaborator:&lt;/strong&gt;&amp;nbsp;Humble, approachable, and eager to uplift teams through mentorship and shared best practices.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;div class=&quot;p-rich_text_section&quot;&gt;If you’re driven by building rock solid platforms that scale to millions of users and take pride in engineering craftsmanship, we’d love to hear from you!&lt;/div&gt;\n&lt;/div&gt;",
+        "departments": [
+          {
+            "id": 4051030004,
+            "name": "R&D",
+            "child_ids": [
+              4051027004,
+              4051031004
+            ],
+            "parent_id": null
+          }
+        ],
+        "offices": [
+          {
+            "id": 4026144004,
+            "name": "Tel Aviv",
+            "location": "Tel Aviv-Yafo, Tel Aviv District, Israel",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ]
+      }
+    ],
+    "meta": {
+      "total": 21
+    }
+  }
+}

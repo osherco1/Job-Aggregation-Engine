@@ -1,0 +1,320 @@
+{
+  "_meta": {
+    "source": "greenhouse",
+    "companyId": "beamup",
+    "companyName": "BeamUP",
+    "uid": "beamup",
+    "endpoint": "https://boards-api.greenhouse.io/v1/boards/beamup/jobs?content=true",
+    "httpStatus": 200,
+    "sampledAt": "2026-03-01T22:03:04.470Z",
+    "jobCount": 7
+  },
+  "raw": {
+    "jobs": [
+      {
+        "absolute_url": "https://job-boards.eu.greenhouse.io/beamup/jobs/4607565101",
+        "data_compliance": [
+          {
+            "type": "gdpr",
+            "requires_consent": false,
+            "requires_processing_consent": false,
+            "requires_retention_consent": false,
+            "retention_period": null,
+            "demographic_data_consent_applies": false
+          }
+        ],
+        "internal_job_id": 4345381101,
+        "location": {
+          "name": "Tel Aviv"
+        },
+        "metadata": null,
+        "id": 4607565101,
+        "updated_at": "2026-01-08T08:57:22-05:00",
+        "requisition_id": "89",
+        "title": "Applied Data Scientist",
+        "company_name": "Beamup",
+        "first_published": "2026-01-05T10:14:28-05:00",
+        "language": "en",
+        "content": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;strong data-stringify-type=&quot;bold&quot;&gt;About Us&lt;br&gt;&lt;/strong&gt;Beamup helps enterprises move beyond dashboards, alerts, and manual triage to&amp;nbsp;&lt;strong data-stringify-type=&quot;bold&quot;&gt;automated supply chain execution&lt;/strong&gt;.&lt;br&gt;Our AI platform supports large, complex retail and manufacturing networks by deploying specialized AI agents that operate continuously across stores, distribution centers, warehouses, and in-transit operations. These agents detect execution issues, identify root causes, and execute corrective actions - either autonomously or by routing work to the right teams.&lt;br&gt;Retailers and manufacturers rely on Beamup to replace reactive workflows with consistent, scalable execution — reducing losses, improving performance, and operating with greater confidence at global scale.&lt;/p&gt;\n&lt;p&gt;&lt;strong data-stringify-type=&quot;bold&quot;&gt;Our Mission&lt;br&gt;&lt;/strong&gt;To redefine supply chain intelligence by building AI agents that predict, prevent, and resolve inventory health and operational issues in real time.&lt;/p&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Job Summary:&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;We’re looking for an Applied Data Scientist to join one of our product squads. You’ll design, build, and deploy data-driven solutions that combine machine learning, statistical methods, and SQL/rules-based decision logic to power Beamup’s autonomous supply chain intelligence platform. You’ll work closely with data science, engineering, product, and supply chain experts and own solutions end-to-end—from problem definition to production monitoring and iteration.&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Responsibilities:&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Deliver data science solutions end-to-end within a product squad: problem framing → data prep/labeling → modeling → deployment support → monitoring → iteration&lt;/li&gt;\n&lt;li&gt;Build, train, and improve ML models for supply chain use cases (e.g., inventory risk prediction, demand anomalies, root-cause analysis)&lt;/li&gt;\n&lt;li&gt;Define success metrics and evaluation plans with support from senior DS/PM; run error analysis and document learnings&lt;/li&gt;\n&lt;li&gt;Work with stakeholders to create and maintain ground truth (label definitions, labeling workflows, QA checks, feedback loops)&lt;/li&gt;\n&lt;li&gt;Implement hybrid decision logic by combining ML outputs with statistical methods and SQL/rules-based logic for robustness and explainability&lt;/li&gt;\n&lt;li&gt;Analyze large, multi-source operational datasets to identify trends, anomalies, and drivers of performance&lt;/li&gt;\n&lt;li&gt;Collaborate with software engineers to productionize solutions (batch and/or real-time), including testing, logging, and basic monitoring&lt;/li&gt;\n&lt;li&gt;Monitor deployed models/rules, investigate performance issues (data quality, drift, edge cases), and iterate based on outcomes&lt;/li&gt;\n&lt;li&gt;Contribute to team practices: reproducible notebooks/code, documentation, and experiment tracking&lt;br&gt;&lt;br&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;Requirements:&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;MSc in Computer Science, Data Science, Mathematics, Statistics, Engineering,&amp;nbsp; (or equivalent practical experience)&amp;nbsp;&lt;/li&gt;\n&lt;li&gt;3+ years of experience in applied data science / ML in a product environment (or equivalent practical experience)&lt;/li&gt;\n&lt;li&gt;Strong Python skills and experience with common DS libraries (pandas, NumPy, scikit-learn); familiarity with PyTorch/TensorFlow is a plus&lt;/li&gt;\n&lt;li&gt;Solid SQL skills (joins, aggregations, window functions) and comfort working with production data in a warehouse/lake&lt;/li&gt;\n&lt;li&gt;Experience building predictive or anomaly detection models and performing rigorous evaluation (baselines, cross-validation where relevant, error analysis)&lt;/li&gt;\n&lt;li&gt;Ability to translate business questions into measurable metrics and a clear analytical plan (with guidance when needed)&lt;/li&gt;\n&lt;li&gt;Experience working with messy real-world data: data validation, debugging pipelines, and collaborating on labeling/ground truth&lt;/li&gt;\n&lt;li&gt;Familiarity with taking models to production: packaging/hand-off to engineers, versioning, and understanding monitoring/drift concepts&lt;/li&gt;\n&lt;li&gt;Strong communication and collaboration skills with engineering, product, and domain experts; comfortable receiving feedback and iterating fast&lt;br&gt;&lt;br&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;Nice to Have (Advantages)&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Experience designing or deploying agentic workflows, AI agents, or multi-step decision systems&lt;/li&gt;\n&lt;li&gt;Cloud + Docker + production engineering practices (CI/CD, testing, monitoring)&lt;/li&gt;\n&lt;li&gt;Experience publishing academic or applied research (peer-reviewed papers, conference publications, technical whitepapers, or open research work)&lt;br&gt;&lt;br&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;Beamup is proud to be an equal opportunity employer and provides equal employment opportunities (EEO) to all employees and applicants without regard to race, color, religion, sex, national origin, age, disability, veteran status, sexual orientation, gender identity or genetics.&lt;/p&gt;\n&lt;p&gt;You can read more about us at:&lt;/p&gt;\n&lt;p&gt;&lt;a href=&quot;https://www.beamup.ai/&quot;&gt;https://www.beamup.ai/&lt;/a&gt;&lt;/p&gt;\n&lt;p&gt;And we were also chosen to be one of the 50 most promising Israeli startups of 2023:&lt;br&gt;&lt;a href=&quot;https://www.calcalistech.com/ctechnews/article/hjtwkugx2&quot;&gt;https://www.calcalistech.com/ctechnews/article/hjtwkugx2&lt;/a&gt;&lt;/p&gt;&lt;div class=&quot;content-conclusion&quot;&gt;&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Beamup is proud to be an equal opportunity employer and provides equal employment opportunities (EEO) to all employees and applicants without regard to race, color, religion, sex, national origin, age, disability, veteran status, sexual orientation, gender identity, or genetics.&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;You can read more about us at:&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;a href=&quot;https://www.beamup.ai/&quot;&gt;https://www.beamup.ai/&lt;/a&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;And we were also chosen to be one of the 50 most promising Israeli startups of 2023:&lt;br&gt;&lt;a href=&quot;https://www.calcalistech.com/ctechnews/article/hjtwkugx2&quot;&gt;https://www.calcalistech.com/ctechnews/article/hjtwkugx2&lt;/a&gt;&lt;br&gt;&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;/div&gt;",
+        "departments": [
+          {
+            "id": 4015244101,
+            "name": " R&D",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ],
+        "offices": [
+          {
+            "id": 4007777101,
+            "name": "BeamUp main office ",
+            "location": "Tel Aviv District, Israel",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ]
+      },
+      {
+        "absolute_url": "https://job-boards.eu.greenhouse.io/beamup/jobs/4746295101",
+        "data_compliance": [
+          {
+            "type": "gdpr",
+            "requires_consent": false,
+            "requires_processing_consent": false,
+            "requires_retention_consent": false,
+            "retention_period": null,
+            "demographic_data_consent_applies": false
+          }
+        ],
+        "internal_job_id": 4412181101,
+        "location": {
+          "name": "Tel-Aviv, Israel"
+        },
+        "metadata": null,
+        "id": 4746295101,
+        "updated_at": "2026-01-08T03:55:20-05:00",
+        "requisition_id": "107",
+        "title": "Bookkeeper ",
+        "company_name": "Beamup",
+        "first_published": "2026-01-04T03:00:07-05:00",
+        "language": "en",
+        "content": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;strong data-stringify-type=&quot;bold&quot;&gt;About Us&lt;br&gt;&lt;/strong&gt;Beamup helps enterprises move beyond dashboards, alerts, and manual triage to&amp;nbsp;&lt;strong data-stringify-type=&quot;bold&quot;&gt;automated supply chain execution&lt;/strong&gt;.&lt;br&gt;Our AI platform supports large, complex retail and manufacturing networks by deploying specialized AI agents that operate continuously across stores, distribution centers, warehouses, and in-transit operations. These agents detect execution issues, identify root causes, and execute corrective actions - either autonomously or by routing work to the right teams.&lt;br&gt;Retailers and manufacturers rely on Beamup to replace reactive workflows with consistent, scalable execution — reducing losses, improving performance, and operating with greater confidence at global scale.&lt;/p&gt;\n&lt;p&gt;&lt;strong data-stringify-type=&quot;bold&quot;&gt;Our Mission&lt;br&gt;&lt;/strong&gt;To redefine supply chain intelligence by building AI agents that predict, prevent, and resolve inventory health and operational issues in real time.&lt;/p&gt;&lt;/div&gt;&lt;p&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;&lt;strong&gt;Job Summary:&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;We are looking for a hands-on Bookkeeper to join our growing Finance team at BeamUp.&lt;br&gt;In this role, you will be responsible for managing the company’s full bookkeeping cycle, from daily accounting operations to month-end close, payroll, and statutory reporting.&lt;br&gt;This is a high-ownership role in a fast-paced SaaS environment, working closely with finance leadership to build scalable and accurate financial processes.&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;&lt;strong&gt;Responsibilities:&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Full responsibility for month-end close processes, including review of amortization, intercompany transactions, Prepaid, Fixed assets, and accruals.&lt;/li&gt;\n&lt;li&gt;Prepare the month end financial analysis.&lt;/li&gt;\n&lt;li&gt;Conduct bank account and credit card reconciliations.&lt;/li&gt;\n&lt;li&gt;Manage Account Payable process, recording of AP invoices, creation of new vendors, and processing payments to suppliers.&lt;/li&gt;\n&lt;li&gt;Manage Account Receivables process, issue invoices to customers, collection.&lt;/li&gt;\n&lt;li&gt;Manage monthly payroll cycle and journal entries.&lt;/li&gt;\n&lt;li&gt;Manage expense reimbursement, subscription payment, and travel reports in Mesh system.&lt;/li&gt;\n&lt;li&gt;Manage statutory filings and reporting (VAT, 126, 856, Sales Tax, 1099).&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;&lt;strong&gt;Requirements:&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Minimum of 5 years of experience in bookkeeping&lt;/li&gt;\n&lt;li&gt;Proficient with ERP systems – Priority.&lt;/li&gt;\n&lt;li&gt;Proficient with QuickBooks – Advantage.&lt;/li&gt;\n&lt;li&gt;Proficient with Mesh – Advantage.&lt;/li&gt;\n&lt;li&gt;Certified bookkeeper (Minimum level 2. Type 3 is an advantage).&lt;/li&gt;\n&lt;li&gt;Experience working with global SaaS companies.&lt;/li&gt;\n&lt;li&gt;Proficient in English (writing, reading, and speaking)&lt;/li&gt;\n&lt;li&gt;Proficient in Microsoft Office (Excel)&lt;/li&gt;\n&lt;li&gt;Strong attention to detail and ability to multitask&lt;/li&gt;\n&lt;li&gt;Ownership and process implementation from A to Z&lt;/li&gt;\n&lt;li&gt;Team player, a go-to person with a service-oriented mindset&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;Beamup is proud to be an equal opportunity employer and provides equal employment opportunities (EEO) to all employees and applicants without regard to race, color, religion, sex, national origin, age, disability, veteran status, sexual orientation, gender identity or genetics.&lt;/p&gt;\n&lt;p&gt;You can read more about us at:&lt;/p&gt;\n&lt;p&gt;&lt;a href=&quot;https://www.beamup.ai/&quot;&gt;https://www.beamup.ai/&lt;/a&gt;&lt;/p&gt;\n&lt;p&gt;And we were also chosen to be one of the 50 most promising Israeli startups of 2023:&lt;br&gt;&lt;a href=&quot;https://www.calcalistech.com/ctechnews/article/hjtwkugx2&quot;&gt;https://www.calcalistech.com/ctechnews/article/hjtwkugx2&lt;/a&gt;&lt;/p&gt;&lt;div class=&quot;content-conclusion&quot;&gt;&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Beamup is proud to be an equal opportunity employer and provides equal employment opportunities (EEO) to all employees and applicants without regard to race, color, religion, sex, national origin, age, disability, veteran status, sexual orientation, gender identity, or genetics.&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;You can read more about us at:&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;a href=&quot;https://www.beamup.ai/&quot;&gt;https://www.beamup.ai/&lt;/a&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;And we were also chosen to be one of the 50 most promising Israeli startups of 2023:&lt;br&gt;&lt;a href=&quot;https://www.calcalistech.com/ctechnews/article/hjtwkugx2&quot;&gt;https://www.calcalistech.com/ctechnews/article/hjtwkugx2&lt;/a&gt;&lt;br&gt;&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;/div&gt;",
+        "departments": [
+          {
+            "id": 4062772101,
+            "name": "Finance",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ],
+        "offices": [
+          {
+            "id": 4007777101,
+            "name": "BeamUp main office ",
+            "location": "Tel Aviv District, Israel",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ]
+      },
+      {
+        "absolute_url": "https://job-boards.eu.greenhouse.io/beamup/jobs/4665532101",
+        "data_compliance": [
+          {
+            "type": "gdpr",
+            "requires_consent": false,
+            "requires_processing_consent": false,
+            "requires_retention_consent": false,
+            "retention_period": null,
+            "demographic_data_consent_applies": false
+          }
+        ],
+        "internal_job_id": 4375140101,
+        "location": {
+          "name": "Tel Aviv, Israel"
+        },
+        "metadata": null,
+        "id": 4665532101,
+        "updated_at": "2025-09-17T03:43:32-04:00",
+        "requisition_id": "101",
+        "title": "Business Application & Analytics Manager",
+        "company_name": "Beamup",
+        "first_published": "2025-09-01T11:25:12-04:00",
+        "language": "en",
+        "content": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;strong data-stringify-type=&quot;bold&quot;&gt;About Us&lt;br&gt;&lt;/strong&gt;Beamup helps enterprises move beyond dashboards, alerts, and manual triage to&amp;nbsp;&lt;strong data-stringify-type=&quot;bold&quot;&gt;automated supply chain execution&lt;/strong&gt;.&lt;br&gt;Our AI platform supports large, complex retail and manufacturing networks by deploying specialized AI agents that operate continuously across stores, distribution centers, warehouses, and in-transit operations. These agents detect execution issues, identify root causes, and execute corrective actions - either autonomously or by routing work to the right teams.&lt;br&gt;Retailers and manufacturers rely on Beamup to replace reactive workflows with consistent, scalable execution — reducing losses, improving performance, and operating with greater confidence at global scale.&lt;/p&gt;\n&lt;p&gt;&lt;strong data-stringify-type=&quot;bold&quot;&gt;Our Mission&lt;br&gt;&lt;/strong&gt;To redefine supply chain intelligence by building AI agents that predict, prevent, and resolve inventory health and operational issues in real time.&lt;/p&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;About the Role&lt;br&gt;&lt;/strong&gt;&lt;/p&gt;\n&lt;p data-renderer-start-pos=&quot;1&quot;&gt;Are you ready to take on a high-impact role in a dynamic, global startup environment?&lt;/p&gt;\n&lt;p data-renderer-start-pos=&quot;100&quot;&gt;We are looking for a hands-on, strategic Business Application Manager with a proactive, ownership-driven mindset. Someone who takes initiative, thinks beyond the immediate task, and translates data into real business impact. This role requires a unique mix of &lt;strong data-renderer-mark=&quot;true&quot;&gt;systems expertise, project management, and analytical skills&lt;/strong&gt;. You’ll not only implement and optimize our platforms but also analyze ROI, create data-driven case studies, and help leadership make informed decisions.&lt;/p&gt;\n&lt;p data-renderer-start-pos=&quot;576&quot;&gt;Reporting to the VP of Customer Success, you’ll work cross-functionally with Sales, Marketing, Finance, Procurement, and Operations to ensure the company has the right tools, workflows, and insights to scale effectively.&lt;/p&gt;\n&lt;p data-renderer-start-pos=&quot;798&quot;&gt;This is part project manager, part systems owner, and part business analyst. You’ll lead end-to-end implementations, integrate platforms like Salesforce, Intercom, Quicksight, create dashboards and reports, and drive process optimization across the business.&lt;br&gt;&lt;br&gt;&lt;strong&gt;&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Key Responsibilities&lt;br&gt;&lt;br&gt;&lt;/strong&gt;&lt;strong&gt;Platform Ownership &amp;amp; Integration&lt;br&gt;&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;/p&gt;\n&lt;ul class=&quot;ak-ul&quot; data-indent-level=&quot;1&quot;&gt;\n&lt;li&gt;\n&lt;p data-renderer-start-pos=&quot;1117&quot;&gt;Implement, configure, and maintain core business platforms: CRM (Salesforce), CS tools (Intercom/Zendesk), BI (Quicksight/Tableau), and others.&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-renderer-start-pos=&quot;1264&quot;&gt;Serve as system administrator: manage configuration, user roles, workflows, and integrations.&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-renderer-start-pos=&quot;1361&quot;&gt;Ensure data integrity and consistency across all systems; reduce silos and duplication.&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-renderer-start-pos=&quot;1452&quot;&gt;Evaluate, procure, and integrate new tools as the company scales.&lt;/p&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;&lt;br&gt;Data Analytics&lt;br&gt;&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;/p&gt;\n&lt;ul class=&quot;ak-ul&quot; data-indent-level=&quot;1&quot;&gt;\n&lt;li&gt;\n&lt;p data-renderer-start-pos=&quot;1541&quot;&gt;Build and maintain dashboards and recurring reports for leadership and &lt;span data-highlighted=&quot;true&quot; data-vc=&quot;highlighted-text&quot;&gt;&lt;span class=&quot;_kqswh2mm&quot;&gt;&lt;span class=&quot;_5pioz8co _189e1dm9 _1il9buyh _19lc184f _d0altlke&quot; data-testid=&quot;definition-highlighter&quot;&gt;GTM&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; teams.&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-renderer-start-pos=&quot;1626&quot;&gt;Track and analyze key metrics: pipeline, revenue, churn/retention, customer health, support SLAs, and financial KPIs.&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-renderer-start-pos=&quot;1747&quot;&gt;Define and maintain KPIs as a single source of truth; ensure alignment across teams.&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-renderer-start-pos=&quot;1835&quot;&gt;Analyze ROI and build case studies to demonstrate impact and inform decision-making.&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-renderer-start-pos=&quot;1923&quot;&gt;Leverage AI and automation to accelerate insights and improve reporting.&lt;/p&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;&lt;br&gt;Process Optimization &amp;amp; Project Management&lt;br&gt;&lt;/strong&gt;&lt;/p&gt;\n&lt;ul class=&quot;ak-ul&quot; data-indent-level=&quot;1&quot;&gt;\n&lt;li&gt;\n&lt;p data-renderer-start-pos=&quot;2044&quot;&gt;Lead end-to-end business application projects: from scoping and requirements gathering to implementation, testing, and adoption.&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-renderer-start-pos=&quot;2176&quot;&gt;Map, analyze, and optimize cross-functional business processes (Customer Success, Sales, Operations).&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-renderer-start-pos=&quot;2281&quot;&gt;Drive change management: document workflows, train teams, and promote adoption.&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-renderer-start-pos=&quot;2364&quot;&gt;Manage project timelines, dependencies, and risks; deliver high-quality solutions on schedule.&lt;/p&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;&lt;br&gt;Cross-Functional Enablement&lt;br&gt;&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;/p&gt;\n&lt;ul class=&quot;ak-ul&quot; data-indent-level=&quot;1&quot;&gt;\n&lt;li&gt;\n&lt;p data-renderer-start-pos=&quot;2493&quot;&gt;Partner closely with &lt;span data-highlighted=&quot;true&quot; data-vc=&quot;highlighted-text&quot;&gt;GTM&lt;/span&gt; leaders to streamline forecasting, reporting, and operational cadences.&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-renderer-start-pos=&quot;2593&quot;&gt;Support forecasting and planning processes, ensuring clean and accurate data.&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-renderer-start-pos=&quot;2674&quot;&gt;Act as a trusted advisor to leadership on systems, processes, and data-driven decision-making.&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-renderer-start-pos=&quot;2772&quot;&gt;Provide ad-hoc analysis and insights to inform strategy.&lt;br&gt;&lt;br&gt;&lt;/p&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Requirements&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;/p&gt;\n&lt;ul class=&quot;ak-ul&quot; data-indent-level=&quot;1&quot;&gt;\n&lt;li&gt;\n&lt;p data-renderer-start-pos=&quot;2849&quot;&gt;5–7 years of experience in Business Systems, Revenue Operations, or Business Applications roles (startup or scale-up experience preferred).&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-renderer-start-pos=&quot;2992&quot;&gt;Strong analytical skills with the ability to analyze ROI, create case studies, and translate data into actionable insights.&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-renderer-start-pos=&quot;3119&quot;&gt;Proven track record managing end-to-end systems implementations and cross-functional projects.&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-renderer-start-pos=&quot;3217&quot;&gt;Strong, hands-on experience with Salesforce, HubSpot, Intercom, Zendesk, and BI tools (Quicksight/Tableau).&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-renderer-start-pos=&quot;3328&quot;&gt;Experience with integration tools and understanding of APIs.&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-renderer-start-pos=&quot;3392&quot;&gt;Familiarity with AI technologies and their application in business processes (advantage).&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-renderer-start-pos=&quot;3485&quot;&gt;SQL knowledge or basic technical ability to query/validate data (advantage).&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-renderer-start-pos=&quot;3565&quot;&gt;Excellent project management skills: able to juggle multiple projects and stakeholders with clear communication.&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-renderer-start-pos=&quot;3681&quot;&gt;Strong interpersonal and leadership skills; able to influence across teams.&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-renderer-start-pos=&quot;3760&quot;&gt;Comfortable working independently in a fast-paced, resource-constrained startup environment.&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-renderer-start-pos=&quot;3856&quot;&gt;Proactive, self-starter with an ownership-driven mindset.&lt;/p&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;/p&gt;\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;div class=&quot;content-conclusion&quot;&gt;&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Beamup is proud to be an equal opportunity employer and provides equal employment opportunities (EEO) to all employees and applicants without regard to race, color, religion, sex, national origin, age, disability, veteran status, sexual orientation, gender identity, or genetics.&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;You can read more about us at:&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;a href=&quot;https://www.beamup.ai/&quot;&gt;https://www.beamup.ai/&lt;/a&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;And we were also chosen to be one of the 50 most promising Israeli startups of 2023:&lt;br&gt;&lt;a href=&quot;https://www.calcalistech.com/ctechnews/article/hjtwkugx2&quot;&gt;https://www.calcalistech.com/ctechnews/article/hjtwkugx2&lt;/a&gt;&lt;br&gt;&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;/div&gt;",
+        "departments": [
+          {
+            "id": 4049854101,
+            "name": "Support and Customer Success",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ],
+        "offices": [
+          {
+            "id": 4007777101,
+            "name": "BeamUp main office ",
+            "location": "Tel Aviv District, Israel",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ]
+      },
+      {
+        "absolute_url": "https://job-boards.eu.greenhouse.io/beamup/jobs/4652784101",
+        "data_compliance": [
+          {
+            "type": "gdpr",
+            "requires_consent": false,
+            "requires_processing_consent": false,
+            "requires_retention_consent": false,
+            "retention_period": null,
+            "demographic_data_consent_applies": false
+          }
+        ],
+        "internal_job_id": 4368111101,
+        "location": {
+          "name": "Tel Aviv, Israel"
+        },
+        "metadata": null,
+        "id": 4652784101,
+        "updated_at": "2026-01-12T06:44:53-05:00",
+        "requisition_id": "95",
+        "title": "Enterprise Customer Success Manager",
+        "company_name": "Beamup",
+        "first_published": "2025-08-11T07:02:11-04:00",
+        "language": "en",
+        "content": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;strong data-stringify-type=&quot;bold&quot;&gt;About Us&lt;br&gt;&lt;/strong&gt;Beamup helps enterprises move beyond dashboards, alerts, and manual triage to&amp;nbsp;&lt;strong data-stringify-type=&quot;bold&quot;&gt;automated supply chain execution&lt;/strong&gt;.&lt;br&gt;Our AI platform supports large, complex retail and manufacturing networks by deploying specialized AI agents that operate continuously across stores, distribution centers, warehouses, and in-transit operations. These agents detect execution issues, identify root causes, and execute corrective actions - either autonomously or by routing work to the right teams.&lt;br&gt;Retailers and manufacturers rely on Beamup to replace reactive workflows with consistent, scalable execution — reducing losses, improving performance, and operating with greater confidence at global scale.&lt;/p&gt;\n&lt;p&gt;&lt;strong data-stringify-type=&quot;bold&quot;&gt;Our Mission&lt;br&gt;&lt;/strong&gt;To redefine supply chain intelligence by building AI agents that predict, prevent, and resolve inventory health and operational issues in real time.&lt;/p&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;About the Position&lt;/strong&gt;&lt;/p&gt;\n&lt;p data-renderer-start-pos=&quot;531&quot;&gt;As a &lt;strong data-renderer-mark=&quot;true&quot;&gt;Customer Success Manager (CSM)&lt;/strong&gt; at BeamUp, you will be the strategic partner and primary point of contact for our enterprise customers. You will lead the customer journey from onboarding through ongoing engagement, ensuring successful adoption, operationalization, and measurable value from the Beamup platform.&lt;/p&gt;\n&lt;p data-renderer-start-pos=&quot;848&quot;&gt;This position sits within the &lt;strong data-renderer-mark=&quot;true&quot;&gt;Customer Experience&lt;/strong&gt; organization and involves close collaboration with the Sales team, as well as cross-functional partnerships with Product Management, R&amp;amp;D, and Marketing teams globally. Approximately &lt;strong data-renderer-mark=&quot;true&quot;&gt;20% of your time will involve support management&lt;/strong&gt;, including handling customer tickets and inquiries.&lt;br&gt;&lt;br&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Key Responsibilities&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;&lt;/strong&gt;&lt;/p&gt;\n&lt;ul class=&quot;p-rich_text_list p-rich_text_list__bullet p-rich_text_list--nested&quot; data-stringify-type=&quot;unordered-list&quot; data-list-tree=&quot;true&quot; data-indent=&quot;0&quot; data-border=&quot;0&quot;&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Ensure customers achieve maximum value and success with Beamup’s platform.&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Deeply understand each customer’s organizational structure, business goals, and operational outcomes.&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Develop and manage customer success plans with clear goals, KPIs, and timelines.&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Track and report customer progress both internally and to stakeholders.&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Build and maintain strong relationships with key decision-makers and senior executives.&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Drive ROI through improved operational efficiency, risk mitigation, and accurate reporting.&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Deliver Executive Business Reviews (EBRs) and tailored product demonstrations.&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Identify and nurture growth opportunities, partnering closely with Sales and Sales Engineering.&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Provide frontline support to customers (20% of role), ensuring swift and effective issue resolution.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Requirements&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;&lt;/strong&gt;&lt;/p&gt;\n&lt;div id=&quot;message-list_1768218217.370649&quot; class=&quot;c-virtual_list__item&quot; data-qa=&quot;virtual-list-item&quot; data-item-key=&quot;1768218217.370649&quot;&gt;\n&lt;div class=&quot;c-message_kit__background p-message_pane_message__message c-message_kit__message&quot; data-qa=&quot;message_container&quot; data-qa-unprocessed=&quot;false&quot; data-qa-placeholder=&quot;false&quot; data-msg-ts=&quot;1768218217.370649&quot; data-msg-channel-id=&quot;D0A6NPNT1NU&quot;&gt;\n&lt;div class=&quot;c-message_kit__hover&quot; data-qa-hover=&quot;true&quot;&gt;\n&lt;div class=&quot;c-message_kit__actions c-message_kit__actions--above&quot;&gt;\n&lt;div class=&quot;c-message_kit__gutter&quot;&gt;\n&lt;div class=&quot;c-message_kit__gutter__right&quot; data-qa=&quot;message_content&quot;&gt;\n&lt;div class=&quot;c-message_kit__blocks c-message_kit__blocks--rich_text&quot;&gt;\n&lt;div class=&quot;c-message__message_blocks c-message__message_blocks--rich_text&quot; data-qa=&quot;message-text&quot;&gt;\n&lt;div class=&quot;p-block_kit_renderer&quot; data-qa=&quot;block-kit-renderer&quot;&gt;\n&lt;div class=&quot;p-block_kit_renderer__block_wrapper p-block_kit_renderer__block_wrapper--first&quot;&gt;\n&lt;div class=&quot;p-rich_text_block&quot;&gt;\n&lt;ul class=&quot;p-rich_text_list p-rich_text_list__bullet p-rich_text_list--nested&quot; data-stringify-type=&quot;unordered-list&quot; data-list-tree=&quot;true&quot; data-indent=&quot;0&quot; data-border=&quot;0&quot;&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;&lt;strong data-stringify-type=&quot;bold&quot;&gt;Minimum 5 years of experience in Customer Success roles at SaaS companies, preferably startups.&lt;/strong&gt;&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;&lt;strong data-stringify-type=&quot;bold&quot;&gt;Experience managing global enterprise accounts&lt;/strong&gt;&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;&lt;strong data-stringify-type=&quot;bold&quot;&gt;Native-level English fluency and deep familiarity with US business culture, communication styles, and customer expectations&lt;/strong&gt;&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;&lt;strong data-stringify-type=&quot;bold&quot;&gt;Willingness to travel to the US and EMEA, with an expected frequency of one trip to each region per quarter.&lt;/strong&gt;&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;&lt;strong data-stringify-type=&quot;bold&quot;&gt;Flexibility to occasionally align with US time zones (EST/PST) for customer meetings and team collaboration, while primarily working local hours.&lt;/strong&gt;&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Strong technical acumen and ability to translate complex concepts for varied audiences.&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Self-starter with high initiative and a passion for continuous learning.&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Excellent decision-making and analytical problem-solving abilities.&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Proven track record of managing strategic accounts, driving customer outcomes, and exceeding performance targets.&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Exceptional communication and interpersonal skills; comfortable engaging with stakeholders at all levels.&lt;/li&gt;\n&lt;li data-stringify-indent=&quot;0&quot; data-stringify-border=&quot;0&quot;&gt;Commercial mindset with the ability to thrive in a dynamic, fast-paced environment.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;div id=&quot;message-list_bottomSpacer&quot; class=&quot;c-virtual_list__item&quot; data-qa=&quot;virtual-list-item&quot; data-item-key=&quot;bottomSpacer&quot;&gt;&lt;/div&gt;\n&lt;p&gt;&lt;strong&gt;Preferred Qualifications&lt;/strong&gt;&lt;/p&gt;\n&lt;ul class=&quot;ak-ul&quot; data-indent-level=&quot;1&quot;&gt;\n&lt;li&gt;\n&lt;p data-renderer-start-pos=&quot;2991&quot;&gt;Experience in supply chain management / Enterprise operations&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-renderer-start-pos=&quot;2991&quot;&gt;Experience in Support Operations / Support Management (e.g., ticket handling &amp;amp; escalations)&lt;/p&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;Ready to drive real impact for global enterprises with Beamup?&lt;br&gt;&lt;strong data-renderer-mark=&quot;true&quot;&gt;Apply now and let’s build the future of Supply Chain management together.&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;div class=&quot;content-conclusion&quot;&gt;&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Beamup is proud to be an equal opportunity employer and provides equal employment opportunities (EEO) to all employees and applicants without regard to race, color, religion, sex, national origin, age, disability, veteran status, sexual orientation, gender identity, or genetics.&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;You can read more about us at:&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;a href=&quot;https://www.beamup.ai/&quot;&gt;https://www.beamup.ai/&lt;/a&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;And we were also chosen to be one of the 50 most promising Israeli startups of 2023:&lt;br&gt;&lt;a href=&quot;https://www.calcalistech.com/ctechnews/article/hjtwkugx2&quot;&gt;https://www.calcalistech.com/ctechnews/article/hjtwkugx2&lt;/a&gt;&lt;br&gt;&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;/div&gt;",
+        "departments": [
+          {
+            "id": 4049854101,
+            "name": "Support and Customer Success",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ],
+        "offices": [
+          {
+            "id": 4007777101,
+            "name": "BeamUp main office ",
+            "location": "Tel Aviv District, Israel",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ]
+      },
+      {
+        "absolute_url": "https://job-boards.eu.greenhouse.io/beamup/jobs/4778571101",
+        "data_compliance": [
+          {
+            "type": "gdpr",
+            "requires_consent": false,
+            "requires_processing_consent": false,
+            "requires_retention_consent": false,
+            "retention_period": null,
+            "demographic_data_consent_applies": false
+          }
+        ],
+        "internal_job_id": 4428027101,
+        "location": {
+          "name": "Tel-Aviv, Israel"
+        },
+        "metadata": null,
+        "id": 4778571101,
+        "updated_at": "2026-02-11T06:57:44-05:00",
+        "requisition_id": "111",
+        "title": "Operations Manager (Maternity Leave Replacement)",
+        "company_name": "Beamup",
+        "first_published": "2026-02-10T04:30:26-05:00",
+        "language": "en",
+        "content": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;strong data-stringify-type=&quot;bold&quot;&gt;About Us&lt;br&gt;&lt;/strong&gt;Beamup helps enterprises move beyond dashboards, alerts, and manual triage to&amp;nbsp;&lt;strong data-stringify-type=&quot;bold&quot;&gt;automated supply chain execution&lt;/strong&gt;.&lt;br&gt;Our AI platform supports large, complex retail and manufacturing networks by deploying specialized AI agents that operate continuously across stores, distribution centers, warehouses, and in-transit operations. These agents detect execution issues, identify root causes, and execute corrective actions - either autonomously or by routing work to the right teams.&lt;br&gt;Retailers and manufacturers rely on Beamup to replace reactive workflows with consistent, scalable execution — reducing losses, improving performance, and operating with greater confidence at global scale.&lt;/p&gt;\n&lt;p&gt;&lt;strong data-stringify-type=&quot;bold&quot;&gt;Our Mission&lt;br&gt;&lt;/strong&gt;To redefine supply chain intelligence by building AI agents that predict, prevent, and resolve inventory health and operational issues in real time.&lt;/p&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Job Summary:&lt;br&gt;&lt;/strong&gt;&lt;strong&gt;&lt;br&gt;&lt;/strong&gt;We’re looking for an experienced &lt;strong&gt;Operations Manager&lt;/strong&gt; to temporarily step in during maternity leave and keep our operations and security running smoothly. This is a hands-on role with real ownership across &lt;strong&gt;employee lifecycle processes, information security, compliance, and vendor management&lt;/strong&gt;, while being an active part of the &lt;strong&gt;Operations team&lt;/strong&gt;.&lt;/p&gt;\n&lt;p&gt;You’ll support ongoing operational projects and processes, work closely with internal stakeholders, and be a key partner on data security and privacy matters.&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Responsibilities:&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;Operations Team Support&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Support &lt;strong&gt;ongoing operational projects and processes&lt;/strong&gt;&lt;/li&gt;\n&lt;li&gt;Help improve and maintain operational workflows and documentation&lt;/li&gt;\n&lt;li&gt;Ensure continuity of operations during the maternity leave period&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h4&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;Information Security &amp;amp; Compliance&lt;/span&gt;&lt;/h4&gt;\n&lt;ul&gt;\n&lt;li&gt;Own and maintain day-to-day processes for &lt;strong&gt;ISO 27001 and SOC 2&lt;/strong&gt;&lt;/li&gt;\n&lt;li&gt;Support audits, evidence collection, and ongoing compliance activities&lt;/li&gt;\n&lt;li&gt;Lead &lt;strong&gt;security awareness training&lt;/strong&gt;&lt;/li&gt;\n&lt;li&gt;Work with internal teams on &lt;strong&gt;data security and privacy&lt;/strong&gt; topics&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h4&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;Employee Onboarding, Offboarding &amp;amp; Access Management&lt;/span&gt;&lt;/h4&gt;\n&lt;ul&gt;\n&lt;li&gt;Own end-to-end &lt;strong&gt;employee onboarding and offboarding&lt;/strong&gt;&lt;/li&gt;\n&lt;li&gt;Provision, manage, and revoke &lt;strong&gt;user access and permissions&lt;/strong&gt;&lt;/li&gt;\n&lt;li&gt;Ensure role-based access and least-privilege principles&lt;/li&gt;\n&lt;li&gt;Run regular &lt;strong&gt;access and permissions reviews&lt;/strong&gt;&lt;/li&gt;\n&lt;li&gt;Maintain clear documentation and audit trails&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;&lt;strong&gt;IT &amp;amp; Systems Operations&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Manage company tools, systems, and identity/access controls&lt;/li&gt;\n&lt;li&gt;Ensure systems are securely configured and well maintained&lt;/li&gt;\n&lt;li&gt;Act as a go-to person for operational and access-related issues&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h4&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;Vendor &amp;amp; Subscription Management&lt;/span&gt;&lt;/h4&gt;\n&lt;ul&gt;\n&lt;li&gt;Manage &lt;strong&gt;software subscriptions&lt;/strong&gt;, including licenses, renewals, and ownership&lt;/li&gt;\n&lt;li&gt;Lead &lt;strong&gt;vendor onboarding&lt;/strong&gt;, including security reviews and risk assessments&lt;/li&gt;\n&lt;li&gt;Maintain supplier security standards and documentation&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;&lt;strong&gt;Requirements:&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;strong&gt;At least 2 years of experience&lt;/strong&gt; in Operations, IT Operations, Security Operations, or a similar position&lt;/li&gt;\n&lt;li&gt;Hands-on experience with &lt;strong&gt;ISO 27001 and SOC 2&lt;/strong&gt;&lt;/li&gt;\n&lt;li&gt;Experience managing &lt;strong&gt;onboarding/offboarding and access control&lt;/strong&gt;&lt;/li&gt;\n&lt;li&gt;Strong attention to detail and comfort handling sensitive information&lt;/li&gt;\n&lt;li&gt;Experience in a &lt;strong&gt;fast-paced startup or high-growth environment- Must&lt;/strong&gt;&lt;/li&gt;\n&lt;li&gt;Security-minded, practical, and comfortable taking ownership&lt;/li&gt;\n&lt;li&gt;Organized, independent, and proactive&lt;/li&gt;\n&lt;/ul&gt;&lt;div class=&quot;content-conclusion&quot;&gt;&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Beamup is proud to be an equal opportunity employer and provides equal employment opportunities (EEO) to all employees and applicants without regard to race, color, religion, sex, national origin, age, disability, veteran status, sexual orientation, gender identity, or genetics.&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;You can read more about us at:&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;a href=&quot;https://www.beamup.ai/&quot;&gt;https://www.beamup.ai/&lt;/a&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;And we were also chosen to be one of the 50 most promising Israeli startups of 2023:&lt;br&gt;&lt;a href=&quot;https://www.calcalistech.com/ctechnews/article/hjtwkugx2&quot;&gt;https://www.calcalistech.com/ctechnews/article/hjtwkugx2&lt;/a&gt;&lt;br&gt;&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;/div&gt;",
+        "departments": [
+          {
+            "id": 4067050101,
+            "name": "Operations",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ],
+        "offices": [
+          {
+            "id": 4007777101,
+            "name": "BeamUp main office ",
+            "location": "Tel Aviv District, Israel",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ]
+      },
+      {
+        "absolute_url": "https://job-boards.eu.greenhouse.io/beamup/jobs/4585036101",
+        "data_compliance": [
+          {
+            "type": "gdpr",
+            "requires_consent": true,
+            "requires_processing_consent": true,
+            "requires_retention_consent": true,
+            "retention_period": 365,
+            "demographic_data_consent_applies": false
+          }
+        ],
+        "internal_job_id": 4334095101,
+        "location": {
+          "name": "USA"
+        },
+        "metadata": null,
+        "id": 4585036101,
+        "updated_at": "2026-01-13T03:24:07-05:00",
+        "requisition_id": "86",
+        "title": "Sales Account Executive",
+        "company_name": "Beamup",
+        "first_published": "2025-05-06T14:17:44-04:00",
+        "language": "en",
+        "content": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;strong data-stringify-type=&quot;bold&quot;&gt;About Us&lt;br&gt;&lt;/strong&gt;Beamup helps enterprises move beyond dashboards, alerts, and manual triage to&amp;nbsp;&lt;strong data-stringify-type=&quot;bold&quot;&gt;automated supply chain execution&lt;/strong&gt;.&lt;br&gt;Our AI platform supports large, complex retail and manufacturing networks by deploying specialized AI agents that operate continuously across stores, distribution centers, warehouses, and in-transit operations. These agents detect execution issues, identify root causes, and execute corrective actions - either autonomously or by routing work to the right teams.&lt;br&gt;Retailers and manufacturers rely on Beamup to replace reactive workflows with consistent, scalable execution — reducing losses, improving performance, and operating with greater confidence at global scale.&lt;/p&gt;\n&lt;p&gt;&lt;strong data-stringify-type=&quot;bold&quot;&gt;Our Mission&lt;br&gt;&lt;/strong&gt;To redefine supply chain intelligence by building AI agents that predict, prevent, and resolve inventory health and operational issues in real time.&lt;/p&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Job Overview:&lt;br&gt;&lt;/strong&gt;We are seeking an experienced and dynamic Account Executive to join our sales organization. This role requires a seasoned sales professional with 7+ years of enterprise software sales experience and a deep understanding of supply chain challenges within retail, manufacturing, or 3PL/logistics. The ideal candidate is a solution-selling expert with a robust network, capable of sourcing and closing end-to-end deals that fuel our growth. The Account Executive will report to the VP Sales, playing a critical role in driving strategic revenue initiatives. Open to occasionally working EU hours&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Key Responsibilities:&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;strong&gt;Sales Strategy &amp;amp; Leadership:&lt;br&gt;&lt;br&gt;&lt;/strong&gt;\n&lt;ul&gt;\n&lt;li&gt;Execute with Enterprise Sales Strategy to drive revenue growth in targeted sectors.&lt;/li&gt;\n&lt;li&gt;Participate in a high-performing sales team to meet and exceed sales targets.&lt;/li&gt;\n&lt;li&gt;Collaborate with executive leadership to refine the company’s market positioning and value proposition.&lt;/li&gt;\n&lt;li&gt;Pitch directly to the prospect’s C-Suite&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;strong&gt;Business Development &amp;amp; Deal Sourcing:&lt;br&gt;&lt;br&gt;&lt;/strong&gt;\n&lt;ul&gt;\n&lt;li&gt;Identify, prospect, and engage with potential enterprise clients within the designated supply chain sectors.&lt;/li&gt;\n&lt;li&gt;Leverage an existing robust Rolodex to expand the company’s network and drive new business opportunities.&lt;/li&gt;\n&lt;li&gt;Own the full sales cycle from lead generation to closing deals, ensuring a seamless, consultative solution-selling approach.&lt;/li&gt;\n&lt;li&gt;Responsible for self-sourcing leads&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;strong&gt;Customer Relationship Management:&lt;br&gt;&lt;br&gt;&lt;/strong&gt;\n&lt;ul&gt;\n&lt;li&gt;Build and maintain strong, long-term relationships with key stakeholders and decision-makers.&lt;/li&gt;\n&lt;li&gt;Act as a trusted advisor to clients, understanding their business challenges and aligning our software solutions to meet their needs.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;strong&gt;Market Analysis &amp;amp; Relevancy:&lt;br&gt;&lt;br&gt;&lt;/strong&gt;\n&lt;ul&gt;\n&lt;li&gt;Monitor market trends and competitive activity to inform strategic decisions.&lt;/li&gt;\n&lt;li&gt;Provide regular sales forecasts and performance reports to the executive team.&lt;/li&gt;\n&lt;li&gt;Utilize Salesforce and continue to optimize the sales processes.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;Qualifications:&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;strong&gt;Experience:&lt;br&gt;&lt;br&gt;&lt;/strong&gt;\n&lt;ul&gt;\n&lt;li&gt;Minimum of 7+ years in enterprise software sales with a focus on supply chain solutions.&lt;/li&gt;\n&lt;li&gt;Proven track record in solution selling and closing complex deals end-to-end.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Industry Expertise:&lt;br&gt;&lt;br&gt;&lt;/strong&gt;\n&lt;ul&gt;\n&lt;li&gt;Deep understanding of supply chain dynamics within retail, pharma, manufacturing, or 3PL/logistics.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;strong&gt;Skills &amp;amp; Attributes:&lt;br&gt;&lt;br&gt;&lt;/strong&gt;\n&lt;ul&gt;\n&lt;li&gt;Demonstrated ability to execute Solution-Based Selling and operate within an MEDDPIC framework&lt;/li&gt;\n&lt;li&gt;Excellent leadership, communication, and interpersonal skills.&lt;/li&gt;\n&lt;li&gt;Strong analytical and strategic thinking capabilities.&lt;/li&gt;\n&lt;li&gt;Self-motivated, proactive, and able to thrive in a fast-paced, early-stage environment.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;Why Join Beamup?&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Opportunity to shape the sales strategy of a high-growth, innovative company.&lt;/li&gt;\n&lt;li&gt;Collaborative and entrepreneurial work environment.&lt;/li&gt;\n&lt;li&gt;Competitive compensation package with performance-based incentives.&lt;/li&gt;\n&lt;li&gt;Career growth opportunities as we expand our footprint in the enterprise software market&lt;/li&gt;\n&lt;/ul&gt;&lt;div class=&quot;content-conclusion&quot;&gt;&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Beamup is proud to be an equal opportunity employer and provides equal employment opportunities (EEO) to all employees and applicants without regard to race, color, religion, sex, national origin, age, disability, veteran status, sexual orientation, gender identity, or genetics.&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;You can read more about us at:&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;a href=&quot;https://www.beamup.ai/&quot;&gt;https://www.beamup.ai/&lt;/a&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;And we were also chosen to be one of the 50 most promising Israeli startups of 2023:&lt;br&gt;&lt;a href=&quot;https://www.calcalistech.com/ctechnews/article/hjtwkugx2&quot;&gt;https://www.calcalistech.com/ctechnews/article/hjtwkugx2&lt;/a&gt;&lt;br&gt;&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;/div&gt;",
+        "departments": [
+          {
+            "id": 4015285101,
+            "name": "S&M",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ],
+        "offices": [
+          {
+            "id": 4008347101,
+            "name": "US office ",
+            "location": "United States ",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ]
+      },
+      {
+        "absolute_url": "https://job-boards.eu.greenhouse.io/beamup/jobs/4160525101",
+        "data_compliance": [
+          {
+            "type": "gdpr",
+            "requires_consent": false,
+            "requires_processing_consent": false,
+            "requires_retention_consent": false,
+            "retention_period": null,
+            "demographic_data_consent_applies": false
+          }
+        ],
+        "internal_job_id": 4108927101,
+        "location": {
+          "name": "Tel Aviv"
+        },
+        "metadata": null,
+        "id": 4160525101,
+        "updated_at": "2026-01-13T02:54:37-05:00",
+        "requisition_id": "21",
+        "title": "Senior Data Engineer ",
+        "company_name": "Beamup",
+        "first_published": "2023-04-29T05:11:59-04:00",
+        "language": "en",
+        "content": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;strong data-stringify-type=&quot;bold&quot;&gt;About Us&lt;br&gt;&lt;/strong&gt;Beamup helps enterprises move beyond dashboards, alerts, and manual triage to&amp;nbsp;&lt;strong data-stringify-type=&quot;bold&quot;&gt;automated supply chain execution&lt;/strong&gt;.&lt;br&gt;Our AI platform supports large, complex retail and manufacturing networks by deploying specialized AI agents that operate continuously across stores, distribution centers, warehouses, and in-transit operations. These agents detect execution issues, identify root causes, and execute corrective actions - either autonomously or by routing work to the right teams.&lt;br&gt;Retailers and manufacturers rely on Beamup to replace reactive workflows with consistent, scalable execution — reducing losses, improving performance, and operating with greater confidence at global scale.&lt;/p&gt;\n&lt;p&gt;&lt;strong data-stringify-type=&quot;bold&quot;&gt;Our Mission&lt;br&gt;&lt;/strong&gt;To redefine supply chain intelligence by building AI agents that predict, prevent, and resolve inventory health and operational issues in real time.&lt;/p&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Job Summary:&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;As a Senior Data Engineer, you will be helping us design and build a flexible and scalable system that will allow our business to move fast and innovate. You will be expected to show ownership and responsibility for the code you write, but it doesn&#39;t stop there. At Beamup, you are encouraged to think big and help out in other areas as well.&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Responsibilities:&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Designing and writing code that is critical for business growth&lt;/li&gt;\n&lt;li&gt;Mastering scalability and enterprise-grade SAAS product implementation&lt;/li&gt;\n&lt;li&gt;Sense of ownership - leading design for new products and initiatives as well as integrating with currently implemented best-practices&lt;/li&gt;\n&lt;li&gt;Building and owning production-grade ETL/ELT pipelines that power analytics, ML training, and real-time AI systems&lt;/li&gt;\n&lt;li&gt;Designing data architectures that support agentic systems, including:&lt;br&gt;\n&lt;ul&gt;\n&lt;li&gt;Embeddings and vector-based retrieval&lt;/li&gt;\n&lt;li&gt;RAG pipelines&lt;/li&gt;\n&lt;li&gt;Feedback loops and continuous improvement&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;li&gt;Review your peer&#39;s design and code&lt;/li&gt;\n&lt;li&gt;Work closely with product managers, peer engineers, and business stakeholders&lt;/li&gt;\n&lt;/ul&gt;\n&lt;ul&gt;\n&lt;li&gt;&amp;nbsp;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;Requirements:&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;5+ years of hands-on experience as Software Engineer with Strong Python skills (TypeScript / Node.js is a plus)&lt;/li&gt;\n&lt;li&gt;Hands on experience in managing major clouds vendors’ infrastructure (AWS, GCP, Azure)&lt;/li&gt;\n&lt;li&gt;Proficiency with SQL, modeling and working with relational and non relational databases, and pushing&amp;nbsp; them past their limits&lt;/li&gt;\n&lt;li&gt;Hands on experience in designing and implementing ML-aware data pipelines (Spark, Airflow), distributed systems and restful APIs&lt;/li&gt;\n&lt;li&gt;Experience or strong interest in LLMs and agentic systems, including:&lt;/li&gt;\n&lt;ul&gt;\n&lt;li&gt;Agentic workflows (LangChain, LangGraph)&lt;/li&gt;\n&lt;li&gt;RAG patterns, Vector databases and embeddings&lt;/li&gt;\n&lt;li&gt;Evaluating and monitoring AI-driven systems (Langfuse LangSmith)&lt;/li&gt;\n&lt;/ul&gt;\n&lt;li&gt;Familiarity with ML &amp;amp; AI tooling, such as:&lt;/li&gt;\n&lt;ul&gt;\n&lt;li&gt;Feature stores, training pipelines, or model-serving data flows&lt;/li&gt;\n&lt;li&gt;ML platforms (MLflow, SageMaker, Vertex, etc.)&lt;/li&gt;\n&lt;/ul&gt;\n&lt;li&gt;Experience with CI/CD, Docker, and Kubernetes&lt;/li&gt;\n&lt;li&gt;The ability to lead new features from design to implementation, taking into consideration topics such as performance, scalability, and impact on the greater system&lt;/li&gt;\n&lt;li&gt;Comfortable operating in a fast-moving startup with high ownership and low process&lt;/li&gt;\n&lt;li&gt;Enjoy communicating and collaborating, sharing your ideas and being open to honest feedback&lt;/li&gt;\n&lt;/ul&gt;&lt;div class=&quot;content-conclusion&quot;&gt;&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Beamup is proud to be an equal opportunity employer and provides equal employment opportunities (EEO) to all employees and applicants without regard to race, color, religion, sex, national origin, age, disability, veteran status, sexual orientation, gender identity, or genetics.&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;You can read more about us at:&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;a href=&quot;https://www.beamup.ai/&quot;&gt;https://www.beamup.ai/&lt;/a&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;And we were also chosen to be one of the 50 most promising Israeli startups of 2023:&lt;br&gt;&lt;a href=&quot;https://www.calcalistech.com/ctechnews/article/hjtwkugx2&quot;&gt;https://www.calcalistech.com/ctechnews/article/hjtwkugx2&lt;/a&gt;&lt;br&gt;&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;/div&gt;",
+        "departments": [
+          {
+            "id": 4015244101,
+            "name": " R&D",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ],
+        "offices": [
+          {
+            "id": 4007777101,
+            "name": "BeamUp main office ",
+            "location": "Tel Aviv District, Israel",
+            "child_ids": [],
+            "parent_id": null
+          }
+        ]
+      }
+    ],
+    "meta": {
+      "total": 7
+    }
+  }
+}

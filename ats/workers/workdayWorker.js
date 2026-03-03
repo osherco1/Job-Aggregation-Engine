@@ -19,6 +19,7 @@ const { CookieJar } = require('tough-cookie');
 const { wrapper } = require('axios-cookiejar-support');
 const { PATHS } = require('../../config/paths');
 const { evaluateAtsGuard } = require('../filters/ats_guard');
+const { israelLocationKeywords } = require('../../config/vocabulary');
 
 const DEBUG_WORKDAY = process.env.DEBUG_WORKDAY === 'true';
 const ATS_GUARD_DRY_RUN = process.env.ATS_GUARD_DRY_RUN === 'true';
@@ -35,9 +36,6 @@ const SESSION_INIT_DELAY_MS = 2000;
 
 // Page size for job fetching
 const PAGE_LIMIT = 20;
-
-// Israel-related search terms (case-insensitive)
-const ISRAEL_TERMS = ['israel', 'tel aviv', 'tel-aviv', 'yokneam', 'haifa', 'herzliya', 'raanana', 'petah tikva', 'jerusalem'];
 
 // Standard browser headers
 const BROWSER_HEADERS = {
@@ -96,12 +94,13 @@ function delay(ms) {
 }
 
 /**
- * Check if text matches Israel-related terms
+ * Check if text matches Israel-related terms (uses centralized vocabulary).
  */
 function matchesIsrael(text) {
     if (!text) return false;
     const lower = text.toLowerCase();
-    return ISRAEL_TERMS.some(term => lower.includes(term));
+    const terms = israelLocationKeywords || [];
+    return terms.some(term => lower.includes(term));
 }
 
 /**
@@ -129,7 +128,7 @@ class WorkdayWorker {
      * @param {string} config.url - Workday careers URL
      *   Pattern: https://<tenant>.<instance>.myworkdayjobs.com/.../<site>/...
      */
-    constructor(config) {
+    constructor(config, options = {}) {
         if (!config || !config.url) {
             throw new Error('WorkdayWorker: config.url is required');
         }
@@ -137,6 +136,8 @@ class WorkdayWorker {
         this.config = config;
         this.companyName = config.name || 'Unknown';
         this.originalUrl = config.url;
+        this.storageAdapter = options.storageAdapter || null;
+        this.knownJobIds = options.knownJobIds || null;
 
         // Parse URL to extract tenant, instance, and site
         const parsed = this._parseWorkdayUrl(config.url);
@@ -275,17 +276,12 @@ class WorkdayWorker {
     }
 
     /**
-     * Detect the Israel location facet dynamically by querying the API.
-     * 
-     * CRITICAL: Workday facet keys vary by tenant (e.g., 'locationHierarchy1', 
-     * 'locations', 'CurrentLocation'). We must extract BOTH the facet parameter
-     * name AND the value ID from the response.
+     * Detect the Israel location facet via nested locationMainGroup traversal.
+     * Uses facetParameter (not facetId). Prefers locationHierarchy1 (country), fallback to locations (city).
      *
-     * @returns {Promise<{facetParam: string, valueId: string}|null>} 
-     *          Facet info object or null if not found
+     * @returns {Promise<{facetParam: string, valueId: string}|null>}
      */
     async detectLocationFacet() {
-        // Return cached value if already looked up
         if (this._locationFacet !== null) {
             return this._locationFacet || null;
         }
@@ -303,98 +299,67 @@ class WorkdayWorker {
             });
 
             const facets = response.data?.facets || [];
-
             if (facets.length === 0) {
                 log(`No facets returned for ${this.companyName}`, 'WARN');
                 this._locationFacet = false;
                 return null;
             }
 
-            // Debug: Log all available facets for diagnostics
-            if (DEBUG_WORKDAY) {
-                log(`Available facets: ${JSON.stringify(facets.map(f => ({
-                    id: f.facetId || f.facet || f.id,
-                    label: f.descriptor || f.label || f.name
-                })))}`);
-            }
+            const mainGroup = facets.find(
+                (f) => (f.facetParameter || f.facetId || f.facet || f.id || '') === 'locationMainGroup'
+            );
 
-            // Find location facet - check multiple possible key patterns
-            // Workday uses various names: locationHierarchy1, locations, CurrentLocation, etc.
-            const locationFacet = facets.find(f => {
-                // Handle both string and object facetId
-                const facetId = typeof f.facetId === 'string' ? f.facetId :
-                    typeof f.facet === 'string' ? f.facet :
-                        typeof f.id === 'string' ? f.id : '';
-                const facetLabel = f.descriptor || f.label || f.name || '';
-                const searchStr = (facetId + ' ' + facetLabel).toLowerCase();
-                return searchStr.includes('location');
+            const locationMain = mainGroup || facets.find((f) => {
+                const label = (f.descriptor || f.label || f.name || '').toLowerCase();
+                return label.includes('location');
             });
-
-            if (!locationFacet) {
-                log(`No location facet found for ${this.companyName}`, 'WARN');
-                log(`Available facet keys: ${facets.map(f => f.facetId || f.facet || f.id || 'unknown').join(', ')}`, 'WARN');
+            if (!locationMain) {
+                log(`No location facet for ${this.companyName}`, 'WARN');
                 this._locationFacet = false;
                 return null;
             }
 
-            // CRITICAL: Extract the actual facet parameter name dynamically
-            const facetParam = locationFacet.facetId || locationFacet.facet || locationFacet.id;
-            if (!facetParam || typeof facetParam !== 'string') {
-                log(`Location facet found but facetId is invalid: ${JSON.stringify(locationFacet)}`, 'WARN');
-                this._locationFacet = false;
-                return null;
+            const subFacets = locationMain.values || locationMain.items || locationMain.children || [];
+            const preferredOrder = ['locationHierarchy1', 'locations', 'locationHierarchy2'];
+
+            for (const subKey of preferredOrder) {
+                const subFacet = subFacets.find(
+                    (s) => (s.facetParameter || s.facetId || s.id || '').toLowerCase() === subKey.toLowerCase()
+                );
+                if (!subFacet) continue;
+
+                const innerValues = subFacet.values || subFacet.items || subFacet.children || [];
+                const israelValue = innerValues.find((v) => {
+                    const label = (v.descriptor || v.label || v.name || v.value || '').toString();
+                    return matchesIsrael(label);
+                });
+                if (israelValue) {
+                    const valueId = israelValue.id || israelValue.facetValue || israelValue.value || israelValue.facetParameter;
+                    const facetParam = subFacet.facetParameter || subFacet.facetId || subFacet.id;
+                    if (valueId && facetParam) {
+                        log(`Found Israel in ${subKey}: ${israelValue.descriptor || israelValue.label} (ID: ${valueId})`);
+                        this._locationFacet = { facetParam: String(facetParam), valueId: String(valueId) };
+                        return this._locationFacet;
+                    }
+                }
             }
 
-            log(`Found location facet with key: "${facetParam}"`);
-
-            // Search for Israel in the facet values
-            // Handle multiple possible structures: values, items, children, data
-            const values = locationFacet.values || locationFacet.items ||
-                locationFacet.children || locationFacet.data || [];
-
-            if (values.length === 0) {
-                log(`Location facet "${facetParam}" has no values`, 'WARN');
-                this._locationFacet = false;
-                return null;
-            }
-
-            const israelValue = values.find(v => {
-                // Handle various label field names
-                const label = v.descriptor || v.label || v.name || v.value ||
-                    v.displayName || v.text || '';
+            const directValues = locationMain.values || locationMain.items || [];
+            const directIsrael = directValues.find((v) => {
+                const label = (v.descriptor || v.label || v.name || v.value || '').toString();
                 return matchesIsrael(label);
             });
-
-            if (israelValue) {
-                // Extract value ID - handle various field names
-                const valueId = israelValue.id || israelValue.facetValue ||
-                    israelValue.value || israelValue.facetParameter;
-                const label = israelValue.descriptor || israelValue.label ||
-                    israelValue.name || israelValue.displayName;
-                const count = israelValue.count || '?';
-
-                if (!valueId) {
-                    log(`Israel found but value ID is missing: ${JSON.stringify(israelValue)}`, 'WARN');
-                    this._locationFacet = false;
-                    return null;
+            if (directIsrael) {
+                const valueId = directIsrael.id || directIsrael.facetValue || directIsrael.value;
+                const facetParam = locationMain.facetParameter || locationMain.facetId || locationMain.id;
+                if (valueId && facetParam) {
+                    this._locationFacet = { facetParam: String(facetParam), valueId: String(valueId) };
+                    return this._locationFacet;
                 }
-
-                log(`Found Israel: "${label}" (Param: ${facetParam}, ID: ${valueId}, Jobs: ${count})`);
-
-                // Cache and return the complete facet info
-                this._locationFacet = { facetParam, valueId };
-                return this._locationFacet;
             }
 
-            log(`No Israel location found in ${values.length} locations for ${this.companyName}`, 'WARN');
-            if (DEBUG_WORKDAY && values.length > 0) {
-                log(`Sample locations: ${values.slice(0, 5).map(v =>
-                    v.descriptor || v.label || v.name || 'unknown'
-                ).join(', ')}...`);
-            }
             this._locationFacet = false;
             return null;
-
         } catch (err) {
             log(`Failed to detect location facet: ${err.message}`, 'ERROR');
             if (DEBUG_WORKDAY && err.response) {
@@ -420,14 +385,20 @@ class WorkdayWorker {
         }
 
         const allJobs = [];
+        const droppedJobs = [];
         const stats = {
             fetched: 0,
             kept: 0,
             dropped: 0,
             droppedByReason: {},
             pages: 0,
-            searchTextFilter: true,  // Primary strategy
-            facetFilterApplied: false  // Bonus if detected
+            searchTextFilter: true,
+            facetFilterApplied: false,
+            wafBlocks: 0,
+            httpErrors: [],
+            serverErrors: 0,
+            workerSubTypes: {},
+            jobFamilyGroups: {}
         };
 
         // =====================================================================
@@ -481,31 +452,79 @@ class WorkdayWorker {
                 const jobs = data.jobPostings || data.jobs || [];
                 totalJobs = data.total || totalJobs;
 
+                if (stats.pages === 0 && Array.isArray(data.facets)) {
+                    for (const f of data.facets) {
+                        const param = (f.facetParameter || f.facetId || f.id || '').toLowerCase();
+                        if (param.includes('workersubtype') || param.includes('worker_sub_type')) {
+                            const vals = f.values || f.items || [];
+                            for (const v of vals) {
+                                const d = (v.descriptor || v.label || v.name || '').trim();
+                                if (d) stats.workerSubTypes[d] = (stats.workerSubTypes[d] || 0) + (v.count || 0);
+                            }
+                        }
+                        if (param.includes('jobfamilygroup') || param.includes('job_family')) {
+                            const vals = f.values || f.items || [];
+                            for (const v of vals) {
+                                const d = (v.descriptor || v.label || v.name || '').trim();
+                                if (d) stats.jobFamilyGroups[d] = (stats.jobFamilyGroups[d] || 0) + (v.count || 0);
+                            }
+                        }
+                    }
+                }
+
                 stats.pages += 1;
                 stats.fetched += jobs.length;
 
-                // Process each job
+                const keywords = israelLocationKeywords || [];
+
                 for (const rawJob of jobs) {
                     const unified = this._normalizeJob(rawJob);
 
                     if (!unified) {
                         stats.dropped += 1;
                         stats.droppedByReason['Normalization'] = (stats.droppedByReason['Normalization'] || 0) + 1;
+                        droppedJobs.push({
+                            jobId: rawJob.externalPath ? `workday_${this.tenant}_unknown` : 'unknown',
+                            title: rawJob.title || 'Unknown',
+                            companyName: this.companyName,
+                            location: rawJob.locationsText || 'Unknown',
+                            reason: 'Normalization failed',
+                            source: 'workday',
+                            gate: 'normalization'
+                        });
                         continue;
                     }
 
-                    // Apply location filter (if not already filtered by facet)
                     if (!locationFacet) {
-                        const location = (unified.location || '').toLowerCase();
-                        if (!matchesIsrael(location) && !location.includes('remote')) {
+                        const loc = (unified.location || '').toLowerCase();
+                        const matchRemote = loc.includes('remote');
+                        const matchIsrael = keywords.some((k) => loc.includes(k));
+                        if (!matchIsrael && !matchRemote) {
                             stats.dropped += 1;
                             stats.droppedByReason['Location'] = (stats.droppedByReason['Location'] || 0) + 1;
+                            droppedJobs.push({
+                                jobId: unified.jobId,
+                                title: unified.title,
+                                companyName: this.companyName,
+                                location: unified.location,
+                                reason: `Location: ${unified.location} (not IL/Remote)`,
+                                source: 'workday',
+                                gate: 'location',
+                                structuredLevel: unified.structuredLevel,
+                                structuredDepartment: unified.structuredDepartment
+                            });
                             continue;
                         }
                     }
 
-                    // Apply ATS Guard (title/seniority filter)
-                    const guard = evaluateAtsGuard(rawJob, {
+                    const guardPayload = {
+                        title: unified.title,
+                        location: unified.location,
+                        departments: unified.structuredDepartment ? [{ name: unified.structuredDepartment }] : [],
+                        description: null,
+                        structuredLevel: unified.structuredLevel
+                    };
+                    const guard = evaluateAtsGuard(guardPayload, {
                         companyId: this.companyName,
                         source: 'workday'
                     });
@@ -513,10 +532,23 @@ class WorkdayWorker {
                     if (guard.verdict !== 'PASS' && !ATS_GUARD_DRY_RUN) {
                         stats.dropped += 1;
                         stats.droppedByReason['ATS_GUARD'] = (stats.droppedByReason['ATS_GUARD'] || 0) + 1;
+                        droppedJobs.push({
+                            jobId: unified.jobId,
+                            title: unified.title,
+                            companyName: this.companyName,
+                            location: unified.location,
+                            reason: guard.reason ? `ATS_GUARD: ${guard.reason}` : 'ATS_GUARD',
+                            source: 'workday',
+                            gate: guard.gate || 'ats_guard',
+                            matchedBlacklistPatterns: guard.matchedBlacklistPatterns || [],
+                            structuredLevel: unified.structuredLevel,
+                            structuredDepartment: unified.structuredDepartment
+                        });
                         continue;
                     }
 
                     stats.kept += 1;
+                    unified.matchedKeywords = guard.matchedKeywords || [];
                     allJobs.push(unified);
                 }
 
@@ -527,6 +559,18 @@ class WorkdayWorker {
                 hasMore = jobs.length === PAGE_LIMIT && (totalJobs === null || offset < totalJobs);
 
             } catch (err) {
+                const status = err.response && err.response.status;
+                if (status === 403) {
+                    stats.wafBlocks = (stats.wafBlocks || 0) + 1;
+                    stats.httpErrors.push({
+                        status: 403,
+                        offset,
+                        timestamp: new Date().toISOString()
+                    });
+                    log(`[WAF_BLOCK] ${this.companyName} blocked at offset ${offset}`, 'ERROR');
+                } else if (status >= 500) {
+                    stats.serverErrors = (stats.serverErrors || 0) + 1;
+                }
                 log(`Pagination error at offset ${offset}: ${err.message}`, 'ERROR');
                 this.runStats.errors.push({
                     type: 'pagination',
@@ -538,11 +582,26 @@ class WorkdayWorker {
             }
         }
 
-        // Finalize stats
         this.runStats.endTime = new Date().toISOString();
         this.runStats.totalFetched = stats.fetched;
         this.runStats.totalKept = stats.kept;
         this.runStats.totalDropped = stats.dropped;
+
+        if (this.storageAdapter) {
+            try {
+                if (droppedJobs.length > 0) {
+                    await this.storageAdapter.writeCalibrationRejected(droppedJobs);
+                }
+                await this.storageAdapter.writeRunLog({
+                    type: 'summary',
+                    source: 'workday',
+                    timestamp: this.runStats.endTime,
+                    payload: { ...stats, companyName: this.companyName }
+                });
+            } catch (e) {
+                log(`Failed to persist calibration/run summary: ${e.message}`, 'ERROR');
+            }
+        }
 
         log(`${this.companyName}: Fetched ${stats.fetched}, Kept ${stats.kept}, Dropped ${stats.dropped}`);
 
@@ -573,45 +632,53 @@ class WorkdayWorker {
         }
 
         // =====================================================================
-        // JR NUMBER EXTRACTION (deterministic ID — must run before title logic)
+        // ROBUST ID EXTRACTION — canonical regex supports JR, R-prefix, numeric (e.g. Cisco)
         // =====================================================================
+        const CANONICAL_ID_RE = /^(JR[-]?\d+|R\d+|\d{5,})$/i;
         const JR_RE = /JR\d{4,}/;
         const JR_ONLY_RE = /^JR\d+$/i;
 
         const externalPath = rawJob.externalPath || rawJob.path || '';
         const bullets = Array.isArray(rawJob.bulletFields) ? rawJob.bulletFields : [];
 
-        let jrNumber = null;
-
-        // Priority 1: jobRequisition.id (most authoritative)
-        if (rawJob.jobRequisition?.id && JR_RE.test(rawJob.jobRequisition.id)) {
-            jrNumber = rawJob.jobRequisition.id.match(JR_RE)[0];
+        function extractIdFromPath(pathStr) {
+            if (!pathStr) return null;
+            const segment = pathStr.split('/').filter(Boolean).pop() || '';
+            const parts = segment.split('_');
+            for (let i = parts.length - 1; i >= 0; i--) {
+                const cleaned = (parts[i] || '').replace(/-?\d+$/, '');
+                if (CANONICAL_ID_RE.test(cleaned)) return cleaned;
+                if (CANONICAL_ID_RE.test(parts[i])) return parts[i].replace(/-?\d+$/, '');
+            }
+            return null;
         }
 
-        // Priority 2: externalPath (e.g. /…/Software-Engineer_JR0281055-1)
-        if (!jrNumber) {
+        let extractedId = null;
+        if (rawJob.jobRequisition?.id && CANONICAL_ID_RE.test(String(rawJob.jobRequisition.id).trim())) {
+            extractedId = String(rawJob.jobRequisition.id).trim().replace(/-?\d+$/, '');
+        }
+        if (!extractedId) {
             const pathJr = externalPath.match(JR_RE);
-            if (pathJr) jrNumber = pathJr[0];
+            if (pathJr) extractedId = pathJr[0];
         }
-
-        // Priority 3: bulletFields (NVIDIA puts the JR as the last bullet)
-        if (!jrNumber) {
-            for (let i = bullets.length - 1; i >= 0; i--) {
-                const m = (bullets[i] || '').match(JR_RE);
-                if (m) { jrNumber = m[0]; break; }
+        if (!extractedId) extractedId = extractIdFromPath(externalPath);
+        if (!extractedId) {
+            for (let i = 0; i < bullets.length; i++) {
+                const val = String(bullets[i] || '').trim();
+                if (CANONICAL_ID_RE.test(val)) {
+                    extractedId = val.replace(/-?\d+$/, '');
+                    break;
+                }
             }
         }
-
-        // Priority 4: title or name field (sometimes JR leaks there)
-        if (!jrNumber) {
-            const titleJr = (rawJob.title || '').match(JR_RE) || (rawJob.name || '').match(JR_RE);
-            if (titleJr) jrNumber = titleJr[0];
+        if (!extractedId && (rawJob.title || rawJob.name)) {
+            const m = (rawJob.title || '').match(JR_RE) || (rawJob.name || '').match(JR_RE);
+            if (m) extractedId = m[0];
         }
 
-        // Build final jobId: prefer JR, then rawJob.id, then externalPath slug, then Date.now()
-        const jobId = jrNumber
+        const jobId = extractedId
             || rawJob.id || rawJob.jobId || rawJob.jobRequisitionId
-            || (externalPath ? externalPath.replace(/^\//, '').replace(/[\/\s]/g, '_') : null)
+            || (externalPath ? externalPath.replace(/^\//, '').replace(/[\/\s]/g, '_').substring(0, 80) : null)
             || `unknown_${Date.now()}`;
 
         // =====================================================================
@@ -686,12 +753,15 @@ class WorkdayWorker {
                 rawJob.postingLocation.descriptor || rawJob.postingLocation.name || '';
         }
 
-        // Try 5: Extract from externalPath as last resort
-        if (!location || location === '2 Locations' || location.includes(' Locations')) {
+        // Try 5: Extract from externalPath when "N Locations"
+        if (!location || location.includes(' Locations')) {
             const pathMatch = externalPath.match(/\/job\/([^/]+)\//);
             if (pathMatch) {
                 location = pathMatch[1].replace(/-/g, ', ');
             }
+        }
+        if (!location || location.includes(' Locations')) {
+            location = 'Multiple Locations';
         }
 
         // =====================================================================
@@ -731,26 +801,24 @@ class WorkdayWorker {
             title,
             location,
             url,
-            description: null, // Workday list API doesn't include full description
+            description: null,
             postedAt,
+            structuredLevel: null,
+            structuredDepartment: null,
+            timeType: rawJob.timeType != null ? String(rawJob.timeType) : undefined,
             raw: rawJob
         };
     }
 
     /**
-     * Fetch all jobs (alias for consistency with other workers).
-     * Called by orchestrator.
-     *
-     * IMPORTANT: Returns ONLY the jobs array, not { jobs, stats }.
-     * The orchestrator/tests expect Promise<Array<UnifiedJob>>.
+     * Fetch all jobs (standardized contract: { jobs, stats }).
      *
      * @param {Object} company - Company config (for compatibility)
-     * @returns {Promise<Array<UnifiedJob>>} Array of normalized jobs
+     * @returns {Promise<{ jobs: Array<UnifiedJob>, stats: Object }>}
      */
     async fetchAllJobs(company) {
         const result = await this.fetchJobs();
-        // CRITICAL: Return only the jobs array, not the full object
-        return result.jobs;
+        return { jobs: result.jobs, stats: result.stats };
     }
 
     /**
@@ -769,13 +837,14 @@ class WorkdayWorker {
  * Create a WorkdayWorker instance for a company
  *
  * @param {Object} company - Company config with { name, url, uid }
+ * @param {Object} [options] - { storageAdapter, knownJobIds }
  * @returns {WorkdayWorker}
  */
-function createWorkdayWorker(company) {
-    return new WorkdayWorker({
-        name: company.name || company.id,
-        url: company.url || company.uid
-    });
+function createWorkdayWorker(company, options = {}) {
+    return new WorkdayWorker(
+        { name: company.name || company.id, url: company.url || company.uid },
+        options
+    );
 }
 
 module.exports = {

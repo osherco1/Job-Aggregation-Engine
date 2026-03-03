@@ -1,0 +1,452 @@
+{
+  "_meta": {
+    "source": "workday",
+    "companyId": "checkout",
+    "companyName": "Checkout.com",
+    "originalUrl": "https://checkout.wd3.myworkdayjobs.com/CheckoutCareers",
+    "parsedTenant": "checkout",
+    "parsedInstance": "wd3",
+    "parsedSite": "CheckoutCareers",
+    "siteUrl": "https://checkout.wd3.myworkdayjobs.com/CheckoutCareers",
+    "apiEndpoint": "https://checkout.wd3.myworkdayjobs.com/wday/cxs/checkout/CheckoutCareers/jobs",
+    "sessionInitStatus": 200,
+    "cookiesEstablished": [
+      "PLAY_SESSION",
+      "wd-browser-id",
+      "CALYPSO_CSRF_TOKEN",
+      "CXS_SESSION",
+      "wday_vps_cookie",
+      "__cf_bm",
+      "__cflb",
+      "_cfuvid"
+    ],
+    "jobsApiStatus": 200,
+    "sampledAt": "2026-03-01T22:04:01.712Z",
+    "totalReported": 180,
+    "jobCountThisPage": 20,
+    "facetCount": 4,
+    "requestPayload": {
+      "appliedFacets": {},
+      "limit": 20,
+      "offset": 0,
+      "searchText": ""
+    }
+  },
+  "raw": {
+    "total": 180,
+    "jobPostings": [
+      {
+        "title": "Staff Data Platform Engineer",
+        "externalPath": "/job/London/Staff-Data-Platform-Engineer_R8291",
+        "timeType": "Full time",
+        "locationsText": "London",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "R8291"
+        ]
+      },
+      {
+        "title": "Staff Software Engineer - Financial Infrastructure",
+        "externalPath": "/job/London/Staff-Software-Engineer---Financial-Infrastructure_R7773",
+        "timeType": "Full time",
+        "locationsText": "London",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "R7773"
+        ]
+      },
+      {
+        "title": "Associate, Strategic Planning",
+        "externalPath": "/job/London/Associate--Strategic-Planning_R8768",
+        "timeType": "Full time",
+        "locationsText": "London",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "R8768"
+        ]
+      },
+      {
+        "title": "Software Engineer I",
+        "externalPath": "/job/Ebene/Software-Engineer-I_R8748-1",
+        "timeType": "Full time",
+        "locationsText": "Ebene",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "R8748"
+        ]
+      },
+      {
+        "title": "Senior Analyst, Product Operations",
+        "externalPath": "/job/London/Senior-Analyst--Product-Partnerships_R8160",
+        "timeType": "Full time",
+        "locationsText": "London",
+        "postedOn": "Posted 3 Days Ago",
+        "bulletFields": [
+          "R8160"
+        ]
+      },
+      {
+        "title": "Team Leader, Merchant and Fraud Risk Monitoring",
+        "externalPath": "/job/Mexico/Team-Lead--Risk-Monitoring_R8606",
+        "timeType": "Full time",
+        "locationsText": "Mexico",
+        "postedOn": "Posted 3 Days Ago",
+        "bulletFields": [
+          "R8606"
+        ]
+      },
+      {
+        "title": "Enterprise Account Executive",
+        "externalPath": "/job/Sydney/Enterprise-Account-Executive_R8702",
+        "timeType": "Full time",
+        "locationsText": "Sydney",
+        "postedOn": "Posted 3 Days Ago",
+        "bulletFields": [
+          "R8702"
+        ]
+      },
+      {
+        "title": "Specialist, Regional Workplace Manager and People Partner",
+        "externalPath": "/job/Tel-Aviv/Specialist--Regional-Workplace-Manager-and-People-Partner_R8474-1",
+        "timeType": "Full time",
+        "locationsText": "Tel Aviv",
+        "postedOn": "Posted 4 Days Ago",
+        "bulletFields": [
+          "R8474"
+        ]
+      },
+      {
+        "title": "Legal Counsel, Product and Regulatory",
+        "externalPath": "/job/London/Legal-Counsel_R7546",
+        "timeType": "Full time",
+        "locationsText": "London",
+        "postedOn": "Posted 4 Days Ago",
+        "bulletFields": [
+          "R7546"
+        ]
+      },
+      {
+        "title": "(Senior) Manager, Sales (Portuguese market)",
+        "externalPath": "/job/Barcelona/XMLNAME--Senior--Manager--Sales--Portuguese-market-_R8769",
+        "timeType": "Full time",
+        "locationsText": "Barcelona",
+        "postedOn": "Posted 4 Days Ago",
+        "bulletFields": [
+          "R8769"
+        ]
+      },
+      {
+        "title": "Manager, Account Management",
+        "externalPath": "/job/Dubai/Manager--Account-Management_R8761",
+        "timeType": "Full time",
+        "locationsText": "Dubai",
+        "postedOn": "Posted 4 Days Ago",
+        "bulletFields": [
+          "R8761"
+        ]
+      },
+      {
+        "title": "AI Engineer",
+        "externalPath": "/job/London/AI-Engineer_R8784",
+        "timeType": "Full time",
+        "locationsText": "London",
+        "postedOn": "Posted 4 Days Ago",
+        "bulletFields": [
+          "R8784"
+        ]
+      },
+      {
+        "title": "Manager, Third-Party Risk Management",
+        "externalPath": "/job/Ebene/Manager--Third-Party-Risk-Management_R8246",
+        "timeType": "Full time",
+        "locationsText": "Ebene",
+        "postedOn": "Posted 4 Days Ago",
+        "bulletFields": [
+          "R8246"
+        ]
+      },
+      {
+        "title": "Senior Specialist, Benefits",
+        "externalPath": "/job/Atlanta/Senior-Specialist--Benefits_R8534",
+        "timeType": "Full time",
+        "locationsText": "Atlanta",
+        "postedOn": "Posted 5 Days Ago",
+        "bulletFields": [
+          "R8534"
+        ]
+      },
+      {
+        "title": "Senior AI Engineer",
+        "externalPath": "/job/London/Senior-AI-Engineer_R6842",
+        "timeType": "Full time",
+        "locationsText": "London",
+        "postedOn": "Posted 5 Days Ago",
+        "bulletFields": [
+          "R6842"
+        ]
+      },
+      {
+        "title": "Senior Manager, Internal Audit (US)",
+        "externalPath": "/job/Atlanta/Senior-Manager--Internal-Audit--US-_R8536-1",
+        "timeType": "Full time",
+        "locationsText": "Atlanta",
+        "postedOn": "Posted 5 Days Ago",
+        "bulletFields": [
+          "R8536"
+        ]
+      },
+      {
+        "title": "Senior Front End Engineer",
+        "externalPath": "/job/London/Senior-Front-End-Engineer_R8078",
+        "timeType": "Full time",
+        "locationsText": "London",
+        "postedOn": "Posted 5 Days Ago",
+        "bulletFields": [
+          "R8078"
+        ]
+      },
+      {
+        "title": "Senior Manager, Compliance Advisory",
+        "externalPath": "/job/New-York/Senior-Manager--Compliance-Advisory_R8751",
+        "timeType": "Full time",
+        "locationsText": "New York",
+        "postedOn": "Posted 5 Days Ago",
+        "bulletFields": [
+          "R8751"
+        ]
+      },
+      {
+        "title": "Senior Specialist, Scheme Relationships",
+        "externalPath": "/job/Dubai/Senior-Specialist--Scheme-Relationships_R8446",
+        "timeType": "Full time",
+        "locationsText": "Dubai",
+        "postedOn": "Posted 6 Days Ago",
+        "bulletFields": [
+          "R8446"
+        ]
+      },
+      {
+        "title": "Senior Specialist, Business Partner",
+        "externalPath": "/job/London/Senior-Specialist--Business-Partner_R8714",
+        "timeType": "Full time",
+        "locationsText": "London",
+        "postedOn": "Posted 9 Days Ago",
+        "bulletFields": [
+          "R8714"
+        ]
+      }
+    ],
+    "facets": [
+      {
+        "facetParameter": "jobFamilyGroup",
+        "descriptor": "Job Category",
+        "values": [
+          {
+            "descriptor": "Commercial",
+            "id": "630079d9866f10005640163a5bdf0000",
+            "count": 53
+          },
+          {
+            "descriptor": "Finance",
+            "id": "630079d9866f1000564019df15b60000",
+            "count": 23
+          },
+          {
+            "descriptor": "Financial Partnerships",
+            "id": "630079d9866f10005640255abd600000",
+            "count": 1
+          },
+          {
+            "descriptor": "Interns",
+            "id": "139f3966a59e1000b8a01d3d78e00000",
+            "count": 1
+          },
+          {
+            "descriptor": "Legal",
+            "id": "630079d9866f100056401bad5df10000",
+            "count": 2
+          },
+          {
+            "descriptor": "Marketing",
+            "id": "630079d9866f100056401d7c04690000",
+            "count": 2
+          },
+          {
+            "descriptor": "Operations",
+            "id": "630079d9866f1000564013d069bd0000",
+            "count": 22
+          },
+          {
+            "descriptor": "People",
+            "id": "630079d9866f100056401fe792ca0000",
+            "count": 11
+          },
+          {
+            "descriptor": "Product",
+            "id": "630079d9866f1000564021b90bd30000",
+            "count": 10
+          },
+          {
+            "descriptor": "Risk, Audit, and Compliance",
+            "id": "630079d9866f1000564022efcb810000",
+            "count": 11
+          },
+          {
+            "descriptor": "Technology",
+            "id": "630079d9866f10005640272be57d0000",
+            "count": 44
+          }
+        ]
+      },
+      {
+        "facetParameter": "workerSubType",
+        "descriptor": "Job Type",
+        "values": [
+          {
+            "descriptor": "Fixed Term (Fixed Term)",
+            "id": "fcbf11f380d10105a00d577f25500000",
+            "count": 5
+          },
+          {
+            "descriptor": "Intern (Fixed Term) (Trainee)",
+            "id": "fcbf11f380d10105a00d5a855d2b0000",
+            "count": 2
+          },
+          {
+            "descriptor": "Regular",
+            "id": "fcbf11f380d10105a00d4d3ccc020000",
+            "count": 173
+          }
+        ]
+      },
+      {
+        "facetParameter": "timeType",
+        "descriptor": "Full/Part-time",
+        "values": [
+          {
+            "descriptor": "Full time",
+            "id": "fd8c8ff3749c0104164190ac5f250005",
+            "count": 180
+          }
+        ]
+      },
+      {
+        "facetParameter": "locationMainGroup",
+        "values": [
+          {
+            "facetParameter": "locations",
+            "descriptor": "Locations",
+            "values": [
+              {
+                "descriptor": "Amsterdam",
+                "id": "1a3e39151ae0100194a87ffaed510000",
+                "count": 1
+              },
+              {
+                "descriptor": "Atlanta",
+                "id": "6f5c27e2ae791000706f26965c770000",
+                "count": 13
+              },
+              {
+                "descriptor": "Barcelona",
+                "id": "3120c223bfb110019ade5ae53b220000",
+                "count": 3
+              },
+              {
+                "descriptor": "Berlin",
+                "id": "fcbf11f380d10105b7f24819ff8e0000",
+                "count": 1
+              },
+              {
+                "descriptor": "Dubai",
+                "id": "fcbf11f380d10105b7f1d2eac9800000",
+                "count": 10
+              },
+              {
+                "descriptor": "Ebene",
+                "id": "fcbf11f380d10105b7f1dc963bb20000",
+                "count": 20
+              },
+              {
+                "descriptor": "Home-based, Canada (ON)",
+                "id": "1e0998f946ba1000f6091323f8d00000",
+                "count": 1
+              },
+              {
+                "descriptor": "Hong Kong",
+                "id": "7b5c8c346ee601018b8189842ceb0000",
+                "count": 5
+              },
+              {
+                "descriptor": "London",
+                "id": "7b5c8c346ee601018b64fdd4c2e70000",
+                "count": 77
+              },
+              {
+                "descriptor": "Mexico",
+                "id": "8288ebed5b261001a5ab0a27fe4b0000",
+                "count": 5
+              },
+              {
+                "descriptor": "New York",
+                "id": "fcbf11f380d10105b7f2909cdde20000",
+                "count": 5
+              },
+              {
+                "descriptor": "Paris",
+                "id": "fcbf11f380d10105b7f1e0d2c7c90000",
+                "count": 11
+              },
+              {
+                "descriptor": "Riyadh",
+                "id": "fcbf11f380d10105b7f1da2a71560000",
+                "count": 1
+              },
+              {
+                "descriptor": "San Francisco",
+                "id": "fcbf11f380d10105b7f1ebb2fae30000",
+                "count": 4
+              },
+              {
+                "descriptor": "Sao Paulo",
+                "id": "fcbf11f380d10105b7f1cd784cc20000",
+                "count": 2
+              },
+              {
+                "descriptor": "Shanghai",
+                "id": "fcbf11f380d10105b7f1efee68d50000",
+                "count": 11
+              },
+              {
+                "descriptor": "Singapore",
+                "id": "fcbf11f380d10105b7f1e47302be0000",
+                "count": 6
+              },
+              {
+                "descriptor": "Sydney",
+                "id": "3120c223bfb110019ade73acb5050000",
+                "count": 4
+              },
+              {
+                "descriptor": "Tallinn",
+                "id": "46f5e89c1abc10019b0411bee9410000",
+                "count": 3
+              },
+              {
+                "descriptor": "Tel Aviv",
+                "id": "46f5e89c1abc10019b041acfa3140000",
+                "count": 3
+              },
+              {
+                "descriptor": "Tokyo",
+                "id": "fcbf11f380d10105b7f1d7bf25460000",
+                "count": 2
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "userAuthenticated": false
+  }
+}

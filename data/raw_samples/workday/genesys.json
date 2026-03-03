@@ -1,0 +1,1153 @@
+{
+  "_meta": {
+    "source": "workday",
+    "companyId": "genesys",
+    "companyName": "Genesys",
+    "originalUrl": "https://genesys.wd1.myworkdayjobs.com/Genesys",
+    "parsedTenant": "genesys",
+    "parsedInstance": "wd1",
+    "parsedSite": "Genesys",
+    "siteUrl": "https://genesys.wd1.myworkdayjobs.com/Genesys",
+    "apiEndpoint": "https://genesys.wd1.myworkdayjobs.com/wday/cxs/genesys/Genesys/jobs",
+    "sessionInitStatus": 200,
+    "cookiesEstablished": [
+      "PLAY_SESSION",
+      "wd-browser-id",
+      "CALYPSO_CSRF_TOKEN",
+      "CXS_SESSION",
+      "wday_vps_cookie",
+      "__cf_bm",
+      "__cflb",
+      "_cfuvid"
+    ],
+    "jobsApiStatus": 200,
+    "sampledAt": "2026-03-01T22:04:22.206Z",
+    "totalReported": 206,
+    "jobCountThisPage": 20,
+    "facetCount": 4,
+    "requestPayload": {
+      "appliedFacets": {},
+      "limit": 20,
+      "offset": 0,
+      "searchText": ""
+    }
+  },
+  "raw": {
+    "total": 206,
+    "jobPostings": [
+      {
+        "title": "Manager, Renewal Analytics and Insights",
+        "externalPath": "/job/Utah-USA/Manager--Renewal-Analytics-and-Insights_JR109729-1",
+        "locationsText": "6 Locations",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "JR109729"
+        ]
+      },
+      {
+        "title": "Senior Financial Analyst",
+        "externalPath": "/job/Indianapolis-IN/Senior-Financial-Analyst_JR110247-1",
+        "locationsText": "Indianapolis, IN",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "JR110247"
+        ]
+      },
+      {
+        "title": "Principal, Operational Excellence and AI Enablement",
+        "externalPath": "/job/Virtual-Office-California/Principal--Operational-Excellence-and-AI-Enablement_JR110249-1",
+        "locationsText": "3 Locations",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "JR110249"
+        ]
+      },
+      {
+        "title": "Principal, HR Transformation, Change & Project Management",
+        "externalPath": "/job/Virtual-Office-California/Principal--HR-Transformation--Change---Project-Management_JR110248-1",
+        "locationsText": "3 Locations",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "JR110248"
+        ]
+      },
+      {
+        "title": "Director, HR Shared Services",
+        "externalPath": "/job/Virtual-Office-California/HR-Share-Services--Director_JR110250-1",
+        "locationsText": "3 Locations",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "JR110250"
+        ]
+      },
+      {
+        "title": "Solution Consultant",
+        "externalPath": "/job/Sao-Paulo-Brazil/Solution-Consultant_JR110038-1",
+        "locationsText": "Sao Paulo, Brazil",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "JR110038"
+        ]
+      },
+      {
+        "title": "Technical Manager, Product Support",
+        "externalPath": "/job/Colorado-USA/Technical-Manager--Product-Support_JR109977-2",
+        "locationsText": "3 Locations",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "JR109977"
+        ]
+      },
+      {
+        "title": "Vice President, Analyst Relations and Competitive Intelligence",
+        "externalPath": "/job/Texas-USA/Vice-President--Analyst-Relations-and-Competitive-Intelligence_JR110143-1",
+        "locationsText": "3 Locations",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "JR110143"
+        ]
+      },
+      {
+        "title": "Account Executive, Enterprise Sales - New Logo",
+        "externalPath": "/job/Massachusetts-USA/Account-Executive--Enterprise-Sales---New-Logo_JR110224",
+        "locationsText": "4 Locations",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "JR110224"
+        ]
+      },
+      {
+        "title": "IT Services Specialist",
+        "externalPath": "/job/Menlo-Park-CA-USA/IT-Services-Specialist_JR109801-1",
+        "locationsText": "2 Locations",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "JR109801"
+        ]
+      },
+      {
+        "title": "Operations Reliability Engineer – Enterprise Platforms and Tools",
+        "externalPath": "/job/Hungary/Operations-Reliability-Engineer---Enterprise-Platforms-and-Tools_JR110168-1",
+        "locationsText": "5 Locations",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "JR110168"
+        ]
+      },
+      {
+        "title": "Platform Engineer – Messaging",
+        "externalPath": "/job/Hungary/Platform-Engineer---Messaging_JR110165-1",
+        "locationsText": "5 Locations",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "JR110165"
+        ]
+      },
+      {
+        "title": "Senior Compliance Engineer",
+        "externalPath": "/job/Hungary/Senior-Compliance-Engineer_JR110186-1",
+        "locationsText": "Hungary",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "JR110186"
+        ]
+      },
+      {
+        "title": "Senior IT Engineer – Identity and Access Management (IAM)",
+        "externalPath": "/job/Chennai-Flexible/Senior-IT-Engineer---Identity-and-Access-Management--IAM-_JR110192-1",
+        "locationsText": "Chennai (Flexible)",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "JR110192"
+        ]
+      },
+      {
+        "title": "Account Executive",
+        "externalPath": "/job/Bangalore-Flexible/Account-Executive_JR109952",
+        "locationsText": "Bangalore (Flexible)",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "JR109952"
+        ]
+      },
+      {
+        "title": "Staff IT Engineer - Identity and Access Management",
+        "externalPath": "/job/Chennai-Flexible/Staff-IT-Engineer---Identity-and-Access-Management_JR110191-1",
+        "locationsText": "Chennai (Flexible)",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "JR110191"
+        ]
+      },
+      {
+        "title": "Sr. Account Executive, Enterprise",
+        "externalPath": "/job/Riyadh-Saudi-Arabia/Sr-Account-Executive--Enterprise_JR110255-1",
+        "locationsText": "Riyadh, Saudi Arabia",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "JR110255"
+        ]
+      },
+      {
+        "title": "Invoice Processing Specialist",
+        "externalPath": "/job/Manila-Flexible/Invoice-Processing-Specialist_JR110154",
+        "locationsText": "Manila (Flexible)",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "JR110154"
+        ]
+      },
+      {
+        "title": "Invoice Processing Specialist",
+        "externalPath": "/job/Manila-Flexible/Invoice-Processing-Specialist_JR110150",
+        "locationsText": "Manila (Flexible)",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "JR110150"
+        ]
+      },
+      {
+        "title": "Senior Deal Operations Analyst",
+        "externalPath": "/job/Manila-Flexible/Senior-Deal-Operations-Analyst_JR110234-1",
+        "locationsText": "Manila (Flexible)",
+        "postedOn": "Posted 2 Days Ago",
+        "bulletFields": [
+          "JR110234"
+        ]
+      }
+    ],
+    "facets": [
+      {
+        "facetParameter": "jobFamilyGroup",
+        "descriptor": "Job Category",
+        "values": [
+          {
+            "descriptor": "Sales",
+            "id": "0b40e66ca32e1025ac5235a080db0002",
+            "count": 65
+          },
+          {
+            "descriptor": "Customer Success & Services",
+            "id": "0b40e66ca32e1025ac5258b3c3490000",
+            "count": 37
+          },
+          {
+            "descriptor": "Engineering",
+            "id": "0b40e66ca32e1025ac5265e727b00002",
+            "count": 32
+          },
+          {
+            "descriptor": "Information Technology",
+            "id": "0b40e66ca32e1025ac5250e97bd80000",
+            "count": 30
+          },
+          {
+            "descriptor": "Finance",
+            "id": "0b40e66ca32e1025ac52654d61620000",
+            "count": 17
+          },
+          {
+            "descriptor": "Marketing & Communications",
+            "id": "0b40e66ca32e1025ac523eb1cc180000",
+            "count": 11
+          },
+          {
+            "descriptor": "Human Resources",
+            "id": "0b40e66ca32e1025ac523b10b6870002",
+            "count": 6
+          },
+          {
+            "descriptor": "Project Management",
+            "id": "0b40e66ca32e1025ac5242eb76440000",
+            "count": 2
+          },
+          {
+            "descriptor": "Administration",
+            "id": "0b40e66ca32e1025ac523d7c9f130000",
+            "count": 2
+          },
+          {
+            "descriptor": "Product Management Services",
+            "id": "0b40e66ca32e1025ac5238a406e60001",
+            "count": 2
+          },
+          {
+            "descriptor": "Legal",
+            "id": "0b40e66ca32e1025ac523fe6168c0001",
+            "count": 1
+          },
+          {
+            "descriptor": "Corporate Strategy, Planning & Development",
+            "id": "0b40e66ca32e1025ac5267b3a3eb0000",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "facetParameter": "workerSubType",
+        "descriptor": "Job Type",
+        "values": [
+          {
+            "descriptor": "Regular",
+            "id": "0b40e66ca32e1025ac45ed28b7830000",
+            "count": 206
+          }
+        ]
+      },
+      {
+        "facetParameter": "timeType",
+        "descriptor": "Time Type",
+        "values": [
+          {
+            "descriptor": "Full time",
+            "id": "b35068b609e9102368ef27f2ff3a0002",
+            "count": 206
+          }
+        ]
+      },
+      {
+        "facetParameter": "locationMainGroup",
+        "values": [
+          {
+            "facetParameter": "locationCountry",
+            "descriptor": "Country",
+            "values": [
+              {
+                "descriptor": "Australia",
+                "id": "d903bb3fedad45039383f6de334ad4db",
+                "count": 6
+              },
+              {
+                "descriptor": "Belgium",
+                "id": "a04ea128f43a42e59b1e6a19e8f0b374",
+                "count": 1
+              },
+              {
+                "descriptor": "Brazil",
+                "id": "1a29bb1357b240ab99a2fa755cc87c0e",
+                "count": 7
+              },
+              {
+                "descriptor": "Canada",
+                "id": "a30a87ed25634629aa6c3958aa2b91ea",
+                "count": 8
+              },
+              {
+                "descriptor": "Chile",
+                "id": "53fe09ef12b9408682a1d2439823f2e0",
+                "count": 1
+              },
+              {
+                "descriptor": "Finland",
+                "id": "0afb2fa656da42e8bfb6d47bd24a26fa",
+                "count": 1
+              },
+              {
+                "descriptor": "France",
+                "id": "54c5b6971ffb4bf0b116fe7651ec789a",
+                "count": 4
+              },
+              {
+                "descriptor": "Germany",
+                "id": "dcc5b7608d8644b3a93716604e78e995",
+                "count": 8
+              },
+              {
+                "descriptor": "Hungary",
+                "id": "9db257f5937e4421b2fac64eec6832f8",
+                "count": 17
+              },
+              {
+                "descriptor": "India",
+                "id": "c4f78be1a8f14da0ab49ce1162348a5e",
+                "count": 28
+              },
+              {
+                "descriptor": "Ireland",
+                "id": "04a05835925f45b3a59406a2a6b72c8a",
+                "count": 15
+              },
+              {
+                "descriptor": "Israel",
+                "id": "084562884af243748dad7c84c304d89a",
+                "count": 2
+              },
+              {
+                "descriptor": "Italy",
+                "id": "8cd04a563fd94da7b06857a79faaf815",
+                "count": 3
+              },
+              {
+                "descriptor": "Japan",
+                "id": "8b705da2becf43cfaccc091da0988ab2",
+                "count": 5
+              },
+              {
+                "descriptor": "Korea, Republic of",
+                "id": "7a5a2aadf9d34086a2bfbfd408bc28da",
+                "count": 3
+              },
+              {
+                "descriptor": "Malaysia",
+                "id": "972dc4ba8d454bc0b893ff84b1529077",
+                "count": 1
+              },
+              {
+                "descriptor": "Mexico",
+                "id": "e2adff9272454660ac4fdb56fc70bb51",
+                "count": 3
+              },
+              {
+                "descriptor": "Netherlands",
+                "id": "9696868b09c64d52a62ee13b052383cc",
+                "count": 3
+              },
+              {
+                "descriptor": "New Zealand",
+                "id": "55273a1b49934d97ae15342ef51f6b95",
+                "count": 1
+              },
+              {
+                "descriptor": "Peru",
+                "id": "0eb156ca580c4db786a7894bdaa77450",
+                "count": 1
+              },
+              {
+                "descriptor": "Philippines",
+                "id": "e56f1daf83e04bacae794ba5c5593560",
+                "count": 12
+              },
+              {
+                "descriptor": "Saudi Arabia",
+                "id": "50423b5190ad49bb89e94cd58dfaad69",
+                "count": 1
+              },
+              {
+                "descriptor": "Singapore",
+                "id": "80938777cac5440fab50d729f9634969",
+                "count": 7
+              },
+              {
+                "descriptor": "South Africa",
+                "id": "4db3c26940b944919b83612cc1193eed",
+                "count": 1
+              },
+              {
+                "descriptor": "Spain",
+                "id": "bd34c524a6a04ae6915f5d96fa086199",
+                "count": 5
+              },
+              {
+                "descriptor": "Switzerland",
+                "id": "187134fccb084a0ea9b4b95f23890dbe",
+                "count": 3
+              },
+              {
+                "descriptor": "Türkiye",
+                "id": "c2e3bac5bbbb47b29dfc6e8b56a1586e",
+                "count": 1
+              },
+              {
+                "descriptor": "United Arab Emirates",
+                "id": "7b4fa1f369bd4604ba3692682fcbe345",
+                "count": 2
+              },
+              {
+                "descriptor": "United Kingdom",
+                "id": "29247e57dbaf46fb855b224e03170bc7",
+                "count": 10
+              },
+              {
+                "descriptor": "United States of America",
+                "id": "bc33aa3152ec42d4995f4791a106ed09",
+                "count": 47
+              }
+            ]
+          },
+          {
+            "facetParameter": "locations",
+            "descriptor": "Locations",
+            "values": [
+              {
+                "descriptor": "Alberta, Canada",
+                "id": "0b40e66ca32e1025b352ca848b5c0000",
+                "count": 1
+              },
+              {
+                "descriptor": "Amsterdam (Flexible)",
+                "id": "0b40e66ca32e1025ad25137994270000",
+                "count": 2
+              },
+              {
+                "descriptor": "Arizona, USA",
+                "id": "0b40e66ca32e1025b352de6cb4ca0000",
+                "count": 5
+              },
+              {
+                "descriptor": "Auckland (Flexible)",
+                "id": "0b40e66ca32e1025ad264e2634540000",
+                "count": 1
+              },
+              {
+                "descriptor": "Bangalore",
+                "id": "9208fedb314d1001505156a272180000",
+                "count": 1
+              },
+              {
+                "descriptor": "Bangalore (Flexible)",
+                "id": "a2d390d781ef10011049123223a50000",
+                "count": 2
+              },
+              {
+                "descriptor": "Belgium",
+                "id": "0b40e66ca32e1025ac3ebd5325cf0000",
+                "count": 1
+              },
+              {
+                "descriptor": "Birmingham, United Kingdom",
+                "id": "0b40e66ca32e1025ad24cf8185ab0000",
+                "count": 1
+              },
+              {
+                "descriptor": "Brazil",
+                "id": "0b40e66ca32e1025ac3ed86af29f0000",
+                "count": 1
+              },
+              {
+                "descriptor": "Brisbane (Flexible)",
+                "id": "0b40e66ca32e1025ad24cc8069390000",
+                "count": 4
+              },
+              {
+                "descriptor": "British Columbia, Canada",
+                "id": "0b40e66ca32e1025b3525bb4cc230000",
+                "count": 3
+              },
+              {
+                "descriptor": "Budapest, Hungary",
+                "id": "0b40e66ca32e1025ac3ef2e9ff390000",
+                "count": 2
+              },
+              {
+                "descriptor": "Budapest (Flexible)",
+                "id": "0b40e66ca32e1025ad24f093bcbb0000",
+                "count": 13
+              },
+              {
+                "descriptor": "California, USA",
+                "id": "0b40e66ca32e1025b352e8aaed9a0000",
+                "count": 10
+              },
+              {
+                "descriptor": "Canberra (Flexible)",
+                "id": "0b40e66ca32e1025ad241034e48d0000",
+                "count": 2
+              },
+              {
+                "descriptor": "Chennai (Flexible)",
+                "id": "0b40e66ca32e1025ad24b0dd65160000",
+                "count": 14
+              },
+              {
+                "descriptor": "Colorado, USA",
+                "id": "0b40e66ca32e1025b35267bec7790000",
+                "count": 5
+              },
+              {
+                "descriptor": "Connecticut, USA",
+                "id": "0b40e66ca32e1025b352cf5a19e00000",
+                "count": 2
+              },
+              {
+                "descriptor": "Delaware, USA",
+                "id": "0b40e66ca32e1025b3528db152880000",
+                "count": 1
+              },
+              {
+                "descriptor": "Dubai, United Arab Emirates",
+                "id": "bd46563716821001f3d94cf32c6d0000",
+                "count": 1
+              },
+              {
+                "descriptor": "Dubai (Flexible)",
+                "id": "0b40e66ca32e1025ad2622d603060000",
+                "count": 1
+              },
+              {
+                "descriptor": "Durham, NC, USA",
+                "id": "0b40e66ca32e1025b352d128bd000000",
+                "count": 1
+              },
+              {
+                "descriptor": "Finland",
+                "id": "0b40e66ca32e1025ac3ee3dd96ec0000",
+                "count": 1
+              },
+              {
+                "descriptor": "Flexible Office | Durham, NC, USA",
+                "id": "0b40e66ca32e1025b352d998cb860000",
+                "count": 3
+              },
+              {
+                "descriptor": "Florida, USA",
+                "id": "0b40e66ca32e1025b35285dbc1470000",
+                "count": 6
+              },
+              {
+                "descriptor": "Frankfurt (Flexible)",
+                "id": "0b40e66ca32e1025ad24de8909370000",
+                "count": 6
+              },
+              {
+                "descriptor": "Galway, Ireland",
+                "id": "0b40e66ca32e1025ad2568de8d050000",
+                "count": 3
+              },
+              {
+                "descriptor": "Georgia, USA",
+                "id": "0b40e66ca32e1025b352931e13770000",
+                "count": 5
+              },
+              {
+                "descriptor": "Germany",
+                "id": "bd46563716821001f2805d4188fe0000",
+                "count": 2
+              },
+              {
+                "descriptor": "Hungary",
+                "id": "0b40e66ca32e1025ac3eca94745f0000",
+                "count": 8
+              },
+              {
+                "descriptor": "Hyderabad (Flexible)",
+                "id": "0b40e66ca32e1025ad25409b5a760000",
+                "count": 2
+              },
+              {
+                "descriptor": "Idaho, USA",
+                "id": "0b40e66ca32e1025b352d2f773af0000",
+                "count": 1
+              },
+              {
+                "descriptor": "Illinois, USA",
+                "id": "0b40e66ca32e1025b35249a8c46a0000",
+                "count": 2
+              },
+              {
+                "descriptor": "Indiana, USA",
+                "id": "0b40e66ca32e1025b352db67688f0000",
+                "count": 6
+              },
+              {
+                "descriptor": "Indianapolis, IN",
+                "id": "0b40e66ca32e1025b352763146ff0000",
+                "count": 2
+              },
+              {
+                "descriptor": "Indianapolis, IN, USA",
+                "id": "0b40e66ca32e1025b352504a12050000",
+                "count": 1
+              },
+              {
+                "descriptor": "Indianapolis (Flexible)",
+                "id": "0b40e66ca32e1025ad24fc0262f40000",
+                "count": 1
+              },
+              {
+                "descriptor": "Ireland",
+                "id": "0b40e66ca32e1025ad25426a3b230000",
+                "count": 12
+              },
+              {
+                "descriptor": "Istanbul (Flexible)",
+                "id": "0b40e66ca32e1025ad24db851be30000",
+                "count": 1
+              },
+              {
+                "descriptor": "Japan",
+                "id": "0b40e66ca32e1025ad261f3af3280000",
+                "count": 1
+              },
+              {
+                "descriptor": "Johannesburg (Flexible)",
+                "id": "0b40e66ca32e1025ad25258b2e180000",
+                "count": 1
+              },
+              {
+                "descriptor": "Kentucky, USA",
+                "id": "0b40e66ca32e1025b3527cd2c04a0000",
+                "count": 1
+              },
+              {
+                "descriptor": "Kuala Lumpur (Flexible)",
+                "id": "0b40e66ca32e1025ad24fb6895740000",
+                "count": 1
+              },
+              {
+                "descriptor": "Lima, Peru",
+                "id": "f284fad45ce21000b7dd486cbff20000",
+                "count": 1
+              },
+              {
+                "descriptor": "London (Flexible)",
+                "id": "0b40e66ca32e1025ad251d1e60ef0000",
+                "count": 3
+              },
+              {
+                "descriptor": "Madrid (Flexible)",
+                "id": "0b40e66ca32e1025ad24e2bf44ae0000",
+                "count": 4
+              },
+              {
+                "descriptor": "Maine, USA",
+                "id": "0b40e66ca32e1025b3528c7c9bba0000",
+                "count": 2
+              },
+              {
+                "descriptor": "Manila",
+                "id": "0b40e66ca32e1025ad262e4591c60000",
+                "count": 1
+              },
+              {
+                "descriptor": "Manila, Philippines",
+                "id": "0b40e66ca32e1025ad24465dcdb60000",
+                "count": 1
+              },
+              {
+                "descriptor": "Manila (Flexible)",
+                "id": "0b40e66ca32e1025ad24bf493c560000",
+                "count": 11
+              },
+              {
+                "descriptor": "Manitoba, Canada",
+                "id": "0b40e66ca32e1025b352611cf2d80000",
+                "count": 1
+              },
+              {
+                "descriptor": "Maryland, USA",
+                "id": "0b40e66ca32e1025b352443e134e0000",
+                "count": 2
+              },
+              {
+                "descriptor": "Massachusetts, USA",
+                "id": "0b40e66ca32e1025b3524cae37260000",
+                "count": 8
+              },
+              {
+                "descriptor": "Melbourne (Flexible)",
+                "id": "0b40e66ca32e1025ad267248dc770000",
+                "count": 4
+              },
+              {
+                "descriptor": "Menlo Park, CA, USA",
+                "id": "0b40e66ca32e1025b352dc9cfee00000",
+                "count": 2
+              },
+              {
+                "descriptor": "Menlo Park (Flexible)",
+                "id": "0b40e66ca32e1025ad24e95daa120000",
+                "count": 2
+              },
+              {
+                "descriptor": "Mexico City, Mexico",
+                "id": "bd46563716821001f328b1ed097f0000",
+                "count": 3
+              },
+              {
+                "descriptor": "Minnesota, USA",
+                "id": "0b40e66ca32e1025b352e6dcb2a00000",
+                "count": 3
+              },
+              {
+                "descriptor": "Missouri, USA",
+                "id": "0b40e66ca32e1025b35271612b280000",
+                "count": 1
+              },
+              {
+                "descriptor": "Montana, USA",
+                "id": "0b40e66ca32e1025b3525a8139e10000",
+                "count": 1
+              },
+              {
+                "descriptor": "Munich (Flexible)",
+                "id": "0b40e66ca32e1025ad251eee06770000",
+                "count": 1
+              },
+              {
+                "descriptor": "Netherlands",
+                "id": "0b40e66ca32e1025ad2454c8248d0000",
+                "count": 1
+              },
+              {
+                "descriptor": "Nevada, USA",
+                "id": "0b40e66ca32e1025b352ce256a9d0000",
+                "count": 2
+              },
+              {
+                "descriptor": "New Brunswick, Canada",
+                "id": "0b40e66ca32e1025b352625385000000",
+                "count": 1
+              },
+              {
+                "descriptor": "Newfoundland, Canada",
+                "id": "0b40e66ca32e1025b35256e6987e0000",
+                "count": 1
+              },
+              {
+                "descriptor": "New Hampshire, USA",
+                "id": "0b40e66ca32e1025b352cc5484730000",
+                "count": 1
+              },
+              {
+                "descriptor": "New Jersey, USA",
+                "id": "0b40e66ca32e1025b352460c980a0000",
+                "count": 4
+              },
+              {
+                "descriptor": "New Mexico, USA",
+                "id": "0b40e66ca32e1025b352e17262f10000",
+                "count": 1
+              },
+              {
+                "descriptor": "New York, USA",
+                "id": "0b40e66ca32e1025b3526e5ca3a70000",
+                "count": 7
+              },
+              {
+                "descriptor": "North Carolina, USA",
+                "id": "0b40e66ca32e1025b35265f137210000",
+                "count": 10
+              },
+              {
+                "descriptor": "North Dakota, USA",
+                "id": "0b40e66ca32e1025b3525f4fbb150000",
+                "count": 1
+              },
+              {
+                "descriptor": "Nova Scotia, Canada",
+                "id": "0b40e66ca32e1025b352ea79d3960000",
+                "count": 1
+              },
+              {
+                "descriptor": "Ohio, USA",
+                "id": "0b40e66ca32e1025b35279ceb9c70000",
+                "count": 1
+              },
+              {
+                "descriptor": "Ontario, Canada",
+                "id": "0b40e66ca32e1025b3526ac18c8c0000",
+                "count": 6
+              },
+              {
+                "descriptor": "Oregon, USA",
+                "id": "0b40e66ca32e1025b35243096b110000",
+                "count": 3
+              },
+              {
+                "descriptor": "Paris, France",
+                "id": "0b40e66ca32e1025ac3ee8afc4dc0000",
+                "count": 4
+              },
+              {
+                "descriptor": "Pennsylvania, USA",
+                "id": "0b40e66ca32e1025b3524adefbe60000",
+                "count": 6
+              },
+              {
+                "descriptor": "Quebec, Canada",
+                "id": "0b40e66ca32e1025b352914e04630000",
+                "count": 3
+              },
+              {
+                "descriptor": "Rhode Island, USA",
+                "id": "0b40e66ca32e1025b352702b4dd40000",
+                "count": 1
+              },
+              {
+                "descriptor": "Riyadh, Saudi Arabia",
+                "id": "bd46563716821001f374563749b50000",
+                "count": 1
+              },
+              {
+                "descriptor": "Rome (Flexible)",
+                "id": "0b40e66ca32e1025ad253a9700090000",
+                "count": 1
+              },
+              {
+                "descriptor": "Santiago, Chile",
+                "id": "bd46563716821001bcce0dfd58bd0000",
+                "count": 1
+              },
+              {
+                "descriptor": "Sao Paulo, Brazil",
+                "id": "0b40e66ca32e1025ac3ee175ddf70000",
+                "count": 2
+              },
+              {
+                "descriptor": "Sao Paulo (Flexible)",
+                "id": "5690a040b8bb10278ff1072b3acc0000",
+                "count": 6
+              },
+              {
+                "descriptor": "Seoul, South Korea",
+                "id": "0b40e66ca32e1025ad263f19baca0000",
+                "count": 2
+              },
+              {
+                "descriptor": "Seoul (Flexible)",
+                "id": "0b40e66ca32e1025ad24a9a265e80000",
+                "count": 1
+              },
+              {
+                "descriptor": "Singapore (Flexible)",
+                "id": "0b40e66ca32e1025ad248a55aa080000",
+                "count": 7
+              },
+              {
+                "descriptor": "South Carolina, USA",
+                "id": "0b40e66ca32e1025b35288e086fd0000",
+                "count": 1
+              },
+              {
+                "descriptor": "South Dakota, USA",
+                "id": "0b40e66ca32e1025b352517d50620000",
+                "count": 1
+              },
+              {
+                "descriptor": "Spain",
+                "id": "bd46563716821001f389595682280000",
+                "count": 1
+              },
+              {
+                "descriptor": "Sydney (Flexible)",
+                "id": "0b40e66ca32e1025ad252cc25f6f0000",
+                "count": 6
+              },
+              {
+                "descriptor": "Szeged",
+                "id": "d755465298571001670c69db5bf20000",
+                "count": 2
+              },
+              {
+                "descriptor": "Szeged (Flexible)",
+                "id": "f657c2a29e2210016f0fecc29c4e0000",
+                "count": 2
+              },
+              {
+                "descriptor": "Tamil Nadu, India",
+                "id": "3da5aafdee30100210dc551668540000",
+                "count": 2
+              },
+              {
+                "descriptor": "Telangana, India",
+                "id": "3da5aafdee30100210ff9fb2a7ae0000",
+                "count": 2
+              },
+              {
+                "descriptor": "Tel Aviv, Israel",
+                "id": "0b40e66ca32e1025ad251b4f36970000",
+                "count": 2
+              },
+              {
+                "descriptor": "Tennessee, USA",
+                "id": "0b40e66ca32e1025b3524e7bc62f0000",
+                "count": 3
+              },
+              {
+                "descriptor": "Texas, USA",
+                "id": "0b40e66ca32e1025b35255196dbd0000",
+                "count": 15
+              },
+              {
+                "descriptor": "Tokyo, Japan",
+                "id": "bd46563716821001edb8396551860000",
+                "count": 2
+              },
+              {
+                "descriptor": "Tokyo (Flexible)",
+                "id": "0b40e66ca32e1025ad2483b78e680000",
+                "count": 3
+              },
+              {
+                "descriptor": "Toronto",
+                "id": "0b40e66ca32e1025ad256e47ed2d0000",
+                "count": 1
+              },
+              {
+                "descriptor": "Toronto, Canada",
+                "id": "0b40e66ca32e1025b35282d9749e0000",
+                "count": 1
+              },
+              {
+                "descriptor": "Toronto (Flexible)",
+                "id": "0b40e66ca32e1025ad250e0fb39d0000",
+                "count": 2
+              },
+              {
+                "descriptor": "United Kingdom",
+                "id": "0b40e66ca32e1025ad2624a370190000",
+                "count": 6
+              },
+              {
+                "descriptor": "Utah, USA",
+                "id": "0b40e66ca32e1025b3527294d4720000",
+                "count": 6
+              },
+              {
+                "descriptor": "Vermont, USA",
+                "id": "0b40e66ca32e1025b3528aafeff70000",
+                "count": 2
+              },
+              {
+                "descriptor": "Vimercate, Italy",
+                "id": "bd46563716821001f2e6f0361ebb0000",
+                "count": 1
+              },
+              {
+                "descriptor": "Vimercate (Flexible)",
+                "id": "0b40e66ca32e1025ad25352d79b70000",
+                "count": 1
+              },
+              {
+                "descriptor": "Virginia, USA",
+                "id": "0b40e66ca32e1025b3527ea278bd0000",
+                "count": 9
+              },
+              {
+                "descriptor": "Virtual Office (British Columbia)",
+                "id": "0b40e66ca32e1025ad24e3f3855e0000",
+                "count": 1
+              },
+              {
+                "descriptor": "Virtual Office (California)",
+                "id": "0b40e66ca32e1025ad25439bc6ac0000",
+                "count": 4
+              },
+              {
+                "descriptor": "Virtual Office (Colorado)",
+                "id": "0b40e66ca32e1025ad2631e190d50000",
+                "count": 2
+              },
+              {
+                "descriptor": "Virtual Office (Florida)",
+                "id": "0b40e66ca32e1025ad24c4b164950000",
+                "count": 1
+              },
+              {
+                "descriptor": "Virtual Office (Georgia)",
+                "id": "0b40e66ca32e1025ad254c9cd9450000",
+                "count": 1
+              },
+              {
+                "descriptor": "Virtual Office (Hesse)",
+                "id": "0b40e66ca32e1025ad250fde366f0000",
+                "count": 1
+              },
+              {
+                "descriptor": "Virtual Office (Illinois)",
+                "id": "0b40e66ca32e1025ad24b2aa96260000",
+                "count": 1
+              },
+              {
+                "descriptor": "Virtual Office (Indiana)",
+                "id": "0b40e66ca32e1025ad25667766550000",
+                "count": 1
+              },
+              {
+                "descriptor": "Virtual Office (Mexico)",
+                "id": "0b40e66ca32e1025ad24ec5e349d0000",
+                "count": 1
+              },
+              {
+                "descriptor": "Virtual Office (New Jersey)",
+                "id": "0b40e66ca32e1025ad2553d577700000",
+                "count": 1
+              },
+              {
+                "descriptor": "Virtual Office (New York)",
+                "id": "0b40e66ca32e1025ad256aabcfe80000",
+                "count": 2
+              },
+              {
+                "descriptor": "Virtual Office (North Carolina)",
+                "id": "0b40e66ca32e1025ad240c99c0c90000",
+                "count": 4
+              },
+              {
+                "descriptor": "Virtual Office (Prince Edward Island)",
+                "id": "0b40e66ca32e1025ad255039e4700000",
+                "count": 1
+              },
+              {
+                "descriptor": "Virtual Office (Saskatchewan)",
+                "id": "0b40e66ca32e1025ad243df5b9040000",
+                "count": 1
+              },
+              {
+                "descriptor": "Virtual Office (Tamil Nadu)",
+                "id": "0b40e66ca32e1025ad245a3258550000",
+                "count": 7
+              },
+              {
+                "descriptor": "Virtual Office (Telangana)",
+                "id": "0b40e66ca32e1025ad2471a948c60000",
+                "count": 4
+              },
+              {
+                "descriptor": "Virtual Office (Texas)",
+                "id": "0b40e66ca32e1025ad24f86794aa0000",
+                "count": 7
+              },
+              {
+                "descriptor": "Virtual Office (Virginia)",
+                "id": "0b40e66ca32e1025ad24c84c77ee0000",
+                "count": 1
+              },
+              {
+                "descriptor": "Virtual Office (Yukon)",
+                "id": "0b40e66ca32e1025ad24eec6aa590000",
+                "count": 1
+              },
+              {
+                "descriptor": "Washington, USA",
+                "id": "0b40e66ca32e1025b352e340cf720000",
+                "count": 3
+              },
+              {
+                "descriptor": "Washington D.C., USA",
+                "id": "0b40e66ca32e1025b3526c8ee70d0000",
+                "count": 1
+              },
+              {
+                "descriptor": "West Virginia, USA",
+                "id": "0b40e66ca32e1025b352780005dc0000",
+                "count": 1
+              },
+              {
+                "descriptor": "Wisconsin, USA",
+                "id": "0b40e66ca32e1025b35284a819f30000",
+                "count": 1
+              },
+              {
+                "descriptor": "Wyoming, USA",
+                "id": "0b40e66ca32e1025b35247db1a120000",
+                "count": 1
+              },
+              {
+                "descriptor": "Zaventem (Flexible)",
+                "id": "0b40e66ca32e1025ad2497910b5f0000",
+                "count": 1
+              },
+              {
+                "descriptor": "Zurich (Flexible)",
+                "id": "0b40e66ca32e1025ad24cbe69a560000",
+                "count": 3
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "userAuthenticated": false
+  }
+}
