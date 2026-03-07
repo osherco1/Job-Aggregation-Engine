@@ -186,6 +186,61 @@ const BLACKLIST_KEYWORDS = [
   'Loss Prevention',
   'Store Associate',
   'Labeler',          // "Dental Labeler"
+
+  // --- Strict Junior Software Focus (2026-03-07: FP extraction) ---
+  // Hardware & Manufacturing (skip if already present: Mechanical, Electrical, Hardware, Chip Design, Physical Design)
+  'NPI',
+  'Material',
+  'Electronic',
+  'Pre-Silicon',
+  'DFT',
+  'Spare Parts',
+  'SerDes',
+  'Coating',
+  'Validation Engineer',
+  'EMC Test',
+  'Accelerators',
+  // Sales & Client-Facing
+  'Presale',
+  'Solutions Engineer',
+  'Solution Engineer',
+  'Account Executive',
+  'Partner Engineer',
+  'Mid-Enterprise',
+  'Field Application',
+  // IT, Infra, Support & Admin
+  'Data Center',
+  'NOC',
+  'Technical Support',
+  'Customer Support',
+  'Field Service',
+  'System Engineer',
+  'SalesForce Admin',
+  'IT Security',
+  'IT Quality',
+  'IT Specialist',
+  // Analysts & Operations (non-dev)
+  'System Analyst',
+  'Business Analyst',
+  'Product Analyst',
+  'Research Analyst',
+  'PMO',
+  'Linguist',
+  'Data Annotator',
+  'Logistics',
+  'Communications',
+  'GRC Consultant',
+  'Assembly',
+  'volunteer',
+  // Seniority & Leadership (English & Hebrew; Chief already above)
+  'Expert',
+  'First Engineer',
+  'Team Leader',
+  'Research Scientist',
+  'בכיר',
+  'ניהול צוות',
+  'מנוסה',
+  'תעשיית המזון',
 ];
 
 const WHITELIST_KEYWORDS = [

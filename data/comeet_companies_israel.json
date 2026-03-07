@@ -1,0 +1,101 @@
+{
+  "metadata": {
+    "ats": "Comeet (now Spark Hire Recruit)",
+    "search_date": "2026-03-07",
+    "target_region": "Israel",
+    "total_new_companies": 15,
+    "source": "local_ui_discovery"
+  },
+  "companies": [
+    {
+      "company_name": "Classiq Technologies",
+      "careers_page_url": "https://www.comeet.com/jobs/classiq/F7.008",
+      "confidence": "high",
+      "evidence": "Active Comeet careers page found with multiple Israel-based positions (e.g., Algorithms Team Lead - Israel, DevOps Engineer - Israel). Classiq is a quantum computing software company based in Tel Aviv."
+    },
+    {
+      "company_name": "Port",
+      "careers_page_url": "https://www.comeet.com/jobs/port/59.004",
+      "confidence": "high",
+      "evidence": "Active Comeet careers page with Tel Aviv - Israel positions (e.g., Senior Frontend Engineer, Senior Growth Product Manager). Port.io builds an Agentic Engineering Platform, headquartered in Tel Aviv."
+    },
+    {
+      "company_name": "CYMOTIVE Technologies",
+      "careers_page_url": "https://www.comeet.com/jobs/cymotive/F1.008",
+      "confidence": "high",
+      "evidence": "Comeet careers page confirmed (also accessible at comeet.co/jobs/cymotive/F1.008). CYMOTIVE is an Israeli automotive cybersecurity company co-founded by Volkswagen Group and Israeli security experts, HQ in Tel Aviv."
+    },
+    {
+      "company_name": "Cynet",
+      "careers_page_url": "https://www.comeet.com/jobs/cynet/33.00D",
+      "confidence": "high",
+      "evidence": "Active Comeet careers page listing Israel-based positions. Cynet is an Israeli cybersecurity company providing autonomous breach protection."
+    },
+    {
+      "company_name": "Cognyte",
+      "careers_page_url": "https://www.comeet.co/jobs/verint/F2.009",
+      "confidence": "high",
+      "evidence": "Comeet page titled 'Jobs at Cognyte - Comeet' with Herzliya, Israel positions. Cognyte (formerly a Verint company) is an Israeli security analytics software company. URL slug still uses legacy 'verint' identifier."
+    },
+    {
+      "company_name": "Global-e",
+      "careers_page_url": "https://www.comeet.com/jobs/global-e/62.002",
+      "confidence": "high",
+      "evidence": "Active Comeet careers page with 25+ positions in Petah Tikva, Israel. Global-e (Nasdaq: GLBE) is an Israeli cross-border e-commerce platform. Also listed on TheirStack as a Comeet user in Israel."
+    },
+    {
+      "company_name": "Nagish",
+      "careers_page_url": "https://www.comeet.com/jobs/nagish/D8.007",
+      "confidence": "high",
+      "evidence": "Active Comeet careers page with Tel Aviv positions. Nagish is an Israeli accessibility startup making communication accessible for people who are Deaf or hard of hearing. Job postings explicitly mention Comeet as their ATS."
+    },
+    {
+      "company_name": "SodaStream",
+      "careers_page_url": "https://www.comeet.com/jobs/sodastream/40.008",
+      "confidence": "high",
+      "evidence": "Active Comeet careers page with multiple Israel-based manufacturing and corporate positions. SodaStream is an Israeli consumer goods company (now owned by PepsiCo). Also listed on TheirStack as a Comeet user."
+    },
+    {
+      "company_name": "Maytronics",
+      "careers_page_url": "https://www.comeet.com/jobs/maytronics/E3.008",
+      "confidence": "high",
+      "evidence": "Active Comeet careers page with Israel-based positions (Production Manager, QA Tester, Digital Marketing Coordinator). Maytronics is an Israeli manufacturer of robotic pool cleaners. Listed on TheirStack as Comeet user."
+    },
+    {
+      "company_name": "mPrest",
+      "careers_page_url": "https://www.comeet.com/jobs/mprest/38.005",
+      "confidence": "high",
+      "evidence": "Active Comeet careers page with Israel positions (Karmiel, Petah Tikva). mPrest is an Israeli IoT and defense technology company (Iron Dome C2 systems). Their careers page uses comeetapply.com email addresses."
+    },
+    {
+      "company_name": "Gloat",
+      "careers_page_url": "https://www.comeet.com/jobs/gloat/E5.000",
+      "confidence": "high",
+      "evidence": "Active Comeet careers page with Israel (TLV) and global positions. Gloat is an Israeli AI-powered talent marketplace startup with offices in Tel Aviv, New York, and London."
+    },
+    {
+      "company_name": "Percepto",
+      "careers_page_url": "https://www.comeet.com/jobs/percepto/44.000",
+      "confidence": "high",
+      "evidence": "Active Comeet careers page with Israel-based positions (SDR, Deployment Technician). Percepto is an Israeli autonomous drone inspection company based in Modi'in."
+    },
+    {
+      "company_name": "XTEND",
+      "careers_page_url": "https://www.comeet.com/jobs/xtend/85.00A",
+      "confidence": "high",
+      "evidence": "Active Comeet careers page with 23 open positions across R&D, Sales, Marketing, Operations, HR. XTEND is an Israeli tactical drone company based in Tel Aviv."
+    },
+    {
+      "company_name": "Bagira Systems",
+      "careers_page_url": "https://www.comeet.com/jobs/bagirasystems/47.006",
+      "confidence": "high",
+      "evidence": "Active Comeet careers page with multiple Israel-based positions. Bagira designs and operates military simulators and training systems. Also found on LinkedIn with Comeet-powered job postings."
+    },
+    {
+      "company_name": "Echo",
+      "careers_page_url": "https://www.comeet.com/jobs/echo/9A.006",
+      "confidence": "high",
+      "evidence": "Active Comeet careers page with Tel Aviv positions (AI Engineer, Backend Engineer, SDR, Technical Account Manager). Echo is a Tel Aviv-based AI cloud security startup that raised $50M in 2025."
+    }
+  ]
+}

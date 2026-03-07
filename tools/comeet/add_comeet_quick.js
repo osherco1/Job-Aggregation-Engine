@@ -4,25 +4,24 @@
  * 
  * Add a company directly to the database when you know the UID.
  * No scraping required - just provide ID, name, and UID.
+ * Fetches the token via a lightweight HTTP probe, validates,
+ * and upserts into MongoDB.
  * 
  * Usage:
  *   node tools/comeet/add_comeet_quick.js --id <id> --name <name> --uid <uid>
- *   node tools/comeet/add_comeet_quick.js <id> <name> <uid>
+ *   node tools/comeet/add_comeet_quick.js <name> <uid>
  * 
  * Examples:
  *   node tools/comeet/add_comeet_quick.js --id jeen-ai --name "Jeen.ai" --uid "DA.008"
- *   node tools/comeet/add_comeet_quick.js landa Landa A4.000
+ *   node tools/comeet/add_comeet_quick.js "Jeen.ai" "DA.008"
+ *   node tools/comeet/add_comeet_quick.js Landa A4.000
  */
 
-const fs = require('fs');
-const path = require('path');
+require('dotenv').config();
+
 const https = require('https');
-
-// ============================================================================
-// CONFIGURATION
-// ============================================================================
-
-const DATA_FILE = path.join(__dirname, '..', '..', 'data', 'comeet_companies_auto.json');
+const { createStorageAdapter } = require('../../services/storage');
+const { validateCompanies: validateComeet } = require('./validate_companies');
 
 // ============================================================================
 // ARGUMENT PARSING
@@ -72,42 +71,6 @@ function parseArgs(args) {
     }
 
     return result;
-}
-
-// ============================================================================
-// DATABASE OPERATIONS
-// ============================================================================
-
-function loadCompanies() {
-    try {
-        if (fs.existsSync(DATA_FILE)) {
-            const content = fs.readFileSync(DATA_FILE, 'utf-8');
-            const data = JSON.parse(content);
-            return Array.isArray(data) ? data : [];
-        }
-    } catch (err) {
-        console.error(`⚠️  Warning: Could not load existing data: ${err.message}`);
-    }
-    return [];
-}
-
-function saveCompanies(companies) {
-    const dir = path.dirname(DATA_FILE);
-    if (!fs.existsSync(dir)) {
-        fs.mkdirSync(dir, { recursive: true });
-    }
-
-    // Sort by id
-    const sorted = [...companies].sort((a, b) => (a.id || '').localeCompare(b.id || ''));
-    fs.writeFileSync(DATA_FILE, JSON.stringify(sorted, null, 2));
-}
-
-function findByUid(companies, uid) {
-    return companies.find(c => c.uid === uid);
-}
-
-function findById(companies, id) {
-    return companies.find(c => c.id === id);
 }
 
 // ============================================================================
@@ -202,19 +165,31 @@ Options:
     console.log(`   Name: ${parsed.name}`);
     console.log(`   UID:  ${parsed.uid}`);
 
-    // Load existing companies
-    console.log(`\n📂 Loading database: ${DATA_FILE}`);
-    const companies = loadCompanies();
-    console.log(`   Found ${companies.length} existing companies`);
+    // Initialize storage adapter (MongoDB)
+    let storageAdapter;
+    try {
+        storageAdapter = createStorageAdapter();
+        console.log('✅ Storage adapter initialized');
+    } catch (err) {
+        console.error(`❌ Failed to initialize storage: ${err.message}`);
+        process.exit(1);
+    }
+
+    // Load existing companies from DB
+    console.log(`\n📂 Loading existing companies from DB...`);
+    const allCompanies = await storageAdapter.loadCompanies();
+    const existingComeet = allCompanies.filter(c => c.type === 'comeet');
+    console.log(`   Found ${existingComeet.length} existing Comeet companies`);
 
     // Check for duplicates
-    const existingByUid = findByUid(companies, parsed.uid);
-    const existingById = findById(companies, parsed.id);
+    const existingByUid = existingComeet.find(c => c.uid === parsed.uid);
+    const existingById = existingComeet.find(c => c.id === parsed.id);
 
     if (existingByUid && !parsed.force) {
         console.log(`\n⚠️  Company with UID "${parsed.uid}" already exists:`);
         console.log(`   ID: ${existingByUid.id}, Name: ${existingByUid.name}`);
         console.log(`   Use --force to overwrite`);
+        await storageAdapter.close();
         process.exit(0);
     }
 
@@ -222,6 +197,7 @@ Options:
         console.log(`\n⚠️  Company with ID "${parsed.id}" already exists:`);
         console.log(`   UID: ${existingById.uid}, Name: ${existingById.name}`);
         console.log(`   Use --force to overwrite`);
+        await storageAdapter.close();
         process.exit(0);
     }
 
@@ -231,8 +207,10 @@ Options:
 
     if (!token) {
         console.log(`   ⚠️  Could not fetch token automatically`);
-        console.log(`   The company will be added without a token.`);
-        console.log(`   You can update the token later by running the full harvester.`);
+        console.log(`   The company will NOT be added without a valid token.`);
+        console.log(`   Try using the full harvester script instead.`);
+        await storageAdapter.close();
+        process.exit(1);
     } else {
         console.log(`   ✅ Token found: ${token.substring(0, 15)}...`);
     }
@@ -243,27 +221,42 @@ Options:
         name: parsed.name,
         type: 'comeet',
         uid: parsed.uid,
-        token: token || null
+        token: token,
     };
 
-    // Remove existing entries if force mode
-    let updatedCompanies = companies.filter(c => c.uid !== parsed.uid && c.id !== parsed.id);
+    // Validate token via Comeet API
+    console.log(`\n🔍 Validating token via Comeet API...`);
+    const { approved, rejected } = await validateComeet([newCompany]);
 
-    // Add new company
-    updatedCompanies.push(newCompany);
+    if (approved.length === 0) {
+        const reason = rejected[0]?.reason || 'Unknown';
+        console.error(`\n❌ Validation failed: ${reason}`);
+        console.error('   The token may be invalid or the Comeet API may be unreachable');
+        await storageAdapter.close();
+        process.exit(1);
+    }
 
-    // Save
-    saveCompanies(updatedCompanies);
+    console.log(`   ✅ Token validated successfully`);
+
+    // Upsert to MongoDB
+    console.log(`\n🔄 Upserting to MongoDB...`);
+    try {
+        await storageAdapter.upsertCompany({
+            ...newCompany,
+            addedBy: 'add_comeet_quick',
+        });
+    } catch (err) {
+        console.error(`\n❌ Failed to upsert: ${err.message}`);
+        await storageAdapter.close();
+        process.exit(1);
+    }
 
     const action = existingByUid || existingById ? 'Updated' : 'Added';
     console.log(`\n${'═'.repeat(60)}`);
-    console.log(`✅ ${action} "${parsed.name}" successfully!`);
-    console.log(`   Total companies: ${updatedCompanies.length}`);
-    console.log(`   File: ${DATA_FILE}`);
-    if (!token) {
-        console.log(`\n⚠️  Note: Token is missing. Run the full harvester to fetch it.`);
-    }
+    console.log(`✅ ${action} "${parsed.name}" successfully in MongoDB!`);
     console.log('═'.repeat(60));
+
+    await storageAdapter.close();
 }
 
 main().catch(err => {

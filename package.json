@@ -6,6 +6,8 @@
     "dotenv": "^16.6.1",
     "mongodb": "^6.0.0",
     "nodemailer": "^7.0.11",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
     "tough-cookie": "^6.0.0"
   },
   "devDependencies": {
@@ -22,6 +24,15 @@
     "comeet:debug": "node tools/run_comeet_debug.js --config data/comeet_companies_auto.json",
     "comeet:debug:sample": "node tools/run_comeet_debug.js --config data/comeet_companies_auto.json --limit 5",
     "comeet:debug:clean": "node tools/clean_comeet_debug_logs.js",
-    "comeet:add": "node tools/add_comeet_company.js"
+    "comeet:add": "node tools/add_comeet_company.js",
+    "validate:comeet": "node tools/comeet/validate_companies.js",
+    "validate:greenhouse": "node tools/greenhouse/validate_companies.js",
+    "validate:workday": "node tools/workday/validate_companies.js",
+    "discover": "node tools/discovery/run_discovery.js",
+    "discover:dry": "cross-env DISCOVERY_DRY_RUN=true node tools/discovery/run_discovery.js",
+    "inject": "node tools/inject_and_validate.js",
+    "inject:comeet": "node tools/inject_comeet_puppeteer.js",
+    "calibrate:report": "node tools/run_proactive_calibration.js",
+    "calibrate:purge": "node tools/run_proactive_calibration.js --confirm"
   }
 }

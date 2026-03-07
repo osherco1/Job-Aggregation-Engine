@@ -101,6 +101,16 @@ class StorageAdapter {
   }
 
   /**
+   * Upsert a company document into the companies store.
+   * Used by local Comeet tooling to inject validated companies into the DB.
+   * @param {Object} company - Company object with at least { id, name, type }
+   * @returns {Promise<void>}
+   */
+  async upsertCompany(company) {
+    throw new Error('upsertCompany() must be implemented by subclass');
+  }
+
+  /**
    * Close / release any resources held by this adapter (e.g., database connections).
    * Subclasses that hold open connections MUST override this.
    * The default implementation is a no-op so file-based adapters work without changes.

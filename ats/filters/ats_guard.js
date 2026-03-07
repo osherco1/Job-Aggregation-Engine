@@ -255,10 +255,30 @@ function evaluateAtsGuard(job, context = {}) {
     titleResult.passed && departmentResult.passed
       ? runStructuredLevelCheck(structuredLevel)
       : { passed: true, reasons: [], fastTrack: false, gate: 'structured_level' };
-  const descriptionResult =
-    titleResult.passed && departmentResult.passed && structuredResult.passed
-      ? runDescriptionCheck(description)
-      : { passed: false, reasons: [], gate: 'description' };
+
+  // Student/Junior bypass: skip description_seniority check when title explicitly signals junior/student.
+  const isExplicitJuniorTitle = /\b(student|intern|internship|junior)\b/i.test(title);
+  let descriptionResult;
+  if (
+    titleResult.passed &&
+    departmentResult.passed &&
+    structuredResult.passed &&
+    isExplicitJuniorTitle
+  ) {
+    descriptionResult = {
+      passed: true,
+      reasons: [],
+      gate: 'description',
+    };
+  } else if (
+    titleResult.passed &&
+    departmentResult.passed &&
+    structuredResult.passed
+  ) {
+    descriptionResult = runDescriptionCheck(description);
+  } else {
+    descriptionResult = { passed: false, reasons: [], gate: 'description' };
+  }
 
   const allReasons = [
     ...titleResult.reasons,

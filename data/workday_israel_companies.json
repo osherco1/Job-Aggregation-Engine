@@ -1,0 +1,98 @@
+[
+  {
+    "company_name": "Altera",
+    "careers_url": "https://altera.wd1.myworkdayjobs.com/en-US/Altera",
+    "workday_domain": "altera.wd1.myworkdayjobs.com",
+    "israel_presence": "R&D offices in Jerusalem, Petach Tikva, and Haifa; semiconductor/FPGA design and verification",
+    "confidence": "verified",
+    "evidence": "Direct myworkdayjobs.com URL confirmed; multiple Israel engineering job postings found (DFT, SoC Verification, SerDes, Firmware Development); spun off from Intel's FPGA division"
+  },
+  {
+    "company_name": "PTC",
+    "careers_url": "https://ptc.wd1.myworkdayjobs.com/en-US/PTC",
+    "workday_domain": "ptc.wd1.myworkdayjobs.com",
+    "israel_presence": "Development center in Haifa; R&D for Creo (3D CAD) product line",
+    "confidence": "verified",
+    "evidence": "Direct myworkdayjobs.com Israel job postings confirmed (R&D Mathematics Intern, Software Development Engineer in Haifa); PTC is a global CAD/PLM/IoT provider"
+  },
+  {
+    "company_name": "Philips",
+    "careers_url": "https://philips.wd3.myworkdayjobs.com/jobs-and-careers",
+    "workday_domain": "philips.wd3.myworkdayjobs.com",
+    "israel_presence": "Major R&D center in Haifa; develops CT/PET-CT scanners, imaging clinical applications (ICAP), and AI solutions",
+    "confidence": "verified",
+    "evidence": "Workday hostname confirmed via Netify; Philips Israel careers page lists extensive R&D departments in Haifa; YouTube video references philips.wd3.myworkdayjobs.com"
+  },
+  {
+    "company_name": "SailPoint",
+    "careers_url": "https://sailpoint.wd1.myworkdayjobs.com/en-US/sailpoint",
+    "workday_domain": "sailpoint.wd1.myworkdayjobs.com",
+    "israel_presence": "Office in Ramat Gan (34th floor, Gibor Sport Building, Menachem Begin Road); Israel R&D entity registered since 2012",
+    "confidence": "verified",
+    "evidence": "Direct myworkdayjobs.com job posting for 'Staff Software Engineer, Israel' confirmed; SailPoint Technologies Israel Ltd registered in Tel Aviv; identity security company"
+  },
+  {
+    "company_name": "CrowdStrike",
+    "careers_url": "https://crowdstrike.wd5.myworkdayjobs.com/crowdstrikecareers",
+    "workday_domain": "crowdstrike.wd5.myworkdayjobs.com",
+    "israel_presence": "CrowdStrike Israel R&D Ltd in Ramat Gan/Tel Aviv; multiple engineering teams for cloud security, DSPM, SaaS security",
+    "confidence": "verified",
+    "evidence": "Direct myworkdayjobs.com job postings in Israel (Tel Aviv); registered Israeli entity 'CrowdStrike Israel R&D Ltd' (ID 515111268); 25+ Israel job listings on LinkedIn"
+  },
+  {
+    "company_name": "Motorola Solutions",
+    "careers_url": "https://motorolasolutions.wd5.myworkdayjobs.com/careers",
+    "workday_domain": "motorolasolutions.wd5.myworkdayjobs.com",
+    "israel_presence": "Innovation Center in Tel Aviv; R&D for analytics, AI, advanced cyber, and public safety technologies",
+    "confidence": "verified",
+    "evidence": "Direct myworkdayjobs.com job posting for Tel Aviv confirmed; Motorola Solutions Israel Limited is a registered entity; launched Innovation Center in Israel in 2016"
+  },
+  {
+    "company_name": "Proofpoint",
+    "careers_url": "https://proofpoint.wd5.myworkdayjobs.com/en-US/ProofpointCareers",
+    "workday_domain": "proofpoint.wd5.myworkdayjobs.com",
+    "israel_presence": "R&D office in Tel Aviv; develops cybersecurity solutions including cloud infrastructure and SaaS platforms",
+    "confidence": "verified",
+    "evidence": "Direct myworkdayjobs.com job posting for Tel Aviv (Automation Engineer Intern); multiple LinkedIn Israel job listings for Proofpoint; leading cybersecurity company"
+  },
+  {
+    "company_name": "Illumina",
+    "careers_url": "https://illumina.wd1.myworkdayjobs.com/illumina-careers",
+    "workday_domain": "illumina.wd1.myworkdayjobs.com",
+    "israel_presence": "Israel Excellence Center in Tel Aviv (Toha Tower 1, 114 Yigal Alon St.); R&D for genomics and AI solutions",
+    "confidence": "verified",
+    "evidence": "Direct myworkdayjobs.com job posting for Israel (Senior R&D Verification Lead); Illumina's website lists Tel Aviv office; hiring R&D team leads and software engineers"
+  },
+  {
+    "company_name": "Samsung Semiconductor",
+    "careers_url": "https://sec.wd3.myworkdayjobs.com/en-US/Samsung_Careers",
+    "workday_domain": "sec.wd3.myworkdayjobs.com",
+    "israel_presence": "Samsung R&D Institute Israel in Herzliya; semiconductor design, ML/Computer Vision, VLSI design",
+    "confidence": "verified",
+    "evidence": "Direct myworkdayjobs.com job posting for Herzliya Israel (Senior Engineer, ML & Computer Vision); Samsung Semiconductor actively hiring in Israel for VLSI design and R&D roles"
+  },
+  {
+    "company_name": "Johnson Electric",
+    "careers_url": "https://johnsonelectric.wd3.myworkdayjobs.com/en-US/Career_JE",
+    "workday_domain": "johnsonelectric.wd3.myworkdayjobs.com",
+    "israel_presence": "R&D and manufacturing in Yokneam, Israel; test equipment design, mechanical engineering, production engineering",
+    "confidence": "verified",
+    "evidence": "Direct myworkdayjobs.com job postings for Yokneam Israel (Test Equipment Design Engineer, Mechanical Engineer, Quality Engineer, Production Engineer)"
+  },
+  {
+    "company_name": "Red Hat",
+    "careers_url": "https://redhat.wd5.myworkdayjobs.com/en-US/Jobs",
+    "workday_domain": "redhat.wd5.myworkdayjobs.com",
+    "israel_presence": "Development center in Raanana; works on OpenShift, Ansible, AI/ML platforms, and open-source solutions",
+    "confidence": "verified",
+    "evidence": "Direct myworkdayjobs.com job posting for Raanana Israel (Software Engineering Intern, OpenShift Virtualization); Red Hat Israel page confirms R&D presence; multiple engineering roles"
+  },
+  {
+    "company_name": "HP Inc.",
+    "careers_url": "https://hp.wd5.myworkdayjobs.com/ExternalCareerSite",
+    "workday_domain": "hp.wd5.myworkdayjobs.com",
+    "israel_presence": "HP Indigo division in Kiryat Gat; R&D and manufacturing for digital printing; one of Israel's largest exporters with $1B+ annual revenue",
+    "confidence": "verified",
+    "evidence": "Direct myworkdayjobs.com job postings for Kiryat Gat Israel (Mechanical/Equipment Engineer, Process Reliability Engineer); HP Indigo is distinct from HP Enterprise (HPE) which is already in the known list"
+  }
+]

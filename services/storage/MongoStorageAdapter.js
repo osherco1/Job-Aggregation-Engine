@@ -8,7 +8,7 @@
 const { MongoClient } = require('mongodb');
 const { StorageAdapter } = require('./StorageAdapter');
 // #region agent log
-const _dbgLog=(m,d,h)=>{try{require('fs').appendFileSync(require('path').join(__dirname,'..','..', '.cursor','debug.log'),JSON.stringify({location:m,data:d,hypothesisId:h,timestamp:Date.now()})+'\n');}catch(_){}};
+const _dbgLog = (m, d, h) => { try { require('fs').appendFileSync(require('path').join(__dirname, '..', '..', '.cursor', 'debug.log'), JSON.stringify({ location: m, data: d, hypothesisId: h, timestamp: Date.now() }) + '\n'); } catch (_) { } };
 // #endregion
 
 class MongoStorageAdapter extends StorageAdapter {
@@ -21,7 +21,7 @@ class MongoStorageAdapter extends StorageAdapter {
     this.client = null;
     this.db = null;
     this.connected = false;
-    
+
     // Collection names
     this.collections = {
       SEEN_JOBS: 'seen_jobs',
@@ -35,7 +35,7 @@ class MongoStorageAdapter extends StorageAdapter {
 
     // TTL indexes setup flag (avoid re-creating on every reconnect)
     this._ttlIndexesEnsured = false;
-    
+
     // Database name (extracted from URI or default)
     this.dbName = this._extractDbName(mongoUri);
   }
@@ -147,7 +147,7 @@ class MongoStorageAdapter extends StorageAdapter {
     try {
       const collection = await this._getCollection(this.collections.SEEN_JOBS);
       const now = new Date();
-      
+
       // Use bulk write for efficiency
       const operations = Array.from(ids).map(jobId => ({
         updateOne: {
@@ -184,12 +184,12 @@ class MongoStorageAdapter extends StorageAdapter {
       const docs = await collection.find({}).toArray();
       const jobIds = new Set(docs.map(doc => String(doc._id)));
       // #region agent log
-      _dbgLog('MongoStorageAdapter.js:loadSentHistory:OK',{count:jobIds.size,sampleIds:Array.from(jobIds).slice(0,5)},'H1');
+      _dbgLog('MongoStorageAdapter.js:loadSentHistory:OK', { count: jobIds.size, sampleIds: Array.from(jobIds).slice(0, 5) }, 'H1');
       // #endregion
       return jobIds;
     } catch (err) {
       // #region agent log
-      _dbgLog('MongoStorageAdapter.js:loadSentHistory:CATCH',{error:err.message||String(err)},'H1');
+      _dbgLog('MongoStorageAdapter.js:loadSentHistory:CATCH', { error: err.message || String(err) }, 'H1');
       // #endregion
       console.error('MongoStorageAdapter: Failed to load sent history:', err.message || err);
       return new Set();
@@ -210,7 +210,7 @@ class MongoStorageAdapter extends StorageAdapter {
     try {
       const collection = await this._getCollection(this.collections.ATS_SENT_HISTORY);
       const now = new Date();
-      
+
       // Use bulk write for efficiency
       const operations = Array.from(ids).map(jobId => ({
         updateOne: {
@@ -232,12 +232,12 @@ class MongoStorageAdapter extends StorageAdapter {
       if (operations.length > 0) {
         const result = await collection.bulkWrite(operations, { ordered: false });
         // #region agent log
-        _dbgLog('MongoStorageAdapter.js:persistSentHistory:OK',{opsCount:operations.length,upsertedCount:result.upsertedCount,modifiedCount:result.modifiedCount,matchedCount:result.matchedCount},'H4');
+        _dbgLog('MongoStorageAdapter.js:persistSentHistory:OK', { opsCount: operations.length, upsertedCount: result.upsertedCount, modifiedCount: result.modifiedCount, matchedCount: result.matchedCount }, 'H4');
         // #endregion
       }
     } catch (err) {
       // #region agent log
-      _dbgLog('MongoStorageAdapter.js:persistSentHistory:CATCH',{error:err.message||String(err),idsCount:ids?ids.size:0},'H4');
+      _dbgLog('MongoStorageAdapter.js:persistSentHistory:CATCH', { error: err.message || String(err), idsCount: ids ? ids.size : 0 }, 'H4');
       // #endregion
       console.error('MongoStorageAdapter: Failed to persist sent history:', err.message || err);
       // FIX 2: FAIL-FAST — throw so orchestrator knows persistence failed
@@ -255,7 +255,7 @@ class MongoStorageAdapter extends StorageAdapter {
     try {
       const collection = await this._getCollection(this.collections.COMPANIES);
       const companies = await collection.find({ enabled: { $ne: false } }).toArray();
-      
+
       // Convert MongoDB documents to plain objects, ensuring _id is converted to id
       return companies.map(doc => {
         const company = { ...doc };
@@ -299,12 +299,12 @@ class MongoStorageAdapter extends StorageAdapter {
         { expireAfterSeconds: 30 * 24 * 60 * 60, background: true }
       );
       // #region agent log
-      _dbgLog('MongoStorageAdapter.js:_ensureTTLIndexes:OK',{calibrationRejectedTTL:'60d',calibrationPassedTTL:'60d',runSummariesTTL:'30d'},'FIX1');
+      _dbgLog('MongoStorageAdapter.js:_ensureTTLIndexes:OK', { calibrationRejectedTTL: '60d', calibrationPassedTTL: '60d', runSummariesTTL: '30d' }, 'FIX1');
       // #endregion
       console.log('MongoStorageAdapter: TTL indexes ensured (calibration_rejected=60d, calibration_passed=60d, run_summaries=30d)');
     } catch (err) {
       // #region agent log
-      _dbgLog('MongoStorageAdapter.js:_ensureTTLIndexes:CATCH',{error:err.message||String(err)},'FIX1');
+      _dbgLog('MongoStorageAdapter.js:_ensureTTLIndexes:CATCH', { error: err.message || String(err) }, 'FIX1');
       // #endregion
       console.warn('MongoStorageAdapter: TTL index creation warning:', err.message || err);
     }
@@ -397,7 +397,7 @@ class MongoStorageAdapter extends StorageAdapter {
 
       await collection.insertMany(docs, { ordered: false });
       // #region agent log
-      _dbgLog('MongoStorageAdapter.js:writeCalibrationRejected:OK',{count:docs.length},'FIX1');
+      _dbgLog('MongoStorageAdapter.js:writeCalibrationRejected:OK', { count: docs.length }, 'FIX1');
       // #endregion
     } catch (err) {
       console.error('MongoStorageAdapter: Failed to write calibration rejected:', err.message || err);
@@ -425,7 +425,7 @@ class MongoStorageAdapter extends StorageAdapter {
 
       await collection.insertMany(docs, { ordered: false });
       // #region agent log
-      _dbgLog('MongoStorageAdapter.js:writeCalibrationPassed:OK',{count:docs.length},'FIX1');
+      _dbgLog('MongoStorageAdapter.js:writeCalibrationPassed:OK', { count: docs.length }, 'FIX1');
       // #endregion
     } catch (err) {
       console.error('MongoStorageAdapter: Failed to write calibration passed:', err.message || err);
@@ -511,6 +511,49 @@ class MongoStorageAdapter extends StorageAdapter {
       );
     } catch (err) {
       console.warn('MongoStorageAdapter: updateLastCalibrationTime failed:', err.message || err);
+    }
+  }
+
+  /**
+   * Upsert a company document into the companies collection.
+   * Uses company.id as the MongoDB _id for idempotent inserts.
+   * @param {Object} company - Company object with at least { id, name, type }
+   * @returns {Promise<void>}
+   */
+  async upsertCompany(company) {
+    if (!company || !company.id) {
+      throw new Error('upsertCompany requires a company with an id field');
+    }
+
+    try {
+      const collection = await this._getCollection(this.collections.COMPANIES);
+      const now = new Date();
+
+      const doc = {
+        id: company.id,
+        name: company.name,
+        type: company.type,
+        enabled: company.enabled !== undefined ? company.enabled : true,
+        updatedAt: now,
+      };
+
+      // Copy ATS-specific fields if present
+      if (company.uid) doc.uid = company.uid;
+      if (company.token) doc.token = company.token;
+      if (company.url) doc.url = company.url;
+      if (company.addedBy) doc.addedBy = company.addedBy;
+
+      await collection.updateOne(
+        { _id: company.id },
+        {
+          $set: doc,
+          $setOnInsert: { addedAt: now },
+        },
+        { upsert: true }
+      );
+    } catch (err) {
+      console.error(`MongoStorageAdapter: Failed to upsert company '${company.id}':`, err.message || err);
+      throw err;
     }
   }
 

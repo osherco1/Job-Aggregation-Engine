@@ -2,8 +2,9 @@
 /**
  * Comeet Token Harvester
  * 
- * Batch-update tokens for all companies in comeet_companies_auto.json.
- * Uses Puppeteer to scrape career pages and extract COMPANY_DATA tokens.
+ * Reads companies from tools/comeet_list.csv, scrapes API tokens from
+ * Comeet career pages using Puppeteer, and writes enriched results to
+ * tools/comeet_harvested_tokens.json.
  * 
  * Usage:
  *   node tools/comeet/harvest_tokens.js              # Update all missing tokens
@@ -16,15 +17,19 @@
  *   - Saves after each batch to avoid data loss
  */
 
+require('dotenv').config({ path: require('path').resolve(__dirname, '../../.env') });
+
 const puppeteer = require('puppeteer');
 const fs = require('fs');
 const path = require('path');
+const { MongoClient } = require('mongodb');
 
 // ============================================================================
 // CONFIGURATION
 // ============================================================================
 
-const DATA_FILE = path.join(__dirname, '..', '..', 'data', 'comeet_companies_auto.json');
+const JSON_INPUT = path.join(__dirname, '..', '..', 'data', 'comeet_companies_israel.json');
+const OUTPUT_FILE = path.join(__dirname, '..', 'comeet_harvested_tokens.json');
 
 // Concurrency settings
 const CONCURRENCY_LIMIT = 3;  // Parallel browser pages (be nice to Comeet)
@@ -50,33 +55,41 @@ function randomDelay(minMs, maxMs) {
     return delay(delayMs);
 }
 
-function constructUrl(id, uid) {
-    // Comeet career page URL pattern: /jobs/{slug}/{uid}
-    // Example: https://www.comeet.com/jobs/jeenai/DA.008
-    // VERIFIED: This is the correct format - /jobs/careers/{uid} does NOT work!
-    return `https://www.comeet.com/jobs/${id}/${uid}`;
-}
-
 // ============================================================================
-// DATABASE OPERATIONS
+// JSON INPUT & FILE I/O
 // ============================================================================
 
+/**
+ * Load companies from data/comeet_companies_israel.json.
+ * Extracts slug and uid from each company's careers_page_url.
+ */
 function loadCompanies() {
-    try {
-        if (fs.existsSync(DATA_FILE)) {
-            const content = fs.readFileSync(DATA_FILE, 'utf-8');
-            const data = JSON.parse(content);
-            return Array.isArray(data) ? data : [];
-        }
-    } catch (err) {
-        console.error(`❌ Error loading database: ${err.message}`);
+    if (!fs.existsSync(JSON_INPUT)) {
+        console.error(`❌ JSON not found: ${JSON_INPUT}`);
+        return [];
     }
-    return [];
+    try {
+        const raw = JSON.parse(fs.readFileSync(JSON_INPUT, 'utf-8'));
+        const arr = Array.isArray(raw) ? raw : (raw.companies || []);
+
+        return arr
+            .filter(c => c.company_name && c.careers_page_url)
+            .map(c => {
+                const url = c.careers_page_url;
+                const match = url.match(/\/jobs\/([^/]+)\/([^/]+)/) || [];
+                const slug = match[1] || '';
+                const uid = match[2] || '';
+                return { id: slug, name: c.company_name, type: 'comeet', uid, url, token: null };
+            });
+    } catch (err) {
+        console.error(`❌ Error parsing JSON: ${err.message}`);
+        return [];
+    }
 }
 
 function saveCompanies(companies) {
     const sorted = [...companies].sort((a, b) => (a.id || '').localeCompare(b.id || ''));
-    fs.writeFileSync(DATA_FILE, JSON.stringify(sorted, null, 2));
+    fs.writeFileSync(OUTPUT_FILE, JSON.stringify(sorted, null, 2));
 }
 
 // ============================================================================
@@ -166,7 +179,8 @@ async function extractTokenFromPage(page, url) {
 // ============================================================================
 
 async function processCompany(page, company) {
-    const url = constructUrl(company.id, company.uid);
+    // Use URL from CSV (already resolved during load)
+    const url = company.url || `https://www.comeet.com/jobs/${company.id}/${company.uid}`;
 
     try {
         const result = await extractTokenFromPage(page, url);
@@ -252,6 +266,78 @@ async function processInBatches(companies, browser, concurrency = CONCURRENCY_LI
 }
 
 // ============================================================================
+// MONGODB INJECTION
+// ============================================================================
+
+async function injectToMongoDB(companies) {
+    const valid = companies.filter(c => c.token && c.uid);
+    if (valid.length === 0) {
+        console.log('\n⚠️  No companies with valid tokens to inject.');
+        return;
+    }
+
+    const mongoUri = process.env.MONGODB_URI;
+    if (!mongoUri) {
+        console.error('\n❌ MONGODB_URI not set. Skipping DB injection.');
+        return;
+    }
+
+    let client;
+    try {
+        client = new MongoClient(mongoUri, { maxPoolSize: 5, serverSelectionTimeoutMS: 10000 });
+        await client.connect();
+        console.log('\n🔗 Connected to MongoDB');
+
+        const dbName = (() => {
+            try {
+                const p = new URL(mongoUri).pathname;
+                return p && p.length > 1 ? p.substring(1) : 'jobbot_db';
+            } catch { return 'jobbot_db'; }
+        })();
+
+        const db = client.db(dbName);
+        const collection = db.collection('companies');
+        const now = new Date();
+
+        const ops = valid.map(c => ({
+            updateOne: {
+                filter: { uid: c.uid, type: 'comeet' },
+                update: {
+                    $set: {
+                        name: c.name,
+                        type: 'comeet',
+                        uid: c.uid,
+                        token: c.token,
+                        id: c.id,
+                        updatedAt: now,
+                        addedBy: 'harvest_tokens',
+                    },
+                    $setOnInsert: { enabled: true, createdAt: now },
+                },
+                upsert: true,
+            },
+        }));
+
+        const result = await collection.bulkWrite(ops, { ordered: false });
+
+        console.log('\n' + '─'.repeat(60));
+        console.log('🗄️  MongoDB Injection Results');
+        console.log('─'.repeat(60));
+        console.log(`   Matched:  ${result.matchedCount}`);
+        console.log(`   Modified: ${result.modifiedCount}`);
+        console.log(`   Upserted: ${result.upsertedCount}`);
+        console.log('─'.repeat(60));
+    } catch (err) {
+        console.error(`\n❌ MongoDB error: ${err.message}`);
+    } finally {
+        if (client) {
+            await client.close();
+            console.log('🔌 MongoDB connection closed');
+        }
+    }
+}
+
+// ============================================================================
 // MAIN
 // ============================================================================
 
@@ -266,7 +352,7 @@ async function main() {
     const specificCompany = companyIdIdx !== -1 ? args[companyIdIdx + 1] : null;
 
     // Load companies
-    console.log(`\n📂 Loading database: ${DATA_FILE}`);
+    console.log(`\n📂 Loading JSON: ${JSON_INPUT}`);
     let companies = loadCompanies();
     console.log(`   Found ${companies.length} companies`);
 
@@ -323,12 +409,15 @@ async function main() {
         console.log('═'.repeat(60));
         console.log(`   ✅ Updated: ${updated}`);
         console.log(`   ❌ Failed:  ${failed}`);
-        console.log(`   📁 File:    ${DATA_FILE}`);
+        console.log(`   📁 Output:  ${OUTPUT_FILE}`);
         console.log('═'.repeat(60));
 
     } finally {
         await browser.close();
     }
+
+    // Inject harvested tokens into MongoDB
+    await injectToMongoDB(companies);
 }
 
 main().catch(err => {

@@ -1,0 +1,82 @@
+*** CALIBRATION AUDIT SESSION INITIALIZATION ***
+
+Role: You are the Lead QA & Calibration Architect and Data Science Expert for my Job Aggregation Engine (Node.js ecosystem fetching from ATS and LinkedIn).
+
+System Context (High-Level):
+This system consists of two main layers:
+1. Data Ingestion:
+   - ATS Workers (Comeet, Greenhouse, Workday) utilizing silent dedup, jitter, and a semantic "ATS Guard".
+   - LinkedIn Scraper using Voyager API + GraphQL, strict binary title filters (Blacklist/Whitelist), dedup, and daily limits.
+2. Calibration & Metrics Layer:
+   - Collects data into MongoDB collections: `calibration_passed` (jobs that survived all filters), `calibration_rejected` (jobs dropped by semantic guards, location, department, etc.), and `run_summaries`.
+   - Generates a consolidated Markdown/JSON calibration report analyzing global metrics, false positives, false negatives, search efficiency, and operational health.
+
+Session Objective:
+I am providing a massive, highly detailed Calibration Report (and potentially a system snapshot). Your task is to perform a meticulous line-by-line analysis of the provided data, identify patterns in the noise, and generate a structured, data-driven Calibration Action Plan.
+
+⛔ CONSTRAINT: This is a 📋 SCAN and ANALYSIS task. DO NOT write, modify, or refactor any codebase files. Output only the requested analytical report.
+
+---
+
+### REQUIRED ANALYSIS DIMENSIONS:
+
+0. Meta - Delta vs. Previous State
+Identify what has changed (if previous context exists):
+- Did recent changes to the Blacklist/Whitelist or queries solve past issues?
+- What new issues or regressions emerged?
+
+1. Global Metrics & Pass/Reject Ratios
+- Analyze the overall pass ratio. Is it too strict or too loose compared to our goals?
+- Identify which source (Comeet/Greenhouse/Workday/LinkedIn) or specific gate (title, location, description, department) is the most dominant in rejections.
+
+2. ❌ False Positives ("Garbage that passed")
+- Scan the "Passed Jobs" sections.
+- Flag jobs that bypassed the filters but shouldn't have (e.g., non-tech roles, Sales, HR, or Senior/Lead/VP roles).
+- Investigate *why* they passed (e.g., a whitelist keyword overrode the guard, or a query is too broad).
+
+3. ✅ False Negatives ("Gold that was dropped")
+- Scan the "Rejected Jobs" sections.
+- Flag highly relevant jobs (e.g., Junior/Student/Intern Software Engineer, Backend, DevOps in Israel/Remote) that were incorrectly dropped.
+- Investigate *why* they dropped (e.g., which specific gate or aggressive blacklist keyword triggered the drop).
+
+4. 🔍 Query Efficiency (LinkedIn)
+- Analyze the Matrix / Search Efficiency data.
+- Identify "Dead Queries" (0 results repeatedly).
+- Identify "Top Performers".
+- Note queries that exclusively generate False Positives.
+
+5. ⚠️ Operational & System Health
+- Analyze DB volume, WAF blocks (especially Workday), Quota hits, Error exceptions, and Silent Dedup efficiency.
+- Highlight any anomalies in run duration or API limits.
+
+6. Meta-Calibration Balance
+- Summarize the current trade-off state: Are we leaning too heavily towards strictness (missing good jobs) or permissiveness (spamming the user)?
+
+---
+
+### YOUR WORKFLOW PROTOCOL:
+
+1. SCAN & INGEST: Read the entire provided report carefully. Extract the metrics and identify patterns.
+2. CLASSIFY & TAG: Pick 10-20 distinct examples of passed/rejected jobs from the data. Classify them as True Positive (TP), False Positive (FP), True Negative (TN), or False Negative (FN). 
+3. HYPOTHESIZE: Formulate 2-4 concrete hypotheses (H1, H2...) on why the FP/FNs are happening based on current filter vocabulary or query structures.
+4. ACTION PLAN: Generate the structured output below.
+
+---
+
+### REQUIRED OUTPUT FORMAT:
+
+1. Executive Summary (5-10 lines summarizing system health and primary filter leakage).
+2. Technical Action Plan:
+   - `Add to Blacklist:` [Exact words/phrases/regex to add to block FP]
+   - `Remove from Blacklist:` [Words to remove to rescue FN]
+   - `Whitelist Exceptions:` [Phrases like "Student Program" to enforce passing]
+   - `Modify Queries:` [Queries to delete, merge, or tweak]
+   - `System Errors / Warnings:` [Fixes for TTLs, WAF blocks, DB Volume, etc.]
+3. Evidence Appendix:
+   - Provide a brief table of the top False Positives and False Negatives found in the data, including the job title, company, and the suspected reason/gate that failed.
+
+***
+
+INPUT DATA TO ANALYZE:
+
+[PASTE YOUR CALIBRATION REPORT AND/OR SNAPSHOT HERE]

@@ -200,7 +200,7 @@ class WorkdayWorker {
     _parseWorkdayUrl(url) {
         // Pattern: https://tenant.instance.myworkdayjobs.com/site
         // Example: https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite
-        const regex = /https?:\/\/([^.]+)\.([^.]+)\.myworkdayjobs\.com(?:\/wday\/cxs\/[^/]+)?\/([^/?#]+)/i;
+        const regex = /https?:\/\/([^.]+)\.([^.]+)\.myworkdayjobs\.com(?:\/wday\/cxs\/[^/]+)?(?:\/[a-zA-Z]{2}(?:[_-][a-zA-Z]{2})?)?\/([^/?#]+)/i;
         const match = url.match(regex);
 
         if (!match) {

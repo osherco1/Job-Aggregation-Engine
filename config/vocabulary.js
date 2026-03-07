@@ -94,6 +94,13 @@ const technicalTitleKeywords = [
   'qa engineer',
   'security engineer',
   'salesforce', // Salesforce Analyst / Engineer roles should not be dropped as non-technical
+  // Junior/Student rescue: recognize QA, tester, algo, researcher, and data-analysis titles
+  'qa',
+  'tester',
+  'algo',
+  'algo researcher',
+  'security researcher',
+  'data analysis',
 ];
 
 // Seniority and leadership indicators in titles
@@ -118,13 +125,13 @@ const titleSeniorPatterns = [
 
 // Seniority patterns in rich-text descriptions (HTML-ish content / description field)
 const contentSeniorityPatterns = [
-  // Generic years-of-experience gates: treat 3+ years as non-junior for ATS roles.
-  /\b[3-9]\s*\+?\s*(?:years|yrs)\b/i,
+  // Generic years-of-experience gates: treat 4+ years as non-junior (3+ reserved for junior "nice to have").
+  /\b[4-9]\s*\+?\s*(?:years|yrs)\b/i,
 
   // Stricter variants with explicit "of experience"
-  /\b([3-9]|1[0-9])\s*\+?\s*(?:years|yrs)\s+of\s+experience\b/i,
-  /\b([3-9]|1[0-9])\s*-\s*[0-9]+\+?\s*(?:years|yrs)\s+of\s+experience\b/i, // "4-5+ years of professional experience"
-  /\+\s*[3-9]\s*(?:years|yrs)\b/i, // "+5 years as DevOps Engineer/SRE", "+3 years" etc.
+  /\b([4-9]|1[0-9])\s*\+?\s*(?:years|yrs)\s+of\s+experience\b/i,
+  /\b([4-9]|1[0-9])\s*-\s*[0-9]+\+?\s*(?:years|yrs)\s+of\s+experience\b/i, // "4-5+ years of professional experience"
+  /\+\s*[4-9]\s*(?:years|yrs)\b/i, // "+5 years as DevOps Engineer/SRE", "+4 years" etc.
 
   // Concrete phrases observed in Melio / Riskified / Gong logs
   /4-5\+?\s*years of professional experience as a software engineer/i, // Melio Full Stack Engineer (NYC)
