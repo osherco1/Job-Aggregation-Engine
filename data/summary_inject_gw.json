@@ -1,0 +1,10 @@
+{
+  "greenhouse": {
+    "valid": 15,
+    "invalid": 0
+  },
+  "workday": {
+    "valid": 15,
+    "invalid": 0
+  }
+}

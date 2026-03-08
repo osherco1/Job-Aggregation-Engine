@@ -1,98 +1,92 @@
 [
   {
-    "company_name": "Altera",
-    "careers_url": "https://altera.wd1.myworkdayjobs.com/en-US/Altera",
-    "workday_domain": "altera.wd1.myworkdayjobs.com",
-    "israel_presence": "R&D offices in Jerusalem, Petach Tikva, and Haifa; semiconductor/FPGA design and verification",
-    "confidence": "verified",
-    "evidence": "Direct myworkdayjobs.com URL confirmed; multiple Israel engineering job postings found (DFT, SoC Verification, SerDes, Firmware Development); spun off from Intel's FPGA division"
+    "company_name": "Finastra",
+    "careers_page_url": "https://finastra.wd3.myworkdayjobs.com/en-US/FINC",
+    "confidence": "high",
+    "evidence": "Finastra has 370+ employees at its R&D center in Kfar Saba, Israel. URL verified returning HTTP 200."
   },
   {
-    "company_name": "PTC",
-    "careers_url": "https://ptc.wd1.myworkdayjobs.com/en-US/PTC",
-    "workday_domain": "ptc.wd1.myworkdayjobs.com",
-    "israel_presence": "Development center in Haifa; R&D for Creo (3D CAD) product line",
-    "confidence": "verified",
-    "evidence": "Direct myworkdayjobs.com Israel job postings confirmed (R&D Mathematics Intern, Software Development Engineer in Haifa); PTC is a global CAD/PLM/IoT provider"
+    "company_name": "Booking Holdings",
+    "careers_page_url": "https://priceline.wd1.myworkdayjobs.com/en-US/BookingHoldings",
+    "confidence": "high",
+    "evidence": "Booking.com (subsidiary) has a Tel Aviv R&D Machine Learning Centre with 70+ employees. URL verified returning HTTP 200."
   },
   {
-    "company_name": "Philips",
-    "careers_url": "https://philips.wd3.myworkdayjobs.com/jobs-and-careers",
-    "workday_domain": "philips.wd3.myworkdayjobs.com",
-    "israel_presence": "Major R&D center in Haifa; develops CT/PET-CT scanners, imaging clinical applications (ICAP), and AI solutions",
-    "confidence": "verified",
-    "evidence": "Workday hostname confirmed via Netify; Philips Israel careers page lists extensive R&D departments in Haifa; YouTube video references philips.wd3.myworkdayjobs.com"
+    "company_name": "Palo Alto Networks",
+    "careers_page_url": "https://paloaltonetworks.wd5.myworkdayjobs.com/en-US/panwexternalcareers",
+    "confidence": "high",
+    "evidence": "Major Israel R&D in Tel Aviv, ranked #2 best place to work in Israel. Found via LinkedIn recruiter profile referencing URL. HTTP 200 verified."
   },
   {
-    "company_name": "SailPoint",
-    "careers_url": "https://sailpoint.wd1.myworkdayjobs.com/en-US/sailpoint",
-    "workday_domain": "sailpoint.wd1.myworkdayjobs.com",
-    "israel_presence": "Office in Ramat Gan (34th floor, Gibor Sport Building, Menachem Begin Road); Israel R&D entity registered since 2012",
-    "confidence": "verified",
-    "evidence": "Direct myworkdayjobs.com job posting for 'Staff Software Engineer, Israel' confirmed; SailPoint Technologies Israel Ltd registered in Tel Aviv; identity security company"
+    "company_name": "BMC Software",
+    "careers_page_url": "https://bmc.wd1.myworkdayjobs.com/en-US/BMC",
+    "confidence": "high",
+    "evidence": "BMC has R&D offices in Tel Aviv (Habarzel St.) and Tel Hai, Israel — one of BMC's largest R&D centers globally. URL verified HTTP 200."
   },
   {
-    "company_name": "CrowdStrike",
-    "careers_url": "https://crowdstrike.wd5.myworkdayjobs.com/crowdstrikecareers",
-    "workday_domain": "crowdstrike.wd5.myworkdayjobs.com",
-    "israel_presence": "CrowdStrike Israel R&D Ltd in Ramat Gan/Tel Aviv; multiple engineering teams for cloud security, DSPM, SaaS security",
-    "confidence": "verified",
-    "evidence": "Direct myworkdayjobs.com job postings in Israel (Tel Aviv); registered Israeli entity 'CrowdStrike Israel R&D Ltd' (ID 515111268); 25+ Israel job listings on LinkedIn"
+    "company_name": "Citi",
+    "careers_page_url": "https://citi.wd5.myworkdayjobs.com/en-US/2",
+    "confidence": "high",
+    "evidence": "Citi Innovation Lab in Tel Aviv since 2011, 250+ employees focused on AI, fintech, and cybersecurity. URL verified HTTP 200."
   },
   {
-    "company_name": "Motorola Solutions",
-    "careers_url": "https://motorolasolutions.wd5.myworkdayjobs.com/careers",
-    "workday_domain": "motorolasolutions.wd5.myworkdayjobs.com",
-    "israel_presence": "Innovation Center in Tel Aviv; R&D for analytics, AI, advanced cyber, and public safety technologies",
-    "confidence": "verified",
-    "evidence": "Direct myworkdayjobs.com job posting for Tel Aviv confirmed; Motorola Solutions Israel Limited is a registered entity; launched Innovation Center in Israel in 2016"
+    "company_name": "Ribbon Communications",
+    "careers_page_url": "https://vhr-genband.wd1.myworkdayjobs.com/en-US/ribboncareers",
+    "confidence": "high",
+    "evidence": "Ribbon has an office in Petah Tikva, Israel with active job postings found on myworkdayjobs.com. URL verified HTTP 200."
   },
   {
-    "company_name": "Proofpoint",
-    "careers_url": "https://proofpoint.wd5.myworkdayjobs.com/en-US/ProofpointCareers",
-    "workday_domain": "proofpoint.wd5.myworkdayjobs.com",
-    "israel_presence": "R&D office in Tel Aviv; develops cybersecurity solutions including cloud infrastructure and SaaS platforms",
-    "confidence": "verified",
-    "evidence": "Direct myworkdayjobs.com job posting for Tel Aviv (Automation Engineer Intern); multiple LinkedIn Israel job listings for Proofpoint; leading cybersecurity company"
+    "company_name": "NXP Semiconductors",
+    "careers_page_url": "https://nxp.wd3.myworkdayjobs.com/en-US/careers",
+    "confidence": "high",
+    "evidence": "NXP has an R&D design center in Yokneam Illit, Israel focusing on ultra-low power technology. URL verified HTTP 200."
   },
   {
-    "company_name": "Illumina",
-    "careers_url": "https://illumina.wd1.myworkdayjobs.com/illumina-careers",
-    "workday_domain": "illumina.wd1.myworkdayjobs.com",
-    "israel_presence": "Israel Excellence Center in Tel Aviv (Toha Tower 1, 114 Yigal Alon St.); R&D for genomics and AI solutions",
-    "confidence": "verified",
-    "evidence": "Direct myworkdayjobs.com job posting for Israel (Senior R&D Verification Lead); Illumina's website lists Tel Aviv office; hiring R&D team leads and software engineers"
+    "company_name": "AIG",
+    "careers_page_url": "https://aig.wd1.myworkdayjobs.com/en-US/aig",
+    "confidence": "high",
+    "evidence": "AIG has major insurance and tech operations in Israel (Petah Tikva), named Israel's most digital insurer. URL verified HTTP 200."
   },
   {
-    "company_name": "Samsung Semiconductor",
-    "careers_url": "https://sec.wd3.myworkdayjobs.com/en-US/Samsung_Careers",
-    "workday_domain": "sec.wd3.myworkdayjobs.com",
-    "israel_presence": "Samsung R&D Institute Israel in Herzliya; semiconductor design, ML/Computer Vision, VLSI design",
-    "confidence": "verified",
-    "evidence": "Direct myworkdayjobs.com job posting for Herzliya Israel (Senior Engineer, ML & Computer Vision); Samsung Semiconductor actively hiring in Israel for VLSI design and R&D roles"
+    "company_name": "Analog Devices",
+    "careers_page_url": "https://analogdevices.wd1.myworkdayjobs.com/en-US/External",
+    "confidence": "high",
+    "evidence": "Analog Devices (Israel) Ltd. is an active entity registered in Ra'anana/Tel Aviv (company ID 510843931). URL verified HTTP 200."
   },
   {
-    "company_name": "Johnson Electric",
-    "careers_url": "https://johnsonelectric.wd3.myworkdayjobs.com/en-US/Career_JE",
-    "workday_domain": "johnsonelectric.wd3.myworkdayjobs.com",
-    "israel_presence": "R&D and manufacturing in Yokneam, Israel; test equipment design, mechanical engineering, production engineering",
-    "confidence": "verified",
-    "evidence": "Direct myworkdayjobs.com job postings for Yokneam Israel (Test Equipment Design Engineer, Mechanical Engineer, Quality Engineer, Production Engineer)"
+    "company_name": "MKS Instruments",
+    "careers_page_url": "https://mksinst.wd1.myworkdayjobs.com/en-US/MKSCareersEMEA",
+    "confidence": "high",
+    "evidence": "MKS Instruments has an Israel office in Carmiel (confirmed via Waze/Google Maps). URL verified HTTP 200."
   },
   {
-    "company_name": "Red Hat",
-    "careers_url": "https://redhat.wd5.myworkdayjobs.com/en-US/Jobs",
-    "workday_domain": "redhat.wd5.myworkdayjobs.com",
-    "israel_presence": "Development center in Raanana; works on OpenShift, Ansible, AI/ML platforms, and open-source solutions",
-    "confidence": "verified",
-    "evidence": "Direct myworkdayjobs.com job posting for Raanana Israel (Software Engineering Intern, OpenShift Virtualization); Red Hat Israel page confirms R&D presence; multiple engineering roles"
+    "company_name": "GlobalFoundries",
+    "careers_page_url": "https://globalfoundries.wd1.myworkdayjobs.com/en-US/External",
+    "confidence": "high",
+    "evidence": "GlobalFoundries has Israel presence with Account Manager job postings for Israel. URL verified HTTP 200."
   },
   {
-    "company_name": "HP Inc.",
-    "careers_url": "https://hp.wd5.myworkdayjobs.com/ExternalCareerSite",
-    "workday_domain": "hp.wd5.myworkdayjobs.com",
-    "israel_presence": "HP Indigo division in Kiryat Gat; R&D and manufacturing for digital printing; one of Israel's largest exporters with $1B+ annual revenue",
-    "confidence": "verified",
-    "evidence": "Direct myworkdayjobs.com job postings for Kiryat Gat Israel (Mechanical/Equipment Engineer, Process Reliability Engineer); HP Indigo is distinct from HP Enterprise (HPE) which is already in the known list"
+    "company_name": "Hamilton Lane",
+    "careers_page_url": "https://hamiltonlane.wd108.myworkdayjobs.com/en-US/search",
+    "confidence": "high",
+    "evidence": "Hamilton Lane has a Tel Aviv office with active job postings (Team Assistant/Office Manager). URL verified HTTP 200."
+  },
+  {
+    "company_name": "Commvault",
+    "careers_page_url": "https://commvault.wd1.myworkdayjobs.com/en-US/commvault",
+    "confidence": "high",
+    "evidence": "Commvault has an Israel office at 17 Hamefalsim St., Kiryat Arie, Petah Tikva. Also sells Commvault Israel products on Azure Marketplace. URL verified HTTP 200."
+  },
+  {
+    "company_name": "Cadence Design Systems",
+    "careers_page_url": "https://cadence.wd1.myworkdayjobs.com/en-US/External_Careers",
+    "confidence": "high",
+    "evidence": "Cadence has 250+ employees in Israel (Petah Tikva HQ + Haifa R&D), operating for 20+ years. URL verified HTTP 200."
+  },
+  {
+    "company_name": "Valeo",
+    "careers_page_url": "https://valeo.wd3.myworkdayjobs.com/en-US/valeo_jobs",
+    "confidence": "high",
+    "evidence": "Valeo partners extensively with Israeli automotive tech ecosystem; active in Israel since Mobileye alliance. URL verified HTTP 200."
   }
 ]

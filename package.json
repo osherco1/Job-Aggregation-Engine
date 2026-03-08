@@ -6,13 +6,13 @@
     "dotenv": "^16.6.1",
     "mongodb": "^6.0.0",
     "nodemailer": "^7.0.11",
-    "puppeteer-extra": "^3.3.6",
-    "puppeteer-extra-plugin-stealth": "^2.11.2",
     "tough-cookie": "^6.0.0"
   },
   "devDependencies": {
     "csv-parser": "^3.2.0",
-    "puppeteer": "^24.36.1"
+    "puppeteer": "^24.36.1",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2"
   },
   "scripts": {
     "analyze": "node tools/analyze_logs.js",

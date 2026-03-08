@@ -1,122 +1,122 @@
 [
   {
-    "id": "365scores",
-    "name": "365Scores",
+    "id": "atera",
+    "name": "Atera",
     "type": "comeet",
-    "uid": "B3.006",
-    "url": "https://www.comeet.com/jobs/365scores/B3.006",
-    "token": "3B6128EB2219FA019FA19FAB222166B22"
+    "uid": "63.00B",
+    "url": "https://www.comeet.com/jobs/atera/63.00B",
+    "token": "36B11176D614826D66D611171482DAC17ED"
   },
   {
-    "id": "aquasec",
-    "name": "Aqua Security",
+    "id": "beamr",
+    "name": "Beamr Imaging",
     "type": "comeet",
-    "uid": "91.001",
-    "url": "https://www.comeet.com/jobs/aquasec/91.001",
-    "token": "191644966966644E194B3191644644"
+    "uid": "A9.00B",
+    "url": "https://www.comeet.com/jobs/beamr/A9.00B",
+    "token": "9AB43AD9AB57039AB135643AD43AD1D011D01"
   },
   {
-    "id": "artlist",
-    "name": "Artlist",
+    "id": "bondsports",
+    "name": "Bond Sports",
     "type": "comeet",
-    "uid": "85.003",
-    "url": "https://www.comeet.com/jobs/artlist/85.003",
-    "token": "5831B8F2C185832C182C181B8F319BB061089"
+    "uid": "F7.009",
+    "url": "https://www.comeet.com/jobs/bondsports/F7.009",
+    "token": "7F92FD61FE43FC837CF17EB1FE417EB3FC80"
   },
   {
-    "id": "blockaid",
-    "name": "Blockaid",
+    "id": "ceva",
+    "name": "CEVA",
     "type": "comeet",
-    "uid": "69.00B",
-    "url": "https://www.comeet.com/jobs/blockaid/69.00B",
-    "token": "96B41ED041ED12D654C3388241ED12D654C3"
+    "uid": "76.005",
+    "url": "https://www.comeet.com/jobs/ceva/76.005",
+    "token": "67526BE6752D332D33026BE135F033A8"
   },
   {
-    "id": "datarails",
-    "name": "Datarails",
+    "id": "exodigo",
+    "name": "Exodigo",
     "type": "comeet",
-    "uid": "53.005",
-    "url": "https://www.comeet.com/jobs/datarails/53.005",
-    "token": "35510A96AA6AA13FE10A917539FF00"
+    "uid": "89.005",
+    "url": "https://www.comeet.com/jobs/exodigo/89.005",
+    "token": "98542A398504C28391E130A391E391E2614"
   },
   {
-    "id": "empathy",
-    "name": "Empathy",
+    "id": "ilyon",
+    "name": "Ilyon Games",
     "type": "comeet",
-    "uid": "f8.007",
-    "url": "https://www.comeet.com/jobs/empathy/f8.007",
-    "token": "8F735CA47B835CA3EC111EE1AE535CA11EE8F7"
+    "uid": "42.00A",
+    "url": "https://www.comeet.com/jobs/ilyon/42.00A",
+    "token": "24A9281250DBCDBC928DBC494149A928"
   },
   {
-    "id": "fiverr",
-    "name": "Fiverr",
+    "id": "mazebolt",
+    "name": "MazeBolt",
     "type": "comeet",
-    "uid": "60.002",
-    "url": "https://www.comeet.com/jobs/fiverr/60.002",
-    "token": "62188018812631018862C4188"
+    "uid": "A7.00C",
+    "url": "https://www.comeet.com/jobs/mazebolt/A7.00C",
+    "token": "7AC2E081EB0F581EB07AC35B435B47AC35B4"
   },
   {
-    "id": "gini-apps",
-    "name": "Gini-Apps",
+    "id": "morning",
+    "name": "Morning (Green Invoice)",
     "type": "comeet",
-    "uid": "66.000",
-    "url": "https://www.comeet.com/jobs/gini-apps/66.000",
-    "token": "6602640660264013203960CC01FE033002CA0"
+    "uid": "67.000",
+    "url": "https://www.comeet.com/jobs/morning/67.000",
+    "token": "7602C4016202C40426033A0EC0EC02C403B00"
   },
   {
-    "id": "kela",
-    "name": "KELA Cyber",
+    "id": "nexite",
+    "name": "Nexite",
     "type": "comeet",
-    "uid": "2A.004",
-    "url": "https://www.comeet.com/jobs/kela/2A.004",
-    "token": "A2446FC1E6C512028905B44512032B45B441E6C"
+    "uid": "37.000",
+    "url": "https://www.comeet.com/jobs/nexite/37.000",
+    "token": "7302B201590159023F040B01CC0730040B0"
   },
   {
-    "id": "lusha",
-    "name": "Lusha",
+    "id": "nsure",
+    "name": "nSure.ai",
     "type": "comeet",
-    "uid": "73.00B",
-    "url": "https://www.comeet.com/jobs/lusha/73.00B",
-    "token": "37B11676F61F53DEC6F606F61BD8185D"
+    "uid": "A7.007",
+    "url": "https://www.comeet.com/jobs/nsure/A7.007",
+    "token": "7A72DEA1E9CF4E03591F4E7A77A744DF"
   },
   {
-    "id": "passportcard",
-    "name": "PassportCard Labs",
+    "id": "pazu",
+    "name": "Pazu Games",
     "type": "comeet",
-    "uid": "92.00A",
-    "url": "https://www.comeet.com/jobs/passportcard/92.00A",
-    "token": "29AA68176A176A534D02123607CE0"
+    "uid": "67.001",
+    "url": "https://www.comeet.com/jobs/pazu/67.001",
+    "token": "7612C46162333A7033A7EC276124E5EC2"
   },
   {
-    "id": "plaxidityx",
-    "name": "PlaxidityX",
+    "id": "reeco",
+    "name": "Reeco",
     "type": "comeet",
-    "uid": "A7.004",
-    "url": "https://www.comeet.com/jobs/plaxidityx/A7.004",
-    "token": "7A42DD81E907A444C444C403D203D200"
+    "uid": "0A.00D",
+    "url": "https://www.comeet.com/jobs/reeco/0A.00D",
+    "token": "A0D465B1E2732411E27141A141A50685A753C4E"
   },
   {
-    "id": "playtika",
-    "name": "Playtika",
+    "id": "superplay",
+    "name": "SuperPlay",
     "type": "comeet",
-    "uid": "01.001",
-    "url": "https://www.comeet.com/jobs/playtika/01.001",
-    "token": null
+    "uid": "28.003",
+    "url": "https://www.comeet.com/jobs/superplay/28.003",
+    "token": "82330D228AF208C208C493B30D2208C38F538F5"
   },
   {
-    "id": "start.io",
-    "name": "Start.io",
+    "id": "terasky",
+    "name": "TeraSky",
     "type": "comeet",
-    "uid": "B2.004",
-    "url": "https://www.comeet.com/jobs/start.io/B2.004",
-    "token": "2B4D84056812EC185415A015A015A081C"
+    "uid": "B7.009",
+    "url": "https://www.comeet.com/jobs/terasky/B7.009",
+    "token": "7B92E561EE4172B269DF72360FF7245810"
   },
   {
-    "id": "zim",
-    "name": "ZIM Integrated Shipping Services",
+    "id": "toka",
+    "name": "Toka",
     "type": "comeet",
-    "uid": "72.008",
-    "url": "https://www.comeet.com/jobs/zim/72.008",
-    "token": "2789E01638768C58768ED013C011480"
+    "uid": "46.00D",
+    "url": "https://www.comeet.com/jobs/toka/46.00D",
+    "token": "64D25CE64D12E719343268C9A0C9A38B5"
   }
 ]

@@ -192,10 +192,14 @@ async function processCompany(page, company) {
                 name: result.name || company.name
             };
         } else {
-            return { success: false, error: 'Token not found on page' };
+            company.enabled = false;
+            company.error = 'Token not found on page';
+            return { success: false, error: company.error };
         }
     } catch (err) {
-        return { success: false, error: err.message };
+        company.enabled = false;
+        company.error = err.message || 'Extraction failed';
+        return { success: false, error: company.error };
     }
 }
 
@@ -270,9 +274,9 @@ async function processInBatches(companies, browser, concurrency = CONCURRENCY_LI
 // ============================================================================
 
 async function injectToMongoDB(companies) {
-    const valid = companies.filter(c => c.token && c.uid);
-    if (valid.length === 0) {
-        console.log('\n⚠️  No companies with valid tokens to inject.');
+    const toInject = companies.filter(c => (c.token && c.uid) || c.enabled === false);
+    if (toInject.length === 0) {
+        console.log('\n⚠️  No companies to update in DB.');
         return;
     }
 
@@ -299,10 +303,11 @@ async function injectToMongoDB(companies) {
         const collection = db.collection('companies');
         const now = new Date();
 
-        const ops = valid.map(c => ({
-            updateOne: {
-                filter: { uid: c.uid, type: 'comeet' },
-                update: {
+        const ops = toInject.map(c => {
+            const hasSuccess = !!(c.token && c.uid);
+
+            const updateDoc = hasSuccess
+                ? {
                     $set: {
                         name: c.name,
                         type: 'comeet',
@@ -313,19 +318,50 @@ async function injectToMongoDB(companies) {
                         addedBy: 'harvest_tokens',
                     },
                     $setOnInsert: { enabled: true, createdAt: now },
+                }
+                : {
+                    $set: {
+                        enabled: false,
+                        error: c.error || 'Token harvest failed',
+                        updatedAt: now,
+                        addedBy: 'harvest_tokens',
+                    },
+                    $setOnInsert: {
+                        name: c.name,
+                        type: 'comeet',
+                        uid: c.uid,
+                        id: c.id,
+                        createdAt: now
+                    }
+                };
+
+            return {
+                updateOne: {
+                    filter: c.id ? { id: c.id, type: 'comeet' } : { name: c.name, type: 'comeet' },
+                    update: updateDoc,
+                    upsert: true,
                 },
-                upsert: true,
-            },
-        }));
+            };
+        });
 
         const result = await collection.bulkWrite(ops, { ordered: false });
+
+        const enabledCount = toInject.filter(c => c.token && c.uid).length;
+        const disabledCount = toInject.length - enabledCount;
+
+        const summaryData = {
+            comeet: { updated: enabledCount, disabled: disabledCount }
+        };
+        fs.writeFileSync(path.join(__dirname, '..', '..', 'data', 'summary_inject_comeet.json'), JSON.stringify(summaryData, null, 2), 'utf-8');
 
         console.log('\n' + '─'.repeat(60));
         console.log('🗄️  MongoDB Injection Results');
         console.log('─'.repeat(60));
-        console.log(`   Matched:  ${result.matchedCount}`);
-        console.log(`   Modified: ${result.modifiedCount}`);
-        console.log(`   Upserted: ${result.upsertedCount}`);
+        console.log(`   Tokens Updated:     ${enabledCount}`);
+        console.log(`   Companies Disabled: ${disabledCount}`);
+        console.log(`   Matched:            ${result.matchedCount}`);
+        console.log(`   Modified:           ${result.modifiedCount}`);
+        console.log(`   Upserted:           ${result.upsertedCount}`);
         console.log('─'.repeat(60));
     } catch (err) {
         console.error(`\n❌ MongoDB error: ${err.message}`);

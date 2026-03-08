@@ -1,101 +1,101 @@
 {
   "metadata": {
-    "ats": "Comeet (now Spark Hire Recruit)",
-    "search_date": "2026-03-07",
+    "ats": "comeet",
+    "search_date": "2026-03-08",
     "target_region": "Israel",
     "total_new_companies": 15,
     "source": "local_ui_discovery"
   },
   "companies": [
     {
-      "company_name": "Classiq Technologies",
-      "careers_page_url": "https://www.comeet.com/jobs/classiq/F7.008",
+      "company_name": "SuperPlay",
+      "careers_page_url": "https://www.comeet.com/jobs/superplay/28.003",
       "confidence": "high",
-      "evidence": "Active Comeet careers page found with multiple Israel-based positions (e.g., Algorithms Team Lead - Israel, DevOps Engineer - Israel). Classiq is a quantum computing software company based in Tel Aviv."
+      "evidence": "Confirmed Comeet careers page with active job listings in Tel Aviv, Israel. SuperPlay is a fast-growing Israeli mobile gaming company (Tel Aviv HQ) known for Dice Dreams and Disney Solitaire."
     },
     {
-      "company_name": "Port",
-      "careers_page_url": "https://www.comeet.com/jobs/port/59.004",
+      "company_name": "Toka",
+      "careers_page_url": "https://www.comeet.com/jobs/toka/46.00D",
       "confidence": "high",
-      "evidence": "Active Comeet careers page with Tel Aviv - Israel positions (e.g., Senior Frontend Engineer, Senior Growth Product Manager). Port.io builds an Agentic Engineering Platform, headquartered in Tel Aviv."
+      "evidence": "Comeet careers page found with job listings (e.g., Software Developer - Infrastructure Team). Toka is an Israeli cyber intelligence company providing government agencies with advanced technologies."
     },
     {
-      "company_name": "CYMOTIVE Technologies",
-      "careers_page_url": "https://www.comeet.com/jobs/cymotive/F1.008",
+      "company_name": "Morning (Green Invoice)",
+      "careers_page_url": "https://www.comeet.com/jobs/morning/67.000",
       "confidence": "high",
-      "evidence": "Comeet careers page confirmed (also accessible at comeet.co/jobs/cymotive/F1.008). CYMOTIVE is an Israeli automotive cybersecurity company co-founded by Volkswagen Group and Israeli security experts, HQ in Tel Aviv."
+      "evidence": "Comeet careers page confirmed with Israel-based positions. Morning is an Israeli fintech company behind the Green Invoice SaaS platform, acquired by TeamSystem for ~$150M in 2024."
     },
     {
-      "company_name": "Cynet",
-      "careers_page_url": "https://www.comeet.com/jobs/cynet/33.00D",
+      "company_name": "Bond Sports",
+      "careers_page_url": "https://www.comeet.com/jobs/bondsports/F7.009",
       "confidence": "high",
-      "evidence": "Active Comeet careers page listing Israel-based positions. Cynet is an Israeli cybersecurity company providing autonomous breach protection."
+      "evidence": "Comeet careers page with Tel Aviv, Israel job listings. Bond Sports Ltd is registered in Tel Aviv (Israeli company reg. 516214186) and builds software for sports facilities."
     },
     {
-      "company_name": "Cognyte",
-      "careers_page_url": "https://www.comeet.co/jobs/verint/F2.009",
+      "company_name": "Reeco",
+      "careers_page_url": "https://www.comeet.com/jobs/reeco/0A.00D",
       "confidence": "high",
-      "evidence": "Comeet page titled 'Jobs at Cognyte - Comeet' with Herzliya, Israel positions. Cognyte (formerly a Verint company) is an Israeli security analytics software company. URL slug still uses legacy 'verint' identifier."
+      "evidence": "Comeet careers page found. Reeco is an Israeli startup (founded 2021 by Henrik Shimony and Omri Shalev in Israel) building an AI-driven hospitality procurement platform. Raised $25M total."
     },
     {
-      "company_name": "Global-e",
-      "careers_page_url": "https://www.comeet.com/jobs/global-e/62.002",
+      "company_name": "MazeBolt",
+      "careers_page_url": "https://www.comeet.com/jobs/mazebolt/A7.00C",
       "confidence": "high",
-      "evidence": "Active Comeet careers page with 25+ positions in Petah Tikva, Israel. Global-e (Nasdaq: GLBE) is an Israeli cross-border e-commerce platform. Also listed on TheirStack as a Comeet user in Israel."
+      "evidence": "Comeet careers page confirmed (job listing mentions DUNS100 top companies in Israel). MazeBolt is an Israeli DDoS cybersecurity company headquartered in Ramat Gan, Israel."
     },
     {
-      "company_name": "Nagish",
-      "careers_page_url": "https://www.comeet.com/jobs/nagish/D8.007",
+      "company_name": "nSure.ai",
+      "careers_page_url": "https://www.comeet.com/jobs/nsure/A7.007",
       "confidence": "high",
-      "evidence": "Active Comeet careers page with Tel Aviv positions. Nagish is an Israeli accessibility startup making communication accessible for people who are Deaf or hard of hearing. Job postings explicitly mention Comeet as their ATS."
+      "evidence": "Comeet careers page confirmed with job listings. nSure.ai is an Israeli AI-powered fraud prevention company based in Tel Aviv. LinkedIn recruiter profile confirms Comeet usage."
     },
     {
-      "company_name": "SodaStream",
-      "careers_page_url": "https://www.comeet.com/jobs/sodastream/40.008",
+      "company_name": "CEVA",
+      "careers_page_url": "https://www.comeet.com/jobs/ceva/76.005",
       "confidence": "high",
-      "evidence": "Active Comeet careers page with multiple Israel-based manufacturing and corporate positions. SodaStream is an Israeli consumer goods company (now owned by PepsiCo). Also listed on TheirStack as a Comeet user."
+      "evidence": "Comeet careers page confirmed with multiple job listings. CEVA (NASDAQ: CEVA) is a semiconductor IP company with main R&D in Herzliya and Ra'anana, Israel."
     },
     {
-      "company_name": "Maytronics",
-      "careers_page_url": "https://www.comeet.com/jobs/maytronics/E3.008",
+      "company_name": "Ilyon Games",
+      "careers_page_url": "https://www.comeet.com/jobs/ilyon/42.00A",
       "confidence": "high",
-      "evidence": "Active Comeet careers page with Israel-based positions (Production Manager, QA Tester, Digital Marketing Coordinator). Maytronics is an Israeli manufacturer of robotic pool cleaners. Listed on TheirStack as Comeet user."
+      "evidence": "Comeet careers page confirmed with active job listings. Ilyon is an Israeli mobile gaming company founded in 2013 by former IDF members, based near Tel Aviv."
     },
     {
-      "company_name": "mPrest",
-      "careers_page_url": "https://www.comeet.com/jobs/mprest/38.005",
+      "company_name": "Exodigo",
+      "careers_page_url": "https://www.comeet.com/jobs/exodigo/89.005",
       "confidence": "high",
-      "evidence": "Active Comeet careers page with Israel positions (Karmiel, Petah Tikva). mPrest is an Israeli IoT and defense technology company (Iron Dome C2 systems). Their careers page uses comeetapply.com email addresses."
+      "evidence": "Comeet careers page confirmed (LinkedIn post shares comeet.com/jobs/exodigo/89.005 link). Exodigo is an Israeli underground mapping startup (Tel Aviv HQ), raised $214M total."
     },
     {
-      "company_name": "Gloat",
-      "careers_page_url": "https://www.comeet.com/jobs/gloat/E5.000",
+      "company_name": "Nexite",
+      "careers_page_url": "https://www.comeet.com/jobs/nexite/37.000",
       "confidence": "high",
-      "evidence": "Active Comeet careers page with Israel (TLV) and global positions. Gloat is an Israeli AI-powered talent marketplace startup with offices in Tel Aviv, New York, and London."
+      "evidence": "Comeet careers page confirmed with multiple job listings. Nexite is an Israeli retail IoT startup (Tel Aviv, founded 2017), raised $100M. Careers page title includes 'Comeet Careers'."
     },
     {
-      "company_name": "Percepto",
-      "careers_page_url": "https://www.comeet.com/jobs/percepto/44.000",
+      "company_name": "Atera",
+      "careers_page_url": "https://www.comeet.com/jobs/atera/63.00B",
       "confidence": "high",
-      "evidence": "Active Comeet careers page with Israel-based positions (SDR, Deployment Technician). Percepto is an Israeli autonomous drone inspection company based in Modi'in."
+      "evidence": "Comeet careers page confirmed with Tel Aviv and New York listings. Atera is an Israeli IT management platform company (Tel Aviv HQ, founded 2011)."
     },
     {
-      "company_name": "XTEND",
-      "careers_page_url": "https://www.comeet.com/jobs/xtend/85.00A",
+      "company_name": "Beamr Imaging",
+      "careers_page_url": "https://www.comeet.com/jobs/beamr/A9.00B",
       "confidence": "high",
-      "evidence": "Active Comeet careers page with 23 open positions across R&D, Sales, Marketing, Operations, HR. XTEND is an Israeli tactical drone company based in Tel Aviv."
+      "evidence": "Comeet careers page confirmed. Beamr Imaging (NASDAQ: BMR) is an Israeli video encoding company headquartered in Herzliya, Israel, founded 2009."
     },
     {
-      "company_name": "Bagira Systems",
-      "careers_page_url": "https://www.comeet.com/jobs/bagirasystems/47.006",
+      "company_name": "Pazu Games",
+      "careers_page_url": "https://www.comeet.com/jobs/pazu/67.001",
       "confidence": "high",
-      "evidence": "Active Comeet careers page with multiple Israel-based positions. Bagira designs and operates military simulators and training systems. Also found on LinkedIn with Comeet-powered job postings."
+      "evidence": "Comeet careers page confirmed with company description. Pazu Games is an Israeli kids gaming company (Israeli private company reg. 514659440), based in Yakneam Ilit, Israel."
     },
     {
-      "company_name": "Echo",
-      "careers_page_url": "https://www.comeet.com/jobs/echo/9A.006",
+      "company_name": "TeraSky",
+      "careers_page_url": "https://www.comeet.com/jobs/terasky/B7.009",
       "confidence": "high",
-      "evidence": "Active Comeet careers page with Tel Aviv positions (AI Engineer, Backend Engineer, SDR, Technical Account Manager). Echo is a Tel Aviv-based AI cloud security startup that raised $50M in 2025."
+      "evidence": "Comeet careers page confirmed with job listing. TeraSky is an Israeli cloud solutions integrator headquartered in Tel Aviv, Israel. Partners with AWS, Google Cloud, Microsoft Azure."
     }
   ]
 }

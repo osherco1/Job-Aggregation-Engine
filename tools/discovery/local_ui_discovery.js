@@ -36,7 +36,12 @@ const { classifyAndExtract } = require('./extractor');
 const PROJECT_ROOT = path.join(__dirname, '..', '..');
 const DATA_DIR = path.join(PROJECT_ROOT, 'data');
 const COMEET_CSV_PATH = path.join(__dirname, '..', 'comeet_list.csv');
-const PROFILE_DIR = path.join(__dirname, 'puppeteer_profile');
+
+const atsArgIdx = process.argv.indexOf('--ats');
+const TARGET_ATS = atsArgIdx !== -1 ? process.argv[atsArgIdx + 1].toLowerCase() : null;
+
+const profileArgIdx = process.argv.indexOf('--profile');
+const PROFILE_DIR = profileArgIdx !== -1 ? path.resolve(process.argv[profileArgIdx + 1]) : path.join(__dirname, 'puppeteer_profile');
 
 // ============================================================================
 // CONFIGURATION
@@ -115,6 +120,93 @@ The JSON must perfectly match this exact schema:
   ]
 }
 \`\`\``,
+    greenhouse: `# MISSION: Greenhouse ATS Company Discovery — Israel
+
+## WHO YOU ARE
+You are an expert web researcher specializing in Israeli tech company recruitment infrastructure. Your task is to discover exactly 15 Israeli tech companies that use the "Greenhouse" ATS for their hiring, which are NOT already in our database.
+
+## CONTEXT: GREENHOUSE ATS
+Greenhouse collaborative hiring platform exposes public careers pages with predictable URL patterns:
+- https://boards.greenhouse.io/{company-slug}
+We ONLY need you to find these public career page URLs.
+
+## COMPANIES ALREADY IN OUR DATABASE (DO NOT INCLUDE THESE)
+${DB_PLACEHOLDER}
+
+## YOUR TASK — STEP BY STEP
+
+Step 1: Broad Discovery
+Search the web for Israeli tech companies using Greenhouse ATS. Use these search strategies:
+- Search for \`site:boards.greenhouse.io\` 
+- Search for companies listed on TheirStack, Bloomberry, BuiltWith, or Wappalyzer as Greenhouse users.
+- Look for Israeli startup career pages that embed Greenhouse widgets.
+- Check startup directories (e.g., Start-Up Nation Central, Finder.vc) cross-referenced with Greenhouse.
+
+Step 2: Validate Each Company
+- Verify the company is based in Israel OR has significant Israel R&D.
+- Verify the careers page URL is a valid Greenhouse URL.
+- Verify the company is NOT in the exclusion list.
+
+Step 3: Strict Output Formatting
+You MUST find and return exactly 15 companies.
+You MUST return ONLY a valid JSON block inside \`\`\`json ... \`\`\` tags. No other conversational text.
+The JSON must perfectly match this exact schema:
+
+\`\`\`json
+{
+  "companies": [
+    {
+      "company_name": "Company Display Name",
+      "careers_page_url": "https://boards.greenhouse.io/slug",
+      "evidence": "Brief note on where you found this or proof they use Greenhouse",
+      "confidence": "high"
+    }
+  ]
+}
+\`\`\``,
+    workday: `# MISSION: Workday ATS Company Discovery — Israel
+
+## WHO YOU ARE
+You are an expert web researcher specializing in Israeli tech company recruitment infrastructure. Your task is to discover exactly 15 Israeli tech companies that use the "Workday" ATS for their hiring, which are NOT already in our database.
+
+## CONTEXT: WORKDAY ATS
+Workday exposes public careers pages with predictable URL patterns:
+- https://{company}.myworkdayjobs.com/en-US/{slug}
+We ONLY need you to find these public career page URLs.
+
+## COMPANIES ALREADY IN OUR DATABASE (DO NOT INCLUDE THESE)
+${DB_PLACEHOLDER}
+
+## YOUR TASK — STEP BY STEP
+
+Step 1: Broad Discovery
+Search the web for Israeli tech companies using Workday ATS. Use these search strategies:
+- Search for \`site:myworkdayjobs.com\` 
+- Search for companies listed on TheirStack, Bloomberry, BuiltWith, or Wappalyzer as Workday users.
+- Look for Israeli startup career pages that link to Workday.
+
+Step 2: Validate Each Company
+- Verify the company is based in Israel OR has significant Israel R&D.
+- Verify the careers page URL is a valid Workday URL.
+- Verify the company is NOT in the exclusion list.
+
+Step 3: Strict Output Formatting
+You MUST find and return exactly 15 companies.
+You MUST return ONLY a valid JSON block inside \`\`\`json ... \`\`\` tags. No other conversational text.
+The JSON must perfectly match this exact schema:
+
+\`\`\`json
+{
+  "companies": [
+    {
+      "company_name": "Company Display Name",
+      "careers_page_url": "https://company.myworkdayjobs.com/en-US/slug",
+      "evidence": "Brief note on where you found this",
+      "confidence": "high"
+    }
+  ]
+}
+\`\`\``,
 };
 
 // ============================================================================
@@ -162,6 +254,8 @@ function backupDataFiles() {
 
     const filesToBackup = [
         'comeet_companies_israel.json',
+        'greenhouse_israeli_companies.json',
+        'workday_israel_companies.json'
     ];
 
     let backedUp = false;
@@ -207,11 +301,12 @@ function appendToComeetCsv(leads) {
 // ============================================================================
 
 /**
- * Query MongoDB for existing Comeet company names.
+ * Query MongoDB for existing company names.
  * Uses the same connection pattern as inject_and_validate.js.
+ * @param {string} atsType
  * @returns {Promise<string[]>} Array of company names
  */
-async function fetchExistingComeetNames() {
+async function fetchExistingNames(atsType) {
     const mongoUri = process.env.MONGODB_URI;
     if (!mongoUri) {
         console.warn('  ⚠️  MONGODB_URI not set — cannot fetch existing companies. Prompt will have empty exclusion list.');
@@ -239,13 +334,13 @@ async function fetchExistingComeetNames() {
         const db = client.db(dbName);
         const collection = db.collection('companies');
 
-        const comeetDocs = await collection
-            .find({ type: 'comeet', enabled: { $ne: false } })
+        const docs = await collection
+            .find({ type: atsType, enabled: { $ne: false } })
             .project({ name: 1, _id: 0 })
             .toArray();
 
-        const names = comeetDocs.map(d => d.name).filter(Boolean);
-        console.log(`  📋 Fetched ${names.length} existing Comeet companies from MongoDB`);
+        const names = docs.map(d => d.name).filter(Boolean);
+        console.log(`  📋 Fetched ${names.length} existing ${atsType} companies from MongoDB`);
         return names;
     } catch (err) {
         console.error(`  ❌ MongoDB query failed: ${err.message}`);
@@ -546,15 +641,16 @@ async function extractAnswerText(page) {
 }
 
 // ============================================================================
-// COMEET OUTPUT WRITER
+// OUTPUT WRITER
 // ============================================================================
 
 /**
  * Classify extracted companies via extractor, write JSON + CSV.
  * @param {Object} parsed - Parsed JSON with .companies array
+ * @param {string} atsType - Type of ATS
  * @returns {number} Number of valid companies written
  */
-function writeComeetOutput(parsed) {
+function writeAtsOutput(parsed, atsType) {
     const today = new Date().toISOString().split('T')[0];
     const companies = parsed.companies || (Array.isArray(parsed) ? parsed : []);
 
@@ -563,24 +659,32 @@ function writeComeetOutput(parsed) {
         const url = c.careers_page_url || '';
         const { atsType: detected } = classifyAndExtract(url);
 
-        // Accept if extractor detects Comeet, or if URL contains comeet domain
-        if (detected === 'comeet' || /comeet\.(com|co)/i.test(url)) {
+        const isMatch = detected === atsType ||
+            url.includes(atsType) ||
+            (atsType === 'greenhouse' && url.includes('boards.greenhouse.io')) ||
+            (atsType === 'workday' && url.includes('myworkdayjobs.com')) ||
+            (atsType === 'comeet' && /comeet\.(com|co)/i.test(url));
+
+        // Accept if extractor detects ATS, or if URL contains keywords
+        if (isMatch) {
             validated.push({
                 company_name: c.company_name,
                 careers_page_url: url,
                 confidence: c.confidence || 'high',
                 evidence: c.evidence || '',
+                // add specific fields for greenhouse
+                ...(atsType === 'greenhouse' && { board_token: url.split('/').pop() })
             });
-            console.log(`     ✅ ${c.company_name} → Comeet`);
+            console.log(`     ✅ ${c.company_name} → ${atsType}`);
         } else {
-            console.log(`     ⚠️  ${c.company_name} — URL not recognised as Comeet, skipping`);
+            console.log(`     ⚠️  ${c.company_name} — URL not recognised as ${atsType}, skipping`);
         }
     }
 
-    // Write comeet_companies_israel.json
+    // Write output json
     const output = {
         metadata: {
-            ats: 'Comeet (now Spark Hire Recruit)',
+            ats: atsType,
             search_date: today,
             target_region: 'Israel',
             total_new_companies: validated.length,
@@ -589,12 +693,18 @@ function writeComeetOutput(parsed) {
         companies: validated,
     };
 
-    const outPath = path.join(DATA_DIR, 'comeet_companies_israel.json');
-    fs.writeFileSync(outPath, JSON.stringify(output, null, 2), 'utf-8');
-    console.log(`  💾 Wrote ${validated.length} Comeet companies to ${path.basename(outPath)}`);
+    const outFilename = atsType === 'comeet' ? 'comeet_companies_israel.json' :
+        atsType === 'greenhouse' ? 'greenhouse_israeli_companies.json' :
+            'workday_israel_companies.json';
+
+    const outPath = path.join(DATA_DIR, outFilename);
+    fs.writeFileSync(outPath, JSON.stringify(atsType === 'workday' ? validated : output, null, 2), 'utf-8');
+    console.log(`  💾 Wrote ${validated.length} ${atsType} companies to ${path.basename(outPath)}`);
 
     // Append to comeet_list.csv for harvest_tokens.js
-    appendToComeetCsv(validated);
+    if (atsType === 'comeet') {
+        appendToComeetCsv(validated);
+    }
 
     return validated.length;
 }
@@ -646,11 +756,7 @@ async function main() {
     console.log('  ' + new Date().toISOString());
     console.log('═'.repeat(60));
 
-    // Step 1: Fetch existing company names from MongoDB
-    console.log('\n  📡 Connecting to MongoDB for exclusion list...');
-    const existingNames = await fetchExistingComeetNames();
-
-    // Step 2: Back up existing data files
+    // Step 1: Back up existing data files
     backupDataFiles();
 
     // Step 3: Launch Puppeteer
@@ -682,11 +788,14 @@ async function main() {
         // Wait for login
         await waitForAppReady(page);
 
-        // Process Comeet only
-        for (const atsType of ['comeet']) {
+        const atsList = TARGET_ATS ? [TARGET_ATS] : ['comeet', 'greenhouse', 'workday'];
+        for (const atsType of atsList) {
             console.log(`\n${'═'.repeat(60)}`);
             console.log(`  🔎 Processing ATS: ${atsType.toUpperCase()}`);
             console.log(`${'═'.repeat(60)}`);
+
+            console.log('\n  📡 Fetching exclusion list from MongoDB...');
+            const existingNames = await fetchExistingNames(atsType);
 
             try {
                 // Build prompt with DB exclusion list injected
@@ -725,7 +834,7 @@ async function main() {
                 }
 
                 // Classify + write output
-                companiesFound = writeComeetOutput(parsed);
+                companiesFound += writeAtsOutput(parsed, atsType);
 
             } catch (err) {
                 console.error(`  ❌ Error processing ${atsType}: ${err.message}`);
@@ -747,7 +856,7 @@ async function main() {
     console.log(`\n${'─'.repeat(60)}`);
     console.log('  📊 Discovery Summary');
     console.log(`${'─'.repeat(60)}`);
-    console.log(`   Comeet companies found: ${companiesFound}`);
+    console.log(`   Companies found: ${companiesFound}`);
     console.log(`${'─'.repeat(60)}`);
 
     // Handoff

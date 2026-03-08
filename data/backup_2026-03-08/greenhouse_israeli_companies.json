@@ -1,0 +1,115 @@
+{
+  "discovery_metadata": {
+    "search_date": "2026-03-06",
+    "ats_target": "Greenhouse",
+    "total_new_companies_found": 15,
+    "search_methodology": "Multi-round web searches for boards.greenhouse.io and job-boards.greenhouse.io with Israel/Tel Aviv location filters, cross-validated with LinkedIn job listings and company career pages."
+  },
+  "companies": [
+    {
+      "company_name": "Apiiro",
+      "careers_page_url": "https://job-boards.greenhouse.io/apiiro",
+      "board_token": "apiiro",
+      "evidence": "Greenhouse-hosted job board at job-boards.greenhouse.io/apiiro lists Engineering roles in Tel Aviv-Yafo, Israel including Data Science Engineer, Senior DevOps Engineer, and Software Engineer positions.",
+      "confidence": "verified"
+    },
+    {
+      "company_name": "Armis Security",
+      "careers_page_url": "https://job-boards.greenhouse.io/armissecurity",
+      "board_token": "armissecurity",
+      "evidence": "Greenhouse-hosted job board at job-boards.greenhouse.io/armissecurity with 84+ jobs. Filtering by Tel Aviv Office shows 9+ engineering roles including Senior Fullstack Engineer, Software Architect, and Software Engineer.",
+      "confidence": "verified"
+    },
+    {
+      "company_name": "Bringg",
+      "careers_page_url": "https://job-boards.greenhouse.io/bringg",
+      "board_token": "bringg",
+      "evidence": "Greenhouse-hosted job board at job-boards.greenhouse.io/bringg lists Product House roles including Backend Infra Engineer, Full Stack Team Lead, and Junior Full-Stack Engineer. Company is Israeli-founded with HQ in Israel.",
+      "confidence": "verified"
+    },
+    {
+      "company_name": "Torq",
+      "careers_page_url": "https://job-boards.greenhouse.io/torq",
+      "board_token": "torq",
+      "evidence": "Greenhouse-hosted job board at job-boards.greenhouse.io/torq with 54 jobs. Multiple R&D roles in Tel Aviv including R&D Team Lead, Senior Backend Engineer, Senior AI Researcher, DevOps Engineer, and Senior Full Stack Engineer.",
+      "confidence": "verified"
+    },
+    {
+      "company_name": "Figma",
+      "careers_page_url": "https://job-boards.greenhouse.io/figma",
+      "board_token": "figma",
+      "evidence": "Greenhouse-hosted board at job-boards.greenhouse.io/figma. Figma Weave (their AI division) has a Tel Aviv office with roles like Software Engineer Backend, Technical Recruiter, Brand Designer, and Office Manager in Tel Aviv, Israel.",
+      "confidence": "verified"
+    },
+    {
+      "company_name": "Via",
+      "careers_page_url": "https://job-boards.greenhouse.io/via",
+      "board_token": "via",
+      "evidence": "Greenhouse-hosted job board at job-boards.greenhouse.io/via with 161 jobs. Multiple Algorithm Research, Data Science, and Engineering roles in Tel Aviv including Senior Algorithms Researcher and Senior Software Engineer.",
+      "confidence": "verified"
+    },
+    {
+      "company_name": "Tipalti",
+      "careers_page_url": "https://job-boards.greenhouse.io/embed/job_board?for=tipaltisolutions",
+      "board_token": "tipaltisolutions",
+      "evidence": "Greenhouse-hosted job board lists 56 jobs including Backend Software Engineer (Go), Full-Stack Engineer, Senior Infrastructure Software Engineer, and other Product Technology roles. Israeli fintech company with R&D in Israel.",
+      "confidence": "verified"
+    },
+    {
+      "company_name": "HoneyBook",
+      "careers_page_url": "https://job-boards.greenhouse.io/honeybook",
+      "board_token": "honeybook",
+      "evidence": "Greenhouse-hosted board at job-boards.greenhouse.io/honeybook. Job listing for Senior Marketing Data Analyst explicitly states 'Tel Aviv' location. Company is based in San Francisco and Tel Aviv with engineering teams in Israel.",
+      "confidence": "verified"
+    },
+    {
+      "company_name": "LeddarTech",
+      "careers_page_url": "https://boards.greenhouse.io/leddartech",
+      "board_token": "leddartech",
+      "evidence": "Greenhouse-hosted board at boards.greenhouse.io/leddartech lists Engineering R&D roles in Or Yehuda, Tel Aviv District, Israel including Algorithm Team Lead, Data Engineering Manager, Data Operations Specialist, and Senior Software Developer.",
+      "confidence": "verified"
+    },
+    {
+      "company_name": "Next Insurance",
+      "careers_page_url": "https://job-boards.greenhouse.io/nextinsurance66",
+      "board_token": "nextinsurance66",
+      "evidence": "Greenhouse-hosted board at job-boards.greenhouse.io/nextinsurance66 with roles in Kfar Saba, Israel including Backend Software Engineer and Security Operations Analyst.",
+      "confidence": "verified"
+    },
+    {
+      "company_name": "QuantHealth",
+      "careers_page_url": "https://job-boards.eu.greenhouse.io/quanthealth",
+      "board_token": "quanthealth",
+      "evidence": "Greenhouse EU-hosted board at job-boards.eu.greenhouse.io/quanthealth. Senior Back End Engineer role explicitly states 'We're venture-backed, based in Israel.' Location listed as Israel.",
+      "confidence": "verified"
+    },
+    {
+      "company_name": "Datarails",
+      "careers_page_url": "https://job-boards.greenhouse.io/datarails",
+      "board_token": "datarails",
+      "evidence": "Greenhouse-hosted board with R&D Team Leader role. Company is Israeli cloud-based FP&A platform with engineering teams managing cross-functional R&D teams of 5-7 engineers.",
+      "confidence": "verified"
+    },
+    {
+      "company_name": "Speechify",
+      "careers_page_url": "https://job-boards.greenhouse.io/speechify",
+      "board_token": "speechify",
+      "evidence": "Greenhouse-hosted board at job-boards.greenhouse.io/speechify. Multiple Tel Aviv, Israel roles including Software Engineer iOS Core Product and Software Engineer Data Infrastructure & Acquisition.",
+      "confidence": "verified"
+    },
+    {
+      "company_name": "Perion Network",
+      "careers_page_url": "https://job-boards.greenhouse.io/perionnetworkltd",
+      "board_token": "perionnetworkltd",
+      "evidence": "Greenhouse-hosted board at job-boards.greenhouse.io/perionnetworkltd with IT Team Lead role in Tel Aviv, Israel. Perion is a publicly traded Israeli ad-tech company (NASDAQ: PERI).",
+      "confidence": "verified"
+    },
+    {
+      "company_name": "BigPanda",
+      "careers_page_url": "https://boards.greenhouse.io/bigpanda",
+      "board_token": "bigpanda",
+      "evidence": "Greenhouse-hosted board at boards.greenhouse.io/bigpanda. Company has Engineering, Product, and UX teams in Tel Aviv. AIOps platform backed by Sequoia, Insight Partners, and Advent International.",
+      "confidence": "verified"
+    }
+  ]
+}
