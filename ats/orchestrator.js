@@ -315,11 +315,31 @@ async function runAtsWorkers(errors, storageAdapter, knownJobIds) {
     if (volumeTriggered || timeTriggered) {
       const triggerType = volumeTriggered ? 'volume' : 'time';
       console.log(`Calibration trigger: ${triggerType} (volume=${volumeTriggered}, timeSinceLastCal=${Math.round((Date.now() - lastCal.getTime()) / 3600000)}h)`);
-      const emailNotifier = createEmailNotifier();
-      const ok = await runCalibrationAndNotify(storageAdapter, emailNotifier, triggerType);
-      if (ok && typeof storageAdapter.updateLastCalibrationTime === 'function') {
-        await storageAdapter.updateLastCalibrationTime();
-        console.log('Calibration timer reset');
+      const ownerId = `${process.pid}-${Date.now()}-${Math.random().toString(36).slice(2, 9)}`;
+      const hasLock = typeof storageAdapter.acquireCalibrationLock === 'function';
+      let lockAcquired = false;
+      if (hasLock) {
+        const lockResult = await storageAdapter.acquireCalibrationLock({ ownerId });
+        lockAcquired = lockResult.acquired;
+        if (!lockAcquired) {
+          console.log(`Calibration skipped: lock held by another process (current holder: ${lockResult.ownerId || 'unknown'})`);
+        }
+      }
+      if (!hasLock || lockAcquired) {
+        try {
+          const emailNotifier = createEmailNotifier();
+          const ok = await runCalibrationAndNotify(storageAdapter, emailNotifier, triggerType);
+          if (ok && typeof storageAdapter.updateLastCalibrationTime === 'function') {
+            await storageAdapter.updateLastCalibrationTime();
+            console.log('Calibration timer reset');
+          }
+        } finally {
+          if (hasLock && lockAcquired && typeof storageAdapter.releaseCalibrationLock === 'function') {
+            await storageAdapter.releaseCalibrationLock({ ownerId }).catch((releaseErr) => {
+              console.warn('Calibration lock release failed:', releaseErr.message || releaseErr);
+            });
+          }
+        }
       }
     }
   } catch (calErr) {
@@ -402,10 +422,13 @@ async function deduplicateJobs(allJobs, jobStateService) {
   console.log('🔄 PHASE 3: Deduplication');
   console.log('='.repeat(60));
 
-  // Filter new jobs (loadHistory is called inside filterNewJobs)
   const newJobs = await jobStateService.filterNewJobs(allJobs);
+  const stats = jobStateService.getStats();
 
   console.log(`✅ Deduplication complete: ${newJobs.length} new jobs out of ${allJobs.length} total`);
+  if (stats.lastRunCappedCount > 0) {
+    console.log(`   Frequency cap: ${stats.lastRunCappedCount} jobs dropped (sample keys: ${(stats.lastRunTopCappedKeys || []).slice(0, 5).join(', ')})`);
+  }
 
   return newJobs;
 }

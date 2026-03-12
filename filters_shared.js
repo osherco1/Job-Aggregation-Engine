@@ -61,6 +61,10 @@ const BLACKLIST_KEYWORDS = [
   'Secretary',
   'Assistant',
   'Customer Success',
+  'Operations',
+  'Facility',
+  'Agronomist',
+  'Support Engineer',
   'CSM',
   'Support Representative',
   'Call Center',
@@ -236,11 +240,21 @@ const BLACKLIST_KEYWORDS = [
   'Expert',
   'First Engineer',
   'Team Leader',
+  'Team Lead',
   'Research Scientist',
   'בכיר',
   'ניהול צוות',
   'מנוסה',
   'תעשיית המזון',
+];
+
+// Preserve high-value technical titles that may contain broad blacklist terms
+// (e.g. "Security Operations Center Analyst" contains "Operations").
+const PROTECTED_TITLE_PATTERNS = [
+  /\balgo\s+researcher\b/i,
+  /\bthreat\s+intelligence\s+researcher\b/i,
+  /\bsoc\s+analyst\b/i,
+  /\bsecurity\s+operations\s+center\s+analyst\b/i,
 ];
 
 const WHITELIST_KEYWORDS = [
@@ -285,6 +299,10 @@ function titlePassesSemanticFilters(title) {
   const rawTitle = title ? String(title) : '';
   const titleLower = rawTitle.toLowerCase();
 
+  if (PROTECTED_TITLE_PATTERNS.some((re) => re.test(rawTitle))) {
+    return true;
+  }
+
   for (const kw of BLACKLIST_KEYWORDS) {
     if (titleLower.includes(kw.toLowerCase())) {
       return false;
@@ -305,6 +323,7 @@ function titlePassesSemanticFilters(title) {
 module.exports = {
   BLACKLIST_KEYWORDS,
   WHITELIST_KEYWORDS,
+  PROTECTED_TITLE_PATTERNS,
   titlePassesSemanticFilters,
 };
 

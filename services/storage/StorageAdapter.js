@@ -101,6 +101,17 @@ class StorageAdapter {
   }
 
   /**
+   * Aggregated view of rejected jobs for calibration reporting.
+   * Default implementation returns an empty array so non-Mongo adapters
+   * simply render an empty section.
+   * @param {number} limit - Max number of grouped signatures to return
+   * @returns {Promise<Array<Object>>}
+   */
+  async getCalibrationRejectedAggregated(limit = 1000) {
+    return [];
+  }
+
+  /**
    * Upsert a company document into the companies store.
    * Used by local Comeet tooling to inject validated companies into the DB.
    * @param {Object} company - Company object with at least { id, name, type }

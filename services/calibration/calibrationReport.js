@@ -21,15 +21,17 @@ async function checkVolumeTrigger(storageAdapter) {
 }
 
 /**
- * Run volume cleanup protocol (purge calibration_rejected >7d, drop zombie collections).
+ * Run volume cleanup protocol. Options.mode: 'aggressive' | 'retention24h' | 'legacy7d'.
+ * Throws if the adapter fails (fail-fast); caller must not send alert email on throw.
  * @param {import('../storage/MongoStorageAdapter')} storageAdapter
+ * @param {{ mode?: 'aggressive' | 'retention24h' | 'legacy7d' }} [options]
  * @returns {Promise<Object>}
  */
-async function runVolumeCleanup(storageAdapter) {
+async function runVolumeCleanup(storageAdapter, options = {}) {
   if (!storageAdapter || typeof storageAdapter.runVolumeCleanupProtocol !== 'function') {
-    return { purgedRejected: 0, droppedCollections: [] };
+    return { purgedRejected: 0, purgedPassed: 0, purgedRunSummaries: 0, droppedCollections: [] };
   }
-  return storageAdapter.runVolumeCleanupProtocol();
+  return storageAdapter.runVolumeCleanupProtocol(options);
 }
 
 /**
@@ -392,24 +394,28 @@ async function generateCalibrationReportMd(storageAdapter) {
       lines.push('');
     }
 
-    // Exhaustive List: ALL Semantic Rejected Jobs (exclude location gate + Location:* reasons)
+    // Exhaustive List: Grouped Semantic Rejected Jobs (exclude location gate + Location:* reasons)
     try {
-      const allRejected = await rejCol.find({
-        $and: [
-          { $or: [{ gate: { $nin: ['location'] } }, { gate: { $exists: false } }] },
-          { reason: { $not: /^Location/i } },
-        ],
-      }).sort({ createdAt: -1 }).toArray();
+      const aggregatedRejected =
+        typeof storageAdapter.getCalibrationRejectedAggregated === 'function'
+          ? await storageAdapter.getCalibrationRejectedAggregated(1000)
+          : [];
       lines.push('## Exhaustive List: Rejected Jobs (Semantic & Guard)');
       lines.push('');
-      if (allRejected.length === 0) {
+      lines.push('_Grouped by title + reason + gate; top patterns shown with sample companies._');
+      lines.push('');
+      if (!aggregatedRejected || aggregatedRejected.length === 0) {
         lines.push('_No semantic/guard rejections (location-only drops excluded)._');
       } else {
-        for (const j of allRejected) {
-          const title = (j.title || 'Unknown').replace(/\n/g, ' ').trim();
-          const company = (j.companyName || j.companyId || j.sourceCompanyId || 'N/A').replace(/\n/g, ' ').trim();
-          const reason = (j.reason || 'N/A').replace(/\n/g, ' ').trim();
-          lines.push(`- ${title} @ ${company} -> REJECTED: ${reason}`);
+        for (const r of aggregatedRejected) {
+          const title = (r.title || 'Unknown').replace(/\n/g, ' ').trim();
+          const reason = (r.reason || 'N/A').replace(/\n/g, ' ').trim();
+          const gate = (r.gate || 'unknown').replace(/\n/g, ' ').trim();
+          const companies = Array.isArray(r.sampleCompanies) && r.sampleCompanies.length > 0
+            ? r.sampleCompanies.map((c) => String(c).replace(/\n/g, ' ').trim()).join(', ')
+            : 'N/A';
+          const count = typeof r.count === 'number' ? r.count : 0;
+          lines.push(`- [x${count}] ${title} @ ${companies} -> REJECTED: ${reason} (gate: ${gate})`);
         }
       }
       lines.push('');
@@ -443,19 +449,28 @@ async function generateCalibrationReportMd(storageAdapter) {
 }
 
 /**
- * Run calibration: optionally run cleanup (on volume trigger), generate report, send email with .md attachment.
+ * Run calibration: generate report first, then run cleanup (on volume trigger), then send email.
+ * Order ensures the report attachment is non-empty before aggressive purge.
+ * If cleanup throws, execution aborts and the alert email is never sent (fail-fast).
  * @param {import('../storage/MongoStorageAdapter')} storageAdapter
  * @param {import('../EmailNotifier')} emailNotifier
  * @param {'volume'|'time'} triggerType
  * @returns {Promise<boolean>}
  */
 async function runCalibrationAndNotify(storageAdapter, emailNotifier, triggerType) {
+  // Step 1: Generate report while DB still has data (before any purge).
+  const md = await generateCalibrationReportMd(storageAdapter);
+
+  // Step 2: Run cleanup when volume-triggered (aggressive mode). Throws on failure → abort before email.
   if (triggerType === 'volume') {
-    const cleanup = await runVolumeCleanup(storageAdapter);
-    console.log(`Calibration: Volume cleanup purged ${cleanup.purgedRejected} rejected, dropped: ${(cleanup.droppedCollections || []).join(', ') || 'none'}`);
+    const cleanup = await runVolumeCleanup(storageAdapter, { mode: 'aggressive' });
+    const dropped = (cleanup.droppedCollections || []).join(', ') || 'none';
+    console.log(
+      `Calibration: Volume cleanup purged rejected=${cleanup.purgedRejected}, passed=${cleanup.purgedPassed || 0}, run_summaries=${cleanup.purgedRunSummaries || 0}, dropped: ${dropped}`
+    );
   }
 
-  const md = await generateCalibrationReportMd(storageAdapter);
+  // Step 3: Dispatch alert email with the pre-generated report.
   if (emailNotifier && typeof emailNotifier.sendCalibrationAlert === 'function') {
     const subject = triggerType === 'volume'
       ? '\u{1F6A8} System Alert: DB Volume Trigger'

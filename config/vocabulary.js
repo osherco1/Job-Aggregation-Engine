@@ -6,6 +6,11 @@ const departmentsBlacklist = [
   'Customer Org', // Riskified
   'Human Resources', // Riskified
   'Finance', // Melio (Junior Reconciliation Analyst)
+  'Operations',
+  'Support',
+  'Facilities',
+  'Mechanical',
+  'Quality Systems',
   // Product orgs are typically not junior IC engineering roles; can be overridden per company
   'Product Management', // Melio Product Manager, Monetization / Orchestration
 ];
@@ -121,6 +126,10 @@ const titleSeniorPatterns = [
   /\bAccount Director\b/i,
   /\bAccount Manager\b/i,
   /\bBusiness Development\b/i,
+  /\bVP\b/i,
+  /\bVice President\b/i,
+  /\bTeam Lead\b/i,
+  /\bTech Lead\b/i,
 ];
 
 // Seniority patterns in rich-text descriptions (HTML-ish content / description field)

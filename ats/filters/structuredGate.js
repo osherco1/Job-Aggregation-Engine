@@ -23,7 +23,14 @@ function evaluateStructuredGate(job, source) {
         }
 
         if (empType && STUDENT_RE.test(empType)) {
-            return { verdict: 'WHITELIST', reason: `structured_student:${empType}` };
+            // Do not bypass ATS guard for student employment types.
+            // Mark for downstream leniency (description check only) and continue.
+            try {
+                job.isStructuredStudent = true;
+            } catch (_) {
+                // Best-effort flag only; never fail the gate on mutation issues.
+            }
+            return { verdict: 'CONTINUE', reason: `structured_student:${empType}` };
         }
     }
 

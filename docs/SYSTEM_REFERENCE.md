@@ -1,9 +1,9 @@
 # SYSTEM_REFERENCE.md — Job Aggregation Engine
 
-> **Generated:** 2026-03-02  
-> **Codebase Version:** v6.2 (Cloud-Deployed)  
+> **Generated:** 2026-03-08  
+> **Codebase Version:** v6.3 (Discovery + Calibration Tooling)  
 > **Source of Truth for:** Browser-based Lead Architect (Gemini/ChatGPT/Claude Web)  
-> **Codebase State:** Production stabilization — all legacy collection code paths eradicated, silent dedup active, timestamp immutability enforced.
+> **Codebase State:** Proactive calibration CLI, DB quota management, harvest_tokens failure evasion, discovery pipeline handoff stabilized.
 
 ---
 
@@ -12,8 +12,8 @@
 **Name:** Job Aggregation Engine (aka "LinkedIn Job Bot" / "JobBot")  
 **Repository:** `https://github.com/osherco1/Job-Aggregation-Engine`  
 **Owner:** oshercohen78  
-**Version:** v6.2 (commit `8b2a001` on `main`)  
-**Active Branch:** `main` (merged from `feature/cloud-refactor` via fast-forward)
+**Version:** v6.3 (commit `d52d6fa` on `main`)  
+**Active Branch:** `main`
 
 **Purpose:** Automated job aggregation engine targeting junior/entry-level technical positions in Israel. The system scrapes four data sources on a scheduled basis:
 
@@ -124,14 +124,14 @@ The pipeline deduplicates jobs across runs using persistent history in MongoDB, 
 
 | Phase | Name | Parallelism | File:Line | Description |
 |-------|------|-------------|-----------|-------------|
-| 0 | Load knownJobIds | Sequential (before parallel) | `orchestrator.js:517` | `const knownJobIds = await storageAdapter.loadSentHistory()` |
-| 1+2 | ATS + LinkedIn | **True Parallel** via `Promise.allSettled` | `orchestrator.js:519-522` | Total runtime = max(ATS, LinkedIn), not sum |
-| 1 | ATS Workers | **Parallel** via `Promise.all` (Comeet ‖ Greenhouse ‖ Workday) | `orchestrator.js:279-292` | Three `Promise.all` branches |
-| 2 | LinkedIn | Parallel with Phase 1 | `orchestrator.js:519-522` | Sequential internally (query → paginate → enrich) |
-| 3 | Deduplication | Sequential | `orchestrator.js:564` | `jobStateService.filterNewJobs(allJobs)` |
-| 4 | Email | Sequential | `orchestrator.js:567` | `emailNotifier.sendUnifiedReport(newJobs, errors)` |
-| 5 | Persist | Sequential | `orchestrator.js:570` | `jobStateService.persistState()` |
-| 5b | Calibration | Sequential | `orchestrator.js:573-580` | `storageAdapter.writeCalibrationPassed(newJobs)` |
+| 0 | Load knownJobIds | Sequential (before parallel) | `orchestrator.js:520-522` | `const knownJobIds = await storageAdapter.loadSentHistory()` (or empty Set if `RESET_DEDUP=true`) |
+| 1+2 | ATS + LinkedIn | **True Parallel** via `Promise.allSettled` | `orchestrator.js:530-532` | Total runtime = max(ATS, LinkedIn), not sum |
+| 1 | ATS Workers | **Parallel** via `Promise.all` (Comeet ‖ Greenhouse ‖ Workday) | `orchestrator.js:230-265` | Three `Promise.all` branches |
+| 2 | LinkedIn | Parallel with Phase 1 | `orchestrator.js:530-532` | Sequential internally (query → paginate → enrich) |
+| 3 | Deduplication | Sequential | `orchestrator.js:575` | `jobStateService.filterNewJobs(allJobs)` via `deduplicateJobs()` |
+| 4 | Email | Sequential | `orchestrator.js:577` | `emailNotifier.sendUnifiedReport(newJobs, errors)` |
+| 5 | Persist | Sequential | `orchestrator.js:581` | `jobStateService.persistState()` |
+| 5b | Calibration | Sequential | `orchestrator.js:584-591` | `storageAdapter.writeCalibrationPassed(newJobs)` |
 
 ---
 
@@ -141,16 +141,16 @@ The pipeline deduplicates jobs across runs using persistent history in MongoDB, 
 
 | File Path | Purpose | Key Exports | Dependencies |
 |-----------|---------|-------------|-------------|
-| `ats/orchestrator.js` (631 lines) | Entry point. Runs all phases, manages parallel execution, handles teardown. Module-level `filteredJobsBuffer` array. | `{ run }` | `services/storage`, `services/JobStateService`, `services/EmailNotifier`, all workers, `linkedin_client`, `mailer`, `config/paths` |
-| `ats/config/companiesConfig.js` (27 lines) | Thin wrapper around `StorageAdapter.loadCompanies()` | `{ loadCompaniesConfig, COMPANIES_FILE }` | `path` |
+| `ats/orchestrator.js` (549 lines) | Entry point. Runs all phases, manages parallel execution, handles teardown. No orchestrator-level filteredJobsBuffer (workers persist their own calibration_rejected). | `{ run }` | `services/storage`, `services/JobStateService`, `services/EmailNotifier`, all workers, `linkedin_client`, `mailer`, `config/paths` |
+| `ats/config/companiesConfig.js` (22 lines) | Thin wrapper around `StorageAdapter.loadCompanies()` | `{ loadCompaniesConfig, COMPANIES_FILE }` | `path` |
 
 ### `ats/workers/` — ATS Source Workers
 
 | File Path | Purpose | Key Exports | Dependencies |
 |-----------|---------|-------------|-------------|
-| `ats/workers/comeetWorker.js` (1011 lines) | Fetches jobs from Comeet token-based API v1.0. Implements silent dedup, filterJob, structured gate, ATS guard. Has its own `passesLocationGate()` and `passesDepartmentGate()`. | `{ ComeetWorker }` | `httpClientWrapper`, `ats_guard`, `structuredGate`, `config/paths` |
-| `ats/workers/greenhouseWorker.js` (768 lines) | Fetches jobs from Greenhouse public boards API (`/v1/boards/{uid}/jobs?content=true`). Implements silent dedup, filterJob, ATS guard. | `{ GreenhouseWorker }` | `httpClientWrapper`, `ats_guard`, `config/paths` |
-| `ats/workers/workdayWorker.js` (784 lines) | Session-based Workday scraper. Establishes PLAY_SESSION cookie, detects Israel location facet dynamically, paginates with dual filter strategy (searchText + facet). New worker instance per company. | `{ WorkdayWorker, createWorkdayWorker }` | `axios`, `tough-cookie`, `axios-cookiejar-support`, `ats_guard`, `config/paths` |
+| `ats/workers/comeetWorker.js` (923 lines) | Fetches jobs from Comeet token-based API v1.0. Implements silent dedup, filterJob, structured gate, ATS guard. Has its own `passesLocationGate()` and `passesDepartmentGate()`. | `{ ComeetWorker }` | `httpClientWrapper`, `ats_guard`, `structuredGate`, `config/paths` |
+| `ats/workers/greenhouseWorker.js` (695 lines) | Fetches jobs from Greenhouse public boards API (`/v1/boards/{uid}/jobs?content=true`). Implements silent dedup, filterJob, ATS guard. | `{ GreenhouseWorker }` | `httpClientWrapper`, `ats_guard`, `config/paths` |
+| `ats/workers/workdayWorker.js` (747 lines) | Session-based Workday scraper. Establishes PLAY_SESSION cookie, detects Israel location facet dynamically, paginates with dual filter strategy (searchText + facet). New worker instance per company. | `{ WorkdayWorker, createWorkdayWorker }` | `axios`, `tough-cookie`, `axios-cookiejar-support`, `ats_guard`, `config/paths` |
 
 ### `ats/filters/` — Filter Gates
 
@@ -175,15 +175,15 @@ The pipeline deduplicates jobs across runs using persistent history in MongoDB, 
 
 | File Path | Purpose | Key Exports | Dependencies |
 |-----------|---------|-------------|-------------|
-| `services/JobStateService.js` (133 lines) | Deduplication service. `filterNewJobs()` loads history, returns only new jobs, tracks pending IDs. `persistState()` merges pending → history and calls `storageAdapter.persistSentHistory()` (fail-fast: throws). `rollback()` clears pending on email failure. | `{ JobStateService, createJobStateService }` | StorageAdapter |
-| `services/EmailNotifier.js` (230 lines) | Unified email report generator. Maps jobs to legacy format with source labels, generates HTML cards with Apply buttons, handles error summaries, "no jobs" display. Uses Gmail SMTP via nodemailer. | `{ EmailNotifier, createEmailNotifier }` | `nodemailer`, `dotenv` |
+| `services/JobStateService.js` (135 lines) | Deduplication service. `filterNewJobs()` loads history, returns only new jobs, tracks pending IDs. `persistState()` merges pending → history and calls `storageAdapter.persistSentHistory()` (fail-fast: throws). `rollback()` clears pending on email failure. | `{ JobStateService, createJobStateService }` | StorageAdapter |
+| `services/EmailNotifier.js` (308 lines) | Unified email report generator. Maps jobs to legacy format with source labels, generates HTML cards with Apply buttons, handles error summaries, "no jobs" display. Uses Gmail SMTP via nodemailer. | `{ EmailNotifier, createEmailNotifier }` | `nodemailer`, `dotenv` |
 
 ### `services/storage/` — Storage Adapter Layer
 
 | File Path | Purpose | Key Exports | Dependencies |
 |-----------|---------|-------------|-------------|
 | `services/storage/StorageAdapter.js` (100 lines) | Abstract interface defining the storage contract. All methods are async. `writeCalibrationRejected()` and `writeCalibrationPassed()` are no-op by default. `close()` is no-op by default. | `{ StorageAdapter }` | None |
-| `services/storage/MongoStorageAdapter.js` (420 lines) | MongoDB Atlas implementation. 6 collection constants (no `RUN_LOGS`, no `ENRICHED_JOBS`). Manages connection pool (maxPoolSize: 10), TTL index creation, `_stripJobForCalibration()`, fail-fast `persistSentHistory()`. | `{ MongoStorageAdapter }` | `mongodb`, `StorageAdapter` |
+| `services/storage/MongoStorageAdapter.js` (526 lines) | MongoDB Atlas implementation. 7 collection constants (SEEN_JOBS, ATS_SENT_HISTORY, COMPANIES, CALIBRATION_REJECTED, CALIBRATION_PASSED, RUN_SUMMARIES, SYSTEM_STATE). Manages connection pool (maxPoolSize: 10), TTL index creation, `_stripJobForCalibration()`, fail-fast `persistSentHistory()`, `getCollection()`, `getLastCalibrationTime()`, `updateLastCalibrationTime()`. | `{ MongoStorageAdapter }` | `mongodb`, `StorageAdapter` |
 | `services/storage/FileStorageAdapter.js` (390 lines) | Local file-based implementation. Reads/writes JSON under `data/`. Merges `companies_list.json`, `comeet_companies_auto.json`, `greenhouse_list.csv`, `workday_companies.json`. The only code path that uses `csv-parser`. | `{ FileStorageAdapter }` | `fs`, `path`, `csv-parser` (optional), `StorageAdapter`, `config/paths` |
 | `services/storage/index.js` (30 lines) | Factory function `createStorageAdapter()`. Selects adapter based on `STORAGE_BACKEND` env var or presence of `MONGODB_URI`. | `{ createStorageAdapter, FileStorageAdapter, MongoStorageAdapter }` | Both adapters |
 
@@ -198,10 +198,10 @@ The pipeline deduplicates jobs across runs using persistent history in MongoDB, 
 
 | File Path | Purpose | Key Exports | Dependencies |
 |-----------|---------|-------------|-------------|
-| `filters_shared.js` (256 lines) | Shared blacklist (147 keywords) / whitelist (32 keywords) and `titlePassesSemanticFilters()`. Used by both LinkedIn scraper and ATS semantic gate. No side effects. | `{ BLACKLIST_KEYWORDS, WHITELIST_KEYWORDS, titlePassesSemanticFilters }` | None |
-| `linkedin_client.js` (637 lines) | LinkedIn Voyager API client. `fetchJobs()` for paginated search, `fetchJobDetails()` for GraphQL enrichment. Centralized `axiosClient` with `maxRedirects: 0` and global 302/303 interceptor. `LinkedInAuthChallengeError` class. | `{ getHeaders, fetchJobs, normalizeResponse, fetchJobDetails, LinkedInAuthChallengeError }` | `axios`, `mailer` |
-| `scraper.js` (552 lines) | LinkedIn multi-query scraper. Defines 16 search queries (`SEARCH_QUERIES`) across 11 niches + 4 clusters + 1 data science query. Paginated search (4 pages × 25 results each), per-job enrichment, binary title filter. Daily cap: 500 new jobs. | `{ runLinkedinScraper }` | `linkedin_client`, `mailer`, `filters_shared`, `services/storage` |
-| `mailer.js` (352 lines) | Legacy LinkedIn email report sender + critical auth alert. `sendJobReport()` generates HTML card-based email. `sendCriticalAlert()` sends plain-text urgent alert on 302/303 detection. | `{ sendJobReport, sendCriticalAlert }` | `nodemailer`, `dotenv` |
+| `filters_shared.js` (298 lines) | Shared blacklist (~200 keywords) / whitelist (32 keywords) and `titlePassesSemanticFilters()`. Used by both LinkedIn scraper and ATS semantic gate. Phase 5.3 Strict Junior additions (2026-03-07). No side effects. | `{ BLACKLIST_KEYWORDS, WHITELIST_KEYWORDS, titlePassesSemanticFilters }` | None |
+| `linkedin_client.js` (570 lines) | LinkedIn Voyager API client. `fetchJobs()` for paginated search, `fetchJobDetails()` for GraphQL enrichment. Centralized `axiosClient` with `maxRedirects: 0` and global 302/303 interceptor. `LinkedInAuthChallengeError` class. | `{ getHeaders, fetchJobs, normalizeResponse, fetchJobDetails, LinkedInAuthChallengeError }` | `axios`, `mailer` |
+| `scraper.js` (525 lines) | LinkedIn multi-query scraper. Defines 16 search queries (`SEARCH_QUERIES`) across 11 niches + 4 clusters + 1 data science query. Paginated search (4 pages × 25 results each), per-job enrichment, binary title filter. Daily cap: 500 new jobs. | `{ runLinkedinScraper }` | `linkedin_client`, `mailer`, `filters_shared`, `services/storage` |
+| `mailer.js` (306 lines) | Legacy LinkedIn email report sender + critical auth alert. `sendJobReport()` generates HTML card-based email. `sendCriticalAlert()` sends plain-text urgent alert on 302/303 detection. | `{ sendJobReport, sendCriticalAlert }` | `nodemailer`, `dotenv` |
 
 ### `tools/` — Development & Debugging Tools (excluded from Docker)
 
@@ -209,18 +209,29 @@ The pipeline deduplicates jobs across runs using persistent history in MongoDB, 
 |-----------|---------|
 | `tools/analyze_logs.js` | Log analysis utility |
 | `tools/reset_data.js` | Data reset utility |
+| `tools/run_proactive_calibration.js` | **Proactive calibration CLI.** Safe mode: generates MD report to `docs/analyze/`, shows would-delete counts. `--confirm`: purges calibration_rejected/calibration_passed, updates system_state.lastCalibrationAt. Protects 512MB Atlas quota. |
 | `tools/comeet_hunter.js` | Single Comeet company discovery |
 | `tools/comeet_hunter_mass.js` | Mass Comeet company discovery |
+| `tools/comeet/harvest_tokens.js` | Puppeteer token harvester. Fetches Comeet tokens from `window.COMPANY_DATA`. On failure: sets `enabled: false` in MongoDB (prevents infinite retry loops from Perplexity hallucinations). |
 | `tools/run_comeet_debug.js` | Debug mode runner for Comeet |
 | `tools/clean_comeet_debug_logs.js` | Clean up debug log artifacts |
 | `tools/add_comeet_company.js` | Add company to Comeet config |
+| `tools/inject_and_validate.js` | Workday/Greenhouse HTTP validation only. **Cannot** handle Comeet (requires harvest_tokens.js for token ecosystem). |
 | `tools/sample_raw_ats_data.js` | Sample raw ATS data collector |
+| `tools/discovery/local_ui_discovery.js` | Perplexity UI automation for company discovery |
+| `tools/discovery/run_discovery.js` | Discovery pipeline runner |
+
+### `services/calibration/` — Calibration Report Generation
+
+| File Path | Purpose |
+|-----------|---------|
+| `services/calibration/calibrationReport.js` | `generateCalibrationReportMd(storageAdapter)` — aggregation pipelines, markdown report. Used by `run_proactive_calibration.js`. |
 
 ---
 
 ## 5. MongoDB Collections
 
-### Active Collections (6)
+### Active Collections (7)
 
 | Collection | Purpose | Key Fields | TTL | Write Method | Read Method |
 |-----------|---------|-----------|-----|-------------|------------|
@@ -230,6 +241,7 @@ The pipeline deduplicates jobs across runs using persistent history in MongoDB, 
 | `calibration_rejected` | Lightweight metadata of jobs rejected by business-logic filters. For filter tuning analysis. | `jobId`, `title`, `companyName`, `location`, `url`, `reason`, `source`, `createdAt` | **60 days** (TTL index on `createdAt`) | `writeCalibrationRejected(jobs)` — `insertMany(docs, { ordered: false })` | Manual Atlas query (filter by `reason` for tuning) |
 | `calibration_passed` | Lightweight metadata of jobs that passed all filters and were emailed | `jobId`, `title`, `companyName`, `location`, `url`, `source`, `createdAt` | None (permanent; recommended future: 30d) | `writeCalibrationPassed(jobs)` — `insertMany(docs, { ordered: false })` | Manual Atlas query |
 | `run_summaries` | Per-run execution statistics for observability | `runId`, `source` (ats/comeet/greenhouse/linkedin), `type: 'summary'`, `timestamp`, `payload` (full stats), `createdAt` | **30 days** (TTL index on `createdAt`) | `writeRunLog({ type: 'summary', ... })` — `insertOne(doc)` | Manual Atlas query |
+| `system_state` | Calibration timer and DB health metadata | `lastCalibrationAt`, `_id` | None | `updateLastCalibrationTime()` — `updateOne` | `getLastCalibrationTime()` |
 
 ### TTL Index Configuration
 
@@ -324,24 +336,18 @@ function createStorageAdapter():
 
 Cloud Run Jobs can reuse warm containers across invocations. Module-level singletons would leak state (job IDs, connection handles, error counts) between runs. All services are instantiated fresh inside `run()`:
 
-- `orchestrator.js:491` → `createStorageAdapter()`
-- `orchestrator.js:556` → `createJobStateService(storageAdapter)`
-- `orchestrator.js:557` → `createEmailNotifier()`
+- `orchestrator.js:494` → `createStorageAdapter()`
+- `orchestrator.js:567` → `createJobStateService(storageAdapter)`
+- `orchestrator.js:568` → `createEmailNotifier()`
 
-### `filteredJobsBuffer` Reset
+### Orchestrator-Level Calibration (Removed)
 
-The `filteredJobsBuffer` is a module-level array (`orchestrator.js:85`) that accumulates orchestrator-level filtered jobs during a run. At the start of every `run()` call:
-
-```javascript
-filteredJobsBuffer.length = 0;  // orchestrator.js:488
-```
-
-This is explicitly documented as "FIX 4: Cloud Run State Reset" — prevents stale data from leaking between container reuses. Without this, a warm container's second invocation would include filtered jobs from the first invocation.
+The orchestrator no longer maintains a `filteredJobsBuffer`. Workers persist their own dropped jobs to `calibration_rejected` directly. Orchestrator-level semantic/location drops are handled by workers before jobs reach the orchestrator.
 
 ### Worker Instance Patterns
 
 - **Comeet & Greenhouse:** Single worker instance shared across all companies of that type. Created once before `Promise.all`. `resetRunStats()` called before batch.
-- **Workday:** New `WorkdayWorker` instance per company (`orchestrator.js:250-253`) because each company has a different tenant/instance/site URL requiring separate cookie jars and API endpoints.
+- **Workday:** New `WorkdayWorker` instance per company (`orchestrator.js:228`) because each company has a different tenant/instance/site URL requiring separate cookie jars and API endpoints.
 
 ---
 
@@ -433,8 +439,8 @@ LinkedIn Voyager Search Response (per query per page)
 
 | Property | Value |
 |----------|-------|
-| **Count** | 147 keywords |
-| **Source** | `filters_shared.js:12-189` |
+| **Count** | ~200 keywords (Phase 5.3 Strict Junior additions 2026-03-07) |
+| **Source** | `filters_shared.js:12-244` |
 | **Categories** | Seniority & Leadership (13): Senior, Lead, Principal, Manager, Head of, Director, VP, Chief, Architect, 5-8+ years |
 | | Marketing & Sales (13): Sales, Sale, Marketing, Marketer, Media, Buyer, B2B, PPC, Campaign, Creative, Digital, Social Media, SEO |
 | | Finance & Accounting (13): Finance, Financial, Accounting, Accountant, Controller, CPA, Audit, Auditor, Bookkeeper, Payroll, Tax, Economics, Economist |
@@ -493,13 +499,13 @@ LinkedIn Voyager Search Response (per query per page)
 
 8. **`writeRunLog` summary-only gate** — At `MongoStorageAdapter.js:325`: `if (type !== 'summary') { return; }`. Only entries with `type: 'summary'` are persisted to `run_summaries`. All other types (`runtime`, `error`, `raw`, `filtered`) return immediately with no DB write. This is hardcoded — there is NO `NODE_ENV` dependency, NO environment variable override. This ensures identical behavior in local dev and production.
 
-9. **Teardown: `close()` in `finally` + fail-safe `process.exit`** — `orchestrator.js:602-611`: `storageAdapter.close()` is called in the `finally` block of `run()`, ensuring the MongoDB connection pool is released even if an error occurred. Additionally, `orchestrator.js:624-627`: `setTimeout(() => process.exit(process.exitCode || 0), 5000).unref()` serves as a last-resort fail-safe. The `.unref()` ensures this timer alone won't keep the event loop alive if everything else cleaned up normally.
+9. **Teardown: `close()` in `finally` + fail-safe `process.exit`** — `orchestrator.js:618`: `storageAdapter.close()` is called in the `finally` block of `run()`, ensuring the MongoDB connection pool is released even if an error occurred. Additionally, `orchestrator.js:637`: `process.exit(process.exitCode || 0)` serves as a last-resort fail-safe after timeout.
 
 10. **No `writeEnrichedJobs`** — This method was permanently deleted from all 3 adapter layers (`StorageAdapter.js`, `MongoStorageAdapter.js`, `FileStorageAdapter.js`). The only reference in active `.js` code is a comment at `orchestrator.js:100`: "FIX 1: Replaced writeEnrichedJobs (bloated) with calibration_passed." Zero function calls remain. NEVER re-introduce this method.
 
-11. **`filteredJobsBuffer.length = 0` at run start** — `orchestrator.js:488`: the module-level buffer is cleared at the start of every `run()` call. Comment: "FIX 4: Cloud Run State Reset — clear module-level buffers at run start. Prevents stale data from leaking between container reuses."
+11. **No orchestrator-level filteredJobsBuffer** — Workers persist their own dropped jobs to `calibration_rejected` directly. The orchestrator no longer maintains a module-level buffer for filtered jobs (`orchestrator.js:111` comment).
 
-12. **`knownJobIds` loaded once, before parallel** — `orchestrator.js:517`: `const knownJobIds = await storageAdapter.loadSentHistory()` is called exactly ONCE before the `Promise.allSettled` parallel phase. This single `Set` is passed by reference to both `processBatch()` calls for Comeet and Greenhouse. Workday's `processWorkdayBatch()` does NOT receive `knownJobIds` — it has no silent dedup.
+12. **`knownJobIds` loaded once, before parallel** — `orchestrator.js:520-522`: `const knownJobIds = await storageAdapter.loadSentHistory()` is called exactly ONCE before the `Promise.allSettled` parallel phase (or empty `Set` if `RESET_DEDUP=true`). This single `Set` is passed by reference to both `processBatch()` calls for Comeet and Greenhouse. Workday's `processWorkdayBatch()` does NOT receive `knownJobIds` — it has no silent dedup.
 
 ---
 
@@ -569,9 +575,11 @@ LinkedIn Voyager Search Response (per query per page)
 
 | Name | Default | Purpose | Source |
 |------|---------|---------|--------|
-| `DRY_RUN` | `false` | Skips email sending and data persistence | `orchestrator.js:39` |
-| `SKIP_LINKEDIN` | `false` | Skips LinkedIn scraper phase entirely | `orchestrator.js:40` |
-| `SKIP_ATS` | `false` | Skips all ATS workers | `orchestrator.js:41` |
+| `DRY_RUN` | `false` | Skips email sending and data persistence | `orchestrator.js:40` |
+| `SKIP_LINKEDIN` | `false` | Skips LinkedIn scraper phase entirely | `orchestrator.js:41` |
+| `SKIP_ATS` | `false` | Skips all ATS workers | `orchestrator.js:42` |
+| `RESET_DEDUP` | `false` | If `true`, bypasses silent dedup (knownJobIds = empty Set). For testing. | `orchestrator.js:520` |
+| `DISCOVERY_DRY_RUN` | `false` | If `true`, discovery pipeline skips DB writes | `tools/discovery/run_discovery.js` |
 | `DEBUG_COMEET` | `false` | Enables Comeet raw debug output to console | `comeetWorker.js:8` |
 | `DEBUG_GREENHOUSE` | `false` | Enables Greenhouse raw debug output to console | `greenhouseWorker.js:6` |
 | `DEBUG_WORKDAY` | `false` | Enables Workday raw debug output + facet diagnostics | `workdayWorker.js:23` |
@@ -605,7 +613,7 @@ LinkedIn Voyager Search Response (per query per page)
 
 | Failure Mode | Symptom | Root Cause | Resolution |
 |-------------|---------|-----------|-----------|
-| **MongoDB quota exceeded** | `"you are over your space quota"` errors in logs; dedup breaks causing duplicate emails | Atlas M0 512MB storage limit reached | Check Atlas storage → Collections tab. Reduce TTLs (calibration_rejected from 60d to 7d). Verify silent dedup is working (check `skippedDedup` in run_summaries). |
+| **MongoDB quota exceeded** | `"you are over your space quota"` errors in logs; dedup breaks causing duplicate emails | Atlas M0 512MB storage limit reached | Run `npm run calibrate:report` to generate diagnostic report. Run `npm run calibrate:purge` with `--confirm` to purge legacy calibration_rejected/calibration_passed. Reduce TTLs. Verify silent dedup (check `skippedDedup` in run_summaries). |
 | **LinkedIn auth redirect (302/303)** | `LinkedInAuthChallengeError` thrown; 0 LinkedIn jobs; critical alert email sent automatically | Session cookie (`li_at`) expired or LinkedIn flagged the bot | Rotate `LINKEDIN_LI_AT`, `JSESSIONID`, `CSRF_TOKEN` in Secret Manager from a fresh authenticated browser session. Ensure JSESSIONID matches CSRF_TOKEN. |
 | **LinkedIn auth fail (401)** | `CRITICAL_AUTH_FAIL` error thrown; bot stops LinkedIn phase | Cookie invalid | Same as 302/303 resolution |
 | **LinkedIn rate limit (429)** | `Rate limited (429)` error during fetchJobDetails | Too many enrichment requests too quickly | Built-in: scraper pauses 3-6s between enrichments. If persistent, increase delays. |
@@ -622,7 +630,7 @@ LinkedIn Voyager Search Response (per query per page)
 
 ## 13. Email Gatekeeper Logic
 
-### 3-Condition Gate (`orchestrator.js:431-437`)
+### 3-Condition Gate (`orchestrator.js:433-439`)
 
 ```javascript
 const hasNewJobs = Array.isArray(newJobs) && newJobs.length > 0;
@@ -637,9 +645,9 @@ if (!hasNewJobs && !hasErrors && !isHeartbeatHour) {
 
 | Condition | Trigger | File:Line |
 |-----------|---------|-----------|
-| `newJobs.length > 0` | At least one new job survived dedup | `orchestrator.js:431` |
-| `errors.length > 0` | Any ATS or LinkedIn error occurred during the run | `orchestrator.js:432` |
-| `isHeartbeatHour` | Current UTC hour === 6 | `orchestrator.js:433` |
+| `newJobs.length > 0` | At least one new job survived dedup | `orchestrator.js:433` |
+| `errors.length > 0` | Any ATS or LinkedIn error occurred during the run | `orchestrator.js:434` |
+| `isHeartbeatHour` | Current UTC hour === 6 | `orchestrator.js:435` |
 
 If **ANY** of the 3 conditions is true, email is sent. If **ALL** are false, email is skipped.
 
@@ -780,9 +788,9 @@ This builds the image in Cloud Build, pushes to GCR, and updates the Cloud Run J
 **TTL:** 60 days via MongoDB TTL index on `createdAt` (created in `_ensureTTLIndexes()`).
 
 **Write paths:**
-- Comeet worker: `comeetWorker.js:106` → `storageAdapter.writeCalibrationRejected(droppedJobs)`
-- Greenhouse worker: `greenhouseWorker.js:109` → `storageAdapter.writeCalibrationRejected(droppedJobs)`
-- Orchestrator: `orchestrator.js:126` → `storageAdapter.writeCalibrationRejected(filteredJobsBuffer)` (orchestrator-level semantic/location drops)
+- Comeet worker: `comeetWorker.js` → `storageAdapter.writeCalibrationRejected(droppedJobs)`
+- Greenhouse worker: `greenhouseWorker.js` → `storageAdapter.writeCalibrationRejected(droppedJobs)`
+- Workers persist their own drops; no orchestrator-level calibration_rejected writes.
 
 **Dedup optimization:** Silent dedup (Invariant #7) prevents already-known jobs from being written to `calibration_rejected`. This reduced write volume from ~700 docs/run (all rejects) to ~10-50 docs/run (only genuinely new rejects).
 
@@ -794,11 +802,11 @@ This builds the image in Cloud Build, pushes to GCR, and updates the Cloud Run J
 
 **TTL:** None currently (permanent). Snapshot recommends adding 30-day TTL.
 
-**Write path:** Orchestrator writes after successful email + dedup: `orchestrator.js:575`. Gate: `if (emailSuccess && newJobs.length > 0 && !DRY_RUN)`.
+**Write path:** Orchestrator writes after successful email + dedup: `orchestrator.js:584-591`. Gate: `if (emailSuccess && newJobs.length > 0 && !DRY_RUN)`.
 
 ### `_stripJobForCalibration(job)` Helper
 
-Located at `MongoStorageAdapter.js:303-312`. Implementation:
+Located at `MongoStorageAdapter.js` (see `_stripJobForCalibration`). Implementation:
 
 ```javascript
 _stripJobForCalibration(job) {
@@ -867,7 +875,7 @@ The storage projection dropped dramatically from pre-v6.2 estimates (~400MB for 
 
 ## 18. JobStateService Detailed Architecture
 
-The `JobStateService` (`services/JobStateService.js`, 158 lines) is the central deduplication service. It maintains two `Set<string>` instances and orchestrates the "optimistic commit" pattern used for email-then-persist.
+The `JobStateService` (`services/JobStateService.js`, 135 lines) is the central deduplication service. It maintains two `Set<string>` instances and orchestrates the "optimistic commit" pattern used for email-then-persist.
 
 ### State Model
 
@@ -1588,6 +1596,14 @@ All log paths are defined in `config/paths.js`. Timestamps in filenames are Wind
 | `npm run comeet:debug:sample` | Same + `--limit 5` | Debug first 5 Comeet companies |
 | `npm run comeet:debug:clean` | `node tools/clean_comeet_debug_logs.js` | Clean Comeet debug artifacts |
 | `npm run comeet:add` | `node tools/add_comeet_company.js` | Add company to Comeet config |
+| `npm run validate:comeet` | `node tools/comeet/validate_companies.js` | Validate Comeet companies in DB |
+| `npm run validate:greenhouse` | `node tools/greenhouse/validate_companies.js` | Validate Greenhouse companies |
+| `npm run validate:workday` | `node tools/workday/validate_companies.js` | Validate Workday companies |
+| `npm run discover` | `node tools/discovery/run_discovery.js` | Run discovery pipeline |
+| `npm run discover:dry` | `DISCOVERY_DRY_RUN=true node tools/discovery/run_discovery.js` | Discovery without DB writes |
+| `npm run inject` | `node tools/inject_and_validate.js` | Inject discovered companies (Workday/Greenhouse only) |
+| `npm run calibrate:report` | `node tools/run_proactive_calibration.js` | Safe calibration report → `docs/analyze/` |
+| `npm run calibrate:purge` | `node tools/run_proactive_calibration.js --confirm` | Purge calibration DB + update timer |
 
 ### Common Local Dev Invocations
 
@@ -1803,7 +1819,7 @@ The following files contain `_dbgLog` instrumentation from a previous Cursor deb
 
 ### `processBatch()` — Generic Worker Runner
 
-**Location:** `orchestrator.js:141-180`
+**Location:** `orchestrator.js:119-163`
 
 The `processBatch()` function is a generic sequential runner used by Comeet and Greenhouse. It iterates over companies, calling `worker.fetchAllJobs(company, knownJobIds)` for each.
 
@@ -1817,9 +1833,9 @@ This dual-shape handling was introduced because workers evolved from returning a
 
 ### `processWorkdayBatch()` — Workday-Specific Runner
 
-**Location:** `orchestrator.js:235-276`
+**Location:** `orchestrator.js:213-313`
 
-Unlike `processBatch()`, this creates a new `WorkdayWorker` instance per company (line 250) because each Workday tenant requires its own session cookies and API endpoints.
+Unlike `processBatch()`, this creates a new `WorkdayWorker` instance per company because each Workday tenant requires its own session cookies and API endpoints.
 
 ### Error Aggregation Flow
 
@@ -1852,20 +1868,18 @@ run() — main function
         └── Passed to persistResults() for run summary
 ```
 
-### `filteredJobsBuffer` — Orchestrator-Level Drops
+### Orchestrator-Level Drops (Deprecated)
 
-**Location:** `orchestrator.js:85-95`
-
-Module-level array that collects jobs filtered at the orchestrator level (not worker level). The `logFilteredJob(reason, unifiedJob, company)` function pushes lightweight metadata `{ reason, title, location, companyId, source }`.
-
-These are written to `calibration_rejected` via `persistResults()` at `orchestrator.js:124-133`. This is separate from the worker-level `saveDroppedJobs()` writes — the orchestrator captures drops that happen after workers return their results.
+The orchestrator no longer maintains a `filteredJobsBuffer`. Workers persist their own dropped jobs to `calibration_rejected` directly. All filter drops occur at the worker level.
 
 ### Run Status Determination
 
-**Location:** `orchestrator.js:78-83`
+**Location:** `orchestrator.js:78-84`
 
 ```javascript
-function computeOverallStatus(runStats) {
+function deriveStatus(runStats, errors) {
+  if (errors.length > 0 && runStats.companiesSucceeded === 0) return 'ERROR';
+  if (errors.length > 0) return 'PARTIAL_FAIL';
   if (runStats.companiesFailed === 0) return 'SUCCESS';
   if (runStats.companiesSucceeded === 0) return 'ERROR';
   return 'PARTIAL_FAIL';
@@ -1881,19 +1895,19 @@ Three possible statuses. `PARTIAL_FAIL` is the most common in practice — some 
 ### Why Workers Don't Share Instances Across Runs
 
 Cloud Run warm containers reuse the same Node.js process. If workers stored state in module-level variables (which they do — e.g., `runStats`, `droppedJobs` arrays), they'd accumulate across runs. This is why:
-- `comeetWorker.resetRunStats()` is called before each batch (`orchestrator.js:214`)
-- `filteredJobsBuffer.length = 0` resets the orchestrator buffer (`orchestrator.js:488`)
+- `comeetWorker.resetRunStats()` is called before each batch
 - `JobStateService` always calls `loadHistory()` fresh, never caches
+- No orchestrator-level buffer (workers persist their own calibration_rejected)
 
 ### Why `Promise.allSettled` for Top-Level, `Promise.all` for Workers
 
-The orchestrator uses `Promise.allSettled()` for the top-level ATS+LinkedIn parallel execution (`orchestrator.js:519-522`). This ensures that if LinkedIn throws (e.g., `LinkedInAuthChallengeError`), ATS results are still collected and processed.
+The orchestrator uses `Promise.allSettled()` for the top-level ATS+LinkedIn parallel execution (`orchestrator.js:530-532`). This ensures that if LinkedIn throws (e.g., `LinkedInAuthChallengeError`), ATS results are still collected and processed.
 
-Within `runAtsWorkers()`, `Promise.all()` is used for the three worker types (`orchestrator.js:279-292`). Since individual company failures are already caught inside `processBatch()`, `Promise.all()` at this level is safe — it only rejects if the entire batch runner fails (e.g., MongoDB connectivity loss).
+Within `runAtsWorkers()`, `Promise.all()` is used for the three worker types (`orchestrator.js:230-265`). Since individual company failures are already caught inside `processBatch()`, `Promise.all()` at this level is safe — it only rejects if the entire batch runner fails (e.g., MongoDB connectivity loss).
 
 ### Why Workday Has No Silent Dedup
 
-Workday's `processWorkdayBatch()` does not pass `knownJobIds` to the worker (`orchestrator.js:256`). Two reasons:
+Workday's `processWorkdayBatch()` does not pass `knownJobIds` to the worker. Two reasons:
 1. Workday job IDs are less stable than Comeet/Greenhouse (JR numbers may change format across API versions)
 2. Workday was added later in the architecture timeline, after the silent dedup pattern was established for the other two
 
@@ -1945,7 +1959,7 @@ The project maintains technical snapshots in `docs/snapshots/` that capture the 
 
 ### Latest Snapshot
 
-`docs/snapshots/snapshot_2026-03-01.md` — v6.2 (Cloud-Deployed — Legacy Collection Eradication + Storage Optimization)
+`docs/snapshots/snapshot_2026-03-08.md` — v6.3 (Pipeline Validation & Calibration Tooling — Proactive Purge CLI, Harvest Failure Evasion)
 
 ### Snapshot Contents
 
@@ -1961,6 +1975,14 @@ Each snapshot includes:
 ### Session Transcripts
 
 Detailed session logs are stored in `docs/rewsession/`. These provide the "why" behind architectural decisions and are referenced from snapshots.
+
+---
+
+## Change Log
+
+| Date | Version | Sections Modified | Summary |
+|------|---------|-------------------|---------|
+| 2026-03-08 | v6.3 | §1, §3, §4, §5, §7, §8, §9, §11, §12, §13, §16, §18, §27, §31, §32, §33, §35 | Proactive calibration CLI, system_state collection, harvest_tokens failure evasion, filteredJobsBuffer removed, line count/line number updates, new tools (run_proactive_calibration, calibrationReport), RESET_DEDUP/DISCOVERY_DRY_RUN env vars |
 
 ---
 

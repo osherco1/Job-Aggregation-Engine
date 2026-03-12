@@ -283,10 +283,14 @@ class MongoStorageAdapter extends StorageAdapter {
       const passCol = await this._getCollection(this.collections.CALIBRATION_PASSED);
       const sumCol = await this._getCollection(this.collections.RUN_SUMMARIES);
 
-      // 60-day TTL for calibration_rejected
+      // 60-day TTL for calibration_rejected + support for aggregation match/sort on gate/createdAt
       await rejCol.createIndex(
         { createdAt: 1 },
         { expireAfterSeconds: 60 * 24 * 60 * 60, background: true }
+      );
+      await rejCol.createIndex(
+        { gate: 1, createdAt: -1 },
+        { background: true }
       );
       // 60-day TTL for calibration_passed (prevents unbounded growth)
       await passCol.createIndex(
@@ -336,6 +340,72 @@ class MongoStorageAdapter extends StorageAdapter {
       employmentType: job.employmentType || undefined,
       fallbackTier: job.fallbackTier != null ? job.fallbackTier : undefined,
     };
+  }
+
+  /**
+   * Aggregated view of rejected jobs for calibration reporting.
+   * Groups by title + reason + gate and returns counts plus sample companies.
+   * @param {number} limit - Max number of grouped signatures to return
+   * @returns {Promise<Array<{title:string,reason:string,gate:string,count:number,latestCreatedAt:Date,sampleCompanies:string[]}>>}
+   */
+  async getCalibrationRejectedAggregated(limit = 1000) {
+    const safeLimit = Number.isFinite(Number(limit)) && Number(limit) > 0
+      ? Math.min(Number(limit), 5000)
+      : 1000;
+
+    const rejCol = await this._getCollection(this.collections.CALIBRATION_REJECTED);
+
+    const pipeline = [
+      {
+        $match: {
+          $and: [
+            { $or: [{ gate: { $nin: ['location'] } }, { gate: { $exists: false } }] },
+            { reason: { $not: /^Location/i } },
+          ],
+        },
+      },
+      {
+        $project: {
+          title: { $ifNull: ['$title', 'Unknown'] },
+          reason: { $ifNull: ['$reason', 'N/A'] },
+          gate: { $ifNull: ['$gate', 'unknown'] },
+          companyName: {
+            $ifNull: [
+              '$companyName',
+              { $ifNull: ['$companyId', { $ifNull: ['$sourceCompanyId', 'N/A'] }] },
+            ],
+          },
+          createdAt: { $ifNull: ['$createdAt', new Date(0)] },
+        },
+      },
+      {
+        $group: {
+          _id: {
+            title: '$title',
+            reason: '$reason',
+            gate: '$gate',
+          },
+          count: { $sum: 1 },
+          latestCreatedAt: { $max: '$createdAt' },
+          sampleCompaniesSet: { $addToSet: '$companyName' },
+        },
+      },
+      {
+        $project: {
+          _id: 0,
+          title: '$_id.title',
+          reason: '$_id.reason',
+          gate: '$_id.gate',
+          count: 1,
+          latestCreatedAt: 1,
+          sampleCompanies: { $slice: ['$sampleCompaniesSet', 3] },
+        },
+      },
+      { $sort: { count: -1, latestCreatedAt: -1 } },
+      { $limit: safeLimit },
+    ];
+
+    return rejCol.aggregate(pipeline).toArray();
   }
 
   /**
@@ -448,35 +518,63 @@ class MongoStorageAdapter extends StorageAdapter {
   }
 
   /**
-   * Volume-based cleanup protocol (Master PRD): hard-purge calibration_rejected >7d,
-   * drop zombie collections (run_logs, enriched_jobs), delete old run_summaries to free space.
-   * @returns {Promise<{ purgedRejected: number, droppedCollections: string[] }>}
+   * Volume-based cleanup protocol (Master PRD). Supports explicit modes:
+   * - aggressive: delete ALL documents from calibration_rejected and calibration_passed (mandatory when volume threshold exceeded).
+   * - retention24h: delete records older than 24h from both calibration collections.
+   * - legacy7d: delete calibration_rejected >7d only (legacy behavior).
+   * Also drops zombie collections (run_logs, enriched_jobs) and prunes old run_summaries.
+   * @param {{ mode?: 'aggressive' | 'retention24h' | 'legacy7d' }} [options] - defaults to legacy7d
+   * @returns {Promise<{ purgedRejected: number, purgedPassed: number, purgedRunSummaries: number, droppedCollections: string[] }>}
    */
-  async runVolumeCleanupProtocol() {
-    const result = { purgedRejected: 0, droppedCollections: [] };
-    try {
-      await this._ensureConnected();
-      const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
-      const rejCol = await this._getCollection(this.collections.CALIBRATION_REJECTED);
-      const deleteResult = await rejCol.deleteMany({ createdAt: { $lt: sevenDaysAgo } });
-      result.purgedRejected = deleteResult.deletedCount || 0;
+  async runVolumeCleanupProtocol(options = {}) {
+    const mode = options.mode || 'legacy7d';
+    const result = {
+      purgedRejected: 0,
+      purgedPassed: 0,
+      purgedRunSummaries: 0,
+      droppedCollections: [],
+    };
 
-      const zombieNames = ['run_logs', 'enriched_jobs'];
-      const collections = await this.db.listCollections().toArray();
-      const names = collections.map((c) => c.name);
-      for (const z of zombieNames) {
-        if (names.includes(z)) {
-          await this.db.collection(z).drop();
-          result.droppedCollections.push(z);
-        }
-      }
+    await this._ensureConnected();
+    const now = Date.now();
+    const sevenDaysAgo = new Date(now - 7 * 24 * 60 * 60 * 1000);
+    const twentyFourHoursAgo = new Date(now - 24 * 60 * 60 * 1000);
+    const thirtyDaysAgo = new Date(now - 30 * 24 * 60 * 60 * 1000);
 
-      const sumCol = await this._getCollection(this.collections.RUN_SUMMARIES);
-      const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
-      await sumCol.deleteMany({ createdAt: { $lt: thirtyDaysAgo } });
-    } catch (err) {
-      console.error('MongoStorageAdapter: runVolumeCleanupProtocol failed:', err.message || err);
+    const rejCol = await this._getCollection(this.collections.CALIBRATION_REJECTED);
+    const passCol = await this._getCollection(this.collections.CALIBRATION_PASSED);
+
+    if (mode === 'aggressive') {
+      const rejResult = await rejCol.deleteMany({});
+      const passResult = await passCol.deleteMany({});
+      result.purgedRejected = rejResult.deletedCount || 0;
+      result.purgedPassed = passResult.deletedCount || 0;
+    } else if (mode === 'retention24h') {
+      const rejFilter = { $or: [{ createdAt: { $lte: twentyFourHoursAgo } }, { createdAt: { $exists: false } }] };
+      const passFilter = { $or: [{ createdAt: { $lte: twentyFourHoursAgo } }, { createdAt: { $exists: false } }] };
+      const rejResult = await rejCol.deleteMany(rejFilter);
+      const passResult = await passCol.deleteMany(passFilter);
+      result.purgedRejected = rejResult.deletedCount || 0;
+      result.purgedPassed = passResult.deletedCount || 0;
+    } else {
+      const rejResult = await rejCol.deleteMany({ createdAt: { $lt: sevenDaysAgo } });
+      result.purgedRejected = rejResult.deletedCount || 0;
     }
+
+    const zombieNames = ['run_logs', 'enriched_jobs'];
+    const collections = await this.db.listCollections().toArray();
+    const names = collections.map((c) => c.name);
+    for (const z of zombieNames) {
+      if (names.includes(z)) {
+        await this.db.collection(z).drop();
+        result.droppedCollections.push(z);
+      }
+    }
+
+    const sumCol = await this._getCollection(this.collections.RUN_SUMMARIES);
+    const sumResult = await sumCol.deleteMany({ createdAt: { $lt: thirtyDaysAgo } });
+    result.purgedRunSummaries = sumResult.deletedCount || 0;
+
     return result;
   }
 
@@ -512,6 +610,82 @@ class MongoStorageAdapter extends StorageAdapter {
     } catch (err) {
       console.warn('MongoStorageAdapter: updateLastCalibrationTime failed:', err.message || err);
     }
+  }
+
+  /**
+   * Acquire distributed calibration lock. Only one process may hold the lock; stale locks (expiresAt <= now) are stolen.
+   * @param {{ ownerId: string, ttlMs?: number }} options - ownerId required; ttlMs defaults to 15 minutes
+   * @returns {Promise<{ acquired: boolean, ownerId?: string, expiresAt?: Date, lockDoc?: Object }>}
+   */
+  async acquireCalibrationLock(options = {}) {
+    const { ownerId, ttlMs = 15 * 60 * 1000 } = options;
+    if (!ownerId || typeof ownerId !== 'string') {
+      return { acquired: false };
+    }
+    await this._ensureConnected();
+    const col = await this._getCollection(this.collections.SYSTEM_STATE);
+    const now = new Date();
+    const expiresAt = new Date(now.getTime() + ttlMs);
+    await col.updateOne(
+      { _id: 'calibration_lock' },
+      { $setOnInsert: { isLocked: false, updatedAt: now } },
+      { upsert: true }
+    );
+    const filter = {
+      _id: 'calibration_lock',
+      $or: [
+        { isLocked: { $ne: true } },
+        { expiresAt: { $lte: now } },
+      ],
+    };
+    const update = {
+      $set: {
+        isLocked: true,
+        ownerId,
+        lockedAt: now,
+        expiresAt,
+        updatedAt: now,
+      },
+    };
+    const doc = await col.findOneAndUpdate(filter, update, {
+      returnDocument: 'after',
+    });
+    if (!doc) {
+      return { acquired: false };
+    }
+    const acquired = doc.ownerId === ownerId && doc.isLocked === true;
+    if (acquired) {
+      console.log(`MongoStorageAdapter: Calibration lock acquired by ${ownerId}, expiresAt=${expiresAt.toISOString()}`);
+    }
+    return {
+      acquired,
+      ownerId: doc.ownerId,
+      expiresAt: doc.expiresAt,
+      lockDoc: doc,
+    };
+  }
+
+  /**
+   * Release calibration lock. Only the current owner may release (enforced by filter).
+   * @param {{ ownerId: string }} options
+   * @returns {Promise<boolean>} true if lock was released by this owner
+   */
+  async releaseCalibrationLock(options = {}) {
+    const { ownerId } = options;
+    if (!ownerId) return false;
+    await this._ensureConnected();
+    const col = await this._getCollection(this.collections.SYSTEM_STATE);
+    const now = new Date();
+    const result = await col.findOneAndUpdate(
+      { _id: 'calibration_lock', ownerId, isLocked: true },
+      { $set: { isLocked: false, updatedAt: now } },
+      { returnDocument: 'after' }
+    );
+    const released = !!result && result.isLocked === false;
+    if (released) {
+      console.log(`MongoStorageAdapter: Calibration lock released by ${ownerId}`);
+    }
+    return released;
   }
 
   /**

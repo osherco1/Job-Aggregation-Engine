@@ -256,14 +256,24 @@ function evaluateAtsGuard(job, context = {}) {
       ? runStructuredLevelCheck(structuredLevel)
       : { passed: true, reasons: [], fastTrack: false, gate: 'structured_level' };
 
-  // Student/Junior bypass: skip description_seniority check when title explicitly signals junior/student.
-  const isExplicitJuniorTitle = /\b(student|intern|internship|junior)\b/i.test(title);
+  // Student/Entry-level bypass: skip description_seniority when role is explicitly junior.
+  // This leniency must not bypass title/department/structured checks.
+  const isExplicitJuniorTitle = /\b(student|intern|internship|junior|entry\s*level|graduate)\b/i.test(title);
+  const isStructuredStudentEmployment = !!(
+    job &&
+    job.structuredSignals &&
+    typeof job.structuredSignals.employment_type === 'string' &&
+    /\b(student|intern|internship)\b/i.test(job.structuredSignals.employment_type)
+  );
+  const isStructuredStudentFlag = !!(job && job.isStructuredStudent);
+  const shouldBypassDescriptionForJunior =
+    isExplicitJuniorTitle || isStructuredStudentEmployment || isStructuredStudentFlag;
   let descriptionResult;
   if (
     titleResult.passed &&
     departmentResult.passed &&
     structuredResult.passed &&
-    isExplicitJuniorTitle
+    shouldBypassDescriptionForJunior
   ) {
     descriptionResult = {
       passed: true,

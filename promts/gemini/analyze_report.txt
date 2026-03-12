@@ -1,5 +1,3 @@
-להלן אותו פרומפט, רק ממוסגר במפורש כפתיחת סשן נקודתי בתוך סיסטם‑פרומפט רחב:
-
 ***
 
 **פתיחת סשן כיול נקודתי**
@@ -27,12 +25,12 @@
    - אוספת ל‑Mongo:
      - `calibrationpassed` – כל המשרות שעברו את כל השערים ונשלחו (ATS + LinkedIn).
      - `calibrationrejected` – כל הדחיות הסמנטיות (title/location/department/structuredlevel/description + `gate=linkedintitle` ל‑LinkedIn).
-     - `runsummaries` – סיכומי ריצה (ATS + LinkedIn) עם סטטיסטיקות: duration, quota hits, errors, skippedDedup, wafBlocks וכו’.
-   - מייצרת דו”ח כיול Markdown מאוחד (`testcalibrationreport.md` / `calibrationreport.md`) עם:
+     - `runsummaries` – סיכומי ריצה (ATS + LinkedIn).
+   - מייצרת דו”ח כיול Markdown מאוחד (`calibrationreport.md`) עם:
      - Global Metrics, Rejected/Passed by Source & Gate
-     - LinkedIn Search Efficiency: Dead Queries, Top Performers, Quota Hits, Semantic Drops
+     - LinkedIn Search Efficiency: Dead Queries, Top Performers, Quota Hits
      - Operational Health: Silent Dedup, WAF blocks, ממוצע משך ריצה
-     - רשימות לדוגמא Passed / Rejected לצורך אנליזה ידנית.
+     - **Aggregated Rejected Jobs:** רשימה מקובצת של משרות שנדחו, כולל מכפיל נפח `[xN]`, סיבת דחייה מפורטת, ודוגמאות לחברות (Sample Companies).
 
 ***
 
@@ -40,13 +38,9 @@
 
 בכל סשן כיול נקודתי, המשתמש יספק עכשיו:
 
-1. **Snapshot עדכני** (למשל: `snapshot_YYYY-MM-DD.md`) – תמונת מצב ארכיטקטורה, אינדקסים, TTLs, זרימת נתונים, Known Issues.  
-2. **דו”ח כיול Markdown עדכני** (למשל: `testcalibrationreport.md` / `calibrationreport.md`) – כולל:
-   - System Health / Operational Health
-   - Accepted / Passed Jobs (by source, by keywords)
-   - Rejected Jobs + Gates + Reasons
-   - Matrix Calibration / LinkedIn Search Efficiency (Dead Queries, Top Performers).
-3. (אופציונלי) דוגמאות גולמיות נוספות – לוגים, קבצי JSON, או קטעי קוד רלוונטיים.
+1. **Snapshot עדכני** – תמונת מצב ארכיטקטורה, אינדקסים, TTLs, זרימת נתונים, Known Issues.  
+2. **דו”ח כיול Markdown עדכני** – הדוח המלא.
+3. (אופציונלי) דוגמאות גולמיות נוספות.
 
 אם אחד מהקלטים חסר – שאל במפורש ובקש אותו לפני ניתוח מעמיק.
 
@@ -57,167 +51,62 @@
 בצע סשן כיול מלא (Session‑Based Calibration) לפי 5 צירים + 2 צירי‑על:
 
 ### 0. Meta – השוואה לדו”ח/סשן קודם (אם קיים)
-
 - זהה שינויים שבוצעו מאז Snapshot/Report קודם:
-  - שינויים ב‑Blacklist/Whitelist
-  - שינויים בשאילתות
-  - שינויים בקונפיג של Workers / Jitter / TTL / Volume Triggers
-  - שינויים במבנה דו”ח הכיול.
-- נתח את ההשפעה:
-  - אילו בעיות נפתרו?
-  - אילו בעיות נשארו?
-  - אילו בעיות חדשות נוצרו כתוצאה מהשינויים?
-
-**תוצר חלק זה:** סעיף קצר “Delta vs Previous Calibration” בתוך סיכום המנהלים.
+  - שינויים ב‑Blacklist/Whitelist, שאילתות, קונפיג.
+- נתח את ההשפעה: אילו בעיות נפתרו? מה נשאר? מה נוצר?
+**תוצר:** סעיף קצר “Delta vs Previous Calibration” בסיכום המנהלים.
 
 ***
 
-### 1. 🔁 ניתוח תוצאות הכיולים הקודמים (ATS + LinkedIn)
-
-- עבור על:
-  - Global Metrics (Jobs Passed / Rejected, Pass Ratio)
-  - Rejected / Passed by Source (comeet/greenhouse/workday/linkedin)
-  - Rejected by Gate (title, location, structuredlevel, description, department, linkedintitle, וכו’).
-- נתח מגמות:
-  - האם pass ratio נמוך/גבוה מדי ביחס ליעדים?
-  - האם מקור מסוים (למשל Workday) דומיננטי בדחיות או ב‑errors?
-  - האם gate אחד יורה “יותר מדי” (למשל title או linkedintitle)?
-
-**תוצר:** תובנות + המלצות המשך מדויקות (איזו שכבה לכייל – כותרת, תיאור, structured level, queries, וכו’).
+### 1. 🔁 ניתוח תוצאות הכיולים הקודמים
+- עבור על Global Metrics, Pass Ratio, Rejected by Source/Gate.
+- נתח מגמות של עלייה/ירידה ביחס להמרות.
 
 ***
 
-### 2. ❌ False Positives (“הזבל שנכנס”) – כל המערכת
-
-- עבור על:
-  - Accepted / Passed Jobs במדור הרלוונטי בדו”ח (כולל דוגמאות LinkedIn + ATS), במיוחד רשימת “Recently Passed Jobs Sample”.
-- סווג:
-  - משרות לא רלוונטיות (שירות לקוחות, נהגים, אדמיניסטרציה, non‑tech, marketing, sales וכו’).
-  - משרות בכירות (Senior/Lead/Head/Director/VP, 5+ years) שעברו בטעות.
-- חקור:
-  - האם הן עברו בגלל whitelist keyword מסוים (matchedKeywords) או עקיפת Guard (whitelist structuredGate ב‑Comeet)?
-  - האם query מסוים מייצר הרבה FP?
-
-**תוצר:**  
-- `Add to Blacklist`: רשימת מילים/ביטויים/דפוסים (לכותרת/תיאור/department) שצריכים להיכנס ל‑Blacklist (ATS Guard + LinkedIn title filter).  
-- `Modify Queries`: שאילתות שיש להחמיר (להוסיף מילות חובה של junior/student, להוציא senior וכו’).
+### 2. ❌ False Positives (“הזבל שנכנס”)
+- עבור על המשרות שעברו (Passed Jobs Sample).
+- מצא משרות לא רלוונטיות (Operations, Sales) או משרות בכירות שעברו בטעות.
+**תוצר:** `Add to Blacklist` (מילים/דפוסים לחסימה), או `Modify Queries`.
 
 ***
 
-### 3. ✅ False Negatives (“הזהב שנזרק”) – כל המערכת
-
-- עבור על:
-  - Rejected Jobs / Semantic Guard / LinkedIn Semantic Drops, כולל:
-    - Rejected by Gate
-    - “Recently Rejected Jobs – Semantic Guard Sample”
-    - LinkedIn title‑filter drops (`gate=linkedintitle`, `reason=Blacklist/Whitelist`).
-- מצא משרות לכאורה רלוונטיות שנזרקו:
-  - Junior/Student/Intern/Graduate Software Engineer, Backend, Frontend, QA, DevOps, Data וכו’.
-  - משרות בישראל/רימוט רלוונטי שנפלו על `location`/`department`/`structuredlevel`/`linkedintitle`.
-- נתח סיבת הדחייה:
-  - איזה gate הדיח? (title/description/location/structuredlevel/department/linkedintitle)
-  - האם פילטרים/Blacklist היו אגרסיביים מדי?
-  - האם keyword חיובי חסר ב‑Whitelist?
-
-**תוצר:**  
-- `Remove from Blacklist`: מילים/ביטויים שצריך להסיר/להרגיע.  
-- `Whitelist Exceptions`: ביטויים להחרגה (למשל “Student Program”, “Internship”, “Junior” בהקשרים מסוימים), או כיוונון של titleSeniorPatterns / contentSeniorityPatterns.
+### 3. ✅ False Negatives (“הזהב שנזרק”) – תעדוף מבוסס נפח
+- עבור על רשימת הדחיות המקובצת (Aggregated Rejected Jobs).
+- **שים לב למכפיל ה-`[xN]`!** זהה דפוסי דחייה של משרות חוקיות (Junior/Student/Intern או משרות פיתוח רגילות שנפלו על דרישות ניסיון).
+- **תעדוף:** התמקד ב-False Negatives שקורים עשרות או מאות פעמים (`[x50]`, `[x200]`) לפני שאתה מתעכב על חריגים בודדים. השתמש ב"חברות הדוגמה" כדי להבין את הקשר המשרה.
+**תוצר:** `Remove from Blacklist`, `Whitelist Exceptions`, או כיוונון Regex של שנות ניסיון.
 
 ***
 
-### 4. 🔍 יעילות השאילתות (Dead Queries + Top Performers)
-
-- עבור על Matrix / LinkedIn Search Efficiency:
-  - Dead Queries – שאילתות עם 0 rawTotal או 0 runsWithData.
-  - Top Performers – שאילתות עם ממוצע new jobs גבוה.
-  - totalQuotaHits, totalQueries.
-- נתח:
-  - אילו שאילתות דוממות (לא מביאות כלום)?
-  - אילו ניתן לאחד/לפשט/להחליף?
-  - האם יש שאילתות שמייצרות בעיקר FP (לקשר עם סעיף 2)?
-
-**תוצר:**  
-- `Modify Queries`:  
-  - Queries להסרה.  
-  - Queries לשינוי (הוספת/הסרת מונחי senior, הוספת student/junior, הוספת מיקום/טכנולוגיות).  
-  - הצעות לרוטציה/שקלול בין שאילתות טובות לחלשות.
+### 4. 🔍 יעילות השאילתות (LinkedIn)
+- נתח את ה-Top Performers ואת ה-Dead Queries. הצע שינויים לשאילתות בהתאם.
 
 ***
 
-### 5. ⚠️ בריאות מערכת (System / Operational Health)
-
-- נתח מתוך הדו”ח וה‑snapshot:
-  - DB Volume, TTLs, Volume Threshold (350MB), האם Volume Trigger/Time Trigger עובדים תקין.
-  - Operational Health:
-    - Silent Dedup (Jobs skipped)
-    - Workday WAF blocks
-    - Errors/Exceptions
-    - Avg run duration.
-  - התנהגות LinkedIn: auth challenges, quota hit flags, partial runs.
-- זהה:
-  - חריגות API, רצפים של כשלי WAF, קפיצות Quota, ריצות קצרות/ארוכות מדי.
-  - האם מנגנוני cleanup (TTL, volume cleanup) מגינים על הדאטה וה‑512MB limit.
-
-**תוצר:**  
-- `System Errors / Warnings`: רשימת תקלות/אזהרות + הצעות פרקטיות (שינוי TTL, שינוי DAILYNEWJOBSLIMIT, כיוונון jitter, טיפול בשגיאות Workday וכו’).
+### 5. ⚠️ בריאות מערכת
+- נתח WAF blocks, Silent Dedup, Errors. הצף אזהרות מבניות.
 
 ***
 
 ### 6. Meta‑Calibration: איזון קשיחות/התרנות
-
-- בצע סיכום של ה‑trade‑off בין:
-  - הורדת False Positives (קשיחות פילטרים)  
-  לעומת  
-  - הורדת False Negatives (התרת פילטרים).
-- אם נראה שאתה קיצוני מדי לצד אחד – ציין זאת במפורש והצע רמת שינוי הדרגתית (שינויים קטנים ומדודים בכל איטרציה).
+- סיכום ה-trade‑off הנוכחי (האם אנחנו קשוחים מדי או רכים מדי?).
 
 ***
 
 **שיטת עבודה בסשן (פרוטוקול איטרטיבי לסשן הזה):**
 
-1. **SCAN Evidence First**  
-   - קרא את ה‑snapshot ואת דו”ח הכיול שהודבקו עכשיו.  
-   - סכם בקצרה:
-     - ארכיטקטורה עדכנית
-     - מדדי Global + LinkedIn section
-     - Known Issues / Next Steps.
-
-2. **Classify & Tag**  
-   - בחר לפחות 10–20 דוגמאות משרות מה‑Passed ו‑Rejected (ATS + LinkedIn) וסווג: TP, FP, TN, FN.  
-   - לכל FN/FP – כתוב:
-     - מה גרם (gate/reason/query)
-     - הצעה קונקרטית (מילה ל‑Blacklist, החרגה וכו’).
-
-3. **Hypotheses (H1/H2/H3)**  
-   - גזור 2–4 היפותזות עיקריות על הפילטרים/queries.  
-   - תן לכל אחת הסבר + evidences.
-
-4. **Action Plan (תכנון ל‑IDE, לא קוד בפועל)**  
-   - הפק checklist ברור לשינויים (config / filters / vocabulary / workers / calibrationReport).  
-   - אל תכתוב קוד – רק תכנון ו‑Apply‑Prompts.
-
-5. **Verification Plan**  
-   - פרט איך לבדוק את השפעת הכיול:
-     - הרצת orchestrator (עם/בלי DRYRUN)
-     - הרצת `node tools/testcalibration.js`
-     - אילו מדדים להשוות מול דו”ח קודם.
+1. **SCAN Evidence First:** קרא נתונים, סכם ארכיטקטורה ויעדים.
+2. **Classify, Tag & Weigh:** בחר 10–20 דוגמאות בולטות של TP, FP, TN, FN. **עבור ה-FN/TN מהדחויות - ציין את הנפח שלהן (למשל: "FN: Backend Developer [x80] dropped by description_seniority")**.
+3. **Hypotheses (H1/H2):** גזור היפותזות לתיקון מבוססות דאטה.
+4. **Action Plan:** תכנון Checklist ל-IDE (לא קוד).
+5. **Verification Plan:** תכנון איך לבדוק את השינוי ב-Dry Run.
 
 ***
 
 **פורמט תשובה בסשן הנקודתי:**
+1. **Executive Summary**
+2. **Action Plan טכני:** Add/Remove Blacklist, Whitelist Exceptions, Modify Queries, Guard Tuning, System Warnings.
+3. **Evidence Appendix**
 
-1. **סיכום מנהלים (Executive Summary)** – 5–10 שורות.  
-2. **Action Plan טכני**:
-   - `Add to Blacklist: [...]`  
-   - `Remove from Blacklist: [...]`  
-   - `Whitelist Exceptions: [...]`  
-   - `Modify Queries: [...]`  
-   - `Guard / Filters Tuning: [...]`  
-   - `System Errors / Warnings: [...]`  
-   - `Next Calibration Step (Optional): [...]`  
-3. **Evidence Appendix (אופציונלי)** – טבלאות/דוגמאות FP/FN, Dead Queries, Top Performers.
-
-***
-
-**כעת התחל את הסשן הנקודתי:**  
-המתן שהמשתמש ידביק את ה‑snapshot והדו”ח הרלוונטיים, ואז בצע את הפרוטוקול לעיל שלב‑אחר‑שלב.
+כעת התחל את הסשן הנקודתי.

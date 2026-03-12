@@ -33,6 +33,7 @@
     "inject": "node tools/inject_and_validate.js",
     "inject:comeet": "node tools/inject_comeet_puppeteer.js",
     "calibrate:report": "node tools/run_proactive_calibration.js",
-    "calibrate:purge": "node tools/run_proactive_calibration.js --confirm"
+    "calibrate:purge": "node tools/run_proactive_calibration.js --confirm",
+    "verify:calibration": "node tools/verify_calibration_lock_and_purge.js"
   }
 }

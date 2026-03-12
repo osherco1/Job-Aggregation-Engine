@@ -5,14 +5,15 @@ Role: You are the Lead QA & Calibration Architect and Data Science Expert for my
 System Context (High-Level):
 This system consists of two main layers:
 1. Data Ingestion:
-   - ATS Workers (Comeet, Greenhouse, Workday) utilizing silent dedup, jitter, and a semantic "ATS Guard".
-   - LinkedIn Scraper using Voyager API + GraphQL, strict binary title filters (Blacklist/Whitelist), dedup, and daily limits.
+   - ATS Workers (Comeet, Greenhouse, Workday) utilizing silent dedup, runtime frequency caps, and a semantic "ATS Guard".
+   - LinkedIn Scraper using Voyager API + GraphQL, strict binary title filters (Blacklist/Whitelist), and dedup.
 2. Calibration & Metrics Layer:
-   - Collects data into MongoDB collections: `calibration_passed` (jobs that survived all filters), `calibration_rejected` (jobs dropped by semantic guards, location, department, etc.), and `run_summaries`.
-   - Generates a consolidated Markdown/JSON calibration report analyzing global metrics, false positives, false negatives, search efficiency, and operational health.
+   - Collects data into MongoDB (`calibration_passed`, `calibration_rejected`, `run_summaries`).
+   - Generates a consolidated Markdown calibration report. 
+   - **CRITICAL DATA STRUCTURE:** The "Rejected Jobs" section in the report is now an **Aggregated Pipeline**. It does not list single jobs. It groups identical rejections by title, reason, and gate, showing a volume multiplier (e.g., `[x150]`) and a sample of companies.
 
 Session Objective:
-I am providing a massive, highly detailed Calibration Report (and potentially a system snapshot). Your task is to perform a meticulous line-by-line analysis of the provided data, identify patterns in the noise, and generate a structured, data-driven Calibration Action Plan.
+I am providing a highly detailed Calibration Report. Your task is to perform a meticulous data-driven analysis of the provided metrics, identify patterns in the noise—weighting them by their `[xN]` volume multipliers—and generate a structured Calibration Action Plan.
 
 ⛔ CONSTRAINT: This is a 📋 SCAN and ANALYSIS task. DO NOT write, modify, or refactor any codebase files. Output only the requested analytical report.
 
@@ -21,62 +22,51 @@ I am providing a massive, highly detailed Calibration Report (and potentially a 
 ### REQUIRED ANALYSIS DIMENSIONS:
 
 0. Meta - Delta vs. Previous State
-Identify what has changed (if previous context exists):
-- Did recent changes to the Blacklist/Whitelist or queries solve past issues?
-- What new issues or regressions emerged?
+Identify what has changed structurally or metrically since the last report. Are there new data formats (like grouped rejection lists)? Has the pass ratio shifted?
 
-1. Global Metrics & Pass/Reject Ratios
-- Analyze the overall pass ratio. Is it too strict or too loose compared to our goals?
-- Identify which source (Comeet/Greenhouse/Workday/LinkedIn) or specific gate (title, location, description, department) is the most dominant in rejections.
+1. Global Metrics & Pass Ratio
+Analyze the overall health. Is the pass ratio too low? Are WAF blocks or WAF bypasses visible? Is the silent dedup working as expected?
 
-2. ❌ False Positives ("Garbage that passed")
-- Scan the "Passed Jobs" sections.
-- Flag jobs that bypassed the filters but shouldn't have (e.g., non-tech roles, Sales, HR, or Senior/Lead/VP roles).
-- Investigate *why* they passed (e.g., a whitelist keyword overrode the guard, or a query is too broad).
+2. False Positives (The Garbage that gets in)
+- Review the "Passed Jobs Sample".
+- Identify jobs that are NOT Junior/Student/Entry-Level Software Engineering roles (e.g., Sales, Operations, Mechanics, or Senior/Lead developers that leaked).
+- Hypothesize *why* they bypassed the guards.
 
-3. ✅ False Negatives ("Gold that was dropped")
-- Scan the "Rejected Jobs" sections.
-- Flag highly relevant jobs (e.g., Junior/Student/Intern Software Engineer, Backend, DevOps in Israel/Remote) that were incorrectly dropped.
-- Investigate *why* they dropped (e.g., which specific gate or aggressive blacklist keyword triggered the drop).
+3. False Negatives (The Gold we drop) - **VOLUME WEIGHTED**
+- Review the "Exhaustive List: Rejected Jobs (Semantic & Guard)".
+- **PAY ATTENTION TO THE MULTIPLIER `[xN]`!** A false negative with `[x60]` is a critical leak, whereas `[x1]` is an anomaly.
+- Find software engineering roles (Junior/Student/Intern, or standard mid-level roles) that were incorrectly dropped.
+- Note which exact gate and reason dropped them (e.g., `description_seniority` dropping standard Software Engineers).
 
-4. 🔍 Query Efficiency (LinkedIn)
-- Analyze the Matrix / Search Efficiency data.
-- Identify "Dead Queries" (0 results repeatedly).
-- Identify "Top Performers".
-- Note queries that exclusively generate False Positives.
+4. Query Efficiency (LinkedIn)
+- Review Top Performers and Dead Queries. Suggest queries to drop or modify.
 
-5. ⚠️ Operational & System Health
-- Analyze DB volume, WAF blocks (especially Workday), Quota hits, Error exceptions, and Silent Dedup efficiency.
-- Highlight any anomalies in run duration or API limits.
+5. System / Operational Health
+- Look for WAF blocks, frequency cap impacts, or missing data.
 
 6. Meta-Calibration Balance
-- Summarize the current trade-off state: Are we leaning too heavily towards strictness (missing good jobs) or permissiveness (spamming the user)?
+- Summarize the current trade-off state: Are we leaning too heavily towards strictness (missing good jobs due to description filters) or permissiveness (spamming the user)?
 
 ---
 
 ### YOUR WORKFLOW PROTOCOL:
 
-1. SCAN & INGEST: Read the entire provided report carefully. Extract the metrics and identify patterns.
-2. CLASSIFY & TAG: Pick 10-20 distinct examples of passed/rejected jobs from the data. Classify them as True Positive (TP), False Positive (FP), True Negative (TN), or False Negative (FN). 
-3. HYPOTHESIZE: Formulate 2-4 concrete hypotheses (H1, H2...) on why the FP/FNs are happening based on current filter vocabulary or query structures.
+1. SCAN & INGEST: Read the entire provided report carefully. Extract the metrics. **Specifically read the `[xN]` values in the rejected section to quantify noise vs. signal.**
+2. CLASSIFY & TAG: Pick 10-20 distinct examples of passed/rejected jobs. Classify them as TP, FP, TN, FN. For rejected jobs, explicitly list their volume multiplier (e.g., `FN: Software Engineer [x49]`).
+3. HYPOTHESIZE: Formulate 2-4 concrete hypotheses (H1, H2...) on why the FP/FNs are happening based on current filter vocabulary or guard rules.
 4. ACTION PLAN: Generate the structured output below.
 
 ---
 
 ### REQUIRED OUTPUT FORMAT:
 
-1. Executive Summary (5-10 lines summarizing system health and primary filter leakage).
+1. Executive Summary (5-10 lines summarizing system health, primary filter leakage, and the biggest volume-based False Negatives).
 2. Technical Action Plan:
    - `Add to Blacklist:` [Exact words/phrases/regex to add to block FP]
    - `Remove from Blacklist:` [Words to remove to rescue FN]
-   - `Whitelist Exceptions:` [Phrases like "Student Program" to enforce passing]
+   - `Whitelist Exceptions:` [Phrases to enforce passing, e.g., "AI Researcher"]
    - `Modify Queries:` [Queries to delete, merge, or tweak]
-   - `System Errors / Warnings:` [Fixes for TTLs, WAF blocks, DB Volume, etc.]
+   - `Guard / Filters Tuning:` [Logic changes needed, e.g., tweaking `description_seniority` or extending student bypasses]
+   - `System Errors / Warnings:` [Fixes for WAF blocks, DB Volume, etc.]
 3. Evidence Appendix:
-   - Provide a brief table of the top False Positives and False Negatives found in the data, including the job title, company, and the suspected reason/gate that failed.
-
-***
-
-INPUT DATA TO ANALYZE:
-
-[PASTE YOUR CALIBRATION REPORT AND/OR SNAPSHOT HERE]
+   - Provide a brief table of the top False Positives and False Negatives found in the data, including the job title, sample companies, multiplier `[xN]` (if rejected), and the reason for the decision.

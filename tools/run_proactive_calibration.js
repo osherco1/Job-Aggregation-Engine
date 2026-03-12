@@ -3,11 +3,11 @@
  *
  * Connects to production MongoDB, generates a calibration report, writes it to docs/analyze/.
  * By default (safe mode): only reports what would be deleted; no DB mutations.
- * With --confirm: updates the calibration timer and purges calibration_rejected and calibration_passed.
+ * With --confirm: aggressive purge (all calibration_rejected + calibration_passed), timer reset, and zombie collection drops.
  *
  * Usage:
  *   node tools/run_proactive_calibration.js           # Safe mode (report + would-delete counts)
- *   node tools/run_proactive_calibration.js --confirm # Full flow (report + timer reset + purge)
+ *   node tools/run_proactive_calibration.js --confirm # Aggressive purge (report + timer reset + full calibration purge)
  *
  * Requires MONGODB_URI in .env.
  */
@@ -29,7 +29,6 @@ function timestampForFilename() {
 }
 
 async function main() {
-  const reportCutoffTime = new Date();
   const confirmPurge = process.argv.includes('--confirm');
 
   const mongoUri = process.env.MONGODB_URI;
@@ -52,33 +51,24 @@ async function main() {
     fs.writeFileSync(outputPath, md, 'utf8');
     console.log(`Report written to ${outputPath}`);
 
-    const purgeFilter = {
-      $or: [
-        { createdAt: { $lte: reportCutoffTime } },
-        { createdAt: { $exists: false } },
-      ],
-    };
-
-    const rejCol = await storageAdapter.getCollection(CALIBRATION_REJECTED);
-    const passCol = await storageAdapter.getCollection(CALIBRATION_PASSED);
-
     if (!confirmPurge) {
-      const wouldDeleteRejected = await rejCol.countDocuments(purgeFilter);
-      const wouldDeletePassed = await passCol.countDocuments(purgeFilter);
+      const rejCol = await storageAdapter.getCollection(CALIBRATION_REJECTED);
+      const passCol = await storageAdapter.getCollection(CALIBRATION_PASSED);
+      const wouldDeleteRejected = await rejCol.countDocuments({});
+      const wouldDeletePassed = await passCol.countDocuments({});
       console.log('');
       console.log('[SAFE MODE] No database changes were made.');
-      console.log(`Would delete: calibration_rejected: ${wouldDeleteRejected}, calibration_passed: ${wouldDeletePassed}`);
-      console.log('To perform purge and timer reset, run with --confirm');
+      console.log(`Would delete (aggressive): calibration_rejected: ${wouldDeleteRejected}, calibration_passed: ${wouldDeletePassed}`);
+      console.log('To perform aggressive purge and timer reset, run with --confirm');
       return;
     }
 
+    console.log('[AGGRESSIVE PURGE] Running runVolumeCleanupProtocol({ mode: "aggressive" })...');
+    const cleanup = await storageAdapter.runVolumeCleanupProtocol({ mode: 'aggressive' });
+    console.log(`Purged calibration_rejected: ${cleanup.purgedRejected}, calibration_passed: ${cleanup.purgedPassed}, run_summaries: ${cleanup.purgedRunSummaries}, dropped: ${(cleanup.droppedCollections || []).join(', ') || 'none'}`);
+
     await storageAdapter.updateLastCalibrationTime();
     console.log('Calibration timer updated (lastCalibrationAt set to now).');
-
-    const rejResult = await rejCol.deleteMany(purgeFilter);
-    const passResult = await passCol.deleteMany(purgeFilter);
-    console.log(`Purged calibration_rejected: ${rejResult.deletedCount} document(s).`);
-    console.log(`Purged calibration_passed: ${passResult.deletedCount} document(s).`);
   } catch (err) {
     console.error('Error:', err.message || err);
     process.exit(1);
