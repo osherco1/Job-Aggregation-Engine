@@ -298,8 +298,9 @@ async function sendJobReport(jobs) {
  * authentication failure (e.g. LinkedIn redirecting to a challenge / captcha).
  * This reuses the same SMTP configuration as the regular job report.
  * @param {object|string} details - Optional diagnostic details to include.
+ * @param {string} [subjectOverride] - Optional subject line (e.g. quota emergency).
  */
-async function sendCriticalAlert(details) {
+async function sendCriticalAlert(details, subjectOverride) {
   const { JOBBOT_SMTP_USER, JOBBOT_TO_EMAIL } = process.env;
   const toAddress = JOBBOT_TO_EMAIL || JOBBOT_SMTP_USER;
 
@@ -318,8 +319,10 @@ async function sendCriticalAlert(details) {
       ? details
       : JSON.stringify(details || {}, null, 2);
 
-  const subject = 'JobBot CRITICAL ALERT: LinkedIn Auth Challenge Detected';
-  const text = `A critical LinkedIn authentication challenge was detected by JobBot.
+  const resolvedSubject =
+    subjectOverride ||
+    'JobBot CRITICAL ALERT: LinkedIn Auth Challenge Detected';
+  const text = `A critical alert was raised by JobBot.
 
 Time (UTC): ${timestamp}
 
@@ -331,7 +334,7 @@ ${detailsPayload}
     const info = await transporter.sendMail({
       from: JOBBOT_SMTP_USER || toAddress,
       to: toAddress,
-      subject,
+      subject: resolvedSubject,
       text,
     });
 

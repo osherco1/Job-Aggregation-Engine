@@ -3,7 +3,8 @@
  * Master PRD: aggregation queries, .md report, volume-based cleanup.
  */
 
-const VOLUME_THRESHOLD_BYTES = 350 * 1024 * 1024; // 350 MB
+// Volume trigger: logical size (dataSize + indexSize) vs Atlas M0 512MB cap; 400MB leaves ~112MB headroom.
+const VOLUME_THRESHOLD_BYTES = 400 * 1024 * 1024; // 400 MB
 const CALIBRATION_REJECTED = 'calibration_rejected';
 const CALIBRATION_PASSED = 'calibration_passed';
 const RUN_SUMMARIES = 'run_summaries';
@@ -15,8 +16,15 @@ const LINKEDIN_LOOKBACK_DAYS = 30;
  * @returns {Promise<boolean>}
  */
 async function checkVolumeTrigger(storageAdapter) {
-  if (!storageAdapter || typeof storageAdapter.getDbSizeBytes !== 'function') return false;
-  const bytes = await storageAdapter.getDbSizeBytes();
+  if (!storageAdapter) return false;
+  const getter =
+    typeof storageAdapter.getDbQuotaBytes === 'function'
+      ? 'getDbQuotaBytes'
+      : typeof storageAdapter.getDbSizeBytes === 'function'
+        ? 'getDbSizeBytes'
+        : null;
+  if (!getter) return false;
+  const bytes = await storageAdapter[getter]();
   return bytes >= VOLUME_THRESHOLD_BYTES;
 }
 
@@ -449,6 +457,7 @@ async function generateCalibrationReportMd(storageAdapter) {
 }
 
 /**
+ * @deprecated Prefer orchestrator inline sequence (lock → purge → report → email). Kept for tools/scripts.
  * Run calibration: generate report first, then run cleanup (on volume trigger), then send email.
  * Order ensures the report attachment is non-empty before aggressive purge.
  * If cleanup throws, execution aborts and the alert email is never sent (fail-fast).

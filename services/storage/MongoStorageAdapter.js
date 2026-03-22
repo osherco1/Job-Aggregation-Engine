@@ -282,6 +282,8 @@ class MongoStorageAdapter extends StorageAdapter {
       const rejCol = await this._getCollection(this.collections.CALIBRATION_REJECTED);
       const passCol = await this._getCollection(this.collections.CALIBRATION_PASSED);
       const sumCol = await this._getCollection(this.collections.RUN_SUMMARIES);
+      const seenCol = await this._getCollection(this.collections.SEEN_JOBS);
+      const sentCol = await this._getCollection(this.collections.ATS_SENT_HISTORY);
 
       // 60-day TTL for calibration_rejected + support for aggregation match/sort on gate/createdAt
       await rejCol.createIndex(
@@ -302,10 +304,21 @@ class MongoStorageAdapter extends StorageAdapter {
         { createdAt: 1 },
         { expireAfterSeconds: 30 * 24 * 60 * 60, background: true }
       );
+      // 90-day TTL for seen_jobs (bounds LinkedIn dedup memory). Risk: jobs >90d may reappear as "new".
+      // Legacy docs without createdAt do not expire until backfilled.
+      await seenCol.createIndex(
+        { createdAt: 1 },
+        { expireAfterSeconds: 90 * 24 * 60 * 60, background: true }
+      );
+      // 180-day TTL for ats_sent_history (bounds ATS dedup). Risk: jobs older than TTL can be re-emailed if reposted; monitor duplicate rate.
+      await sentCol.createIndex(
+        { createdAt: 1 },
+        { expireAfterSeconds: 180 * 24 * 60 * 60, background: true }
+      );
       // #region agent log
-      _dbgLog('MongoStorageAdapter.js:_ensureTTLIndexes:OK', { calibrationRejectedTTL: '60d', calibrationPassedTTL: '60d', runSummariesTTL: '30d' }, 'FIX1');
+      _dbgLog('MongoStorageAdapter.js:_ensureTTLIndexes:OK', { calibrationRejectedTTL: '60d', calibrationPassedTTL: '60d', runSummariesTTL: '30d', seenJobsTTL: '90d', atsSentHistoryTTL: '180d' }, 'FIX1');
       // #endregion
-      console.log('MongoStorageAdapter: TTL indexes ensured (calibration_rejected=60d, calibration_passed=60d, run_summaries=30d)');
+      console.log('MongoStorageAdapter: TTL indexes ensured (calibration_rejected=60d, calibration_passed=60d, run_summaries=30d, seen_jobs=90d, ats_sent_history=180d)');
     } catch (err) {
       // #region agent log
       _dbgLog('MongoStorageAdapter.js:_ensureTTLIndexes:CATCH', { error: err.message || String(err) }, 'FIX1');
@@ -503,18 +516,33 @@ class MongoStorageAdapter extends StorageAdapter {
   }
 
   /**
-   * Get approximate database size in bytes (for volume-based calibration trigger).
-   * @returns {Promise<number>} dataSize in bytes, or 0 on error
+   * Logical database footprint for Atlas M0 quota alignment (dbStats).
+   * Uses dataSize + indexSize (ignores compressed storageSize).
+   * @returns {Promise<number>} size in bytes, or 0 on error
    */
-  async getDbSizeBytes() {
+  async getDbQuotaBytes() {
     try {
       await this._ensureConnected();
       const stats = await this.db.command({ dbStats: 1 });
-      return stats.dataSize != null ? Number(stats.dataSize) : 0;
+      const dataSize = Number(stats.dataSize) || 0;
+      const indexSize = Number(stats.indexSize) || 0;
+      const total = dataSize + indexSize;
+      console.log(
+        `MongoStorageAdapter: dbStats dataSize=${dataSize}, indexSize=${indexSize}, total=${total}`
+      );
+      return total;
     } catch (err) {
-      console.warn('MongoStorageAdapter: getDbSizeBytes failed:', err.message || err);
+      console.warn('MongoStorageAdapter: getDbQuotaBytes failed:', err.message || err);
       return 0;
     }
+  }
+
+  /**
+   * @deprecated Prefer getDbQuotaBytes(); alias returns same as getDbQuotaBytes for compatibility.
+   * @returns {Promise<number>}
+   */
+  async getDbSizeBytes() {
+    return this.getDbQuotaBytes();
   }
 
   /**

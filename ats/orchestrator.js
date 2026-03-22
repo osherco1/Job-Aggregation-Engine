@@ -19,7 +19,15 @@ const { GreenhouseWorker } = require('./workers/greenhouseWorker');
 const { WorkdayWorker } = require('./workers/workdayWorker');
 const { LinkedInAuthChallengeError } = require('../linkedin_client');
 const { sendCriticalAlert } = require('../mailer');
-const { checkVolumeTrigger, runCalibrationAndNotify } = require('../services/calibration/calibrationReport');
+const {
+  checkVolumeTrigger,
+  generateCalibrationReportMd,
+} = require('../services/calibration/calibrationReport');
+const GcsCalibrationLock = require('../services/lock/GcsCalibrationLock');
+const {
+  isQuotaExhaustedError,
+  handleQuotaExhaustion,
+} = require('../services/emergency/gcsAlertManager');
 
 // Services (factories - will be called in run() function)
 const { createJobStateService } = require('../services/JobStateService');
@@ -303,7 +311,8 @@ async function runAtsWorkers(errors, storageAdapter, knownJobIds) {
 
   await persistResults(allAtsJobs, runStats, storageAdapter);
 
-  // Dual-trigger calibration (Master PRD): volume >= 350MB OR time >= 7 days since last calibration
+  // Dual-trigger calibration: volume (logical size >= 400MB) OR time >= 7 days.
+  // Strict sequence under GCS lock (Mongo fallback when GCS_LOCK_BUCKET unset): Acquire → Purge (if volume) → Report → Email → Timer → Release (finally).
   try {
     const SEVEN_DAYS_MS = 7 * 24 * 60 * 60 * 1000;
     const volumeTriggered = await checkVolumeTrigger(storageAdapter);
@@ -314,36 +323,85 @@ async function runAtsWorkers(errors, storageAdapter, knownJobIds) {
 
     if (volumeTriggered || timeTriggered) {
       const triggerType = volumeTriggered ? 'volume' : 'time';
-      console.log(`Calibration trigger: ${triggerType} (volume=${volumeTriggered}, timeSinceLastCal=${Math.round((Date.now() - lastCal.getTime()) / 3600000)}h)`);
+      console.log(
+        `Calibration trigger: ${triggerType} (volume=${volumeTriggered}, timeSinceLastCal=${Math.round((Date.now() - lastCal.getTime()) / 3600000)}h)`
+      );
       const ownerId = `${process.pid}-${Date.now()}-${Math.random().toString(36).slice(2, 9)}`;
-      const hasLock = typeof storageAdapter.acquireCalibrationLock === 'function';
-      let lockAcquired = false;
-      if (hasLock) {
-        const lockResult = await storageAdapter.acquireCalibrationLock({ ownerId });
-        lockAcquired = lockResult.acquired;
-        if (!lockAcquired) {
-          console.log(`Calibration skipped: lock held by another process (current holder: ${lockResult.ownerId || 'unknown'})`);
+      const gcsBucket = process.env.GCS_LOCK_BUCKET && String(process.env.GCS_LOCK_BUCKET).trim();
+
+      let lockResult;
+      try {
+        lockResult = await GcsCalibrationLock.acquireLock({
+          bucketName: gcsBucket || undefined,
+          lockPath: 'locks/calibration.lock',
+          ownerId,
+          storageAdapter,
+        });
+      } catch (lockErr) {
+        if (triggerType === 'volume' && typeof storageAdapter.runVolumeCleanupProtocol === 'function') {
+          console.error(
+            'Critical: GCS/Mongo lock acquisition threw. Running emergency aggressive cleanup without lock...',
+            lockErr?.message || lockErr
+          );
+          try {
+            const cleanup = await storageAdapter.runVolumeCleanupProtocol({ mode: 'aggressive' });
+            console.log(
+              `Emergency aggressive cleanup completed: rejected=${cleanup.purgedRejected}, passed=${cleanup.purgedPassed || 0}, run_summaries=${cleanup.purgedRunSummaries || 0}`
+            );
+          } catch (cleanupErr) {
+            console.error(
+              'Emergency cleanup failed — failing run to prevent scrape/email/persist loop:',
+              cleanupErr?.message || cleanupErr
+            );
+            throw cleanupErr;
+          }
+        } else {
+          console.warn(
+            'Calibration skipped: lock acquisition failed (time trigger, no bypass):',
+            lockErr?.message || lockErr
+          );
         }
+        lockResult = { acquired: false };
       }
-      if (!hasLock || lockAcquired) {
+
+      if (!lockResult.acquired) {
+        console.log('Calibration skipped: could not acquire calibration lock.');
+      } else {
         try {
+          if (triggerType === 'volume' && typeof storageAdapter.runVolumeCleanupProtocol === 'function') {
+            const cleanup = await storageAdapter.runVolumeCleanupProtocol({ mode: 'aggressive' });
+            console.log(
+              `Calibration: purge complete rejected=${cleanup.purgedRejected}, passed=${cleanup.purgedPassed || 0}, run_summaries=${cleanup.purgedRunSummaries || 0}`
+            );
+          }
+
           const emailNotifier = createEmailNotifier();
-          const ok = await runCalibrationAndNotify(storageAdapter, emailNotifier, triggerType);
+          const md = await generateCalibrationReportMd(storageAdapter);
+          const subject =
+            triggerType === 'volume'
+              ? '\u{1F6A8} System Alert: DB Volume Trigger'
+              : '\u{1F4CA} Weekly Calibration Report';
+          const ok = await emailNotifier.sendCalibrationAlert(subject, md, triggerType);
+
           if (ok && typeof storageAdapter.updateLastCalibrationTime === 'function') {
             await storageAdapter.updateLastCalibrationTime();
             console.log('Calibration timer reset');
           }
         } finally {
-          if (hasLock && lockAcquired && typeof storageAdapter.releaseCalibrationLock === 'function') {
-            await storageAdapter.releaseCalibrationLock({ ownerId }).catch((releaseErr) => {
-              console.warn('Calibration lock release failed:', releaseErr.message || releaseErr);
-            });
-          }
+          await GcsCalibrationLock.releaseLock({
+            bucketName: gcsBucket || undefined,
+            lockPath: 'locks/calibration.lock',
+            ownerId,
+            storageAdapter,
+          }).catch((releaseErr) => {
+            console.warn('Calibration lock release failed:', releaseErr.message || releaseErr);
+          });
         }
       }
     }
   } catch (calErr) {
     console.warn('Calibration check failed:', calErr.message || calErr);
+    throw calErr;
   }
 
   // Summary with Workday
@@ -647,7 +705,17 @@ async function run() {
 
 if (require.main === module) {
   run()
-    .catch((err) => {
+    .catch(async (err) => {
+      if (isQuotaExhaustedError(err)) {
+        console.error('FATAL: MongoDB quota exhausted (error 8000). Initiating emergency protocol.');
+        try {
+          await handleQuotaExhaustion(err);
+        } catch (emergencyErr) {
+          console.error('Emergency handler failed:', emergencyErr.message || emergencyErr);
+        }
+        process.exit(0);
+        return;
+      }
       console.error('Orchestrator failed:', err && err.message ? err.message : err);
       process.exitCode = 1;
     })
