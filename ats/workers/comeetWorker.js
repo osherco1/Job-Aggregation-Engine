@@ -465,8 +465,10 @@ class ComeetWorker {
    */
   async fetchAllJobs(company, knownJobIds) {
     const companyStartTime = Date.now();
+    const encounteredJobIds = new Set();
     const emptyResult = {
       jobs: [],
+      encounteredJobIds,
       stats: {
         fetched: 0,
         skippedDedup: 0,
@@ -762,6 +764,7 @@ class ComeetWorker {
         const positionUidRaw = rawJob.position_uid ? String(rawJob.position_uid).trim() : '';
         const baseUid = positionUidRaw.includes('-') ? positionUidRaw.split('-')[0] : positionUidRaw;
         const jobId = baseUid ? `comeet_${baseUid}` : null;
+        if (jobId) encounteredJobIds.add(jobId);
 
         if (jobId && knownJobIds && knownJobIds.has(jobId)) {
           stats.skippedDedup = (stats.skippedDedup || 0) + 1;
@@ -973,7 +976,7 @@ class ComeetWorker {
         this.storageAdapter
       );
 
-      return { jobs: finalJobs, stats };
+      return { jobs: finalJobs, stats, encounteredJobIds };
     } catch (err) {
       const message = err && err.message ? err.message : err;
       const errorCode = err.code || null;

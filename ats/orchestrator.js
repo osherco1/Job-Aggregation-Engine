@@ -127,6 +127,7 @@ async function persistResults(allUnifiedJobs, runStats, storageAdapter) {
 async function processBatch(companies, worker, workerName, progressCallback, knownJobIds) {
   const jobs = [];
   const batchErrors = [];
+  const encounteredJobIds = new Set();
   let succeeded = 0;
   let failed = 0;
 
@@ -141,14 +142,29 @@ async function processBatch(companies, worker, workerName, progressCallback, kno
     try {
       const workerResult = await worker.fetchAllJobs(company, knownJobIds);
       let rawJobs = workerResult;
+      let workerEncounteredIds = null;
 
       if (workerResult && !Array.isArray(workerResult) && Array.isArray(workerResult.jobs)) {
         rawJobs = workerResult.jobs;
+      }
+      if (
+        workerResult &&
+        !Array.isArray(workerResult) &&
+        workerResult.encounteredJobIds instanceof Set
+      ) {
+        workerEncounteredIds = workerResult.encounteredJobIds;
+      }
+
+      if (workerEncounteredIds) {
+        for (const id of workerEncounteredIds) {
+          if (id) encounteredJobIds.add(String(id));
+        }
       }
 
       for (const rawJob of rawJobs || []) {
         if (rawJob && rawJob.jobId) {
           jobs.push(rawJob);
+          encounteredJobIds.add(String(rawJob.jobId));
         }
       }
       succeeded += 1;
@@ -162,7 +178,7 @@ async function processBatch(companies, worker, workerName, progressCallback, kno
     }
   }
 
-  return { jobs, stats: { succeeded, failed }, errors: batchErrors };
+  return { jobs, stats: { succeeded, failed }, errors: batchErrors, encounteredJobIds };
 }
 
 /**
@@ -221,6 +237,7 @@ async function runAtsWorkers(errors, storageAdapter, knownJobIds) {
   async function processWorkdayBatch(wdCompanies, progressCallback) {
     const jobs = [];
     const batchErrors = [];
+    const encounteredJobIds = new Set();
     let succeeded = 0;
     let failed = 0;
     const workdayRunStats = [];
@@ -238,11 +255,21 @@ async function runAtsWorkers(errors, storageAdapter, knownJobIds) {
           { storageAdapter, knownJobIds }
         );
 
-        const { jobs: companyJobs, stats: companyStats } = await worker.fetchAllJobs(company);
+        const workerResult = await worker.fetchAllJobs(company);
+        const companyJobs = workerResult?.jobs || [];
+        const companyStats = workerResult?.stats || {};
+        const workerEncounteredIds = workerResult?.encounteredJobIds;
+
+        if (workerEncounteredIds instanceof Set) {
+          for (const id of workerEncounteredIds) {
+            if (id) encounteredJobIds.add(String(id));
+          }
+        }
 
         for (const job of companyJobs || []) {
           if (job && job.jobId) {
             jobs.push(job);
+            encounteredJobIds.add(String(job.jobId));
           }
         }
         workdayRunStats.push({ companyId: company.id, companyName: company.name, ...companyStats });
@@ -258,7 +285,7 @@ async function runAtsWorkers(errors, storageAdapter, knownJobIds) {
       }
     }
 
-    return { jobs, stats: { succeeded, failed }, errors: batchErrors, workdayRunStats };
+    return { jobs, stats: { succeeded, failed }, errors: batchErrors, workdayRunStats, encounteredJobIds };
   }
 
   // Run ALL THREE batches in TRUE PARALLEL
@@ -286,6 +313,17 @@ async function runAtsWorkers(errors, storageAdapter, knownJobIds) {
     ...workdayResult.jobs
   ];
 
+  const atsEncounteredIds = new Set();
+  for (const id of comeetResult.encounteredJobIds || []) {
+    if (id) atsEncounteredIds.add(String(id));
+  }
+  for (const id of greenhouseResult.encounteredJobIds || []) {
+    if (id) atsEncounteredIds.add(String(id));
+  }
+  for (const id of workdayResult.encounteredJobIds || []) {
+    if (id) atsEncounteredIds.add(String(id));
+  }
+
   // Merge errors
   errors.push(
     ...comeetResult.errors,
@@ -311,8 +349,17 @@ async function runAtsWorkers(errors, storageAdapter, knownJobIds) {
 
   await persistResults(allAtsJobs, runStats, storageAdapter);
 
-  // Dual-trigger calibration: volume (logical size >= 400MB) OR time >= 7 days.
-  // Strict sequence under GCS lock (Mongo fallback when GCS_LOCK_BUCKET unset): Acquire → Purge (if volume) → Report → Email → Timer → Release (finally).
+  if (atsEncounteredIds.size > 0) {
+    try {
+      await storageAdapter.saveSeenJobIds(atsEncounteredIds);
+      console.log(`Saved ${atsEncounteredIds.size} ATS encountered IDs to seen_jobs`);
+    } catch (seenErr) {
+      console.warn('Failed to persist ATS encountered IDs to seen_jobs:', seenErr.message || seenErr);
+    }
+  }
+
+  // Dual-trigger calibration: volume (logical size >= 200MB) OR time >= 7 days.
+  // Strict sequence under GCS lock (Mongo fallback when GCS_LOCK_BUCKET unset): Acquire → Report → Purge (if volume) → Email → Timer → Release (finally).
   try {
     const SEVEN_DAYS_MS = 7 * 24 * 60 * 60 * 1000;
     const volumeTriggered = await checkVolumeTrigger(storageAdapter);
@@ -368,15 +415,25 @@ async function runAtsWorkers(errors, storageAdapter, knownJobIds) {
         console.log('Calibration skipped: could not acquire calibration lock.');
       } else {
         try {
+          const heapBeforeReport = process.memoryUsage().heapUsed;
+          const reportStarted = Date.now();
+          const md = await generateCalibrationReportMd(storageAdapter);
+          const reportMs = Date.now() - reportStarted;
+          const heapAfterReport = process.memoryUsage().heapUsed;
+          console.log(
+            `Calibration: report generated in ${reportMs}ms (heap delta: ${Math.round((heapAfterReport - heapBeforeReport) / 1024)} KB)`
+          );
+
           if (triggerType === 'volume' && typeof storageAdapter.runVolumeCleanupProtocol === 'function') {
+            const purgeStarted = Date.now();
             const cleanup = await storageAdapter.runVolumeCleanupProtocol({ mode: 'aggressive' });
+            const purgeMs = Date.now() - purgeStarted;
             console.log(
-              `Calibration: purge complete rejected=${cleanup.purgedRejected}, passed=${cleanup.purgedPassed || 0}, run_summaries=${cleanup.purgedRunSummaries || 0}`
+              `Calibration: purge complete in ${purgeMs}ms rejected=${cleanup.purgedRejected}, passed=${cleanup.purgedPassed || 0}, run_summaries=${cleanup.purgedRunSummaries || 0}`
             );
           }
 
           const emailNotifier = createEmailNotifier();
-          const md = await generateCalibrationReportMd(storageAdapter);
           const subject =
             triggerType === 'volume'
               ? '\u{1F6A8} System Alert: DB Volume Trigger'
@@ -598,9 +655,20 @@ async function run() {
     const linkedinErrors = [];
 
     // Load known job IDs BEFORE the parallel phase (for ATS silent dedup)
-    const knownJobIds = process.env.RESET_DEDUP === 'true'
-      ? new Set()
-      : await storageAdapter.loadSentHistory();
+    let knownJobIds;
+    if (process.env.RESET_DEDUP === 'true') {
+      knownJobIds = new Set();
+    } else {
+      const [sentHistoryIds, seenIds] = await Promise.all([
+        storageAdapter.loadSentHistory(),
+        storageAdapter.loadSeenJobIds(),
+      ]);
+      knownJobIds = new Set([...(sentHistoryIds || []), ...(seenIds || [])]);
+      console.log(
+        `Silent dedup memory: sent=${(sentHistoryIds && sentHistoryIds.size) || 0}, ` +
+        `seen=${(seenIds && seenIds.size) || 0}, union=${knownJobIds.size}`
+      );
+    }
     if (process.env.RESET_DEDUP === 'true') {
       console.log('⚠️  [TEST MODE] Bypassing Silent Dedup (knownJobIds empty)');
     }

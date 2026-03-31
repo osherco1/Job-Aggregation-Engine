@@ -353,6 +353,7 @@ class GreenhouseWorker {
    * @returns {Promise<{jobs: Array<UnifiedJob>, stats: object}>}
    */
   async fetchAllJobs(company, knownJobIds) {
+    const encounteredJobIds = new Set();
     // Human-like delay before fetching (avoid WAF detection)
     const delayMs = await randomDelay(GREENHOUSE_DELAY_MIN_MS, GREENHOUSE_DELAY_MAX_MS);
     logRuntime(`Sleeping for ${delayMs}ms before fetching ${company.name || company.id}...`, 'DEBUG', this.storageAdapter);
@@ -360,6 +361,7 @@ class GreenhouseWorker {
     const companyStartTime = Date.now();
     const emptyResult = {
       jobs: [],
+      encounteredJobIds,
       stats: {
         fetched: 0,
         skippedDedup: 0,
@@ -539,6 +541,7 @@ class GreenhouseWorker {
       // Process each raw job
       for (const rawJob of rawJobs) {
         const jobId = rawJob.id ? `gh_${String(rawJob.id).trim()}` : null;
+        if (jobId) encounteredJobIds.add(jobId);
 
         if (jobId && knownJobIds && knownJobIds.has(jobId)) {
           stats.skippedDedup = (stats.skippedDedup || 0) + 1;
@@ -717,7 +720,7 @@ class GreenhouseWorker {
         this.storageAdapter
       );
 
-      return { jobs: finalJobs, stats };
+      return { jobs: finalJobs, stats, encounteredJobIds };
     } catch (err) {
       const message = err && err.message ? err.message : err;
       const errorCode = err.code || null;

@@ -377,6 +377,7 @@ class WorkdayWorker {
      */
     async fetchJobs() {
         this.runStats.startTime = new Date().toISOString();
+        const encounteredJobIds = new Set();
 
         // Step 0: Initialize session (CRITICAL for Workday)
         const sessionOk = await this.initSession();
@@ -479,6 +480,9 @@ class WorkdayWorker {
 
                 for (const rawJob of jobs) {
                     const unified = this._normalizeJob(rawJob);
+                    if (unified && unified.jobId) {
+                        encounteredJobIds.add(String(unified.jobId));
+                    }
 
                     if (!unified) {
                         stats.dropped += 1;
@@ -605,7 +609,7 @@ class WorkdayWorker {
 
         log(`${this.companyName}: Fetched ${stats.fetched}, Kept ${stats.kept}, Dropped ${stats.dropped}`);
 
-        return { jobs: allJobs, stats };
+        return { jobs: allJobs, stats, encounteredJobIds };
     }
 
     /**

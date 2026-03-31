@@ -1,9 +1,9 @@
 # SYSTEM_REFERENCE.md — Job Aggregation Engine
 
-> **Generated:** 2026-03-08  
-> **Codebase Version:** v6.3 (Discovery + Calibration Tooling)  
+> **Generated:** 2026-03-23  
+> **Codebase Version:** v7.1 (Distributed Resilience & Quota Catch-22 Resolution)  
 > **Source of Truth for:** Browser-based Lead Architect (Gemini/ChatGPT/Claude Web)  
-> **Codebase State:** Proactive calibration CLI, DB quota management, harvest_tokens failure evasion, discovery pipeline handoff stabilized.
+> **Codebase State:** GCS-backed distributed calibration lock, quota-exhaustion fail-safe alerting, 200MB volume threshold (chosen to leave ample logical and memory headroom for calibration report generation before aggressive purge), aggressive purge protocol, and Cloud Run retry hardening.
 
 ---
 
@@ -12,7 +12,7 @@
 **Name:** Job Aggregation Engine (aka "LinkedIn Job Bot" / "JobBot")  
 **Repository:** `https://github.com/osherco1/Job-Aggregation-Engine`  
 **Owner:** oshercohen78  
-**Version:** v6.3 (commit `d52d6fa` on `main`)  
+**Version:** v7.1 (commit `eed9505` on `main`)  
 **Active Branch:** `main`
 
 **Purpose:** Automated job aggregation engine targeting junior/entry-level technical positions in Israel. The system scrapes four data sources on a scheduled basis:
@@ -38,6 +38,7 @@ The pipeline deduplicates jobs across runs using persistent history in MongoDB, 
 | Secrets | GCP Secret Manager | LinkedIn cookies, MongoDB URI, SMTP credentials |
 | Email | Gmail SMTP via nodemailer ^7.0.11 | App Password auth via `JOBBOT_SMTP_PASS` |
 | Container | Docker | Image: `gcr.io/$PROJECT_ID/jobbot-image` |
+| Distributed Lock / Atomic Flags | @google-cloud/storage ^7.14.0 | GCS lock file (`ifGenerationMatch:0`) + exactly-once quota alert flag |
 | HTTP Client | axios ^1.13.2 | With cookie jar support (`axios-cookiejar-support` ^6.0.5) for Workday |
 | Cookie Management | tough-cookie ^6.0.0 | Workday PLAY_SESSION / wday_vps_cookie management |
 | HTML Parsing | cheerio ^1.1.2 | Available in deps but not actively used in core pipeline |
@@ -120,18 +121,29 @@ The pipeline deduplicates jobs across runs using persistent history in MongoDB, 
      node ats/orchestrator.js
 ```
 
+### Calibration & Quota Resilience Control Path (v7.1)
+
+Within `runAtsWorkers()`, calibration is now an explicit post-summary control path with distributed locking and fail-safe behavior:
+
+1. `checkVolumeTrigger(storageAdapter)` compares logical DB size (`dataSize + indexSize`) to `VOLUME_THRESHOLD_BYTES` (200MB). The threshold is intentionally well below the Atlas 512MB cap so the job can materialize the markdown report in memory before any aggressive purge runs.
+2. Trigger condition is `volumeTriggered || timeTriggered` (7-day cadence fallback).
+3. `GcsCalibrationLock.acquireLock()` is attempted first (`GCS_LOCK_BUCKET` path) with Mongo `system_state` fallback in local/no-bucket scenarios.
+4. On successful lock acquire: generate markdown report first; volume triggers then run `runVolumeCleanupProtocol({ mode: 'aggressive' })` (delete all `calibration_rejected` + `calibration_passed`); then send calibration email (report attached); then update timer.
+5. Quota error `code=8000` is handled in top-level `run().catch`: `handleQuotaExhaustion()` sends exactly one emergency alert via atomic GCS flag and exits with `process.exit(0)` to prevent Cloud Run retry loops.
+
 ### Phase Timing & Parallelism
 
 | Phase | Name | Parallelism | File:Line | Description |
 |-------|------|-------------|-----------|-------------|
-| 0 | Load knownJobIds | Sequential (before parallel) | `orchestrator.js:520-522` | `const knownJobIds = await storageAdapter.loadSentHistory()` (or empty Set if `RESET_DEDUP=true`) |
-| 1+2 | ATS + LinkedIn | **True Parallel** via `Promise.allSettled` | `orchestrator.js:530-532` | Total runtime = max(ATS, LinkedIn), not sum |
-| 1 | ATS Workers | **Parallel** via `Promise.all` (Comeet ‖ Greenhouse ‖ Workday) | `orchestrator.js:230-265` | Three `Promise.all` branches |
-| 2 | LinkedIn | Parallel with Phase 1 | `orchestrator.js:530-532` | Sequential internally (query → paginate → enrich) |
-| 3 | Deduplication | Sequential | `orchestrator.js:575` | `jobStateService.filterNewJobs(allJobs)` via `deduplicateJobs()` |
-| 4 | Email | Sequential | `orchestrator.js:577` | `emailNotifier.sendUnifiedReport(newJobs, errors)` |
-| 5 | Persist | Sequential | `orchestrator.js:581` | `jobStateService.persistState()` |
-| 5b | Calibration | Sequential | `orchestrator.js:584-591` | `storageAdapter.writeCalibrationPassed(newJobs)` |
+| 0 | Load knownJobIds | Sequential (before parallel) | `orchestrator.js:601-603` | `const knownJobIds = await storageAdapter.loadSentHistory()` (or empty Set if `RESET_DEDUP=true`) |
+| 1+2 | ATS + LinkedIn | **True Parallel** via `Promise.allSettled` | `orchestrator.js:611-614` | Total runtime = max(ATS, LinkedIn), not sum |
+| 1 | ATS Workers | **Parallel** via `Promise.all` (Comeet ‖ Greenhouse ‖ Workday) | `orchestrator.js:230-295` | Three batch branches with isolated error collection |
+| 2 | LinkedIn | Parallel with Phase 1 | `orchestrator.js:611-614` | Sequential internally (query → paginate → enrich) |
+| 2.5 | Calibration Trigger Path | Sequential (inside ATS phase) | `orchestrator.js:314-415` | Trigger gate + lock acquire + report + (volume purge) + calibration email + timer reset + lock release |
+| 3 | Deduplication | Sequential | `orchestrator.js:656` | `jobStateService.filterNewJobs(allJobs)` via `deduplicateJobs()` |
+| 4 | Email | Sequential | `orchestrator.js:659` | `emailNotifier.sendUnifiedReport(newJobs, errors)` |
+| 5 | Persist | Sequential | `orchestrator.js:662` | `jobStateService.persistState()` |
+| 5b | Calibration Passed Write | Sequential | `orchestrator.js:664-672` | `storageAdapter.writeCalibrationPassed(newJobs)` after successful report email |
 
 ---
 
@@ -141,7 +153,7 @@ The pipeline deduplicates jobs across runs using persistent history in MongoDB, 
 
 | File Path | Purpose | Key Exports | Dependencies |
 |-----------|---------|-------------|-------------|
-| `ats/orchestrator.js` (549 lines) | Entry point. Runs all phases, manages parallel execution, handles teardown. No orchestrator-level filteredJobsBuffer (workers persist their own calibration_rejected). | `{ run }` | `services/storage`, `services/JobStateService`, `services/EmailNotifier`, all workers, `linkedin_client`, `mailer`, `config/paths` |
+| `ats/orchestrator.js` (733 lines) | Entry point. Runs ATS+LinkedIn in parallel, owns calibration trigger flow with lock/report/purge/email sequencing, and enforces quota fail-safe exit masking. | `{ run }` | `services/storage`, `services/JobStateService`, `services/EmailNotifier`, `services/calibration/calibrationReport`, `services/lock/GcsCalibrationLock`, `services/emergency/gcsAlertManager`, all workers, `linkedin_client`, `mailer`, `config/paths` |
 | `ats/config/companiesConfig.js` (22 lines) | Thin wrapper around `StorageAdapter.loadCompanies()` | `{ loadCompaniesConfig, COMPANIES_FILE }` | `path` |
 
 ### `ats/workers/` — ATS Source Workers
@@ -182,10 +194,22 @@ The pipeline deduplicates jobs across runs using persistent history in MongoDB, 
 
 | File Path | Purpose | Key Exports | Dependencies |
 |-----------|---------|-------------|-------------|
-| `services/storage/StorageAdapter.js` (100 lines) | Abstract interface defining the storage contract. All methods are async. `writeCalibrationRejected()` and `writeCalibrationPassed()` are no-op by default. `close()` is no-op by default. | `{ StorageAdapter }` | None |
-| `services/storage/MongoStorageAdapter.js` (526 lines) | MongoDB Atlas implementation. 7 collection constants (SEEN_JOBS, ATS_SENT_HISTORY, COMPANIES, CALIBRATION_REJECTED, CALIBRATION_PASSED, RUN_SUMMARIES, SYSTEM_STATE). Manages connection pool (maxPoolSize: 10), TTL index creation, `_stripJobForCalibration()`, fail-fast `persistSentHistory()`, `getCollection()`, `getLastCalibrationTime()`, `updateLastCalibrationTime()`. | `{ MongoStorageAdapter }` | `mongodb`, `StorageAdapter` |
+| `services/storage/StorageAdapter.js` (136 lines) | Abstract interface defining the storage contract. All methods are async. Adds default no-op/empty implementations for calibration/report helpers (`writeCalibrationRejected`, `writeCalibrationPassed`, `getCalibrationRejectedAggregated`) and keeps `close()` as no-op by default. | `{ StorageAdapter }` | None |
+| `services/storage/MongoStorageAdapter.js` (782 lines) | MongoDB Atlas implementation. 7 collection constants including `SYSTEM_STATE`; bounded TTL strategy (60d/60d/30d/90d/180d), logical quota sizing (`getDbQuotaBytes()`), cleanup modes (`aggressive`, `retention24h`, `legacy7d`), lock APIs (`acquireCalibrationLock`, `releaseCalibrationLock`), and fail-fast `persistSentHistory()`. | `{ MongoStorageAdapter }` | `mongodb`, `StorageAdapter` |
 | `services/storage/FileStorageAdapter.js` (390 lines) | Local file-based implementation. Reads/writes JSON under `data/`. Merges `companies_list.json`, `comeet_companies_auto.json`, `greenhouse_list.csv`, `workday_companies.json`. The only code path that uses `csv-parser`. | `{ FileStorageAdapter }` | `fs`, `path`, `csv-parser` (optional), `StorageAdapter`, `config/paths` |
 | `services/storage/index.js` (30 lines) | Factory function `createStorageAdapter()`. Selects adapter based on `STORAGE_BACKEND` env var or presence of `MONGODB_URI`. | `{ createStorageAdapter, FileStorageAdapter, MongoStorageAdapter }` | Both adapters |
+
+### `services/lock/` — Distributed Coordination
+
+| File Path | Purpose | Key Exports | Dependencies |
+|-----------|---------|-------------|-------------|
+| `services/lock/GcsCalibrationLock.js` (210 lines) | Distributed calibration lock using GCS object preconditions (`ifGenerationMatch: 0`) with stale-lock cleanup and Mongo lock fallback when `GCS_LOCK_BUCKET` is unset. | `{ acquireLock, releaseLock, cleanupStaleLock, isPreconditionFailed }` | `@google-cloud/storage` |
+
+### `services/emergency/` — Quota Exhaustion Safeguards
+
+| File Path | Purpose | Key Exports | Dependencies |
+|-----------|---------|-------------|-------------|
+| `services/emergency/gcsAlertManager.js` (119 lines) | Exactly-once quota exhaustion emergency alerting via atomic GCS flag creation; exposes `isQuotaExhaustedError` and `handleQuotaExhaustion`. | `{ isQuotaExhaustedError, handleQuotaExhaustion, DEFAULT_FLAG_PATH }` | `@google-cloud/storage`, `mailer` |
 
 ### `config/` — Configuration
 
@@ -209,7 +233,9 @@ The pipeline deduplicates jobs across runs using persistent history in MongoDB, 
 |-----------|---------|
 | `tools/analyze_logs.js` | Log analysis utility |
 | `tools/reset_data.js` | Data reset utility |
-| `tools/run_proactive_calibration.js` | **Proactive calibration CLI.** Safe mode: generates MD report to `docs/analyze/`, shows would-delete counts. `--confirm`: purges calibration_rejected/calibration_passed, updates system_state.lastCalibrationAt. Protects 512MB Atlas quota. |
+| `tools/run_proactive_calibration.js` | **Proactive calibration CLI.** Safe mode: generates MD report to `docs/analyze/`, shows would-delete counts. `--confirm`: runs `runVolumeCleanupProtocol({ mode: 'aggressive' })`, then updates `system_state.calibration_timer`. |
+| `tools/emergency_purge.js` | Direct emergency nuke utility for `calibration_rejected` + `calibration_passed` when report generation is too heavy under quota pressure. |
+| `tools/verify_calibration_lock_and_purge.js` | Verification suite for lock acquire/release, stale-lock stealing, exclusivity, and aggressive purge behavior. |
 | `tools/comeet_hunter.js` | Single Comeet company discovery |
 | `tools/comeet_hunter_mass.js` | Mass Comeet company discovery |
 | `tools/comeet/harvest_tokens.js` | Puppeteer token harvester. Fetches Comeet tokens from `window.COMPANY_DATA`. On failure: sets `enabled: false` in MongoDB (prevents infinite retry loops from Perplexity hallucinations). |
@@ -225,7 +251,7 @@ The pipeline deduplicates jobs across runs using persistent history in MongoDB, 
 
 | File Path | Purpose |
 |-----------|---------|
-| `services/calibration/calibrationReport.js` | `generateCalibrationReportMd(storageAdapter)` — aggregation pipelines, markdown report. Used by `run_proactive_calibration.js`. |
+| `services/calibration/calibrationReport.js` (499 lines) | `checkVolumeTrigger()`, `runVolumeCleanup()`, `generateCalibrationReportMd()`, `runCalibrationAndNotify()`. Defines 200MB `VOLUME_THRESHOLD_BYTES` (headroom for report-before-purge) and fail-fast cleanup contract. |
 
 ---
 
@@ -235,13 +261,13 @@ The pipeline deduplicates jobs across runs using persistent history in MongoDB, 
 
 | Collection | Purpose | Key Fields | TTL | Write Method | Read Method |
 |-----------|---------|-----------|-----|-------------|------------|
-| `seen_jobs` | LinkedIn dedup memory — tracks every job ID ever seen in search results | `_id` (jobId), `source: 'linkedin'`, `firstSeenAt` ($setOnInsert), `lastSeenAt` ($set), `createdAt` ($setOnInsert) | None (permanent) | `saveSeenJobIds(ids)` — `bulkWrite` with `upsert: true`, `ordered: false` | `loadSeenJobIds()` — `find({}).toArray()` → `Set<string>` from `_id` |
-| `ats_sent_history` | ATS+LinkedIn dedup — job IDs that were successfully emailed | `_id` (jobId), `sentAt` ($setOnInsert), `lastUpdatedAt` ($set), `createdAt` ($setOnInsert), `...metadata` | None (permanent) | `persistSentHistory(ids, metadata)` — `bulkWrite` with `upsert: true`, `ordered: false`. **FAIL-FAST: throws on error** | `loadSentHistory()` — `find({}).toArray()` → `Set<string>` from `_id` |
+| `seen_jobs` | LinkedIn dedup memory — tracks every job ID ever seen in search results | `_id` (jobId), `source: 'linkedin'`, `firstSeenAt` ($setOnInsert), `lastSeenAt` ($set), `createdAt` ($setOnInsert) | **90 days** (TTL index on `createdAt`) | `saveSeenJobIds(ids)` — `bulkWrite` with `upsert: true`, `ordered: false` | `loadSeenJobIds()` — `find({}).toArray()` → `Set<string>` from `_id` |
+| `ats_sent_history` | ATS+LinkedIn dedup — job IDs that were successfully emailed | `_id` (jobId), `sentAt` ($setOnInsert), `lastUpdatedAt` ($set), `createdAt` ($setOnInsert), `...metadata` | **180 days** (TTL index on `createdAt`) | `persistSentHistory(ids, metadata)` — `bulkWrite` with `upsert: true`, `ordered: false`. **FAIL-FAST: throws on error** | `loadSentHistory()` — `find({}).toArray()` → `Set<string>` from `_id` |
 | `companies` | ATS company configs (pre-seeded via manual insert) | `_id`, `name`, `type` (comeet/greenhouse/workday), `uid`, `token`, `url`, `apiBaseUrl`, `enabled` | None (static) | Manual seed | `loadCompanies()` — `find({ enabled: { $ne: false } }).toArray()` |
 | `calibration_rejected` | Lightweight metadata of jobs rejected by business-logic filters. For filter tuning analysis. | `jobId`, `title`, `companyName`, `location`, `url`, `reason`, `source`, `createdAt` | **60 days** (TTL index on `createdAt`) | `writeCalibrationRejected(jobs)` — `insertMany(docs, { ordered: false })` | Manual Atlas query (filter by `reason` for tuning) |
-| `calibration_passed` | Lightweight metadata of jobs that passed all filters and were emailed | `jobId`, `title`, `companyName`, `location`, `url`, `source`, `createdAt` | None (permanent; recommended future: 30d) | `writeCalibrationPassed(jobs)` — `insertMany(docs, { ordered: false })` | Manual Atlas query |
+| `calibration_passed` | Lightweight metadata of jobs that passed all filters and were emailed | `jobId`, `title`, `companyName`, `location`, `url`, `source`, `createdAt` | **60 days** (TTL index on `createdAt`) | `writeCalibrationPassed(jobs)` — `insertMany(docs, { ordered: false })` | Manual Atlas query |
 | `run_summaries` | Per-run execution statistics for observability | `runId`, `source` (ats/comeet/greenhouse/linkedin), `type: 'summary'`, `timestamp`, `payload` (full stats), `createdAt` | **30 days** (TTL index on `createdAt`) | `writeRunLog({ type: 'summary', ... })` — `insertOne(doc)` | Manual Atlas query |
-| `system_state` | Calibration timer and DB health metadata | `lastCalibrationAt`, `_id` | None | `updateLastCalibrationTime()` — `updateOne` | `getLastCalibrationTime()` |
+| `system_state` | Calibration timer + fallback lock state | `_id`, `lastCalibrationAt` (`calibration_timer`), `isLocked`, `ownerId`, `expiresAt` (`calibration_lock`) | None | `updateLastCalibrationTime()`, `acquireCalibrationLock()`, `releaseCalibrationLock()` | `getLastCalibrationTime()` |
 
 ### TTL Index Configuration
 
@@ -249,15 +275,18 @@ Created automatically on first connection via `MongoStorageAdapter._ensureTTLInd
 
 | Collection | Index Field | TTL Seconds | TTL Days |
 |-----------|-------------|-------------|----------|
+| `seen_jobs` | `createdAt` | 7,776,000 | 90 days |
+| `ats_sent_history` | `createdAt` | 15,552,000 | 180 days |
 | `calibration_rejected` | `createdAt` | 5,184,000 | 60 days |
+| `calibration_passed` | `createdAt` | 5,184,000 | 60 days |
 | `run_summaries` | `createdAt` | 2,592,000 | 30 days |
 
 ### Eradicated Collections
 
 | Collection | Status | Evidence | Why Removed |
 |-----------|--------|----------|------------|
-| `run_logs` | **DEAD** | No `RUN_LOGS` constant in `MongoStorageAdapter.js:26-33`. `writeRunLog()` has hardcoded gate: `if (type !== 'summary') { return; }` at `MongoStorageAdapter.js:325`. | Accumulated thousands of `runtime`, `error`, and `raw` documents per run (~6.7MB/day). Replaced by console-only logging + summary-only DB writes. |
-| `enriched_jobs` | **DEAD** | `writeEnrichedJobs()` deleted from all 3 adapter layers. Zero function calls remain in active code. Only reference is comment at `orchestrator.js:100`. | Stored full raw API responses + HTML descriptions (2-10KB each). Each run wrote hundreds of docs, rapidly consuming 512MB M0 quota. Replaced by `calibration_passed` (lightweight ~200 bytes/doc). |
+| `run_logs` | **DEAD** | No `RUN_LOGS` constant in `MongoStorageAdapter.js:26-33`. `writeRunLog()` has hardcoded gate: `if (type !== 'summary') { return; }` at `MongoStorageAdapter.js:434`. | Accumulated thousands of `runtime`, `error`, and `raw` documents per run (~6.7MB/day). Replaced by console-only logging + summary-only DB writes. |
+| `enriched_jobs` | **DEAD** | `writeEnrichedJobs()` deleted from all 3 adapter layers. Zero function calls remain in active code. Only reference is comment at `orchestrator.js:97`. | Stored full raw API responses + HTML descriptions (2-10KB each). Each run wrote hundreds of docs, rapidly consuming 512MB M0 quota. Replaced by `calibration_passed` (lightweight ~200 bytes/doc). |
 
 **Ghost Writer Warning:** If these collections reappear in Atlas, it means a stale Cloud Run deployment is running old code. Resolution: `gcloud run jobs deploy jobbot-runner --source . --region europe-west1`.
 
@@ -281,6 +310,8 @@ Every method is `async`. Default implementations throw for required methods and 
 | `writeRunLog(entry: { type, source, timestamp, payload })` → `Promise<void>` | Yes | throws |
 | `writeCalibrationRejected(jobs: Array<Object>)` → `Promise<void>` | No | no-op |
 | `writeCalibrationPassed(jobs: Array<Object>)` → `Promise<void>` | No | no-op |
+| `getCalibrationRejectedAggregated(limit?: number)` → `Promise<Array<Object>>` | No | empty array |
+| `upsertCompany(company: Object)` → `Promise<void>` | Yes | throws |
 | `close()` → `Promise<void>` | No | no-op |
 
 ### `FileStorageAdapter` — Local Development
@@ -299,10 +330,13 @@ Every method is `async`. Default implementations throw for required methods and 
 - Connects to MongoDB Atlas via `MongoClient` with `maxPoolSize: 10`, `minPoolSize: 1`, `serverSelectionTimeoutMS: 5000`
 - Lazy connection: `_ensureConnected()` called before every operation
 - Database name extracted from URI path or defaults to `jobbot_db`
-- 6 collection constants (line 26-33): `SEEN_JOBS`, `ATS_SENT_HISTORY`, `COMPANIES`, `CALIBRATION_REJECTED`, `CALIBRATION_PASSED`, `RUN_SUMMARIES`
-- TTL indexes created on first connection (non-blocking, `_ensureTTLIndexes()`)
-- `_stripJobForCalibration(job)` at line 303: strips all heavy fields, returns `{ jobId, title, companyName, location, url, reason, source }`
-- `persistSentHistory()`: **FAIL-FAST** — catches error, logs it, then re-throws (`MongoStorageAdapter.js:234`)
+- 7 collection constants (`SEEN_JOBS`, `ATS_SENT_HISTORY`, `COMPANIES`, `CALIBRATION_REJECTED`, `CALIBRATION_PASSED`, `RUN_SUMMARIES`, `SYSTEM_STATE`)
+- TTL indexes created on first connection (non-blocking, `_ensureTTLIndexes()`) for 60d/60d/30d/90d/180d lifecycle bounds
+- `getDbQuotaBytes()` reads logical usage via `dbStats.dataSize + dbStats.indexSize` (used by volume trigger)
+- `runVolumeCleanupProtocol(options)` supports `aggressive`, `retention24h`, `legacy7d`; throws on Mongo errors (fail-fast)
+- `acquireCalibrationLock()` / `releaseCalibrationLock()` provide Mongo fallback distributed lock semantics in `system_state`
+- `_stripJobForCalibration(job)` strips heavy payload fields while preserving calibration observability fields
+- `persistSentHistory()`: **FAIL-FAST** — catches error, logs it, then re-throws (`MongoStorageAdapter.js:238-245`)
 - `close()`: Closes `MongoClient` connection, sets `connected = false`
 
 ### Factory Function (`services/storage/index.js`)
@@ -336,9 +370,9 @@ function createStorageAdapter():
 
 Cloud Run Jobs can reuse warm containers across invocations. Module-level singletons would leak state (job IDs, connection handles, error counts) between runs. All services are instantiated fresh inside `run()`:
 
-- `orchestrator.js:494` → `createStorageAdapter()`
-- `orchestrator.js:567` → `createJobStateService(storageAdapter)`
-- `orchestrator.js:568` → `createEmailNotifier()`
+- `orchestrator.js:575` → `createStorageAdapter()`
+- `orchestrator.js:648` → `createJobStateService(storageAdapter)`
+- `orchestrator.js:649` → `createEmailNotifier()`
 
 ### Orchestrator-Level Calibration (Removed)
 
@@ -569,6 +603,8 @@ LinkedIn Voyager Search Response (per query per page)
 |------|---------|---------|--------|
 | `STORAGE_BACKEND` | `file` (if no `MONGODB_URI`) | `mongo` → MongoStorageAdapter; else FileStorageAdapter | `services/storage/index.js:12` |
 | `JOBBOT_TO_EMAIL` | Falls back to `JOBBOT_SMTP_USER` | Recipient email for job reports | `mailer.js:97`, `EmailNotifier.js` |
+| `GCS_LOCK_BUCKET` | Not set | Enables distributed lock + quota alert atomic flag via GCS object preconditions | `orchestrator.js`, `services/lock/GcsCalibrationLock.js`, `services/emergency/gcsAlertManager.js` |
+| `GCS_QUOTA_ALERT_FLAG_PATH` | `flags/quota-alert-sent.flag` | Optional custom path for exactly-once quota alert flag object | `services/emergency/gcsAlertManager.js:66` |
 | `NODE_ENV` | Not set locally; `production` in Dockerfile | Used by npm (no code dependency) | `Dockerfile:6` |
 
 ### Debug & Feature Flags
@@ -613,7 +649,7 @@ LinkedIn Voyager Search Response (per query per page)
 
 | Failure Mode | Symptom | Root Cause | Resolution |
 |-------------|---------|-----------|-----------|
-| **MongoDB quota exceeded** | `"you are over your space quota"` errors in logs; dedup breaks causing duplicate emails | Atlas M0 512MB storage limit reached | Run `npm run calibrate:report` to generate diagnostic report. Run `npm run calibrate:purge` with `--confirm` to purge legacy calibration_rejected/calibration_passed. Reduce TTLs. Verify silent dedup (check `skippedDedup` in run_summaries). |
+| **MongoDB quota exceeded** | Error code `8000` or `"you are over your space quota"`; persistence/calibration lock writes can fail | Atlas M0 512MB storage limit reached | Primary: run `npm run calibrate:purge` (aggressive mode) or `node tools/emergency_purge.js` to free space fast. On orchestrator fatal path, `handleQuotaExhaustion()` sends one emergency email via GCS atomic flag and exits `0` to prevent Cloud Run retry storms. |
 | **LinkedIn auth redirect (302/303)** | `LinkedInAuthChallengeError` thrown; 0 LinkedIn jobs; critical alert email sent automatically | Session cookie (`li_at`) expired or LinkedIn flagged the bot | Rotate `LINKEDIN_LI_AT`, `JSESSIONID`, `CSRF_TOKEN` in Secret Manager from a fresh authenticated browser session. Ensure JSESSIONID matches CSRF_TOKEN. |
 | **LinkedIn auth fail (401)** | `CRITICAL_AUTH_FAIL` error thrown; bot stops LinkedIn phase | Cookie invalid | Same as 302/303 resolution |
 | **LinkedIn rate limit (429)** | `Rate limited (429)` error during fetchJobDetails | Too many enrichment requests too quickly | Built-in: scraper pauses 3-6s between enrichments. If persistent, increase delays. |
@@ -622,6 +658,7 @@ LinkedIn Voyager Search Response (per query per page)
 | **Comeet WAF block (403/406)** | WAF blocked warning in logs; 2-5 min cooldown auto-applied | Comeet/Cloudflare rate protection triggered | Increase `COMEET_DELAY_*_MS` or `COMEET_COOLDOWN_*_MS`. The 2-5 min cooldown is automatic. |
 | **Comeet rate limit (429)** | `429` responses persist after 2 retry attempts | API rate limit exceeded despite backoff | Increase `COMEET_RATE_LIMIT_*_MS` (currently 9-11s). Reduce `COMEET_BATCH_SIZE` (currently 12). |
 | **Persist failure (fail-fast)** | Orchestrator logs `"Failed to persist sent history"` then crashes | MongoDB connectivity issue or quota exceeded during bulkWrite | Check MongoDB Atlas status, connectivity from Cloud Run region. If quota issue, clear old data and reduce TTLs. |
+| **Calibration lock contention** | `"Calibration skipped: could not acquire calibration lock."` | Another job instance currently holds lock (GCS file exists and not stale) | Expected under overlaps. Keep behavior; only one runner should calibrate/email. Ensure `GCS_LOCK_BUCKET` is configured and lifecycle policy deletes stale lock objects (1 day). |
 | **Stale Cloud Run deployment** | Zombie collections (`run_logs`, `enriched_jobs`) reappear in Atlas after manual drop | Cloud Run container still running pre-refactor Docker image | Redeploy: `gcloud run jobs deploy jobbot-runner --source . --region europe-west1` from Cloud Shell |
 | **Email send failure** | `EmailNotifier: Failed to send email` in logs | SMTP auth failure (bad App Password) or Gmail restrictions | Verify `JOBBOT_SMTP_PASS` is valid Gmail App Password. `JobStateService.rollback()` is automatically called — pending job IDs are NOT committed to history. |
 | **CSRF/JSESSIONID mismatch** | `LinkedInAuthChallengeError` thrown at startup | `LINKEDIN_CSRF_TOKEN` and `LINKEDIN_JSESSIONID` don't match | `linkedin_client.js:55-60` validates these match. Both values must be copied from the same browser session. |
@@ -732,6 +769,7 @@ Two-step pipeline: build Docker image → push to Google Container Registry. `CL
 | **Timeout** | Default (10 min for Jobs) |
 | **Entrypoint** | `node ats/orchestrator.js` (from `CMD` in Dockerfile) |
 | **Concurrency** | 1 (single task execution) |
+| **Max retries** | `0` (manual hardening via `infrastructure_update.sh`) |
 
 ### Cloud Scheduler
 
@@ -750,6 +788,14 @@ gcloud run jobs deploy jobbot-runner --source . --region europe-west1
 
 This builds the image in Cloud Build, pushes to GCR, and updates the Cloud Run Job to use the new image. Must be run from a directory containing the `Dockerfile`.
 
+### Infra Hardening Script
+
+`infrastructure_update.sh` codifies production resiliency updates:
+- Creates/validates GCS lock bucket
+- Applies 1-day object lifecycle cleanup (stale lock + stale quota-flag breaker)
+- Sets `GCS_LOCK_BUCKET` and `JOBBOT_TO_EMAIL` env vars on Cloud Run Job
+- Sets `--max-retries 0` to disable retry storms during fatal quota incidents
+
 ---
 
 ## 15. Key Dependencies
@@ -765,6 +811,7 @@ This builds the image in Cloud Build, pushes to GCR, and updates the Cloud Run J
 | `mongodb` | ^6.0.0 | Native MongoDB driver for Atlas (MongoStorageAdapter) |
 | `nodemailer` | ^7.0.11 | SMTP email delivery via Gmail |
 | `tough-cookie` | ^6.0.0 | Cookie jar implementation for Workday PLAY_SESSION management |
+| `@google-cloud/storage` | ^7.14.0 | Distributed calibration lock + exactly-once quota emergency alert flag |
 
 ### Dev Dependencies (excluded from Docker image)
 
@@ -772,6 +819,8 @@ This builds the image in Cloud Build, pushes to GCR, and updates the Cloud Run J
 |---------|---------|---------|
 | `csv-parser` | ^3.2.0 | Parse `greenhouse_list.csv` — only used by `FileStorageAdapter` in local dev |
 | `puppeteer` | ^24.36.1 | Browser automation for tooling (e.g., `comeet_hunter`) — NOT used in core pipeline |
+| `puppeteer-extra` | ^3.3.6 | Plugin framework for discovery/harvesting browser automation tools |
+| `puppeteer-extra-plugin-stealth` | ^2.11.2 | Anti-detection plugin for discovery tooling (not used in core ATS/LinkedIn runtime) |
 
 ---
 
@@ -783,7 +832,7 @@ This builds the image in Cloud Build, pushes to GCR, and updates the Cloud Run J
 
 **What it stores:** `{ jobId, title, companyName, location, url, reason, source, createdAt }`
 
-**What is stripped:** Raw API responses (`raw` field), normalized job objects, HTML descriptions (`description` field). All stripped by `_stripJobForCalibration()` at `MongoStorageAdapter.js:303-312`.
+**What is stripped:** Raw API responses (`raw` field), normalized job objects, HTML descriptions (`description` field). All stripped by `_stripJobForCalibration()` at `MongoStorageAdapter.js:337-356`.
 
 **TTL:** 60 days via MongoDB TTL index on `createdAt` (created in `_ensureTTLIndexes()`).
 
@@ -800,9 +849,9 @@ This builds the image in Cloud Build, pushes to GCR, and updates the Cloud Run J
 
 **What it stores:** Same fields as rejected, minus `reason`.
 
-**TTL:** None currently (permanent). Snapshot recommends adding 30-day TTL.
+**TTL:** 60 days via MongoDB TTL index on `createdAt` (created in `_ensureTTLIndexes()`).
 
-**Write path:** Orchestrator writes after successful email + dedup: `orchestrator.js:584-591`. Gate: `if (emailSuccess && newJobs.length > 0 && !DRY_RUN)`.
+**Write path:** Orchestrator writes after successful email + dedup: `orchestrator.js:664-672`. Gate: `if (emailSuccess && newJobs.length > 0 && !DRY_RUN)`.
 
 ### `_stripJobForCalibration(job)` Helper
 
@@ -857,17 +906,17 @@ _stripJobForCalibration(job) {
 
 | Collection | Estimated Size | Growth Pattern | Bounding Mechanism |
 |-----------|---------------|----------------|-------------------|
-| `seen_jobs` | ~1MB | Grows slowly (~50 new LinkedIn IDs/run) | None (permanent); recommend 90-day TTL |
-| `ats_sent_history` | ~500KB | Grows slowly (~3-5 new emailed jobs/run) | None (permanent); recommend 180-day TTL |
+| `seen_jobs` | ~1MB | Grows slowly (~50 new LinkedIn IDs/run) | 90-day TTL |
+| `ats_sent_history` | ~500KB | Grows slowly (~3-5 new emailed jobs/run) | 180-day TTL |
 | `companies` | ~50KB | Static (manual seed) | None needed |
 | `calibration_rejected` | ~80MB | ~5MB/month, bounded by 60-day TTL + silent dedup | 60-day TTL auto-cleanup |
-| `calibration_passed` | ~15MB (6 months) | ~2.5MB/month | None (permanent); recommend 30-day TTL |
+| `calibration_passed` | ~15MB (bounded) | ~2.5MB/month | 60-day TTL |
 | `run_summaries` | ~3MB | ~3MB/month, bounded by 30-day TTL | 30-day TTL auto-cleanup |
 | **Total projected** | **~100MB** | Stabilizes within 2-3 months | Well within 512MB |
 
 The storage projection dropped dramatically from pre-v6.2 estimates (~400MB for `calibration_rejected` alone) due to silent dedup eliminating ~90% of duplicate writes.
 
-**Monitoring strategy:** No automated alerts exist for storage quota. Manual monitoring via Atlas dashboard (Data Size column) is the current approach. If storage exceeds ~300MB, reduce `calibration_rejected` TTL from 60 days to 14 days as an emergency measure.
+**Monitoring strategy:** Volume trigger gates on logical usage (`dataSize + indexSize`) at a 200MB threshold—well under the Atlas 512MB cap—so calibration can build the full markdown report before an aggressive purge frees space. Automated emergency email is exactly-once gated via GCS atomic flag; manual Atlas dashboard monitoring is still recommended.
 
 **Cost:** The entire system operates within GCP + MongoDB free tiers. Estimated monthly cost: **$0.00**. The only recurring cost risk is if the project exceeds free-tier limits — which would require significantly more companies, higher run frequency, or removing TTL indexes.
 
@@ -1604,6 +1653,7 @@ All log paths are defined in `config/paths.js`. Timestamps in filenames are Wind
 | `npm run inject` | `node tools/inject_and_validate.js` | Inject discovered companies (Workday/Greenhouse only) |
 | `npm run calibrate:report` | `node tools/run_proactive_calibration.js` | Safe calibration report → `docs/analyze/` |
 | `npm run calibrate:purge` | `node tools/run_proactive_calibration.js --confirm` | Purge calibration DB + update timer |
+| `npm run verify:calibration` | `node tools/verify_calibration_lock_and_purge.js` | Validate lock exclusivity, stale-lock recovery, and aggressive purge path |
 
 ### Common Local Dev Invocations
 
@@ -1628,6 +1678,9 @@ $env:DEBUG_COMEET="true"; $env:ATS_QUIET_MODE="false"; $env:SKIP_LINKEDIN="true"
 
 # ATS Guard dry run (see what would be filtered without filtering):
 $env:ATS_GUARD_DRY_RUN="true"; $env:SKIP_LINKEDIN="true"; node ats/orchestrator.js
+
+# Emergency direct purge (no report generation):
+node tools/emergency_purge.js
 ```
 
 ---
@@ -1959,7 +2012,7 @@ The project maintains technical snapshots in `docs/snapshots/` that capture the 
 
 ### Latest Snapshot
 
-`docs/snapshots/snapshot_2026-03-08.md` — v6.3 (Pipeline Validation & Calibration Tooling — Proactive Purge CLI, Harvest Failure Evasion)
+`docs/snapshots/snapshot_2026-03-20` — v7.1 (Distributed resilience, GCS lock/flag strategy, quota Catch-22 mitigation)
 
 ### Snapshot Contents
 
@@ -1982,6 +2035,7 @@ Detailed session logs are stored in `docs/rewsession/`. These provide the "why" 
 
 | Date | Version | Sections Modified | Summary |
 |------|---------|-------------------|---------|
+| 2026-03-23 | v7.1 | §1, §2, §3, §4, §5, §6, §7, §11, §12, §14, §15, §16, §17, §27, §35 | Added GCS lock/alert architecture, logical quota trigger (200MB; report-then-purge headroom), aggressive cleanup modes, quota fail-safe exit masking, new scripts (`emergency_purge`, `verify:calibration`), TTL/index and file-map refresh |
 | 2026-03-08 | v6.3 | §1, §3, §4, §5, §7, §8, §9, §11, §12, §13, §16, §18, §27, §31, §32, §33, §35 | Proactive calibration CLI, system_state collection, harvest_tokens failure evasion, filteredJobsBuffer removed, line count/line number updates, new tools (run_proactive_calibration, calibrationReport), RESET_DEDUP/DISCOVERY_DRY_RUN env vars |
 
 ---
@@ -1989,9 +2043,9 @@ Detailed session logs are stored in `docs/rewsession/`. These provide the "why" 
 ## Quality Verification
 
 - [x] Every file path mentioned exists in the workspace
-- [x] Every line number reference verified via grep against current codebase
+- [x] All newly added/updated line number references verified via `rg` against current codebase
 - [x] No TODO or placeholder sections
 - [x] All 17 required sections present and populated (plus 18 bonus sections = 35 total)
 - [x] Critical Invariants section (§9) contains 12 numbered rules with file:line evidence
-- [x] No code modifications were made — this was a read-only operation
+- [x] No application code modifications were made — documentation update only
 - [x] Tables used throughout for information density

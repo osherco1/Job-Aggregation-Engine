@@ -3,8 +3,8 @@
  * Master PRD: aggregation queries, .md report, volume-based cleanup.
  */
 
-// Volume trigger: logical size (dataSize + indexSize) vs Atlas M0 512MB cap; 400MB leaves ~112MB headroom.
-const VOLUME_THRESHOLD_BYTES = 400 * 1024 * 1024; // 400 MB
+// Volume trigger: logical size (dataSize + indexSize) vs Atlas M0 512MB cap; 200MB leaves ~312MB headroom for report generation before purge.
+const VOLUME_THRESHOLD_BYTES = 200 * 1024 * 1024; // 200 MB
 const CALIBRATION_REJECTED = 'calibration_rejected';
 const CALIBRATION_PASSED = 'calibration_passed';
 const RUN_SUMMARIES = 'run_summaries';
@@ -457,7 +457,7 @@ async function generateCalibrationReportMd(storageAdapter) {
 }
 
 /**
- * @deprecated Prefer orchestrator inline sequence (lock → purge → report → email). Kept for tools/scripts.
+ * @deprecated Prefer orchestrator inline sequence (lock → report → purge → email). Kept for tools/scripts.
  * Run calibration: generate report first, then run cleanup (on volume trigger), then send email.
  * Order ensures the report attachment is non-empty before aggressive purge.
  * If cleanup throws, execution aborts and the alert email is never sent (fail-fast).
