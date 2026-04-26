@@ -9,6 +9,8 @@
 // FIX: Replaced 'STA' with more specific terms 'Static Timing' and 'STA Engineer'
 // to prevent false positives on valid "Full Stack" roles.
 
+const { titleDomainRejectPatterns } = require('./config/vocabulary');
+
 const BLACKLIST_KEYWORDS = [
   'Senior',
   'Lead',
@@ -246,6 +248,19 @@ const BLACKLIST_KEYWORDS = [
   'ניהול צוות',
   'מנוסה',
   'תעשיית המזון',
+
+  // --- CAR 26-04 (substring complements to titleDomainRejectPatterns) ---
+  'Formal Verification Engineer',
+  'CAD Power Engineer',
+  'Professional Services Engineer',
+  'Forward Deployed Engineer',
+  'GTM Engineer',
+  'Student Project Coordinator',
+  'Clinical Data Analyst',
+  'Quality Section Analyst',
+  'BI/Data Analyst',
+  'IT Support',
+  'Junior Data Scientist',
 ];
 
 // Preserve high-value technical titles that may contain broad blacklist terms
@@ -293,6 +308,10 @@ const WHITELIST_KEYWORDS = [
   'Computer Vision',
   'Firmware',
   'Integrator',
+  // CAR 26-04: Hebrew software / embedded dev titles
+  'מפתח/ת תוכנה',
+  'מפתח/ת צב"ד',
+  'מפתח/ת BSP',
 ];
 
 function titlePassesSemanticFilters(title) {
@@ -301,6 +320,10 @@ function titlePassesSemanticFilters(title) {
 
   if (PROTECTED_TITLE_PATTERNS.some((re) => re.test(rawTitle))) {
     return true;
+  }
+
+  if ((titleDomainRejectPatterns || []).some((re) => re.test(rawTitle))) {
+    return false;
   }
 
   for (const kw of BLACKLIST_KEYWORDS) {

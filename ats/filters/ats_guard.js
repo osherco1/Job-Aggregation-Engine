@@ -3,9 +3,15 @@ const {
   allowedTechnicalDepartments,
   technicalTitleKeywords,
   titleSeniorPatterns,
+  titleDomainRejectPatterns,
+  technicalTitleAllowPatterns,
   contentSeniorityPatterns,
   structuredLevelIndicators,
 } = require('../../config/vocabulary');
+
+// Speechify: reject bulk geo-clone SWE titles unless title shows explicit entry-level signal (CAR 26-04)
+const SPEECHIFY_ENTRY_TITLE_RE =
+  /\b(junior|intern|student|graduate|entry[\s-]level|associate|0\s*-\s*2|no\s+experience)\b/i;
 
 /**
  * Best-effort extraction of core fields from a raw ATS job or UnifiedJob.
@@ -124,15 +130,30 @@ function runTitleCheck(title) {
 
   const lower = trimmed.toLowerCase();
 
-  // Technical keywords that indicate this is at least an engineering / data role.
+  const hasTechnicalString = (technicalTitleKeywords || []).some((k) =>
+    lower.includes(k.toLowerCase())
+  );
   const technicalKw = (technicalTitleKeywords || []).find((k) =>
     lower.includes(k.toLowerCase())
   );
+  const hasTechnicalRegex = (technicalTitleAllowPatterns || []).some((re) =>
+    re.test(trimmed)
+  );
+
   if (technicalKw) {
     matchedKeywords.push(technicalKw);
+  } else if (hasTechnicalRegex) {
+    matchedKeywords.push('regex:hebrew_dev');
   }
-  if (!(technicalTitleKeywords || []).some((k) => lower.includes(k.toLowerCase()))) {
+
+  if (!hasTechnicalString && !hasTechnicalRegex) {
     reasons.push(`FAIL: title_not_technical (${trimmed})`);
+  }
+
+  const domainPattern = (titleDomainRejectPatterns || []).find((re) => re.test(trimmed));
+  if (domainPattern) {
+    matchedBlacklistPatterns.push(domainPattern.toString());
+    reasons.push(`FAIL: title_domain (${trimmed})`);
   }
 
   // Senior / leadership patterns from vocabulary.
@@ -246,6 +267,24 @@ function runDescriptionCheck(description) {
 function evaluateAtsGuard(job, context = {}) {
   const { title, location, departments, description, structuredLevel } =
     extractJobFields(job);
+
+  const companyKey = String(context.companyId || '').toLowerCase();
+  if (companyKey === 'speechify' && !SPEECHIFY_ENTRY_TITLE_RE.test(title)) {
+    return {
+      verdict: 'FAIL',
+      reason: 'title_spam_bare_swe',
+      gate: 'title',
+      matchedKeywords: [],
+      matchedBlacklistPatterns: [],
+      details: {
+        companyId: context.companyId || null,
+        source: context.source || null,
+        title: title || null,
+        location: location || null,
+        departments,
+      },
+    };
+  }
 
   const titleResult = runTitleCheck(title);
   const departmentResult = titleResult.passed

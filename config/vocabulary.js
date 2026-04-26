@@ -130,6 +130,49 @@ const titleSeniorPatterns = [
   /\bVice President\b/i,
   /\bTeam Lead\b/i,
   /\bTech Lead\b/i,
+  // CAR 26-04: seniority noise in otherwise-passing titles
+  /\bQA\s+team\s+leader\b/i,
+  /\bteam\s+lead(er)?\b/i,
+];
+
+// Non-software / GTM / hardware title domain rejects (regex). Used by ATS guard + semantic filters.
+// CAR 26-04 calibration delta
+const titleDomainRejectPatterns = [
+  /\bchip\s+design\b/i,
+  /\bphysical\s+design\b/i,
+  /\bSTA\s+engineer\b/i,
+  /\bASIC\b/i,
+  /\bVLSI\b/i,
+  /\bformal\s+verification\s+engineer\b/i,
+  /\bNPI\b.*\bengineer\b/i,
+  /\bNOC\s+engineer\b/i,
+  /\bprocess\s+engineer\b/i,
+  /\bmechanical\s+engineer\b/i,
+  /\bcad\s+power\s+engineer\b/i,
+  /\banalog\s+ic\s+design\b/i,
+  /\bvalidation\s+engineer\b/i,
+  /\bsales\s+engineer\b/i,
+  /\bsolutions\s+engineer\b/i,
+  /\bprofessional\s+services\s+engineer\b/i,
+  /\bforward\s+deployed?\s+engineer\b/i,
+  /\bcelery\b.*\bGTM\s+engineer\b/i,
+  /\bGTM\s+engineer\b/i,
+  /\bdata\s+scientist\b/i,
+  /\bjunior\s+data\s+scientist\b/i,
+  /\bbi\s*\/\s*data\s+analyst\b/i,
+  /\bclinical\s+data\s+analyst\b/i,
+  /\bquality\s+section\s+analyst\b/i,
+  /\bhelp\s*desk\b/i,
+  /\bit\s+support\b/i,
+  /\btechnical\s+support\s+engineer\b/i,
+  /\bstudent\s+project\s+coordinator\b/i,
+];
+
+// Hebrew / ATS titles that count as technical for guard (regex). CAR 26-04
+const technicalTitleAllowPatterns = [
+  /מפתח\/ת\s+תוכנה/i,
+  /מפתח\/ת\s+צב"ד/i,
+  /מפתח\/ת\s+BSP/i,
 ];
 
 // Seniority patterns in rich-text descriptions (HTML-ish content / description field)
@@ -173,6 +216,8 @@ module.exports = {
   normalizeEmploymentType,
   technicalTitleKeywords,
   titleSeniorPatterns,
+  titleDomainRejectPatterns,
+  technicalTitleAllowPatterns,
   contentSeniorityPatterns,
   companyOverrides,
 };
