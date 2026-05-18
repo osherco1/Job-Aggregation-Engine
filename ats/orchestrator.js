@@ -18,12 +18,13 @@ const { ComeetWorker } = require('./workers/comeetWorker');
 const { GreenhouseWorker } = require('./workers/greenhouseWorker');
 const { WorkdayWorker } = require('./workers/workdayWorker');
 const { LinkedInAuthChallengeError } = require('../linkedin_client');
-const { sendCriticalAlert } = require('../mailer');
+const { createTelegramAdminNotifier } = require('../services/notifications/TelegramAdminNotifier');
+
+const _adminNotifier = createTelegramAdminNotifier();
 const {
   checkVolumeTrigger,
-  generateCalibrationReportMd,
+  runCalibrationAndNotify,
 } = require('../services/calibration/calibrationReport');
-const GcsCalibrationLock = require('../services/lock/GcsCalibrationLock');
 const {
   isQuotaExhaustedError,
   handleQuotaExhaustion,
@@ -31,7 +32,7 @@ const {
 
 // Services (factories - will be called in run() function)
 const { createJobStateService } = require('../services/JobStateService');
-const { createEmailNotifier } = require('../services/EmailNotifier');
+const { createTelegramNotifier } = require('../services/notifications/TelegramNotifier');
 
 // LinkedIn scraper (optional - may not be available)
 let runLinkedinScraper = null;
@@ -359,7 +360,10 @@ async function runAtsWorkers(errors, storageAdapter, knownJobIds) {
   }
 
   // Dual-trigger calibration: volume (logical size >= 200MB) OR time >= 7 days.
-  // Strict sequence under GCS lock (Mongo fallback when GCS_LOCK_BUCKET unset): Acquire → Report → Purge (if volume) → Email → Timer → Release (finally).
+  // The full transactional sequence (lock → 400MB bypass | report+purge → email → release)
+  // lives in services/calibration/calibrationReport.js#runCalibrationAndNotify. This block
+  // only owns trigger detection and threads the local `errors` array (= caller's `atsErrors`)
+  // so calibration failures surface in the orchestrator summary instead of throwing.
   try {
     const SEVEN_DAYS_MS = 7 * 24 * 60 * 60 * 1000;
     const volumeTriggered = await checkVolumeTrigger(storageAdapter);
@@ -373,92 +377,19 @@ async function runAtsWorkers(errors, storageAdapter, knownJobIds) {
       console.log(
         `Calibration trigger: ${triggerType} (volume=${volumeTriggered}, timeSinceLastCal=${Math.round((Date.now() - lastCal.getTime()) / 3600000)}h)`
       );
-      const ownerId = `${process.pid}-${Date.now()}-${Math.random().toString(36).slice(2, 9)}`;
-      const gcsBucket = process.env.GCS_LOCK_BUCKET && String(process.env.GCS_LOCK_BUCKET).trim();
-
-      let lockResult;
-      try {
-        lockResult = await GcsCalibrationLock.acquireLock({
-          bucketName: gcsBucket || undefined,
-          lockPath: 'locks/calibration.lock',
-          ownerId,
-          storageAdapter,
-        });
-      } catch (lockErr) {
-        if (triggerType === 'volume' && typeof storageAdapter.runVolumeCleanupProtocol === 'function') {
-          console.error(
-            'Critical: GCS/Mongo lock acquisition threw. Running emergency aggressive cleanup without lock...',
-            lockErr?.message || lockErr
-          );
-          try {
-            const cleanup = await storageAdapter.runVolumeCleanupProtocol({ mode: 'aggressive' });
-            console.log(
-              `Emergency aggressive cleanup completed: rejected=${cleanup.purgedRejected}, passed=${cleanup.purgedPassed || 0}, run_summaries=${cleanup.purgedRunSummaries || 0}`
-            );
-          } catch (cleanupErr) {
-            console.error(
-              'Emergency cleanup failed — failing run to prevent scrape/email/persist loop:',
-              cleanupErr?.message || cleanupErr
-            );
-            throw cleanupErr;
-          }
-        } else {
-          console.warn(
-            'Calibration skipped: lock acquisition failed (time trigger, no bypass):',
-            lockErr?.message || lockErr
-          );
-        }
-        lockResult = { acquired: false };
-      }
-
-      if (!lockResult.acquired) {
-        console.log('Calibration skipped: could not acquire calibration lock.');
-      } else {
-        try {
-          const heapBeforeReport = process.memoryUsage().heapUsed;
-          const reportStarted = Date.now();
-          const md = await generateCalibrationReportMd(storageAdapter);
-          const reportMs = Date.now() - reportStarted;
-          const heapAfterReport = process.memoryUsage().heapUsed;
-          console.log(
-            `Calibration: report generated in ${reportMs}ms (heap delta: ${Math.round((heapAfterReport - heapBeforeReport) / 1024)} KB)`
-          );
-
-          if (triggerType === 'volume' && typeof storageAdapter.runVolumeCleanupProtocol === 'function') {
-            const purgeStarted = Date.now();
-            const cleanup = await storageAdapter.runVolumeCleanupProtocol({ mode: 'aggressive' });
-            const purgeMs = Date.now() - purgeStarted;
-            console.log(
-              `Calibration: purge complete in ${purgeMs}ms rejected=${cleanup.purgedRejected}, passed=${cleanup.purgedPassed || 0}, run_summaries=${cleanup.purgedRunSummaries || 0}`
-            );
-          }
-
-          const emailNotifier = createEmailNotifier();
-          const subject =
-            triggerType === 'volume'
-              ? '\u{1F6A8} System Alert: DB Volume Trigger'
-              : '\u{1F4CA} Weekly Calibration Report';
-          const ok = await emailNotifier.sendCalibrationAlert(subject, md, triggerType);
-
-          if (ok && typeof storageAdapter.updateLastCalibrationTime === 'function') {
-            await storageAdapter.updateLastCalibrationTime();
-            console.log('Calibration timer reset');
-          }
-        } finally {
-          await GcsCalibrationLock.releaseLock({
-            bucketName: gcsBucket || undefined,
-            lockPath: 'locks/calibration.lock',
-            ownerId,
-            storageAdapter,
-          }).catch((releaseErr) => {
-            console.warn('Calibration lock release failed:', releaseErr.message || releaseErr);
-          });
-        }
-      }
+      // Calibration reports route to ADMIN_CHAT_ID via TelegramAdminNotifier.
+      // The user-chat TelegramNotifier (instantiated later at orchestrator's deliver phase)
+      // does NOT implement sendCalibrationAlert; this dedicated admin notifier does.
+      const adminNotifier = createTelegramAdminNotifier();
+      await runCalibrationAndNotify(storageAdapter, adminNotifier, triggerType, errors);
     }
   } catch (calErr) {
-    console.warn('Calibration check failed:', calErr.message || calErr);
-    throw calErr;
+    // Only reached if the trigger-check itself threw (the sequence catches its own errors).
+    errors.push({
+      phase: 'calibration-trigger',
+      message: calErr?.message || String(calErr),
+    });
+    console.warn('Calibration trigger check failed:', calErr?.message || calErr);
   }
 
   // Summary with Workday
@@ -508,7 +439,7 @@ async function runLinkedInPhase(errors, storageAdapter) {
     if (err instanceof LinkedInAuthChallengeError) {
       console.error('🛑 CRITICAL: LinkedIn authentication challenge detected');
       try {
-        await sendCriticalAlert(err.details);
+        await _adminNotifier.sendAlert('CRITICAL', 'LinkedIn Auth Challenge', err.details);
       } catch (alertErr) {
         console.error('Failed to send critical alert:', alertErr.message || alertErr);
       }
@@ -714,7 +645,7 @@ async function run() {
 
     // Create service instances using factories
     const jobStateService = createJobStateService(storageAdapter);
-    const emailNotifier = createEmailNotifier();
+    const emailNotifier = createTelegramNotifier();
 
     // #region agent log
     _dbgLog('orchestrator.js:pre-dedup',{totalJobsCollected:allJobs.length,sampleJobIds:allJobs.slice(0,5).map(j=>j.jobId)},'H2');

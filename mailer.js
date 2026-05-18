@@ -293,63 +293,8 @@ async function sendJobReport(jobs) {
   }
 }
 
-/**
- * Send a minimal, high-priority alert email when the bot detects a critical
- * authentication failure (e.g. LinkedIn redirecting to a challenge / captcha).
- * This reuses the same SMTP configuration as the regular job report.
- * @param {object|string} details - Optional diagnostic details to include.
- * @param {string} [subjectOverride] - Optional subject line (e.g. quota emergency).
- */
-async function sendCriticalAlert(details, subjectOverride) {
-  const { JOBBOT_SMTP_USER, JOBBOT_TO_EMAIL } = process.env;
-  const toAddress = JOBBOT_TO_EMAIL || JOBBOT_SMTP_USER;
-
-  if (!toAddress) {
-    console.error(
-      'sendCriticalAlert: No recipient email configured. Set JOBBOT_SMTP_USER (and optionally JOBBOT_TO_EMAIL) in your .env file.'
-    );
-    return;
-  }
-
-  const transporter = createTransport();
-  const timestamp = new Date().toISOString();
-
-  const detailsPayload =
-    typeof details === 'string'
-      ? details
-      : JSON.stringify(details || {}, null, 2);
-
-  const resolvedSubject =
-    subjectOverride ||
-    'JobBot CRITICAL ALERT: LinkedIn Auth Challenge Detected';
-  const text = `A critical alert was raised by JobBot.
-
-Time (UTC): ${timestamp}
-
-Details:
-${detailsPayload}
-`;
-
-  try {
-    const info = await transporter.sendMail({
-      from: JOBBOT_SMTP_USER || toAddress,
-      to: toAddress,
-      subject: resolvedSubject,
-      text,
-    });
-
-    console.log('sendCriticalAlert: email sent, messageId:', info.messageId);
-  } catch (err) {
-    console.error(
-      'sendCriticalAlert: failed to send alert email:',
-      err.message || err
-    );
-  }
-}
-
 module.exports = {
   sendJobReport,
-  sendCriticalAlert,
 };
 
 

@@ -223,9 +223,10 @@ Within `runAtsWorkers()`, calibration is now an explicit post-summary control pa
 | File Path | Purpose | Key Exports | Dependencies |
 |-----------|---------|-------------|-------------|
 | `filters_shared.js` (298 lines) | Shared blacklist (~200 keywords) / whitelist (32 keywords) and `titlePassesSemanticFilters()`. Used by both LinkedIn scraper and ATS semantic gate. Phase 5.3 Strict Junior additions (2026-03-07). No side effects. | `{ BLACKLIST_KEYWORDS, WHITELIST_KEYWORDS, titlePassesSemanticFilters }` | None |
-| `linkedin_client.js` (570 lines) | LinkedIn Voyager API client. `fetchJobs()` for paginated search, `fetchJobDetails()` for GraphQL enrichment. Centralized `axiosClient` with `maxRedirects: 0` and global 302/303 interceptor. `LinkedInAuthChallengeError` class. | `{ getHeaders, fetchJobs, normalizeResponse, fetchJobDetails, LinkedInAuthChallengeError }` | `axios`, `mailer` |
+| `linkedin_client.js` (570 lines) | LinkedIn Voyager API client. `fetchJobs()` for paginated search, `fetchJobDetails()` for GraphQL enrichment. Centralized `axiosClient` with `maxRedirects: 0` and global 302/303 interceptor. `LinkedInAuthChallengeError` class. | `{ getHeaders, fetchJobs, normalizeResponse, fetchJobDetails, LinkedInAuthChallengeError }` | `axios`, `services/notifications/TelegramAdminNotifier` |
 | `scraper.js` (525 lines) | LinkedIn multi-query scraper. Defines 16 search queries (`SEARCH_QUERIES`) across 11 niches + 4 clusters + 1 data science query. Paginated search (4 pages × 25 results each), per-job enrichment, binary title filter. Daily cap: 500 new jobs. | `{ runLinkedinScraper }` | `linkedin_client`, `mailer`, `filters_shared`, `services/storage` |
-| `mailer.js` (306 lines) | Legacy LinkedIn email report sender + critical auth alert. `sendJobReport()` generates HTML card-based email. `sendCriticalAlert()` sends plain-text urgent alert on 302/303 detection. | `{ sendJobReport, sendCriticalAlert }` | `nodemailer`, `dotenv` |
+| `mailer.js` | Legacy LinkedIn email report sender. `sendJobReport()` generates HTML card-based email — used only by the standalone `scraper.js` path. Critical-alert email path has been removed; control-plane alerts now use `services/notifications/TelegramAdminNotifier.js`. | `{ sendJobReport }` | `nodemailer`, `dotenv` |
+| `services/notifications/TelegramAdminNotifier.js` | Admin/control-plane notifier via Telegram Bot API. `sendAlert(severity, title, details)` posts severity-tagged HTML messages (CRITICAL/WARNING/INFO with `<pre>` payload). `sendCalibrationAlert(subject, md, triggerType)` uploads the markdown report as a document via `sendDocument` (multipart/form-data, `knownLength` set to avoid Cloud Run chunking). Dedicated Bottleneck limiter (~1.1s). Reads `TELEGRAM_BOT_TOKEN` + `ADMIN_CHAT_ID`. Never throws. | `{ TelegramAdminNotifier, createTelegramAdminNotifier }` | `axios`, `bottleneck`, `form-data`, `dotenv` |
 
 ### `tools/` — Development & Debugging Tools (excluded from Docker)
 
@@ -517,7 +518,7 @@ LinkedIn Voyager Search Response (per query per page)
 
 ## 9. Critical Invariants (DO NOT DEVIATE)
 
-1. **LinkedIn `maxRedirects: 0`** — The centralized Axios client at `linkedin_client.js:100` sets `maxRedirects: 0`. The global interceptor (`linkedin_client.js:106-166`) treats ANY 302/303 as a critical auth challenge: fires `sendCriticalAlert()`, throws `LinkedInAuthChallengeError`. NEVER follow LinkedIn redirects — they indicate an auth failure, login wall, or captcha challenge. Following them makes the bot look more suspicious.
+1. **LinkedIn `maxRedirects: 0`** — The centralized Axios client at `linkedin_client.js:100` sets `maxRedirects: 0`. The global interceptor (`linkedin_client.js:106-166`) treats ANY 302/303 as a critical auth challenge: fires `_adminNotifier.sendAlert('CRITICAL', ...)` via `services/notifications/TelegramAdminNotifier.js`, throws `LinkedInAuthChallengeError`. NEVER follow LinkedIn redirects — they indicate an auth failure, login wall, or captcha challenge. Following them makes the bot look more suspicious.
 
 2. **ATS httpClient `maxRedirects: 0`** — The shared ATS HTTP client created by `createHttpClient()` at `ats/utils/httpClient.js:98` also sets `maxRedirects: 0` and logs warnings on 302/303 via an interceptor. Individual worker requests for Comeet and Greenhouse override to `maxRedirects: 5` in their specific request configs (`comeetWorker.js:544`, `greenhouseWorker.js:422`). Workday uses its own Axios instance (no maxRedirects override — uses axios default).
 
@@ -594,15 +595,18 @@ LinkedIn Voyager Search Response (per query per page)
 | `LINKEDIN_JSESSIONID` | LinkedIn `JSESSIONID` cookie (must match CSRF token) | `linkedin_client.js:33` |
 | `LINKEDIN_CSRF_TOKEN` | LinkedIn CSRF token for `Csrf-Token` header | `linkedin_client.js:34` |
 | `MONGODB_URI` | MongoDB Atlas connection string (includes credentials) | `services/storage/index.js`, `MongoStorageAdapter.js` |
-| `JOBBOT_SMTP_USER` | Gmail address for sending reports | `mailer.js:67`, `EmailNotifier.js` |
-| `JOBBOT_SMTP_PASS` | Gmail App Password for SMTP auth | `mailer.js:67`, `EmailNotifier.js` |
+| `TELEGRAM_BOT_TOKEN` | Telegram Bot API token (shared by user-chat job reports and admin-chat control plane) | `services/notifications/TelegramNotifier.js`, `services/notifications/TelegramAdminNotifier.js` |
+| `ADMIN_CHAT_ID` | Chat ID for operator/control-plane events (critical alerts + calibration reports). May equal `TELEGRAM_CHAT_ID` for single-chat setups. Missing → `TelegramAdminNotifier` logs + returns `false` (never throws). | `services/notifications/TelegramAdminNotifier.js` |
+| `JOBBOT_SMTP_USER` | Gmail address for legacy job-report path (`scraper.js`) and discovery reports (`tools/discovery/run_discovery.js`) | `mailer.js`, `EmailNotifier.js` |
+| `JOBBOT_SMTP_PASS` | Gmail App Password for SMTP auth (legacy SMTP path only) | `mailer.js`, `EmailNotifier.js` |
 
 ### Configuration (Cloud Run / `.env`)
 
 | Name | Default | Purpose | Source |
 |------|---------|---------|--------|
 | `STORAGE_BACKEND` | `file` (if no `MONGODB_URI`) | `mongo` → MongoStorageAdapter; else FileStorageAdapter | `services/storage/index.js:12` |
-| `JOBBOT_TO_EMAIL` | Falls back to `JOBBOT_SMTP_USER` | Recipient email for job reports | `mailer.js:97`, `EmailNotifier.js` |
+| `TELEGRAM_CHAT_ID` | Not set | User-facing chat for job report cards (Telegram). Distinct from `ADMIN_CHAT_ID`. | `services/notifications/TelegramNotifier.js` |
+| `JOBBOT_TO_EMAIL` | Falls back to `JOBBOT_SMTP_USER` | Recipient email for legacy SMTP paths (scraper + discovery report) | `mailer.js`, `EmailNotifier.js` |
 | `GCS_LOCK_BUCKET` | Not set | Enables distributed lock + quota alert atomic flag via GCS object preconditions | `orchestrator.js`, `services/lock/GcsCalibrationLock.js`, `services/emergency/gcsAlertManager.js` |
 | `GCS_QUOTA_ALERT_FLAG_PATH` | `flags/quota-alert-sent.flag` | Optional custom path for exactly-once quota alert flag object | `services/emergency/gcsAlertManager.js:66` |
 | `NODE_ENV` | Not set locally; `production` in Dockerfile | Used by npm (no code dependency) | `Dockerfile:6` |
@@ -649,8 +653,8 @@ LinkedIn Voyager Search Response (per query per page)
 
 | Failure Mode | Symptom | Root Cause | Resolution |
 |-------------|---------|-----------|-----------|
-| **MongoDB quota exceeded** | Error code `8000` or `"you are over your space quota"`; persistence/calibration lock writes can fail | Atlas M0 512MB storage limit reached | Primary: run `npm run calibrate:purge` (aggressive mode) or `node tools/emergency_purge.js` to free space fast. On orchestrator fatal path, `handleQuotaExhaustion()` sends one emergency email via GCS atomic flag and exits `0` to prevent Cloud Run retry storms. |
-| **LinkedIn auth redirect (302/303)** | `LinkedInAuthChallengeError` thrown; 0 LinkedIn jobs; critical alert email sent automatically | Session cookie (`li_at`) expired or LinkedIn flagged the bot | Rotate `LINKEDIN_LI_AT`, `JSESSIONID`, `CSRF_TOKEN` in Secret Manager from a fresh authenticated browser session. Ensure JSESSIONID matches CSRF_TOKEN. |
+| **MongoDB quota exceeded** | Error code `8000` or `"you are over your space quota"`; persistence/calibration lock writes can fail | Atlas M0 512MB storage limit reached | Primary: run `npm run calibrate:purge` (aggressive mode) or `node tools/emergency_purge.js` to free space fast. On orchestrator fatal path, `handleQuotaExhaustion()` sends one CRITICAL Telegram alert to `ADMIN_CHAT_ID` via GCS atomic flag and exits `0` to prevent Cloud Run retry storms. |
+| **LinkedIn auth redirect (302/303)** | `LinkedInAuthChallengeError` thrown; 0 LinkedIn jobs; CRITICAL Telegram alert to `ADMIN_CHAT_ID` sent automatically | Session cookie (`li_at`) expired or LinkedIn flagged the bot | Rotate `LINKEDIN_LI_AT`, `JSESSIONID`, `CSRF_TOKEN` in Secret Manager from a fresh authenticated browser session. Ensure JSESSIONID matches CSRF_TOKEN. |
 | **LinkedIn auth fail (401)** | `CRITICAL_AUTH_FAIL` error thrown; bot stops LinkedIn phase | Cookie invalid | Same as 302/303 resolution |
 | **LinkedIn rate limit (429)** | `Rate limited (429)` error during fetchJobDetails | Too many enrichment requests too quickly | Built-in: scraper pauses 3-6s between enrichments. If persistent, increase delays. |
 | **Workday WAF block (403)** | `403` status or `0 jobs` from specific Workday companies | Akamai anti-bot detection on Workday tenant | Increase `WORKDAY_DELAY_MIN/MAX_MS`. Review browser headers in `workdayWorker.js:42-54`. Some tenants may be permanently blocked. |
@@ -700,9 +704,17 @@ Two templates exist:
 1. **`EmailNotifier.sendUnifiedReport()`** (`services/EmailNotifier.js`) — Used by orchestrator for consolidated ATS + LinkedIn reports. Includes source labels (`🔗 LinkedIn`, `🟢 Comeet`, `🌿 Greenhouse`), error summary section, and job cards with Apply buttons.
 2. **`mailer.sendJobReport()`** (`mailer.js`) — Legacy LinkedIn-only report. Used when scraper runs standalone (not through orchestrator).
 
-### Critical Alert Email
+### Control-Plane Alerts (Telegram Admin Chat)
 
-`mailer.sendCriticalAlert(details)` — Sent as plain text (not HTML) when a LinkedIn 302/303 is detected. High-priority notification that cookies need rotation. Subject: `"JobBot CRITICAL ALERT: LinkedIn Auth Challenge Detected"`.
+Operator-facing critical alerts and calibration reports are delivered via [services/notifications/TelegramAdminNotifier.js](../services/notifications/TelegramAdminNotifier.js) to `ADMIN_CHAT_ID` (sharing the bot token with the user job-report channel).
+
+- **`sendAlert(severity, title, details)`** — Posts an HTML message with a severity prefix (🚨 CRITICAL, ⚠️ WARNING, ℹ️ INFO). The `details` payload (string or object) is JSON-stringified and wrapped in `<pre>` for readable formatting. Used by:
+  - `linkedin_client.js` 302/303 interceptors (LinkedIn auth challenge).
+  - `ats/orchestrator.js` LinkedIn-phase catch (`LinkedInAuthChallengeError`).
+  - `services/emergency/gcsAlertManager.js` (MongoDB quota exhaustion, gated by atomic GCS flag for exactly-once delivery).
+- **`sendCalibrationAlert(subject, reportMd, triggerType)`** — Posts a short HTML summary message, then uploads the full markdown report via `sendDocument` (multipart/form-data with `knownLength` to keep Cloud Run egress un-chunked). Drop-in replacement for the legacy `EmailNotifier.sendCalibrationAlert` signature; called from `services/calibration/calibrationReport.js` via the notifier passed in by `ats/orchestrator.js`.
+
+Both methods are fire-and-forget — they log and return `false` on transport failure rather than throwing, so callers never crash on a missing `ADMIN_CHAT_ID` or a Telegram 5xx.
 
 ---
 
@@ -916,7 +928,7 @@ _stripJobForCalibration(job) {
 
 The storage projection dropped dramatically from pre-v6.2 estimates (~400MB for `calibration_rejected` alone) due to silent dedup eliminating ~90% of duplicate writes.
 
-**Monitoring strategy:** Volume trigger gates on logical usage (`dataSize + indexSize`) at a 200MB threshold—well under the Atlas 512MB cap—so calibration can build the full markdown report before an aggressive purge frees space. Automated emergency email is exactly-once gated via GCS atomic flag; manual Atlas dashboard monitoring is still recommended.
+**Monitoring strategy:** Volume trigger gates on logical usage (`dataSize + indexSize`) at a 200MB threshold—well under the Atlas 512MB cap—so calibration can build the full markdown report before an aggressive purge frees space. Automated emergency Telegram alert to `ADMIN_CHAT_ID` is exactly-once gated via GCS atomic flag; manual Atlas dashboard monitoring is still recommended.
 
 **Cost:** The entire system operates within GCP + MongoDB free tiers. Estimated monthly cost: **$0.00**. The only recurring cost risk is if the project exceeds free-tier limits — which would require significantly more companies, higher run frequency, or removing TTL indexes.
 
@@ -1765,8 +1777,8 @@ A single `axiosClient` instance is created at `linkedin_client.js:97-101` with `
 
 The interceptor at `linkedin_client.js:106-166` handles both success and error callbacks:
 
-- **Success callback:** If `response.status` is 302 or 303 (unlikely since maxRedirects:0 prevents following, but defensive), fires `sendCriticalAlert()` and rejects with `LinkedInAuthChallengeError`.
-- **Error callback:** If the error response status is 302 or 303, same behavior — critical alert + throw.
+- **Success callback:** If `response.status` is 302 or 303 (unlikely since maxRedirects:0 prevents following, but defensive), fires `_adminNotifier.sendAlert('CRITICAL', ...)` via `TelegramAdminNotifier` and rejects with `LinkedInAuthChallengeError`.
+- **Error callback:** If the error response status is 302 or 303, same behavior — CRITICAL Telegram alert to admin chat + throw.
 
 This is the "last line of defence" against running the bot while under a challenge/captcha wall.
 
@@ -1802,7 +1814,7 @@ Each element's `jobCardUnion.*jobPostingCard` URN is resolved against the `inclu
 
 | Status | Behavior | Location |
 |--------|----------|----------|
-| 302/303 | `LinkedInAuthChallengeError` thrown + critical alert email | Interceptor (`linkedin_client.js:106-166`) |
+| 302/303 | `LinkedInAuthChallengeError` thrown + CRITICAL Telegram alert to admin chat | Interceptor (`linkedin_client.js:106-166`) |
 | 401 | `Error('CRITICAL_AUTH_FAIL')` thrown | `fetchJobs` error handler (`linkedin_client.js:405-411`) |
 | 403 | Logged as auth failure (may indicate cookie issue) | `fetchJobs` error handler (`linkedin_client.js:414-419`) |
 | 404 | Returns empty details `{ description: null, ... }` (job expired) | `fetchJobDetails` handler (`linkedin_client.js:594-603`) |

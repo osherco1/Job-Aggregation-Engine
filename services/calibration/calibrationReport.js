@@ -3,8 +3,14 @@
  * Master PRD: aggregation queries, .md report, volume-based cleanup.
  */
 
+const GcsCalibrationLock = require('../lock/GcsCalibrationLock');
+
 // Volume trigger: logical size (dataSize + indexSize) vs Atlas M0 512MB cap; 200MB leaves ~312MB headroom for report generation before purge.
 const VOLUME_THRESHOLD_BYTES = 200 * 1024 * 1024; // 200 MB
+// Emergency bypass: skip the memory-heavy markdown report and run aggressive purge only.
+// Tripped when DB is already past the danger line (close to Atlas M0 512MB cap) — protects
+// against OOM during aggregation that would orphan the GCS lock mid-sequence.
+const EMERGENCY_BYPASS_BYTES = 400 * 1024 * 1024; // 400 MB
 const CALIBRATION_REJECTED = 'calibration_rejected';
 const CALIBRATION_PASSED = 'calibration_passed';
 const RUN_SUMMARIES = 'run_summaries';
@@ -457,37 +463,198 @@ async function generateCalibrationReportMd(storageAdapter) {
 }
 
 /**
- * @deprecated Prefer orchestrator inline sequence (lock → report → purge → email). Kept for tools/scripts.
- * Run calibration: generate report first, then run cleanup (on volume trigger), then send email.
- * Order ensures the report attachment is non-empty before aggressive purge.
- * If cleanup throws, execution aborts and the alert email is never sent (fail-fast).
+ * Read current DB size in bytes via whichever getter the adapter exposes.
  * @param {import('../storage/MongoStorageAdapter')} storageAdapter
- * @param {import('../EmailNotifier')} emailNotifier
- * @param {'volume'|'time'} triggerType
- * @returns {Promise<boolean>}
+ * @returns {Promise<number>} bytes, or 0 if no getter is available
  */
-async function runCalibrationAndNotify(storageAdapter, emailNotifier, triggerType) {
-  // Step 1: Generate report while DB still has data (before any purge).
-  const md = await generateCalibrationReportMd(storageAdapter);
+async function readDbBytes(storageAdapter) {
+  if (!storageAdapter) return 0;
+  if (typeof storageAdapter.getDbQuotaBytes === 'function') {
+    return storageAdapter.getDbQuotaBytes();
+  }
+  if (typeof storageAdapter.getDbSizeBytes === 'function') {
+    return storageAdapter.getDbSizeBytes();
+  }
+  return 0;
+}
 
-  // Step 2: Run cleanup when volume-triggered (aggressive mode). Throws on failure → abort before email.
-  if (triggerType === 'volume') {
-    const cleanup = await runVolumeCleanup(storageAdapter, { mode: 'aggressive' });
-    const dropped = (cleanup.droppedCollections || []).join(', ') || 'none';
+/**
+ * Transactional calibration sequence under a distributed lock:
+ *   acquire → (400 MB bypass: purge + plain alert) | (report → purge → email) → release.
+ *
+ * Invariants:
+ *   - Lock release is guaranteed via finally when acquired.
+ *   - All failures (lock acquire, lock release, sequence body) thread into the caller's
+ *     errors array; nothing is re-thrown so downstream orchestrator phases keep running.
+ *   - When lock acquisition throws on a volume trigger, an emergency aggressive purge
+ *     runs WITHOUT the lock (parity with prior inline orchestrator behavior).
+ *
+ * @param {import('../storage/MongoStorageAdapter')} storageAdapter
+ * @param {{ sendCalibrationAlert?: Function }} emailNotifier
+ * @param {'volume'|'time'} triggerType
+ * @param {Array<{phase: string, message: string}>} errors  mutable, threaded from orchestrator
+ * @returns {Promise<boolean>} true if the alert email was sent (or bypass alert dispatched)
+ */
+async function runCalibrationAndNotify(storageAdapter, emailNotifier, triggerType, errors) {
+  if (!Array.isArray(errors)) {
+    // Defensive: never let a missing errors array silently swallow failures.
+    errors = [];
+  }
+
+  const ownerId = `${process.pid}-${Date.now()}-${Math.random().toString(36).slice(2, 9)}`;
+  const gcsBucket = (process.env.GCS_LOCK_BUCKET || '').trim() || undefined;
+  const lockArgs = {
+    bucketName: gcsBucket,
+    lockPath: 'locks/calibration.lock',
+    ownerId,
+    storageAdapter,
+  };
+
+  // ── Stage 1: Acquire lock (or run emergency cleanup on volume-trigger lock failure) ──
+  let lockResult;
+  try {
+    lockResult = await GcsCalibrationLock.acquireLock(lockArgs);
+  } catch (lockErr) {
+    if (triggerType === 'volume' && typeof storageAdapter.runVolumeCleanupProtocol === 'function') {
+      console.error(
+        'Critical: GCS/Mongo lock acquisition threw. Running emergency aggressive cleanup without lock...',
+        lockErr?.message || lockErr
+      );
+      try {
+        const cleanup = await storageAdapter.runVolumeCleanupProtocol({ mode: 'aggressive' });
+        console.log(
+          `Emergency aggressive cleanup completed: rejected=${cleanup.purgedRejected}, passed=${cleanup.purgedPassed || 0}, run_summaries=${cleanup.purgedRunSummaries || 0}`
+        );
+      } catch (cleanupErr) {
+        errors.push({
+          phase: 'calibration-emergency-cleanup',
+          message: cleanupErr?.message || String(cleanupErr),
+        });
+        console.error('Emergency cleanup failed:', cleanupErr?.message || cleanupErr);
+      }
+    } else {
+      errors.push({
+        phase: 'calibration-lock-acquire',
+        message: lockErr?.message || String(lockErr),
+      });
+      console.warn(
+        'Calibration skipped: lock acquisition failed (no volume bypass):',
+        lockErr?.message || lockErr
+      );
+    }
+    return false;
+  }
+
+  if (!lockResult || !lockResult.acquired) {
+    console.log('Calibration skipped: could not acquire calibration lock.');
+    return false;
+  }
+
+  // ── Stage 2: Strict try/catch/finally — lock IS held; release must happen ──
+  try {
+    // 400 MB Emergency Bypass — run BEFORE the memory-heavy report.
+    // Skip markdown generation entirely; purge first, then dispatch a plain-text alert.
+    const dbBytes = await readDbBytes(storageAdapter);
+    if (dbBytes >= EMERGENCY_BYPASS_BYTES) {
+      const dbMb = Math.round(dbBytes / 1024 / 1024);
+      console.warn(
+        `EMERGENCY BYPASS: DB at ${dbMb} MB >= 400 MB. Skipping markdown report; running aggressive purge.`
+      );
+      let cleanup = { purgedRejected: 0, purgedPassed: 0, purgedRunSummaries: 0 };
+      try {
+        cleanup = await storageAdapter.runVolumeCleanupProtocol({ mode: 'aggressive' });
+      } catch (purgeErr) {
+        errors.push({
+          phase: 'calibration-bypass-purge',
+          message: purgeErr?.message || String(purgeErr),
+        });
+        console.error('Bypass purge failed:', purgeErr?.message || purgeErr);
+      }
+
+      const bypassBody =
+        `DB size ${dbMb} MB triggered emergency bypass (>= 400 MB). ` +
+        `Aggressive purge: rejected=${cleanup.purgedRejected || 0}, ` +
+        `passed=${cleanup.purgedPassed || 0}, ` +
+        `run_summaries=${cleanup.purgedRunSummaries || 0}. ` +
+        `Markdown report skipped (OOM guard).`;
+      let sent = false;
+      if (emailNotifier && typeof emailNotifier.sendCalibrationAlert === 'function') {
+        try {
+          sent = await emailNotifier.sendCalibrationAlert(
+            '\u{1F198} EMERGENCY: DB Bypass Purge',
+            bypassBody,
+            'volume'
+          );
+        } catch (mailErr) {
+          errors.push({
+            phase: 'calibration-bypass-alert',
+            message: mailErr?.message || String(mailErr),
+          });
+          console.error('Bypass alert dispatch failed:', mailErr?.message || mailErr);
+        }
+      } else {
+        console.log('Bypass alert (no email notifier):\n' + bypassBody);
+        sent = true;
+      }
+      return sent;
+    }
+
+    // Normal path: report → purge (if volume) → email → reset timer.
+    const heapBeforeReport = process.memoryUsage().heapUsed;
+    const reportStarted = Date.now();
+    const md = await generateCalibrationReportMd(storageAdapter);
+    const reportMs = Date.now() - reportStarted;
+    const heapAfterReport = process.memoryUsage().heapUsed;
     console.log(
-      `Calibration: Volume cleanup purged rejected=${cleanup.purgedRejected}, passed=${cleanup.purgedPassed || 0}, run_summaries=${cleanup.purgedRunSummaries || 0}, dropped: ${dropped}`
+      `Calibration: report generated in ${reportMs}ms (heap delta: ${Math.round((heapAfterReport - heapBeforeReport) / 1024)} KB)`
     );
-  }
 
-  // Step 3: Dispatch alert email with the pre-generated report.
-  if (emailNotifier && typeof emailNotifier.sendCalibrationAlert === 'function') {
-    const subject = triggerType === 'volume'
-      ? '\u{1F6A8} System Alert: DB Volume Trigger'
-      : '\u{1F4CA} Weekly Calibration Report';
-    return emailNotifier.sendCalibrationAlert(subject, md, triggerType);
+    if (triggerType === 'volume' && typeof storageAdapter.runVolumeCleanupProtocol === 'function') {
+      const purgeStarted = Date.now();
+      const cleanup = await storageAdapter.runVolumeCleanupProtocol({ mode: 'aggressive' });
+      const purgeMs = Date.now() - purgeStarted;
+      console.log(
+        `Calibration: purge complete in ${purgeMs}ms rejected=${cleanup.purgedRejected}, passed=${cleanup.purgedPassed || 0}, run_summaries=${cleanup.purgedRunSummaries || 0}`
+      );
+    }
+
+    const subject =
+      triggerType === 'volume'
+        ? '\u{1F6A8} System Alert: DB Volume Trigger'
+        : '\u{1F4CA} Weekly Calibration Report';
+    let sent = false;
+    if (emailNotifier && typeof emailNotifier.sendCalibrationAlert === 'function') {
+      sent = await emailNotifier.sendCalibrationAlert(subject, md, triggerType);
+    } else {
+      console.log('Calibration report (no email notifier):\n' + md.substring(0, 500) + '...');
+      sent = true;
+    }
+
+    if (sent && typeof storageAdapter.updateLastCalibrationTime === 'function') {
+      await storageAdapter.updateLastCalibrationTime();
+      console.log('Calibration timer reset');
+    }
+    return sent;
+  } catch (err) {
+    errors.push({
+      phase: 'calibration',
+      triggerType,
+      message: err?.message || String(err),
+      stack: err?.stack,
+    });
+    console.error('Calibration sequence failed:', err?.message || err);
+    return false;
+  } finally {
+    try {
+      await GcsCalibrationLock.releaseLock(lockArgs);
+    } catch (releaseErr) {
+      errors.push({
+        phase: 'calibration-lock-release',
+        message: releaseErr?.message || String(releaseErr),
+      });
+      console.warn('Calibration lock release failed:', releaseErr?.message || releaseErr);
+    }
   }
-  console.log('Calibration report (no email):\n' + md.substring(0, 500) + '...');
-  return true;
 }
 
 module.exports = {
@@ -496,4 +663,5 @@ module.exports = {
   generateCalibrationReportMd,
   runCalibrationAndNotify,
   VOLUME_THRESHOLD_BYTES,
+  EMERGENCY_BYPASS_BYTES,
 };

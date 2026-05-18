@@ -1,7 +1,7 @@
 const axios = require('axios');
-const fs = require('fs');
-const path = require('path');
-const { sendCriticalAlert } = require('./mailer');
+const { createTelegramAdminNotifier } = require('./services/notifications/TelegramAdminNotifier');
+
+const _adminNotifier = createTelegramAdminNotifier();
 
 /**
  * Custom error class for LinkedIn authentication challenges
@@ -80,19 +80,6 @@ const JOB_POSTING_DECORATION_ID =
 const JOB_POSTING_GRAPHQL_QUERY_ID =
   'voyagerJobsDashJobPostings.891aed7916d7453a37e4bbf5f1f60de4';
 
-// Centralized directory for LinkedIn debug artifacts.
-const DEBUG_DIR = path.join(__dirname, 'debug_artifacts');
-
-function ensureDir(dirPath) {
-  try {
-    if (!fs.existsSync(dirPath)) {
-      fs.mkdirSync(dirPath, { recursive: true });
-    }
-  } catch (e) {
-    console.error(`Failed to ensure directory ${dirPath}:`, e.message || e);
-  }
-}
-
 // Centralized Axios client for all LinkedIn traffic with redirects hard-disabled.
 const axiosClient = axios.create({
   // Never follow redirects – 302/303 almost always indicate an auth challenge or
@@ -110,8 +97,8 @@ axiosClient.interceptors.response.use(
         'CRITICAL: LinkedIn Auth Challenge Detected (302). Stopping immediately.'
       );
       try {
-        // Fire-and-forget alert email
-        sendCriticalAlert({
+        // Fire-and-forget admin alert (Telegram)
+        _adminNotifier.sendAlert('CRITICAL', 'LinkedIn Auth Challenge Detected (response)', {
           status: response.status,
           url: response.config && response.config.url,
           timestamp: new Date().toISOString(),
@@ -119,7 +106,7 @@ axiosClient.interceptors.response.use(
         });
       } catch (e) {
         console.error(
-          'sendCriticalAlert failed while handling LinkedIn auth challenge:',
+          'admin sendAlert failed while handling LinkedIn auth challenge:',
           e.message || e
         );
       }
@@ -140,8 +127,8 @@ axiosClient.interceptors.response.use(
         'CRITICAL: LinkedIn Auth Challenge Detected (302). Stopping immediately.'
       );
       try {
-        // Fire-and-forget alert email
-        sendCriticalAlert({
+        // Fire-and-forget admin alert (Telegram)
+        _adminNotifier.sendAlert('CRITICAL', 'LinkedIn Auth Challenge Detected (error)', {
           status,
           url: error.config && error.config.url,
           timestamp: new Date().toISOString(),
@@ -149,7 +136,7 @@ axiosClient.interceptors.response.use(
         });
       } catch (e) {
         console.error(
-          'sendCriticalAlert failed while handling LinkedIn auth challenge:',
+          'admin sendAlert failed while handling LinkedIn auth challenge:',
           e.message || e
         );
       }
@@ -374,19 +361,6 @@ async function fetchJobs(keywords, start = 0) {
         ? root.data
         : root;
 
-    // Optional: persist raw response for debugging the JSON structure / parser.
-    try {
-      ensureDir(DEBUG_DIR);
-      const debugPath = path.join(DEBUG_DIR, 'debug_linkedin_response.json');
-      fs.writeFileSync(debugPath, JSON.stringify(root, null, 2), 'utf-8');
-      console.log(`Saved raw response to ${debugPath}`);
-    } catch (e) {
-      console.error(
-        'Failed to write debug_linkedin_response.json:',
-        e.message || e
-      );
-    }
-
     const included =
       (envelope && Array.isArray(envelope.included)
         ? envelope.included
@@ -476,22 +450,6 @@ async function fetchJobDetails(jobId) {
       outer && outer.data && typeof outer.data === 'object'
         ? outer.data.jobsDashJobPostingsById
         : outer.jobsDashJobPostingsById;
-
-    // Persist raw details for debugging / schema exploration.
-    try {
-      ensureDir(DEBUG_DIR);
-      const detailsPath = path.join(
-        DEBUG_DIR,
-        `debug_job_details_${idStr}.json`
-      );
-      fs.writeFileSync(detailsPath, JSON.stringify(outer, null, 2), 'utf-8');
-      console.log(`Saved raw job details to ${detailsPath}`);
-    } catch (e) {
-      console.error(
-        `Failed to write debug_job_details_${idStr}.json:`,
-        e.message || e
-      );
-    }
 
     // 1. Validate root object presence
     if (!root || typeof root !== 'object') {

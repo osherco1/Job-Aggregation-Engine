@@ -4,7 +4,9 @@
  */
 
 const { Storage } = require('@google-cloud/storage');
-const { sendCriticalAlert } = require('../../mailer');
+const { createTelegramAdminNotifier } = require('../notifications/TelegramAdminNotifier');
+
+const _adminNotifier = createTelegramAdminNotifier();
 
 const DEFAULT_FLAG_PATH = 'flags/quota-alert-sent.flag';
 
@@ -81,7 +83,9 @@ async function handleQuotaExhaustion(err) {
       preconditionOpts: { ifGenerationMatch: 0 },
     });
 
-    await sendCriticalAlert(
+    await _adminNotifier.sendAlert(
+      'CRITICAL',
+      'FATAL: JobBot MongoDB Quota Exhausted',
       {
         type: 'QUOTA_EXHAUSTED',
         errorCode: 8000,
@@ -94,10 +98,9 @@ async function handleQuotaExhaustion(err) {
           flagPath +
           ' to re-arm the alert.',
         timestamp: new Date().toISOString(),
-      },
-      'FATAL: JobBot MongoDB Quota Exhausted'
+      }
     );
-    console.log('gcsAlertManager: emergency quota alert email sent (atomic flag created).');
+    console.log('gcsAlertManager: emergency quota alert sent to admin chat (atomic flag created).');
   } catch (gcsErr) {
     if (isPreconditionFailed(gcsErr)) {
       console.log(

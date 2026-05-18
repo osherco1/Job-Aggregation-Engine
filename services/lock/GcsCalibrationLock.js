@@ -80,7 +80,9 @@ async function cleanupStaleLock(bucketName, lockPath) {
  * @returns {Promise<{ acquired: boolean, ownerId?: string, expiresAt?: Date }>}
  */
 async function acquireLock(opts = {}) {
-  const { lockPath, ownerId, ttlMs = 15 * 60 * 1000, storageAdapter } = opts;
+  // Default TTL: 1 hour. Stale-lock recovery floor — bucket lifecycle is day-granular,
+  // so this in-app TTL is the primary lever for orphaned-lock cleanup after OOM crashes.
+  const { lockPath, ownerId, ttlMs = 60 * 60 * 1000, storageAdapter } = opts;
   const bucketName = opts.bucketName && String(opts.bucketName).trim();
 
   if (!ownerId || typeof ownerId !== 'string') {
