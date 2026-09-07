@@ -41,13 +41,17 @@ gcloud storage buckets update "gs://${BUCKET_NAME}" --lifecycle-file="${LIFECYCL
 echo "Lifecycle policy applied: delete objects older than 1 day"
 
 # ── 3. Cloud Run Job: memory, task timeout, retries, env vars (single revision) ──
+# task-timeout raised 900s -> 1800s on 2026-09-07: the LinkedIn phase now pulls the
+# full 674-job listing in one pass. Steady-state runs are ~140s (down from ~760s),
+# but the first run after a dedup reset is a cold start measured at 861s, and the
+# orchestrator runs LinkedIn + ATS in the same task. 1800s covers that safely.
 gcloud run jobs update "${JOB_NAME}" \
   --region "${REGION}" \
   --memory 1Gi \
-  --task-timeout 900s \
+  --task-timeout 1800s \
   --max-retries 0 \
   --update-env-vars "GCS_LOCK_BUCKET=${BUCKET_NAME},JOBBOT_TO_EMAIL=${NEW_RECIPIENT_EMAIL}"
-echo "Cloud Run Job updated: memory=1Gi, task-timeout=900s, max-retries=0, env vars set"
+echo "Cloud Run Job updated: memory=1Gi, task-timeout=1800s, max-retries=0, env vars set"
 
 # ── 4. Cloud Scheduler HTTP trigger: attempt deadline + retry policy ──
 # attemptDeadline=1800s gives Scheduler a 30-minute window (well past the 900s task

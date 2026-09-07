@@ -106,6 +106,20 @@ const technicalTitleKeywords = [
   'algo researcher',
   'security researcher',
   'data analysis',
+  // CAR 2026-09-06 (§5.1): `technicalTitleKeywords` is matched by plain
+  // substring, and the list had 'software engineer' but not bare 'software',
+  // and 'data scientist' but not 'data science'. That rejected 1,557 Intel /
+  // NVIDIA *student software* roles as title_not_technical -- e.g.
+  //   'Software student for validation tools team'      (x592)
+  //   'Data Science Student for AI Solutions Group'     (x516)
+  //   'Security Software development student'           (x390)
+  // Safe to widen: title_domain and title_senior still run independently, so
+  // 'Senior Software Architect' is still rejected on its own gates.
+  'software',
+  'software development',
+  'data science',
+  'programmer',
+  'embedded',
 ];
 
 // Seniority and leadership indicators in titles

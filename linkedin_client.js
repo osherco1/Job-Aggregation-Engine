@@ -311,7 +311,7 @@ function normalizeResponse(data, included = []) {
  * @param {number} start - Pagination offset (multiples of 25).
  */
 async function fetchJobs(keywords, start = 0) {
-  const count = 25;
+  const count = 100;
   const headers = getHeaders();
 
   // 1. Force Encoding: Node's encodeURIComponent misses parentheses, causing

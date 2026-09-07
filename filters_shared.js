@@ -312,7 +312,80 @@ const WHITELIST_KEYWORDS = [
   'מפתח/ת תוכנה',
   'מפתח/ת צב"ד',
   'מפתח/ת BSP',
+  // 2026-09-07: the blank-keyword listing surfaces the FULL software domain,
+  // so the whitelist must cover every subdomain or those roles are silently
+  // dropped. Each term below was observed in the live Israel junior pool.
+  'Programmer',
+  'Tester',
+  'Penetration',
+  'Pentest',
+  'SDET',
+  'SRE',
+  'Site Reliability',
+  'Platform',
+  'Infrastructure',
+  'Algorithm',
+  'Algo',
+  'Machine Learning',
+  'Deep Learning',
+  'NLP',
+  'Computer Science',
+  'Web',
+  'Android',
+  'iOS',
+  'Full Stack',
+  'Full-Stack',
+  'Python',
+  'Java',
+  'C++',
+  'C#',
+  'React',
+  'Node',
+  '.NET',
+  'Verification',
+  'Validation',
+  'Simulation',
+  // Closed-compound forms: word-boundary matching means 'Cyber' does NOT
+  // match inside 'Cybersecurity', so the compounds need their own entries.
+  'Cybersecurity',
+  'InfoSec',
+  'AppSec',
+  'SecOps',
+  'MLOps',
+  'JavaScript',
+  'TypeScript',
+  'Frontend',
+  'Backend',
+  'Fullstack',
+  // Hebrew software-domain titles
+  'מפתח',
+  'מפתחת',
+  'תוכנה',
+  'בודק תוכנה',
+  'בודקת תוכנה',
+  'אוטומציה',
+  'סייבר',
+  'תכנות',
+  'מתכנת',
 ];
+
+/**
+ * Keyword match that respects word boundaries for plain alphabetic keywords.
+ *
+ * 2026-09-07: plain substring matching made the blacklist keyword "Lead" match
+ * inside "Entry Level Career Path Leading to Future Employment", silently
+ * dropping two on-target junior software roles. Keywords containing symbols
+ * (C++, .NET, C#) still fall back to substring, since \b behaves badly there.
+ */
+function keywordMatches(titleLower, keyword) {
+  const kw = String(keyword || '').toLowerCase();
+  if (!kw) return false;
+  if (!/^[a-z֐-׿][a-z0-9֐-׿s/-]*$/.test(kw)) {
+    return titleLower.includes(kw);
+  }
+  const esc = kw.replace(/[.*+?^${}()|[]\]/g, '\function titlePassesSemanticFilters(title) {');
+  return new RegExp('(^|[^a-z0-9])' + esc + '($|[^a-z0-9])', 'i').test(titleLower);
+}
 
 function titlePassesSemanticFilters(title) {
   const rawTitle = title ? String(title) : '';
@@ -327,13 +400,13 @@ function titlePassesSemanticFilters(title) {
   }
 
   for (const kw of BLACKLIST_KEYWORDS) {
-    if (titleLower.includes(kw.toLowerCase())) {
+    if (keywordMatches(titleLower, kw)) {
       return false;
     }
   }
 
   const hasWhitelist = WHITELIST_KEYWORDS.some((kw) =>
-    titleLower.includes(kw.toLowerCase())
+    keywordMatches(titleLower, kw)
   );
 
   if (!hasWhitelist) {
@@ -344,6 +417,7 @@ function titlePassesSemanticFilters(title) {
 }
 
 module.exports = {
+  keywordMatches,
   BLACKLIST_KEYWORDS,
   WHITELIST_KEYWORDS,
   PROTECTED_TITLE_PATTERNS,

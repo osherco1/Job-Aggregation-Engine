@@ -74,11 +74,26 @@ const CLUSTER_QUERIES = [
   `${COMPACT_LEVEL_PREFIX} AND (Frontend OR "Front End") AND (Angular OR Typescript OR Javascript)`,
 ];
 
-const SEARCH_QUERIES = [
-  ...NICHES.map((niche) => `${LEVEL_PREFIX} AND ${niche}`),
-  DATA_SCIENTIST_QUERY,
-  ...CLUSTER_QUERIES,
-];
+// ---------------------------------------------------------------------------
+// SEARCH_QUERIES - rewritten 2026-09-07 after reverse-engineering the Voyager
+// endpoint (docs/VOYAGER_JOBS_ENDPOINT_GOLD_STANDARD.md).
+//
+// Measured facts that drive this:
+//   * The boolean matrix above returned 33 jobs total; 11 of 17 queries
+//     returned literally 0 (HTTP 200, paging.total = 0).
+//   * Double quotes are matched LITERALLY ("Backend" -> 5 vs Backend -> 190),
+//     and every query above contained quoted phrases.
+//   * A single SPACE as keywords is the unrestricted listing: 675 jobs.
+//   * EVERY keyword-filtered variant is a strict SUBSET of the blank listing
+//     and loses 11-47% of junior software roles - including Hebrew-language
+//     titles and specialist ones (Penetration Tester, Embedded Security
+//     Researcher, Data Scientist).
+//
+// Software-domain coverage across ALL subdomains is a hard requirement, so we
+// take the full listing and filter locally. Noise is cheap to reject in the
+// blacklist/whitelist gate; jobs never fetched are unrecoverable.
+// ---------------------------------------------------------------------------
+const SEARCH_QUERIES = [' '];
 
 // Daily cap on *new* jobs to avoid overwhelming downstream processing/email.
 const DAILY_NEW_JOBS_LIMIT = 500;
@@ -86,6 +101,7 @@ const DAILY_NEW_JOBS_LIMIT = 500;
 const {
   BLACKLIST_KEYWORDS,
   WHITELIST_KEYWORDS,
+  keywordMatches,
 } = require('./filters_shared');
 
 /**
@@ -103,7 +119,7 @@ function passesFilters(job, runStats, filteredJobsLog) {
 
   // 1) Blacklist: immediate skip on senior indicators.
   for (const kw of BLACKLIST_KEYWORDS) {
-    if (titleLower.includes(kw.toLowerCase())) {
+    if (keywordMatches(titleLower, kw)) {
       const msg = `Skipped: Blacklisted title -> "${rawTitle}" (matched "${kw}")`;
       if (chalk && typeof chalk.red === 'function') {
         console.log(chalk.red(msg));
@@ -126,7 +142,7 @@ function passesFilters(job, runStats, filteredJobsLog) {
 
   // 2) Whitelist: ensure at least one technical/relevant term.
   const hasWhitelist = WHITELIST_KEYWORDS.some((kw) =>
-    titleLower.includes(kw.toLowerCase())
+    keywordMatches(titleLower, kw)
   );
   if (!hasWhitelist) {
     const msg = `Skipped: Non-tech title -> "${rawTitle}" (no whitelist keyword match)`;
@@ -220,7 +236,7 @@ async function runLinkedinScraper(options = {}) {
     seenIds = await storage.loadSeenJobIds();
 
     // Explicit pagination offsets in multiples of 25 (Voyager standard page size).
-    const pageOffsets = [0, 25, 50, 75];
+    const pageOffsets = [0, 100, 200, 300, 400, 500, 600];
 
     // Chunk the matrix of queries into batches of 5.
     const BATCH_SIZE = 5;
@@ -273,6 +289,17 @@ async function runLinkedinScraper(options = {}) {
             if (paging && typeof paging.total === 'number') {
               if (totalForQuery == null) {
                 totalForQuery = paging.total;
+                // GUARD (2026-09-07): a query returning paging.total === 0 is the exact
+                // signature that hid the 6-month LinkedIn outage - HTTP 200, no error,
+                // zero results. Never let this pass silently again.
+                if (totalForQuery === 0) {
+                  runStats.zeroTotalQueries = (runStats.zeroTotalQueries || 0) + 1;
+                  console.error(
+                    `ALERT: LinkedIn returned paging.total=0 for query "${query}" - ` +
+                      'the query is broken or rejected, not the market. See ' +
+                      'docs/VOYAGER_JOBS_ENDPOINT_GOLD_STANDARD.md'
+                  );
+                }
                 console.log(
                   `Total jobs reported by LinkedIn for this query: ${totalForQuery}`
                 );
@@ -346,6 +373,20 @@ async function runLinkedinScraper(options = {}) {
 
             const title = job.title || 'Untitled';
             const company = job.company || 'Unknown company';
+
+            // PERF (2026-09-07): run the title gate BEFORE enrichment.
+            // The blank-keyword listing returns ~674 jobs/run instead of ~33, and
+            // enriching every one of them cost ~674 fetchJobDetails calls and ~56
+            // minutes per run. The blacklist/whitelist gate needs only the title,
+            // which we already have from the listing, so drop non-matches before
+            // paying for the detail request. Jobs that pass are still re-checked
+            // after enrichment, in case the detail payload carries a better title.
+            if (!passesFilters(job, runStats, filteredJobsLog)) {
+              console.log(
+                `⏭️  DROPPED pre-enrich: jobId=${job.jobId} | title="${title}"`
+              );
+              continue;
+            }
 
             const enrichMsg = `🔍 Enriching ${title} at ${company}...`;
             if (chalk && typeof chalk.cyan === 'function') {
