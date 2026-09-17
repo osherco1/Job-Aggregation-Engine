@@ -19,16 +19,8 @@
     "tlsclientwrapper": "^1.4.3"
   },
   "scripts": {
-    "analyze": "node tools/analyze_logs.js",
-    "reset": "node tools/reset_data.js",
     "ats": "node ats/orchestrator.js",
-    "comeet-hunter": "node tools/comeet_hunter.js",
-    "comeet-mass": "node tools/comeet_hunter_mass.js",
     "ats-discover": "node utils/ats_discover.js",
-    "comeet:debug": "node tools/run_comeet_debug.js --config data/comeet_companies_auto.json",
-    "comeet:debug:sample": "node tools/run_comeet_debug.js --config data/comeet_companies_auto.json --limit 5",
-    "comeet:debug:clean": "node tools/clean_comeet_debug_logs.js",
-    "comeet:add": "node tools/add_comeet_company.js",
     "validate:comeet": "node tools/comeet/validate_companies.js",
     "validate:greenhouse": "node tools/greenhouse/validate_companies.js",
     "validate:workday": "node tools/workday/validate_companies.js",

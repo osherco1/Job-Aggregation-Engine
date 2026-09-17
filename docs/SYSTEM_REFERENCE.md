@@ -1656,15 +1656,7 @@ All log paths are defined in `config/paths.js`. Timestamps in filenames are Wind
 | Script | Command | Purpose |
 |--------|---------|---------|
 | `npm run ats` | `node ats/orchestrator.js` | Run full orchestrator (ATS + LinkedIn) |
-| `npm run analyze` | `node tools/analyze_logs.js` | Analyze run logs |
-| `npm run reset` | `node tools/reset_data.js` | Reset local data files |
-| `npm run comeet-hunter` | `node tools/comeet_hunter.js` | Discover single Comeet company |
-| `npm run comeet-mass` | `node tools/comeet_hunter_mass.js` | Mass Comeet company discovery |
 | `npm run ats-discover` | `node utils/ats_discover.js` | ATS discovery utility |
-| `npm run comeet:debug` | `node tools/run_comeet_debug.js --config data/comeet_companies_auto.json` | Debug Comeet run |
-| `npm run comeet:debug:sample` | Same + `--limit 5` | Debug first 5 Comeet companies |
-| `npm run comeet:debug:clean` | `node tools/clean_comeet_debug_logs.js` | Clean Comeet debug artifacts |
-| `npm run comeet:add` | `node tools/add_comeet_company.js` | Add company to Comeet config |
 | `npm run validate:comeet` | `node tools/comeet/validate_companies.js` | Validate Comeet companies in DB |
 | `npm run validate:greenhouse` | `node tools/greenhouse/validate_companies.js` | Validate Greenhouse companies |
 | `npm run validate:workday` | `node tools/workday/validate_companies.js` | Validate Workday companies |
