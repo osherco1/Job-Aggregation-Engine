@@ -1,7 +1,7 @@
 # DATA_CONTRACTS.md — Source-to-Sink Attribute & Schema Reference
 
 > **Generated:** 2026-09-06
-> **Codebase state:** `main` @ `cc26c75` (Telegram control plane)
+> **Codebase state:** `main` @ `336d3bb` (Telegram control plane)
 > **Scope:** every attribute the system can see, does see, transforms, persists, and emits — per worker.
 > **Status:** **authoritative** for data shapes. Supersedes `docs/analysis/ats_guard_and_raw_payload_analysis.md` (2026-02-26) and §21–§26, §34 of `docs/SYSTEM_REFERENCE.md` (2026-03-23) wherever they disagree. See §12 Errata.
 
@@ -641,7 +641,7 @@ Ordered by expected ETL impact, with the evidence class for each.
 
 | Section | Correction |
 |---|---|
-| §3, §13, §30 | Email/Gmail SMTP data plane → **Telegram** (`cc26c75`) |
+| §3, §13, §30 | Email/Gmail SMTP data plane → **Telegram** (`336d3bb`) |
 | §21 | The guard is **four**-tier (+ structured level), plus a Speechify override and a junior bypass; 386 lines, not 214 |
 | §22 | `structuredGate` no longer returns `WHITELIST`; it sets `isStructuredStudent` and returns `CONTINUE` |
 | §25 | Workers pass `guardPayload`, not `rawJob` |

@@ -20,7 +20,7 @@
 **Name:** Job Aggregation Engine (aka "LinkedIn Job Bot" / "JobBot")  
 **Repository:** `https://github.com/osherco1/Job-Aggregation-Engine`  
 **Owner:** oshercohen78  
-**Version:** v7.1 (commit `eed9505` on `main`)  
+**Version:** v7.1 (commit `ec66fdd` on `main`)  
 **Active Branch:** `main`
 
 **Purpose:** Automated job aggregation engine targeting junior/entry-level technical positions in Israel. The system scrapes four data sources on a scheduled basis:

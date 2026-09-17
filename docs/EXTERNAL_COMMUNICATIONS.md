@@ -9,7 +9,7 @@
 > throughout), not by summarizing `SYSTEM_REFERENCE.md` or `DATA_CONTRACTS.md`. Those two
 > documents already contain per-source communication detail, but `SYSTEM_REFERENCE.md` flags
 > its own §21–§26 as drifted, and this pass found **three concrete corrections** to both
-> documents — listed in §8. Treat this file as current as of commit `4c735f4`
+> documents — listed in §8. Treat this file as current as of commit `9ce0a86`
 > (2026-09-08, "replace broken boolean query matrix with full-listing harvest"). Re-verify
 > against source before trusting it after future worker changes — the same freshness caveat
 > `DATA_CONTRACTS.md` applies to itself.
@@ -209,4 +209,4 @@ Found while reading source directly rather than trusting prior write-ups — fla
 
 ## Change Log
 
-- **2026-09-08** — Initial version, built by direct source read against commit `4c735f4`.
+- **2026-09-08** — Initial version, built by direct source read against commit `9ce0a86`.
