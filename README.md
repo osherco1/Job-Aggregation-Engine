@@ -85,7 +85,7 @@ PRD/                  Product requirement documents for the calibration system
 
 ## Running locally
 
-**Prerequisites:** Node.js 20+. For production-like runs you also need a MongoDB connection string. Without one, the file-based storage adapter is used.
+**Prerequisites:** Node.js 20+. For production-like runs you also need a MongoDB connection string. To use the local file-based storage adapter instead, leave `MONGODB_URI` empty and clear `STORAGE_BACKEND` in `.env`.
 
 ```bash
 npm ci
