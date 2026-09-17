@@ -79,3 +79,18 @@ coverage/
 dist/
 build/
 *.tsbuildinfo
+
+# -----------------------------------------
+# Local Browser Profile (contains session cookies — never commit)
+# -----------------------------------------
+tools/discovery/puppeteer_profile/
+
+# -----------------------------------------
+# Personal / Local-Only Files
+# -----------------------------------------
+tools/*.pdf
+tools/.debug_seed.html
+tools/curl-ca-bundle.crt
+for_Interviews/
+junior_pool.json
+qa_*.md
