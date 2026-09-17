@@ -94,3 +94,18 @@ tools/curl-ca-bundle.crt
 for_Interviews/
 junior_pool.json
 qa_*.md
+
+# -----------------------------------------
+# Internal Working Notes (kept locally)
+# -----------------------------------------
+docs/rewsession/
+docs/snapshots/
+docs/analyze/
+docs/calibration/
+docs/CAR/
+promts/
+docs/Sonar Discovery Pipeline Prompts.md
+docs/development_challenges_summary.md
+SYSTEM_SUMMARY.md
+incident_context_for_sre.md
+tmp_dump_prompts.js

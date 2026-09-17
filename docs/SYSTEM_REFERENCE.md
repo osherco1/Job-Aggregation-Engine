@@ -2028,11 +2028,11 @@ Within each source, the UID/ID is guaranteed unique by the ATS platform. The onl
 
 ## 35. Snapshot System
 
-The project maintains technical snapshots in `docs/snapshots/` that capture the full system state at a point in time. These are the Browser model's primary session-initialization context.
+The project maintains technical snapshots that capture the full system state at a point in time. These are the Browser model's primary session-initialization context. Snapshots are kept locally and are not versioned in this repository.
 
 ### Latest Snapshot
 
-`docs/snapshots/snapshot_2026-03-20` — v7.1 (Distributed resilience, GCS lock/flag strategy, quota Catch-22 mitigation)
+`snapshot_2026-03-20` — v7.1 (Distributed resilience, GCS lock/flag strategy, quota Catch-22 mitigation)
 
 ### Snapshot Contents
 
@@ -2047,7 +2047,7 @@ Each snapshot includes:
 
 ### Session Transcripts
 
-Detailed session logs are stored in `docs/rewsession/`. These provide the "why" behind architectural decisions and are referenced from snapshots.
+Detailed session logs are kept locally alongside the snapshots (not versioned). These provide the "why" behind architectural decisions and are referenced from snapshots.
 
 ---
 
