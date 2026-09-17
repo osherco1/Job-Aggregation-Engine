@@ -1,5 +1,13 @@
 # ATS Guard Interface & Raw Payload Deep Dive
 
+> ⚠️ **SUPERSEDED — 2026-09-06.** This analysis was written before the `guardPayload` refactor and
+> its raw-payload tables were reconstructed from field-access patterns rather than measured against
+> real payloads. Several of its headline "Missing Gold" findings — Workday `managementLevel` /
+> `jobCategory` / `jobFamilyGroup` / `requisitionType`, LinkedIn `seniorityLevel`, Comeet
+> `?details=true` — **do not exist** and were refuted by measurement. Use `docs/DATA_CONTRACTS.md`
+> instead; §12 there enumerates every correction. Retained for historical context only.
+
+
 > **Generated:** 2026-02-26  
 > **Purpose:** Objective 1 — Analyze the shared `evaluateAtsGuard` contract; Objective 2 — Mine raw JSON payloads and identify ignored fields that could dramatically improve filtering.  
 > **Constraint:** READ-ONLY analysis.

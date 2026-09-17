@@ -1,5 +1,11 @@
 # Job Pipeline Lifecycle Analysis
 
+> ⚠️ **SUPERSEDED — 2026-09-06.** Traces the pre-`guardPayload` code path (workers passing `rawJob`
+> to the guard, three-tier guard, `WHITELIST` structured verdict, `greenhouse_` ID prefix, no
+> frequency cap, email data plane). Current source-to-sink behaviour is in `docs/DATA_CONTRACTS.md`.
+> Retained for historical context only.
+
+
 > **Generated:** 2026-02-26  
 > **Purpose:** Calibration Infrastructure Preparation — full static trace of every job posting from raw API response to final persistence or rejection.  
 > **Scope:** Comeet, Greenhouse, Workday, LinkedIn  

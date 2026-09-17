@@ -1,5 +1,13 @@
 # SYSTEM_REFERENCE.md — Job Aggregation Engine
 
+> ⚠️ **PARTIALLY SUPERSEDED — 2026-09-06.** Sections §21–§26 and §34 (guard internals, worker
+> internal flows, data shapes, job-ID conventions) drifted from the code between 2026-03-23 and
+> 2026-09-06. For anything concerning **attributes, schemas, payload shapes, gate inputs, dedup
+> keys, or persistence field lists**, `docs/DATA_CONTRACTS.md` is authoritative — it is
+> evidence-tagged against captured payloads and live probes. §12 of that file lists the specific
+> corrections. The infrastructure, calibration, quota, and deployment sections here remain current.
+
+
 > **Generated:** 2026-03-23  
 > **Codebase Version:** v7.1 (Distributed Resilience & Quota Catch-22 Resolution)  
 > **Source of Truth for:** Browser-based Lead Architect (Gemini/ChatGPT/Claude Web)  
